@@ -1,0 +1,308 @@
+﻿@using RealEstate.Web.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Contact | Just BE";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+    
+
+
+
+
+    <section class="welcomeSection">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>Sign-in to your Just BE account</h2>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="loginOuter">
+                        <div class="loginInner">
+                            <div class="row">
+                                <div class="col-md-4 welcomebg ">
+                                    <div class="welbg">
+                                        <h2 class="weltext">
+                                            Welcome 
+                                            Back!
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 ">
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form",@class="loginContent" }))
+{
+    @Html.AntiForgeryToken()
+
+                                if (ViewBag.Loginerror != "")
+                                {
+                                    <div class="form-row ">
+                                        <div class="form-group col-md-12">
+                                            <label  class ="text-danger">@ViewBag.Loginerror</label>
+                                        </div>
+
+                                    </div>}
+
+                                        <div class="form-row ">
+                                            <div class="form-group col-md-12">
+                                                <label for="">USER NAME</label>
+                                             
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email Address" })
+                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                             </div>
+
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12 pass-eye">
+                                                <label for="">PASSWORD</label>
+                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                                                <span toggle="#password-field" class="fa fa-eye-slash field-icon toggle-password" onclick="showpasss(this)"></span>
+                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12 submitBnt">
+                                                @*<a class="btn btn-darkGray" href="register_step2.html" role="button">SIGN IN</a>*@
+                                                <input type="submit" class="btn btn-darkGray" name="login" value="SIGN IN" />
+                                            </div>
+                                        </div>
+
+                                        
+
+
+                                    }
+                                    <div class="form-row forgotLinks">
+                                        <div class="form-group col-sm-12 col-lg-6">
+                                            <a href="!#" class="btn btn-info" role="button" data-toggle="modal" data-target="#DocumentModalPopUp" onclick="clearTextBox();">I forgot my password</a>
+                                        </div>
+                                        <div class="form-group col-sm-12  col-lg-6 forgot-new-cus">
+
+                                            @*<a href="@Url.Action("Register","Account")" class="btn btn-info" role="button">I already have an account</a>*@
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </section>
+
+
+
+
+<div class="modal DocumentModalPopUp" id="DocumentModalPopUp" tabindex="-1" role="dialog" aria-labelledby="myDocumentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myDocumentModalLabel">Forgot Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+                <form id="FormUpload" method="post">
+                 
+
+
+                    <div class="form-group">
+                        <label class="text-danger" id="lblError" style="display:none"></label>
+                    </div>
+                    <div class="form-group">
+                        <label>Enter your email</label>
+                        <label class="text-danger" id="lblEmail" style="display:none"></label>
+                        <input type="text" id="txtEmail" class="form-control" name="Email" />
+                        <input type="text" id="txtpass" class="form-control" name="Password" style="display:none"/>
+                        <input type="checkbox" name="RememberMe" style="display:none" />
+                    </div>
+                </form>
+              
+
+            </div>
+
+            <div class="modal-footer">
+                <input type="button" class="btn btn-primary" id="btnAddDocument" onclick="return AddDocument();" style="background-color: #0bb7a5; border-color:#0bb7a5" value="Send Email">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal DocumentModalPopUp" id="SuccessModalPopUp" tabindex="-1" role="dialog" aria-labelledby="myDocumentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="SuccessModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+       
+                    <h3 style="color:#0bb7a5!important">We've just sent you an email with password to login.</h3>
+              
+
+            </div>
+
+            <div class="modal-footer">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+    <style>
+    .validation-summary-errors ul li {
+        color: #b71010;
+    }
+
+.pass-eye{
+    position:relative;
+
+}
+.pass-eye  .field-icon {
+    position: absolute;
+    right: 10px;
+    z-index: 99;
+    /*background: red;*/
+    height: 20px;
+    width: 20px;
+    top: 41px;
+    content: "2";
+cursor:pointer;
+}
+
+</style>
+<script>
+    //Add Data Function
+    function AddDocument() {
+        var res = validate();
+        if (res == false) {
+            return false;
+        }
+        var form = $('#FormUpload')[0];
+        var dataString = new FormData(form);
+      
+        $.ajax({
+            url:"@Url.Action("ForgotYourPassword", "Account")",
+            //url: "/Account/ForgotYourPassword?Email=" + $("#txtEmail").val(),
+            data: dataString,
+            type: "POST",
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            success: function (result) {
+                //    alert(result) remove alert
+                $("#ajaxLoading").css("display", "block");
+                $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                $("#ajaxLoading").css("left", $(window).width() / 2);
+                $("#ajaxLoading").css("position", "fixed");
+                $("#ajax-backdrop").css("display", "block");
+                if (result != "success") {
+
+                    $('#lblError').css('display', 'block')
+                    $('#lblError').text(result)
+
+                }
+                else {
+                    $('#lblError').css('display', 'none')
+                    $('#DocumentModalPopUp').modal('hide');
+                    $('#SuccessModalPopUp').modal('show');
+
+                    $('#SuccessModalPopUp').delay(3000).fadeOut(3000);
+                    $('.modal-backdrop').delay(3000).fadeOut(3000);
+                 
+         
+                }
+                $("#ajaxLoading").css("display", "none");
+                $("#ajax-backdrop").css("display", "none");
+
+            },
+            error: function (errormessage) {
+                $('#lblError').css('display', 'block');
+                $('#lblError').text('Sorry, Something went wrong. Please try again.');
+                //alert(errormessage.responseText);
+            }
+        });
+    }
+
+    //Valdidation using jquery
+    function validate() {
+        var isValid = true;
+        if ($('#txtEmail').val() != "") {
+
+            if (!ValidateEmail($("#txtEmail").val())) {
+                $('#lblEmail').css('display', 'block');
+                $('#lblEmail').text('Please enter a valid email address.');
+                isValid = false;
+            }
+            else {
+                $('#lblEmail').css('display', 'none');
+                $('#lblEmail').text('');
+            }
+
+
+        }
+        else {
+            $('#lblEmail').css('display', 'block');
+            $('#lblEmail').text('The email field is required.');
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    function ValidateEmail(email) {
+        var expr = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,6})?$/
+        return expr.test(email);
+    };
+
+
+    function clearTextBox() {
+        $('#txtEmail').val("");
+        $('#lblEmail').css('display', 'none');
+        $('#lblError').css('display', 'none');
+      
+    }
+
+
+    function showpasss(obj) {
+        $(obj).toggleClass("fa-eye-slash fa-eye");
+        var input = $($(obj).attr("toggle"));
+        var input1 = $("#Password");
+        if (input1.attr("type") == "password") {
+            input1.attr("type", "text");
+        } else {
+            input1.attr("type", "password");
+        }
+    }
+</script>
+
+
+
+
+
+
+
+

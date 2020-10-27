@@ -1,0 +1,394 @@
+﻿@model RealEstate.Entities.ViewModels.MstCreateClientAndAssignAgentModel
+
+@{
+    ViewBag.Title = "User Management";
+    ViewBag.ViewHeader = "Add User";
+}
+<link href="~/Content/SlimImageCropper/slim.css" rel="stylesheet" />
+@if (User.IsInRole("Admin"))
+{
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+else if (User.IsInRole("Agent"))
+{
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+}
+ <style>
+          .fit-image {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+                margin: auto;
+                display: block;
+            }
+
+            .fit-image-div {
+    height: 205px;
+    width: 200px;
+            }
+
+            .thumbnail{
+                border:none!important;
+            }
+             .slim{
+          border: 1px solid #ddd;
+      }
+ </style>
+<section class="content-header">
+    <h1>
+        System User
+        <small>Add New</small>
+    </h1>
+</section>
+<div class="col-md-12">
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Assign New User</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm("create", "useradmin", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "myform" }))
+            { @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <a id="AnchorTag" href="#" data-toggle="modal" data-target="#myHelpModal" style="display:none"><span class="badge-help-link">?</span></a>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Register.Name, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Register.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Register.Name, "", new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Register.LastName, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Register.LastName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Register.LastName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Register.Email, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Register.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Register.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Register.PhoneNumber, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Register.PhoneNumber, new { @class = "form-control", @placeholder = "###.###.####" })
+                                    @Html.ValidationMessageFor(model => model.Register.PhoneNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Register.UserRole, new { @class = "control-label col-md-3 pull-left" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(model => model.Register.UserRole, (IEnumerable<SelectListItem>)ViewBag.Roles, "--- Select User Role ---", new { @class = "form-control ddl-select2" })
+                                        @Html.ValidationMessageFor(model => model.Register.UserRole, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                @Html.HiddenFor(model => model.Register.UserRole)
+                            }
+                            
+                            <div id="AssignAgent" style="display:none">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Register.AgentID, new { @class = "control-label col-md-3 pull-left" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(model => model.Register.AgentID, new SelectList(Model.AssignAgent.AgentDropDown, "Id", "AgentName"), "--- Select Agent --- ", new { @class = "form-control drop-change ddl-select2" })
+                                        @Html.ValidationMessageFor(m => m.Register.AgentID)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Register.ClientTypeID, new { @class = "control-label col-md-3 pull-left" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(model => model.Register.ClientTypeID, new SelectList(Model.AssignAgent.ClientTypeDropDown, "ClientTypeID", "ClientType"), "--- Select Transaction --- ", new { @class = "form-control drop-change ddl-select2" })
+                                        @Html.ValidationMessageFor(model => model.Register.ClientTypeID)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Register.Address, new { @class = "control-label col-md-3 pull-left" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(model => model.Register.Address, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Register.Address)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Register.Description, new { @class = "control-label col-md-3 pull-left" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(model => model.Register.Description, new { @class = "form-control"})
+                                        @Html.ValidationMessageFor(model => model.Register.Description)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-3">
+                            <div class="form-horizontal">
+                                    <div class="thumbnail">
+                                        <div id="imgPhotoThumb ">
+                                            <div id="slim-cropper" class="slim img-rounded" data-size="248,253" style="max-width:248px;max-height:253px"   data-label="Click and drag your image here">
+                                                <input type="file" name="upfiles" />
+                                            </div>
+                                            @Html.TextBoxFor(m => m.Register.UserPhotoThumb, new { @class = "hidden" })
+                                            @Html.TextBoxFor(m => m.Register.UserPhotoNormal, new { @class = "hidden" })
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    @Html.ActionLink("Back to List", "list", "useradmin", null, new { @class = "btn btn-default pull-left" })
+                    <input type="submit" value="Create User" class="btn btn-primary pull-right" />
+                    <div class="clearfix"></div>
+                </div>
+            }
+   
+        </div>
+    </section>
+</div>
+
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+<div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body" id="message">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Got It</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+<script src="~/Content/Plugins/Select2/select2.min.js"></script>
+<script src="~/Content/SlimImageCropper/slim.kickstart.js"></script>
+<script>
+        $('.ddl-select2').select2({ width: "100%" });
+    </script>
+<script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+    </script>
+<script>
+    $('#Register_PhoneNumber').keydown(function (e) {
+          var key = e.which || e.charCode || e.keyCode || 0;
+          $phone = $(this);
+
+          // Don't let them remove the starting '('
+
+
+          // Auto-format- do not expose the mask as the user begins to type
+          if (key !== 8 && key !== 9) {
+              if ($phone.val().length === 3) {
+                  $phone.val($phone.val() + '.');
+              }
+              if ($phone.val().length === 7) {
+                  $phone.val($phone.val() + '.');
+              }
+
+          }
+
+          // Allow numeric (and tab, backspace, delete) keys only
+          return (key == 8 ||
+                  key == 9 ||
+                  key == 46 ||
+                  (key >= 48 && key <= 57) ||
+                  (key >= 96 && key <= 105));
+      })
+
+      .bind('focus click', function () {
+          $phone = $(this);
+
+
+      })
+
+      .blur(function () {
+          $phone = $(this);
+
+
+      });
+    </script>
+<script type="text/javascript">
+            $(document).ready(function () {
+                $(".ddl-select2").select2({ width: '100%' });
+                $.validator.setDefaults({
+                    ignore: ''
+                });
+            });
+
+</script>
+
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#Register_ClientTypeID').on('change', function () {
+               
+                var ClientType = "Buyer"
+                var DDLText = document.getElementById("Register_ClientTypeID").options[document.getElementById('Register_ClientTypeID').selectedIndex].text;
+                if (ClientType == DDLText) {
+                    $("#Register_Address").attr('disabled', 'disabled');
+                    $("#Register_Address").val("");
+
+                }
+                else if ("Seller" == DDLText) {
+
+                    $("#Register_Address").val("");
+                    $("#Register_Address").removeAttr('disabled');
+
+                }
+                else {
+                    $("#Register_Address").removeAttr('disabled');
+                    $("#Register_Address").removeAttr('disabled');
+                    $("#Register_Address").removeAttr('disabled');
+                }
+
+            });
+
+            var ClientType = "Buyer"
+            var DDLText = document.getElementById("Register_ClientTypeID").options[document.getElementById('Register_ClientTypeID').selectedIndex].text;
+            if (ClientType == DDLText) {
+                $("#Register_Address").attr('disabled', 'disabled');
+                $("#Register_Address").val("");
+
+            }
+            else if ("Seller" == DDLText) {
+
+                $("#Register_Address").val("");
+                $("#Register_Address").removeAttr('disabled');
+
+            }
+            else {
+                $("#Register_Address").removeAttr('disabled');
+                $("#Register_Address").removeAttr('disabled');
+                $("#Register_Address").removeAttr('disabled');
+            }
+        });
+
+        $(document).ready(function () {
+            $('#Register_UserRole').on('change', function () {
+
+                var UserRole = "Client"
+                var DDLText = document.getElementById("Register_UserRole").options[document.getElementById('Register_UserRole').selectedIndex].text;
+                if (DDLText == UserRole) {
+                    $("#AssignAgent").css('display', 'block');
+                }
+                else
+                {
+                    $("#AssignAgent").css('display', 'none');
+                }
+             
+            });
+
+            var UserRole = "Client"
+            var DDLText = document.getElementById("Register_UserRole").options[document.getElementById('Register_UserRole').selectedIndex].text;
+            if (DDLText == UserRole) {
+                $("#AssignAgent").css('display', 'block');
+            }
+            else {
+                $("#AssignAgent").css('display', 'none');
+            }
+        });
+
+
+        $(document).ready(function () {
+            $('form').on('submit', function (e) {
+                // validation code here
+                var UserType = "Client"
+                var DDLText = document.getElementById("Register_UserRole").options[document.getElementById('Register_UserRole').selectedIndex].text;
+                var ClientType = "Seller"
+                var DDLClientType = document.getElementById("Register_ClientTypeID").options[document.getElementById('Register_ClientTypeID').selectedIndex].text;
+
+
+
+                if (UserType == DDLText)
+                {
+                    if ($("#Register_AgentID").val() === "")
+                    {
+                        $('#myModalLabel').text('');
+                        $('#message').text('');
+                        var someText = "Message";
+                        var message = "Please select Agent from drop down"
+                        $('#myModalLabel').append(document.createTextNode(someText));
+                        $('#message').append(document.createTextNode(message));
+                        $('#AnchorTag').click();
+                        e.preventDefault();
+                        $("#ajaxLoading").css("display", "none");
+                       
+                        $("#ajax-backdrop").css("display", "none");
+
+                      
+                    }
+
+                    else if ($("#Register_ClientTypeID").val() === "")
+                    {
+                        $('#myModalLabel').text('');
+                        $('#message').text('');
+                        var someText = "Message";
+                        var message = "Please select Transaction Type"
+                        $('#myModalLabel').append(document.createTextNode(someText));
+                        $('#message').append(document.createTextNode(message));
+                        $('#AnchorTag').click();
+                        e.preventDefault();
+                        $("#ajaxLoading").css("display", "none");
+
+                        $("#ajax-backdrop").css("display", "none");
+                        
+                    }
+
+                   
+               
+                }
+
+
+                if ((ClientType == DDLClientType) && (UserType == DDLText)) {
+                    if ($("#Register_Address").val() === "") {
+                        $('#myModalLabel').text('');
+                        $('#message').text('');
+                        var someText = "Message";
+                        var message = "Please Enter Address"
+                        $('#myModalLabel').append(document.createTextNode(someText));
+                        $('#message').append(document.createTextNode(message));
+                        $('#AnchorTag').click();
+                        e.preventDefault();
+                        $("#ajaxLoading").css("display", "none");
+
+                        $("#ajax-backdrop").css("display", "none");
+                    }
+
+                }
+
+                
+           
+            });
+        });
+
+
+</script>
+
+
+}

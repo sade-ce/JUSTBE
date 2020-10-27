@@ -1,0 +1,27 @@
+﻿@model RealEstate.Entities.Models.utblMstArticleEnquire
+
+    <div class="agent-widget">
+        <div class="agent-title">
+            <div class="agent-photo"><img src="https://justbere-d4d9.kxcdn.com/img/Jay.jpg" alt="" /></div>
+            <div class="agent-details">
+                <h4><a href="#"> Jay Bauer</a></h4>
+                <span><i class="sl sl-icon-call-in"></i> (301) 785-1100</span>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="text-danger " id="ErrorView"></div>
+
+        @using (Html.BeginForm("HomeEstimate", "Home", new { id = "form" }))
+        {
+            @Html.ValidationSummary(true)
+
+            @*@Html.TextAreaFor(model => model.utblMstEnquire.Message, new { @class = "validate-required validate-email", @placeholder = "Please send me more information regarding"+ @prop.address.street, @prop.address.city, @prop.address.state, @prop.address.zipcode })*@
+            <textarea id="txtmessage" name="txtmessage">Your Message </textarea>
+            <button class="button fullwidth margin-top-5">Send Message</button>
+
+        }
+    </div>
+  
+
+
+

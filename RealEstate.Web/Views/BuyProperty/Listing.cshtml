@@ -1,0 +1,31 @@
+﻿
+@{
+   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Listing</title>
+</head>
+<body>
+    <div id="foo"> 
+        @*<iframe src="http://idx.diversesolutions.com/search/1495599/colorscheme/5362#-" width="1300" height="900"></iframe>*@
+        <script src="//idx.diversesolutions.com/scripts/controls/Remote-Frame.aspx?MasterAccountID=1495599&amp;SearchSetupID=124&amp;LinkID=0&amp;Height=2000"></script>
+    </div>
+
+</body>
+
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+@*<script type="text/javascript">
+
+    $('iframe').load(function () {
+        $('iframe').contents().find('.CustomHeader').hide();
+    });
+		
+</script>*@
+}

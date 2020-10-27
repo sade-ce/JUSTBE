@@ -1,0 +1,121 @@
+﻿@model RealEstate.Entities.Models.utblMstEnquire
+<div class="col-md-12 ">
+    <h3 class="uppercase">Please help us with a few more details.</h3>
+    <p class="lead mb48">
+    </p>
+    <div>
+        <section id="contact">
+            @*<h4 class="headline margin-bottom-35">We Will Inbox You </h4>*@
+            <div id="contact-message"></div>
+            @using (Html.BeginForm("Home", "Enquiry", FormMethod.Post, new { @id = "QuickEnquiry", @autocomplete = "on" }))
+            {
+                @Html.ValidationSummary(true)
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div>
+                            <span class="pull-left">Name</span>
+                            @Html.TextBoxFor(m => m.Name)
+                            <div class="pull-left" style="margin-top: -26px;">
+                                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <span class="pull-left">Email</span>
+
+                            @Html.TextBoxFor(m => m.Email)
+                            <div class="pull-left" style="margin-top: -26px;">
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <span class="pull-left">Phone #</span>
+
+                            @Html.TextBoxFor(m => m.Phone)
+                            <div class="pull-left" style="margin-top: -26px;">
+                                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div>
+                            <span class="pull-left">Message</span>
+
+                            @Html.TextAreaFor(m => m.Message)
+                            <div class="pull-left" style="margin-top: -26px;">
+                                @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div>
+                            <input type="button" class="submit button" id="leadsubmit" value="Submit" />
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+    <!-- Contact Form / End -->
+</div>
+<script>
+    $('#leadsubmit').click(function () {
+        $("#leadsubmit").val("Please Wait..");
+        formsubmit();
+    });
+    function formsubmit() {
+            $.ajax({
+                url: '/home/Enquiry',
+                type: 'post',
+                data: $('#QuickEnquiry').serialize(),
+                success: function (result) {
+                    $("#waiting").css("display", "none");
+
+                    if (result.success) {
+                        var modal = jQuery(this).closest('.foundry_modal');
+                        modal.toggleClass('reveal-modal');
+                        if (typeof modal.attr('data-cookie') !== "undefined") {
+                            mr_cookies.setItem(modal.attr('data-cookie'), "true", Infinity);
+                        }
+                        if (modal.find('iframe').length) {
+                            modal.find('iframe').attr('src', '');
+                        }
+                        jQuery('.modal-screen').removeClass('reveal-modal');
+                    } else {
+                        $('.leadContent11').html(result);
+                        //document.getElementById('leadform').click();
+                        // $('#leadModal').modal('show');
+                        //var linkedModal = jQuery('.openmodal');
+
+                        //jQuery('.modal-screen').toggleClass('reveal-modal');
+                        //linkedModal.toggleClass('reveal-modal');
+                        //return false;
+                    }
+                },
+                error: function (result) {
+                    //alert('errror');
+                }
+            });
+
+            return false;
+
+    }
+</script>
+<script type="text/javascript">
+    jQuery('.close-modal:not(.modal-strip .close-modal)').unbind('click').click(function () {
+        var modal = jQuery(this).closest('.foundry_modal');
+        modal.toggleClass('reveal-modal');
+        if (typeof modal.attr('data-cookie') !== "undefined") {
+            mr_cookies.setItem(modal.attr('data-cookie'), "true", Infinity);
+        }
+        if (modal.find('iframe').length) {
+            modal.find('iframe').attr('src', '');
+        }
+        jQuery('.modal-screen').removeClass('reveal-modal');
+    });
+</script>

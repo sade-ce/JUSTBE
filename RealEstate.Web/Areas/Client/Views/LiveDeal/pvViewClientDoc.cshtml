@@ -1,0 +1,74 @@
+﻿
+@model RealEstate.Entities.ViewModels.MstClientDealRespondManageModel
+<div id="DataGrid" class="col-md-12">
+    <hr class="hr-style" />
+    <div class="row"></div>
+    @if (Model.MstClientTrackDocList.Count() > 0)
+    {
+           <div class="col-md-10 col-lg-offset-1 margin-top-10">
+            <div class="clearfix"></div>
+            <table class="manage-table responsive-table">
+                <tr>
+                    <th class="text-center"><i class="fa fa-file-text"></i> Preview Document</th>
+                </tr>
+
+
+                @foreach (var item in Model.MstClientTrackDocList)
+                {
+                    <tr>
+                        @if (item.TrackDocFile != "")
+                        {
+                            <td class="text-center">
+                                <div class="title">
+                                    <h4><a href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank">View</a></h4>
+                                </div>
+                            </td>
+                           
+                        }
+                        else
+                        {
+                            <td class="text-center">
+                                <label>Not Available</label>
+                            </td>
+
+                        }
+
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+    else
+    {
+        <h3>No Document Uploaded...</h3>
+    }
+
+
+    <div style="margin-top: 15px;">
+        <div class="box-footer well well-sm col-md-12 col-lg-12 text-right">
+            @*@Html.ActionLink("Previous", "Edit", new { NewsEventID = @Model.utblMstTrackDeal.TrackingID }, new { @class = "btn btn-default pull-left" })*@
+            <div class="divider"></div>
+
+        </div>
+
+        <div class="col-md-6 col-lg-offset-5">
+            <h4 class="headline margin-top-0 margin-bottom-30"></h4>
+            <p>
+
+                <a href="~/Client/Livedeal/Status" class="button medium border pull-right"><i class="fa fa-arrow-circle-right"></i> Finish</a>
+            </p>
+        </div>
+        <div class="divider"></div>
+
+        <div class="clearfix margin-bottom-100"></div>
+
+    </div>
+
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+

@@ -1,0 +1,468 @@
+﻿@model RealEstate.Entities.ViewModels.MstHomeEstimationViewModel
+@{
+    ViewBag.Title = "Just BE | Home Estimate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (Model.ZillowModel.results.response.results.Count() > 0)
+{
+    int count = 1;
+    foreach (var prop in Model.ZillowModel.results.response.results)
+    {
+        if (Model.ZillowModel.results.response.results.Count() >= 2)
+        {
+            if (Model.ZillowModel.results.response.results.Count() > count)
+            {
+                <div id="propertyMap-container" style="padding-top:1px">
+                    <div id="propertyMap" data-latitude=@prop.address.latitude data-longitude=@prop.address.longitude></div>
+                    @*<a href="#" id="scrollEnabling" title="Enable or disable scrolling on map">Enable Scrolling</a>*@
+                    <a href="#" id="streetView">Street View</a>
+                </div>
+
+            }
+
+            <div class="container">
+                <div class="row">
+                    <!-- Property Description -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="property-description">
+                            @{
+                                decimal Estimated = Convert.ToInt64(@prop.zestimate.amount.Value);
+
+                            }
+                            <h3 class="desc-headline">@prop.address.street, @prop.address.city, @prop.address.state @prop.address.zipcode ($ @Estimated.ToString("#,##0"))</h3>
+
+
+                            <ul class="property-main-features">
+                                <li>finished SqFt <span>@prop.finishedSqFt sq ft</span></li>
+                                @if (!string.IsNullOrEmpty(@prop.totalRooms))
+                                {
+                                    <li>Room Count <span>@prop.totalRooms</span></li>
+                                }
+                                @if (!string.IsNullOrEmpty(@prop.bedrooms))
+                                {
+                                    <li>Beds <span>@prop.bedrooms</span></li>
+                                }
+                                @if (!string.IsNullOrEmpty(@prop.bathrooms))
+                                {
+                                    <li>Baths <span>@prop.bathrooms</span></li>
+                                }
+
+                                @if (!string.IsNullOrEmpty(@prop.lotSizeSqFt))
+                                {
+                                    <li>lot Size <span>@prop.lotSizeSqFt</span></li>
+                                }
+
+                            </ul>
+                            <!-- Details -->
+                         
+                            <div class="">
+                                <h3 class="desc-headline">Overview</h3>
+                                <p>
+                                    @prop.address.street, @prop.address.city, @prop.address.state @prop.address.zipcode is a @prop.useCode home
+
+                                    @if (!string.IsNullOrEmpty(@prop.lotSizeSqFt))
+                                    {
+                                        <a class="tag"> that contains 781 sq ft </a>
+
+                                    }
+
+                                    @if (!string.IsNullOrEmpty(@prop.yearBuilt))
+                                    {
+                                        <a class="tag"> and was built in @prop.yearBuilt.</a>
+                                    }
+                                    It contains @prop.bedrooms bedroom and @prop.bathrooms bathroom.
+
+                                    @if (!string.IsNullOrEmpty(@prop.lastSoldPrice.Value))
+                                    {
+                                        decimal LastSold = Convert.ToInt64(@prop.lastSoldPrice.Value);
+                                        <a class="tag">This home last sold for $ @LastSold.ToString("#,##0") in @prop.lastSoldDate.</a>
+                                    }
+
+                                    @if (!string.IsNullOrEmpty(@prop.zestimate.amount.Value))
+                                    {
+                                        decimal Zestimate = Convert.ToInt64(@prop.lastSoldPrice.Value);
+                                        <a class="tag"> The estimate for this house is $ @Zestimate.ToString("#,##0").</a>
+
+                                    }
+
+                                    @if (!string.IsNullOrEmpty(@prop.zestimate.valueChange.Value))
+                                    {
+                                        decimal Zestimate = Convert.ToInt64(@prop.zestimate.valueChange.Value);
+                                        <a class="tag">which has decreased by $ @Zestimate.ToString("#,##0") in the last @prop.zestimate.valueChange.duration days.</a>
+
+                                    }
+
+                                </p>
+                            </div>
+
+
+                            <h3 class="desc-headline">Property Valuation Chart</h3>
+                            <div style="margin-bottom:50px"><img class="img-responsive img-bordered" src="@Model.ZillowModel.chart.response.url" /></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+                        <div class="sidebar sticky right">
+                            <!-- Widget -->
+                            <div class="widget margin-bottom-30">
+
+                            </div>
+                            <!-- Widget / End -->
+                            <!-- Widget -->
+                            <div class="widget">
+                                <!-- Agent Widget -->
+                                <div class="agent-widget">
+                                    <div class="agent-title">
+                                        <div class="agent-photo"><img src="~/img/Jay.jpg" alt="" /></div>
+                                        <div class="agent-details">
+                                            <h4><a href="#"> Jay Bauer</a></h4>
+                                            <span><i class="sl sl-icon-call-in"></i> (301) 785-1100</span>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="text-danger " id="ErrorView"></div>
+
+                                    @using (Html.BeginForm("HomeEstimate", "Home", new { id = "form" }))
+                                    {
+                                        @Html.ValidationSummary(true)
+
+                                        @Html.TextBoxFor(model => model.utblMstEnquire.Name, new { @class = "validate-required", @placeholder = "Your Name", @required = "required" })
+                                        @Html.TextBoxFor(model => model.utblMstEnquire.Email, new { @required = "required", @placeholder = "Email Address", @type = "email" })
+                                        @Html.TextBoxFor(model => model.utblMstEnquire.Phone, new { @class = "validate-required", @placeholder = "Phone", @required = "required" })
+                                        @*@Html.TextAreaFor(model => model.utblMstEnquire.Message, new { @class = "validate-required validate-email", @placeholder = "Please send me more information regarding"+ @prop.address.street, @prop.address.city, @prop.address.state, @prop.address.zipcode })*@
+                                        <textarea id="txtmessage" name="txtmessage">Please send me more information regarding @prop.address.street, @prop.address.city, @prop.address.state @prop.address.zipcode</textarea>
+                                        @*<input type="text" placeholder="Your Name">
+                                            <input type="text" placeholder="Your Email">
+                                            <input type="text" placeholder="Your Phone"
+                                            <textarea>Please send me more information regarding @prop.address.street, @prop.address.city, @prop.address.state @prop.address.zipcode </textarea>*@
+                                        <button class="button fullwidth margin-top-5">Send Message</button>
+
+                                    }
+
+
+                                </div>
+                                <!-- Agent Widget / End -->
+                            </div>
+                            <!-- Widget / End -->
+                            <!-- Widget -->
+                            <!-- Widget / End -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+                                    count++;
+                                }
+                                else
+                                {
+            <div id="propertyMap-container" style="padding-top:1px">
+                <div id="propertyMap" data-latitude=@prop.address.latitude data-longitude=@prop.address.longitude></div>
+                @*<a href="#" id="scrollEnabling" title="Enable or disable scrolling on map">Enable Scrolling</a>*@
+                <a href="#" id="streetView">Street View</a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <!-- Property Description -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="property-description">
+                            @{
+                                decimal Estimated = Convert.ToInt64(@prop.zestimate.amount.Value);
+
+                            }
+                            <h3 class="desc-headline">@prop.address.street, @prop.address.city, @prop.address.state @prop.address.zipcode ($ @Estimated.ToString("#,##0"))</h3>
+
+
+                            <ul class="property-main-features">
+                                <li>finished SqFt <span>@prop.finishedSqFt sq ft</span></li>
+                                @if (!string.IsNullOrEmpty(@prop.totalRooms))
+                                {
+                                    <li>Room Count <span>@prop.totalRooms</span></li>
+                                }
+                                @if (!string.IsNullOrEmpty(@prop.bedrooms))
+                                {
+                                    <li>Beds <span>@prop.bedrooms</span></li>
+                                }
+                                @if (!string.IsNullOrEmpty(@prop.bathrooms))
+                                {
+                                    <li>Baths <span>@prop.bathrooms</span></li>
+                                }
+
+                                @if (!string.IsNullOrEmpty(@prop.lotSizeSqFt))
+                                {
+                                    <li>lot Size <span>@prop.lotSizeSqFt</span></li>
+                                }
+
+                            </ul>
+                            <!-- Details -->
+                            <h3 class="desc-headline">Details</h3>
+                            <ul class="property-features margin-top-0">
+
+                                @if (!string.IsNullOrEmpty(@prop.useCode))
+                                {
+                                    <li>Home Type: <span>@prop.useCode</span></li>
+                                }
+                                else
+                                {
+                                    <li>Home Type: <span>N/A</span></li>
+                                }
+
+                                @if (!string.IsNullOrEmpty(@prop.lastSoldDate))
+                                {
+                                    <li>Last Sold Date: <span>@prop.lastSoldDate </span></li>
+                                }
+                                else
+                                {
+                                    <li>Last Sold Date: <span>N/A</span></li>
+                                }
+
+                                @if (@prop.taxAssessment.ToString() != "")
+                                {
+                                    //var TaxAssessment = Convert.ToInt64(@prop.taxAssessment.Value);
+
+                                    <li>Tax Assessment: <span>$ @prop.taxAssessment.ToString("#,##0")</span></li>
+                                }
+                                else
+                                {
+                                    <li>Tax Assessment: <span>N/A</span></li>
+                                }
+
+
+                                @if (!string.IsNullOrEmpty(@prop.zestimate.valuationRange.high.Value))
+                                {
+                                    decimal High = Convert.ToInt64(@prop.zestimate.valuationRange.high.Value);
+                                    <li>High Estimate: <span>$ @High.ToString("#,##0")</span></li>
+
+                                }
+                                else
+                                {
+                                    <li>High Estimate: <span>N/A</span></li>
+                                }
+
+                                @if (!string.IsNullOrEmpty(@prop.lotSizeSqFt))
+                                {
+                                    <li>Lot Size : <span>@prop.lotSizeSqFt SqFt</span></li>
+                                }
+                                else
+                                {
+                                    <li>Lot Size: <span>N/A</span></li>
+                                }
+
+                                @if (@prop.lastSoldPrice != null)
+                                {
+                                    decimal LastSold = Convert.ToInt64(@prop.lastSoldPrice.Value);
+
+                                    <li>Last Sold Price: <span>$ @LastSold.ToString("#,##0")</span></li>                            }
+                                else
+                                {
+                                    <li>Last Sold Price: <span>N/A</span></li>
+                                }
+                                @if (!string.IsNullOrEmpty(@prop.taxAssessmentYear))
+                                {
+                                    <li>Tax Assessment Year: <span> @prop.taxAssessmentYear</span></li>
+                                }
+                                else
+                                {
+                                    <li>Tax Assessment Year: <span>N/A</span></li>
+                                }
+                                @if (!string.IsNullOrEmpty(@prop.zestimate.valuationRange.low.Value))
+                                {
+
+                                    decimal Low = Convert.ToInt64(@prop.zestimate.valuationRange.low.Value);
+                                    <li>Low Estimate: <span>$ @Low.ToString("#,##0")</span></li>
+
+
+                                }
+                                else
+                                {
+                                    <li>Low Estimate: <span>N/A</span></li>
+                                }
+                                @if (@prop.zestimate.amount.Value != null)
+                                {
+                                    decimal EstimatedPrice = Convert.ToInt64(@prop.zestimate.amount.Value);
+                                    <li>Estimated Price: <span>$ @EstimatedPrice.ToString("#,##0")</span></li>
+                                }
+                                else
+                                {
+                                    <li>Estimated Price: <span>N/A</span></li>
+                                }
+
+
+                                @if (@prop.yearBuilt != "")
+                                {
+                                    <li>YearBuilt: <span>@prop.yearBuilt</span></li>
+                                }
+                                else
+                                {
+                                    <li>YearBuilt: <span>N/A</span></li>
+                                }
+                                @if (@prop.zestimate.lastupdated != "")
+                                {
+                                    <li>Last updated: <span>@prop.zestimate.lastupdated</span></li>
+                                }
+                                else
+                                {
+                                    <li>Last updated: <span>N/A</span></li>
+                                }
+
+                            </ul>
+
+                            <div class="">
+                                <h3 class="desc-headline">Overview</h3>
+                                <p>
+                                    @prop.address.street, @prop.address.city, @prop.address.state @prop.address.zipcode is a @prop.useCode home
+
+                                    @if (!string.IsNullOrEmpty(@prop.lotSizeSqFt))
+                                    {
+                                        <a class="tag"> that contains 781 sq ft </a>
+
+                                    }
+
+                                    @if (!string.IsNullOrEmpty(@prop.yearBuilt))
+                                    {
+                                        <a class="tag"> and was built in @prop.yearBuilt.</a>
+                                    }
+                                    It contains @prop.bedrooms bedroom and @prop.bathrooms bathroom.
+
+                                    @*@if (!string.IsNullOrEmpty(@prop.lastSoldPrice.Value))
+                                    {
+                                        decimal LastSold = Convert.ToInt64(@prop.lastSoldPrice.Value);
+                                        <a class="tag">This home last sold for $ @LastSold.ToString("#,##0") in @prop.lastSoldDate.</a>
+                                    }*@
+
+                                    @*@if (!string.IsNullOrEmpty(@prop.zestimate.amount.Value))
+                                    {
+                                        decimal Zestimate = Convert.ToInt64(@prop.lastSoldPrice.Value);
+                                        <a class="tag"> The estimate for this house is $ @Zestimate.ToString("#,##0").</a>
+
+                                    }*@
+
+                                    @if (!string.IsNullOrEmpty(@prop.zestimate.valueChange.Value))
+                                    {
+                                        decimal Zestimate = Convert.ToInt64(@prop.zestimate.valueChange.Value);
+                                        <a class="tag">which has decreased by $ @Zestimate.ToString("#,##0") in the last @prop.zestimate.valueChange.duration days.</a>
+
+                                    }
+
+                                </p>
+                            </div>
+
+
+                            <h3 class="desc-headline">Property Valuation Chart</h3>
+                            <div style="margin-bottom:50px"><img class="img-responsive img-bordered" src="@Model.ZillowModel.chart.response.url" /></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+                        <div class="sidebar sticky right">
+                            <!-- Widget -->
+                            <div class="widget margin-bottom-30">
+
+                            </div>
+                            <!-- Widget / End -->
+                            <!-- Widget -->
+                            <div class="widget">
+                                <!-- Agent Widget -->
+                                <div class="agent-widget">
+                                    <div class="agent-title">
+                                        <div class="agent-photo"><img src="~/img/Jay.jpg" alt="" /></div>
+                                        <div class="agent-details">
+                                            <h4><a href="#"> Jay Bauer</a></h4>
+                                            <span><i class="sl sl-icon-call-in"></i> (301) 785-1100</span>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="text-danger " id="ErrorView"></div>
+
+                                    @using (Html.BeginForm("HomeEstimate", "Home", new { id = "form" }))
+                                    {
+                                        @Html.ValidationSummary(true)
+
+                                        @Html.TextBoxFor(model => model.utblMstEnquire.Name, new { @class = "validate-required", @placeholder = "Your Name", @required = "required" })
+                                        @Html.TextBoxFor(model => model.utblMstEnquire.Email, new { @required = "required", @placeholder = "Email Address", @type = "email" })
+                                        @Html.TextBoxFor(model => model.utblMstEnquire.Phone, new { @class = "validate-required", @placeholder = "Phone", @required = "required" })
+                                        @*@Html.TextAreaFor(model => model.utblMstEnquire.Message, new { @class = "validate-required validate-email", @placeholder = "Please send me more information regarding"+ @prop.address.street, @prop.address.city, @prop.address.state, @prop.address.zipcode })*@
+                                        <textarea id="txtmessage" name="txtmessage">Please send me more information regarding @prop.address.street, @prop.address.city, @prop.address.state @prop.address.zipcode</textarea>
+                                        @*<input type="text" placeholder="Your Name">
+                                            <input type="text" placeholder="Your Email">
+                                            <input type="text" placeholder="Your Phone"
+                                            <textarea>Please send me more information regarding @prop.address.street, @prop.address.city, @prop.address.state @prop.address.zipcode </textarea>*@
+                                        <button class="button fullwidth margin-top-5">Send Message</button>
+
+                                    }
+
+
+                                </div>
+                                <!-- Agent Widget / End -->
+                            </div>
+                            <!-- Widget / End -->
+                            <!-- Widget -->
+                            <!-- Widget / End -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+                                        }
+
+
+                                    }
+                                }
+
+<style>
+    .tag {
+        color: #707070;
+    }
+</style>
+
+
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAawqliBxwDYdgLhbfDAeLMz5NqNvrr-OE&libraries=places"></script>
+    <script src="~/Content/FrontEndJS/maps.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('form').submit(function () {
+                if (isValidEmailAddress($("#utblMstEnquire_Email").val())) {
+                    $("#ajaxLoading").css("display", "block");
+                    $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                    $("#ajaxLoading").css("left", $(window).width() / 2);
+                    $("#ajaxLoading").css("position", "fixed");
+                    $("#ajax-backdrop").css("display", "block");
+                    var serializedForm = $(this).serialize();
+                    $.ajax({
+                        url: '@Url.Action("HomeEstimate")',
+                        type: "POST",
+                        data: serializedForm,
+
+                        success: function (result) {
+                            $("#ajaxLoading").css("display", "none");
+                            $("#ajax-backdrop").css("display", "none");
+                            $('#ErrorView').text(result).show();
+
+                        },
+                        error: function (result) {
+
+                            $('#ErrorView').text(result).show();
+                            //$('#Error').text(result.Email);
+                        }
+
+                    });
+
+                }
+                else {
+                    $("#ErrorView").text("Invalid Email Address!").show().fadeOut("slow");
+                }
+
+                return false;
+            });
+        });
+
+        function isValidEmailAddress(emailAddress) {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            return pattern.test(emailAddress);
+        }
+       
+
+    </script>
+}
+

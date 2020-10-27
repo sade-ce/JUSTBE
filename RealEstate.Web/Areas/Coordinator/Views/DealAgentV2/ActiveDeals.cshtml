@@ -1,0 +1,95 @@
+﻿
+@model RealEstate.Entities.ViewModels.MstDealAgentManageModel
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayoutVersion2.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstateVersion2.cshtml";
+
+    }
+}
+
+
+<section class="wrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>Active Deals Pipeline</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello, @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new" /></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 breadcrumb-list">
+            
+                </div>
+                <div class="col-sm-12 dealsPipelineContent">
+                    <div class="dealPipelineTabs">
+                      
+              
+                    
+                            <ul >
+                                <li class="active activeDeal" onclick="SearchTerm('Lead', this)"><a href="#!" class="tabLink">Lead</a></li>
+                                <li class="activeDeal" onclick="SearchTerm('Relationship',this)"><a href="#" class="tabLink">Relationship</a></li>
+                                <li class="activeDeal" onclick="SearchTerm('Active', this)"><a href="#!" class="tabLink">Active</a></li>
+                                <li class="activeDeal" onclick="SearchTerm('Under Contract', this)"><a href="#!" class="tabLink">Under Contract</a></li>
+                                <li class="activeDeal" onclick="SearchTerm('Settled', this)"><a href="#!" class="tabLink">Settled</a></li>
+                            </ul>
+                            <input name="searchTerm" id="inputsearch" type="search" aria-label="Search" value="@Model.ClientFilterInfo.SearchFilter" style="display:none">
+                     
+</div>
+                    @Html.Partial("pvActiveDeals", Model)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function SearchTerm(term,obj) {
+        $(".activeDeal").each(function (index) {
+            $(this).removeClass("active")
+        });
+        $(obj).addClass("active")
+        var TargetURL = '/Coordinator/DealAgentV2/ActiveDeals'
+        TargetURL = TargetURL + "?searchterm=" + term.replace(/^,|,$/g, '')
+        var options = {
+            url: TargetURL
+            , data: $("form").serialize()
+            , type: "get"
+        }
+        var target = "#DataGrid"
+        $.ajax(options).done(function (data) {
+            $(target).replaceWith(data);
+        });
+    };
+  
+</script>

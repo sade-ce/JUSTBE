@@ -1,0 +1,28 @@
+﻿@model RealEstate.Entities.ViewModels.MstCalenderManageModel
+
+@{
+    ViewBag.Title = "ListEvent";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+    }
+}
+<section class="content-header">
+    <h1>
+        Calendar
+        <small>Event List </small>
+    </h1>
+</section>
+<div class="content">
+    <div class="col-md-12">
+        <div class="well well-sm clearfix">
+            <div class="pull-right">
+                @Html.ActionLink("Add New ", "CreateEvent", null, new { @class = "btn btn-primary pull-right " })
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        @Html.Partial("pvEventList", Model)
+    </div>
+</div>

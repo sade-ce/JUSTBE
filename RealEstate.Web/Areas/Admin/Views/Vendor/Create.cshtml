@@ -1,0 +1,380 @@
+﻿@model RealEstate.Entities.ViewModels.VendorViewModel
+@{
+    ViewBag.Title = "Vendor";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+    if (User.IsInRole("Agent"))
+    {
+        Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+    }
+}
+
+<section class="content-header">
+    <h1>
+        Vendor
+        <small>Create New </small>
+    </h1>
+</section>
+<div class="col-md-12">
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Create Vendor</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+@using (Ajax.BeginForm("Create", "Vendor", null, new AjaxOptions() { HttpMethod = "POST" }, new { @class = "form-horizontal", enctype = "multipart/form-data", id = "myform" }))
+            { @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+           @Html.HiddenFor(model => model.Vendor.VendorId,new { @id = "hdnVendorId" })
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Vendor Type</label>
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(model => model.Vendor.Category_Id, new SelectList(Model.CategoryDropDown, "Category_Id", "Name"), "--- Select Vendor Type --- ", new { @class = "form-control ddl-select2",@id= "VendorType" })
+                                    @Html.ValidationMessageFor(model => model.Vendor.Category_Id, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Vendor Name</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Vendor.Title, new { @class = "form-control",@id= "txtVendorName" })
+                                    @Html.ValidationMessageFor(model => model.Vendor.Title, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Vendor Address</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Vendor.Location, new { @class = "form-control", @id = "txtLocation", autocomplete = "off" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Contact Name</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.VendorContacts.ContactName, new { @class = "form-control", @id = "txtContactName" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Contact Title</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.VendorContacts.ContactTitle, new { @class = "form-control",@id="txtContactTitle" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Contact Phone</label>
+                                <div class="col-md-3">
+                                   
+                                    @Html.TextBoxFor(model => model.VendorContacts.ContactPhone, new { @class = "form-control", @placeholder = "###.###.####", @maxlength = "12", @id = "txtContactPhone" })
+                                    @Html.ValidationMessageFor(model => model.VendorContacts.ContactPhone, "", new { @class = "text-danger" })
+                                </div>
+                                <label class="col-md-2 control-label">Vendor Phone</label>
+                                <div class="col-md-3">
+                               
+                                    @Html.TextBoxFor(model => model.Vendor.Phone, new { @class = "form-control", @placeholder = "###.###.####", @maxlength = "12",@id= "txtPhone" })
+                                    @Html.ValidationMessageFor(model => model.Vendor.Phone, "", new { @class = "text-danger" })
+                                </div>
+                               
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Vendor Title</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Vendor.SubTitle, new { @class = "form-control", @id = "txtDesignation" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Vendor.Email, new { @class = "col-md-4 control-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Vendor.Email, new { @class = "form-control",@id="txtEmail" })
+                                    @Html.ValidationMessageFor(model => model.Vendor.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Vendor.WebsiteLink, new { @class = "col-md-4 control-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Vendor.WebsiteLink, new { @class = "form-control",@id= "txtWebsitelink" })
+                                    @Html.ValidationMessageFor(model => model.Vendor.WebsiteLink, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                          
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Description</label>
+                                <div class="col-md-8">
+                                    @Html.TextAreaFor(model => model.Vendor.About, new { @class = "form-control",@id="txtAbout" })
+                                </div>
+                            </div>
+                            <div class="form-group" id="imageArea" style="display:none">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <div class="thumbnail" style="margin-bottom: 5px; height: 140px; width: 120px">
+                                        <div id="imgPhotoThumb" style="margin-left: auto; margin-right: auto;">
+
+                                            <img src="" id="imgVendor" class="img-rounded" style="width: 110px; height: 131px;" />
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Choose Picture</label>
+                                    <div class="col-md-8">
+                                        <input type="hidden" id="txtVenImage" name="txtVenImage" />
+                                        <input type="file" name="files" id="fu1" class="control-label" />
+
+                                    </div>
+                                </div>
+                            </div>
+                   
+                    </div>
+                </div>
+                <div class="box-footer">
+                    @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                    <input type="submit" value="Save Changes" class="btn btn-primary pull-right" />
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"></h4>
+                            </div>
+                            <div class="modal-body" id="message">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+}
+            
+        </div>
+    </section>
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+@section Scripts
+{
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    .ui-front {
+        z-index: 9999;
+        width: 200px;
+    }
+</style>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+</script>
+
+<script>
+    $('#txtPhone').keydown(function (e) {
+          var key = e.which || e.charCode || e.keyCode || 0;
+          $phone = $(this);
+
+          // Don't let them remove the starting '('
+
+
+          // Auto-format- do not expose the mask as the user begins to type
+          if (key !== 8 && key !== 9) {
+              if ($phone.val().length === 3) {
+                  $phone.val($phone.val() + '.');
+              }
+              if ($phone.val().length === 7) {
+                  $phone.val($phone.val() + '.');
+              }
+
+          }
+
+          // Allow numeric (and tab, backspace, delete) keys only
+          return (key == 8 ||
+                  key == 9 ||
+                  key == 46 ||
+                  (key >= 48 && key <= 57) ||
+                  (key >= 96 && key <= 105));
+      })
+
+      .bind('focus click', function () {
+          $phone = $(this);
+
+
+      })
+
+      .blur(function () {
+          $phone = $(this);
+
+
+      });
+
+   
+
+        $('#txtContactPhone').keydown(function (e) {
+            var key = e.which || e.charCode || e.keyCode || 0;
+            $phone = $(this);
+
+            // Don't let them remove the starting '('
+
+
+            // Auto-format- do not expose the mask as the user begins to type
+            if (key !== 8 && key !== 9) {
+                if ($phone.val().length === 3) {
+                    $phone.val($phone.val() + '.');
+                }
+                if ($phone.val().length === 7) {
+                    $phone.val($phone.val() + '.');
+                }
+
+            }
+
+            // Allow numeric (and tab, backspace, delete) keys only
+            return (key == 8 ||
+                    key == 9 ||
+                    key == 46 ||
+                    (key >= 48 && key <= 57) ||
+                    (key >= 96 && key <= 105));
+        })
+
+   .bind('focus click', function () {
+       $phone = $(this);
+
+
+   })
+
+   .blur(function () {
+       $phone = $(this);
+
+
+   });
+
+    $('#txtVendorName').autocomplete({
+        source: function (request, response) {
+            //$("#ajaxLoading").css("display", "none");
+            //$("#ajax-backdrop").css("display", "none");
+            var itemnamecodes = new Array();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Vendorautocomplete", "Vendor")',
+                dataType: 'json',
+                data: { term: request.term, VendorType: $('#VendorType').val() },
+                success: function (data) {
+                    //console.log(data)
+                    response($.map(data, function (item) {
+                        return { label: item.Key, Id: item.Value };
+                    }))
+                }
+            })
+        },
+        minLength: 0,
+
+        select: function (e, i) {
+            e.preventDefault();
+            $("#hdnVendorId").val('');
+            $('#imageArea').css('display', 'none');
+            $('#imgVendor').attr('src', '');
+            $("#txtLocation").val(''), $("#txtContactName").val(''),
+            $("#txtContactTitle").val(''), $("#txtContactPhone").val(''), $("#txtPhone").val(''),
+            $("#txtEmail").val(''), $("#txtWebsitelink").val(''), $("#txtAbout").val(''), $("#txtVenImage").val('');
+            var mystring = i.item.Id;
+   
+            var res = mystring.split("}");
+            $("#txtPhone").val(res[0]);
+            $("#txtEmail").val(res[1]);
+            //$("#VendorType").val(res[2]);
+
+
+          //      $("#txtSubTitle").val(res[3]);
+                $("#txtWebsitelink").val(res[4]);
+                $("#txtLocation").val(res[5]);
+                $("#txtVenImage").val(res[6]);
+                if (res[6] != '') {
+                    $('#imageArea').css('display', 'block');
+                    $('#imgVendor').attr('src', '/img/vendors/' + res[6]);
+                }
+              
+                $("#txtAbout").val(res[7]);
+                $("#hdnVendorId").val(res[8]);
+                $("#txtVendorName").val(res[9]);
+        }
+    }).focus(function () {
+        $(this).autocomplete("search", "");
+        $('#txtVendorName').autocomplete({
+            autoFocus: true
+        })
+    });
+
+    $('#txtContactName').autocomplete({
+        source: function (request, response) {
+            $("#txtContactTitle").val('');
+            $("#txtContactPhone").val('');
+            var itemnamecodes = new Array();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("VendorNameautocomplete", "Vendor")',
+                dataType: 'json',
+                data: { term: request.term, Vendor_Id: $('#hdnVendorId').val() },
+                success: function (data) {
+                    //console.log(data)
+                    response($.map(data, function (item) {
+                        return { label: item.Key, Id: item.Value };
+                    }))
+                }
+            })
+        },
+        minLength: 0,
+
+        select: function (e, i) {
+            var mystring = i.item.Id;
+          
+            var res = mystring.split("}");
+
+            $("#txtContactName").val(res[0]);
+            $("#txtContactTitle").val(res[1]);
+            $("#txtContactPhone").val(res[2]);
+
+
+        }
+    }).focus(function () {
+        $(this).autocomplete("search", "");
+        $('#txtContactName').autocomplete({
+            autoFocus: true
+        })
+    });
+
+
+    $("#VendorType").change(function () {
+        cleardata();
+    });
+    function cleardata(){
+        $("#hdnVendorId").val('');
+        $('#imageArea').css('display', 'none');
+        $('#imgVendor').attr('src', '');
+        $("#txtVendorName").val(''), $("#txtLocation").val(''), $("#txtContactName").val(''),
+        $("#txtContactTitle").val(''), $("#txtContactPhone").val(''), $("#txtPhone").val(''),
+        $("#txtEmail").val(''), $("#txtWebsitelink").val(''), $("#txtAbout").val(''), $("#txtVenImage").val('');
+    }
+</script>
+}
+
+<style>
+.form-horizontal .control-label {
+   padding-top: 0px;
+    margin-bottom: 13px;
+    text-align: right;
+    margin-top: 12px;
+}
+</style>

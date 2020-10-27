@@ -1,0 +1,296 @@
+﻿@model RealEstate.Web.Models.RootObject
+@{
+    ViewBag.Title = "Listing";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+
+<style>
+    .dashboard-header {
+        border-bottom: 1px solid rgba(0,0,0,.08);
+        margin: 0 -30px 30px -30px;
+        padding: 28px 30px;
+    }
+    .listing-detail-attribute {
+  
+    width: 50%;
+}
+</style>
+
+
+
+
+
+<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+
+            <div class="content-title">
+                <div class="content-title-inner">
+                    <div class="container">
+                        <h1>Listing Details</h1>
+
+                    </div><!-- /.container -->
+                </div><!-- /.content-title-inner -->
+            </div><!-- /.content-title -->
+
+            <div class="content">
+                <div class="container">
+                    <!-- /.filter -->
+
+                    <div class="row">
+
+                        <div class="col-lg-offset-1 col-lg-12">
+
+                            <div class="row">
+                                <!-- /.col-sm-12 -->
+                                <div class="listing-detail col-md-8 col-lg-8">
+
+                                    <div class="gallery">
+
+
+                                        @foreach (var item in Model.organic_results.search_results)
+                                        {
+                                            for (var i = 0; i < item.images.Count(); i++)
+                                            {
+                                                <div class="gallery-item" style="background-image: url('@item.images[i].url');">
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+
+                                    @if (Model.organic_results.search_results.Count() > 0)
+                                    {
+                                        int count = 1;
+
+                                        foreach (var item in Model.organic_results.search_results)
+                                        {
+                                            decimal Price = Convert.ToInt64(@item.cur_data.price);
+                                            if (Model.organic_results.search_results.Count() == 2)
+                                            {
+                                                if (Model.organic_results.search_results.Count() > count)
+                                                {
+                <!-- /.gallery -->
+
+                                                    <div class="row">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+
+                                                                <div class="listing-detail-attribute">
+                                                                    <div class="key">Courtesy of</div>
+                                                                    <div class="value">@item.rets.oname </div>
+                                                                </div><!-- /.listing-detail-attribute -->
+
+                                                                <div class="listing-detail-attribute">
+                                                                    <div class="key">Location</div>
+                                                                    <div class="value">@item.location.address @item.location.locality, @item.location.region @item.location.postal</div>
+                                                                </div><!-- /.listing-detail-attribute -->
+
+
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-5">
+                                                            <div class="overview">
+                                                                <h5>Property Attributes</h5>
+                                                                <ul>
+                                                                    <li><strong>Price</strong><span>$ @Price.ToString("#,##0")</span></li>
+                                                                    <li><strong>Location</strong><span>@item.location.address @item.location.locality, @item.location.region @item.location.postal</span></li>
+                                                                    <li><strong>Status</strong><span>@item.cur_data.status</span></li>
+                                                                    <li><strong>Bedrooms</strong><span>@item.cur_data.beds</span></li>
+                                                                    <li><strong>Bathrooms</strong><span>@item.cur_data.baths</span></li>
+                                                                    <li><strong>Area</strong><span>@item.cur_data.sqft sqft</span></li>
+                                                                </ul>
+                                                            </div><!-- /.overview -->
+                                                        </div><!-- /.col-* -->
+                                                        <div class="col-lg-7">
+                                                            <h5>Property Description</h5>
+                                                            <p>
+                                                                @item.cur_data.desc
+                                                            </p>
+
+                                                        </div><!-- /.col-* -->
+                                                    </div><!-- /.row -->
+
+
+                                                }
+                                                count++;
+                                            }
+
+                                            else
+                                            {
+
+                                                <div class="row">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+
+                                                            <div class="listing-detail-attribute">
+                                                                <div class="key">Courtesy of</div>
+                                                                <div class="value">@item.rets.oname </div>
+                                                            </div><!-- /.listing-detail-attribute -->
+
+                                                            <div class="listing-detail-attribute">
+                                                                <div class="key">Location</div>
+                                                                <div class="value">@item.location.address @item.location.locality, @item.location.region @item.location.postal</div>
+                                                            </div><!-- /.listing-detail-attribute -->
+
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-5">
+                                                        <div class="overview">
+                                                            <h2>Property Attributes</h2>
+                                                            <ul>
+                                                                <li><strong>Price</strong><span>$ @Price.ToString("#,##0")</span></li>
+                                                                <li><strong>Status</strong><span>@item.cur_data.status</span></li>
+                                                                <li><strong>Bedrooms</strong><span>@item.cur_data.beds</span></li>
+                                                                <li><strong>Bathrooms</strong><span>@item.cur_data.baths</span></li>
+                                                                <li><strong>Area</strong><span>@item.cur_data.sqft sqft</span></li>
+                                                            </ul>
+                                                        </div><!-- /.overview -->
+                                                    </div><!-- /.col-* -->
+                                                    <div class="col-lg-7">
+                                                        <h2>Property Description</h2>
+                                                        <p>
+                                                            @item.cur_data.desc
+                                                        </p>
+
+                                                    </div><!-- /.col-* -->
+                                                </div>
+
+                                            }
+
+
+                                        }
+                                    }
+
+                                    <div class="call-to-action-small">
+                                        <h1>Looking for more comfortable experience?</h1>
+                                        <h2>Check out our mobile application and browse the properties as no other.</h2>
+                                        <div class="call-to-action-small-buttons">
+                                            <a href="https://itunes.apple.com/us/app/compass-real-estate-homes/id692766504?mt=8" class="btn btn-secondary"><i class="fa fa-apple"></i> Download iOS</a>
+
+                                        </div><!-- /.call-to-action-small-buttons -->
+                                    </div><!-- /.call-to-action-small -->
+                                    <!-- /.valuation -->
+
+                                </div><!-- /.col-* -->
+                                <div class="col-md-4 col-lg-3">
+                                    <div class="widget">
+                                        <ul class="nav nav-stacked nav-style-primary">
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">
+                                                    <i class="fa fa-share-alt"></i> Share Property
+                                                </a>
+                                            </li><!-- /.nav-item -->
+                                            <!-- /.nav-item -->
+                                            <!-- /.nav-item -->
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">
+                                                    <i class="fa fa-envelope"></i> Send By E-mail
+                                                </a>
+                                            </li><!-- /.nav-item -->
+                                            <!-- /.nav-item -->
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">
+                                                    <i class="fa fa-calculator"></i> Calculator
+                                                </a>
+                                            </li><!-- /.nav-item -->
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">
+                                                    <i class="fa fa-comment"></i> Write Review
+                                                </a>
+                                            </li><!-- /.nav-item -->
+                                            <!-- /.nav-item -->
+                                        </ul>
+                                    </div>
+                                    <div class="widget widget-background-white">
+                                        <h3 class="widgettitle">Inquire Form</h3>
+
+                                        @{Html.RenderAction("Enquiry", "Article");}
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div>
+
+
+
+
+
+
+
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAawqliBxwDYdgLhbfDAeLMz5NqNvrr-OE&libraries=places"></script>
+    <script src="~/Content/FrontEndJS/maps.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('form').submit(function () {
+                if (isValidEmailAddress($("#Email").val())) {
+                    $("#ajaxLoading").css("display", "block");
+                    $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                    $("#ajaxLoading").css("left", $(window).width() / 2);
+                    $("#ajaxLoading").css("position", "fixed");
+                    $("#ajax-backdrop").css("display", "block");
+                    var serializedForm = $(this).serialize();
+                    $.ajax({
+                        url: '@Url.Action("Enquiry")',
+                        type: "POST",
+                        data: serializedForm,
+
+                        success: function (result) {
+                            $("#ajaxLoading").css("display", "none");
+                            $("#ajax-backdrop").css("display", "none");
+                            $('#ErrorView').text(result).show();
+
+                        },
+                        error: function (result) {
+
+                            $('#ErrorView').text(result).show();
+                            //$('#Error').text(result.Email);
+                        }
+
+                    });
+
+                }
+                else {
+                    $("#ErrorView").text("Invalid Email Address!").show().fadeOut("slow");
+                }
+
+                return false;
+            });
+        });
+
+        function isValidEmailAddress(emailAddress) {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            return pattern.test(emailAddress);
+        }
+        if (!isValidEmailAddress(emailID)) {
+            alert("email not valid");
+        }
+
+        //$('head').append('<meta name="robots" content="noindex,nofollow"/>');
+    </script>
+
+}
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+﻿@model RealEstate.Entities.ViewModels.MstPartialLeadViewModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Partial Lead
+        <small>List </small>
+    </h1>
+</section>
+<div>
+    @Html.Partial("pvPartialLead", Model);
+</div>
+

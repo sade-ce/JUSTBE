@@ -1,0 +1,37 @@
+﻿@model RealEstate.Entities.ViewModels.MstCheckLoggedClientDeal
+
+
+@if (User.IsInRole("Client"))
+{
+
+    if (Model.CheckAgent.Count() > 0)
+    {
+
+        <li class="nav-item nav-item-parent" id="sidebar">
+            <a href="#" class="nav-link" id="Agent">
+                My Agent
+            </a>
+            <ul class="sub-menu">
+
+                @foreach (var item in Model.CheckAgent)
+                {
+                    <li><a href="@Url.Action("MyAgent","MyDeal",new {@AgentID=item.Id,@AgentName=item.AgentName, @area="Client"})">@item.AgentName</a></li>
+                }
+            </ul>
+        </li>
+
+
+    }
+
+    else
+    {
+        <li class="nav-item nav-item-parent" id="sidebar">
+            <a id="Agent" href="@Url.Action("Jay","MyDeal",new { @area="Client"})" class="nav-link kk">
+                My Agent
+            </a>
+
+        </li>
+    }
+}
+
+

@@ -1,0 +1,601 @@
+﻿@model RealEstate.Entities.ViewModels.MstCheckLoggedClientDeal
+
+@{
+    ViewBag.Title = "Just BE | Greetings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+
+
+<div id="titlebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h2>Dashboard</h2>
+
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li>Dashboard</li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="parallax margin-bottom-70" data-color="#36383e" data-color-opacity="0.7" data-img-width="800" data-img-height="505" style="background-image: url(../../img/BuyHouse.jpg); background-attachment: fixed; background-size: 1263px 797.269px; background-position: 50% -227.444px;margin-top:-66px">
+    <div class="parallax-overlay" style="background-color: rgb(54, 56, 62); opacity: 0.7;"></div>
+
+    <!-- Infobox -->
+    <div class="text-content white-font">
+        <div class="container">
+            <div class="row">
+
+                @if (!string.IsNullOrEmpty(ViewBag.message))
+                {
+                    <div class="col-md-6">
+
+                        <h2>Welcome to the JBG client portal.</h2>
+                        <p>
+                            We built this site with our clients’ real estate experience in mind, and we understand that having all the necessary information -- from reviewing your documents to searching listings to accessing resources on buying and selling -- in a central location and at your fingertips can add a great amount of ease to your journey.
+                        </p>
+                        <p>We recommend that you start by clicking on “My Deal” below to get a sneak peak of what’s ahead and to track the progress of your real estate journey with us. </p>
+                        @if (User.IsInRole("Client"))
+                        {
+                            if (Model.CheckDeal.Count() > 0)
+                            {
+                                <a href="@Url.Action("List","MyDeal",new { @area="Client"})" class="button margin-top-25">Visit your deal</a>
+
+                            }
+                        }
+                    </div>
+
+                    <div class="col-md-4">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Ar-uKNyBdas" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+                    </div>
+
+                }
+                else
+                {
+
+                    <p>
+                        Welcome back to your client dashboard. Click below to access your deal tracker and related documents as well as browse property listings and buyer/seller resources.
+
+                    </p>
+                    <p>
+                        It’s your journey, and we’re here to help.
+                    </p>
+                    if (User.IsInRole("Client"))
+                    {
+                        if (Model.CheckDeal.Count() > 0)
+                        {
+                            <a href="@Url.Action("List","MyDeal",new { @area="Client"})" class="button margin-top-25">Visit your deal</a>
+                        }
+                    }
+
+                }
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+    <!-- Infobox / End -->
+
+</div>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4">
+            <!-- Icon Box -->
+            <div class="icon-box-1 alternative">
+
+                <div class="icon-container">
+                    <i class="im im-icon-Approved-Window"></i>
+                </div>
+
+                <h3>Concierge</h3>
+                <p>Access to various utilities,For a list recommended vendors and other useful resources </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <!-- Icon Box -->
+            <div class="icon-box-1 alternative">
+
+                <div class="icon-container">
+                    <i class="im im-icon-Home"></i>
+                </div>
+
+                <h3>Buyer Resources</h3>
+                <p>Everything you need to know before buying,below are the information that will guide throught the process</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <!-- Icon Box -->
+            <div class="icon-box-1 alternative">
+
+                <div class="icon-container">
+                    <i class="im im-icon-Money-Smiley"></i>
+                </div>
+
+                <h3>Seller resources</h3>
+                <p>Selling your home—especially if you've never done it before,our guide will help you put your home from listing to settlement </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<section class="fullwidth margin-top-95 margin-bottom-0">
+    <h3 class="headline-box">Buyer &amp; Seller Resources</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="blog-post">
+                    <div class="post-content">
+                        <h3><a href="#">Concierge</a></h3>
+                        <p>So, you’ve been searching for that perfect house to call a ‘home,’ and you finally found one! The price is right, and in such a competitive market, you want to ...</p>
+                        <ul style="list-style-type:none">
+
+                            <li>
+                                <a href="#" class="read-more">New Client Form<i class="fa fa-angle-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="read-more">Lender Form<i class="fa fa-angle-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("VendorList","MyDeal",new { @area="Client"})" class="read-more">Vendors: Blinds<i class="fa fa-angle-right"></i></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-post">
+
+                    <div class="post-content">
+                        <h3><a href="/Article/BuyerGuides">Buyer</a></h3>
+                        <p>Buying a home can be an overwhelming process. From financing to negotiating to closing, there are a lot of moving pieces that can leave homebuyers bewildered </p>
+                        <ul style="list-style-type:none">
+
+                            <li>
+                                <a href="#" class="read-more">First time Home Buyer Guide<i class="fa fa-angle-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="read-more">Buyer Questionnaire<i class="fa fa-angle-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="read-more">Frequent Buyer Questions<i class="fa fa-angle-right"></i></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-post">
+
+                    <div class="post-content">
+                        <h3><a href="/Article/SellerGuides">Seller</a></h3>
+                        <p>Selling your home is a big financial and emotional task, which requires lots of planning. So before you decide to put your home on the market.. </p>
+                        <ul style="list-style-type:none">
+
+                            <li>
+                                <a href="#" class="read-more">Seller Questionnaire<i class="fa fa-angle-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="read-more">Frequent Buyer Questions<i class="fa fa-angle-right"></i></a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="@Url.Action("ClosingCost","Home")" class="read-more">Closing Cost Calculator<i class="fa fa-angle-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="fullwidth margin-top-10 margin-bottom-0 " style="background-color:#ffffff">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-5 col-md-offset-1">
+                <h4 class="headline margin-top-0 margin-bottom-20">Home Buyer Forms</h4>
+                <hr />
+                <!-- Toggles Container -->
+                <div class="style-2">
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Conventional Financing Addendum<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Conventional Financing Addendum
+                                <a href="~/UploadedFiles/BuyerResources/Conventional_Financing_Addendum__1017_ts93444.pdf" target="_blank">download</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Escalation Clause<i class="sl sl-icon-plus"></i> </a></span>
+
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Escalation Clause
+                                <a href="~/UploadedFiles/BuyerResources/Escalation_Clause__613_ts86100.pdf" target="_blank">download</a>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>FHA Addendum to Contract REQ with FHA Loans<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                FHA Addendum to Contract REQ with FHA Loans
+                                <a href="~/UploadedFiles/BuyerResources/FHA_Addendum_to_Contract_REQ_with_FHA_Loans__1017_ts16498.pdf" target="_blank">download</a>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Consent for Dual Representation and Designated Representation<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Consent for Dual Representation and Designated Representation
+                                <a href="~/UploadedFiles/BuyerResources/Consent_for_Dual_Representation_and_Designated_Representation_.pdf" target="_blank">download</a>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Contract of Sale<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Contract of Sale
+                                <a href="~/UploadedFiles/BuyerResources/Contract_of_Sale.pdf" target="_blank">download</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Addendum of Clauses A<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Addendum of Clauses A
+                                <a href="~/UploadedFiles/BuyerResources/Addendum_of_Clauses__A.pdf" target="_blank">download</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Buyers Financial Information Sheet<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Buyers Financial Information Sheet
+                                <a href="~/UploadedFiles/BuyerResources/Buyers_Financial_Information_Sheet.pdf" target="_blank">download</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Addendum of Clauses B<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Addendum of Clauses B
+                                <a href="~/UploadedFiles/BuyerResources/Addendum_of_Clauses__B.pdf" target="_blank">download</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Buyer Agency Agreement<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Buyer Agency Agreement
+                                <a href="~/UploadedFiles/BuyerResources/Buyer_Agency_Agreement.pdf" target="_blank">download</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Home Insp Contingency Notice andor Addendum<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Home Insp Contingency Notice andor Addendum
+                                <a href="~/UploadedFiles/BuyerResources/Home_Insp_Contingency_Notice_andor_Addendum__716_12072017_1_ts37770.pdf" target="_blank">download</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>PreSettlement Occupancy Addendum<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                PreSettlement Occupancy Addendum
+                                <a href="~/UploadedFiles/BuyerResources/PreSettlement_Occupancy_Addendum__814_12072017_ts55399.pdf" target="_blank">download</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>VA Financing Addendum REQ with VA Loans<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                VA Financing Addendum REQ with VA Loans
+                                <a href="~/UploadedFiles/BuyerResources/VA_Financing_Addendum_REQ_with_VA_Loans__1017_12072017_ts17135.pdf" target="_blank">download</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Toggles Container / End -->
+            </div>
+
+            <div class="col-md-5 col-md-offset-1">
+                <h4 class="headline margin-top-0 margin-bottom-20">Home Seller Forms</h4>
+                <hr />
+                <div class="style-2">
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Addendum of Clauses A<i class="sl sl-icon-plus"></i> </a></span>
+
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Addendum of Clauses A
+                                <a href="~/UploadedFiles/SellerResources/Addendum_of_Clauses__A.pdf" target="_blank">download</a>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>DC Jurisdictional Addendum<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                DC Jurisdictional Addendum
+                                <a href="~/UploadedFiles/SellerResources/DC_Jurisdictional_Addendum.pdf" target="_blank">download</a>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>PostSettlement Occupancy Addendum<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                PostSettlement Occupancy Addendum
+                                <a href="~/UploadedFiles/SellerResources/PostSettlement_Occupancy_Addendum.pdf" target="_blank">download</a>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Tenancy Addendum for Washington DC<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Tenancy Addendum for Washington DC
+                                <a href="~/UploadedFiles/SellerResources/Tenancy_Addendum_for_Washington_DC.pdf" target="_blank">download</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="toggle-wrap">
+                        <span class="trigger"><a href="#"><i class="sl sl-icon-pin"></i>Tenant Opportunity To Purchase Affidavit<i class="sl sl-icon-plus"></i> </a></span>
+                        <div class="toggle-container" style="display: none;">
+                            <p>
+                                Tenant Opportunity To Purchase Affidavit
+                                <a href="~/UploadedFiles/SellerResources/Tenant_Opportunity_To_Purchase_Affidavit.pdf" target="_blank">download</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="fullwidth margin-top-105 margin-bottom-0 padding-bottom-80 padding-top-95" data-background-color="#f7f7f7" style="background: rgb(247, 247, 247);">
+    <h3 class="headline-box">Client Stories</h3>
+    <div class="container">
+        <div class="row">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="testimonial-slider" class="owl-carousel">
+                            <div class="testimonial">
+                                <div class="testimonial-content">
+                                    <p class="description">
+                                        " Jay helped us buy an apartment in downtown DC. Jay made the whole process not just hassle-free but enjoyable for us! He has in-depth knowledge of DC real estate market and has excellent interpersonal skills. We absolutely loved working with him and would refer him any day. "
+                                    </p>
+                                </div>
+                                @*<div class="pic">
+                                        <img src="images/img-1.jpg" alt="">
+                                    </div>*@
+                                <h3 class="testimonial-title">Huma K.</h3>
+                                <span class="post">Washington, DC</span>
+                            </div>
+
+                            <div class="testimonial">
+                                <div class="testimonial-content">
+                                    <p class="description">
+                                        " Jay is in a class among himself.  His insights and strategy allowed me to sell my condo in five days and be able to purchase the house we really wanted - with a $20k credit at selling. Jay "gets it" and is constantly promoting to help maximize your profits with the quickest turnaround. "
+                                    </p>
+                                </div>
+                                @*<div class="pic">
+                                        <img src="images/img-2.jpg" alt="">
+                                    </div>*@
+                                <h3 class="testimonial-title">Angelo T.</h3>
+                                <span class="post">Arlington, VA</span>
+                            </div>
+
+                            <div class="testimonial">
+                                <div class="testimonial-content">
+                                    <p class="description">
+                                        " Jay recently helped me sell my condo in DC.  We met almost two years ago and I immediately felt that Jay was a friend of mine. Even though I resisted in staging my place, it was the right advice.  Jay had my place under contract within a week and got me the price that I wanted. "
+                                    </p>
+                                </div>
+                                @*<div class="pic">
+                                        <img src="images/img-2.jpg" alt="">
+                                    </div>*@
+                                <h3 class="testimonial-title">Niraj M.</h3>
+                                <span class="post">Washington, DC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<a href="@Url.Action("Contact","Home")" class="flip-banner parallax" data-color="#333" data-color-opacity="0.9" data-img-width="2500" data-img-height="1000" style="background-attachment: fixed; background-size: 1349px 863.36px; background-position: 50% -213.59px;">
+    <div class="parallax-overlay" style="background-color: rgb(39, 74, 187); opacity: 0.9;"></div>
+    <div class="flip-banner-content">
+        <h2 class="flip-visible">We've Got You Covered!</h2>
+        <h2 class="flip-hidden">Contact Us <i class="sl sl-icon-arrow-right"></i></h2>
+    </div>
+</a>
+<div class="clearfix"></div>
+
+<style>
+    .testimonial {
+        text-align: center;
+    }
+
+        .testimonial .testimonial-content {
+            padding: 30px 50px;
+            background: #2ec4b6;
+            border-radius: 24px 0;
+            position: relative;
+            margin: 0 10px 35px;
+        }
+
+            .testimonial .testimonial-content:after {
+                content: "";
+                position: absolute;
+                border-top: 10px solid #2ec4b6;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                bottom: -9px;
+                left: 47%;
+            }
+
+        .testimonial .description {
+            font-size: 14px;
+            color: #fdfffc;
+            line-height: 25px;
+            margin: 0;
+        }
+
+        .testimonial .pic {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+            .testimonial .pic img {
+                width: 100%;
+                height: auto;
+            }
+
+        .testimonial .testimonial-title {
+            display: block;
+            font-size: 17px;
+            font-weight: bold;
+            color: #011627;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0 0 7px 0;
+        }
+
+        .testimonial .post {
+            display: block;
+            font-size: 14px;
+            color: #ff9f1c;
+        }
+
+    .owl-theme .owl-controls {
+        border-top: 1px solid #d5d5d5;
+        margin-top: 40px;
+        padding-top: 30px;
+    }
+
+        .owl-theme .owl-controls .owl-buttons div {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background: #ff9f1c;
+            border-radius: 4px;
+            opacity: 1;
+            padding: 0;
+        }
+
+    .owl-prev:before,
+    .owl-next:before {
+        font-family: 'FontAwesome';
+        color: #fdfffc;
+    }
+
+    .owl-next:before {
+        content: "\f054";
+    }
+
+    .owl-prev:hover:before,
+    .owl-next:hover:before {
+        color: #011627;
+    }
+
+    .owl-theme .owl-controls .owl-buttons {
+        position: static;
+    }
+
+    .testimonial {
+        box-shadow: none;
+    }
+
+        .testimonial:before {
+            content: none;
+        }
+</style>
+
+@section Scripts
+{
+    <script>
+
+        $(document).ready(function () {
+            $("#testimonial-slider").owlCarousel({
+                items: 1,
+                itemsDesktop: [1199, 1],
+                itemsDesktopSmall: [979, 1],
+                itemsTablet: [768, 1],
+                itemsMobile: [600, 1],
+                pagination: false,
+                navigation: true,
+                navigationText: ["", ""],
+                slideSpeed: 1000,
+                autoPlay: true
+            });
+        });
+</script>
+    }

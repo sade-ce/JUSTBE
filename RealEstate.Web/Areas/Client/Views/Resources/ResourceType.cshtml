@@ -1,0 +1,187 @@
+﻿@model RealEstate.Entities.ViewModels.ResourceLinksViewModel
+@{
+    ViewBag.Title = "Resources";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayoutNew.cshtml";
+    if (User.IsInRole("Agent") || User.IsInRole("Admin"))
+    {
+        Layout = "/Views/Shared/_LayoutCommonNew.cshtml";
+
+    }
+}
+@using System.Security.Claims;
+
+@if ((User.IsInRole("Client")))
+{
+<div class="top-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="breadcrumbs">
+                    <ul class="align-items-center d-flex list-unstyled m-0 p-0">
+                        <li class="d-none d-lg-block mr-4">
+                          
+                                <a href="#!" id="toggleHeader"><img src="~/Content/NewVersion/images/ham.png" alt="" class="img-fluid"></a>
+                            
+                        </li>
+                        @*<li>My Account<span>&nbsp;>&nbsp;</span></li>
+                            <li class="active">Edit Profile<span>&nbsp;>&nbsp;</span></li>*@
+                        <li>
+                            <a class="nav-link nav-cal-drop nav-cal-drop-new dropdown-toggle " href="@Url.Action("Index", "Resources", new { area = "Client" })" role="button">Resources<span style="color:#212529">&nbsp;>&nbsp;</span></a>
+                        </li>
+                        <li class="no-activee">@Model.ResourceTypeView.Title.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 d-md-block d-none">
+                <div class="accountLog d-flex justify-content-end align-items-center">
+                    <p>Hello, &nbsp;<span>@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)</span></p>
+                    <div class="profileImgtop" style="background-size: cover; background-position: center;   height:50px;">
+                        <!-- <img alt="profile-img" id="profileimg" class="img-fluid profileimg"> -->
+                    </div>                                              
+                        <span> &nbsp; &nbsp; | &nbsp; </span>
+
+                        <div class="dropdown">
+                            <button class="btn  dropdown-toggle mybtn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                My Account
+                            </button>
+                            <div class="dropdown-menu MyAccountDrop" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="@Url.Action("EmailPreferences", "Account", new { @area = "" })"><i class="flaticon-gear"></i>Notification Settings</a>
+                                <a class="dropdown-item" href="@Url.Action("EditProfile", "Account", new { @area = "" })"><i class="flaticon-conversation"></i>Edit Profile</a>
+                                <a class="dropdown-item" href="@Url.Action("ChangePassword", "Account", new { @area = "" })"><i class="flaticon-password"></i>Change Password</a>
+
+                                @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                                }
+                            </div>
+                        </div>
+                  
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+}
+<section class="resourcesSubPageWrapper">
+   
+    <div class="resourcesSubPageBanner" style="background-image:url(/img/Resource/@Url.Content(Model.ResourceTypeView.Image));background-repeat: no-repeat;background-position:center;background-size:cover;">
+        <div class="container">
+            <div class="resourcesBannerContent">
+                <h2>Resources for @Model.ResourceTypeView.Title.ToLower()</h2>
+                <p>Duis aute irure dolor in reprehenderit in voluptate</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="resourcesSubPageContent">
+        <div class="container">
+            <div class="row">
+
+                @if (Model.ResourcesTitles.Count() > 0)
+                {
+                    foreach (var c in Model.ResourcesTitles)
+                    {
+
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="resourcesInnerBlock">
+                                <img class="icon" src="/img/Resource/@c.Image">
+                                <div class="resourcesInnerContent">
+                                    <h5 class="title">@c.Title</h5>
+                                    <ul>
+                                        @foreach (var item in Model.ResourceLinksList)
+                                        {
+                                          
+                                            if (c.TitleId == item.Title_Id)
+                                            {
+                                                <li onclick="location.href ='@Url.Action("Comments","Resources",new { Link=item.LinkId})'">@item.Link</li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    }
+                }
+
+                @*<div class="col-12 col-sm-6 col-md-4">
+                        <div class="resourcesInnerBlock">
+                            <img class="icon" src="img/icon2.png">
+                            <div class="resourcesInnerContent">
+                                <h5 class="title">Whar should you buy?</h5>
+                                <ul>
+                                    <li>DC-centerd house traits and quirks</li>
+                                    <li>How to set up a successful home search.</li>
+                                    <li>What to look for when looking.</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>consectetur adipiscing elit</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>consectetur adipiscing elit</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="resourcesInnerBlock">
+                            <img class="icon" src="img/icon1.png">
+                            <div class="resourcesInnerContent">
+                                <h5 class="title">Finding your dream home</h5>
+                                <ul>
+                                    <li>What's a home inspection?</li>
+                                    <li>What's an appraisal?</li>
+                                    <li>What are condo docs?</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>consectetur adipiscing elit</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>consectetur adipiscing elit</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="resourcesInnerBlock">
+                            <img class="icon" src="img/icon2.png">
+                            <div class="resourcesInnerContent">
+                                <h5 class="title">Getting through contingencies</h5>
+                                <ul>
+                                    <li>What does it mean to work with agent?</li>
+                                    <li>What's my 80/20?</li>
+                                    <li>Choose a school district.</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>consectetur adipiscing elit</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>consectetur adipiscing elit</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="resourcesInnerBlock">
+                            <img class="icon" src="img/icon1.png">
+                            <div class="resourcesInnerContent">
+                                <h5 class="title">Life after settlement</h5>
+                                <ul>
+                                    <li>Making your home yours.</li>
+                                    <li>Seasonal issues to watch out.</li>
+                                    <li>Exploring your neighborhood.</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>consectetur adipiscing elit</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>consectetur adipiscing elit</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>*@
+
+            </div>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,599 @@
+﻿@model RealEstate.Entities.ViewModels.MstCreateClientAndAssignAgentModel
+
+@{
+    ViewBag.Title = "Add Client";
+  //  ViewBag.ViewHeader = "Add User";
+}
+<link href="~/Content/SlimImageCropper/slim.css" rel="stylesheet" />
+@if (User.IsInRole("Admin"))
+{
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstateNew.cshtml";
+}
+else if (User.IsInRole("Agent"))
+{
+    
+       Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayoutVersion2.cshtml";
+}
+@using System.Security.Claims;
+
+<section class="wrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>Add Client</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello, @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new"/></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 breadcrumb-list">
+                    @*<p><span>Client Profile</span></p>*@
+                </div>
+                <div class="col-sm-12 editPrifileBtnWrap">
+                    <div class="btn-wrap">
+                     
+                        <a href="#" class="btn tealButton btnSaveProfile">Save</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 profile-info-section">
+
+                    
+
+                    @using (Html.BeginForm("Create", "useragentnew", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "myform" }))
+                        { @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(m => m.Register.ClientID, new { @id = "txtClientId" })
+                        @Html.HiddenFor(m => m.Register.UserRole)
+                        <div class="row divEditClientProfile" >
+
+                            <div class="col-xl-7 col-sm-12 profile-wrap edit-profile-info-wrap">
+                                <div class="whiteBgBorderBox boxTwo">
+                                    <div class="profile-pic-wrap">
+                                        <div class="profile-pic">
+
+
+                                            <div id="slim-cropper" class="slim" data-size="248,253" style="max-width:248px;max-height:253px" data-did-remove="imageWillBeRemoved" data-label="Click and drag your image here">
+                                                <input type="file" name="upfiles" />
+                                                @if (Model.Register.UserPhotoThumb == null || Model.Register.UserPhotoThumb == "")
+                                                {
+                                                }
+                                                else
+                                                { <img src="@Model.Register.UserPhotoNormal" class="img-fluid" />
+                                                }
+                                            </div>
+                                            @Html.HiddenFor(m => m.Register.UserPhotoThumb)
+                                            @Html.HiddenFor(m => m.Register.UserPhotoNormal)
+                                        </div>
+                                    </div>
+                                    <div class="profile-infor-wrap">
+                                        <div class="c_Cfrom">
+                                            <div class="row">
+                                                <div class="col-md-6"><h3>@Html.TextBoxFor(model => model.Register.Name, new { @class = "form-control", @placeholder = "First Name", @required = "required" })</h3></div>
+                                                <div class="col-md-6"><h3>@Html.TextBoxFor(model => model.Register.LastName, new { @class = "form-control", @placeholder = "Last Name", @required = "required" })</h3></div>
+                                            </div>
+</div>
+
+
+                                            <p><i class="material-icons">room</i>@Html.TextBoxFor(model => model.Register.ClientAddress, new { @class = "form-control", @placeholder = "Address" })</p>
+                                            <ul>
+
+
+
+                                                <li>
+                                                    <label>Neighborhood:</label><input type="text" class="form-control" id="txtNeighborhood" />
+                                                    @Html.HiddenFor(model => model.Register.Neighborhood, new { @class = "form-control" })
+                                                </li>
+                                                <li>
+                                         
+                                                    <label>Partner:</label><input type="text" class="form-control" id="txtPartner" value="@Model.Register.Partner" /> @Html.HiddenFor(model => model.Register.Partner, new { @class = "form-control" })
+
+
+                                                    @*@Html.DropDownListFor(x => x.Register.Partner, new List<SelectListItem>
+    { new SelectListItem() {Text = "-- Select --", Value=""},
+                        new SelectListItem() {Text = "Yes", Value="Yes"},
+                        new SelectListItem() {Text = "No", Value="No"},
+    }, new { @class = "form-control" })*@
+                                                </li>
+                                                <li><label>Children:</label> @Html.TextBoxFor(model => model.Register.Children, new { @class = "form-control", @type = "number", @step = "1", @value = 0 })</li>
+                                                @*<li><label>DOB:</label> @Html.TextBoxFor(model => model.Register.DOB, "{0:d}", new { @class = "form-control", id = "txtDOB", autocomplete = "off" })</li>*@
+                                                <li>
+                                                    <label>DOB:</label>
+                                                    <select name='month' id='monthddl' class="form-control">
+                                                        <option value=''>Month</option>
+                                                        <option value='January'>January</option>
+                                                        <option value='February'>February</option>
+                                                        <option value='March'>March</option>
+                                                        <option value='April'>April</option>
+                                                        <option value='May'>May</option>
+                                                        <option value='June'>June</option>
+                                                        <option value='July'>July</option>
+                                                        <option value='August'>August</option>
+                                                        <option value='September'>September</option>
+                                                        <option value='October'>October</option>
+                                                        <option value='November'>November</option>
+                                                        <option value='December'>December</option>
+                                                    </select>
+                                                    <select name='day' id='dayddl' class="form-control">
+                                                        <option value=''>Day</option>
+                                                        <option value='01'>01</option>
+                                                        <option value='02'>02</option>
+                                                        <option value='03'>03</option>
+                                                        <option value='04'>04</option>
+                                                        <option value='05'>05</option>
+                                                        <option value='06'>06</option>
+                                                        <option value='07'>07</option>
+                                                        <option value='08'>08</option>
+                                                        <option value='09'>09</option>
+                                                        <option value='10'>10</option>
+                                                        <option value='11'>11</option>
+                                                        <option value='12'>12</option>
+                                                        <option value='13'>13</option>
+                                                        <option value='14'>14</option>
+                                                        <option value='15'>15</option>
+                                                        <option value='16'>16</option>
+                                                        <option value='17'>17</option>
+                                                        <option value='18'>18</option>
+                                                        <option value='19'>19</option>
+                                                        <option value='20'>20</option>
+                                                        <option value='21'>21</option>
+                                                        <option value='22'>22</option>
+                                                        <option value='23'>23</option>
+                                                        <option value='24'>24</option>
+                                                        <option value='25'>25</option>
+                                                        <option value='26'>26</option>
+                                                        <option value='27'>27</option>
+                                                        <option value='28'>28</option>
+                                                        <option value='29'>29</option>
+                                                        <option value='30'>30</option>
+                                                        <option value='31'>31</option>
+                                                    </select>
+
+                                                    @Html.HiddenFor(model => model.Register.DOB, new { @class = "form-control", id = "txtDOB", autocomplete = "off" })
+                                                </li>
+                                             </ul>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-sm-12 client-tier-block edit-client-tier-wrap">
+                                <div class="whiteBgBorderBox boxTwo">
+                                    <h3>Client Details</h3>
+                                    <ul>
+                                        <li><label>Email:</label> @Html.TextBoxFor(model => model.Register.Email, new { @class = "form-control", @required = "required", @type = "email" })</li>
+
+                                        <li>
+                                            <label>Phone:</label> @Html.TextBoxFor(model => model.Register.PhoneNumber, new { @class = "form-control", @required = "required", @maxlength = 12 })
+                                            @Html.ValidationMessageFor(model => model.Register.PhoneNumber, "", new { @class = "text-danger" })
+                                        </li>
+                                        <li>
+                                            <label>Type:</label>@Html.DropDownListFor(model => model.Register.ClientTypeID, new SelectList(Model.ClientTypeDropDown, "ClientTypeID", "ClientType"), "-- Select --", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Register.ClientTypeID)
+                                        </li>
+                                        <li>
+                                            <label>Referred:</label>
+                                            @Html.TextBoxFor(model => model.Register.HaveReferred, new { @class = "form-control", @id = "txtReferred" })
+                                            @*@Html.DropDownListFor(x => x.Register.HaveReferred, new List<SelectListItem>
+     { new SelectListItem() {Text = "-- Select --", Value=""},
+                        new SelectListItem() {Text = "Yes", Value="Yes"},
+                        new SelectListItem() {Text = "No", Value="No"},
+    }, new { @class = "form-control" })*@
+                                        </li>
+                                        <li><label>Referal Source:</label> @Html.TextBoxFor(model => model.Register.ReferalSource, new { @class = "form-control", @id = "txtReferalSource" })</li>
+                                        <li>
+                                            <label>Client Tier:</label>
+                                            @Html.DropDownListFor(x => x.Register.ClientTier, new List<SelectListItem>
+    {
+                                            new SelectListItem() {Text = "-- Select --", Value=""},
+                        new SelectListItem() {Text = "Platinum", Value="Platinum"},
+                        new SelectListItem() {Text = "Gold", Value="Gold"},
+                         new SelectListItem() {Text = "Silver", Value="Silver"},
+                          new SelectListItem() {Text = "Member", Value="Member"},
+                           new SelectListItem() {Text = "Non-Client", Value="Non-Client"},
+    }, new { @class = "form-control" })
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button type="submit" id="btnSave" style="display:none"></button>
+                    }
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+<div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body" id="message">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Got It</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Content/Plugins/Select2/select2.min.js"></script>
+<script src="~/Content/SlimImageCropper/slim.kickstart.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+
+        $("#txtReferred").autocomplete({
+            source: function (req, resp) {
+                $.ajax({
+                    url: '@Url.Action("Partner", "UserAgentNew")',
+                    type: "POST",
+                    dataType: "json",
+                    data: { term: GetCurrentSearchTerm(req.term) },
+                    success: function (data) {
+                        $("#Register_HaveReferred").val(req.term);
+                        resp($.map(data, function (item) {
+                            return { label: item.Key, Id: item.Value };
+                        }))
+
+                    }
+                })
+            },
+
+            select: function (event, ui) {
+                var LastValue = splitCurrentText(this.value);
+                LastValue.pop();
+                LastValue.push(ui.item.value);
+                LastValue.push("");
+
+                this.value = LastValue.join(",");
+                $("#Register_HaveReferred").val(this.value.replace(/^,|,$|(,)+/g, '$1'));
+                return false;
+            },
+            focus: function () {
+            return false;
+        }
+        });
+        function splitCurrentText(LastTerm) {
+
+            return LastTerm.split(/,\s*/);
+        }
+
+        function GetCurrentSearchTerm(LastTerm) {
+
+            return splitCurrentText(LastTerm).pop();
+        }
+    });
+</script>
+<script>
+        $('.ddl-select2').select2({ width: "100%" });
+</script>
+<script>
+
+    $(function () {
+        //$("#txtDOB").datepicker({
+        //    changeMonth: true,
+        //    changeYear: true,
+        //    dateFormat: "mm/dd/yy",
+        //    yearRange: '-100:+0'
+        //});
+        var res = $("#txtDOB").val().split(" ");
+        var Month=res[0]
+        var Day = res[1]
+        $('#monthddl').val(Month);
+        $('#dayddl').val(Day);
+
+
+        $('#txtReferalSource').autocomplete({
+            source: function (request, response) {
+                var itemnamecodes = new Array();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ReferalSource", "UserAgentNew")',
+                    dataType: 'json',
+                    data: { term: request.term },
+                    success: function (data) {
+
+                        response($.map(data, function (item) {
+                            return { label: item.Key, Id: item.Value };
+                        }))
+                    }
+                })
+            },
+            select: function (e, i) {
+        
+
+            }
+        })
+
+        $('#txtNeighborhood').autocomplete({
+            source: function (request, response) {
+                var itemnamecodes = new Array();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Neighborhood", "UserAgentNew")',
+                    dataType: 'json',
+                    data: { term: request.term },
+                    success: function (data) {
+
+                        response($.map(data, function (item) {
+                            return { label: item.Key, Id: item.Value };
+                        }))
+                    }
+                })
+            },
+            select: function (e, i) {
+                $("#Register_Neighborhood").val(i.item.Id);
+
+            }
+        })
+
+
+        $('#txtPartner').autocomplete({
+            source: function (request, response) {
+                var itemnamecodes = new Array();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Partner", "UserAgentNew")',
+                    dataType: 'json',
+                    data: { term: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.Key, Id: item.Value };
+                        }))
+                    }
+                })
+            },
+            change: function (event, ui) {
+
+                if (ui.item === null) {
+                    $('#Register_Partner').val($('#txtPartner').val());
+
+                }
+            },
+            select: function (e, i) {
+                $("#Register_Partner").val(i.item.label);
+                //GetPartnerDetails(i.item.Id);
+
+            }
+        })
+
+        $(".btnSaveProfile").click(function () {
+            var res = validate();
+            if (res == false) {
+                return false;
+            }
+                $("#ajaxLoading").css("display", "block");
+                $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                $("#ajaxLoading").css("left", $(window).width() / 2);
+                $("#ajaxLoading").css("position", "fixed");
+                $("#ajax-backdrop").css("display", "block");
+                $("#btnSave").click(); // Submit the form
+
+        });
+
+
+
+
+
+
+        function ValidateEmail(email) {
+            var expr = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,6})?$/
+            return expr.test(email);
+        };
+
+        function validate() {
+            var isValid = true;
+            if ($('#Register_Name').val().trim() == "") {
+                $('#Register_Name').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+            else {
+                $('#Register_Name').css('border', '1px solid #ced4da')
+            }
+
+            if ($('#Register_LastName').val().trim() == "") {
+                $('#Register_LastName').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+            else {
+                $('#Register_LastName').css('border', '1px solid #ced4da')
+            }
+
+
+            if ($('#Register_Email').val() != "") {
+
+                if (!ValidateEmail($("#Register_Email").val())) {
+                    $('#Register_Email').css('border', '1px solid #EB5757')
+                    isValid = false;
+                }
+                else {
+                    $('#Register_Email').css('border', '1px solid #ced4da')
+                }
+
+
+            }
+            else {
+                $('#Register_Email').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+
+
+
+
+            if ($('#Register_PhoneNumber').val() != "") {
+                if ($('#Register_PhoneNumber').val().length < 12) {
+                    $('#Register_PhoneNumber').css('border', '1px solid #EB5757')
+                    isValid = false;
+                }
+                else {
+                    $('#Register_PhoneNumber').css('border', '1px solid #ced4da')
+                }
+
+
+            }
+            else {
+                $('#Register_PhoneNumber').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+
+
+            if ($('#Register_ClientTypeID').val() == "") {
+
+                $('#Register_ClientTypeID').css('border', '1px solid #EB5757')
+                    isValid = false;
+
+
+
+            }
+            else {
+                $('#Register_ClientTypeID').css('border', '1px solid #ced4da')
+            }
+
+
+
+            if ($('#Register_ClientTypeID').val() == 2) {
+                if ($('#Register_ClientAddress').val() == "") {
+                    $('#Register_ClientAddress').css('border', '1px solid #EB5757')
+                    isValid = false;
+                }
+                
+
+
+
+            }
+            else {
+                $('#Register_ClientAddress').css('border', '1px solid #ced4da')
+            }
+
+
+            if ($('#monthddl').val() != '' && $('#dayddl').val() == '') {
+                $('#monthddl').css('border', '1px solid #ced4da')
+                $('#dayddl').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+            if ($('#dayddl').val() != '' && $('#monthddl').val() == '') {
+                $('#dayddl').css('border', '1px solid #ced4da')
+                $('#monthddl').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+            if ($('#dayddl').val() != '' && $('#monthddl').val() != '') {
+                $('#dayddl').css('border', '1px solid #ced4da')
+                $('#monthddl').css('border', '1px solid #ced4da')
+                var DOB = $('#monthddl').val() + ' ' + $('#dayddl').val()
+                $('#txtDOB').val(DOB);
+            }
+            if ($('#monthddl').val() == '' && $('#dayddl').val() == '') {
+                $('#txtDOB').val("");
+            }
+            return isValid;
+        }
+
+
+
+
+
+
+
+
+
+    })
+
+</script>
+
+
+<script>
+    $('#Register_PhoneNumber').keydown(function (e) {
+          var key = e.which || e.charCode || e.keyCode || 0;
+          $phone = $(this);
+
+          // Don't let them remove the starting '('
+
+
+          // Auto-format- do not expose the mask as the user begins to type
+          if (key !== 8 && key !== 9) {
+              if ($phone.val().length === 3) {
+                  $phone.val($phone.val() + '.');
+              }
+              if ($phone.val().length === 7) {
+                  $phone.val($phone.val() + '.');
+              }
+
+          }
+
+          // Allow numeric (and tab, backspace, delete) keys only
+          return (key == 8 ||
+                  key == 9 ||
+                  key == 46 ||
+                  (key >= 48 && key <= 57) ||
+                  (key >= 96 && key <= 105));
+      })
+
+      .bind('focus click', function () {
+          $phone = $(this);
+
+
+      })
+
+      .blur(function () {
+          $phone = $(this);
+
+
+      });
+
+
+    </script>
+
+
+
+
+

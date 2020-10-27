@@ -1,0 +1,35 @@
+﻿@model RealEstate.Entities.Models.utblMstEventCalMaster
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>utblMstEventCalMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EventText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedOn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CalEventID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

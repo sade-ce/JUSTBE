@@ -1,0 +1,203 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealRespondManageModel
+
+@{
+    ViewBag.Title = "Respond";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://justbere-d4d9.kxcdn.com/Content/Ajaxpopup.css" rel="stylesheet" />
+<div id="titlebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Deal Response</h2>
+
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li>Live Deal</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <!-- Submit Page -->
+
+
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Widget -->
+                        <div class="col-md-3">
+                            <div class="sidebar left">
+                                <div class="my-account-nav-container">
+
+                                    <ul class="my-account-nav">
+                                        <li class="sub-nav-title">Manage Account</li>
+                                        <li><a href="my-profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>
+                                        <li><a href="change-password.html"><i class="sl sl-icon-lock"></i> Change Password</a></li>
+                                        <li><a href="#"><i class="sl sl-icon-power"></i> Log Out</a></li>
+                                    </ul>
+
+                                    <ul class="my-account-nav">
+                                        <li class="sub-nav-title">Track Deal</li>
+                                        <li><a href="~/Client/Livedeal/Status" class="current"><i class="sl sl-icon-docs"></i> Deal Status</a></li>
+                                    </ul>
+                                    <ul class="my-account-nav"></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="submit-page">
+                                <h3>Basic Information</h3>
+                                <div class="submit-section margin-bottom-15">
+                                    <!-- Title -->
+                                    <div class="col-md-12 ">
+                                        <div class="form">
+                                            <div class="col-md-4">
+                                                <h5>Tracking ID <i class="tip" data-tip-content="Tracking ID or T-ID is a 10 digit alphanumeric key which uniquely identifies any ongoing deal"></i></h5>
+                                                <span>@Model.MstClientRespondView.TrackingID</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h5>Name</h5>
+                                                <span>@Model.MstClientRespondView.Name</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h5>Email</h5>
+                                                <span>@Model.MstClientRespondView.Email</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div class="form">
+                                            <div class="col-md-4">
+                                                <h5>Status <i class="tip" data-tip-content="Status involves series of step from scratch to end of your deal also represents on percentage"></i></h5>
+                                                <span>@Model.MstClientRespondView.Status</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h5>Description</h5>
+                                                <span>@Model.MstClientRespondView.Note</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h5>Requested On</h5>
+                                                <span>@Model.MstClientRespondView.UpdatedOn</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            @Html.Partial("pvUploadDealDocument", Model)
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="panel panel-primary text-center ajax-new-load" id="ajaxLoading" >
+    <div class="panel-heading">Loading data</div>
+    <div class="panel-body" style="padding-left: 30px; padding-right: 30px;">
+        <img src="~/img/loading.gif" alt="Loading" style="margin-bottom: 10px" /><br />
+        Please wait...
+    </div>
+</div>
+<div id="ajax-backdrop" class="fade in" style="background-color: rgb(0, 0, 0); bottom: 0px; left: 0px; position: fixed; right: 0px; top: 0px; z-index: 10000; opacity: 0.4; display: none;"></div>
+<div class="modal modal-styled" id="myErroMsgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModal()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myErroModalLabel">Information!</h4>
+            </div>
+            <div class="modal-body">
+                <h4 id="Msg"></h4>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-3 col-md-10 text-right" style="padding-right: 0;">
+
+                    <div class="col-md-12">
+                        <a href="#" class="button" id="myErroMsgModalNoButton" data-dismiss="modal" onclick="CloseMyModal()" value="Cancel">Cancel</a>
+                        <a href="#" id="myErroMsgModalYesButton" value="Yes" class="button hidden" onclick="OkMyModal()">Ok</a>
+
+                    </div>
+                    
+                    @*<input type="button" id="myErroMsgModalNoButton"  data-dismiss="modal" onclick="CloseMyModal()" value="Cancel" />
+                    <input type="button" id="myErroMsgModalYesButton" value="Yes" class="btn btn-info btn-sm hidden" onclick="OkMyModal()" />*@
+                </div>
+            </div>
+            <input type="hidden" id="eventSender" name="name" value=" " />
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<style type="text/css">
+    .content {
+        min-height: 600px;
+    }
+
+    .pl {
+        padding-left: 350px;
+    }
+
+        .ajax-new-load{
+display: none;
+      box-shadow: rgb(0, 0, 0,0.3) 0px 0px 50px;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+
+    }
+
+</style>
+
+<style type="text/css">
+    table.manage-table td {
+        padding: 5px 20px;
+    }
+</style>
+
+@section Scripts{
+    <script src="https://justbere-d4d9.kxcdn.com/Scripts/CustomAjax.js"></script>
+    
+
+    <script>
+        var ShowWarningMessageBox = function (e) {
+            if ($(this).text() != "Cancel") {
+                // Set the sender infromation in hidden field and its closest form
+                $("#eventSender").val(($(this).attr('href')) + '|' + $($(this).closest('form')));
+
+                $('#myModalLabel').text('Information');
+
+                $('#Msg').text('Are you sure you want to delete the record..?');
+
+                $('#myErroMsgModalYesButton').removeClass('hidden');
+                $('#myErroMsgModal').show();
+                e.preventDefault();
+            }
+        }
+    </script>
+}
+

@@ -1,0 +1,46 @@
+﻿@model RealEstate.Entities.ViewModels.MstAgentDealShareManageModel
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Share Transaction/Assign Agents</h4>
+</div>
+
+<div class="margin-top-20">
+
+    @using (Ajax.BeginForm("ShareAgentTransaction", "agent", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "transactionform" }))
+    {<div class="modal-body">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.utblMstAgentDealSharings.ClientID, new { Value = ViewBag.ClientID })
+        @Html.HiddenFor(model => model.utblMstAgentDealSharings.SharerAgentID)
+         @Html.HiddenFor(model => model.utblMstAgentDealSharings.TransactionID)
+
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.utblMstAgentDealSharings.SharedToAgentID, new { @class = "control-label col-md-3 pull-left" })
+            <div class="col-md-9">
+                @Html.DropDownListFor(model => model.utblMstAgentDealSharings.SharedToAgentID, new SelectList(Model.AgentDropDown, "Id", "AgentName"), "--- Select Agent --- ", new { @class = "form-control drop-change ddl-select2" })
+                @Html.ValidationMessageFor(m => m.utblMstAgentDealSharings.SharedToAgentID)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.utblMstAgentDealSharings.Notes, new { @class = "control-label col-md-3 pull-left" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(model => model.utblMstAgentDealSharings.Notes, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.utblMstAgentDealSharings.Notes)
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="CloseMyModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</div>
+    }
+
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>

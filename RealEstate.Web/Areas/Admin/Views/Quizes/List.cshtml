@@ -1,0 +1,87 @@
+﻿@model RealEstate.Entities.ViewModels.QuizViewModel
+@{
+    ViewBag.Title = "QuizUsers List";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+    if (User.IsInRole("Agent"))
+    {
+        Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+    }
+}
+<style>
+    .status-img {
+        height: 20px;
+        width: 20px;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        Quiz Users
+        <small>List </small>
+    </h1>
+</section>
+<div class="content">
+    <div class="col-md-12">
+        <div class="well well-sm clearfix">
+            <div class="col-md-6 pull-left">
+                <form method="get" action="@Url.Action("list","Quizes")" data-otf-ajax="true" data-otf-target="#DataGrid" autocomplete="on">
+                    <div class="input-group">
+                        <input type="text" name="searchTerm" id="inputsearch" class="form-control" placeholder="Search by Email..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger pull-left" type="submit" value="Search By Name" id="search">Go!</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="pull-right">
+                @*@Html.ActionLink(" Add New ", "Create", null, new { @class = "btn btn-primary pull-right " })*@
+            </div>
+            @Html.ActionLink("Clear Results", "List", null, new { @class = "btn btn-primary", id = "clear" })
+            <div class="clearfix"></div>
+        </div>
+        @Html.Partial("pvQuizUsersList", Model)
+    </div>
+</div>
+
+@section Scripts{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        .ui-front {
+            z-index: 9999;
+            width: 200px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        //Added by sonika
+    $(document).ready(function () {
+        $(document).ajaxStart(function () {
+            $("#ajaxLoading").css("display", "none");
+            $("#ajax-backdrop").css("display", "none");
+        });
+            $('#inputsearch').autocomplete({
+                source: function (request, response) {
+                    var itemnamecodes = new Array();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("Autocomplete", "Quizes")',
+                        dataType: 'json',
+                        data: { term: request.term },
+                        success: function (data) {
+
+                            response($.map(data, function (item) {
+                                console.log(item);
+                                return { label: item.Key, Id: item.Value };
+                            }))
+                        }
+                    })
+                },
+                select: function (e, i) {
+                    $("#ListingSHA").val(i.item.Id);
+
+                }
+            })
+        })
+    </script>
+}

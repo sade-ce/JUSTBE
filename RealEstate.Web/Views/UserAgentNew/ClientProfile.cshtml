@@ -1,0 +1,837 @@
+﻿@*@model RealEstate.Entities.ViewModels.UserEdit*@
+@model RealEstate.Entities.ViewModels.MstCreateClientAndAssignAgentModel
+
+@using System.Security.Claims;
+@*@{
+        ViewBag.Title = "User Management";
+        ViewBag.ViewHeader = "Add User";
+    }*@
+<link href="~/Content/SlimImageCropper/slim.css" rel="stylesheet" />
+@if (User.IsInRole("Admin"))
+{
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstateNew.cshtml";
+}
+else if (User.IsInRole("Agent"))
+{
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayoutVersion2.cshtml";
+}
+<section class="wrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>Client Profile</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello, @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new" /></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 breadcrumb-list">
+                    @*<p><span>Client Profile</span></p>*@
+                </div>
+                <div class="col-sm-12 editPrifileBtnWrap">
+                    <div class="btn-wrap">
+                        <a href="#" class="btn greyButton btnEditProfile">Edit</a>
+                        <a href="#" class="btn greyButton btnCancel" style="display:none">Cancel</a>
+                        <a href="#" class="btn tealButton btnSaveProfile" style="display:none">Save</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 profile-info-section">
+
+                    <div class="row divClientProfile">
+                        <div class="col-xl-7 col-sm-12 profile-wrap">
+                            <div class="whiteBgBorderBox boxOne">
+                                <div class="profile-pic-wrap">
+                                    <div class="profile-pic">
+                                        @if (Model.Register.UserPhotoThumb == null || Model.Register.UserPhotoThumb == "")
+                                        {
+                                            <img src="https://justbere-d4d9.kxcdn.com/img/NoImage.png" class="img-fluid" />
+                                        }
+                                        else
+                                        {  <img src="@Model.Register.UserPhotoNormal" class="img-fluid" />
+                                        }
+
+                                    </div>
+
+                                </div>
+                                <div class="profile-infor-wrap">
+                                    <h3>@Model.Register.Name @Model.Register.LastName </h3>
+                                    @{var Address = "";
+                                        if (string.IsNullOrEmpty(@Model.Register.ClientAddress)) { Address = "N/A"; } else { Address = @Model.Register.ClientAddress; }
+                                    <p><i class="material-icons">room</i>@Address</p>
+                                        }
+                                    <ul>
+
+                                        <li><label>Neighborhood:</label>@Model.Register.ClientNeighborhood</li>
+                                        <li><label>Partner:</label> @Model.Register.Partner</li>
+                                        @if (Model.Register.Children == 0)
+                                        {
+                                        <li><label>Children:</label></li> }
+                                        else
+                                        {
+                                     
+                                        <li><label>Children:</label> @Model.Register.Children Kid(s)</li>}
+                              
+                                        <li><label>DOB:</label> @Model.Register.ClientDOB</li>
+                                        @if (Model.Register.HomeAnniversary != null)
+                                        {
+                                        <li><label>Home Anniversary:</label> @Model.Register.HomeAnniversary</li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-sm-12 client-tier-block">
+                            <div class="whiteBgBorderBox boxOne">
+                                <h3>Client Details</h3>
+                                <ul>
+                                    <li><label>Email</label> @Model.Register.Email</li>
+                                    <li><label>Phone</label> @Model.Register.PhoneNumber</li>
+                                    <li><label>Type:</label>@Model.Register.ClientType</li>
+                                    <li><label>Referred:</label>@Model.Register.HaveReferred</li>
+                                    <li><label>Referal Source:</label> @Model.Register.ReferalSource</li>
+                                    <li><label>Client Tier:</label> @Model.Register.ClientTier</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    @using (Html.BeginForm("Edit", "useragentnew", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "myform" }))
+                    { @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(model => model.Register.Email, new { @id = "txtEmail" })
+                        <input type="hidden" value="@Model.Register.ClientID" id="txtClientId" />
+                        @Html.HiddenFor(m => m.Register.ClientID,new {@id = "txtClientId" })
+                        @Html.HiddenFor(m=>m.Register.UserRole)
+                        <div class="row divEditClientProfile" style="display:none">
+
+                            <div class="col-xl-7 col-sm-12 profile-wrap edit-profile-info-wrap">
+                                <div class="whiteBgBorderBox boxTwo">
+                                    <div class="profile-pic-wrap">
+                                        <div class="profile-pic">
+
+
+                                            <div id="slim-cropper" class="slim" data-size="248,253" style="max-width:248px;max-height:253px" data-did-remove="imageWillBeRemoved" data-label="Click and drag your image here">
+                                                <input type="file" name="upfiles" />
+                                                @if (Model.Register.UserPhotoThumb == null || Model.Register.UserPhotoThumb == "")
+                                        {
+
+                                                }
+                                                else
+                                                { <img src="@Model.Register.UserPhotoNormal" class="img-fluid" />
+                                                }
+                                            </div>
+                                            @Html.HiddenFor(m => m.Register.UserPhotoThumb)
+                                            @Html.HiddenFor(m => m.Register.UserPhotoNormal)
+                                        </div>
+                                    </div>
+                                    <div class="profile-infor-wrap">
+                                           
+										   <div class="c_Cfrom">
+                                        <div class="row">
+                                            <div class="col-md-6"><h3>@Html.TextBoxFor(model => model.Register.Name, new { @class = "form-control", @placeholder = "First Name", @required = "required" })</h3></div>
+                                            <div class="col-md-6"><h3>@Html.TextBoxFor(model => model.Register.LastName, new { @class = "form-control", @placeholder = "Last Name", @required = "required" })</h3></div>
+                                        </div>
+										</div>
+
+
+
+                                        <p><i class="material-icons">room</i>
+
+                                        @Html.TextBoxFor(model => model.Register.ClientAddress, new { @class = "form-control", @placeholder = "Address" })</p>
+                                        <ul>
+                                            <li><label>Neighborhood:</label><input type="text" class = "form-control" id = "txtNeighborhood" value="@Model.Register.ClientNeighborhood" />
+                                            @Html.HiddenFor(model => model.Register.Neighborhood, new { @class = "form-control" })</li>
+                                            <li>
+                                                <label>Partner:</label><input type="text" class="form-control" id="txtPartner" value="@Model.Register.Partner" /> @Html.HiddenFor(model => model.Register.Partner, new { @class = "form-control"})
+    @*@Html.DropDownListFor(x => x.Register.Partner, new List<SelectListItem>
+    { new SelectListItem() {Text = "-- Select --", Value=""},
+                        new SelectListItem() {Text = "Yes", Value="Yes"},
+                        new SelectListItem() {Text = "No", Value="No"},
+    }, new { @class = "form-control" })*@
+                                            </li>
+                                            <li><label>Children:</label> @Html.TextBoxFor(model => model.Register.Children, new { @class = "form-control", @type = "number", @step = "1", @value = 0 })</li>
+                                            <li><label>DOB:</label>
+                                                <select name='month' id='monthddl' class="form-control" >
+                                                    <option value=''>Month</option>
+                                                    <option value='January'>January</option>
+                                                    <option value='February'>February</option>
+                                                    <option value='March'>March</option>
+                                                    <option value='April'>April</option>
+                                                    <option value='May'>May</option>
+                                                    <option value='June'>June</option>
+                                                    <option value='July'>July</option>
+                                                    <option value='August'>August</option>
+                                                    <option value='September'>September</option>
+                                                    <option value='October'>October</option>
+                                                    <option value='November'>November</option>
+                                                    <option value='December'>December</option>
+                                                </select>
+                                                <select name='day' id='dayddl'class="form-control" >
+                                                    <option value=''>Day</option>
+                                                    <option value='01'>01</option>
+                                                    <option value='02'>02</option>
+                                                    <option value='03'>03</option>
+                                                    <option value='04'>04</option>
+                                                    <option value='05'>05</option>
+                                                    <option value='06'>06</option>
+                                                    <option value='07'>07</option>
+                                                    <option value='08'>08</option>
+                                                    <option value='09'>09</option>
+                                                    <option value='10'>10</option>
+                                                    <option value='11'>11</option>
+                                                    <option value='12'>12</option>
+                                                    <option value='13'>13</option>
+                                                    <option value='14'>14</option>
+                                                    <option value='15'>15</option>
+                                                    <option value='16'>16</option>
+                                                    <option value='17'>17</option>
+                                                    <option value='18'>18</option>
+                                                    <option value='19'>19</option>
+                                                    <option value='20'>20</option>
+                                                    <option value='21'>21</option>
+                                                    <option value='22'>22</option>
+                                                    <option value='23'>23</option>
+                                                    <option value='24'>24</option>
+                                                    <option value='25'>25</option>
+                                                    <option value='26'>26</option>
+                                                    <option value='27'>27</option>
+                                                    <option value='28'>28</option>
+                                                    <option value='29'>29</option>
+                                                    <option value='30'>30</option>
+                                                    <option value='31'>31</option>
+                                                </select>
+                                            
+                                             @Html.HiddenFor(model => model.Register.DOB, new { @class = "form-control", id = "txtDOB",autocomplete="off" })</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-sm-12 client-tier-block edit-client-tier-wrap">
+                                <div class="whiteBgBorderBox boxTwo">
+                                    <h3>Client Details</h3>
+                                    <ul>
+                                        <li><label>Email:</label> @Html.TextBoxFor(model => model.Register.Email, new { @class = "form-control", @required = "required", @type = "email" })</li>
+                                        <li>
+                                            <label>Phone:</label> @Html.TextBoxFor(model => model.Register.PhoneNumber, new { @class = "form-control", @required = "required" ,@maxlength=12})
+                                            @Html.ValidationMessageFor(model => model.Register.PhoneNumber, "", new { @class = "text-danger" })
+                                        </li>
+                                        <li>
+                                            <label>Type:</label>@Html.DropDownListFor(model => model.Register.ClientTypeID, new SelectList(Model.ClientTypeDropDown, "ClientTypeID", "ClientType"), "-- Select --", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Register.ClientTypeID)
+                                        </li>
+                                        <li>
+                                            <label>Referred:</label>
+                                            @*<input type="text" class="form-control" id="txtReferred" value="@Model.Register.HaveReferred" />*@
+                                            @Html.TextBoxFor(model => model.Register.HaveReferred, new { @class = "form-control", @id = "txtReferred" })
+                                            @*@Html.DropDownListFor(x => x.Register.HaveReferred, new List<SelectListItem>
+     { new SelectListItem() {Text = "-- Select --", Value=""},
+                        new SelectListItem() {Text = "Yes", Value="Yes"},
+                        new SelectListItem() {Text = "No", Value="No"},
+    }, new { @class = "form-control" })*@
+                                        </li>
+                                        <li><label>Referal Source:</label> @Html.TextBoxFor(model => model.Register.ReferalSource, new { @class = "form-control",@id= "txtReferalSource" })</li>
+                                        <li>
+                                            <label>Client Tier:</label>
+                                            @Html.DropDownListFor(x => x.Register.ClientTier, new List<SelectListItem>
+    {
+                                            new SelectListItem() {Text = "-- Select --", Value=""},
+                        new SelectListItem() {Text = "Platinum", Value="Platinum"},
+                        new SelectListItem() {Text = "Gold", Value="Gold"},
+                         new SelectListItem() {Text = "Silver", Value="Silver"},
+                          new SelectListItem() {Text = "Member", Value="Member"},
+                           new SelectListItem() {Text = "Non-Client", Value="Non-Client"},
+    }, new { @class = "form-control" })
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button type="submit" id="btnSave" style="display:none" ></button>
+                    }
+
+                    <div class="row">
+                        <div class="col-sm-12 clientViewPortalBtn">
+                            <div class="btn-wrap">
+                                <a href="/Client/MyDeal/List?ClientID=@Model.Register.ClientID" target="_blank" class="btn tealButton">Client’s view of portal</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-7 col-sm-12 client-info-wrap">
+                            <div class="whiteBgBorderBox">
+                                <h3>Client Info</h3>
+                                <div id="clientInfoAccordion">
+                                    @if (Model.BuyerQuiz.Count() > 0)
+                                    {
+                                        <div class="card">
+                                            <div class="card-header" id="clientInfoHeadingOne">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#clientInfoCollapseOne" aria-expanded="true" aria-controls="clientInfoCollapseOne">
+                                                        Questionnaire Result (Buyer)
+                                                        <i class="material-icons">expand_more</i>
+                                                    </button>
+                                                </h5>
+                                            </div>
+
+                                            <div id="clientInfoCollapseOne" class="collapse show" aria-labelledby="clientInfoHeadingOne" data-parent="#clientInfoAccordion">
+                                                <div class="card-body">
+                                                    <ul>
+                                                        @foreach (var c in Model.BuyerQuiz)
+                                        {
+                                                            <li><label>@c.AlternateQuestion</label><span>@c.Answer</span></li>
+                                                        }
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.SellerQuiz.Count() > 0)
+                                    {
+                                        <div class="card">
+                                            <div class="card-header" id="clientInfoHeadingTwo">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#clientInfoCollapseTwo" aria-expanded="true" aria-controls="clientInfoCollapseTwo">
+                                                        Questionnaire Result (Seller)
+                                                        <i class="material-icons">expand_more</i>
+                                                    </button>
+                                                </h5>
+                                            </div>
+
+                                            <div id="clientInfoCollapseTwo" class="collapse" aria-labelledby="clientInfoHeadingTwo" data-parent="#clientInfoAccordion">
+                                                <div class="card-body">
+                                                    <ul>
+                                                        @foreach (var c in Model.SellerQuiz)
+                                        {
+                                                            <li><label>@c.AlternateQuestion</label><span>@c.Answer</span></li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.SellerQuiz.Count() == 0 && Model.BuyerQuiz.Count() == 0)
+                                    {
+                                        <div class="card">
+                                            <div class="card-header" id="clientInfoHeadingThree">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#clientInfoCollapseThree" aria-expanded="true" aria-controls="clientInfoCollapseThree">
+                                                        Questionnaire Result
+                                                        <i class="material-icons">expand_more</i>
+                                                    </button>
+                                                </h5>
+                                            </div>
+
+                                            <div id="clientInfoCollapseThree" class="collapse" aria-labelledby="clientInfoHeadingThree" data-parent="#clientInfoAccordion">
+                                                <div class="card-body">
+                                                    <ul>
+                                                        <li><label>Lives in DMV</label><span></span></li>
+                                                        <li><label>First time buyer</label><span></span></li>
+                                                        <li><label>Know what they want</label><span></span></li>
+                                                        <li><label>Rent/Own/Neither</label><span></span></li>
+                                                        <li><label>DC/MD/VA/Other</label><span></span></li>
+                                                        <li><label>Timeline</label><span></span></li>
+                                                        <li><label>Budget Range</label><span></span></li>
+                                                        <li><label>Amenity Preferences</label><span></span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    @*<div class="card">
+                                            <div class="card-header" id="clientInfoHeadingTwo">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#clientInfoCollapseTwo" aria-expanded="false" aria-controls="clientInfoCollapseTwo">
+                                                        Eventually Neighborhood Result
+                                                        <i class="material-icons">expand_more</i>
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="clientInfoCollapseTwo" class="collapse" aria-labelledby="clientInfoHeadingTwo" data-parent="#clientInfoAccordion">
+                                                <div class="card-body">
+                                                    <ul>
+                                                        <li><label>Lives in DMV</label><span>Yes</span></li>
+                                                        <li><label>First time buyer</label><span>No</span></li>
+                                                        <li><label>Know what they want</label><span>Unsure</span></li>
+                                                        <li><label>Rent/Own/Neither</label><span>Own</span></li>
+                                                        <li><label>DC/MD/VA/Other</label><span>DC/MD</span></li>
+                                                        <li><label>Timeline</label><span>3-6 mo</span></li>
+                                                        <li><label>Budget Range</label><span>700-900k</span></li>
+                                                        <li><label>Amenity Preferences</label><span>Pet Friendly</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="clientInfoHeadingThree">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#clientInfoCollapseThree" aria-expanded="false" aria-controls="clientInfoCollapseThree">
+                                                        ETC
+                                                        <i class="material-icons">expand_more</i>
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="clientInfoCollapseThree" class="collapse" aria-labelledby="clientInfoHeadingThree" data-parent="#clientInfoAccordion">
+                                                <div class="card-body">
+                                                    <ul>
+                                                        <li><label>Lives in DMV</label><span>Yes</span></li>
+                                                        <li><label>First time buyer</label><span>No</span></li>
+                                                        <li><label>Know what they want</label><span>Unsure</span></li>
+                                                        <li><label>Rent/Own/Neither</label><span>Own</span></li>
+                                                        <li><label>DC/MD/VA/Other</label><span>DC/MD</span></li>
+                                                        <li><label>Timeline</label><span>3-6 mo</span></li>
+                                                        <li><label>Budget Range</label><span>700-900k</span></li>
+                                                        <li><label>Amenity Preferences</label><span>Pet Friendly</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-sm-12 client-activity-wrap">
+                            <div class="whiteBgBorderBox">
+                                <h3>Client Activity</h3>
+                                <div class="clientActivityContent">
+                                    @*<div class="clientActivityInner tActivitybody">
+                                        </div>*@
+                                    <div class="clientActivityContent">
+                                        <div class="clientActivityInner">
+                                            @if (Model.ClientActivity.Count() > 0)
+                                            {
+                                                foreach (var item in Model.ClientActivity)
+                                                {
+                                                    <div class="clientActivityBlock">
+                                                        <h5>@item.TrackingSource @item.Remarks </h5>
+                                                        @{
+                                                            string[] values = item.ActivityTitle.Split(',');
+                                                            for (int i = 0; i < values.Length; i++)
+                                                            {
+                                                                <p>@values[i].Trim()</p>
+                                                            }
+                                                        }
+                                                        <p>@item.TrackingDate.ToString("MMMM dd yyyy hh:mm tt")</p>
+                                                    </div>
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="clientActivityBlock">
+                                                                    <p style="font-size:14px">No record found.</p>
+
+                                                                </div>
+                                                            }
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    @Html.Partial("pvClientDeals", Model)
+
+                 
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+@*<script src="~/Content/Plugins/Select2/select2.min.js"></script>*@
+<script src="~/Content/SlimImageCropper/slim.kickstart.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+  
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+
+        $("#txtReferred").autocomplete({
+            source: function (req, resp) {
+                $.ajax({
+                    url: '@Url.Action("Partner", "UserAgentNew")',
+                    type: "POST",
+                    dataType: "json",
+                    data: { term: GetCurrentSearchTerm(req.term) },
+                    success: function (data) {
+                        $("#Register_HaveReferred").val(req.term);
+                        resp($.map(data, function (item) {
+                            return { label: item.Key, Id: item.Value };
+                        }))
+
+                    }
+                })
+            },
+
+            select: function (event, ui) {
+                var LastValue = splitCurrentText(this.value);
+                LastValue.pop();
+                LastValue.push(ui.item.value);
+                LastValue.push("");
+            
+                this.value = LastValue.join(",");
+                $("#Register_HaveReferred").val(this.value.replace(/^,|,$|(,)+/g, '$1'));
+                return false;
+            },
+            focus: function () {
+            return false;
+        }
+        });
+        function splitCurrentText(LastTerm) {
+
+            return LastTerm.split(/,\s*/);
+        }
+
+        function GetCurrentSearchTerm(LastTerm) {
+
+            return splitCurrentText(LastTerm).pop();
+        }
+    });
+</script> 
+<script>
+    $(function () {
+        //$("#txtDOB").datepicker({
+        //    changeMonth: true,
+        // //   changeYear: true,
+        //    dateFormat: "dd-mm-yy",
+        //    yearRange: '-100:+0',
+        //    shoeYear: false
+        //});
+        var res = $("#txtDOB").val().split(" ");
+        var Month = res[0]
+        var Day = res[1]
+        $('#monthddl').val(Month);
+        $('#dayddl').val(Day);
+
+        $(".btnEditProfile").click(function () {
+
+            $(".divClientProfile").hide(500);
+            $(".divEditClientProfile").show(500);
+            $(".btnEditProfile").hide(500);
+            $(".btnCancel").show(500);
+            $(".btnSaveProfile").show(500);
+        })
+        $(".btnCancel").click(function () {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+            location.reload(true);
+        })
+
+        $('#txtReferalSource').autocomplete({
+            source: function (request, response) {
+                var itemnamecodes = new Array();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ReferalSource", "UserAgentNew")',
+                    dataType: 'json',
+                    data: { term: request.term },
+                    success: function (data) {
+
+                        response($.map(data, function (item) {
+                            return { label: item.Key, Id: item.Value };
+                        }))
+                    }
+                })
+            },
+            select: function (e, i) {
+             
+
+            }
+        })
+        $('#txtNeighborhood').autocomplete({
+            source: function (request, response) {
+                var itemnamecodes = new Array();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Neighborhood", "UserAgentNew")',
+                    dataType: 'json',
+                    data: { term: request.term },
+                    success: function (data) {
+
+                        response($.map(data, function (item) {
+                            return { label: item.Key, Id: item.Value };
+                        }))
+                    }
+                })
+            },
+            change: function (event, ui) {
+
+                if (ui.item === null) {
+                    $('#Register_Neighborhood').val($('#txtNeighborhood').val());
+
+                }
+            },
+            select: function (e, i) {
+                $("#Register_Neighborhood").val(i.item.Id);
+
+            }
+        })
+
+
+
+        $('#txtPartner').autocomplete({
+            source: function (request, response) {
+                var itemnamecodes = new Array();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Partner", "UserAgentNew")',
+                    dataType: 'json',
+                    data: { term: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.Key, Id: item.Value };
+                        }))
+                    }
+                })
+            },
+            change: function (event, ui) {
+               
+                if (ui.item === null) {
+                    $('#Register_Partner').val($('#txtPartner').val());
+              
+                }
+            },
+            select: function (e, i) {
+                $("#Register_Partner").val(i.item.label);
+                //GetPartnerDetails(i.item.Id);
+
+            }
+        })
+        
+        $(".btnSaveProfile").click(function () {
+            var res = validate();
+            if (res == false) {
+                return false;
+            }
+                $("#ajaxLoading").css("display", "block");
+                $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                $("#ajaxLoading").css("left", $(window).width() / 2);
+                $("#ajaxLoading").css("position", "fixed");
+                $("#ajax-backdrop").css("display", "block");
+                $("#btnSave").click(); // Submit the form
+
+        });
+
+
+
+
+        $('#Register_PhoneNumber').keydown(function (e) {
+            var key = e.which || e.charCode || e.keyCode || 0;
+            $phone = $(this);
+
+            // Don't let them remove the starting '('
+
+
+            // Auto-format- do not expose the mask as the user begins to type
+            if (key !== 8 && key !== 9) {
+                if ($phone.val().length === 3) {
+                    $phone.val($phone.val() + '.');
+                }
+                if ($phone.val().length === 7) {
+                    $phone.val($phone.val() + '.');
+                }
+
+            }
+
+            // Allow numeric (and tab, backspace, delete) keys only
+            return (key == 8 ||
+                    key == 9 ||
+                    key == 46 ||
+                    (key >= 48 && key <= 57) ||
+                    (key >= 96 && key <= 105));
+        })
+
+             .bind('focus click', function () {
+                 $phone = $(this);
+
+
+             })
+
+             .blur(function () {
+                 $phone = $(this);
+
+
+             });
+
+        function ValidateEmail(email) {
+            var expr = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,6})?$/
+            return expr.test(email);
+        };
+
+        function validate() {
+            var isValid = true;
+            if ($('#Register_Name').val().trim() == "") {
+                $('#Register_Name').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+            else {
+                $('#Register_Name').css('border', '1px solid #ced4da')
+            }
+
+            if ($('#Register_LastName').val().trim() == "") {
+                $('#Register_LastName').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+            else {
+                $('#Register_LastName').css('border', '1px solid #ced4da')
+            }
+
+
+            if ($('#Register_Email').val() != "") {
+
+                if (!ValidateEmail($("#Register_Email").val())) {
+                    $('#Register_Email').css('border', '1px solid #EB5757')
+                    isValid = false;
+                }
+                else {
+                    $('#Register_Email').css('border', '1px solid #ced4da')
+                }
+
+
+            }
+            else {
+                $('#Register_Email').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+
+
+
+
+            if ($('#Register_PhoneNumber').val() != "") {
+                if ($('#Register_PhoneNumber').val().length < 12) {
+                    $('#Register_PhoneNumber').css('border', '1px solid #EB5757')
+                    isValid = false;
+                }
+                else {
+                    $('#Register_PhoneNumber').css('border', '1px solid #ced4da')
+                }
+
+
+            }
+            else {
+                $('#Register_PhoneNumber').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+
+
+            if ($('#Register_ClientTypeID').val() == "") {
+
+                $('#Register_ClientTypeID').css('border', '1px solid #EB5757')
+                    isValid = false;
+
+
+
+            }
+            else {
+                $('#Register_ClientTypeID').css('border', '1px solid #ced4da')
+            }
+
+
+
+            if ($('#monthddl').val() != '' && $('#dayddl').val() == '') {
+                $('#monthddl').css('border', '1px solid #ced4da')
+                $('#dayddl').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+            if ($('#dayddl').val() != '' && $('#monthddl').val() == '') {
+                $('#dayddl').css('border', '1px solid #ced4da')
+                $('#monthddl').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+            if ($('#dayddl').val() != '' && $('#monthddl').val() != '') {
+                $('#dayddl').css('border', '1px solid #ced4da')
+                $('#monthddl').css('border', '1px solid #ced4da')
+                var DOB = $('#monthddl').val() + ' ' + $('#dayddl').val()
+                $('#txtDOB').val(DOB);
+            }
+            if ($('#monthddl').val() == '' && $('#dayddl').val() == '') {
+                $('#txtDOB').val("");
+            }
+
+            return isValid;
+        }
+
+
+
+
+
+       
+       
+        $(".content").on("click", ".deleteTransaction", function (e) {
+
+            if ($(this).text() != "Cancel") {
+                // Set the sender infromation in hidden field and its closest form
+                $("#eventSender").val(($(this).attr('href')) + '|' + $($(this).closest('form')));
+
+                $('#myModalLabelTrans').text('Information');
+                var transId = $(this).attr('data-transactionid');
+                var str = " <i class='material-icons icon-warning'>warning</i> Are you sure you want to delete the transaction <b>" + transId + "</b>? It will delete the transaction completely. ";
+
+                $('#MsgTrans').html(str);
+
+                $('#myErroMsgModalYesButtonTrans').removeClass('hidden');
+                $('#myErroMsgModalTrans').show();
+                e.preventDefault();
+            }
+            
+        });
+    
+    })
+    function OkMyModalTrans() {
+        $("#myErroMsgModalTrans").hide();
+        $('#MsgTrans').val("");
+        // Retrieve the sender infromation from hidden field and pass it to the function
+        DeleteTransaction($(".deleteTransaction").attr('data-transactionid'), $(".deleteTransaction").attr('data-clientid'));
+    }
+    function CloseMyModalTrans() {
+        $('#myErroMsgModalYesButtonTrans').addClass('hidden');
+        $('#ErrMsgHiddenFieldTrans').val("");
+        $("#myErroMsgModalTrans").hide();
+    }
+</script>

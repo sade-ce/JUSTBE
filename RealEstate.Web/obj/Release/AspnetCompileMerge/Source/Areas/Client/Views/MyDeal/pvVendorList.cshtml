@@ -1,0 +1,91 @@
+﻿@model Yelp.Api.Models.SearchResponse
+
+
+<div id="DataGrid" class="col-left-nil col-right-nil">
+
+    @if (Model.Businesses.Count() > 0)
+    {
+
+
+        foreach (var item in Model.Businesses)
+        {
+
+            <div class="listing-item">
+                <a href="@item.Url" target="_blank" class="listing-img-container">
+                    <div class="listing-badges">
+                        @if (item.IsClaimed == true)
+                    {
+                    <span class="featured">Not Verified</span>
+
+                    }
+                    else
+                    {
+                    <span class="featured">Verified</span>
+                    }
+                        <span>
+                            @item.Rating ★
+                        </span>
+                    </div>
+
+
+                    <div class="listing-img-content">
+                        <span class="listing-price">@item.ReviewCount<i>Reviews</i></span>
+                        <span class="listing-price pull-right">@item.DistanceAway Miles</span>
+
+                    </div>
+                    <div class="listing-carousel">
+                        <div><img src="@item.ImageUrl" alt="" width="313" height="241"></div>
+
+                    </div>
+                </a>
+
+                <div class="listing-content">
+                    <div class="listing-title">
+                        <h4><a href="@item.Url" target="_blank">@item.Name</a></h4>
+                        <a href="https://maps.google.com/maps?q=@item.Coordinates.Latitude,@item.Coordinates.Longitude&amp;hl=en&amp;t=v&amp" class="listing-address popup-gmaps">
+                            <i class="fa fa-map-marker"></i>
+
+                            @foreach (var Loc in item.Location.DisplayAddress)
+                        {
+                        <span>@Loc</span>
+                        }
+
+
+                            @* @item.Location.Address1 @item.Location.Address2 @item.Location.Address3 ,@item.Location.City*@
+                        </a>
+                        <a href="@item.Url" target="_blank" class="details button border">Details</a>
+                    </div>
+
+
+                    <ul class="listing-details">
+                        @foreach (var Categories in item.Categories)
+                    {
+                    <li>@Categories.Title</li>
+                    }
+
+
+                    </ul>
+                    <div class="listing-footer">
+                        <a href="tel:@item.Phone"><i class="fa fa-phone-square"></i>@item.DisplayPhone</a>
+
+                        @if (item.IsClosed == true)
+                    {
+                    <span><i class="fa fa-calendar-o"></i>Closed now</span>
+                    }
+
+                    else
+                    {
+                    <span><i class="fa fa-calendar-o"></i>Open now</span>
+                    }
+
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+    else
+    {
+        <span class="info-box"> No Results found, Please refine your search and try again</span>
+    }
+</div>

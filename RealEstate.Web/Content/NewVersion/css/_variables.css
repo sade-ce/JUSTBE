@@ -1,0 +1,13 @@
+@font-face {
+  font-family: h-reg;
+  src: url(../fonts/h.ttf); }
+@font-face {
+  font-family: h-bold;
+  src: url(../fonts/h-bold.ttf); }
+@font-face {
+  font-family: h-med;
+  src: url(../fonts/h-Medium.ttf); }
+b {
+  font-family: h-bold; }
+
+/*# sourceMappingURL=_variables.css.map */

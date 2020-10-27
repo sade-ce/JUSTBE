@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,100);
+
+
+.calendar {
+ background: #fff;
+     border: 1px solid #000;
+    border-radius: 20%;
+    width: 230px;
+    height: 230px;
+    margin: auto;
+    vertical-align: middle;
+    text-align: center;
+  font: 300 28.57143px Roboto;
+  margin-bottom:15px;
+}
+.calendar .week {
+  color: red;
+  padding: 20px;
+  padding-bottom: 0;
+}
+.calendar .date {
+  font: 200 133.33333px Roboto;
+  margin-top: -13.33333px;
+}

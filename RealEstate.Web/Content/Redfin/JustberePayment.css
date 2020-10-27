@@ -1,0 +1,1075 @@
+﻿.field.Select > .input > .container > .value {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.field.Select .flyout.option {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.customer-facing .field.Select span.input {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.customer-facing .field.Select:not(.label-left) > span.input {
+    width: 100%;
+}
+
+.customer-facing .field.Select > span.input > .container {
+    display: block;
+    position: relative;
+}
+
+.customer-facing .field.Select span.input > .container > .value {
+    white-space: pre;
+    display: block;
+    overflow: hidden;
+    text-indent: 2px;
+    text-overflow: ellipsis;
+}
+
+.customer-facing .field.Select > span.input > .container > .value {
+    margin-right: 32px;
+}
+
+.customer-facing .field.Select > span.input .Flyout {
+    width: 100%;
+    position: absolute;
+    left: -1px;
+    bottom: 0;
+}
+
+    .customer-facing .field.Select > span.input .Flyout .flyout {
+        border: 1px solid #ccc;
+        background: #fff;
+        border-top-color: #ccc;
+        min-width: 100%;
+        box-shadow: none;
+    }
+
+.customer-facing .field.Select span.input .option {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    padding: 12px 38px 12px 10px;
+    font-size: 1rem;
+    float: none;
+    text-align: left;
+    color: #333;
+    white-space: pre;
+}
+
+    .customer-facing .field.Select span.input .option span {
+        width: 100%;
+    }
+
+    .customer-facing .field.Select span.input .option.selected {
+        color: inherit;
+    }
+
+.customer-facing .field.Select.disabled {
+    color: #ccc;
+}
+
+.customer-facing .field.Select > span.input select {
+    display: none;
+}
+
+input[type=range].Slider {
+    -webkit-appearance: none;
+    margin: 22.5px 0;
+}
+
+    input[type=range].Slider:focus {
+        outline: 0 !important;
+    }
+
+    input[type=range].Slider::-webkit-slider-runnable-track {
+        height: 2px;
+        cursor: pointer;
+        background: #323232;
+    }
+
+    input[type=range].Slider::-webkit-slider-thumb {
+        height: 25px;
+        width: 25px;
+        border: none;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAIkSURBVEhLlZTNq2lRGMbfq8g5AyFDQ6ZMiJGJKCODK8l/cDpnpBgaG0ikDMQ/YGLgHmUgKcrklBITH6UkA8JE7vHx3rW2tc+x7bVv9/7qYe3e533W1not+Pz9ifeixONxfH56wmQyiZvNBo/HI77/esfX11e0WCwY+hkSfI+9VCBUHvB6vQgAiorFYswphxvYbDa5QaJOpxNzyuEGUpxOJzcskUgwBx/FQIrD4ZCE+f1+VlFGRYyKkANgqxu9Xg8qlQp7UoAFSxgOh5I3e5Tb7WZOObJA8hbckEcZjUbWIUUSuF6vuc1KMhgMrPMbSSCviapYLAqny6t5PB7WfeMrMBgMchuy2SxzIKbTaa6nXC4zBwtcLpdcY71ex/l8ju12G2u1Gu52O+x0OlyviDA24XCYfskIBAIQiURgMBgI0uv1MBqNWFXKy8vLbXG9Xrk7Uvl8PrYv4sfHB9psNq5PFAWq1Sq3eC/6MxeLhdCQz+e5HqpGo4GqbrdL1nzO5zPodDqYzWZQKBRAq9XC29sbq8ohgaAiO7NHOblcDvb7PZCLAsi/A8bjMfT7fVaVM5lMAOjdRtaKIgeGh8MBL5eL4tiICoVCCHQkeMV7ZTIZ4bbm1e5VKpVuc2gymbiG/xXlayI1Gg3X9K8Sp+B7xAmpVIpr/pui0SjrvvGDfpCChNVqBa1WC+gETKdT2G63QA4F1Go1mM1msFqt4HK5wG63sw4RgD9ytG+Q8/wFmwAAAABJRU5ErkJggg==) no-repeat 50%;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -10.25px;
+    }
+
+    input[type=range].Slider:focus::-webkit-slider-runnable-track {
+        background: #e76429;
+    }
+
+    input[type=range].Slider::-moz-focus-outer {
+        border: 0;
+    }
+
+    input[type=range].Slider::-moz-range-track {
+        height: 2px;
+        cursor: pointer;
+        background: #f5f5f5;
+    }
+
+    input[type=range].Slider::-moz-range-progress {
+        height: 2px;
+        cursor: pointer;
+        background: #65c0cf;
+    }
+
+    input[type=range].Slider::-moz-range-thumb {
+        height: 25px;
+        width: 25px;
+        border: none;
+        background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSI+ICA8c3dpdGNoPiAgICA8Zz4gICAgICA8ZWxsaXBzZSBmaWxsPSIjNjVDMENGIiBjeD0iMTIuNSIgY3k9IjEyLjUiIHJ4PSIxMi41IiByeT0iMTIuNSIvPiAgICAgIDxlbGxpcHNlIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBjeD0iMTIuNSIgY3k9IjEyLjUiIHJ4PSI4LjUiIHJ5PSI4LjUiLz4gICAgPC9nPiAgPC9zd2l0Y2g+PC9zdmc+) no-repeat 0 0;
+        cursor: pointer;
+    }
+
+    input[type=range].Slider::-ms-track {
+        height: 2px;
+        cursor: pointer;
+        background: 0 0;
+        border-color: transparent;
+        border-width: 12.5px 0;
+        color: transparent;
+    }
+
+    input[type=range].Slider::-ms-fill-lower {
+        background: #65c0cf;
+    }
+
+    input[type=range].Slider::-ms-fill-upper {
+        background: #f5f5f5;
+    }
+
+    input[type=range].Slider::-ms-thumb {
+        height: 25px;
+        width: 25px;
+        border: none;
+        background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSI+ICA8c3dpdGNoPiAgICA8Zz4gICAgICA8ZWxsaXBzZSBmaWxsPSIjNjVDMENGIiBjeD0iMTIuNSIgY3k9IjEyLjUiIHJ4PSIxMi41IiByeT0iMTIuNSIvPiAgICAgIDxlbGxpcHNlIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBjeD0iMTIuNSIgY3k9IjEyLjUiIHJ4PSI4LjUiIHJ5PSI4LjUiLz4gICAgPC9nPiAgPC9zd2l0Y2g+PC9zdmc+) no-repeat 0 0;
+        cursor: pointer;
+        margin-top: 1px;
+    }
+
+    input[type=range].Slider:focus::-ms-fill-lower {
+        background: #65c0cf;
+    }
+
+    input[type=range].Slider:focus::-ms-fill-upper {
+        background: #fff;
+    }
+
+.TextAndSlider {
+    text-align: initial;
+}
+
+    .TextAndSlider .Slider, .TextAndSlider .Text {
+        width: 100%;
+    }
+
+    .TextAndSlider .Text {
+        margin-bottom: 5px;
+    }
+
+    .TextAndSlider .text-with-percent .Text:first-of-type {
+        width: 70%;
+    }
+
+    .TextAndSlider .text-with-percent .Text:nth-of-type(2) {
+        width: 28%;
+        position: relative;
+        left: -5px;
+    }
+
+    .TextAndSlider .Slider {
+        display: block;
+    }
+
+.Section.has-top-rule:before {
+    content: "";
+    border-top: 1px solid #e2e2e2;
+    display: block;
+    left: -24px;
+    position: relative;
+    width: 100vw;
+}
+
+@media (min-width:600px) {
+    .Section.has-top-rule:before {
+        padding-top: 50px;
+        width: 100%;
+        left: 0;
+    }
+}
+
+.ColorBar {
+    height: 10px;
+    width: 100%;
+}
+
+    .ColorBar .bar {
+        height: 100%;
+        display: inline-block;
+    }
+
+    .ColorBar .nacho {
+        background-color: #ffb92e;
+    }
+
+    .ColorBar .red-orange {
+        background-color: #fa7b20;
+    }
+
+    .ColorBar .light-blue {
+        background-color: #65c0cf;
+    }
+
+    .ColorBar .lime {
+        background-color: #7ccc33;
+    }
+
+.DotTitle {
+    padding-bottom: 10px;
+    font-size: 1rem;
+}
+
+    .DotTitle svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .DotTitle .title {
+        padding-left: 5px;
+    }
+
+    .DotTitle.nacho svg {
+        fill: #ffb92e;
+    }
+
+    .DotTitle.red-orange svg {
+        fill: #fa7b20;
+    }
+
+    .DotTitle.light-blue svg {
+        fill: #65c0cf;
+    }
+
+    .DotTitle.lime svg {
+        fill: #7ccc33;
+    }
+
+.MortgageCalculatorSummary {
+    display: block;
+    width: 101.96078431%;
+    margin: 0 -.98039216% !important;
+    zoom: 1;
+    box-sizing: border-box;
+}
+
+    .MortgageCalculatorSummary:after, .MortgageCalculatorSummary:before {
+        content: "";
+        display: table;
+    }
+
+    .MortgageCalculatorSummary:after {
+        clear: both;
+    }
+
+    .MortgageCalculatorSummary .major-part {
+        display: block;
+        float: left;
+        width: 98.03921569%;
+        margin: 0 .98039216%;
+        box-sizing: border-box;
+        padding: 30px 0;
+        text-align: left;
+    }
+
+        .MortgageCalculatorSummary .major-part .title {
+            font-size: 1.375rem;
+        }
+
+        .MortgageCalculatorSummary .major-part .subTitle {
+            margin-top: 2px;
+            font-size: .875rem;
+            color: #999;
+        }
+
+        .MortgageCalculatorSummary .major-part .ColorBar {
+            display: flex;
+            margin: 16px auto 0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+    .MortgageCalculatorSummary .values {
+        display: block;
+        float: left;
+        width: 98.03921569%;
+        margin: 0 .98039216%;
+        box-sizing: border-box;
+    }
+
+        .MortgageCalculatorSummary .values .dot-value-row {
+            padding: 5px 0;
+        }
+
+            .MortgageCalculatorSummary .values .dot-value-row .DotTitle {
+                display: inline-block;
+                padding-bottom: 0;
+            }
+
+                .MortgageCalculatorSummary .values .dot-value-row .DotTitle .title {
+                    font-size: .875rem;
+                    color: #999;
+                }
+
+            .MortgageCalculatorSummary .values .dot-value-row .value {
+                float: right;
+                font-size: .875rem;
+                color: #333;
+                font-weight: 600;
+            }
+
+@media screen and (min-width:600px) {
+    .MortgageCalculatorSummary {
+        display: block;
+        width: 101.96078431%;
+        margin: 0 -.98039216% !important;
+        zoom: 1;
+        box-sizing: border-box;
+    }
+
+        .MortgageCalculatorSummary:after, .MortgageCalculatorSummary:before {
+            content: "";
+            display: table;
+        }
+
+        .MortgageCalculatorSummary:after {
+            clear: both;
+        }
+
+        .MortgageCalculatorSummary .major-part {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .MortgageCalculatorSummary .major-part, .MortgageCalculatorSummary .values {
+            display: block;
+            float: left;
+            width: 48.03921569%;
+            margin: 0 .98039216%;
+            box-sizing: border-box;
+        }
+}
+
+.MortgageCalculatorForm {
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 1px solid #e2e2e2;
+}
+
+    .MortgageCalculatorForm .dot-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+        .MortgageCalculatorForm .dot-row .Select .label, .MortgageCalculatorForm .dot-row .Text.field .label {
+            font-size: .875rem;
+        }
+
+        .MortgageCalculatorForm .dot-row > .Select, .MortgageCalculatorForm .dot-row > .Text, .MortgageCalculatorForm .dot-row > .TextAndSlider {
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        .MortgageCalculatorForm .dot-row.SecondaryInputsRow .TextAndSlider .Text {
+            margin-bottom: 0;
+        }
+
+@media screen and (max-width:599px) {
+    .MortgageCalculatorForm .SecondaryInputsRow .homeownersInsurance {
+        order: -1;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .MortgageCalculatorForm .dot-row > .Select, .MortgageCalculatorForm .dot-row > .Text, .MortgageCalculatorForm .dot-row > .TextAndSlider {
+        width: 49%;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .MortgageCalculator .calculatorContentsContainer {
+        border: 1px solid #e2e2e2;
+        padding: 10px 15px;
+        margin-bottom: 15px;
+    }
+
+    .MortgageCalculator .MortgageCalculatorForm .dot-row.PrincipalAndInterestRow {
+        padding-bottom: 0;
+    }
+}
+
+.field.text > .input {
+    cursor: text;
+}
+
+    .field.text > .input input {
+        -webkit-appearance: none;
+    }
+
+        .field.text > .input input:invalid {
+            box-shadow: none;
+        }
+
+.container .options-flyout {
+    position: absolute;
+    right: 50px;
+    top: 60px;
+}
+
+a, bod, div, form, html, label, section, span, var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+section {
+    display: block;
+}
+
+bod {
+    line-height: 1;
+}
+
+bod {
+    font-family: Libre Franklin,-apple-system,BlinkMacSystemFont,Roboto,Droid Sans,Helvetica,Arial,sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+}
+
+select {
+    font-size: 100%;
+    font-family: inherit;
+}
+
+@media (max-width:599px) {
+    .customer-facing #content {
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
+
+.inline-block {
+    display: -moz-inline-box;
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+}
+
+.inline {
+    display: inline;
+}
+
+.block {
+    display: block;
+}
+
+@-webkit-keyframes display-none-to-block {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    to {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes display-none-to-block {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    to {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes display-none-to-block {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    to {
+        display: block;
+        opacity: 1;
+    }
+}
+
+.row {
+    display: block;
+    width: 101.96078431%;
+    margin: 0 -.98039216% !important;
+    zoom: 1;
+    box-sizing: border-box;
+}
+
+    .row:after, .row:before {
+        content: "";
+        display: table;
+    }
+
+    .row:after {
+        clear: both;
+    }
+
+    .row > * {
+        width: 98.03921569%;
+    }
+
+    .col-1, .row > * {
+        display: block;
+        float: left;
+        margin: 0 .98039216%;
+        box-sizing: border-box;
+    }
+
+.col-1 {
+    width: 6.37254902%;
+}
+
+.col-2 {
+    width: 14.70588235%;
+}
+
+.col-2, .col-3 {
+    display: block;
+    float: left;
+    margin: 0 .98039216%;
+    box-sizing: border-box;
+}
+
+.col-3 {
+    width: 23.03921569%;
+}
+
+.col-4 {
+    width: 31.37254902%;
+}
+
+.col-4, .col-5 {
+    display: block;
+    float: left;
+    margin: 0 .98039216%;
+    box-sizing: border-box;
+}
+
+.col-5 {
+    width: 39.70588235%;
+}
+
+.col-6 {
+    width: 48.03921569%;
+}
+
+.col-6, .col-7 {
+    display: block;
+    float: left;
+    margin: 0 .98039216%;
+    box-sizing: border-box;
+}
+
+.col-7 {
+    width: 56.37254902%;
+}
+
+.col-8 {
+    width: 64.70588235%;
+}
+
+.col-8, .col-9 {
+    display: block;
+    float: left;
+    margin: 0 .98039216%;
+    box-sizing: border-box;
+}
+
+.col-9 {
+    width: 73.03921569%;
+}
+
+.col-10 {
+    width: 81.37254902%;
+}
+
+.col-10, .col-11 {
+    display: block;
+    float: left;
+    margin: 0 .98039216%;
+    box-sizing: border-box;
+}
+
+.col-11 {
+    width: 89.70588235%;
+}
+
+.col-12 {
+    display: block;
+    float: left;
+    width: 98.03921569%;
+    margin: 0 .98039216%;
+    box-sizing: border-box;
+}
+
+@media (min-width:600px) {
+    .col-md-1 {
+        width: 6.37254902%;
+    }
+
+    .col-md-1, .col-md-2 {
+        display: block;
+        float: left;
+        margin: 0 .98039216%;
+        box-sizing: border-box;
+    }
+
+    .col-md-2 {
+        width: 14.70588235%;
+    }
+
+    .col-md-3 {
+        width: 23.03921569%;
+    }
+
+    .col-md-3, .col-md-4 {
+        display: block;
+        float: left;
+        margin: 0 .98039216%;
+        box-sizing: border-box;
+    }
+
+    .col-md-4 {
+        width: 31.37254902%;
+    }
+
+    .col-md-5 {
+        width: 39.70588235%;
+    }
+
+    .col-md-5, .col-md-6 {
+        display: block;
+        float: left;
+        margin: 0 .98039216%;
+        box-sizing: border-box;
+    }
+
+    .col-md-6 {
+        width: 48.03921569%;
+    }
+
+    .col-md-7 {
+        width: 56.37254902%;
+    }
+
+    .col-md-7, .col-md-8 {
+        display: block;
+        float: left;
+        margin: 0 .98039216%;
+        box-sizing: border-box;
+    }
+
+    .col-md-8 {
+        width: 64.70588235%;
+    }
+
+    .col-md-9 {
+        width: 73.03921569%;
+    }
+
+    .col-md-10, .col-md-9 {
+        display: block;
+        float: left;
+        margin: 0 .98039216%;
+        box-sizing: border-box;
+    }
+
+    .col-md-10 {
+        width: 81.37254902%;
+    }
+
+    .col-md-11 {
+        width: 89.70588235%;
+    }
+
+    .col-md-11, .col-md-12 {
+        display: block;
+        float: left;
+        margin: 0 .98039216%;
+        box-sizing: border-box;
+    }
+
+    .col-md-12 {
+        width: 98.03921569%;
+    }
+}
+
+.text-left {
+    text-align: left;
+}
+
+bod {
+    font-family: Libre Franklin;
+    line-height: 1.375;
+    font-size: 1rem;
+    color: #333;
+}
+
+a {
+    color: #0c82a5;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #65c0cf;
+    }
+
+.customer-facing .field {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    position: relative;
+}
+
+    .customer-facing .field > .label, .customer-facing .field > label, .customer-facing .field > label > .Text {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: inherit;
+    }
+
+    .customer-facing .field > .input {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0;
+        position: relative;
+        font-size: inherit;
+    }
+
+        .customer-facing .field > .input * {
+            color: inherit;
+        }
+
+    .customer-facing .field, .customer-facing .field :not(a), .customer-facing .field:focus, .customer-facing .field:focus :not(a) {
+        outline: 0;
+    }
+
+        .customer-facing .field .input > .dijit {
+            display: block;
+            width: 100%;
+        }
+
+        .customer-facing .field .field {
+            margin-top: 0;
+        }
+
+            .customer-facing .field .field > .label {
+                font-weight: 400;
+            }
+
+        .customer-facing .field > .input > .Flyout > .flyout > .bod {
+            white-space: nowrap;
+        }
+
+        .customer-facing .field .field.disabled > .input .action {
+            cursor: default !important;
+        }
+
+        .customer-facing .field.disabled {
+            cursor: default;
+        }
+
+        .customer-facing .field > .input .dijitTextBox {
+            display: block;
+            width: 100%;
+        }
+
+        .customer-facing .field > .input > div.dijitTextBox div.dijitInputField {
+            margin: 0;
+            padding: 0;
+        }
+
+        .customer-facing .field.Select > .input, .customer-facing .field.Text > .input {
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        .customer-facing .field .dijitTextBox {
+            background-image: none !important;
+        }
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@-moz-keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@-ms-keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.Flyout {
+    position: relative;
+    width: 0;
+    height: 0;
+    overflow: visible;
+    z-index: 800;
+    font-style: normal;
+}
+
+    .Flyout > .flyout {
+        position: absolute;
+    }
+
+    .Flyout:focus {
+        outline: 0;
+    }
+
+.DefinitionFlyout {
+    width: 300px;
+    text-align: left;
+}
+
+    .DefinitionFlyout.react {
+        padding: 5px 10px;
+    }
+
+    .DefinitionFlyout.inline-block {
+        display: inline-block;
+        width: auto;
+        padding: 0;
+        vertical-align: baseline;
+    }
+
+@media screen and (max-width:599px) {
+    .DefinitionFlyout {
+        width: auto;
+        padding: 0;
+    }
+}
+
+.customer-facing .field {
+    font-size: 1rem;
+    line-height: 1.125rem;
+}
+
+    .customer-facing .field > .label, .customer-facing .field > label {
+        color: #333;
+        padding: 10px 0 3px;
+        font-weight: 400;
+        font-size: 14px;
+        cursor: default;
+        display: block;
+    }
+
+        .customer-facing .field > label .text {
+            color: inherit;
+            font-weight: inherit;
+            cursor: inherit;
+            font-size: inherit;
+        }
+
+        .customer-facing .field > .label, .customer-facing .field > label, .customer-facing .field > label > .text {
+            margin-right: 10px;
+        }
+
+            .customer-facing .field > .label:after, .customer-facing .field > label:after, .customer-facing .field > label > .text:after {
+                content: "";
+                display: inline-block;
+                background-color: transparent;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                vertical-align: top;
+                margin-left: 5px;
+                margin-top: 2px;
+            }
+
+    .customer-facing .field.required > .label:after, .customer-facing .field.required > label:after, .customer-facing .field.required > label > .text:after {
+        background-color: #585858;
+    }
+
+    .customer-facing .field > .input {
+        display: block;
+        padding: 10px 8px 9px;
+        background-color: #fff;
+    }
+
+    .customer-facing .field .input > .Flyout > div.flyout {
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+
+    .customer-facing .field .input {
+        border-color: #ccc;
+    }
+
+    .customer-facing .field.disabled > .input {
+        background-color: #f5f5f5;
+    }
+
+    .customer-facing .field.disabled > .label {
+        color: #ccc;
+    }
+
+.field.text > .input {
+    cursor: text;
+}
+
+    .field.text > .input input {
+        -webkit-appearance: none;
+    }
+
+        .field.text > .input input:invalid {
+            box-shadow: none;
+        }
+
+.field.text.disabled > .input {
+    cursor: default;
+}
+
+.customer-facing .field.Text .dijitInputContainer {
+    overflow: hidden;
+    float: none !important;
+    position: relative;
+}
+
+.customer-facing .field.Text .dijitTextBox input.dijitInputField {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.customer-facing .field.Text .dijitTextBox, .customer-facing .field.Text input {
+    outline: 0;
+    border: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-image: none;
+    background-color: transparent;
+    width: 100%;
+}
+
+.link {
+    cursor: pointer;
+    text-decoration: none;
+    color: #0c82a5;
+}
+
+    .link:hover {
+        color: #65c0cf;
+    }
+
+
+
+
+
+.customer-facing .field.Text .dijitTextBox:not(.dijitReset) .sublabel, .customer-facing .field.Text .dijitTextBoxFocused:not(.dijitReset) .sublabel, .customer-facing .field.Text input:not(.dijitReset) .sublabel {
+    color: #ccc !important;
+    text-align: right;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.customer-facing .field.Text .dijitTextBox:not(.dijitReset) > div, .customer-facing .field.Text .dijitTextBoxFocused:not(.dijitReset) > div, .customer-facing .field.Text input:not(.dijitReset) > div {
+    display: table-cell;
+}
+
+.agent-tools .field :not(.Button), .customer-facing .field :not(.Button) {
+    line-height: normal;
+    font-size: inherit;
+}
+.customer-facing .field.Text .dijitTextBox:not(.dijitReset), .customer-facing .field.Text .dijitTextBoxFocused:not(.dijitReset), .customer-facing .field.Text input:not(.dijitReset) {
+    display: table;
+}
+
+
+    .ddl-select2 {
+        margin-top: -7px;
+        height: 10px;
+        border-color: #fefefe;
+    }

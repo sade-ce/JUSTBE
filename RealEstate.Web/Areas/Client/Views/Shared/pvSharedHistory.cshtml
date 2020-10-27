@@ -1,0 +1,16 @@
+﻿@model RealEstate.Entities.ViewModels.MultipleDealClientManageModel
+@{
+    ViewBag.Title = "pvSharedHistory";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+
+
+@if (Model.SharedDealList.Count() > 0)
+{
+    <li class="nav-item">
+        <a href="@Url.Action("SharedTransactions","MyDeal",new { @area="Client"}))" class="nav-link ">
+            <i class="fa fa-share"></i> Shared With Me
+        </a>
+    </li>
+
+}

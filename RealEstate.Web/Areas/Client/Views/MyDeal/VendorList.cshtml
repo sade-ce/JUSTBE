@@ -1,0 +1,191 @@
+﻿@model Yelp.Api.Models.SearchResponse
+
+@{
+    ViewBag.Title = "Just BE | Vendor List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="parallax titlebar"
+     data-background="../../img/home-parallax.jpg"
+     data-color="#333333"
+     data-color-opacity="0.7"
+     data-img-width="800"
+     data-img-height="505">
+    <div id="titlebar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Vendor List</h2>
+                    <nav id="breadcrumbs">
+                        <ul>
+                            <li><a href="#">Track Deal</a></li>
+                            <li>Vendors</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row sticky-wrapper">
+
+        <div class="col-md-8">
+            <form method="get" action="@Url.Action("VendorList")" data-kw-ajax="true" data-kw-target="#DataGrid">
+
+                <!-- Sorting / Layout Switcher -->
+                <div class="main-search-input margin-bottom-35">
+                    <input type="text" name="searchTerm" id="searchTerm" class="ico-01" placeholder="Find services e.g. Banks, Lenders , Movers, Stagers, Plumbers etc" value="" />
+                    <button class="button">Search</button>
+
+                </div>
+
+            </form>
+
+            <div class="row margin-bottom-15">
+
+                <div class="col-md-12">
+                    <!-- Layout Switcher -->
+                    <div class="layout-switcher" style="display:none">
+                        <a href="#" class="list"><i class="fa fa-th-list"></i></a>
+                        <a href="#" class="grid"><i class="fa fa-th-large"></i></a>
+                        <a href="#" class="grid-three"><i class="fa fa-th"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="listings-container list-layout">
+                @Html.Partial("pvVendorList", Model)
+            </div>
+            <div class="clearfix"></div>
+
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="sidebar sticky right">
+                <!-- Widget -->
+                <div class="widget margin-bottom-40">
+                    <h3 class="margin-top-0 margin-bottom-35">Quick Search</h3>
+                    <hr />
+                        <div class="row with-forms">
+                            <div class="col-md-12">
+                                <form method="get" action="@Url.Action("VendorList")" data-kw-ajax="true" data-kw-target="#DataGrid">
+
+                                    <a class="button fullwidth margin-top-10" data-val="Banks" name="tab">Banks</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Lenders" name="tab">Lenders</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Movers" name="tab">Movers</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Stagers" name="tab">Stagers</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Plumbers" name="tab">Plumbers</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Electricians" name="tab">Electricians</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Roofer" name="tab">Roofer</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Chimney" name="tab">Chimney</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Roofer" name="tab">Gutters</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Painting" name="tab">Painting</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Handyman" name="tab">Handyman</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Chimney" name="tab">Lawn care</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Carpeting" name="tab">Carpeting</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Pest control" name="tab">Pest control</a>
+                                    <a class="button fullwidth margin-top-10" data-val="General Contractors" name="tab">General Contractors</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Blinds Providers" name="tab">Blinds Providers</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Home Insurers" name="tab">Home Insurers</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Home Inspector" name="tab">Home Inspector</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Title Company" name="tab">Title Company</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Real Estate Attorney" name="tab">Real Estate Attorney</a>
+                                    <a class="button fullwidth margin-top-10" data-val="House Keepers" name="tab">House Keepers</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Hardwood flooring" name="tab">Hardwood flooring</a>
+                                    <a class="button fullwidth margin-top-10" data-val="window treatments" name="tab">window treatments</a>
+                                    <a class="button fullwidth margin-top-10" data-val="Mold remediation" name="tab">Mold remediation</a>
+                                    
+                                    </form>
+
+</div>
+                        </div>
+                        <br>
+
+
+</div>
+                <!-- Widget / End -->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="clearfix"></div>
+@section Scripts{
+
+    <script>
+        $(function () {
+            var ajaxFormSubmit = function () {
+                var $form = $(this);
+                var options = {
+                    url: $form.attr("action")
+                    , type: $form.attr("method")
+                    , data: $form.serialize()
+                }
+
+                var target = $($form.attr("data-kw-target"));
+                $.ajax(options).done(function (data) {
+                    $(target).replaceWith(data);
+                });
+                return false;
+            };
+            $("form[data-kw-ajax='true']").submit(ajaxFormSubmit);
+
+        })
+    </script>
+
+    <script>
+        $("a[name=tab]").on("click", function () {
+            var a = $(this).attr("data-val");
+
+                var $form = $(this);
+                var options = {
+                    url: $form.attr("action")
+                    , type: $form.attr("method")
+                    , data: {'SearchTerm':a}
+                }
+
+                //var target = $($form.attr("data-kw-target"));
+                //alert(target);
+                $.ajax(options).done(function (data) {
+                    $('#DataGrid').replaceWith(data);
+                });
+                return false;
+
+           
+        });
+    </script>
+    <script>
+        $(function () {
+
+            $(document).ajaxStart(function () {
+                $("#ajaxLoading").css("display", "block");
+                $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                $("#ajaxLoading").css("left", $(window).width() / 2);
+                $("#ajaxLoading").css("position", "fixed");
+                $("#ajax-backdrop").css("display", "block");
+            });
+            $(document).ajaxComplete(function () {
+                $("#ajaxLoading").css("display", "none");
+                $("#ajax-backdrop").css("display", "none");
+            });
+        })
+    </script>
+}
+
+<style>
+    .listing-img-container img {
+        width: 100%;
+        height: 320px !important;
+    }
+
+    .list-layout .listing-img-container {
+      height: 300px !important;
+
+    }
+
+
+</style>

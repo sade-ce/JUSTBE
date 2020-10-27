@@ -1,0 +1,651 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+@{
+    ViewBag.Title = "Deal Tracker";
+}
+@if (User.IsInRole("Admin"))
+{
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstateNew.cshtml";
+}
+else if (User.IsInRole("Agent"))
+{
+
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayoutVersion2.cshtml";
+}
+ <style>
+     .clientViewPortalBtn .backLink{
+             color: #0bb7a5;
+     }
+     .hidden{
+         display:none;
+     }
+      .alert-warning{
+min-height:95px;
+      }
+     .dealtext::-webkit-outer-spin-button,
+.dealtext::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.dealtext {
+  -moz-appearance: textfield;
+}
+ </style>
+<script src="~/Content/SlimImageCropper/slim.kickstart.js"></script>
+<link href="~/Content/SlimImageCropper/slim.css" rel="stylesheet" />
+@using System.Security.Claims;
+<section class="wrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>Live Deal Tracker</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello, @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new" /></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 breadcrumb-list">
+                    @*<p><span>My Deals</span> <i class="material-icons">keyboard_arrow_right</i> <span>All Transaction List</span></p>*@
+                </div>
+                <div class="col-sm-12 profile-info-section">
+
+                    <div class="row divClientProfile">
+                        <div class="col-xl-7 col-sm-12 profile-wrap">
+                            <div class="whiteBgBorderBox boxOne1">
+                                <div class="profile-pic-wrap">
+                                    <div class="profile-pic1">
+                                        @if (Model.UserInfoV2.UserPhotoThumb == null || Model.UserInfoV2.UserPhotoThumb == "")
+                                        {
+                                            <img src="https://justbere-d4d9.kxcdn.com/img/NoImage.png" class="img-fluid" />
+                                        }
+                                        else
+                                        {  <img src="@Model.UserInfoV2.UserPhotoNormal" class="img-fluid" />
+                                        }
+
+                                    </div>
+
+                                </div>
+                                <div class="profile-infor-wrap">
+                                    <h3><a style="color:#0BB7A5" href="@Url.Action("ClientProfile","UserAgentNew" ,new {  ID = Model.UserInfo.Id,area="" })"> @Model.UserInfoV2.Name @Model.UserInfoV2.LastName</a> </h3>
+                                   
+                                    <ul>
+
+                                        <li><label>Email</label> @Model.UserInfoV2.Email</li>
+                                        <li><label>Phone</label> @Model.UserInfoV2.PhoneNumber</li>
+                                        <li><label>Type:</label>@Model.UserInfoV2.ClientType</li>
+                                      
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-sm-12 client-tier-block view-client-portal-wrap">
+                            <div class="boxOne">
+                   
+                                <div class="btn-wrap">
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <a class="btn tealButton" target="_blank" href="@Url.Action("List", "MyDeal", new { ClientID = Model.UserInfo.Id, AgentID =Model.TrackDealMasterView.AgentID, @area = "Client" })">Client’s view of portal</a>
+
+                                    }
+                                    else
+                                    {
+                                        <a href="/Client/MyDeal/List?ClientID=@Model.UserInfo.Id" target="_blank" class="btn tealButton">Client’s view of portal</a>
+                                    }
+                                       <a class="backLink btn tealButton" target="_blank" href="@Url.Action("CreateEvent", "Calendly", new {Email=Model.UserInfo.Email,ClientID=Model.TrackDealMasterView.ClientID,TransactionID=Model.TrackDealMasterView.TransactionID,AgentID=Model.TrackDealMasterView.AgentID,@area = "coordinator" })">Add New Event</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                   
+                    <div class="col-sm-12 live-deal-tracker-wrap">
+                        <div id="liveDealTrackerAccordion">
+                            <div class="card" id="DataGrid">
+                                <div class="card-header" id="dealTrackerHeading">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#dealTrackerCollapse" aria-expanded="true" aria-controls="dealTrackerCollapse">
+                                            Deal Tracker
+
+                                        </button>
+
+
+                                    </h5>
+
+                                </div>
+
+                                <div id="dealTrackerCollapse" class="collapse show" aria-labelledby="dealTrackerHeading" data-parent="#liveDealTrackerAccordion">
+                                    <form method="post" action="@Url.Action("Buyer","DealTrackerV2")" data-kw-ajax1="true" autocomplete="on">
+
+
+                                        <div class="card-body">
+
+                                            @*<input type="submit" class="btn tealButton" value="Save">*@
+                                            <div style="text-align: -webkit-right;">
+                                                <input type="button" id="btnZabarAddDeal" class="btn tealButton" value="Save" style="width: 100px;margin-bottom :10px;">
+                                            </div>
+                                            @Html.Partial("pvBuyerDealTracker", Model)
+
+
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <div class="card">
+                        <div class="card-header" id="vendorsHeading">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#vendorsCollapse" aria-expanded="false" aria-controls="vendorsCollapse">
+                                    Vendors
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="vendorsCollapse" class="collapse" aria-labelledby="vendorsHeading" data-parent="#liveDealTrackerAccordion">
+                            <div class="card-body">
+                                <div class="table-wrapper">
+                                    <div class="custom-table addNewVendor-table">
+                                        <h3 class="heading">
+                                            Add New Vendor
+                                            <a href="#" class="btn tealButton" data-toggle="modal" data-target="#addNewVendorModal" onclick="clearVendorData();">Add New Vendor</a>
+                                        </h3>
+                                        <div class="modal fade add-vendor-modal" id="addNewVendorModal" tabindex="-1" role="dialog" aria-labelledby="addNewVendorModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="addNewVendorModalLabel">Add New Vendor</h5>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="FormAddVendor">
+                                                            <input type="hidden" name="ListingCVendor" id="ListingCVendor" />
+                                                            <input type="hidden" class="form-control" name="TransactionID" value="@Model.TrackDealMasterView.TransactionID" />
+
+                                                            <div class="form-group">
+                                                                <label class="text-danger" id="lblVendorError" style="display:none;width:100%"></label>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="buyerDocument">Vendor Type:</label>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" id="VendorType" class="form-control" name="VendorType" />
+                                                                    <label class="text-danger" id="lblVendorType" style="display:none">Type is required</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="buyerDocument">Vendor Name:</label>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" id="txtTitleV" class="form-control" name="txtTitleV" />
+                                                                    <label class="text-danger" id="lblTitleV" style="display:none">Vendor is required</label>
+                                                                </div>
+                                                                </div>
+                                                            <div class="form-group">
+                                                                <label for="buyerDocument">Email:</label>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" id="txtVendorEmail" name="VendorEmail" class="form-control" />
+                                                                    <label class="text-danger" id="lblVendorEmail" style="display:none">Invalid email address</label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="buyerDocument">Phone:</label>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" id="txtVendorPhone" name="VendorPhone" class="form-control validPhone" maxlength="12" />
+                                                                    <label class="text-danger" id="lblVendorPhone" style="display:none">Invalid phone number</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="buyerDocument">Contact Name:</label>
+                                                                <div class="form-control-group">
+                                                                    <input type="hidden" name="VendorContactId" id="VendorContactId" />
+                                                                    <input type="text" id="txtContactName" class="form-control"  name="ContactName" />
+                                                                    @*<label class="text-danger" id="lblContactName" style="display:none">Vendor is required</label>*@
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="buyerDocument">Contact Title:</label>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" id="txtContactTitle" class="form-control" name="ContactTitle"  />
+                                                                    @*<label class="text-danger" id="lblContactTitle" style="display:none">Vendor is required</label>*@
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="buyerDocument">Contact Phone:</label>
+                                                                <div class="form-control-group">
+                                                                    <input type="text" id="txtContactPhone" class="form-control validPhone" name="ContactPhone" maxlength="12" />
+                                                                    <label class="text-danger" id="lblContactPhone" style="display:none">Invalid phone number</label>
+                                                                </div>
+                                                            </div>
+                                                         
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn tealButton" onclick="return AddVendor()">Save</button>
+                                                                <button type="button" class="btn greyButton" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table-wrapper">
+                                            <div class="custom-table vendors-listing-table tDealVendor" >
+                                                @*<div class="tableHeadRow">
+                                                    <div class="tableCell vendorImage"></div>
+                                                    <div class="tableCell">Name</div>
+                                                    <div class="tableCell">Type</div>
+                                                    <div class="tableCell">Company</div>
+                                                    <div class="tableCell">Email</div>
+                                                    <div class="tableCell">Action</div>
+                                                </div>
+                                                <div class="tableRow">
+                                                    <div class="tableCell vendorImage"><span><img src="img/user-image4.png" /></span></div>
+                                                    <div class="tableCell">Bill Bray</div>
+                                                    <div class="tableCell">Lender</div>
+                                                    <div class="tableCell">Citizen’s Bank</div>
+                                                    <div class="tableCell">info@gmail.com</div>
+                                                    <div class="tableCell"><a href="#" class="delete-link"><i class="material-icons">delete_forever</i></a></div>
+                                                </div>
+                                                <div class="tableRow">
+                                                    <div class="tableCell vendorImage"><span><img src="img/user-image2.png" /></span></div>
+                                                    <div class="tableCell">Johnny Paintbrush</div>
+                                                    <div class="tableCell">Lender</div>
+                                                    <div class="tableCell">DC Specialty Painters</div>
+                                                    <div class="tableCell">info@gmail.com</div>
+                                                    <div class="tableCell"><a href="#" class="delete-link"><i class="material-icons">delete_forever</i></a></div>
+                                                </div>
+                                                <div class="tableRow">
+                                                    <div class="tableCell vendorImage"><span><img src="img/user-image1.png" /></span></div>
+                                                    <div class="tableCell">Adam</div>
+                                                    <div class="tableCell">Flooring</div>
+                                                    <div class="tableCell">Pro Floors</div>
+                                                    <div class="tableCell">info@gmail.com</div>
+                                                    <div class="tableCell"><a href="#" class="delete-link"><i class="material-icons">delete_forever</i></a></div>
+                                                </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            <div class="card">
+                                <div class="card-header" id="imageGalleryHeading">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#imageGalleryCollapse" aria-expanded="false" aria-controls="imageGalleryCollapse">
+                                            Image Gallery
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="imageGalleryCollapse" class="collapse" aria-labelledby="imageGalleryHeading" data-parent="#liveDealTrackerAccordion">
+                                    <div class="card-body">
+                                        <div class="table-wrapper">
+                                            <div class="custom-table upload-photo-table">
+                                                <h3 class="heading">
+                                                    Upload Photo
+                                                    <div class="upload-btn-wrapper">
+
+                                                        <a href="#" class="btn tealButton" data-toggle="modal" data-target="#uploadImageModal" onclick="clearGalTextBox();">Upload Photo</a>
+
+                                                    </div>
+                                                </h3>
+                                                <div class="modal fade upload-images-modal" id="uploadImageModal" tabindex="-1" role="dialog" aria-labelledby="uploadImageModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="img">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="uploadImageModalLabel">Photo</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="FormUploadGal" enctype="multipart/form-data" method="post">
+                                                                    <input type="hidden" id="hdnGalEmail" class="form-control" name="Email" value="@Model.DealTracker.Email" />
+                                                                    <input type="hidden" id="hdnGalTransactionID" class="form-control" name="TransactionID" value="@Model.TrackDealMasterView.TransactionID" />
+                                                                    <input type="hidden" id="hdnGalleryID" class="form-control" name="GallaryID" />
+                                                                    <input type="hidden" id="hdnPhotoNormal" class="form-control" name="PhotoNormal" />
+                                                                    <input type="hidden" id="hdnPhotoThumb" class="form-control" name="PhotoThumb" />
+                                                                    <input type="hidden" id="hdnaction" name="IsEdited" />
+                                                                    <div class="form-group">
+                                                                        <label class="text-danger" id="lblGalError" style="display:none;width:100%"></label>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group col-md-6">
+                                                                            <label for="buyerDocument">Image:</label>
+                                                                            <div class="form-control-group">
+                                                                                <div id="my-cropper">
+                                                                                    <input type="file" name="upfiles" />
+                                                                                </div>
+                                                                                @*<div id="slim-cropper" class="slim img-rounded" data-did-remove="imageWillBeRemoved" data-size="600,450" style="max-width:260px" data-label="Click and drag your image here">
+                                                                            <input type="file" name="upfiles" />
+                                                                            @if (Model.utblMstClientGalleries.PhotoNormal == null)
+                                                                            {
+                                                                            }
+                                                                            else
+                                                                            { <img src="/UploadedFiles/PhotoGallery/@Model.utblMstClientGalleries.GallaryID@Model.utblMstClientGalleries.PhotoNormal" class="img-rounded image-exist" />
+                                                                            }
+                                                                        </div>*@
+                                                                                <label class="text-danger" id="lblGalFile" style="display:none">File is required</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <label>Description</label>
+
+                                                                            <div class="form-control-group">
+                                                                                <textarea id="txtGalDescription" class="form-control" name="Description" rows="3"></textarea>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="btn-wrap">
+                                                                            <div class="row">
+                                                                                <div class="col-md-6"> <button type="button" class="btn tealButton" id="btnAddGallery" onclick="return AddGallery();">Upload</button></div>
+                                                                                <div class="col-md-6"> <button type="button" class="btn greyButton" data-dismiss="modal">Close</button></div>
+                                                                            </div>
+
+
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="image-gallery-wrap tGallerybody">
+
+                                                @*<div class="col-12 col-sm-6 col-md-4">
+                                            <div class="image-wrap">
+                                                <img src="img/image-gallery-1.svg" class="img-fluid" />
+                                                <div class="image-del-download">
+                                                    <a href="#" class="downloadIcon"><i class="material-icons">publish</i></a>
+                                                    <a href="#" class="deleteIcon"><i class="material-icons">delete_forever</i></a>
+                                                </div>
+                                            </div>
+                                        </div>*@
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="dealDocumentsHeading">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#dealDocumentsCollapse" aria-expanded="false" aria-controls="dealDocumentsCollapse">
+                                            Deal Documents
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="dealDocumentsCollapse" class="collapse" aria-labelledby="dealDocumentsHeading" data-parent="#liveDealTrackerAccordion">
+                                    <div class="card-body">
+                                        <div class="table-wrapper">
+                                            <div class="custom-table upload-documents-table">
+                                                <h3 class="heading">
+                                                    Upload Documents
+                                                    <a href="#" class="btn tealButton" data-toggle="modal" data-target="#uploadDocumentModal" onclick="clearTextBox();">Upload</a>
+                                                </h3>
+                                                <div class="modal fade upload-documents-modal" id="uploadDocumentModal" tabindex="-1" role="dialog" aria-labelledby="uploadDocumentModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="uploadDocumentModalLabel">Upload Deal Documents</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="FormUploadDoc" enctype="multipart/form-data" method="post">
+                                                                    <input type="hidden" id="hdnDocEmail" class="form-control" name="Email" value="@Model.DealTracker.Email" />
+                                                                    <input type="hidden" id="hdnDocTransactionID" class="form-control" name="TransactionID" value="@Model.TrackDealMasterView.TransactionID" />
+                                                                    <input type="hidden" id="hdnDocID" class="form-control" name="DocID" />
+
+                                                                    <div class="form-group">
+                                                                        <label class="text-danger" id="lblDocError" style="display:none;width:100%"></label>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="buyerDocument">Buyer Document:</label>
+                                                                        <div class="form-control-group">
+                                                                            @*<select class="form-control" id="buyerDocument">
+                                                                        <option>-- Select Document --</option>
+                                                                        <option>Document 1</option>
+                                                                        <option>Document 2</option>
+                                                                        <option>Document 3</option>
+                                                                        <option>Document 4</option>
+                                                                    </select>*@
+
+                                                                            <input type="text" id="txtDocTitle" class="form-control" name="Title" required />
+                                                                            @*<button type="button" class="btn tealButton addNewDocumentBtn">Add New</button>*@
+                                                                            <label class="text-danger" id="lblDocTitle" style="display:none">Title is required</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group" id="divDocDescription" style="display:none">
+                                                                        <label>Description</label>
+
+                                                                        <div class="form-control-group">
+
+                                                                            <input type="text" id="txtDocDescription" class="form-control" name="Description" />
+                                                                            <label class="text-danger" id="lblDocDescription" style="display:none">Description is required</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="chooseFile">Choose File:</label>
+                                                                        <div class="form-control-group">
+
+                                                                            <input type="file" class="form-control-file" name="DocFile" id="flDocFile" required>
+                                                                            <label class="text-danger" id="lblDocFile" style="display:none">File is required</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="btn-wrap">
+                                                                        <button type="button" class="btn tealButton" id="btnAddDocument" onclick="return AddDocument();">Upload Documents</button>
+                                                                        <button type="button" class="btn greyButton" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="table-wrapper">
+                                                    <div class="custom-table">
+
+                                                        <div class="tDocumentbody"> </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                                <h3 class="heading">
+                                                    Client Documents
+                                                </h3>
+                                                <div class="table-wrapper">
+                                                    <div class="custom-table">
+
+                                                        <div class="tClientDocumentbody"> </div>
+
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header" id="dealPriceHeading">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#dealPriceCollapse" aria-expanded="false" aria-controls="dealPriceCollapse">
+                                            Deal Financials
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="dealPriceCollapse" class="collapse" aria-labelledby="dealPriceHeading" data-parent="#liveDealTrackerAccordion">
+                                    <div class="card-body">
+                                        <div class="table-wrapper">
+                                            <div class="custom-table upload-documents-table">
+                                                <h3 class="heading">
+                                                    Add 
+                                                    <a href="#" class="btn tealButton" data-toggle="modal" data-target="#uploaddealPriceModal" onclick="DealPrice();">Add</a>
+                                                </h3>
+                                                <div class="modal fade upload-documents-modal" id="uploaddealPriceModal" tabindex="-1" role="dialog" aria-labelledby="uploaddealPriceModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="uploaddealPriceModalLabel">Deal Price</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="frmDealPrice" method="post">
+                                                                    <input type="hidden" name="TransactionID" value="@Model.TrackDealMasterView.TransactionID" />
+                                                                    <div class="form-group">
+                                                                        <label class="text-danger" id="lblDealError" style="display:none;width:100%"></label>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="buyerDocument">Deal Price:</label>
+                                                                        <div class="form-control-group">
+
+
+                                                                            $<input type="number" id="DealPrice" class="form-control dealtext" name="DealPrice" value="@Model.DealTracker.DealPrice" />
+                                                                            @*<label class="text-danger" id="lblDealPrice" style="display:none">Price is required</label>*@
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="btn-wrap">
+                                                                        <button type="button" class="btn tealButton" id="btnAddPrice" style="width:auto!important" onclick="return SetDealPrice();">Save</button>
+                                                                        <button type="button" class="btn greyButton" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>Deal Price:</label> $<label id="lblDealPrice">@Model.DealTracker.DealPrice</label>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+<script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ckeditor/ckeditor.js"></script>
+<script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ckeditor/adapters/jquery.js" async></script>
+<script src="~/Scripts/Transaction.js"></script>
+<script>
+
+   $(function () {
+   
+
+
+
+       $(".content").on("click", ".txtDate", function () {
+           $(this).datepicker({
+               changeMonth: true,
+               changeYear: true,
+               dateFormat: "mm/dd/yy",
+
+           });
+           $(this).datepicker("show");
+       });
+   
+        $(".content").on("click", ".switch-label-off", function (e) {
+            $(this).parent().find('.checkIsShowClient').val(false);
+        })
+        $(".content").on("click", ".switch-label-on", function (e) {
+            $(this).parent().find('.checkIsShowClient').val(true);
+
+
+        })
+     
+     
+   })
+
+   //var ajaxFormSubmit1 = function () {
+   //    var $form = $(this);
+   //    var options = {
+   //        url: $form.attr("action")
+   //        , type: $form.attr("method")
+   //        , data: $form.serialize()
+   //    }
+
+   //    var target = $($form.attr("data-kw-target"));
+
+   //    $.ajax(options).done(function (data) {
+           
+   //        $('#DataGrid').empty().append(data);
+   //        $(".txtDate").datepicker({
+   //            changeMonth: true,
+   //            changeYear: true,
+   //            changeTime: true,
+   //            dateFormat: "mm/dd/yy",
+
+   //        });
+           
+   //    });
+   //    return false;
+   //};
+   //$(".content").on("submit", "form[data-kw-ajax1='true']", ajaxFormSubmit1);
+
+
+ 
+
+   $(window).load(function () {
+       $("#ajaxLoading").css("display", "block");
+       $("#ajaxLoading").css("top", $(window).height() / 1.8);
+       $("#ajaxLoading").css("left", $(window).width() / 2);
+       $("#ajaxLoading").css("position", "fixed");
+       $("#ajax-backdrop").css("display", "block");
+   })
+   jQuery(window).load(function () {
+       $("#ajaxLoading").css("display", "block");
+       $("#ajaxLoading").css("top", $(window).height() / 1.8);
+       $("#ajaxLoading").css("left", $(window).width() / 2);
+       $("#ajaxLoading").css("position", "fixed");
+       $("#ajax-backdrop").css("display", "block");
+
+       setTimeout(function () {
+           $("#ajaxLoading").css("display", "none");
+           $("#ajax-backdrop").css("display", "none");
+       },3000);
+
+   });
+
+</script>

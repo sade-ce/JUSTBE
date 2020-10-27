@@ -1,0 +1,61 @@
+﻿@model RealEstate.Entities.ViewModels.MstNeighborhoodDetails
+@{
+    ViewBag.Title = "Just BE | News";
+    Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+}
+
+<div class="container">
+
+    <div id="content">
+        <h3 class="section-title"> Explore @ViewBag.City</h3>
+
+        @if (Model.MstNeighborhood.Count() > 0)
+        {
+            <div class="col-md-6 col-sm-6">
+                @Html.Partial("pvNews")
+            </div>
+            <div class="col-md-6 col-sm-6">
+                @foreach (var item in Model.MstNeighborhood)
+                {
+                    @Html.Raw(System.Web.HttpUtility.HtmlDecode(item.PostContent))
+
+                }
+            </div>
+        }
+
+        else
+        {
+
+            @Html.Partial("pvNews")
+
+        }
+    </div>
+
+
+
+</div>
+<style>
+    a {
+        font-size: 70%;
+    }
+
+    hr {
+        font-size: 20px !important;
+        overflow: visible;
+        padding: 0;
+        border: none;
+        border-top: medium double #333;
+        color: #333;
+        text-align: center;
+    }
+
+        hr:after {
+           
+            display: inline-block;
+            position: relative;
+            top: -0.7em;
+            font-size: 1.5em;
+            padding: 0 0.25em;
+            background: white;
+        }
+</style>

@@ -1,0 +1,227 @@
+﻿@model RealEstate.Entities.ViewModels.MultipleDealClientManageModel
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "Welcome to Just BE.";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayoutNew.cshtml";
+}
+
+<!-- TOP HEADER START -->
+<div class="top-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="breadcrumbs">
+                    <ul class="align-items-center d-flex list-unstyled m-0 p-0">
+                        <li class="d-none d-lg-block mr-4">
+                            <a href="#!" id="toggleHeader"><img src="~/Content/NewVersion/images/ham.png" alt="" class="img-fluid"></a>
+                        </li>
+                        @*<li><a href="@Url.Action("Welcome", "JustBE", new { area = "Client" })" id="toggleHeader">Home</a></li>*@
+                        @*<li>Home<span>&nbsp;>&nbsp;</span></li>
+                            <li class="active">Welcome<span>&nbsp;>&nbsp;</span></li>*@
+                        <li class="">
+                            <a class="nav-link nav-cal-drop nav-cal-drop-new dropdown-toggle " href="@Url.Action("Welcome", "JustBE", new { area = "Client" })" role="button">Welcome<span>&nbsp;&gt;</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 d-md-block d-none">
+                <div class="accountLog d-flex justify-content-end align-items-center">
+
+                    <p>Hello, &nbsp;<span>@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)</span></p>
+                    <div class="profileImgtop" style="background-size: cover; background-position: center;   height:50px;">
+                        <!-- <img alt="profile-img" id="profileimg" class="img-fluid profileimg"> -->
+                    </div>
+                    <span> &nbsp; &nbsp; | &nbsp; </span>
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle mybtn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            My Account
+                        </button>
+                        <div class="dropdown-menu MyAccountDrop" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="@Url.Action("EmailPreferences","Account",new { @area=""})"><i class="flaticon-gear"></i>Notification Settings</a>
+                            <a class="dropdown-item" href="@Url.Action("EditProfile","Account",new { @area=""})"><i class="flaticon-conversation"></i>Edit Profile</a>
+                            <a class="dropdown-item" href="@Url.Action("ChangePassword","Account",new { @area=""})"><i class="flaticon-password"></i>Change Password</a>
+
+                            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- TOP HEADER END -->
+<!-- Main Section s -->
+<div class="ConciergeOuter welcome-outer">
+    <div class="container">
+
+
+        <div class="row welcomeSection">
+            <div class="col-md-12 text-center">
+                <h2>Welcome to our Client Portal</h2>
+                <p>
+                    Where we have built the next generation real estate experience. After 20 years in the industry, we have learned what makes a real estate process fun and seamless for our clients. Our goal is to deliver to you, a state-of-the-art experience with tools and resources, which we hope you will find helpful
+
+                    Ready to get started? Give us a call at 301.785.1100, or send us an email. We’re here to help you with real estate journey.
+                </p>
+            </div>
+        </div>
+
+
+        @*<div class="ConciergerSec">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ConciergeInner">
+
+                        <div class="conBanner">
+                            <iframe width="100%" height="350" src="https://www.youtube.com/embed/uPf1FsK7O0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+                  
+                </div>
+
+            </div>
+        </div>*@
+       
+            <div class="row">
+                <div class="col-md-12">
+                    @*<div class="ConciergeInner">
+
+                            <div class="conBanner">
+                                <iframe width="100%" height="350" src="https://www.youtube.com/embed/uPf1FsK7O0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+
+                        </div>*@
+                    @*<div class="ConciergeInner">*@
+                    <div >
+                        <div class="conBanner">
+                            <img src="~/img/welcomenew.png" />
+                            @*<iframe width="100%" height="350" src="https://www.youtube.com/embed/uPf1FsK7O0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>*@
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        
+    </div>
+</div>
+
+<!-- Main Section E -->
+@*<div class="main-wrapper">
+        <div class="main">
+            <div class="main-inner">
+
+                <div class="content-title">
+                    <div class="content-title-inner">
+                        <div class="container">
+                            <h1>Just BE | Real Estate</h1>
+
+                        </div><!-- /.container -->
+                    </div><!-- /.content-title-inner -->
+                </div><!-- /.content-title -->
+
+                <div class="page-header">
+                    <h1>
+                        Welcome to our Client Portal
+                    </h1>
+                    <p>Where we have built the next generation real estate experience. After 20 years in the industry, we have learned what makes a real estate process fun and seamless for our clients. Our goal is to deliver to you, a state-of-the-art experience with tools and resources, which we hope you will find helpful</p>
+
+                </div>
+
+
+
+
+                <div class="page-header">
+
+                    <p>Ready to get started? Give us a call at <a href="tel:3017851100">301.785.1100</a>, or send us an <a href="mailto:info@JustBEre.com">email</a>. We’re here to help you with real estate journey.
+    </p>
+
+                </div>
+
+                <div class="content">
+                    <div class="container">
+                        <!-- /.filter -->
+
+                        <div class="row">
+
+                            <div class="col-md-offset-1 col-lg-12">
+
+                                <div class="row">
+                                    <div class="container">
+                                        <div class="page-wrapper">
+                                            <div class="main-wrapper">
+                                                <div class="col-md-11 myIframe box">
+                                                    <iframe width="660" height="515" src="https://www.youtube.com/embed/uPf1FsK7O0g" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+                        <!-- /.row -->
+                    </div><!-- /.container -->
+                </div><!-- /.content -->
+            </div><!-- /.main-inner -->
+        </div><!-- /.main -->
+    </div>
+
+
+
+
+    <style>
+
+        @@media screen and (min-width: 320px) and (max-width: 425px) {
+
+
+
+
+            .myIframe {
+                height: 350px !important;
+            }
+
+        }
+
+    </style>
+
+
+
+
+    <style>
+        .myIframe {
+            position: relative;
+            padding-bottom: 30.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            border: solid black 1px;
+        }
+
+            .myIframe iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+    </style>*@
+
+

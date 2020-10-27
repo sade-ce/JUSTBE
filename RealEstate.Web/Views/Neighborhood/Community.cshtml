@@ -1,0 +1,210 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | Community";
+    Layout = "~/Views/Shared/_LayoutCommonNew.cshtml";
+}
+@*<link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">*@
+
+    <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <!-- Section Start -->
+<style>
+          body { margin: 0px;  padding: 0px;
+          }
+          .setLinehgt{
+             line-height:1.5em;
+          }
+          ul.neighbourListing li{
+              margin-bottom:0px!important;
+          }
+          .neighbourListing{
+              line-height:1.5em;
+          }
+</style>
+<section class="neighborhoodOuter">
+ 
+    <!-- row one start -->
+    <div class="container">
+        <div class="row neighborInner">
+            <div class="col-md-12 col-lg-6">
+                <div class="neighborhoodImg WashingtonBg">
+                    <img src="/img/dc.jpg" alt="Washington DC">
+                </div>
+            </div>
+
+            <div class="col-md-12 col-lg-6">
+                <h2>Washington DC</h2>
+                <p class="setLinehgt">
+                    Locals know the difference between Washington and DC. The latter is a city made up of neighborhoods, where people live and visit, where restaurants and pubs buzz, where cabs are hailed, hotels are busy and friends laugh. No politics. No power plays. No problem. There’s so much
+                    to love about each one of DC’s neighborhoods, from history on Capitol Hill and high-end boutiques in Georgetown to performing arts in Penn Quarter and a 24-hour diner in Adams Morgan. Get familiar with the lay of the land and find your place in DC.
+                </p>
+
+                <ul class="neighbourListing">
+
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Adams Morgan"})">Adams Morgan</a></li>
+                    <li><a href="https://washington.org/visit-dc/things-see-do-bloomingdale">Bloomingdale</a></li>
+                    <li><a href="https://washington.org/dc-neighborhoods/capitol-hill">Capitol Hill</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Chevy Chase"})">Chevy Chase</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Cleveland Park DC"})">Cleveland Park</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Columbia Heights"})">Columbia Heights</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Dupont Circle"})">Dupont Circle</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Foggy Bottom & West End"})">Foggy Bottom</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Georgetown DC"})">Georgetown DC</a></li>
+
+                    <li><a href="https://washington.org/dc-neighborhoods/h-street-ne">H Street</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Kalorama"})">Kalorama</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Logan Circle"})">Logan Circle</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Mount Vernon Triangle"})">Mount Vernon Triangle</a></li>
+                    <li><a href="http://www.mtpleasantdc.com/">Mt. Pleasant</a></li>
+                    <li><a href="https://washington.org/dc-neighborhoods/capitol-riverfront">Navy Yard</a></li>
+                    <li><a href="https://washington.org/visit-dc/neighborhoods/noma">NoMa</a></li>
+
+
+                    <li><a href="https://washington.org/dc-neighborhoods/penn-quarter-chinatown">Penn Quarter/Chinatown</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Petworth"})">Petworth</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Shaw Washington DC"})">Shaw</a></li>
+                    <li><a href="https://washington.org/dc-neighborhoods/southwest-wharf">Southwest Waterfront</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="U Street Corridor"})">U Street Corridor</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Woodley Park"})">Woodley Park</a></li>
+
+
+                    @*<li> <li><a href="#"> Adams Morgan </a></li></li>
+                    <li><li><a href="#">AU Park </a></li></li>
+                    <li><li><a href="#">Burleith </a></li></li>
+                    <li><li><a href="#">Cathedral Heights </a></li></li>
+                    <li><li><a href="#">Chevy Chase </a></li></li>
+                    <li><li><a href="#">Cleveland Park </a></li></li>
+                    <li><li><a href="#">Columbia Heights </a></li></li>
+                    <li><li><a href="#">Dupont Circle </a></li></li>
+                    <li><li><a href="#">Foggy Bottom </a></li></li>
+                    <li><li><a href="#">Fort Totten </a></li></li>
+                    <li><li><a href="#">Foxhall Village </a></li></li>
+                    <li> <li><a href="#">Friendship Heights </a></li></li>
+                    <li><li><a href="#">Georgetown DC </a></li></li>
+                    <li><li><a href="#">Kalorama </a></li></li>
+                    <li><li><a href="#">Logan Circle </a></li></li>
+                    <li><li><a href="#">Glover Park </a></li></li>
+                    <li><li><a href="#">Mount Vernon Triangle </a></li></li>
+                    <li><li><a href="#">Petworth </a></li></li>
+                    <li><li><a href="#">Shaw </a></li></li>
+                    <li><li><a href="#">Shepherd Park </a></li></li>
+                    <li><li><a href="#">Takoma </a></li></li>
+                    <li><li><a href="#">Tenleytown </a></li></li>
+                    <li><li><a href="#">U Street Corridor </a></li></li>
+                    <li><li><a href="#">Woodley Park </a></li></li>*@
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <!-- row one End -->
+    <!-- row Two start -->
+    <div class="neighborhoodOuterCenter">
+        <div class="container">
+            <div class="row neighborInner ">
+
+                <div class="col-md-12 col-lg-6 d-block  d-md-none d-lg-none">
+                    <div class="neighborhoodImg">
+                        <img src="/img/virginia2.jpg" alt="virginia">
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-6">
+                    <h2>Virginia</h2>
+                    <p class="setLinehgt">Virginia has long been a fertile seedbed of American history. Its storied colonial past began in 1607 with the founding of the first English settlement at Jamestown. The first Thanksgiving was held in Virginia in 1619.Virginia is considered the most Southern of the Mid-Atlantic states and the most Northern of the Southern states</p>
+                    <ul class="neighbourListing">
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="Crystal City"})">Crystal City</a></li>
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="Lyon Village"})">Lyon Village</a></li>
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="Rosslyn"})">Rosslyn</a></li>
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="Shirlington"})">Shirlington</a></li>
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="Del Ray"})">Del Ray</a></li>
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="Eisenhower Avenue"})">Eisenhower Avenue</a></li>
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="Ballston"})">Ballston</a></li>
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="Old Town"})">Old Town</a></li>
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="ParkFairfax"})">Park Fairfax</a></li>
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="Downtown Falls Church"})">Downtown Falls Church</a></li>
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="Tysons Corner"})">Tysons Corner</a></li>
+                        <li><a href="@Url.Action("News","Neighborhood",new { City="Columbia Pike"})">Columbia Pike</a></li>
+                        @*<li><li><a href="#">Crystal City </a></li></li>
+                        <li><li><a href="#">Lyon Village </a></li></li>
+                        <li><li><a href="#">Rosslyn </a></li></li>
+                        <li><li><a href="#">Shirlington </a></li></li>
+                        <li><li><a href="#">Del Ray </a></li></li>
+                        <li><li><a href="#">Eisenhower Avenue </a></li></li>
+                        <li><li><a href="#">Shaw </a></li></li>
+                        <li><li><a href="#">Old Town </a></li></li>
+                        <li><li><a href="#">Park Fairfax </a></li></li>
+                        <li><li><a href="#">Downtown Falls Church </a></li></li>
+                        <li><li><a href="#">Tysons Corner </a></li></li>
+                        <li><li><a href="#">Columbia Pike </a></li></li>*@
+                    </ul>
+                </div>
+                <div class="col-md-12 col-lg-6 d-none  d-md-block d-lg-block">
+                    <div class="neighborhoodImg">
+                        <img src="/img/virginia2.jpg" alt="Washington DC">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- row Two End -->
+    <!-- row Three start -->
+    <div class="container">
+        <div class="row neighborInner">
+            <div class="col-md-12 col-lg-6">
+                <div class="neighborhoodImg">
+                    <img src="/img/maryland.jpg" alt="maryland">
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <h2>Maryland</h2>
+                <p class="setLinehgt">
+                    Maryland’s close proximity to Washington, D.C. provides myriad opportunities for employment in the federal government, and accordingly, it has the second highest percentage of federal employees (5.5%) in the U.S. In raw numbers, that translated into over 143,000 Marylanders
+                    in 2013. Many federal agencies are, in fact, located in Maryland
+                </p>
+                <ul class="neighbourListing">
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Bethesda"})">Bethesda</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Cabin John"})">Cabin John</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Chevy Chase"})">Chevy Chase</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Downtown Silver Spring"})">Downtown Silver Spring</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Potomac"})">Potomac</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Rockville Town Square"})">Rockville Town Square</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Takoma Park"})">Takoma Park</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Wheaton"})">Wheaton</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Capitol Heights"})">Capitol Heights</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Hyattsville"})">Hyattsville</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="Mount Rainier"})">Mount Rainier</a></li>
+                    <li><a href="@Url.Action("News","Neighborhood",new { City="National Harbor"})">National Harbor</a></li>
+                    @*<li><li><a href="#">Bethesda </a></li></li>
+                    <li><li><a href="#">Cabin John  </a></li></li>
+                    <li><li><a href="#">Chevy Chase </a></li></li>
+                    <li><li><a href="#">Downtown Silver Spring </a></li></li>
+                    <li><li><a href="#">Potomac </a></li></li>
+                    <li><li><a href="#">Rockville Town Square </a></li></li>
+                    <li><li><a href="#">Takoma Park </a></li></li>
+                    <li><li><a href="#">Wheaton </a></li></li>
+                    <li><li><a href="#">Capitol Heights </a></li></li>
+                    <li><li><a href="#">Hyattsville </a></li></li>
+                    <li><li><a href="#">Mount Rainier</a></li></li>
+                    <li><li><a href="#">National Harbor</a></li></li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- row Three End -->
+  
+   
+</section>
+<!-- Section End -->
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+    @*@section Scripts{
+        <script src="https://justbere-d4d9.kxcdn.com/201Murray/plugins/jquery.localScroll.min.js"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyBN4XjYeIQbUspEkxCV2dhVPSoScBkIoic"></script>
+        <script src="https://justbere-d4d9.kxcdn.com/201Murray/plugins/jquery.scrollTo.min.js"></script>
+
+    }*@
+

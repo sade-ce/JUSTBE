@@ -1,0 +1,81 @@
+﻿@model IEnumerable<RealEstate.Entities.Models.utblMstEventCalMaster>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Event 
+        <small>List </small>
+    </h1>
+</section>
+
+<div class="content">
+    <div class="col-md-12">
+        <div class="well well-sm clearfix">
+            <div class="pull-right">
+                @Html.ActionLink(" Add New ", "create", new { Email = ViewBag.Email, ClientID = ViewBag.ClientID, TransactionID = ViewBag.TransactionID, AgentID = ViewBag.AgentID }, new { @class = "btn btn-primary pull-right " })
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="table-responsive" style="overflow-x:visible;">
+            <table class="table table-striped table-condensed table-bordered table-responsive">
+                <thead>
+                    <tr>
+
+                        <th class="text-center" style="vertical-align: middle;">
+                            Title
+                        </th>
+
+
+                        <th class="text-center" style="vertical-align:middle;">
+                            Updated On
+                        </th>
+
+                        <th class="text-center" style="vertical-align: middle;">
+                            Action
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+{
+                        <tr>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.EventText)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.UpdatedOn)
+                            </td>
+                            <td class="text-center">
+                                <div class="col-md-offset-3">
+                                    <div style="float:left; padding-right: 8px;">
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.CalEventID,Email= @ViewBag.Email, ClientID = @ViewBag.ClientID, TransactionID = @ViewBag.TransactionID, AgentID = @ViewBag.AgentID }) |
+                                    </div>
+                                    <div style="float:left">
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.CalEventID,Email= @ViewBag.Email, ClientID = @ViewBag.ClientID, TransactionID = @ViewBag.TransactionID, AgentID = @ViewBag.AgentID })
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="box-footer  margin-top-20">
+
+            <div class="well well-sm col-md-12 col-lg-12 text-right">
+                @Html.ActionLink("Finish", "CreateEvent", "Calendly", new { Email = ViewBag.Email, ClientID = ViewBag.ClientID, TransactionID = ViewBag.TransactionID, AgentID = ViewBag.AgentID }, new { @class = "btn btn-default " })
+            </div>
+        </div>
+    </div>
+    
+    <br />
+    
+</div>
+

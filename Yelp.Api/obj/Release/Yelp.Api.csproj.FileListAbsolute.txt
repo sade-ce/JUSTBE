@@ -1,0 +1,7 @@
+F:\LaxumanBackupHP\BE\Yelp.Api\bin\Release\Yelp.Api.dll
+F:\LaxumanBackupHP\BE\Yelp.Api\bin\Release\Yelp.Api.pdb
+F:\LaxumanBackupHP\BE\Yelp.Api\bin\Release\Newtonsoft.Json.dll
+F:\LaxumanBackupHP\BE\Yelp.Api\bin\Release\Newtonsoft.Json.xml
+F:\LaxumanBackupHP\BE\Yelp.Api\obj\Release\Yelp.Api.csprojResolveAssemblyReference.cache
+F:\LaxumanBackupHP\BE\Yelp.Api\obj\Release\Yelp.Api.dll
+F:\LaxumanBackupHP\BE\Yelp.Api\obj\Release\Yelp.Api.pdb

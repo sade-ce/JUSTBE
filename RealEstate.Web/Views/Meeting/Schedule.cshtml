@@ -1,0 +1,215 @@
+﻿@model RealEstate.Entities.ViewModels.MstScheduleMeeting
+@{
+    ViewBag.Title = "Schedule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Plugins/Datedropper/datedropper.min.css" rel="stylesheet" />
+<link href="~/Content/Plugins/timedropper/timedropper.min.css" rel="stylesheet" />
+<div id="titlebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Schedule Meeting</h2>
+
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li>Meeting</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container ">
+    <div class="row margin-bottom-15"  >
+        <div class="col-md-6">
+
+            <div class="grid-item col-md-12" >
+                <div class="agent">
+
+                    <div class="agent-avatar">
+                        <a href="https://www.compass.com/agents/dc/jay-bauer/" target="_blank">
+                            <img src="~/img/Jay Bauer.jpg" alt="">
+                            <span class="view-profile-btn">View Profile</span>
+                        </a>
+                    </div>
+
+                    <div class="agent-content">
+                        <div class="agent-name">
+                            <h4><a href="https://www.compass.com/agents/dc/jay-bauer/" target="_blank">Jay Bauer</a></h4>
+                            <span>Agent in Washington DC</span>
+                            <span>Real Estate Professional</span>
+
+                        </div>
+
+                        <ul class="agent-contact-details">
+                            <li><i class="sl sl-icon-call-in"></i><a href="tel:3017851100">(301) 785-1100 </a></li>
+                            <li><i class="fa fa-envelope-o "></i><a href="#">info@jaybauergroup.com</a></li>
+                        </ul>
+
+                        <ul class="social-icons">
+                            <li><a class="facebook" href="https://www.facebook.com/JayBauerGroup" target="_blank"><i class="icon-facebook"></i></a></li>
+                            <li><a class="twitter" href="https://twitter.com/jaybauerrealtor" target="_blank"><i class="icon-twitter"></i></a></li>
+                            <li><a class="linkedin" href="https://www.linkedin.com/in/jay-bauer-0938b36" target="_blank"><i class="icon-linkedin"></i></a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-md-6">
+            <div class="sidebar sticky right">
+                <!-- Widget -->
+                <div class="widget margin-bottom-40">
+                    <h3 class="margin-top-0 margin-bottom-35">Schedule Meeting</h3>
+                    <hr />
+                   @using (Ajax.BeginForm("Schedule", "Meeting", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "createdeal" }))
+                   {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+
+                    <div class="row with-forms">
+                        <!-- Status -->
+                        <div class="col-md-12">
+                            <h5>Our Agent</h5>
+                            @Html.DropDownListFor(model => model.AgentEmail, new SelectList(Model.Agent, "Email", "Name"), "--- Select --- ", new { @class = "chosen-select-no-single" })
+                            @Html.ValidationMessageFor(m => m.AgentEmail, "", new { @class = "text-danger" })
+
+
+                        </div>
+                    </div>
+
+                    <div class="row with-forms">
+                        <!-- Type -->
+                        <div class="col-md-12">
+                            <h5>Where?</h5>
+                            <select data-placeholder="Any Type" class="chosen-select-no-single" name="Office">
+                                <option value="660 Pennsylvania Ave. SE Suite 300, Washington, DC">660 Pennsylvania Ave. SE Suite 300, Washington, DC</option>
+                                <option value="400 Massachusetts Avenue Northwest, Washington, DC">400 Massachusetts Avenue Northwest, Washington, DC</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row with-forms">
+                        <div class="col-md-12">
+
+                            <!-- Min Area -->
+                            <a href="#" class="more-search-options-trigger margin-bottom-10 margin-top-30 active" data-open-title="Duration" data-close-title="Duration"></a>
+                            <div class="more-search-options relative" style="display:block">
+                                <!-- Checkboxes -->
+                                <div class="checkboxes  margin-bottom-10">
+
+                                    <input id="check-2" type="checkbox" name="Duration" value="15" checked>
+                                    <label for="check-2">15 Minute Meeting</label>
+                                    <input id="check-3" type="checkbox" name="Duration" value="30">
+                                    <label for="check-3">30 Minute Meeting</label>
+                                    <input id="check-4" type="checkbox" name="Duration" value="45">
+                                    <label for="check-4">45 Minute Meeting</label>
+                                    <input id="check-5" type="checkbox" name="Duration" value="60">
+                                    <label for="check-5">60 Minute Meeting</label>
+
+
+                                </div>
+                            </div>
+                            <!-- Max Area -->
+                        </div>
+                    </div>
+
+                        <div class="row with-forms">
+                            <!-- States -->
+
+                                <div class="col-md-6">
+                                    <h5>Date<i class="tip" data-tip-content="a list of items to be discussed at a formal meeting."><div class="tip-content">Select date to schedule meeting</div></i></h5>
+                                    @Html.TextBoxFor(m => m.When, new { @class = "search-field", @id = "when", data_modal = "true", data_min_year = "2017", data_max_year = "2018", data_lang = "en", data_large_mode = "true", data_format = "m/d/Y" })
+                                    @Html.ValidationMessageFor(m => m.When, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Time<i class="tip" data-tip-content="a list of items to be discussed at a formal meeting."><div class="tip-content">Select date to schedule meeting</div></i></h5>
+                                    @Html.TextBoxFor(m => m.StartDate, new { @class = "search-field", @id = "startDate" })
+                                    @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+                                </div>
+
+                        </div>
+
+                    <div class="row with-forms">
+                        <!-- States -->
+                        <div class="col-md-12">
+                            <h5>Agenda<i class="tip" data-tip-content="a list of items to be discussed at a formal meeting."><div class="tip-content">a list of items to be discussed at a formal meeting.</div></i></h5>
+                            @Html.TextBoxFor(m => m.Agenda, new { @class = "search-field"})
+                            @Html.ValidationMessageFor(m => m.Agenda, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="row with-forms">
+                        <!-- States -->
+                        <div class="col-md-12">
+                            <h5>Description<i class="tip" data-tip-content="a list of items to be discussed at a formal meeting."><div class="tip-content">Topic to cover on meeting</div></i></h5>
+
+                            @Html.TextAreaFor(m => m.Description, new { @name = "summary", @cols = "40", @rows = "3", @id = "summary" , @spellcheck = "true" })
+                            @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                            @*<textarea name="summary" cols="40" rows="3" id="summary" spellcheck="true"></textarea>*@             
+                        </div>
+                    </div>
+
+                    <button class="button fullwidth margin-top-30">Submit</button>
+                   }
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+@section Scripts {
+<script src="~/Content/Plugins/Datedropper/datedropper.min.js"></script>
+<script src="~/Content/Plugins/timedropper/timedropper.min.js"></script>
+<script>
+    $("#when").dateDropper();
+    $("#startDate").timeDropper(
+        {
+            meridians: true,
+            format: "hh:mm A",
+        });
+</script>
+<script>
+        $(function () {
+            $("input:checkbox").on('click', function () {
+                // in the handler, 'this' refers to the box clicked on
+                var $box = $(this);
+                if ($box.is(":checked")) {
+                    // the name of the box is retrieved using the .attr() method
+                    // as it is assumed and expected to be immutable
+                    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                    // the checked state of the group/box on the other hand will change
+                    // and the current value is retrieved using .prop() method
+                    $(group).prop("checked", false);
+                    $box.prop("checked", true);
+                } else {
+                    $box.prop("checked", false);
+                }
+            });
+        });
+    </script>
+}
+
+<style>
+    div.datedropper.primary .pick-lg-b .pick-sl:before, div.datedropper.primary .pick-lg-h, div.datedropper.primary .pick-m, div.datedropper.primary .pick-submit, div.datedropper.primary:before {
+    background-color: #5ab6bd;
+}
+    #td-clock-0 .td-clock .td-time span.on {
+    color: #5ab6bd;
+}
+    #td-clock-0 .td-select:after {
+    box-shadow: 0 0 0 1px #5ab6bd;
+}
+    #td-clock-0 .td-clock {
+        box-shadow: 0 0 0 1px #5ab6bd, 0 0 0 8px rgba(0, 0, 0, 0.05);
+    }
+</style>

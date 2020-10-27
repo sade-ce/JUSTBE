@@ -1,0 +1,46 @@
+﻿@model RealEstate.Entities.ViewModels.MstCareerManageModel
+
+@{
+    ViewBag.Title = "Just BE | Jobs";
+    Layout = "~/Views/Shared/_LayoutCommonNew.cshtml";
+}
+
+<section class="postOuter ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">@Model.Career.Position</h2>
+            </div>
+        </div>
+
+
+
+
+        <!-- Testimonial One S -->
+        <div class="row row justify-content-md-center offset-top30">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.Career.JobContent))
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center mtop20 mbottom20">
+                                
+                                <a href="mailto:jay@jaybauergroup.com" class="btn btn-darkGray filterBtn"> Apply Now </a>
+                                <a href="@Url.Action("Departments", "Careers")" class="btn btn-darkGray backbtn">Back</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial One E -->
+
+
+
+    </div>
+</section>

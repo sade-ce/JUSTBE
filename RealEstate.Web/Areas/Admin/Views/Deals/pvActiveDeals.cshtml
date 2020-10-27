@@ -1,0 +1,128 @@
+﻿@model RealEstate.Entities.ViewModels.MstDealAgentManageModel
+
+
+<div class="dealPipelineTabsContent" id="DataGrid">
+@if (Model.ClientList.Count() > 0)
+{
+    <div class="row">
+
+    @foreach (var item in Model.ClientList)
+    {
+        <div class="col-xl-6 col-12 activeDealOuterBox">
+            <div class="dealPipelineUserBlock whiteBgBorderBox">
+
+                <div class="dealPipelineUserImage">
+                    @if (item.Photos == null || item.Photos == "")
+                    {
+                        <a href="#!"><img src="https://justbere-d4d9.kxcdn.com/img/NoImage.png" class="img-fluid" /></a>                            }
+                    else
+                    {
+                        @*<a href="@Url.Action("ClientDetails", "DealAgent", new { ClientID = item.ClientID,AgentID = item.AgentID, area = "Coordinator" })"><img src="@item.Photos" class="img-fluid" /></a>*@
+
+
+                        if (item.ClientType == "Buyer")
+                        {
+                            <a href="@Url.Action("Buyer", "DealTrackerV2", new { TransactionID=item.TransactionID,ClientID = item.ClientID, AgentID = item.AgentID, area = "Coordinator" })"><img src="@item.Photos" class="img-fluid" /></a>
+
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Seller", "DealTrackerV2", new { TransactionID=item.TransactionID,ClientID = item.ClientID, AgentID = item.AgentID, area = "Coordinator" })"><img src="@item.Photos" class="img-fluid" /></a>
+
+                        }
+                    }
+                </div>
+
+                <div class="dealPipelineUserInfo">
+                    <h3>
+                        @*<a href="@Url.Action("ClientDetails", "DealAgent", new { ClientID = item.ClientID,AgentID = item.AgentID, area = "Coordinator" })">@Html.DisplayFor(modelItem => item.Name)</a>*@
+
+                        @if (item.ClientType == "Buyer")
+                        {
+                        <a href="@Url.Action("Buyer", "DealTrackerV2", new { TransactionID=item.TransactionID,ClientID = item.ClientID, AgentID = item.AgentID, area = "Coordinator" })">@Html.DisplayFor(modelItem => item.Name)</a>
+
+                        }
+                        else
+                        {
+                        <a href="@Url.Action("Seller", "DealTrackerV2", new { TransactionID=item.TransactionID,ClientID = item.ClientID, AgentID = item.AgentID, area = "Coordinator" })">@Html.DisplayFor(modelItem => item.Name)</a>
+
+                        }
+                    </h3>
+                    <ul>
+                        <li>
+                            <label>Type:</label>
+                            <span>
+                                @Html.DisplayFor(modelItem => item.ClientType)
+                            </span>
+                        </li>
+                        <li>
+                            <label>Price:</label>
+                            <span>@Html.DisplayFor(modelItem => item.Price)</span>
+                        </li>
+                        <li>
+                            <label>Agent:</label>
+                            <span>@Html.DisplayFor(modelItem => item.AgentName)</span>
+                        </li>
+                        <li>
+                            <label>Address:</label>
+                            <span>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </span>
+                        </li>
+                       
+                    </ul>
+                    <div class="viewMoreWrap">
+                        @*<a href="@Url.Action("ClientDetails", "DealAgent", new { ClientID = item.ClientID,AgentID = item.AgentID,  area = "Coordinator" })" class="viewMoreLink">View More</a>*@
+
+                        @if (item.ClientType == "Buyer")
+                        {
+                        <a href="@Url.Action("Buyer", "DealTrackerV2", new { TransactionID=item.TransactionID,ClientID = item.ClientID, AgentID = item.AgentID, area = "Coordinator" })" class="viewMoreLink">View More</a>
+
+                        }
+                        else
+                        {
+                        <a href="@Url.Action("Seller", "DealTrackerV2", new { TransactionID=item.TransactionID,ClientID = item.ClientID, AgentID = item.AgentID, area = "Coordinator" })" class="viewMoreLink">View More</a>
+
+                        }
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    }
+
+
+    </div>
+    <div class="pagination-row ns-grid-pager" data-kw-target="#DataGrid">
+            <div class="row">
+                <div class="col-sm-12 col-md-3">
+                    <div class="rowsPerPage">
+                        @Model.PagingInfo.TotalItems &nbsp;Record(s)
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-9">
+                    <div class="pageNavigation ns-pagination" data-kw-target="#DataGrid" data-kw-actionlink="/admin/deals/ActiveDeals">
+                        @Html.PageLinksNew(Model.PagingInfo, x => Url.Action("ActiveDeals", "Deals", new { area = "Admin", PageNo = x, PageSize = Model.PagingInfo.ItemsPerPage, searchterm = Model.ClientFilterInfo.SearchFilter }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    @*<div class="pagination-row">
+        <div class="pageNavigation">
+            1 - 8 of 1240
+            <a href="#" class="previousPage"><i class="material-icons">keyboard_arrow_left</i></a>
+            <a href="#" class="nextPage"><i class="material-icons">keyboard_arrow_right</i></a>
+        </div>
+    </div>*@
+}
+else
+{
+    <h3>No record found...</h3>
+}
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+

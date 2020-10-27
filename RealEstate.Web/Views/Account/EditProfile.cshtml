@@ -1,0 +1,765 @@
+﻿@model RealEstate.Entities.ViewModels.UserProfileEditModel
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "Just BE | Edit Profile";
+    ViewBag.ViewHeader = "Edit Your Profile";
+
+
+
+    if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+
+        Layout = "~/Views/Shared/_LayoutCommonNew.cshtml";
+    }
+    else
+    {
+        @*<link href="https://justbere-d4d9.kxcdn.com/Content/bootstrap.min.css" rel="stylesheet" />*@
+
+        Layout = "~/Areas/Client/Views/Shared/_ClientLayoutNew.cshtml";
+
+
+    }
+}
+<link href="/Content/SlimImageCropper/slim.css" rel="stylesheet" />
+
+<style>
+    #header {
+        top: 0px !important;
+    }
+</style>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+
+
+
+    <section class="welcomeSection">
+        <div class="container">
+            @if (ViewBag.message == "WelcomeBack")
+                {
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2>@{Html.RenderAction("UserDetails", "MyDeal", new { area = "Client" });}</h2>
+                    </div>
+                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul class="list-unstyled multi-steps">
+                                            <li><span class="stepsCircle"> <img src="~/Content/NewVersion/images/step1.png" alt=""> </span> <br> Password Secured<br><strong> </strong></li>
+                                            <li><span class="stepsCircle"> <img src="~/Content/NewVersion/images/step2.png" alt=""> </span> <br> Set your  <br><strong>Profile picture </strong></li>
+                                            <li><span class="stepsCircle"> <img src="~/Content/NewVersion/images/step3.png" alt=""> </span> <br> Set your<br><strong>Notification settings </strong></li>
+                                            <li><span class="stepsCircle"> <img src="~/Content/NewVersion/images/step4.png" alt=""> </span> <br> Go to your<br><strong>Dashboard </strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+           
+                            }
+
+                            else
+                            {
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <h2>Welcome to Just BE</h2>
+                                    </div>
+                                </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <ul class="list-unstyled multi-steps">
+                                                    @*<li><span class="stepsCircle"> <img src="~/Content/NewVersion/images/step1.png" alt=""> </span> <br> Sign-up<br><strong>Form </strong></li*@
+                                                    <li class="is-active"><span class="stepsCircle"> <i class="fa fa-sign-in" aria-hidden="true"></i> </span><br>Create<br><strong>Account</strong></li>
+                                                    <li class="is-active"><span class="stepsCircle"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> </span> <br> Set <br><strong> Profile Picture </strong></li>
+                                                    <li><span class="stepsCircle"> <i class="fa fa-envelope-o" aria-hidden="true"></i> </span> <br> Set<br><strong>Notification Settings </strong></li>
+                                                    <li><span class="stepsCircle"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> </span> <br> View<br><strong>Dashboard </strong></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
+
+
+                            }
+
+
+@using (Html.BeginForm("EditProfile", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    {
+        TempData["message"] = ViewBag.message;
+    }
+    @Html.HiddenFor(m => m.ProfileEdit.UserName)
+    @Html.HiddenFor(m => m.ProfileEdit.Name)
+    @Html.HiddenFor(m => m.ProfileEdit.LastName)
+    @Html.HiddenFor(m => m.ProfileEdit.Email)
+    @Html.HiddenFor(m => m.ProfileEdit.Phone)
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="stepOuter">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="imgupcls imageUpload">
+                                    <div id="imgPhotoThumb-wel">
+                                        <div id="slim-cropper" class="slim img-rounded slim-sty" data-did-remove="imageWillBeRemoved" data-size="248,253" style="max-width:248px;height:auto" data-label="Click and drag your image here">
+                                            <input type="file" name="upfiles" />
+                                            @if (Model.ProfileEdit.UserPhotoThumb == null || Model.ProfileEdit.UserPhotoThumb == "")
+                                        {
+                                        }
+                                        else
+                                        { <img src="@Model.ProfileEdit.UserPhotoNormal" class="img-rounded" />
+                                        }
+
+                                            @Html.TextBoxFor(m => m.ProfileEdit.UserPhotoThumb, new { @class = "hidden" })
+                                            @Html.TextBoxFor(m => m.ProfileEdit.UserPhotoNormal, new { @class = "hidden" })
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="setYourProfie text-center">
+                                    <h5>Set Profile Picture</h5>
+                                    @*<a href="#!" class="btn uploadBtn" role="button" >Upload a Photo <br> <span>from your computer</span></a>*@
+                                    <a href="#!" class="btn uploadBtn" role="button">Upload a Photo</a>
+                                     <div id="or">OR</div>
+                                    <a href="#!" onclick="FB.login(setFacebookPhoto, { scope: 'user_photos' });" class="btn useFacebookPic " role="button">Use Facebook Photo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+            <div class="row mobileAlign">
+                <div class="col-md-6">
+                    <!-- <button type="button" class="btn btn-lightGray">Back</button> -->
+                    @*<a class="btn btn-lightGray"  onclick="window.history.back();" href="#" role="button">Back</a>*@
+                </div>
+                <div class="col-md-6 ">
+                    <button class="btn btn-darkGray fltRt">Save and Continue</button>
+                    @*<a class="btn btn-darkGray fltRt" href="register_step3.html" role="button">Save and Continue</a>*@
+                    <!-- <button type="button" class="btn btn-darkGray"></button> -->
+                </div>
+            </div>
+}
+        </div>
+
+    </section>
+
+
+                            }
+
+                            else
+                            {
+
+                                    <!-- TOP HEADER START -->
+
+                                    <div class="top-header">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="breadcrumbs">
+                                                        <ul class="align-items-center d-flex list-unstyled m-0 p-0">
+                                                            <li class="d-none d-lg-block mr-4">
+                                                                @if ((User.IsInRole("Agent") || User.IsInRole("Admin"))) { }
+                                                                else
+                                                                {
+                                                                <a href="#!" id="toggleHeader"><img src="~/Content/NewVersion/images/ham.png" alt="" class="img-fluid"></a>
+                                                                }
+                                                               </li>
+                                                            @*<li>My Account<span>&nbsp;>&nbsp;</span></li>
+                                                            <li class="active">Edit Profile<span>&nbsp;>&nbsp;</span></li>*@
+                                                            <li>
+                                                                <a class="nav-link nav-cal-drop nav-cal-drop-new dropdown-toggle " href="@Url.Action("EditProfile", "Account", new { area = "" })" role="button">Edit Profile<span style="color:#212529">&nbsp;>&nbsp;</span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 d-md-block d-none">
+                                                    <div class="accountLog d-flex justify-content-end align-items-center">
+                                                        <p>Hello, &nbsp;<span>@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)</span></p>
+                                                        <div class="profileImgtop" style="background-size: cover; background-position: center;   height:50px;">
+                                                            <!-- <img alt="profile-img" id="profileimg" class="img-fluid profileimg"> -->
+                                                        </div>                                                     @if ((User.IsInRole("Agent") || User.IsInRole("Admin"))) { }
+                                                     else
+                                                     {
+                                                           <span> &nbsp; &nbsp; | &nbsp; </span>
+
+                                                        <div class="dropdown">
+                                                            <button class="btn  dropdown-toggle mybtn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                My Account
+                                                            </button>
+                                                            <div class="dropdown-menu MyAccountDrop" aria-labelledby="dropdownMenuButton">
+                                                                <a class="dropdown-item" href="@Url.Action("EmailPreferences", "Account", new { @area = "" })"><i class="flaticon-gear"></i>Notification Settings</a>
+                                                                <a class="dropdown-item" href="@Url.Action("EditProfile", "Account", new { @area = "" })"><i class="flaticon-conversation"></i>Edit Profile</a>
+                                                                <a class="dropdown-item" href="@Url.Action("ChangePassword", "Account", new { @area = "" })"><i class="flaticon-password"></i>Change Password</a>
+
+                                                                @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                                                {
+                                                                    @Html.AntiForgeryToken()
+                                                                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                                                                }
+                                                            </div>
+                                                        </div>
+}
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- TOP HEADER END -->
+                                    <!-- Edit Profile Sec start -->
+                                    <section class="editProfileOuter">
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="editProfileInner">
+
+@using (Html.BeginForm("EditProfile", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+                                                        <!-- Profile Pic S -->
+                                                        <section class="profilePicOuter">
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="profilePic mob-profile-pic">
+                                                                            @*<img src="images/JAY.jpg" alt="profilePic">*@
+                                                                            <div id="imgPhotoThumb-wel">
+                                                                                <div id="slim-cropper" class="slim img-rounded" data-size="248,253" data-did-remove="imageWillBeRemoved" data-label="Click and drag your image here">
+                                                                                    <input type="file" name="upfiles" />
+                                                                                    @if (Model.ProfileEdit.UserPhotoThumb == null || Model.ProfileEdit.UserPhotoThumb == "")
+                                                                                {
+                                                                                }
+                                                                                else
+                                                                                { <img src="@Model.ProfileEdit.UserPhotoNormal" class="img-rounded" />
+                                                                                }
+                                                                                </div>
+                                                                                </div>
+                                                                                @Html.TextBoxFor(m => m.ProfileEdit.UserPhotoThumb, new { @class = "hidden" })
+                                                                                @Html.TextBoxFor(m => m.ProfileEdit.UserPhotoNormal, new { @class = "hidden" })
+                                                                            </div>
+                                                                        <!-- Upload Button Start -->
+                                                                   
+                                                                       
+                                                                        <div class="uploadButtonOuter">
+                                                                            <div class="uploadButton">
+                                                                                <div class="OrTxt">
+                                                                                    OR
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="clearfix"></div>
+                                                                        <div class="faceBookBtnOuter">
+                                                                            <div class="faceBookBtnD">
+                                                                                <a href="#!" onclick="FB.login(setFacebookPhoto, { scope: 'user_photos' });" class="faceBookBtn">Use Facebook Photo</a>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <!-- Upload Button End -->
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </section>
+                                                        <!-- Profile Pic E-->
+
+
+                                                        <div class="justBForm">
+                                                            <div class="container">
+                                                          
+                                                               @{ TempData["message"] = ViewBag.message; }
+                                                                    <div class="row">
+                                                                        @Html.HiddenFor(m => m.ProfileEdit.UserName)
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <div class="input-field">
+                                                                                    @Html.TextBoxFor(m => m.ProfileEdit.Name, new { id = "firstName", @required = "required" })
+                                                                                    <label for="firstName">First Name:</label>
+                                                                                    @Html.ValidationMessageFor(m => m.ProfileEdit.Name, "", new { @class = "text-danger" })
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-sm-6">
+
+                                                                            <div class="form-group">
+                                                                                <div class="input-field">
+                                                                                    @Html.TextBoxFor(m => m.ProfileEdit.LastName, new { id = "Lastname", @required = "required" })
+                                                                                    <label for="Lastname">Last name:</label>
+
+                                                                                    @Html.ValidationMessageFor(m => m.ProfileEdit.LastName, "", new { @class = "text-danger" })
+                                                                                  
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+
+                                                                            <div class="form-group">
+                                                                                <div class="input-field">
+                                                                                    @Html.TextBoxFor(m => m.ProfileEdit.Email, new { id = "emialId", @required = "required", @style = "display:none" })
+                                                                                    <input type="text" value="@Model.ProfileEdit.Email" disabled />
+                                                                                    <label for="emialId">Email:</label>
+
+
+                                                                                    @Html.ValidationMessageFor(m => m.ProfileEdit.Email, "", new { @class = "text-danger" })
+                                                                                   
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <div class="input-field">
+                                                                                    @Html.TextBoxFor(m => m.ProfileEdit.Phone, new { id = "phoneNum", @required = "required", @maxlength = "12" })
+                                                                                    <label for="phoneNum">Phone:</label>
+                                                                                    @Html.ValidationMessageFor(m => m.ProfileEdit.Phone, "", new { @class = "text-danger" })
+                                                                                   
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 text-center">
+                                                                            @*<a class="btn btn-darkGray" href="property.html" role="button">Save and Continue</a>*@
+
+                                                                            <button type="submit" class="btn btn-darkGray">Save Changes</button>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- </form> -->
+
+                                                            </div>
+                                                        </div>
+
+}
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!-- Edit Profile Sec end -->
+                                  
+
+
+                             
+
+                                @*<div class="main-wrapper">
+                                    <div class="main">
+                                        <div class="main-inner">
+
+                                            <div class="content-title">
+                                                <div class="content-title-inner">
+                                                    <div class="container">
+                                                        <h1>Edit Profile</h1>
+
+                                                    </div><!-- /.container -->
+                                                </div><!-- /.content-title-inner -->
+                                            </div><!-- /.content-title -->
+
+                                            <div class="content">
+                                                <div class="container">
+                                                    <!-- /.filter -->
+
+                                                    <div class="row">
+
+                                                        <div class="col-md-offset-2 col-lg-9">
+
+                                                            <div class="row">
+                                                                <div class="listing-detail col-md-12 col-lg-12">
+                                                                    <div class="listing-contact-form">
+                                                                        <div class="row">
+                                                                            @using (Html.BeginForm("EditProfile", "Account", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+                                                                            {
+                                                                                {
+                                                                                    TempData["message"] = ViewBag.message;
+                                                                                }
+
+
+                                                                                <div class="col-sm-7 col-sm-offset-1 my-profile">
+
+                                                                                    @Html.HiddenFor(m => m.ProfileEdit.UserName)
+
+
+                                                                                    <div class="form-group">
+                                                                                        <label>First Name</label>
+                                                                                        @Html.ValidationMessageFor(m => m.ProfileEdit.Name, "", new { @class = "text-danger" })
+                                                                                        @Html.TextBoxFor(m => m.ProfileEdit.Name, new { @class = "form-control" })
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label>Last Name</label>
+                                                                                        @Html.ValidationMessageFor(m => m.ProfileEdit.LastName, "", new { @class = "text-danger" })
+                                                                                        @Html.TextBoxFor(m => m.ProfileEdit.LastName, new { @class = "form-control" })
+                                                                                    </div>
+
+                                                                                    <div class="form-group">
+                                                                                        <label>Email</label>
+                                                                                        @Html.ValidationMessageFor(m => m.ProfileEdit.Email, "", new { @class = "text-danger" })
+                                                                                        @Html.TextBoxFor(m => m.ProfileEdit.Email, new { @class = "form-control" })
+                                                                                    </div>
+
+
+
+                                                                                    <div class="form-group">
+                                                                                        <label>Phone</label>
+                                                                                        @Html.ValidationMessageFor(m => m.ProfileEdit.Phone, "", new { @class = "text-danger" })
+                                                                                        @Html.TextBoxFor(m => m.ProfileEdit.Phone, new { @class = "form-control", @maxlength = "12" })
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-sm-4">
+                                                                                    <!-- Avatar -->
+                                                                                    <div class="edit-profile-photo">
+                                                                                        <div class="thumbnail">
+                                                                                            <div id="imgPhotoThumb">
+                                                                                                <div id="slim-cropper" class="slim img-rounded" data-size="248,253" style="max-width:248px;max-height:253px" data-did-remove="imageWillBeRemoved" data-label="Click or Drop your image here">
+                                                                                                    <input type="file" name="upfiles" />
+                                                                                                    @if (Model.ProfileEdit.UserPhotoThumb == null || Model.ProfileEdit.UserPhotoThumb == "")
+                                                                                                    {
+                                                                                                    }
+                                                                                                    else
+                                                                                                    { <img src="@Model.ProfileEdit.UserPhotoNormal" class="img-rounded" />
+                                                                                                    }
+                                                                                                </div>
+                                                                                                @Html.TextBoxFor(m => m.ProfileEdit.UserPhotoThumb, new { @class = "hidden" })
+                                                                                                @Html.TextBoxFor(m => m.ProfileEdit.UserPhotoNormal, new { @class = "hidden" })
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="ortxt">
+                                                                                            <p>or</p>
+                                                                                        </div>
+                                                                                        <div class="change-photo-btn">
+                                                                                            <div class="photoUpload">
+
+                                                                                                <div class="dashboard-subheader-actions">
+                                                                                                    <a class="btn btn-secondary" onclick="FB.login(setFacebookPhoto, { scope: 'user_photos' });" style="font-size: 13px;"><i class="fa fa-facebook"></i>Upload Photo from Facebook</a>
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                                 
+
+
+                                                                                    <div class="col-sm-12">
+                                                                                        <div class="form-group-btn btn-mob">
+                                                                                            <button type="submit" class="btn btn-primary pull-left col-md-offset-3" style="background-color: #0bb7a5; border-color:#0bb7a5">Save Changes</button>
+                                                                                        </div><!-- /.form-group-btn -->
+                                                                                    </div>
+                                                                                
+                                                                            }
+                                                                        </div><!-- /.row -->
+                                                                    </div><!-- /.listing-contact-form -->
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+
+
+
+
+                                                    </div>
+                                                    <!-- /.row -->
+                                                </div><!-- /.container -->
+                                            </div><!-- /.content -->
+                                        </div><!-- /.main-inner -->
+                                    </div><!-- /.main -->
+                                </div>*@
+
+
+
+                            }
+
+
+
+
+
+
+<div class="page-content-wrap"></div>
+
+
+<link href="https://justbere-d4d9.kxcdn.com/Content/Plugins/cropper/cropper.min.css" rel="stylesheet" />
+
+
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+
+
+@section scripts {
+
+    <script src="/Content/SlimImageCropper/slim.kickstart.js"></script>
+    <script>
+
+        function imageWillBeRemoved() {
+            if ($("#slim-cropper").length) {
+                $("#slim-cropper").find("input[type=hidden]").val('PhotoDeleted')
+            }
+        }
+        //Init facebook functionality by using FB.init() with parameters
+        window.fbAsyncInit = function () {
+            FB.init({
+                //appId: 866791937005855,
+                appId: 1706912639383149,//866791937005855, // App ID for JBG 400646813722499 //App ID for Site.capitalhill: 1706912639383149
+                channelUrl: '//' + document.domain + '/fbchannel.html', // Channel File
+                status: true, // check login status
+                cookie: true, // enable cookies to allow the server to access the session
+                xfbml: true  // parse XFBML
+            });
+        };
+
+        // Self-invoking anonymous function that loads facebook SDK
+        (function (d) {
+            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            ref.parentNode.insertBefore(js, ref);
+        })(document);
+
+        function setFacebookPhoto(response) {
+
+            if (response.status === 'connected') {
+                FB.api('/me/?fields=picture.width(248).height(253)', function (response) {
+                    $('#slim-cropper').css('display', 'none')
+                    if ($("#divFacebook").length) {
+                        $("#divFacebook").remove();
+                    }
+                    if ($("#imgPhotoThumb-wel").length) { $("#imgPhotoThumb-wel").after('<div id="divFacebook" class="img-rounded slim-sty" style="max-width:248px;height:auto" > </div>') }
+                    else { $("#imgPhotoThumb").after('<div id="divFacebook" class="img-rounded" style="max-width:248px;height:auto" > </div>') }
+
+                    var cropper = new Slim(document.getElementById('divFacebook'), {
+                        label: 'Click and drag your image here',
+                        forceSize: {
+                            width: 248,
+                            height: 253,
+                        },
+                        didRemove: function () {
+                            $("#divFacebook").find("input[type=hidden]").val('PhotoDeleted')
+                        }
+
+                    });
+                    cropper.load(response.picture.data.url);
+                    $("#divFacebook").find("input[type=hidden]").attr('name', 'upfiles')
+
+
+                });
+            }
+        }
+    </script>
+
+    <script>
+        $(".uploadBtn").click(function () {
+            $(".slim-file-hopper").click();
+        });
+
+        $('#phoneNum').keydown(function (e) {
+              var key = e.which || e.charCode || e.keyCode || 0;
+              $phone = $(this);
+
+              // Don't let them remove the starting '('
+
+
+              // Auto-format- do not expose the mask as the user begins to type
+              if (key !== 8 && key !== 9) {
+                  if ($phone.val().length === 3) {
+                      $phone.val($phone.val() + '.');
+                  }
+                  if ($phone.val().length === 7) {
+                      $phone.val($phone.val() + '.');
+                  }
+
+              }
+
+              // Allow numeric (and tab, backspace, delete) keys only
+              return (key == 8 ||
+                      key == 9 ||
+                      key == 46 ||
+                      (key >= 48 && key <= 57) ||
+                      (key >= 96 && key <= 105));
+          })
+
+          .bind('focus click', function () {
+              $phone = $(this);
+
+          })
+
+          .blur(function () {
+              $phone = $(this);
+
+
+          });
+    </script>
+
+}
+<style>
+    .thumbnail {
+        background-color: #fff;
+        border: #fff;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        font-size: 16px;
+        font-weight: normal;
+        margin-bottom: 8px;
+        text-transform: initial;
+    }
+
+    /*body {
+        font-size: 15px;
+        line-height: 27px;
+    }*/
+
+    .change-photo-btn {
+        left: 4px;
+        bottom: unset;
+        background-color: #f8f9f9;
+    }
+
+        .change-photo-btn:hover {
+            color: none;
+        }
+
+    @@media screen and (min-width: 320px) and (max-width: 425px) {
+        .btn-mob {
+            margin-top: 30px;
+            margin-left: 44px;
+        }
+    }
+
+    @@media screen and (min-width: 426px) and (max-width: 542px) {
+        .btn-mob {
+            margin-top: 30px;
+            margin-left: 44px;
+        }
+        .imageUpload {
+            margin-bottom:20px;
+      
+        }
+        
+        
+    }
+               @@media (max-width:480px){ 
+.uploadBtn {     min-width: 260px; } 
+#or {  width: 250px; }
+a.btn.useFacebookPic { min-width: 260px;}
+}
+    .slim .slim-file-hopper {
+        /*background-image: url(https://justbere-d4d9.kxcdn.com/img/NoImage.png);*/
+    }
+
+    .slim-sty {
+        /*background-color: #b1b3b6 !important;*/
+        font-size: 18px !important;
+        color: #ffffff !important;
+        font-weight: 400 !important;
+    }
+
+    .ortxt p {
+        background: #fff;
+        text-align: center;
+        width: 38px;
+        margin: 0 auto;
+        border-radius: 50px;
+        line-height: 30px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+    .hidden {
+    display: none !important;
+}
+    .ortxt:before {
+        position: absolute;
+        height: 1px;
+        content: "";
+        background: rgba(0,0,0,.2);
+        / z-index: 1;
+        / width: 100%;
+        left: 0;
+        right: 0;
+        top: 13px;
+    }
+
+    .ortxt {
+        position: relative;
+    }
+
+    .imageUpload{
+        background:#ffffff;
+        
+   
+    }
+    .imageUpload {
+    display: table;
+
+    align-items: center;
+    justify-content: center;
+}
+    /*div#slim-cropper {
+    display: table-cell;}*/
+
+    .slim-sty { font-size: 18px !important;  color: #000 !important; background: #f1f1f1; }
+    .slim .slim-area {
+    width: 100%;
+    color: inherit;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+   
+}
+.imgupcls{
+    min-height:300px;
+}
+    .imageUpload {
+     
+            min-height:0px!important;
+        }
+    /*.imageUpload{
+text-align:center;
+padding-top:10%;
+}
+.slim-sty{
+display:inline-block;
+vertical-align:top;
+}*/
+
+
+
+
+.slim-sty {
+    /*height: auto;*/
+    margin:auto;
+    margin-top:40px;
+    /*padding: 25px 25px 0px 25px;*/
+}
+</style>

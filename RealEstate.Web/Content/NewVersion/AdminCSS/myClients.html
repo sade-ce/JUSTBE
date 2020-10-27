@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../Dashboard/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../Dashboard/css/style.css">
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Just BE | Real Estate </title>
+  </head>
+  <body>
+
+     <header>
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-sm-12 p-lg-0">
+            <nav class="navbar navbar-expand-lg flex-lg-column flex-row">
+              <a class="navbar-brand" href="#"><img src="../Dashboard/img/B-White.svg" /></a>
+              
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                  <i class="material-icons">menu</i>
+                </span>
+              </button>
+            
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">Old Version</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a href="#" class="nav-link">Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#clients">Clients<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="clients">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Add New</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">All Clients</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#agents">Agents<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="agents">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Add New</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">All Agents</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item collapsed">
+                    <a class="nav-link" data-toggle="collapse" data-target="#deals">Deals<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="deals">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Active Deals</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">All Deals</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#vendors">Vendors<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="vendors">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Vendor</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Vendor Type</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#neighborhood">Neighborhood<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="neighborhood">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Add New</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">All Neighborhood</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#building">Building<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="building">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Add New</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">All Buildings</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#blogs">Blogs<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="blogs">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Add New</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">All Blogs</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#testimonials">Testimonials<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="testimonials">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Add New</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">All Testimonials</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#teamMembers">Team Members<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="teamMembers">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Add New</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">All Team Members</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#pastJob">Past Job<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="pastJob">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Career</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Job Department</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#formData">Form Data<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="formData">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Text</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Text</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#configurations">Configurations<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="configurations">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Text</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Text</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+           </div>
+         </div>
+       </div>
+     </header>
+
+
+     <section class="wrapper adminContentWrapper">
+       <div class="topHeader">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row flex-wrap">
+               <div class="heading-wrap d-flex align-items-center justify-content-between">
+                  <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                  <h2>My Clients</h2>
+               </div>
+               <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                  <div class="header-search-wrap">
+                    <form class="form-inline my-2 my-lg-0 searchByAgent">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Serach by Agent" aria-label="Search">
+                    </form>
+                    <form class="form-inline my-2 my-lg-0">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Serach by User Name or Email" aria-label="Search">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+                      <button class="btn btn-refresh" type="button" id="btnClear"><i class="material-icons">cached</i></button>
+                    </form>
+                  </div>
+                  <div class="account-wrap">
+                    <ul>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Hello, Ranjan
+                          <div class="pro-pic"><img src="../Dashboard/img/avatar.png" /></div>
+                          <i class="material-icons">keyboard_arrow_down</i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#">Menu Item</a>
+                          <a class="dropdown-item" href="#">Menu Item</a>
+                        </div>
+                      </li>
+                    </ul>
+                    
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+       </div>
+       <div class="main-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 top-filter-section">
+               <div class="row">
+                <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="top-filter-block">
+                     <h4>Tier</h4>
+                     <div class="filter-listing">
+                       <div class="filter-item">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="TierPlatinum">
+                            <label class="custom-control-label" for="TierPlatinum">Platinum</label>
+                          </div>
+                       </div>
+                       <div class="filter-item">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="TierGold">
+                            <label class="custom-control-label" for="TierGold">Gold</label>
+                          </div>
+                       </div>
+                       <div class="filter-item">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="TierSilver">
+                            <label class="custom-control-label" for="TierSilver">Silver</label>
+                          </div>
+                       </div>
+                       <div class="filter-item">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="TierMember">
+                            <label class="custom-control-label" for="TierMember">Member</label>
+                          </div>
+                       </div>
+                       <div class="filter-item">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="TierNonClient">
+                            <label class="custom-control-label" for="TierNonClient">Non-Client</label>
+                          </div>
+                       </div>
+                     </div>
+                  </div>
+                 </div>
+                 <div class="col-xl-3 col-sm-6 col-12">
+                   <div class="top-filter-block">
+                      <h4>Stage</h4>
+                      <div class="filter-listing">
+                        <div class="filter-item">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="StageLead">
+                              <label class="custom-control-label" for="StageLead">Lead</label>
+                            </div>
+                        </div>
+                        <div class="filter-item">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="StageRelationship">
+                              <label class="custom-control-label" for="StageRelationship">Relationship</label>
+                            </div>
+                        </div>
+                        <div class="filter-item">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="StageActive">
+                              <label class="custom-control-label" for="StageActive">Active</label>
+                            </div>
+                        </div>
+                        <div class="filter-item">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="StageUnderContract">
+                              <label class="custom-control-label" for="StageUnderContract">Under Contract</label>
+                            </div>
+                        </div>
+                        <div class="filter-item">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="StageSetteled">
+                              <label class="custom-control-label" for="StageSetteled">Settled</label>
+                            </div>
+                        </div>
+                      </div>
+                   </div>
+                 </div>
+                   <div class="col-xl-3 col-sm-6 col-12">
+                     <div class="top-filter-block">
+                        <h4>Year (Settled)</h4>
+                        <div class="filter-listing">
+                          <div class="filter-item">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="Year2020">
+                                <label class="custom-control-label" for="Year2020">2020</label>
+                              </div>
+                          </div>
+                          <div class="filter-item">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="Year2019">
+                                <label class="custom-control-label" for="Year2019">2019</label>
+                              </div>
+                          </div>
+                          <div class="filter-item">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="Year2018">
+                                <label class="custom-control-label" for="Year2018">2018</label>
+                              </div>
+                          </div>
+                          <div class="filter-item">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="Year2017">
+                                <label class="custom-control-label" for="Year2017">2017</label>
+                              </div>
+                          </div>
+                          <div class="filter-item">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="YearEarlier">
+                                <label class="custom-control-label" for="YearEarlier">Earlier</label>
+                              </div>
+                          </div>
+                        </div>
+                     </div>
+                   </div>
+                     <div class="col-xl-3 col-sm-6 col-12">
+                       <div class="top-filter-block type-filter-block">
+                         <h4>Type</h4>
+                         <div class="filter-listing">
+                           <div class="filter-item">
+                             <div class="custom-control custom-checkbox">
+                               <input type="checkbox" class="custom-control-input" id="TypeBuyer">
+                               <label class="custom-control-label" for="TypeBuyer">Buyer</label>
+                             </div>
+                           </div>
+                           <div class="filter-item">
+                             <div class="custom-control custom-checkbox">
+                               <input type="checkbox" class="custom-control-input" id="TypeSeller">
+                               <label class="custom-control-label" for="TypeSeller">Seller</label>
+                             </div>
+                           </div>
+                           <div class="filter-item">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="TypeBoth">
+                              <label class="custom-control-label" for="TypeBoth">Both</label>
+                            </div>
+                          </div>
+                          <div class="filter-item">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="TypeOther">
+                              <label class="custom-control-label" for="TypeOther">Other</label>
+                            </div>
+                          </div>
+                         </div>
+                      </div>
+                    </div>
+               </div>
+            </div>
+
+            <div class="col-sm-12 clients-list-section">
+              <div class="clients-list-inner">
+                <h3>All Clients</h3>
+                <div class="table-wrapper">
+                  <div class="listing-table custom-table">
+                    <div class="tableHeadRow">
+                        <div class="tableCell clientImage"></div>
+                        <div class="tableCell clientDetails"><a href="#" class="sorting"><img src="../Dashboard/img/sort-icon.svg" />Client Detail</a></div>
+                        <div class="tableCell agentName"><a href="#" class="sorting"><img src="../Dashboard/img/sort-icon.svg" />Agent Name</a></div>
+                        <div class="tableCell clientPhnNumber"><a href="#" class="sorting"><img src="../Dashboard/img/sort-icon.svg" />Phone Number</a></div>
+                        <div class="tableCell clientTier"><a href="#" class="sorting"><img src="../Dashboard/img/sort-icon.svg" />Tier</a></div>
+                        <div class="tableCell clientType"><a href="#" class="sorting"><img src="../Dashboard/img/sort-icon.svg" />Type</a></div>
+                        <div class="tableCell clientStage"><a href="#" class="sorting"><img src="../Dashboard/img/sort-icon.svg" />Stage</a></div>
+                        <div class="tableCell clientYear"><a href="#" class="sorting"><img src="../Dashboard/img/sort-icon.svg" />Year</a></div>
+                        <div class="tableCell clientAction">Action</div>
+                    </div>
+                    <div class="tableRow">
+                        <div class="tableCell clientImage"><span><img src="../Dashboard/img/avatar.png" class="img-fluid" /></span></div>
+                        <div class="tableCell clientDetails">
+                          <a href="#">Vipan Kumar Rana <span>vipan09@gmail.com</span></a>
+                        </div>
+                        <div class="tableCell agentName"><p>Jay Bauer</p></div>
+                        <div class="tableCell clientPhnNumber">7236236662</div>
+                        <div class="tableCell clientTier"></div>
+                        <div class="tableCell clientType">Buyer</div>
+                        <div class="tableCell clientStage">Lead</div>
+                        <div class="tableCell clientYear">2019</div>
+                        <div class="tableCell clientAction"><a href="#" class="actioDelete"><i class = "material-icons">delete</i></a></div>
+                    </div>
+                    <div class="tableRow">
+                      <div class="tableCell clientImage"><span><img src="../Dashboard/img/avatar.png" class="img-fluid" /></span></div>
+                      <div class="tableCell clientDetails">
+                        <a href="#">Vipan Kumar Rana <span>vipan09@gmail.com</span></a>
+                      </div>
+                      <div class="tableCell agentName"><p>Jay Bauer</p></div>
+                      <div class="tableCell clientPhnNumber">7236236662</div>
+                      <div class="tableCell clientTier"></div>
+                      <div class="tableCell clientType">Buyer</div>
+                      <div class="tableCell clientStage">Lead</div>
+                      <div class="tableCell clientYear">2019</div>
+                      <div class="tableCell clientAction"><a href="#" class="actioDelete"><i class = "material-icons">delete</i></a></div>
+                    </div>
+                    <div class="tableRow">
+                      <div class="tableCell clientImage"><span><img src="../Dashboard/img/avatar.png" class="img-fluid" /></span></div>
+                      <div class="tableCell clientDetails">
+                        <a href="#">Vipan Kumar Rana <span>vipan09@gmail.com</span></a>
+                      </div>
+                      <div class="tableCell agentName"><p>Jay Bauer</p></div>
+                      <div class="tableCell clientPhnNumber">7236236662</div>
+                      <div class="tableCell clientTier"></div>
+                      <div class="tableCell clientType">Buyer</div>
+                      <div class="tableCell clientStage">Lead</div>
+                      <div class="tableCell clientYear">2019</div>
+                      <div class="tableCell clientAction"><a href="#" class="actioDelete"><i class = "material-icons">delete</i></a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pagination-row">
+                    <div class="rowsPerPage">Rows per page: 
+                      <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                      </select>
+                    </div>
+                    <div class="pageNavigation">1 - 8 of 1240
+                      <a href="#" class="previousPage"><i class="material-icons">keyboard_arrow_left</i></a>
+                      <a href="#" class="nextPage"><i class="material-icons">keyboard_arrow_right</i></a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+     </section>
+
+
+    
+
+    
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="../Dashboard/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../Dashboard/js/custom.js"></script>
+  </body>
+</html> 

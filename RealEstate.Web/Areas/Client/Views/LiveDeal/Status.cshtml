@@ -1,0 +1,109 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientLiveDealManageModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="titlebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Live Deal Tracking</h2>
+
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="#">Deal</a></li>
+                        <li>Status</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-11 col-lg-offset-2">
+            <!-- Main Search Input -->
+            <div class="main-search-input margin-bottom-40">
+
+                <div class="col-md-10 col-lg-offset-1">
+                    <form method="get" action="@Url.Action("Status")" data-kw-ajax="true" data-kw-target="#DataGrid">
+
+                        <div class="row">
+                            <div class="col-md-10">
+                                <input type="text" name="searchTerm" class="form-control" id="inputsearch" placeholder="Search by TrackingID, Status or Date ..." />
+                            </div>
+                            <div class="col-md-0">
+                                <button class="button pull-left" type="submit" id="search" value="Search By Name">Go!</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                @*<input type="text" class="ico-01" placeholder="Type an agent name or location" value="" />
+                <button class="button">Search</button>*@
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+
+                <!-- Widget -->
+                <div class="col-md-3">
+                    <div class="sidebar left">
+                        <div class="my-account-nav-container">
+
+                            <ul class="my-account-nav">
+                                <li class="sub-nav-title">Manage Account</li>
+                                <li><a href="my-profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>
+                                <li><a href="change-password.html"><i class="sl sl-icon-lock"></i> Change Password</a></li>
+                                <li><a href="#"><i class="sl sl-icon-power"></i> Log Out</a></li>
+                            </ul>
+
+                            <ul class="my-account-nav">
+                                <li class="sub-nav-title">Track Deal</li>
+                                <li><a href="~/Client/Livedeal/Status" class="current"><i class="sl sl-icon-docs"></i> Deal Status</a></li>
+                            </ul>
+                            <ul class="my-account-nav"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                @Html.Partial("pvStatus", Model)
+
+
+
+                <div class="divider"></div>
+
+            </div>
+            <div class="clearfix margin-bottom-100"></div>
+          
+        </div>
+
+        
+    </div>
+</div>
+<style type="text/css">
+    .box {
+        border-top: 0px solid #fff;
+    }
+</style>
+@section Scripts{
+<script src="~/Scripts/CustomAjax.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#clear").addClass("hidden");
+            $("#search").on("click", function (e) {
+                if ($("#inputsearch").val() != "") {
+                    $("#clear").removeClass("hidden");
+                }
+                else {
+                    $("#clear").addClass("hidden");
+                }
+            });
+        });
+    </script>
+}

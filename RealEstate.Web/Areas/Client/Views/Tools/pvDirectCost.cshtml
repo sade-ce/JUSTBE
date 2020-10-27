@@ -1,0 +1,245 @@
+﻿@model RealEstate.Entities.Calculator.MstMortgageCalculator
+
+<div id="DataGrid" >
+
+    <div class="MortgageCalculatorSummary">
+        <div class="values phvalues" style="margin-top:24px;width:40%">
+            <div class="dot-value-container">
+                <div class="dot-value-row">
+                    <div class="DotTitle" style="fill:#dc3d7f">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Principal</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.Principal.ToString("#,##0")</span>
+                </div>
+                <div class="dot-value-row">
+                    <div class="DotTitle"style="fill:#dc3d7f">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Interest</span>
+                    </div>
+                    <span class="value">@Model.DirectCost.Interest.ToString("#,##0")</span>
+                </div>
+                <div class="dot-value-row">
+                    <div class="DotTitle"style="fill:#dc3d7f">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Down Payment($)</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.DownPayment.ToString("#,##0")</span>
+                </div>
+                
+                <div class="dot-value-row">
+                    <div class="DotTitle"style="fill:#dc3d7f">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Down Payment (%)</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.DownPercent</span>
+                </div>
+                
+                <div class="dot-value-row">
+                    <div class="DotTitle" style="fill:#dc3d7f">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Mortgage</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.Mortgage.ToString("#,##0")</span>
+                </div>
+                <div class="dot-value-row">
+                    <div class="DotTitle" style="fill:#dc3d7f">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Utilities</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.Utilities.ToString("#,##0")</span>
+                </div>
+                
+                <div class="dot-value-row">
+                    <div class="DotTitle" style="fill:#dc3d7f">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Maintenance</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.Maintenance.ToString("#,##0")</span>
+                </div>
+                
+                <div class="dot-value-row">
+                    <div class="DotTitle" style="fill:#37b6bd">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Principal and Interest</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.PrincipalAndInterest.ToString("#,##0") </span>
+                </div>
+                <div class="dot-value-row">
+                    <div class="DotTitle" style="fill:#050505">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Property Taxes</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.PropertyTax.ToString("#,##0")</span>
+                </div>
+                <div class="dot-value-row">
+                    <div class="DotTitle" style="fill:#36387b">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">HOA Dues</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.HOAFees.ToString("#,##0")</span>
+                </div>
+                <div class="dot-value-row">
+                    <div class="DotTitle" style="fill:#FF6600">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Homeowners' Insurance</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.HomeInsurance.ToString("#,##0")</span>
+                </div>
+                
+            </div>
+        </div>
+        @*<div class="values">
+            <div class="dot-value-container">
+                <div class="dot-value-row">
+                    <div class="DotTitle" style="color:#4d5454">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Principal and Interest</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.PrincipalAndInterest.ToString("#,##0") </span>
+                </div>
+                <div class="dot-value-row">
+                    <div class="DotTitle nacho">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Property Taxes</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.PropertyTax.ToString("#,##0")</span>
+                </div>
+                <div class="dot-value-row">
+                    <div class="DotTitle red-orange">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">HOA Dues</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.HOAFees.ToString("#,##0")</span>
+                </div>
+                <div class="dot-value-row">
+                    <div class="DotTitle lime">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                        <span class="title">Homeowners' Insurance</span>
+                    </div>
+                    <span class="value">$ @Model.DirectCost.HomeInsurance.ToString("#,##0")</span>
+                </div>
+            </div>
+        </div>*@
+        <div class="major-part">
+            @*<div class="title payment-title">$ @Model.DirectCost.SubTotal.ToString("#,##0") per month</div>
+            <div class="subTitle">
+                <span>@Model.DirectCost.TimeFrame Year Fixed, @Model.Inputs.MortgageRate % Interest</span>
+                <span>
+                </span>
+            </div>
+
+            <div class="ColorBar">
+                <div class="bar black" style="background-color:#4d5454;width:@Model.DirectCost.PrincipalAndInterestWidth%"></div>
+                <div class="bar nacho" style="width:@Model.DirectCost.PropertyTaxWidth%"></div>
+                <div class="bar red-orange" style="width:@Model.DirectCost.HOAFeesWidth%"></div>
+                <div class="bar lime" style="width:@Model.DirectCost.HomeInsuranceWidth%"></div>
+
+            </div>*@
+            <div id="chartcontainer" class="chartcontainer" style="min-width: 470px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+            
+        </div>
+        
+    </div>
+    
+ 
+</div>
+<style>
+    @@media (max-width: 769px) {
+        .chartcontainer {
+            min-width: 270px !important;
+        }
+    }
+    
+     @@media only screen and (max-device-width: 1024px) and (min-device-width: 481px) and (orientation: portrait) {
+           .route-HomeDetail {
+            background-color: #fff;
+        }
+        .chartcontainer
+        {
+            min-width: 370px !important;
+        }
+        }
+</style>
+
+
+
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+
+<script>
+        // Build the chart
+        Highcharts.chart('chartcontainer', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            colors: [
+               '#37b6bd',
+               '#050505',
+               '#36387b',
+              '#FF6600',
+
+            ],
+            title: {
+                text: '$ @Model.DirectCost.SubTotal.ToString("#,##0") Per Month </br>'
+            },
+            
+            subtitle: {
+                text: '@Model.DirectCost.TimeFrame Year Fixed, @Model.Inputs.MortgageRate % Interest'
+                },
+            tooltip: {
+                pointFormat: '{series.name}: <b>$ {point.y:.0f}</b>'
+            },
+            credits: {
+                enabled: false
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true,
+                    credits: {
+                        enabled: false
+                    },
+
+                    exporting: {
+                        enabled: false
+                    }
+                }
+            },
+            series: [{
+                name: 'amount',
+                colorByPoint: true,
+                data: [{
+                    name: 'Principal And Interest',
+                    y: @Model.DirectCost.PrincipalAndInterest,
+                    sliced: true,
+                    selected: true
+                },{
+                    name: 'Property Tax',
+                    y: @Model.DirectCost.PropertyTax,
+                }, {
+                    name: 'HOA Dues',
+                    y: @Model.DirectCost.HOAFees,
+                }, {
+                    name: 'Home Insurance',
+                    y: @Model.DirectCost.HomeInsurance,
+                }]
+            }]
+        });
+    $(window).resize(function(){
+        var chart = $('#chartcontainer').highcharts();
+        var w = $('#chartcontainer').closest(".wrapper").width()
+        var h = $('#chartcontainer').closest(".wrapper").height()
+        chart.setSize(
+            h,w * (3/4),false
+        );
+    });
+</script>

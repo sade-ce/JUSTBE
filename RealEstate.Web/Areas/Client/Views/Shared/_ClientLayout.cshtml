@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+  
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900" rel="stylesheet">
+    @Styles.RenderFormat(
+    "<link href='https://justbere-d4d9.kxcdn.com/{0}' rel='stylesheet'></link>",
+    "~/Content/Dashboard")
+    @*@Styles.Render("~/Content/Dashboard")*@
+    <style>
+            body {
+                background-color: #F9F9F8;
+                color: #323232;
+                font-family: 'Raleway', 'Arial', sans-serif;
+                height: 100%;
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+            ol, ul, dl {
+                margin-top: 28px !important;
+                font-size: 1.0em;
+            }
+
+            .nav-item-parent > .nav-link, .kk:after {
+                content: unset !important;
+            }
+
+            .sub-menu {
+                font-size: 20px;
+            }
+
+            .nav-item {
+                font-size: 14px;
+            }
+
+            @@media only screen and (device-width: 768px) {
+                .header-small .nav-primary {
+                    float: unset;
+                }
+
+                .nav-primary {
+                    float: unset;
+                }
+            }
+
+            @@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+                .header-small .nav-primary {
+                    float: unset;
+                }
+
+                .nav-primary {
+                    float: unset;
+                }
+            }
+            .content-title {
+
+        background-image: linear-gradient(to right,#4e4a4a,#4e4a4a);
+
+    }
+
+     span.beta {
+        position: fixed;
+        background: #0bb7a5;
+        top: 0;
+        z-index: 999999999;
+        right: 15px;
+        color: #fff;
+           width: 92px;
+       padding: 1px 28px;
+        font-family: 'Heebo', sans-serif;
+        border-radius: 0 0 6px 6px;
+        /*box-shadow: 0 2px 4px rgba(0,0,0,.1);*/
+        letter-spacing: 1px;
+        font-size: 14px;
+    }
+     @@media only screen and (max-width: 767px) {
+        span.beta {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+       
+    }
+    }
+    </style>
+    @*@Styles.Render("~/Content/common")*@
+    <link rel="icon" type="image/png" href="~/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="~/favicon-16x16.png" sizes="16x16" />
+
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <div class="header-wrapper">
+            <div class="header header-small">
+                <div class="header-inner">
+                    <div class="container">
+                        <div class="header-top">
+                            <div class="header-top-inner">
+                                <a class="header-logo" href="@Url.Action("Brand","Home",new { area=""})">
+                                    <img src="~/images/logo.png" />
+
+                                    @*<span class="header-logo-text">Just BE.</span>*@
+                                </a><!-- /.header-logo -->
+                                <!-- /.header-action -->
+
+                                <div class="nav-primary-wrapper collapse navbar-toggleable-sm">
+                                    <ul class="nav nav-pills nav-primary">
+
+
+                                        @{Html.RenderAction("CheckDeal", "JayBauerGroup", new { area = "Client" });}
+
+                                        @{Html.RenderAction("CheckCalendar", "JayBauerGroup", new { area = "Client" });}
+
+                                        @{Html.RenderAction("AgentDDL", "JayBauerGroup", new { area = "Client" });}
+
+                                        <li class="nav-item nav-item-parent">
+                                            <a href="@Url.Action("Concierge","MyDeal",new { @area="Client"})" class="@(ViewBag.ActiveURL == "Concierge" ? "active" : "") nav-link kk">
+                                                Concierge
+                                            </a>
+
+                                        </li>
+                                        <li class="nav-item nav-item-parent">
+                                            <a href="@Url.Action("FAQ","MyDeal",new { @area="Client"})" class="@(ViewBag.ActiveURL == "FAQ" ? "active" : "") nav-link kk">
+                                                FAQ
+                                            </a>
+
+                                        </li>
+                                        <li class="nav-item nav-item-parent">
+                                            <a href="@Url.Action("Vendors","MyDeal",new { @area="Client"})" class="@(ViewBag.ActiveURL == "Vendors" ? "active" : "") nav-link kk">
+                                                Vetted Vendors
+                                            </a>
+
+
+                                        </li>
+                                        <li class="nav-item nav-item-parent">
+                                            <a href="#" class="@(ViewBag.ActiveURL == "Calculator" ? "active" : "") nav-link ">
+                                                Calculators
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="@Url.Action("NetProceeds","Tools",new { @area="Client"})">Seller Net Proceeds</a></li>
+                                                <li><a href="@Url.Action("QuickQuote","Tools",new { @area="Client"})">Buyer Closing Cost</a></li>
+
+                                            </ul>
+                                        </li>
+
+
+
+                                        <li class="nav-item nav-item-parent">
+                                            <a href="#" class="@(ViewBag.ActiveURL == "Account" ? "active" : "") nav-link ">
+                                                My Account
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="@Url.Action("EmailPreferences","Account",new { @area=""})">Notification Settings</a></li>
+                                                <li><a href="@Url.Action("EditProfile","Account",new { @area=""})">Edit Profile</a></li>
+                                                <li><a href="@Url.Action("ChangePassword","Account",new { @area=""})">Change Password</a></li>
+                                                
+                                                @{Html.RenderAction("SharedTran", "JayBauerGroup", new { area = "Client" });}
+
+
+                                                @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                                {
+                                                    @Html.AntiForgeryToken()
+                                                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+                                                }
+
+                                            </ul>
+                                        </li>
+                                    </ul><!-- /.nav -->
+                                </div><!-- /.nav-primary -->
+
+                                <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target=".nav-primary-wrapper">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div><!-- /.header-top-inner -->
+                        </div><!-- /.header-top -->
+                    </div><!-- /.container -->
+                </div><!-- /.header-inner -->
+            </div><!-- /.header -->
+        </div>
+
+        @RenderBody()
+
+
+        <div class="footer-wrapper">
+            <div class="container">
+                <div class="footer-inner">
+                    <!-- /.footer-top -->
+                    <div class="footer-bottom">
+                        <div class="footer-left" style="margin-top: 28px;">
+                            &copy; @System.DateTime.Now.Year Created by Just BE | Real Estate. All Rights reserved.
+                        </div><!-- /.footer-left -->
+                        <div class="footer-right">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item"><a href="@Url.Action("privacypolicy","Legal",new { @area=""})" class="nav-link">Privacy</a></li>
+                                <li class="nav-item"><a href="@Url.Action("Terms","Legal",new { @area=""})" class="nav-link">Terms &amp; Conditions</a></li>
+                                <li class="nav-item"><a href="@Url.Action("Contact","Home",new { @area=""})" class="nav-link">Contact</a></li>
+                            </ul>
+                        </div><!-- /.footer-right -->
+                    </div><!-- /.footer-bottom -->
+                </div><!-- /.footer-inner -->
+            </div><!-- /.container -->
+        </div>
+    </div>
+
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com/{0}'></script>",
+    "~/bundles/ClientDash")
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com/{0}'></script>",
+    "~/bundles/app")
+
+    @*@Scripts.Render("~/bundles/ClientDash")
+    @Scripts.Render("~/bundles/app")*@
+
+
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.img-user').attr('src', $('#user-img').attr('src'));
+
+
+            jQuery(function () {
+                var url = window.location.pathname;
+                urlRegExp = new RegExp(url.replace(/\/$/, '') + "$");
+                var IsActivated = false;
+
+                $('#sidebar a').each(function () {
+                    $(this).removeClass("active");
+                    if ($(this).attr('href').toUpperCase() == $("#ActiveURL").data("value").toUpperCase()) {
+                        $(this).addClass('active')
+                    }
+
+                    if ($("#ActiveURL").data("value").toUpperCase() == '/CLIENT/MYDEAL/MYAGENT') {
+                        $("#Agent").addClass('active');
+                    }
+
+
+                });
+
+            });
+
+        })
+    </script>
+    <span class="beta">Beta <span></span></span>
+</body>
+</html>
+
+<input type="hidden" id="ActiveURL" data-value="@ViewBag.ActiveURL" />
+
+
+<div class="panel panel-primary text-center ajax-new-load" id="ajaxLoading" >
+    <div class="panel-heading">Loading data</div>
+    <div class="panel-body" style="padding-left: 30px; padding-right: 30px;">
+        <img src="~/img/loading.gif" alt="Loading" style="margin-bottom: 10px" /><br />
+        Please wait...
+    </div>
+</div>
+<div id="ajax-backdrop" class="fade in" style="background-color: rgb(0, 0, 0); bottom: 0px; left: 0px; position: fixed; right: 0px; top: 0px; z-index: 10000; opacity: 0.4; display: none;"></div>
+<div class="modal modal-styled" id="myErroMsgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModal()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myErroModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <h4 id="Msg"></h4>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10 text-right" style="padding-right: 0;">
+                    <input type="button" id="myErroMsgModalNoButton" class="btn btn-default btn-sm" data-dismiss="modal" onclick="CloseMyModal()" value="Cancel" />
+                    <input type="button" id="myErroMsgModalYesButton" value="Yes" class="btn btn-info btn-sm hidden" onclick="OkMyModal()" />
+                </div>
+            </div>
+            <input type="hidden" id="eventSender" name="name" value=" " />
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .content {
+        min-height: 600px;
+    }
+
+    .pl {
+        text-align: center;
+    }
+
+        .ajax-new-load{
+display: none;
+      box-shadow: rgb(0, 0, 0,0.3) 0px 0px 50px;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+
+    }
+
+</style>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>

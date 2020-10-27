@@ -1,0 +1,67 @@
+﻿@model RealEstate.Entities.ViewModels.MstStatusViewModel
+
+@{
+    ViewBag.Title = "SellerStatusList";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstateNew.cshtml";
+}
+
+@using System.Security.Claims;
+<section class="wrapper adminContentWrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row flex-wrap">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2> Seller Status</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="header-search-wrap">
+                            <!--<form class="form-inline my-2 my-lg-0">
+                              <input class="form-control mr-sm-2" type="search" placeholder="Serach by User Name or Email" aria-label="Search">
+                              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+                              <button class="btn btn-refresh" type="button" id="btnClear"><i class="material-icons">cached</i></button>
+                            </form>-->
+                        </div>
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello,@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new" /></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Menu Item</a>
+                                        <a class="dropdown-item" href="#">Menu Item</a>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-12 clients-list-section status-wrap">
+                    <div class="clients-list-inner status-listing">
+                        <div class="heading-wrap">
+                            <h3>Seller Status List</h3>
+                            @*<button class="btn tealButton">Add New</button>*@
+                            @Html.ActionLink(" Add New ", "SellerStatusCreate", null, new { @class = "btn tealButton" })
+                        </div>
+                        @Html.Partial("pvSellerStatusList", Model)
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

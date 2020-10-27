@@ -1,0 +1,120 @@
+
+
+
+
+-- =============================================
+
+
+
+-- Author:		Sonika Sharma
+
+
+
+-- Create date: 4/26/2017 4:58:06 PM 
+
+
+
+-- Description:	User Calender Select
+
+
+
+-- =============================================
+
+
+
+CREATE PROCEDURE [dbo].[udspAppointmentCalenderSelectNewByTransactionIdNew] -- '2019A00268'
+
+
+
+--@AgentID varchar(50),
+
+
+
+@TransactionID varchar(50)
+
+
+
+AS
+
+
+
+BEGIN
+
+
+
+
+
+
+
+SELECT  utblMstAppointments.Id, AspNetUsers.Name +' '+'('+AspNetUsers.Email+')'
+
+
+
+as Email,utblMstAppointments.Description, utblMstAppointments.StartDate, 
+
+
+
+utblMstAppointments.EndDate,utblMstAppointments.color,utblMstAppointments.AgentID,utblMstAppointments.IsContingency,utblMstAppointments.IsEmailSent
+
+
+
+,utblMstAppointments.TrackingID,utblMstAppointments.TransactionId,
+utblMstAppointments.RepeatEvent,utblMstAppointments.RepeatFrequency,utblMstAppointments.RepeatInterval,
+
+case when  CONVERT(date, startdate)=CONVERT(date, enddate) then 
+
+
+
+ CONVERT(VARCHAR(11), utblMstAppointments.startdate, 106) +' '+ FORMAT(utblMstAppointments.startdate,'hh:mm tt') else
+
+
+
+CONVERT(VARCHAR(11), utblMstAppointments.startdate, 106) +' - '+  CONVERT(VARCHAR(11), utblMstAppointments.enddate, 106) end [Date],
+
+AspNetUsers.UserRole 
+
+
+ FROM  utblMstAppointments INNER JOIN
+
+
+
+AspNetUsers  ON utblMstAppointments.AgentID = AspNetUsers.Id 
+
+
+
+--inner join utblMstTrackDealMasters on utblMstTrackDealMasters.ClientID=AspNetUsers.Id
+
+
+
+where 
+
+
+
+--utblMstTrackDealMasters.AgentID=@AgentID and 
+
+
+
+utblMstAppointments.TransactionID=@TransactionID
+
+
+
+
+
+
+
+order by EndDate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+END

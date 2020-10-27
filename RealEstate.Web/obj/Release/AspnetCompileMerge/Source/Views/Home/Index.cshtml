@@ -1,0 +1,437 @@
+﻿@model RealEstate.Entities.Models.utblPartialLead
+@{
+    ViewBag.Title = "Jay Bauer: Washington DC Real Estate | COMPASS";
+   
+}
+@section metatags
+{
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="Jay Bauer: Washington DC Real Estate | COMPASS" />
+<meta property="og:description" content="Our team works diligently with a loyal client base of buyers & sellers year-after-year assisting in buying or selling their homes. Their many repeat clients & referrals are a testimony to their dedication as is their ranking as a Top 5 Team in Washington." />
+<meta property="og:url" content="http://jaybauergroup.com" />
+<meta property="og:site_name" content="Jay Bauer Group" />
+<meta itemprop="image" content="http://jaybauergroup.com/img/Jay.jpg" />
+<meta property="fb:app_id" content="213741912058651" />
+<meta property="og:image:secure_url" content="http://jaybauergroup.com/img/Jay.jpg" />
+
+<meta property="og:image" content="http://jaybauergroup.com/img/Jay.jpg">
+
+}
+@section Style {
+    @Styles.Render("~/Content/Home")
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+
+    @*@Styles.RenderFormat(
+        "<link href='http://jaybauer-9e55.kxcdn.com{0}' rel='stylesheet'></link>",
+        "~/Content/Home")*@
+}
+
+<div class="parallax">
+    <div class="parallax-content">
+        <div class="container">
+            <div class="row">
+                <ul class="cb-slideshow">
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                </ul>
+                <div class="col-md-12">
+                    <!-- Main Search Container -->
+                    <div class="main-search-container">
+                        <h2>
+                            How Much Is My
+                            DC Metro
+                            Property Worth?
+                        </h2>
+                        <h2 class="text-danger" style="font-size:medium">Get Your FREE Home Market Analysis Report Right Now!</h2>
+
+
+                        <!-- Main Search -->
+                        @using (Html.BeginForm("index", "home", FormMethod.Post, new { @class = "main-search-form", @id = "findhomevalue", @autocomplete = "off" }))
+                        {
+                            <div class="search-type" style="display:none">
+                                <label class="active"><input class="first-tab" name="tab" checked="checked" type="radio">Any Status</label>
+                                <label><input name="tab" type="radio">For Sale</label>
+                                <label><input name="tab" type="radio">For Rent</label>
+                                <div class="search-type-arrow"></div>
+                            </div>
+
+                            <!-- Box -->
+
+                            <div class="main-search-box">
+
+                                @*<div class="main-search-input larger-input">
+                                        <input type="text" id="addressme" name="addressme" class="ico-01 " placeholder="Please enter your address" value="" autocomplete="off" />
+                                        <input type="text" id="txtCity" name="txtCity" style="display:none" />
+                                        <input type="text" id="txtAddress" name="txtAddress" style="display:none" />
+                                        <button class="button" id="findhomevalue">Estimate!</button>
+
+                                    </div>*@
+                                @Html.HiddenFor(m => m.CityStateZip, new { @id = "zip" })
+                                <div class="main-search-input larger-input">
+                                    @Html.TextBoxFor(m => m.Address, new { @id = "addressme", @class = "ico-01 col-md-8", @placeholder = "Please enter your property address", @required = "required", @autocomplete = "off" })
+                                    @Html.TextBoxFor(m => m.UnitNo, new { @id = "txtUnit", @class = "ico-01 col-md-2", @placeholder = "Unit # ", @style = "max-width:90px ;margin-left:4px;" })
+                                    <button id="Estimate" class="button" type="submit">Estimate!</button>
+                                    @*<input type="text" id="addressme" name="addressme" class="ico-01 " placeholder="Please enter your address" value="" autocomplete="off" />*@
+                                    <input type="text" id="txtCity" name="txtCity" style="display:none" />
+                                    <input type="text" id="Street" name="Street" style="display:none" />
+                                    <input type="text" id="City" name="City" style="display:none" />
+
+                                    @*<input type="button" id="Estimate" class="button" value="Estimate!" />*@
+
+
+                                </div>
+                                <i>  <span id="Error" style="display:none;color:#ff0033"> </span></i>
+
+                                <!-- Main Search Input -->
+                                <!-- Row -->
+                                <div class="row with-forms" style="display:none">
+                                    <!-- Property Type -->
+                                    <div class="col-md-4">
+                                        <select data-placeholder="Any Type" class="chosen-select-no-single">
+                                            <option>Any Type</option>
+                                            <option>Apartments</option>
+                                            <option>Houses</option>
+                                            <option>Commercial</option>
+                                            <option>Garages</option>
+                                            <option>Lots</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Min Price -->
+                                    <div class="col-md-4">
+
+                                        <!-- Select Input -->
+                                        <div class="select-input">
+                                            <input type="text" placeholder="Min Price" data-unit="USD">
+                                        </div>
+                                        <!-- Select Input / End -->
+                                    </div>
+
+                                    <!-- Max Price -->
+                                    <div class="col-md-4">
+
+                                        <!-- Select Input -->
+                                        <div class="select-input">
+                                            <input type="text" placeholder="Max Price" data-unit="USD">
+                                        </div>
+                                        <!-- Select Input / End -->
+                                    </div>
+                                </div>
+                                <!-- Row / End -->
+                                <!-- More Search Options -->
+                                <!-- More Search Options / End -->
+
+                            </div>
+                            <input type="hidden" name="data[Lead][address]" id="addressParam" />
+                            <input type="hidden" name="data[Lead][temp_address]" id="temp_address" />
+                            <input type="hidden" name="data[Lead][is_valid_address]" id="isValidAddress" />
+                            <input type="hidden" name="data[Lead][mapparams]" id="leadMapparams" />
+                            <input type="hidden" name="data[Lead][Step2StreetViewPanoramaId]" id="step2_panorama_id" />
+                            <div id="map_address" style='display:none'></div>
+                            <div id="step2_street_view_canvas" style='display:none'></div>
+                        }
+                        <!-- Main Search -->
+                    </div>
+                    <!-- Main Search Container / End -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="fullwidth margin-top-95 margin-bottom-0">
+    <h3 class="headline-box">Buyer & Seller Resources</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="blog-post">
+                    <a href="@Url.Action("BuyerGuides","Article")" class="post-img">
+                        <img src="~/img/article1.jpg" alt="">
+                    </a>
+                    <div class="post-content">
+                        <h3><a href="@Url.Action("BuyerGuides","Article")">Things to Consider When Buying A Home</a></h3>
+                        <p>Buying a home can be an overwhelming process. From financing to negotiating to closing, there are a lot of moving pieces that can leave homebuyers bewildered </p>
+                        <a href="@Url.Action("BuyerGuides","Article")" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-post">
+                    <a href="@Url.Action("SellerGuides","Article")" class="post-img">
+                        <img src="~/img/article2.jpg" alt="">
+                    </a>
+                    <div class="post-content">
+                        <h3><a href="@Url.Action("SellerGuides","Article")">Things to Consider When Selling Your House</a></h3>
+                        <p>Selling your home is a big financial and emotional task, which requires lots of planning. So before you decide to put your home on the market.. </p>
+                        <a href="@Url.Action("SellerGuides","Article")" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-post">
+                    <a href="@Url.Action("BuyerTips","Article")" class="post-img">
+                        <img src="~/img/Article3.jpg" alt="">
+                    </a>
+
+                    <!-- Content -->
+                    <div class="post-content">
+                        <h3><a href="@Url.Action("BuyerTips","Article")">4 Tips for Effectively Making an Offer!</a></h3>
+                        <p>So, you’ve been searching for that perfect house to call a ‘home,’ and you finally found one! The price is right, and in such a competitive market, you want to ...</p>
+                        <a href="@Url.Action("BuyerTips","Article")" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="fullwidth" >
+    <div class="container">
+            <div id="testimonial-slider" class="owl-carousel">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="description">
+                            " Jay helped us buy an apartment in downtown DC. Jay made the whole process not just hassle-free but enjoyable for us! He has in-depth knowledge of DC real estate market and has excellent interpersonal skills. We absolutely loved working with him and would refer him any day. "
+                        </p>
+                    </div>
+                    @*<div class="pic">
+                    <img src="images/img-1.jpg" alt="">
+                </div>*@
+                    <h3 class="testimonial-title">Huma K.</h3>
+                    <span class="post">Washington, DC</span>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="description">
+                            " Jay is in a class among himself.  His insights and strategy allowed me to sell my condo in five days and be able to purchase the house we really wanted - with a $20k credit at selling. Jay "gets it" and is constantly promoting to help maximize your profits with the quickest turnaround. "
+                        </p>
+                    </div>
+                    @*<div class="pic">
+                    <img src="images/img-2.jpg" alt="">
+                </div>*@
+                    <h3 class="testimonial-title">Angelo T.</h3>
+                    <span class="post">Arlington, VA</span>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="description">
+                            " Jay recently helped me sell my condo in DC.  We met almost two years ago and I immediately felt that Jay was a friend of mine. Even though I resisted in staging my place, it was the right advice.  Jay had my place under contract within a week and got me the price that I wanted. "
+                        </p>
+                    </div>
+                    @*<div class="pic">
+                    <img src="images/img-2.jpg" alt="">
+                </div>*@
+                    <h3 class="testimonial-title">Niraj M.</h3>
+                    <span class="post">Washington, DC</span>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="description">
+                            What an amazing realtor! There are no words to describe Dana. She is reliable, thoughtful, very thorough and efficient at her job. She helped us through a difficult process with ease. I would recommend her to anyone looking for the very best realtor                        </p>
+                    </div>
+                    @*<div class="pic">
+                <img src="images/img-2.jpg" alt="">
+            </div>*@
+                    <h3 class="testimonial-title">C. Renee.</h3>
+                    <span class="post">Washington, DC</span>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="description">
+                            Being a first time home buyer you never know how stressful
+                            to purchase your first home until you get into it. But with Dana
+                            Cloud professionalism and knowledge of the industry makes
+                            my home buying experience exciting and everything went
+                            smoothly. Dana is very thorough and willing to work within
+                            your schedule throughout the entire process. I highly recommend.
+                        </p>
+                    </div>
+                    @*<div class="pic">
+                <img src="images/img-2.jpg" alt="">
+            </div>*@
+                    <h3 class="testimonial-title">E. Padillla.</h3>
+                    <span class="post">Silver Spring, MD</span>
+                </div>
+            </div>
+    </div>
+</section>
+<a href="@Url.Action("Contact","Home")" class="flip-banner parallax" data-color="#333" data-color-opacity="0.9" data-img-width="2500" data-img-height="1000" style="background-attachment: fixed; background-size: 1349px 863.36px; background-position: 50% -213.59px;">
+    <div class="parallax-overlay" style="background-color: rgb(39, 74, 187); opacity: 0.9;"></div>
+    <div class="flip-banner-content">
+        <h2 class="flip-visible">We've Got You Covered!</h2>
+        <h2 class="flip-hidden">Contact Us <i class="sl sl-icon-arrow-right"></i></h2>
+    </div>
+</a>
+
+<a id="leadform" href="#leadModal" style="display:none"></a>
+
+<div class="modal-container">
+    <a class="btn btn-lg btn-modal" id="clickModal" href="#">
+        <i class="ti-layout-menu-v"></i>
+    </a>
+    <div class="foundry_modal text-center">
+        <i class="ti-close close-modal fa-close">X</i>
+
+    </div>
+</div>
+<div class="modal-screen"></div>
+<div modal-link="0" class="foundry_modal openmodal text-center">
+    <i class="ti-close close-modal" style="margin-top:0px">X</i>
+    <div class="leadContent11"></div>
+</div>
+
+
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu5hm3q1OMGgxsO5JpjUVqEJEztCkF0aQ&libraries=places"></script>
+    <script src="~/Scripts/Autocomplete.js" async></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#testimonial-slider").owlCarousel({
+                items: 1,
+                itemsDesktop: [1199, 1],
+                itemsDesktopSmall: [979, 1],
+                itemsTablet: [768, 1],
+                itemsMobile: [600, 1],
+                pagination: false,
+                navigation: true,
+                navigationText: ["", ""],
+                slideSpeed: 1000,
+                autoPlay: true
+            });
+        });
+    </script>
+}
+
+
+<style type="text/css">
+    .parallax-content {
+        padding: 162px 0;
+    }
+
+    .main-search-box {
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .cb-slideshow,
+    .cb-slideshow:after {
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        z-index: 0;
+    }
+
+    body {
+        background: #000;
+        color: #000;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .main-search-box {
+        padding-bottom: 6px;
+    }
+
+    .larger-input button.button, .larger-input input {
+        height: 51px;
+    }
+</style>
+<style>
+    .testimonial{
+    text-align: center;
+    margin-top:0px;
+}
+.testimonial .testimonial-content{
+    padding: 30px 50px;
+    background: #2ec4b6;
+    border-radius: 24px 0;
+    position: relative;
+    margin: 0 10px 35px;
+}
+.testimonial .testimonial-content:after{
+    content: "";
+    position: absolute;
+    border-top: 10px solid #2ec4b6;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    bottom: -9px;
+    left: 47%;
+}
+.testimonial .description{
+    font-size: 14px;
+    color: #fdfffc;
+    line-height: 25px;
+    margin: 0;
+}
+.testimonial .pic{
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.testimonial .pic img{
+    width: 100%;
+    height: auto;
+}
+.testimonial .testimonial-title{
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    color: #011627;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 7px 0;
+}
+.testimonial .post{
+    display: block;
+    font-size: 14px;
+    color: #ff9f1c;
+}
+.owl-theme .owl-controls{
+    border-top: 1px solid #d5d5d5;
+    margin-top: 40px;
+    padding-top: 30px;
+}
+.owl-theme .owl-controls .owl-buttons div{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: #ff9f1c;
+    border-radius: 4px;
+    opacity: 1;
+    padding: 0;
+}
+.owl-prev:before,
+.owl-next:before{
+    
+    font-family: 'FontAwesome';
+    color: #fdfffc;
+}
+.owl-next:before{
+    content: "\f054";
+}
+.owl-prev:hover:before,
+.owl-next:hover:before{
+    color: #011627;
+}
+
+.owl-theme .owl-controls .owl-buttons {
+    position: static;
+    
+}
+    .testimonial {
+        box-shadow: none;
+    }
+    .testimonial:before
+    {
+ content: none;
+    }
+
+</style>

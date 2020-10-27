@@ -1,0 +1,1566 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientLiveDealViewModel
+@{
+    ViewBag.Title = "Just BE | SharedHome";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+
+<link href="~/Content/Plugins/swipebox/swipebox.min.css" rel="stylesheet" />
+
+<link href="~/Content/customcss/calstyle.css" rel="stylesheet" />
+<link href="~/Content/CssFront/style.css" rel="stylesheet" />
+<link href="~/Content/CssFront/Cryan.css" rel="stylesheet" />
+<link href="~/Content/CssFront/icons.css" rel="stylesheet" />
+<link href="~/Content/CssFront/bootstrap.css" rel="stylesheet" />
+
+<link href="~/Content/customcss/Statuscss.css" rel="stylesheet" />
+
+
+
+<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+
+            <div class="content-title">
+                <div class="content-title-inner">
+                    <div class="container">
+
+                        @if (@Model.ClosingDate.Address != null)
+                        {
+                            <h1>
+                                @Model.ClosingDate.Address
+                            </h1>
+                        }
+                        else
+                        {
+                            <h1>
+                                My Deal
+                            </h1>
+                        }
+
+
+
+                    </div><!-- /.container -->
+                </div><!-- /.content-title-inner -->
+            </div><!-- /.content-title -->
+
+
+            <div class="page-header">
+
+                <h4>Track your progress and learn about the upcoming steps related to your deal.</h4>
+
+
+
+
+            </div>
+            <div class="content">
+                <div class="container">
+                    <!-- /.filter -->
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-lg-12">
+                            <div class="row sticky-wrapper">
+
+                                @if ((Model.MLSListing.Count() > 0) && (Model.MstGalleryList.Count() == 0))
+                                {
+                                    <div class="col-md-7">
+                                        <h3 class="margin-top-0" style="margin-bottom: 29px!important;">Progress</h3>
+                                        <hr />
+                                        <div class="main-search-input margin-bottom-40">
+                                            <div class="chart col-md-12" id="chartContainer" style="height: 280px;margin-left:-18px;"></div>
+                                        </div>
+                                        <table class="manage-table bookmarks-table responsive-table">
+                                            <tbody>
+                                                <tr>
+                                                    <th>
+                                                        <i class="fa fa-file-text"></i> Steps
+                                                    </th>
+                                                    <th></th>
+                                                    <th>Description</th>
+
+                                                </tr>
+
+                                                @foreach (var item in Model.DealTimeline)
+                                                {
+                                                <tr>
+                                                    @if (item.IsContingencies == true)
+                                                        {
+                                                            if (item.IsApplicable == true)
+                                                            {
+                                                        <td class="title-container">
+                                                            <div class="title">
+
+                                                                <h4><a> ✔ @item.Status</a></h4>
+                                                                <span class="table-property-price">@Convert.ToDateTime(item.UpdatedOn).ToString("dd MMM")</span>
+                                                            </div>
+                                                        </td>
+
+                                                            }
+                                                            else
+                                                            {
+                                                        <td class="title-container">
+                                                            <div class="title">
+                                                                <h4><a style="text-decoration:line-through;">@item.RowID) @item.Status</a></h4>
+                                                                <span class="table-property-price">Not Applicable</span>
+                                                            </div>
+                                                        </td>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                        <td class="title-container">
+                                                            <div class="title">
+
+                                                                <h4><a>✔ @item.Status</a></h4>
+                                                                <span class="table-property-price">@Convert.ToDateTime(item.UpdatedOn).ToString("dd MMM")</span>
+                                                            </div>
+                                                        </td>
+                                                        }
+                                                    <td class="action"></td>
+
+                                                    <td>
+                                                        <div class="description">
+                                                            <p title="@item.Description" class="masterTooltip text-info" style="color: #0c0707;">
+                                                                <i class="fa fa-info-circle" style="font-size:36px"></i>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+
+                                                    @*<td class="action">
+                                                            <a href="@item.VideoURL" class="delete swipebox-video"><i class="fa fa-youtube-play"></i> Learn More</a>
+                                                        </td>*@
+                                                    @*<td class="action">
+
+                                                            <a href="#" class="tooltip top">tooltip from top</a>
+                                                            <a href="#" class="delete tooltip top"><i class="fa fa-remove"></i> Remove</a>
+                                                        </td>*@
+                                                </tr>
+                                                }
+
+                                                @foreach (var item in Model.TimelineMissingData)
+                                                {
+                                                <tr>
+                                                    <td class="title-container">
+                                                        <div class="title">
+
+                                                            <h4 class="disabled" style="color:gray"> @item.Status</h4>
+                                                            <span class="table-property-price" style="background:white"></span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="action"></td>
+                                                    <td>
+                                                        <div class="description">
+                                                            <p title="@item.Description" class="masterTooltip text-info" style="color: #bdc0c4;">
+                                                                <i class="fa fa-info-circle" style="font-size:36px"></i>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+
+                                                    @*<td class="action">
+                                                            <a href="@item.VideoURL" class="delete swipebox-video"><i class="fa fa-youtube-play"></i> Learn More</a>
+                                                        </td>*@
+                                                </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="sidebar sticky right">
+                                            <div class="widget">
+                                                <h3 class="margin-top-0 margin-bottom-30">Days to Close</h3>
+                                                <hr />
+                                                <div class="style-2">
+                                                    <!-- Tabs Navigation -->
+
+
+                                                    <div class="tabs-container">
+                                                        <div class="tab-content" id="tab1a" style="display: inline-block">
+                                                            @*<div class='datepicker'>
+                                                                    <div class="datepicker-header" style="display:none"></div>
+                                                                </div>*@
+
+                                                            <div class="calendar ">
+                                                                <div class="week">
+                                                                    @Model.ClosingDate.ClosingDate.ToString("dddd")
+                                                                </div>
+                                                                <div class="date">
+                                                                    @Model.ClosingDate.ClosingDate.ToString("dd")
+                                                                </div>
+                                                                <div class="week" style="margin-top: -38px;margin-left: 28px">
+                                                                    @Model.ClosingDate.ClosingDate.ToString("MMMM")
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <!-- large date display -->
+                                                            @*<div id="theday">
+                                                                    @Model.ClosingDate.ClosingDate.ToString("dd")
+                                                                    <span>
+                                                                        @Model.ClosingDate.ClosingDate.ToString("MMMM yyyy")
+                                                                    </span>
+                                                                </div>*@
+
+                                                        </div>
+
+
+
+                                                        @if (@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Days > 0)
+                                                        {
+                                                        <div class="tab-content" id="tab2a" style="display: none;">
+                                                            <div id="clockdiv">
+                                                                <div>
+                                                                    <span class="days"></span>
+                                                                    <div class="smalltext">Days</div>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="hours"></span>
+                                                                    <div class="smalltext">Hours</div>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="minutes"></span>
+                                                                    <div class="smalltext">Minutes</div>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="seconds"></span>
+                                                                    <div class="smalltext">Seconds</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        }
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="widget">
+                                                <h3 class="margin-bottom-35">Photo(s)</h3>
+                                                <hr />
+                                                @if (Model.ClosingDate.ListingTypeID.ToString() == "1")
+                                                {
+
+                                                    <div class="listing-box listing-box-simple">
+                                                        <div class="listing-box-image" style="background-image: url('@Model.DisplayListing.ImageURL')">
+                                                            <div class="listing-box-image-title">
+                                                                <h2><a target="_blank" href="@Url.Action("Details","Listing",new {area="",mls_id=@Model.DisplayListing.MLSID })">@Model.DisplayListing.Address</a></h2>
+
+                                                            </div><!-- /.listing-box-image-title -->
+
+
+                                                        </div><!-- /.listing-box-image -->
+                                                    </div>
+                                                }
+
+                                                else
+                                                {
+                                                <div class="listing-box listing-box-simple">
+                                                    <div class="listing-box-image" style="background-image: url('../../../../img/sell homee.jpg')">
+                                                        <div class="listing-box-image-title">
+                                                            <h2><a href="@Model.ClosingDate.URL">@Model.ClosingDate.Address</a></h2>
+
+                                                        </div><!-- /.listing-box-image-title -->
+
+
+                                                    </div><!-- /.listing-box-image -->
+                                                </div>
+
+                                                }
+
+                                            </div>
+
+                                            @if (Model.ClientDoc.Count() > 0)
+                                            {
+                                            <div style="overflow-y:auto; height:400px;">
+                                                <div class="widget">
+                                                    <h3 class="widgettitle">Deal Documents</h3>
+                                                    @foreach (var item in Model.ClientDoc)
+                                                        {
+                                                        <div class="listing-small">
+                                                            <div class="listing-small-inner">
+                                                                <div class="listing-small-image">
+
+                                                                    @if (@item.TrackDocFile.ToString() == ".jpg")
+                                                                        {
+                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                    </a>
+
+                                                                        }
+                                                                    @if (@item.TrackDocFile.ToString() == ".jpeg")
+                                                                        {
+                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                    </a>
+
+                                                                        }
+                                                                    @if (@item.TrackDocFile.ToString() == ".pdf")
+                                                                        {
+                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/pdf.jpg');">
+                                                                    </a>
+
+                                                                        }
+
+                                                                    @if (@item.TrackDocFile.ToString() == ".doc")
+                                                                        {
+                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/doc.jpg');">
+                                                                    </a>
+
+                                                                        }
+                                                                    @if (@item.TrackDocFile.ToString() == ".docx")
+                                                                        {
+                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/doc.jpg');">
+                                                                    </a>
+
+                                                                        }
+
+                                                                    @if (@item.TrackDocFile.ToString() == ".png")
+                                                                        {
+                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                    </a>
+
+                                                                        }
+                                                                    @if (@item.TrackDocFile.ToString() == ".txt")
+                                                                        {
+                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/txt.jpg');">
+                                                                    </a>
+
+                                                                        }
+                                                                </div><!-- /.listing-small-image -->
+
+                                                                <div class="listing-small-content">
+                                                                    <h3><a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank">@item.FileName</a></h3>
+                                                                </div><!-- /.listing-small-content -->
+                                                            </div><!-- /.listing-small-inner -->
+                                                        </div>
+                                                        }
+
+                                                </div>
+                                            </div>
+
+                                            }
+
+                                        </div>
+                                    </div>
+                                }
+
+                                @if ((Model.MLSListing.Count() == 0) && (Model.MstGalleryList.Count() > 0))
+                                {
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-7">
+                                                <h3 class="margin-top-0" style="margin-bottom: 29px!important;">Progress</h3>
+                                                <hr />
+                                                <div class="main-search-input margin-bottom-40">
+                                                    <div class="chart col-md-12" id="chartContainer" style="height: 280px;margin-left:-18px;"></div>
+                                                </div>
+
+
+                                                <table class="manage-table bookmarks-table responsive-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>
+                                                                <i class="fa fa-file-text"></i> Steps
+                                                            </th>
+
+                                                            <th></th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        @foreach (var item in Model.DealTimeline)
+                                                        {
+                                                            <tr>
+                                                                @if (item.IsContingencies == true)
+                                                                {
+                                                                    if (item.IsApplicable == true)
+                                                                    {
+                                                                        <td class="title-container">
+                                                                            <div class="title">
+
+                                                                                <h4><a> ✔ @item.Status</a></h4>
+                                                                                <span class="table-property-price">@Convert.ToDateTime(item.UpdatedOn).ToString("dd MMM")</span>
+                                                                            </div>
+                                                                        </td>
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <td class="title-container">
+                                                                            <div class="title">
+
+                                                                                <h4><a style="text-decoration:line-through;">@item.RowID) @item.Status</a></h4>
+                                                                                <span class="table-property-price">Not Applicable</span>
+                                                                            </div>
+                                                                        </td>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td class="title-container">
+                                                                        <div class="title">
+
+                                                                            <h4><a>✔ @item.Status</a></h4>
+                                                                            <span class="table-property-price">@Convert.ToDateTime(item.UpdatedOn).ToString("dd MMM")</span>
+                                                                        </div>
+                                                                    </td>
+                                                                }
+                                                                <td class="action"></td>
+                                                                <td>
+                                                                    <div class="description">
+                                                                        <p title="@item.Description" class="masterTooltip text-info" style="color: #0c0707;">
+                                                                            <i class="fa fa-info-circle" style="font-size:36px"></i>
+                                                                        </p>
+                                                                    </div>
+                                                                </td>
+
+                                                                @*<td class="action">
+                                                                        <a href="@item.VideoURL" class="delete swipebox-video"><i class="fa fa-youtube-play"></i> Learn More</a>
+                                                                    </td>*@
+                                                                @*<td class="action">
+
+                                                                        <a href="#" class="tooltip top">tooltip from top</a>
+                                                                        <a href="#" class="delete tooltip top"><i class="fa fa-remove"></i> Remove</a>
+                                                                    </td>*@
+                                                            </tr>
+                                                        }
+
+                                                        @foreach (var item in Model.TimelineMissingData)
+                                                        {
+                                                            <tr>
+                                                                <td class="title-container">
+                                                                    <div class="title">
+
+                                                                        <h4 class="disabled" style="color:gray"> @item.Status</h4>
+                                                                        <span class="table-property-price" style="background:white"></span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="action"></td>
+                                                                <td>
+                                                                    <div class="description">
+                                                                        <p title="@item.Description" class="masterTooltip text-info" style="color: #bdc0c4;">
+                                                                            <i class="fa fa-info-circle" style="font-size:36px"></i>
+                                                                        </p>
+                                                                    </div>
+                                                                </td>
+
+                                                                @*<td class="action">
+                                                                        <a href="@item.VideoURL" class="delete swipebox-video"><i class="fa fa-youtube-play"></i> Learn More</a>
+                                                                    </td>*@
+                                                                @*<td class="action">
+
+                                                                        <a href="#" class="tooltip top">tooltip from top</a>
+                                                                        <a href="#" class="delete tooltip top"><i class="fa fa-remove"></i> Remove</a>
+                                                                    </td>*@
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="sidebar sticky right">
+                                                    <div class="widget" id="Photos">
+                                                        <h3 class="margin-bottom-35">Photo Gallery</h3>
+                                                        <hr />
+
+                                                        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:580px;overflow:hidden;visibility:hidden;">
+                                                            <!-- Loading Screen -->
+                                                            @*<div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+                                                                    <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="~/img/spin.svg" />
+                                                                </div>*@
+                                                            <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:580px;overflow:hidden;">
+                                                                @foreach (var item in Model.MstGalleryList)
+                                                                { <div data-idle="5000">
+                                                                    <a href="/UploadedFiles/PhotoGallery/@item.GallaryID@item.PhotoNormal" class="swipebox" title="@item.Description">
+                                                                        <img data-u="image" src="@item.PhotoThumb" alt="" height="580" width="350">
+                                                                    </a>
+                                                                      <figcaption>@item.Description</figcaption>
+
+                                                                </div>
+
+
+                                                                }
+
+                                                                <a data-u="any" href="https://www.jssor.com" style="display:none">slider in bootstrap</a>
+                                                            </div>
+                                                            <!-- Bullet Navigator -->
+                                                            <div data-u="navigator" class="jssorb053" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
+                                                                <div data-u="prototype" class="i" style="width:16px;height:16px;">
+                                                                    <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                                                        <path class="b" d="M11400,13800H4600c-1320,0-2400-1080-2400-2400V4600c0-1320,1080-2400,2400-2400h6800 c1320,0,2400,1080,2400,2400v6800C13800,12720,12720,13800,11400,13800z"></path>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Arrow Navigator -->
+                                                            <div data-u="arrowleft" class="jssora093" style="width:50px;height:50px;top:0px;left:30px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+                                                                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                                                    <circle class="c" cx="8000" cy="8000" r="5920"></circle>
+                                                                    <polyline class="a" points="7777.8,6080 5857.8,8000 7777.8,9920 "></polyline>
+                                                                    <line class="a" x1="10142.2" y1="8000" x2="5857.8" y2="8000"></line>
+                                                                </svg>
+                                                            </div>
+                                                            <div data-u="arrowright" class="jssora093" style="width:50px;height:50px;top:0px;right:30px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+                                                                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                                                    <circle class="c" cx="8000" cy="8000" r="5920"></circle>
+                                                                    <polyline class="a" points="8222.2,6080 10142.2,8000 8222.2,9920 "></polyline>
+                                                                    <line class="a" x1="5857.8" y1="8000" x2="10142.2" y2="8000"></line>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+                                                    </div>
+                                                    @if (Model.ClientDoc.Count() > 0)
+                                                    {
+                                                        <div style="overflow-y:auto; height:400px;">
+                                                            <div class="widget">
+                                                                <h3 class="widgettitle">Deal Documents</h3>
+                                                                @foreach (var item in Model.ClientDoc)
+                                                                {
+                                                                    <div class="listing-small">
+                                                                        <div class="listing-small-inner">
+                                                                            <div class="listing-small-image">
+
+                                                                                @if (@item.TrackDocFile.ToString() == ".jpg")
+                                                                                {
+                                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                                    </a>
+
+                                                                                }
+                                                                                @if (@item.TrackDocFile.ToString() == ".jpeg")
+                                                                                {
+                                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                                    </a>
+
+                                                                                }
+                                                                                @if (@item.TrackDocFile.ToString() == ".pdf")
+                                                                                {
+                                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/pdf.jpg');">
+                                                                                    </a>
+
+                                                                                }
+
+                                                                                @if (@item.TrackDocFile.ToString() == ".doc")
+                                                                                {
+                                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/doc.jpg');">
+                                                                                    </a>
+
+                                                                                }
+                                                                                @if (@item.TrackDocFile.ToString() == ".docx")
+                                                                                {
+                                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/doc.jpg');">
+                                                                                    </a>
+
+                                                                                }
+
+                                                                                @if (@item.TrackDocFile.ToString() == ".png")
+                                                                                {
+                                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                                    </a>
+
+                                                                                }
+                                                                                @if (@item.TrackDocFile.ToString() == ".txt")
+                                                                                {
+                                                                                    <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/txt.jpg');">
+                                                                                    </a>
+
+                                                                                }
+                                                                            </div><!-- /.listing-small-image -->
+
+                                                                            <div class="listing-small-content">
+                                                                                <h3><a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank">@item.FileName</a></h3>
+                                                                            </div><!-- /.listing-small-content -->
+                                                                        </div><!-- /.listing-small-inner -->
+                                                                    </div>
+                                                                }
+
+                                                            </div>
+                                                        </div>
+
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                }
+
+                                @if ((Model.MLSListing.Count() > 0) && (Model.MstGalleryList.Count() > 0))
+                                {
+                                    <div class="col-md-7">
+                                        <h3 class="margin-top-0" style="margin-bottom: 29px!important;">Progress</h3>
+                                        <hr />
+                                        <div class="main-search-input margin-bottom-40">
+                                            <div class="chart col-md-12" id="chartContainer" style="height: 280px;margin-left:-18px;"></div>
+                                        </div>
+                                        <div>
+                                            <table class="manage-table bookmarks-table responsive-table">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>
+                                                            <i class="fa fa-file-text"></i> Steps
+                                                        </th>
+                                                        <th></th>
+                                                        <th>Description</th>
+
+                                                    </tr>
+
+                                                    @foreach (var item in Model.DealTimeline)
+                                                    {
+                                                        <tr>
+                                                            @if (item.IsContingencies == true)
+                                                            {
+                                                                if (item.IsApplicable == true)
+                                                                {
+                                                                    <td class="title-container">
+                                                                        <div class="title">
+
+                                                                            <h4><a> ✔ @item.Status</a></h4>
+                                                                            <span class="table-property-price">Completed: @Convert.ToDateTime(item.UpdatedOn).ToString("dd MMM")</span>
+                                                                        </div>
+                                                                    </td>
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td class="title-container">
+                                                                        <div class="title">
+
+                                                                            <h4><a style="text-decoration:line-through;">@item.RowID) @item.Status</a></h4>
+                                                                            <span class="table-property-price">Not Applicable</span>
+                                                                        </div>
+                                                                    </td>
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="title-container">
+                                                                    <div class="title">
+
+                                                                        <h4><a> ✔ @item.Status</a></h4>
+                                                                        <span class="table-property-price">@Convert.ToDateTime(item.UpdatedOn).ToString("dd MMM")</span>
+                                                                    </div>
+                                                                </td>
+                                                            }
+                                                            <td class="action"></td>
+                                                            <td>
+                                                                <div class="description">
+                                                                    <p title="@item.Description" class="masterTooltip text-info" style="color: #0c0707;">
+                                                                        <i class="fa fa-info-circle" style="font-size:36px"></i>
+                                                                    </p>
+                                                                </div>
+                                                            </td>
+
+                                                            @*<td class="action">
+                                                                    <a href="@item.VideoURL" class="delete swipebox-video"><i class="fa fa-youtube-play"></i> Learn More</a>
+                                                                </td>*@
+                                                            @*<td class="action">
+
+                                                                    <a href="#" class="tooltip top">tooltip from top</a>
+                                                                    <a href="#" class="delete tooltip top"><i class="fa fa-remove"></i> Remove</a>
+                                                                </td>*@
+                                                        </tr>
+                                                    }
+                                                    @foreach (var item in Model.TimelineMissingData)
+                                                    {
+                                                        <tr>
+                                                            <td class="title-container">
+                                                                <div class="title">
+
+                                                                    <h4 class="disabled" style="color:gray"> @item.Status</h4>
+                                                                    <span class="table-property-price" style="background:white"></span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="action"></td>
+                                                            <td>
+                                                                <div class="description">
+                                                                    <p title="@item.Description" class="masterTooltip text-info" style="color: #bdc0c4;">
+                                                                        <i class="fa fa-info-circle" style="font-size:36px"></i>
+                                                                    </p>
+                                                                </div>
+                                                            </td>
+
+                                                            @*<td class="action">
+                                                                    <a href="@item.VideoURL" class="delete swipebox-video"><i class="fa fa-youtube-play"></i> Learn More</a>
+                                                                </td>*@
+                                                        </tr>
+                                                    }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="sidebar sticky right">
+                                            <div class="widget" id="Photos">
+                                                <h3 class="margin-bottom-35">Photo Gallery</h3>
+                                                <hr />
+
+
+
+                                                <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:580px;overflow:hidden;visibility:hidden;">
+                                                    <!-- Loading Screen -->
+                                                    @*<div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+                                                            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="~/img/spin.svg" />
+                                                        </div>*@
+                                                    <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:580px;overflow:hidden;">
+                                                        @foreach (var item in Model.MstGalleryList)
+                                                        {
+
+                                                            <div data-idle="5000">
+                                                                <a rel="gallery-1" href="/UploadedFiles/PhotoGallery/@item.GallaryID@item.PhotoNormal" class="swipebox" title="@item.Description">
+                                                                    <img data-u="image" src="@item.PhotoThumb" alt="" height="580" width="350">
+
+                                                                </a>
+                                                                <figcaption>@item.Description</figcaption>
+
+                                                            </div>
+                                                        }
+
+
+
+                                                    </div>
+                                                    <!-- Bullet Navigator -->
+                                                    <div data-u="navigator" class="jssorb053" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
+                                                        <div data-u="prototype" class="i" style="width:16px;height:16px;">
+                                                            <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                                                <path class="b" d="M11400,13800H4600c-1320,0-2400-1080-2400-2400V4600c0-1320,1080-2400,2400-2400h6800 c1320,0,2400,1080,2400,2400v6800C13800,12720,12720,13800,11400,13800z"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Arrow Navigator -->
+                                                    <div data-u="arrowleft" class="jssora093" style="width:50px;height:50px;top:0px;left:30px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+                                                        <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                                            <circle class="c" cx="8000" cy="8000" r="5920"></circle>
+                                                            <polyline class="a" points="7777.8,6080 5857.8,8000 7777.8,9920 "></polyline>
+                                                            <line class="a" x1="10142.2" y1="8000" x2="5857.8" y2="8000"></line>
+                                                        </svg>
+                                                    </div>
+                                                    <div data-u="arrowright" class="jssora093" style="width:50px;height:50px;top:0px;right:30px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+                                                        <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                                            <circle class="c" cx="8000" cy="8000" r="5920"></circle>
+                                                            <polyline class="a" points="8222.2,6080 10142.2,8000 8222.2,9920 "></polyline>
+                                                            <line class="a" x1="5857.8" y1="8000" x2="10142.2" y2="8000"></line>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="widget">
+                                                <h3 class="margin-top-0 margin-bottom-30">Days to Close</h3>
+                                                <hr />
+                                                <div class="style-2">
+                                                    <ul class="nav nav-tabs nav-tabs-items-4" role="tablist">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link active" data-toggle="tab" href="#property-description">Settlement</a>
+                                                        </li>
+                                                        @if (@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Days > 0)
+                                                        {
+                                                            <li class="nav-item">
+                                                                <a class="nav-link" data-toggle="tab" href="#property-amenities">Countdown</a>
+                                                            </li>
+                                                        }
+
+                                                    </ul>
+                                                    <div class="tab-content listing-detail">
+                                                        <div class="tab-pane active" id="property-description" role="tabpanel">
+
+                                                            <div class="calendar ">
+                                                                <div class="week">
+                                                                    @Model.ClosingDate.ClosingDate.ToString("dddd")
+                                                                </div>
+                                                                <div class="date">
+                                                                    @Model.ClosingDate.ClosingDate.ToString("dd")
+                                                                </div>
+                                                                <div class="week" style="margin-top: -38px;margin-left: 28px">
+                                                                    @Model.ClosingDate.ClosingDate.ToString("MMMM")
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- /.tab-pane -->
+
+
+                                                        <div class="tab-pane" style="margin-top: -50px;" id="property-amenities" role="tabpanel">
+                                                            <div id="clockdiv">
+                                                                <div>
+                                                                    <span class="days"></span>
+                                                                    <div class="smalltext">Days</div>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="hours"></span>
+                                                                    <div class="smalltext">Hours</div>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="minutes"></span>
+                                                                    <div class="smalltext">Minutes</div>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="seconds"></span>
+                                                                    <div class="smalltext">Seconds</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.tab-content -->
+
+
+
+                                                </div>
+                                            </div>
+                                            <div class="widget">
+                                                <h3 class="margin-bottom-35">Photo(s)</h3>
+                                                <hr />
+                                                @if (Model.ClosingDate.ListingTypeID.ToString() == "1")
+                                                {
+
+                                                    <div class="listing-box listing-box-simple">
+                                                        <div class="listing-box-image" style="background-image: url('@Model.DisplayListing.ImageURL')">
+                                                            <div class="listing-box-image-title">
+                                                                <h2><a target="_blank" href="@Url.Action("Details","Listing",new {area="",mls_id=@Model.DisplayListing.MLSID })">@Model.DisplayListing.Address</a></h2>
+
+                                                            </div><!-- /.listing-box-image-title -->
+
+
+                                                        </div><!-- /.listing-box-image -->
+                                                    </div>
+                                                }
+
+                                                else
+                                                {
+
+                                                    <div class="listing-box listing-box-simple">
+                                                        <div class="listing-box-image" style="background-image: url('../../../../img/sell homee.jpg')">
+                                                            <div class="listing-box-image-title">
+                                                                <h2><a href="@Model.ClosingDate.URL">@Model.ClosingDate.Address</a></h2>
+
+                                                            </div><!-- /.listing-box-image-title -->
+
+
+                                                        </div><!-- /.listing-box-image -->
+                                                    </div>
+
+                                                }
+
+                                            </div>
+                                            @if (Model.ClientDoc.Count() > 0)
+                                            {
+                                                <div style="overflow-y:auto; height:400px;">
+                                                    <div class="widget">
+                                                        <h3 class="widgettitle">Deal Documents</h3>
+                                                        @foreach (var item in Model.ClientDoc)
+                                                        {
+                                                            <div class="listing-small">
+                                                                <div class="listing-small-inner">
+                                                                    <div class="listing-small-image">
+
+                                                                        @if (@item.TrackDocFile.ToString() == ".jpg")
+                                                                        {
+                                                                            <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                            </a>
+
+                                                                        }
+                                                                        @if (@item.TrackDocFile.ToString() == ".jpeg")
+                                                                        {
+                                                                            <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                            </a>
+
+                                                                        }
+                                                                        @if (@item.TrackDocFile.ToString() == ".pdf")
+                                                                        {
+                                                                            <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/pdf.jpg');">
+                                                                            </a>
+
+                                                                        }
+
+                                                                        @if (@item.TrackDocFile.ToString() == ".doc")
+                                                                        {
+                                                                            <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/doc.jpg');">
+                                                                            </a>
+
+                                                                        }
+                                                                        @if (@item.TrackDocFile.ToString() == ".docx")
+                                                                        {
+                                                                            <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/doc.jpg');">
+                                                                            </a>
+
+                                                                        }
+
+                                                                        @if (@item.TrackDocFile.ToString() == ".png")
+                                                                        {
+                                                                            <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                            </a>
+
+                                                                        }
+                                                                        @if (@item.TrackDocFile.ToString() == ".txt")
+                                                                        {
+                                                                            <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/txt.jpg');">
+                                                                            </a>
+
+                                                                        }
+                                                                    </div><!-- /.listing-small-image -->
+
+                                                                    <div class="listing-small-content">
+                                                                        <h3><a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank">@item.FileName</a></h3>
+                                                                    </div><!-- /.listing-small-content -->
+                                                                </div><!-- /.listing-small-inner -->
+                                                            </div>
+                                                        }
+
+                                                    </div>
+                                                </div>
+
+                                            }
+                                        </div>
+                                    </div>
+                                }
+
+                                @if ((Model.MLSListing.Count() == 0) && (Model.MstGalleryList.Count() == 0) && (Model.ClientDoc.Count() > 0))
+                                {
+                                    <div class="col-md-7">
+                                        <h3 class="margin-top-0" style="margin-bottom: 29px!important;">Progress</h3>
+                                        <hr />
+                                        <div class="main-search-input margin-bottom-40">
+                                            <div class="chart col-md-12" id="chartContainer" style="height: 280px;margin-left:-18px;"></div>
+                                        </div>
+
+                                        <table class="manage-table bookmarks-table responsive-table">
+                                            <tbody>
+                                                <tr>
+                                                    <th>
+                                                        <i class="fa fa-file-text"></i> Steps
+                                                    </th>
+                                                    <th></th>
+                                                    <th>Description</th>
+
+                                                </tr>
+                                                @foreach (var item in Model.DealTimeline)
+                                                {
+                                                    <tr>
+                                                        @if (item.IsContingencies == true)
+                                                        {
+                                                            if (item.IsApplicable == true)
+                                                            {
+                                                                <td class="title-container">
+                                                                    <div class="title">
+
+                                                                        <h4><a>✔ @item.Status</a></h4>
+                                                                        <span class="table-property-price">@Convert.ToDateTime(item.UpdatedOn).ToString("dd MMM")</span>
+                                                                    </div>
+                                                                </td>
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="title-container">
+                                                                    <div class="title">
+
+                                                                        <h4><a style="text-decoration:line-through;">@item.RowID) @item.Status</a></h4>
+                                                                        <span class="table-property-price">Not Applicable</span>
+                                                                    </div>
+                                                                </td>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="title-container">
+                                                                <div class="title">
+
+                                                                    <h4><a> ✔ @item.Status</a></h4>
+                                                                    <span class="table-property-price">@Convert.ToDateTime(item.UpdatedOn).ToString("dd MMM")</span>
+                                                                </div>
+                                                            </td>
+                                                        }
+                                                        <td class="action"></td>
+                                                        <td>
+                                                            <div class="description">
+                                                                <p title="@item.Description" class="masterTooltip text-info" style="color: #0c0707;">
+                                                                    <i class="fa fa-info-circle" style="font-size:36px"></i>
+                                                                </p>
+                                                            </div>
+                                                        </td>
+
+                                                        @*<td class="action">
+                                                                <a href="@item.VideoURL" class="delete swipebox-video"><i class="fa fa-youtube-play"></i> Learn More</a>
+                                                            </td>*@
+                                                        @*<td class="action">
+                                                                <a href="#" class="tooltip top">tooltip from top</a>
+                                                                <a href="#" class="delete tooltip top"><i class="fa fa-remove"></i> Remove</a>
+                                                            </td>*@
+                                                    </tr>
+                                                }
+
+                                                @foreach (var item in Model.TimelineMissingData)
+                                                {
+                                                    <tr>
+                                                        <td class="title-container">
+                                                            <div class="title">
+
+                                                                <h4 class="disabled" style="color:gray"> @item.Status</h4>
+                                                                <span class="table-property-price" style="background:white"></span>
+                                                            </div>
+                                                        </td>
+                                                        <td class="action"></td>
+                                                        <td>
+                                                            <div class="description">
+                                                                <p title="@item.Description" class="masterTooltip text-info" style="color: #bdc0c4;">
+                                                                    <i class="fa fa-info-circle" style="font-size:36px"></i>
+                                                                </p>
+                                                            </div>
+                                                        </td>
+
+                                                        @*<td class="action">
+                                                                <a href="@item.VideoURL" class="delete swipebox-video"><i class="fa fa-youtube-play"></i> Learn More</a>
+                                                            </td>*@
+                                                        @*<td class="action">
+
+                                                                <a href="#" class="tooltip top">tooltip from top</a>
+                                                                <a href="#" class="delete tooltip top"><i class="fa fa-remove"></i> Remove</a>
+                                                            </td>*@
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div class="col-md-5">
+                                        @if (Model.ClientDoc.Count() > 0)
+                                        {
+                                            <div style="overflow-y:auto; height:400px;">
+                                                <div class="widget">
+                                                    <h3 class="widgettitle">Deal Documents</h3>
+                                                    @foreach (var item in Model.ClientDoc)
+                                                    {
+                                                        <div class="listing-small">
+                                                            <div class="listing-small-inner">
+                                                                <div class="listing-small-image">
+
+                                                                    @if (@item.TrackDocFile.ToString() == ".jpg")
+                                                                    {
+                                                                        <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                        </a>
+
+                                                                    }
+                                                                    @if (@item.TrackDocFile.ToString() == ".jpeg")
+                                                                    {
+                                                                        <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                        </a>
+
+                                                                    }
+                                                                    @if (@item.TrackDocFile.ToString() == ".pdf")
+                                                                    {
+                                                                        <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/pdf.jpg');">
+                                                                        </a>
+
+                                                                    }
+
+                                                                    @if (@item.TrackDocFile.ToString() == ".doc")
+                                                                    {
+                                                                        <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/doc.jpg');">
+                                                                        </a>
+
+                                                                    }
+                                                                    @if (@item.TrackDocFile.ToString() == ".docx")
+                                                                    {
+                                                                        <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/doc.jpg');">
+                                                                        </a>
+
+                                                                    }
+
+                                                                    @if (@item.TrackDocFile.ToString() == ".png")
+                                                                    {
+                                                                        <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/jpeg.jpg');">
+                                                                        </a>
+
+                                                                    }
+                                                                    @if (@item.TrackDocFile.ToString() == ".txt")
+                                                                    {
+                                                                        <a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/txt.jpg');">
+                                                                        </a>
+
+                                                                    }
+                                                                </div><!-- /.listing-small-image -->
+
+                                                                <div class="listing-small-content">
+                                                                    <h3><a download href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank">@item.FileName</a></h3>
+                                                                </div><!-- /.listing-small-content -->
+                                                            </div><!-- /.listing-small-inner -->
+                                                        </div>
+                                                    }
+
+                                                </div>
+                                            </div>
+
+                                        }
+
+                                    </div>
+
+                                }
+
+                                @if ((Model.MLSListing.Count() == 0) && (Model.MstGalleryList.Count() == 0) && (Model.ClientDoc.Count() == 0))
+                                {
+                                    <div class="col-md-12">
+                                        <h3 class="margin-top-0" style="margin-bottom: 29px!important;">Progress</h3>
+                                        <hr />
+                                        <div class="main-search-input margin-bottom-40">
+                                            <div class="chart col-md-12" id="chartContainer" style="height: 280px;margin-left:-18px;"></div>
+                                        </div>
+
+                                        <table class="manage-table bookmarks-table responsive-table">
+                                            <tbody>
+                                                <tr>
+                                                    <th>
+                                                        <i class="fa fa-file-text"></i> Steps
+                                                    </th>
+                                                    <th></th>
+                                                    <th>Description</th>
+
+                                                </tr>
+                                                @foreach (var item in Model.DealTimeline)
+                                                {
+                                                    <tr>
+                                                        @if (item.IsContingencies == true)
+                                                        {
+                                                            if (item.IsApplicable == true)
+                                                            {
+                                                                <td class="title-container">
+                                                                    <div class="title">
+
+                                                                        <h4><a>✔ @item.Status</a></h4>
+                                                                        <span class="table-property-price">@Convert.ToDateTime(item.UpdatedOn).ToString("dd MMM")</span>
+                                                                    </div>
+                                                                </td>
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="title-container">
+                                                                    <div class="title">
+
+                                                                        <h4><a style="text-decoration:line-through;">@item.RowID) @item.Status</a></h4>
+                                                                        <span class="table-property-price">Not Applicable</span>
+                                                                    </div>
+                                                                </td>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="title-container">
+                                                                <div class="title">
+
+                                                                    <h4><a> ✔ @item.Status</a></h4>
+                                                                    <span class="table-property-price">@Convert.ToDateTime(item.UpdatedOn).ToString("dd MMM")</span>
+                                                                </div>
+                                                            </td>
+                                                        }
+                                                        <td class="action"></td>
+                                                        <td>
+                                                            <div class="description">
+                                                                <p title="@item.Description" class="masterTooltip text-info" style="color: #0c0707;">
+                                                                    <i class="fa fa-info-circle" style="font-size:36px"></i>
+                                                                </p>
+                                                            </div>
+                                                        </td>
+
+                                                        @*<td class="action">
+                                                                <a href="@item.VideoURL" class="delete swipebox-video"><i class="fa fa-youtube-play"></i> Learn More</a>
+                                                            </td>*@
+                                                        @*<td class="action">
+                                                                <a href="#" class="tooltip top">tooltip from top</a>
+                                                                <a href="#" class="delete tooltip top"><i class="fa fa-remove"></i> Remove</a>
+                                                            </td>*@
+                                                    </tr>
+                                                }
+
+                                                @foreach (var item in Model.TimelineMissingData)
+                                                {
+                                                    <tr>
+                                                        <td class="title-container">
+                                                            <div class="title">
+
+                                                                <h4 class="disabled" style="color:gray"> @item.Status</h4>
+                                                                <span class="table-property-price" style="background:white"></span>
+                                                            </div>
+                                                        </td>
+                                                        <td class="action"></td>
+                                                        <td>
+                                                            <div class="description">
+                                                                <p title="@item.Description" class="masterTooltip text-info" style="color: #bdc0c4;">
+                                                                    <i class="fa fa-info-circle" style="font-size:36px"></i>
+                                                                </p>
+                                                            </div>
+                                                        </td>
+
+                                                        @*<td class="action">
+                                                                <a href="@item.VideoURL" class="delete swipebox-video"><i class="fa fa-youtube-play"></i> Learn More</a>
+                                                            </td>*@
+                                                        @*<td class="action">
+
+                                                                <a href="#" class="tooltip top">tooltip from top</a>
+                                                                <a href="#" class="delete tooltip top"><i class="fa fa-remove"></i> Remove</a>
+                                                            </td>*@
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+
+                                }
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            // Tooltip only Text
+            $('.masterTooltip').hover(function () {
+                // Hover over code
+                var title = $(this).attr('title');
+                $(this).data('tipText', title).removeAttr('title');
+                $('<p class="tooltip1"></p>')
+                    .text(title)
+                    .appendTo('body')
+                    .fadeIn('slow');
+            }, function () {
+                // Hover out code
+                $(this).attr('title', $(this).data('tipText'));
+                $('.tooltip1').remove();
+            }).mousemove(function (e) {
+                var mousex = e.pageX + -450; //Get X coordinates
+                var mousey = e.pageY + 10; //Get Y coordinates
+
+                $('.tooltip1')
+                    .css({ top: mousey, left: mousex })
+            });
+        });
+    </script>
+
+    <script src="~/Content/Plugins/swipebox/jquery.swipebox.min.js"></script>
+
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script>
+        function getParameterByName( name ){
+            var regexS = "[\\?&]"+name+"=([^&#]*)",
+          regex = new RegExp( regexS ),
+          results = regex.exec( window.location.search );
+            if( results == null ){
+                return "";
+            } else{
+                return decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+
+        var TransactionID =  getParameterByName('TransactionID');
+        $(function () {
+            $.ajax({
+                url: '/Client/MyDeal/Chart',
+                type: "GET",
+                data: {
+                    TransactionID: TransactionID
+                },
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    // alert(data);
+                    var series = [];
+                    for (var i in data)
+                    {
+                        var serie = new Array(data[i].name, data[i].data);
+                        series.push(serie);
+                        //series.push({ name: data[i].label, data: data[i].y });
+
+                    }
+
+                    DrawPieChart(data);
+                },
+                error: function (xhr) {
+                    window.location.href ='/Account/Login'
+
+                }
+            });
+        });
+        function DrawPieChart(series) {
+            var serie = [],
+             len = series.length,
+             i = 0;
+
+            for (i; i < len; i++) {
+                serie.push({
+                    name: [series[i].name],
+                    data: [series[i].data]
+                });
+            }
+
+            var chart = $('#chartContainer').highcharts({
+                chart: {
+                    type: 'bar'
+
+                },
+                colors: [
+                '#37b6bd',
+                '#050505',
+                '#36387b',
+                '#f8f8f8',
+                '#FF6600',
+                '#666633',
+                '#700c62',
+                '#9B4AE9',
+                '#FF2134'
+                ],
+                credits: {
+                    enabled: false
+                },
+
+                exporting: {
+                    enabled: false
+                },
+                yAxis: {
+                    min: 0,
+                    max: 100,
+                    title: {
+                        text: '% Completion'
+                    }
+                },
+                tooltip: {
+                    formatter: function() {
+                        return this.series.name;
+                    }
+                },
+                xAxis: {
+                    min: 0,
+                    gridLineWidth: 0,
+                    labels: { enabled: false },
+                    lineColor: 'transparent',
+                },
+                title: {
+                    text: 'Timeline'
+                },
+
+                legend: {
+                    reversed: true
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal',
+                        showInLegend: false,
+                    },
+                    dataLabels: {
+
+                        format: '150 / 600',
+                        enabled: true,
+                        align: 'right',
+                        style: {
+                            color: 'white',
+                            textOutline: false,
+                        }
+                    }
+                },
+
+
+                series: serie
+
+
+            });
+            $(window).resize(function(){
+                var chart = $('#chartContainer').highcharts();
+                var w = $('#chartContainer').closest(".wrapper").width()
+                var h = $('#chartContainer').closest(".wrapper").height()
+                chart.setSize(
+                    h,w * (3/4),false
+                );
+            });
+
+        }
+    </script>
+    <script>
+        (function($) {
+
+            $('.swipebox' ).swipebox( {
+                useCSS : true,
+                useSVG : true,
+                initialIndexOnArray : 0,
+                hideCloseButtonOnMobile : false,
+                removeBarsOnMobile : true,
+                hideBarsDelay : 3000,
+                videoMaxWidth : 1140,
+                beforeOpen: function() {},
+                afterOpen: null,
+                afterClose: function() {},
+                loopAtEnd: false
+            } );
+
+
+
+        } )(jQuery);
+    </script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $( '.swipebox-video' ).swipebox();
+        });
+    </script>
+    <script>
+        function getTimeRemaining(endtime) {
+
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            return {
+                'total': t,
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+        }
+        function initializeClock(id, endtime) {
+            var clock = document.getElementById(id);
+            var daysSpan = clock.querySelector('.days');
+            var hoursSpan = clock.querySelector('.hours');
+            var minutesSpan = clock.querySelector('.minutes');
+            var secondsSpan = clock.querySelector('.seconds');
+            function updateClock() {
+                var t = getTimeRemaining(endtime);
+                var day = @Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Days;
+                daysSpan.innerHTML = day;
+                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                }
+            }
+
+            updateClock();
+            var timeinterval = setInterval(updateClock, 1000);
+        }
+        @*var day =@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Days;
+        var h =@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Hours.ToString();
+        var m =@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Minutes.ToString();
+        var s =@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Seconds.ToString();*@
+        var deadline = new Date(Date.parse(new Date(@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds)));
+
+        initializeClock('clockdiv', deadline);
+    </script>
+
+    <script src="~/Content/Plugins/aslider/jssor.slider-26.1.5.min.js"></script>
+    <script type="text/javascript">
+        jssor_1_slider_init = function() {
+
+            var jssor_1_SlideshowTransitions = [
+              {$Duration:500,$Delay:30,$Cols:8,$Rows:4,$Clip:15,$SlideOut:true,$Formation:$JssorSlideshowFormations$.$FormationStraightStairs,$Assembly:2049,$Easing:$Jease$.$OutQuad},
+              {$Duration:500,$Delay:80,$Cols:8,$Rows:4,$Clip:15,$SlideOut:true,$Easing:$Jease$.$OutQuad},
+              {$Duration:1000,x:-0.2,$Delay:40,$Cols:12,$SlideOut:true,$Formation:$JssorSlideshowFormations$.$FormationStraight,$Assembly:260,$Easing:{$Left:$Jease$.$InOutExpo,$Opacity:$Jease$.$InOutQuad},$Opacity:2,$Outside:true,$Round:{$Top:0.5}},
+              {$Duration:2000,y:-1,$Delay:60,$Cols:15,$SlideOut:true,$Formation:$JssorSlideshowFormations$.$FormationStraight,$Easing:$Jease$.$OutJump,$Round:{$Top:1.5}},
+              {$Duration:1200,x:0.2,y:-0.1,$Delay:20,$Cols:8,$Rows:4,$Clip:15,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$Formation:$JssorSlideshowFormations$.$FormationStraightStairs,$Assembly:260,$Easing:{$Left:$Jease$.$InWave,$Top:$Jease$.$InWave,$Clip:$Jease$.$OutQuad},$Round:{$Left:1.3,$Top:2.5}}
+            ];
+
+            var jssor_1_options = {
+                $AutoPlay: 1,
+                $SlideshowOptions: {
+                    $Class: $JssorSlideshowRunner$,
+                    $Transitions: jssor_1_SlideshowTransitions,
+                    $TransitionsOrder: 1
+                },
+                $ArrowNavigatorOptions: {
+                    $Class: $JssorArrowNavigator$
+                },
+                $BulletNavigatorOptions: {
+                    $Class: $JssorBulletNavigator$
+                }
+            };
+
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+            /*#region responsive code begin*/
+
+            var MAX_WIDTH = 980;
+
+            function ScaleSlider() {
+                var containerElement = jssor_1_slider.$Elmt.parentNode;
+                var containerWidth = containerElement.clientWidth;
+                if (containerWidth) {
+
+                    var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+
+                    jssor_1_slider.$ScaleWidth(expectedWidth);
+
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+
+            ScaleSlider();
+
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            /*#endregion responsive code end*/
+        };
+    </script>
+    <script type="text/javascript">jssor_1_slider_init();</script>
+
+}
+
+<style>
+    @@import url(https://fonts.googleapis.com/css?family=Istok+Web);
+
+    figcaption {
+        position: absolute;
+        bottom: 0;
+        background: rgba(0,0,0,0.4);
+        color: #fff;
+        width: 100%;
+        font-size: 6rem;
+        padding: 6.6rem;
+        line-height: 70px;
+    }
+
+    .jssora093 {
+        display: none;
+    }
+</style>

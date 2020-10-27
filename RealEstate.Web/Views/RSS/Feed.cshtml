@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Feed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Neighborhood/style.css" rel="stylesheet" />
+<div class="wrapper">
+    <div class="container">
+        <div class="row content">
+            <div class="col-md-12">
+                <div class="nytimes-container">
+                    <h3><span id="nytimes-header">Related Washington DC Articles</span></h3>
+                    <ul id="nytimes-articles" class="article-list">
+                        What's going on in your new city?
+                        <br> Enter an address and hit submit and the NY Times will tell you here!
+
+                        @if (ViewBag.RSSFeed != null)
+                        {
+                            foreach (var item in ViewBag.RSSFeed)
+                            {
+
+                                <li class="article">
+                                    <a href="@item.Link" >@item.Title</a>
+                                    <p class="text-justify">@item.Description</p>
+                                    <p>@item.PubDate</p>
+                                    <img  src="@item.URL"/>
+                                    <img src="@item.Image" />
+                                    <p>@item.URL</p>
+                                </li>
+                               
+                            }
+                        }
+
+
+                      
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+@*<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Link</th>
+            <th>Description</th>
+            <th>Publish Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ViewBag.RSSFeed != null)
+        {
+            foreach (var item in ViewBag.RSSFeed)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td><a href="@item.Link">@item.Link</a></td>
+                    <td>@item.Description</td>
+                    <td>@item.PubDate</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>*@ 

@@ -1,0 +1,186 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+
+@{
+    ViewBag.Title = "ClosingConfig";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Configuration
+        <small>Settlement Date &amp; Home</small>
+    </h1>
+</section>
+<div class="col-md-12">
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Create </h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm("ClosingConfig", "Client", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            { 
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.UserInfo.Email)
+                @Html.HiddenFor(model => model.utblMstTrackDeal.StatusID)
+                @Html.HiddenFor(model => model.MstClosingConfig.utblMstClosingDate.ClientID, new { Value = Model.utblMstTrackDeal.ClientID })
+                @Html.HiddenFor(model => model.utblMstTrackDeal.TransactionID)
+
+                <div class="box-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.ListingTypeID, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.MstClosingConfig.utblMstClosingDate.ListingTypeID, new SelectList(Model.MstClosingConfig.ListingTypeDDL, "ListingTypeID", "ListingType"), "--- Select Listing Type --- ", new { @class = "form-control ddl-select2" })
+                            @Html.ValidationMessageFor(model => model.MstClosingConfig.utblMstClosingDate.ListingTypeID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.MLSID, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.MLSID, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MstClosingConfig.utblMstClosingDate.MLSID, "", new { @class = "text-danger" })
+
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.Address, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MstClosingConfig.utblMstClosingDate.Address, "", new { @class = "text-danger" })
+
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.URL, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.URL, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MstClosingConfig.utblMstClosingDate.URL, "", new { @class = "text-danger" })
+
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.ClosingDate, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.ClosingDate, new { @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.MstClosingConfig.utblMstClosingDate.ClosingDate, "", new { @class = "text-danger", @id = "datepicker" })
+                        </div>
+                    </div>
+                </div>
+        <!-- /.box-body -->
+                <div class="box-footer">
+
+                    @Html.ActionLink("Back", "CreateDeal", "Client", new { Email = Model.UserInfo.Email }, new { @class = "btn btn-default pull-left" })
+                    <input type="submit" class="btn btn-primary pull-right" id="leadsubmit" value="Submit!" />
+                    <div class="clearfix"></div>
+                </div>
+        <!-- /.box-footer -->
+            }
+        </div>
+
+    </section>
+
+</div>
+
+
+
+
+
+
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+
+    <script type="text/javascript">
+        $("#MstClosingConfig_utblMstClosingDate_ClosingDate").datetimepicker({
+            format: "MM-DD-YYYY",
+            sideBySide: true,
+            minDate: new Date()
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#MstClosingConfig_utblMstClosingDate_ListingTypeID').on('change', function () {
+                var ListingType = "MLS"
+                var DDLText = document.getElementById("MstClosingConfig_utblMstClosingDate_ListingTypeID").options[document.getElementById('MstClosingConfig_utblMstClosingDate_ListingTypeID').selectedIndex].text;
+                if (ListingType == DDLText) {
+                    $("#MstClosingConfig_utblMstClosingDate_Address").attr('disabled', 'disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_Address").val("");
+                    $("#MstClosingConfig_utblMstClosingDate_URL").attr('disabled', 'disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_URL").val("");
+
+                    $("#MstClosingConfig_utblMstClosingDate_MLSID").removeAttr('disabled');
+
+                }
+                else if ("Private" == DDLText) {
+
+                    $("#MstClosingConfig_utblMstClosingDate_MLSID").attr('disabled', 'disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_MLSID").val("");
+
+                    $("#MstClosingConfig_utblMstClosingDate_Address").removeAttr('disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_URL").removeAttr('disabled');
+
+                }
+                else {
+                    $("#utblMstClientHomeListing_MLSID").removeAttr('disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_Address").removeAttr('disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_URL").removeAttr('disabled');
+                }
+
+            });
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+                var ListingType = "MLS"
+                var DDLText = document.getElementById("MstClosingConfig_utblMstClosingDate_ListingTypeID").options[document.getElementById('MstClosingConfig_utblMstClosingDate_ListingTypeID').selectedIndex].text;
+                if (ListingType == DDLText) {
+                    $("#MstClosingConfig_utblMstClosingDate_Address").attr('disabled', 'disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_Address").val("");
+                    $("#MstClosingConfig_utblMstClosingDate_URL").attr('disabled', 'disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_URL").val("");
+
+                    $("#MstClosingConfig_utblMstClosingDate_MLSID").removeAttr('disabled');
+
+                }
+                else if ("Private" == DDLText) {
+
+                    $("#MstClosingConfig_utblMstClosingDate_MLSID").attr('disabled', 'disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_MLSID").val("");
+
+                    $("#MstClosingConfig_utblMstClosingDate_Address").removeAttr('disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_URL").removeAttr('disabled');
+
+                }
+                else {
+                    $("#utblMstClientHomeListing_MLSID").removeAttr('disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_Address").removeAttr('disabled');
+                    $("#MstClosingConfig_utblMstClosingDate_URL").removeAttr('disabled');
+                }
+
+            
+        });
+
+    </script>
+}
+

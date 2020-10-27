@@ -1,0 +1,325 @@
+﻿@model RealEstate.Entities.ViewModels.DealVendorViewModel
+
+<div id="t_t_vendor_grid" class="col-md-12">
+    <div class="row">
+        <div class="clearfix"></div>
+        <div id="accordion-vendor">
+            <div class="panel panel-default t_t_panel">
+                <div class="panel-heading t_t_panelheading">
+                    <a data-toggle="collapse" data-parent="#accordion-vendor" href="#collapseVendor"> Vendors</a>
+                </div>
+                <div id="collapseVendor" class="panel-collapse collapse in">
+                    <div class="col-md-12 panel-body">
+
+
+                @using (Ajax.BeginForm("DealVendor", "agent", null, new AjaxOptions() { HttpMethod = "POST" }, new { id = "vendorform" }))
+                {
+
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal well well-sm ">
+                                @Html.ValidationSummary(true)
+                                @Html.Hidden("AgentID", new { @Value = ViewBag.AgentID, @name = "AgentID" })
+                                @Html.HiddenFor(model => model.DealVendor.Email)
+                                @Html.HiddenFor(model => model.DealVendor.Transaction_Id)
+                                @Html.HiddenFor(model => model.UserProfile.ClientID)
+                                @*@Html.HiddenFor(model=>model.VendorContact.VendorContactId,new {Id="hdnVendorContactId" })*@
+
+
+
+                                <a id="AnchorTag" href="#" data-toggle="modal" data-target="#myHelpModal" style="display:none"><span class="badge-help-link">?</span></a>
+                                <div class="box-body">
+                                    <div class="col-md-12 ">
+                                        <div class="form-group" style="margin-top:25px">
+                                            <label class="col-md-4 control-label">Vendor Type </label>
+                                            <div class="col-md-6">
+                                                <div id="error" class="text-danger "></div>
+
+                                                @Html.DropDownList("Vendor Type", new SelectList(Model.CategoryDropDown, "Category_Id", "Name"), "--- Select Vendor Type--- ", new { @class = "form-control ddl-select2 ", @required = "required" ,@id="ddlVendorType"})
+                                          
+                                            </div>
+                                            <div class="col-md-2">
+                                                <a href="/Admin/VendorType/Create" class="btn btn-primary btn-danger addnewdoc"> Add New </a>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:25px">
+                                            <label class="col-md-4 control-label">Vendor Name</label>
+                                            <div class="col-md-6">
+                                                <div id="error" class="text-danger "></div>
+                                                @Html.DropDownListFor(model => model.DealVendor.Vendor_Id, new SelectList(Enumerable.Empty<SelectListItem>(), "Vendor_Id", "Vendor"), "--- Select Vendor --- ", new { @class = "form-control ddl-select2 ", @required = "required", @id = "ddlVendor" })
+                                                @Html.ValidationMessageFor(model => model.DealVendor.Vendor_Id)
+                                            </div>
+                                            <div class="col-md-2">
+                                                <a href="/Admin/Vendor/Create" class="btn btn-primary btn-danger addnewdoc"> Add New </a>
+                                            </div>
+                                        </div>
+                                   
+                                            <div class="form-group" style="margin-top:25px">
+                                                <label class="col-md-4 control-label">Contact Name </label>
+                                                <div class="col-md-6">
+                                                    <div id="error" class="text-danger "></div>
+                                                    @Html.DropDownListFor(model => model.VendorContact.VendorContactId, new SelectList(Enumerable.Empty<SelectListItem>(), "VendorContactId", "ContactTitle"), "--- Select Contact Name --- ", new { @class = "form-control ddl-select2 ",  @id = "ddlVendorContacts" })
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <a href="#!" class="btn btn-primary btn-danger addnewcon"> Add New </a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-top:25px">
+                                                <label class="col-md-4 control-label">Contact Title </label>
+                                                <div class="col-md-6">
+                                                    <div id="error" class="text-danger "></div>
+                                                    <input type="text" class="form-control" readonly id="txtContactTitle" />
+                                                </div>
+                                                <div class="col-md-2">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-top:25px">
+                                                <label class="col-md-4 control-label">Contact Phone </label>
+                                                <div class="col-md-6">
+                                                    <div id="error" class="text-danger "></div>
+                                                    <input type="text" class="form-control" readonly id="txtContactPhone" />
+                                                </div>
+                                                <div class="col-md-2">
+
+                                                </div>
+                                            </div>
+                                     
+                                        <div class="form-group" style="margin-top:25px">
+                                            <label class="col-md-4 control-label">Email </label>
+                                            <div class="col-md-6">
+                                                <div id="error" class="text-danger "></div>
+                                                <input type="text" class = "form-control" readonly id="txtVendorEmail" />
+                                            </div>
+                                            <div class="col-md-2">
+                                         
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:25px">
+                                            <label class="col-md-4 control-label">Phone </label>
+                                            <div class="col-md-6">
+                                                <div id="error" class="text-danger "></div>
+                                                <input type="text" class="form-control" readonly id="txtVendorPhone"/>
+                                            </div>
+                                            <div class="col-md-2">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:25px">
+                                            <div class="col-md-10">
+                                                <input type="submit" value="Save" class="btn btn-primary pull-right" />
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="progress pull-left" style="display: none;">
+                                                        <div class="progress-bar">0%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="text-left">
+                                                        <div id="status" class="text-danger"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel"></h4>
+                                        </div>
+                                        <div class="modal-body" id="message">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+
+                        <hr class="hr-style" />
+                        <div class="">
+                            @if (Model.DealVendorList.Count() > 0)
+                            {
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-condensed table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center" style="vertical-align: middle;">
+                                                    Vendor Type
+                                                </th>
+                                                <th class="text-center" style="vertical-align: middle;">
+                                                   Vendor
+                                                </th>
+                                               
+                                                <th class="text-center" style="vertical-align: middle;">
+                                                    Email
+                                                </th>
+                                                <th class="text-center" style="vertical-align: middle;">
+                                                    Phone
+                                                </th>
+                                                <th class="text-center" style="vertical-align: middle;">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.DealVendorList)
+                                            {
+                                                <tr>
+                                                    <td class="text-center">
+                                                        @item.VendorType
+                                                    </td>
+                                                        <td class="text-center">
+                                                        @item.Vendor
+                                                        </td>
+                                                    <td class="text-center">
+                                                        @item.VendorEmail
+                                                    </td>
+                                                    <td class="text-center">
+                                                        @item.VendorPhone
+                                                    </td>
+                                                    <td class="text-center" style="width: 70px;">
+                                                        <div style="float: right;">
+                                                            <div style="float:left; padding-right: 10px;">
+                                                                <form method="post" action="@Url.Action("DeleteDealVendor", "Agent")" data-vendor-ajax="true">
+                                                                    @Html.Hidden("DealVendorId", item.DealVendorId)
+                                                                    @Html.AntiForgeryToken()
+                                                                    <a href="@Url.Action("DeleteDealVendor", new { DealVendorId = item.DealVendorId,ClientID=Model.UserProfile.ClientID, Email=item.Email,TransactionID=item.Transaction_ID })" class="delete btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                                                        Remove
+                                                                    </a>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                            else
+                            {
+                                <h3>No Vendor Added...</h3>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+<script type="text/javascript">
+     $(document).ready(function () {
+         $("#ddlVendorType").change(function () {
+             $('#txtVendorEmail').val('')
+             $('#txtVendorPhone').val('')
+             $('#txtVendorName').val('')
+
+            // $('#divVendorContacts').css('display', 'none')
+             var dID = $('#ddlVendorType option:selected').val();
+             $.getJSON("../Agent/GetVendorByCategory", { VendorType: dID },
+                    function (data) {
+                        var select = $("#ddlVendor");
+                        select.empty();
+                        select.append($('<option/>', {
+                            value: '',
+                            text: "--- Select Vendor ---"
+                        }));
+                        $.each(data, function (index, itemData) {
+                            select.append($('<option/>', {
+                                value: itemData.Vendor_Id,
+                                text: itemData.Vendor
+                            }));
+
+                        });
+                    });
+         });
+
+
+         $('.addnewcon').click(function () {
+
+             var dID = $('#ddlVendor option:selected').val();
+             if (dID == "") {
+                 alert('Please select vendor.');
+             }
+             else {
+                 window.open("/Admin/Vendor/Edit?VendorId="+dID);
+             }
+         })
+     });
+
+
+
+     $(function () {
+         $("#ddlVendor").change(function () {
+             $('#txtVendorEmail').val('')
+             $('#txtVendorPhone').val('')
+             $('#txtVendorName').val('')
+             $('#txtContactTitle').val('')
+             $('#txtContactPhone').val('')
+             $('#hdnVendorContactId').val('')
+             var dID = $('#ddlVendor option:selected').val();
+             $.getJSON("../Agent/GetVendorByVendorId", { VendorId: dID },
+                    function (data) {
+                        $('#txtVendorEmail').val(data.VendorEmail)
+                        $('#txtVendorPhone').val(data.VendorPhone)
+                        $('#txtVendorName').val(data.SubTitle)
+                        //  alert(data.VendorContacts[0].ContactName)
+                        var select = $("#ddlVendorContacts");
+                        select.empty();
+                        select.append($('<option/>', {
+                            value: '',
+                            text: "--- Select Contact Name---"
+                        }));
+                        if (data.VendorContacts[0] != null) {
+                           // $('#divVendorContacts').css('display','block')
+
+
+                            $.each(data.VendorContacts, function (index, itemData) {
+                                select.append($('<option/>', {
+
+                                    value: itemData.VendorContactId,
+                                    text: itemData.ContactName
+                                }));
+
+                            });
+                        }
+                    });
+         });
+     });
+     $(document).ready(function () {
+
+
+         $("#ddlVendorContacts").change(function () {
+             $('#txtContactTitle').val('');
+             $('#txtContactPhone').val('');
+             //  $('#hdnVendorContactId').val('');
+             var dID = $('#ddlVendorContacts option:selected').val();
+             $.getJSON("../Agent/GetDetailByContactId", { ContactId: dID },
+                    function (data) {
+                     //   $('#hdnVendorContactId').val(data.VendorContactId)
+                        $('#txtContactTitle').val(data.ContactTitle)
+                        $('#txtContactPhone').val(data.ContactName)
+                    });
+         });
+     });
+        </script>

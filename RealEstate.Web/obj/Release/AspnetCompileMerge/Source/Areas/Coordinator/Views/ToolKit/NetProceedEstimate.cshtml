@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "NetProceedEstimate";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+}
+<section class="content-header">
+    <h1>
+       Calculator
+        <small>Seller Net Proceeds</small>
+    </h1>
+</section>
+
+<div class="content">
+    <div class="filter filter-gray checkbox-light">
+        <div class="search">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input id="myInput" type="text" placeholder="Search the data" class="form-control">
+            </div><!-- /.form-group -->
+        </div>
+        <br><br>
+        @Html.Raw(ViewBag.Html)
+    </div>
+</div>
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #b9b5b5;
+        text-align: left;
+        padding: 8px;
+        font-size: 20px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+@section Scripts{
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("tbody tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+    }

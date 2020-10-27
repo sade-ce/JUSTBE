@@ -1,0 +1,297 @@
+﻿@model RealEstate.Entities.ViewModels.BlogViewModel
+    @{ 
+        Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+    }
+@section metatags
+{
+    <title>@Model.utblBlogs.BlogTitle!</title>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="@Model.utblBlogs.BlogTitle!" />
+    <meta property="og:description" content="@Model.utblBlogs.BlogDescription." />
+    <meta property="og:url" content="http://jaybauergroup.com/Blogs/Recent/?BlogID=@Model.utblBlogs.BlogID" />
+    <meta property="og:site_name" content="Jay Bauer Group" />
+    <meta property="og:type" content="article" />
+    <meta itemprop="image" content="http://jaybauergroup.com/UploadedFiles/Blogs/@Model.utblBlogs.BlogID@Model.utblBlogs.BlogFile" />
+    <meta property="fb:app_id" content="213741912058651" />
+    <meta property="og:image:secure_url" content="http://jaybauergroup.com/UploadedFiles/Blogs/@Model.utblBlogs.BlogID@Model.utblBlogs.BlogFile" />
+    <meta itemprop="image" content="http://jaybauergroup.com/UploadedFiles/Blogs/@Model.utblBlogs.BlogID@Model.utblBlogs.BlogFile" />
+
+}
+
+
+<div id="content" class="page-content-wrap">
+
+    <div class="container">
+
+        <article class="entry entry-single">
+
+            <!-- - - - - - - - - - - - - - Entry body - - - - - - - - - - - - - - - - -->
+
+            <div class="entry-body">
+
+                <!-- - - - - - - - - - - - - - Entry Meta - - - - - - - - - - - - - - - - -->
+
+                <div class="entry-meta">
+
+                    <time class="entry-date" datetime="2018-06-06">Published  @Model.utblBlogs.BlogCreatedOn.ToString("MMMM dd, yyyy")</time>
+
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Meta - - - - - - - - - - - - - - - - -->
+
+                <h3 class="entry-title align-center">@Model.utblBlogs.BlogTitle</h3>
+
+                <!-- - - - - - - - - - - - - - Attachment - - - - - - - - - - - - - - - - -->
+
+                <center>
+                    <div class="entry-attachment">
+
+                        <figure class="thumbnail-attachment"><img src="~/UploadedFiles/Blogs/@Model.utblBlogs.BlogID@Model.utblBlogs.BlogFile" alt=""></figure>
+
+                    </div>
+                </center>
+
+                <!-- - - - - - - - - - - - - - End of Attachment - - - - - - - - - - - - - - - - -->
+
+                <div class="content-element2">
+
+                    <div class="row">
+                        <div class="col-md-2 col-no-space"></div>
+                        <div class="col-md-8">
+
+                            @*<h5 class="sub-title">Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue. Nam elit agna, endrerit sit amet, tincidunt ac.</h5>*@
+
+                            <p>@Html.Raw(System.Web.HttpUtility.HtmlDecode(@Model.utblBlogs.BlogContent))</p>
+                          
+                        </div>
+                        <div class="col-md-2 col-no-space"></div>
+                    </div>
+
+                </div>
+
+                
+                <div class="content-element2">
+
+                    <div class="row">
+                        <div class="col-md-2 col-no-space"></div>
+                        <div class="col-md-8">
+
+                            <div class="content-element6">
+                                <div class="flex-row flex-justify flex-center">
+
+                                    
+
+                                    <div class="share flex-row flex-center">
+
+                                        <span class="title">Share:</span>
+                                        <ul class="social-icons style-2">
+                                            <li style="margin-top: -17px;">
+                                                <fb:share-button class="fb-share" href="http://jaybauergroup.com/Blogs/Recent/?BlogID=@Model.utblBlogs.BlogID" type="button_count">
+
+                                                </fb:share-button>
+
+                                            </li>
+                                          
+                                           
+                                            <li><a data-related="jaybauerrealtor" href="http://jaybauergroup.com/Blogs/Recent/?BlogID=@Model.utblBlogs.BlogID" class="twitter-share twitter-share-button sh-twitter"><i class="icon-twitter"></i></a></li>
+                                            <li style="margin-top: -10px;"><a href="http://pinterest.com/pin/create/button/?url=http://jaybauergroup.com/Blogs/Recent/?BlogID=@Model.utblBlogs.BlogID/&media=http://jaybauergroup.com/UploadedFiles/Blogs/@Model.utblBlogs.BlogID@Model.utblBlogs.BlogFile&description=@Model.utblBlogs.BlogDescription" class="pin-it-button sh-pinterest" data-pin-do="buttonPin" title="Pin It" ><i class="icon-pinterest"></i></a></li>
+
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            @*<div class="content-element6">
+
+                                <h6><b>Comments</b></h6>
+                                <ol class="comments-list">
+
+                                    <li class="comment">
+
+                                        <article>
+
+                                            <div class="fb-comments" data-href="http://jaybauergroup.com/Blogs/Recent" data-numposts="15"></div>
+
+                                        </article>
+
+                                        
+
+                                    </li>
+
+                                    
+
+                                </ol>
+
+                            </div>*@
+
+                            
+
+                        </div>
+                        <div class="col-md-2 col-no-space"></div>
+                    </div>
+
+                </div>
+                
+
+            </div>
+
+            <!-- - - - - - - - - - - - - - End of Entry body - - - - - - - - - - - - - - - - -->
+
+        </article>
+
+    </div>
+
+</div>
+
+
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+
+@section Scripts {
+
+ <div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12&appId=400646813722499&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('form').submit(function () {
+                if (isValidEmailAddress($("#Email").val())) {
+                    $("#ajaxLoading").css("display", "block");
+                    $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                    $("#ajaxLoading").css("left", $(window).width() / 2);
+                    $("#ajaxLoading").css("position", "fixed");
+                    $("#ajax-backdrop").css("display", "block");
+                    var serializedForm = $(this).serialize();
+                    $.ajax({
+                        url: '@Url.Action("Enquiry")',
+                        type: "POST",
+                        data: serializedForm,
+
+                        success: function (result) {
+                            $("#ajaxLoading").css("display", "none");
+                            $("#ajax-backdrop").css("display", "none");
+                            $('#ErrorView').text(result).show();
+
+                        },
+                        error: function (result) {
+
+                            $('#ErrorView').text(result).show();
+                            //$('#Error').text(result.Email);
+                        }
+
+                    });
+
+                }
+                else {
+                    $("#ErrorView").text("Invalid Email Address!").show().fadeOut("slow");
+                }
+
+                return false;
+            });
+        });
+
+        function isValidEmailAddress(emailAddress) {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            return pattern.test(emailAddress);
+        }
+        if (!isValidEmailAddress(emailID)) {
+            alert("email not valid");
+        }
+
+    </script>
+
+    <script>
+        var pl_lc_force_back = 0;
+        var pl_lc_page_type = 'single';
+        var pl_lc_redirect = '/';
+        var pl_lc_owner_hide = null		</script>
+
+    <!-- Facebook -->
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, "script", "facebook-jssdk"));
+    </script>
+
+    <!-- Twitter JS -->
+    <script>
+        !function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, "script", "twitter-wjs");
+    </script>
+
+    <!-- LinkedIn JS -->
+    <script type="text/javascript" src="//platform.linkedin.com/in.js" async=""></script>
+
+    <!-- Pinterest -->
+    <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js" async=""></script>
+
+    <!-- Google+ -->
+    <script type="text/javascript">
+        (function () {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    <script>
+        (function ($) {
+            $(window).load(function () {
+                // make sure datatable has loaded before doing chosen
+                $('.sort_wrapper select, .dataTables_length select, #pl_savedSearch select').chosen({ allow_single_deselect: true, disable_search: true, width: "100%" });
+                $('select').each(function (i, el) {
+                    el = $(el);
+                    el.chosen({
+                        allow_single_deselect: true,
+                        disable_search: el.hasClass('disable-search'),
+                        width: "100%"
+                    });
+                });
+            });
+        })(jQuery);
+    </script>
+}
+
+<style>
+    p {
+        text-align: justify;
+    }
+
+        p.img {
+            height: 450px !important;
+            width: 700px !important;
+        }
+
+    div.img {
+        height: 450px !important;
+        width: 700px !important;
+    }
+
+   
+</style>

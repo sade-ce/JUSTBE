@@ -1,0 +1,348 @@
+﻿@model RealEstate.Entities.ViewModels.MstDealAgentManageModel
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayoutVersion2.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstateVersion2.cshtml";
+
+    }
+}
+
+<section class="wrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>My Deals</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="header-search-wrap">
+                            <form class="form-inline my-2 my-lg-0" method="get" action="@Url.Action("list","dealagentV2")" data-kw-ajax="true" data-kw-target="#DataGrid" autocomplete="on">
+                                <input name="searchTerm" id="inputsearch" class="form-control mr-sm-2" type="search" placeholder="Search by Name Email or Phone" aria-label="Search" value="@Model.ClientFilterInfo.SearchFilter">
+                                <input name="year" id="YearFilter" class="form-control mr-sm-2" type="hidden" value="@Model.ClientFilterInfo.YearFilter">
+                                <input name="type" id="TypeFilter" class="form-control mr-sm-2" type="hidden" value="@Model.ClientFilterInfo.TypeFilter">
+                                <input name="stage" id="StageFilter" class="form-control mr-sm-2" type="hidden" value="@Model.ClientFilterInfo.StageFilter">
+                                <input name="tier" id="TierFilter" class="form-control mr-sm-2" type="hidden" value="@Model.ClientFilterInfo.TierFilter">
+
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btnGo">Go</button>
+                                <button class="btn btn-refresh" type="button" id="btnClear"><i class="material-icons">cached</i></button>
+                            </form>
+                            </div>
+                            @*<div class="header-search-wrap">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Serach by Agent" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+                </form>
+            </div>*@
+                            <div class="account-wrap">
+                                <ul>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Hello, @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                            <div class="pro-pic"><img class="img-user-new" /></div>
+                                            <i class="material-icons">keyboard_arrow_down</i>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                            }
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 top-filter-section">
+                    <div class="row">
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="top-filter-block">
+                                <h4>Tier</h4>
+                                <div class="filter-listing" data-kw-target="#DataGrid" data-kw-actionlink="/Coordinator/DealAgentV2/list">
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input tierFilter" id="TierPlatinum" value="Platinum">
+                                            <label class="custom-control-label" for="TierPlatinum">Platinum</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input tierFilter" id="TierGold" value="Gold">
+                                            <label class="custom-control-label" for="TierGold">Gold</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input tierFilter" id="TierSilver" value="Silver">
+                                            <label class="custom-control-label" for="TierSilver">Silver</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input tierFilter" id="TierMember" value="Member">
+                                            <label class="custom-control-label" for="TierMember">Member</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input tierFilter" id="TierNonClient" value="Non-Client">
+                                            <label class="custom-control-label" for="TierNonClient">Non-Client</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="top-filter-block">
+                                <h4>Stage</h4>
+                                <div class="filter-listing" data-kw-target="#DataGrid" data-kw-actionlink="/Coordinator/DealAgentV2/list">
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input stageFilter" id="StageLead" value="Lead">
+                                            <label class="custom-control-label" for="StageLead">Lead</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input stageFilter" id="StageRelationship" value="Relationship">
+                                            <label class="custom-control-label" for="StageRelationship">Relationship</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input stageFilter" id="StageActive" value="Active">
+                                            <label class="custom-control-label" for="StageActive">Active</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input stageFilter" id="StageUnderContract" value="Under Contract">
+                                            <label class="custom-control-label" for="StageUnderContract">Under Contract</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input stageFilter" id="StageSetteled" value="Settled">
+                                            <label class="custom-control-label" for="StageSetteled">Settled</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="top-filter-block">
+                                <h4>Year (Settled)</h4>
+                                <div class="filter-listing" data-kw-target="#DataGrid" data-kw-actionlink="/Coordinator/DealAgentV2/list">
+
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="year" class="custom-control-input yearFilter" id="Year2020" value="2020">
+                                            <label class="custom-control-label" for="Year2020">2020</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="year" class="custom-control-input yearFilter" id="Year2019" value="2019">
+                                            <label class="custom-control-label" for="Year2019">2019</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="year" class="custom-control-input yearFilter" id="Year2018" value="2018">
+                                            <label class="custom-control-label" for="Year2018">2018</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="year" class="custom-control-input yearFilter" id="Year2017" value="2017">
+                                            <label class="custom-control-label" for="Year2017">2017</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="year" class="custom-control-input yearFilter" id="YearEarlier" value="Earlier">
+                                            <label class="custom-control-label" for="YearEarlier">Earlier</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-12">
+                            <div class="top-filter-block type-filter-block">
+                                <h4>Type</h4>
+                                <div class="filter-listing" data-kw-target="#DataGrid" data-kw-actionlink="/Coordinator/DealAgentV2/list">
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input typeFilter" id="TypeBuyer" value="Buyer">
+                                            <label class="custom-control-label" for="TypeBuyer">Buyer</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input typeFilter" id="TypeSeller" value="Seller">
+                                            <label class="custom-control-label" for="TypeSeller">Seller</label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input typeFilter" id="TypeBoth" value="Both">
+                                            <label class="custom-control-label" for="TypeBoth">Both</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                @Html.Partial("pvList", Model)
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $("#btnClear").click(function () {
+            $('#inputsearch').val('');
+            $('#btnGo').click();
+        });
+
+
+            $('#inputsearch').autocomplete({
+                source: function (request, response) {
+                    var itemnamecodes = new Array();
+                    $.ajax({
+                        type: 'POST',
+                       url: '@Url.Action("Autocomplete", "DealAgentV2")',
+                        dataType: 'json',
+                        data: { term: request.term },
+                        success: function (data) {
+
+                            response($.map(data, function (item) {
+                                return { label: item.Key, Id: item.Value };
+                            }))
+                        }
+                    })
+                },
+                select: function (e, i) {
+                    $("#ListingSHA").val(i.item.Id);
+
+                }
+            })
+
+
+
+
+
+        var getYearFilter = function () {
+           
+            var TargetURL = $(this).parent().parent().parent().attr("data-kw-actionlink");
+            var year = "";
+            $('.yearFilter').each(function () {
+                if (this.checked) {
+                    year += "," + $(this).val();
+                }
+            });
+            $('#YearFilter').val(year.replace(/^,|,$/g, ''));
+            TargetURL = TargetURL + "?year=" + year.replace(/^,|,$/g, '')
+          
+            var options = {
+                url: TargetURL
+                , data: $("form").serialize()
+                , type: "get"
+            }
+            var target = $(this).parent().parent().parent().attr("data-kw-target");
+            $.ajax(options).done(function (data) {
+                $(target).replaceWith(data);
+            });
+        };
+        $(".content").on("click", ".yearFilter", getYearFilter);
+
+
+    var getTypeFilter = function () {
+
+        var TargetURL = $(this).parent().parent().parent().attr("data-kw-actionlink");
+        var type = "";
+        $('.typeFilter').each(function () {
+            if (this.checked) {
+                type += "," + $(this).val();
+            }
+        });
+        $('#TypeFilter').val(type.replace(/^,|,$/g, ''));
+        TargetURL = TargetURL + "?type=" + type.replace(/^,|,$/g, '')
+        var options = {
+            url: TargetURL
+            , data: $("form").serialize()
+            , type: "get"
+        }
+        var target = $(this).parent().parent().parent().attr("data-kw-target");
+        $.ajax(options).done(function (data) {
+            $(target).replaceWith(data);
+        });
+    };
+    $(".content").on("click", ".typeFilter", getTypeFilter);
+
+
+    var getStageFilter = function () {
+
+        var TargetURL = $(this).parent().parent().parent().attr("data-kw-actionlink");
+        var stage = "";
+        $('.stageFilter').each(function () {
+            if (this.checked) {
+                stage += "," + $(this).val();
+            }
+        });
+        $('#StageFilter').val(stage.replace(/^,|,$/g, ''));
+        TargetURL = TargetURL + "?stage=" + stage.replace(/^,|,$/g, '')
+        var options = {
+            url: TargetURL
+            , data: $("form").serialize()
+            , type: "get"
+        }
+        var target = $(this).parent().parent().parent().attr("data-kw-target");
+        $.ajax(options).done(function (data) {
+            $(target).replaceWith(data);
+        });
+    };
+    $(".content").on("click", ".stageFilter", getStageFilter);
+
+
+    var getTierFilter = function () {
+
+        var TargetURL = $(this).parent().parent().parent().attr("data-kw-actionlink");
+        var tier = "";
+        $('.tierFilter').each(function () {
+            if (this.checked) {
+                tier += "," + $(this).val();
+            }
+        });
+        $('#TierFilter').val(tier.replace(/^,|,$/g, ''));
+        TargetURL = TargetURL + "?tier=" + tier.replace(/^,|,$/g, '')
+        var options = {
+            url: TargetURL
+            , data: $("form").serialize()
+            , type: "get"
+        }
+        var target = $(this).parent().parent().parent().attr("data-kw-target");
+        $.ajax(options).done(function (data) {
+            $(target).replaceWith(data);
+        });
+    };
+    $(".content").on("click", ".tierFilter", getTierFilter);
+   })
+</script>

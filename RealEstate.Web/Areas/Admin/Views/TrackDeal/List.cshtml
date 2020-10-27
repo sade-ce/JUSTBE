@@ -1,0 +1,47 @@
+﻿@model RealEstate.Entities.ViewModels.MstDealViewModel
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="well well-sm">
+        <div class="col-md-9 pull-left col-5 col-xs-7">
+            <form method="get" action="@Url.Action("List")" data-kw-ajax="true" data-kw-target="#DataGrid">
+                <div class="input-group">
+                    <input type="text" name="searchTerm" class="form-control" id="inputsearch" placeholder="Search by Name, Email or Status ..." />
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger pull-left" type="submit" id="search" value="Search By Name">Go!</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        @Html.ActionLink("Clear Results", "List", null, new { @class = "btn btn-primary", id = "clear" })
+        <div class="pull-right">
+            @Html.ActionLink(" Add New ", "create", null, new { @class = "btn btn-primary pull-right " })
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    @Html.Partial("pvDealList", Model)
+</div>
+
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#clear").addClass("hidden");
+            $("#search").on("click", function (e) {
+                if ($("#inputsearch").val() != "") {
+                    $("#clear").removeClass("hidden");
+                }
+                else {
+                    $("#clear").addClass("hidden");
+                }
+            });
+        });
+    </script>
+}

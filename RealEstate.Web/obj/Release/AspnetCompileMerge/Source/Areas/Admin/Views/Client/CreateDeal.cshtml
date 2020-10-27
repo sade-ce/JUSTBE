@@ -1,0 +1,98 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+@{
+    ViewBag.Title = "CreateDeal";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+
+@*<link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/popup.css" rel="stylesheet" />*@
+
+<section class="content-header">
+    <h1>
+        Tracking
+        <small>Create Deal</small>
+    </h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default">
+                <div class="box-body">
+                    <div class="alert alert-warning ">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                        <h4><i class="icon fa fa-info"></i> Info!</h4>
+                        You are managing deal for the Client: <strong> @Model.UserInfo.Name </strong>Email Associated:<strong> @Model.UserInfo.Email</strong>
+                    </div>
+                    @Html.Partial("pvClientStatusList", Model)
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+@section Scripts {
+    @*<script src="~/Scripts/moment.min.js"></script>
+        <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>*@
+
+    <script>
+        function OkMyModal() {
+            $("#myErroMsgModal").hide();
+            $('#ErrMsgHiddenField').val("");
+            // Retrieve the sender infromation from hidden field and pass it to the function
+            CustomAjaxFormSubmitt($("#eventSender").val().split('|')[1], $("#eventSender").val().split('|')[0]);
+        }
+
+    </script>
+    <script>
+        function CustomAjaxFormSubmitt(sender, url) {
+            if (url == "#")
+            { return false; }
+            var $form = $('a[href="' + decodeURI(url) + '"]').closest('form')
+            if ($form.attr("data-JB-ajax") == 'true') {
+                var options = {
+                    url: decodeURI(url)
+                    , type: $form.attr("method")
+                    , data: $form.serialize()
+                }
+                var target = $($form.attr("data-JB-target"));
+                $.ajax(options).done(function (data) {
+                    window.location.href = data.url;
+
+                    ShowMessageBox();
+                });
+                return false;
+            }
+            else {
+                return true;
+            }
+        };
+    </script>
+
+
+    <script>
+        $("#createdeal").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+    </script>
+}
+<style type="text/css">
+    .ui-datepicker {
+        font-size: 9pt !important;
+        position: relative;
+        z-index: 1000;
+    }
+</style>

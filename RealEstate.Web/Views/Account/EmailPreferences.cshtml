@@ -1,0 +1,617 @@
+﻿@model RealEstate.Entities.ViewModels.MstUpdateEmailPreferences
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "Just BE | Email Preferences";
+    ViewBag.ViewHeader = "Email Preferences";
+    if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        Layout = "~/Views/Shared/_LayoutCommonNew.cshtml";
+
+    }
+    else
+    {
+        Layout = "~/Areas/Client/Views/Shared/_ClientLayoutNew.cshtml";
+
+    }
+}
+<style>
+    #header {
+        top: 0px !important;
+    }
+</style>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+
+
+
+
+    <section class="welcomeSection">
+        <div class="container">
+            @if (ViewBag.message == "WelcomeBack")
+            {
+                { TempData["message"] = ViewBag.message; }
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2>@{Html.RenderAction("UserDetails", "MyDeal", new { area = "Client" });}</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled multi-steps">
+                            <li><span class="stepsCircle"> <i class="fa fa-sign-in" aria-hidden="true"></i> </span> <br> Password Secured<br><strong> </strong></li>
+                            <li><span class="stepsCircle"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> </span> <br> Set your  <br><strong>Profile picture </strong></li>
+                            <li><span class="stepsCircle"> <i class="fa fa-envelope-o" aria-hidden="true"></i> </span> <br> Set your<br><strong>Notification settings </strong></li>
+                            <li><span class="stepsCircle"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> </span> <br> Go to your<br><strong>Dashboard </strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                            }
+
+                            else
+                            {
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <h2>Welcome to Just BE</h2>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul class="list-unstyled multi-steps">
+                                            <li class="is-active"><span class="stepsCircle"> <i class="fa fa-sign-in" aria-hidden="true"></i> </span><br>Create<br><strong>Account</strong></li>
+                                            <li class="is-active"><span class="stepsCircle"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> </span> <br> Set <br><strong> Profile Picture </strong></li>
+                                            <li class="is-active"><span class="stepsCircle"> <i class="fa fa-envelope-o active" aria-hidden="true"></i> </span> <br> Set<br><strong>Notification Settings </strong></li>
+                                            <li><span class="stepsCircle"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> </span><br> View<br><strong>Dashboard </strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+
+
+                            }
+
+           @using (Html.BeginForm("EmailPreferences", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+           {
+               { TempData["message"] = ViewBag.message;
+               }
+             <div class="row">
+                <div class="col-12 text-center">
+                    <div class="emailNotification">
+                        <h4>Select your notification settings</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emailNotificationList">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h6>Event reminders (recommended)</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 flexSet">
+
+                        <p>
+                            Receive reminders about calendar events related to your transaction (while we
+                            are in beta testing, please be sure to verify all events with the agent)
+                        </p>
+                    </div>
+                    <div class="col-sm-2 flexSet">
+                        <label class="switch">
+                            @if (Model.EventCalendar == true)
+                            {
+                                @Html.CheckBoxFor(model => model.EventCalendar, new { @class = "Chk-box", @checked = "checked" })
+
+
+                            }
+                            else
+                            {
+                                @Html.CheckBoxFor(model => model.EventCalendar, new { @class = "Chk-box" })
+                            }
+                           
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+                <div class="emailNotificationList">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h6>Deal updates </h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-10 flexSet">
+
+                            <p>Receive updates related to your transaction documents, action items, etc</p>
+                        </div>
+                        <div class="col-sm-2 flexSet">
+                            <label class="switch">
+                                @if (Model.StatusTimeline == true)
+                                {
+                                    @Html.CheckBoxFor(model => model.StatusTimeline, new { @class = "Chk-box", @checked = "checked" })
+
+                                }
+                                else
+                                {
+                                    @Html.CheckBoxFor(model => model.StatusTimeline, new { @class = "Chk-box" })
+
+                                }
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+       
+
+            <br>
+            <div class="row mobileAlign">
+                <div class="col-md-6">
+                    <!-- <button type="button" class="btn btn-lightGray">Back</button> -->
+                    <a class="btn btn-lightGray btngoback" style="cursor:pointer" role="button">Back</a>
+                </div>
+                <div class="col-md-6 ">
+                    @*<a class="btn btn-darkGray fltRt" href="property.html" role="button">Save and Continue</a>*@
+                    <button class="btn btn-darkGray fltRt">Next Step</button>
+                    <!-- <button type="button" class="btn btn-darkGray"></button> -->
+                </div>
+            </div>
+           }
+        </div>
+    </section>
+
+
+                            }
+
+                            else
+                            {
+                                <div class="top-header">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="breadcrumbs">
+                                                    <ul class="align-items-center d-flex list-unstyled m-0 p-0">
+                                                        <li class="d-none d-lg-block mr-4">
+                                                            @if ((User.IsInRole("Agent") || User.IsInRole("Admin"))) { }
+                                                            else
+                                                            {
+                                                                <a href="#!" id="toggleHeader"><img src="~/Content/NewVersion/images/ham.png" alt="" class="img-fluid"></a>
+                                                            }
+                                                        </li>
+                                                        @*<li>My Account<span>&nbsp;>&nbsp;</span></li>
+                                                        <li class="active">Notification Settings<span>&nbsp;>&nbsp;</span></li>*@
+                                                        <li>
+                                                            <a class="nav-link nav-cal-drop nav-cal-drop-new dropdown-toggle " href="@Url.Action("EmailPreferences", "Account", new { area = "" })" role="button">Notification Settings<span style="color:#212529">&nbsp;>&nbsp;</span></a>
+                                                        </li>
+                                                     
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 d-md-block d-none">
+                                                <div class="accountLog d-flex justify-content-end align-items-center">
+                                                    <p>Hello, &nbsp;<span>@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)</span></p>
+                                                    <div class="profileImgtop" style="background-size: cover; background-position: center;   height:50px;">
+                                                        <!-- <img alt="profile-img" id="profileimg" class="img-fluid profileimg"> -->
+                                                    </div>                                                    @if ((User.IsInRole("Agent") || User.IsInRole("Admin"))) { }
+                                                    else
+                                                    {
+                                                        <span> &nbsp; &nbsp; | &nbsp; </span>
+
+                                                        <div class="dropdown">
+                                                            <button class="btn  dropdown-toggle mybtn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                My Account
+                                                            </button>
+                                                            <div class="dropdown-menu MyAccountDrop" aria-labelledby="dropdownMenuButton">
+                                                                <a class="dropdown-item" href="@Url.Action("EmailPreferences", "Account", new { @area = "" })"><i class="flaticon-gear"></i>Notification Settings</a>
+                                                                <a class="dropdown-item" href="@Url.Action("EditProfile", "Account", new { @area = "" })"><i class="flaticon-conversation"></i>Edit Profile</a>
+                                                                <a class="dropdown-item" href="@Url.Action("ChangePassword", "Account", new { @area = "" })"><i class="flaticon-password"></i>Change Password</a>
+
+                                                                @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                                                {
+                                                                    @Html.AntiForgeryToken()
+                                                                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                  <!-- Main Section s -->
+    <div class="notificationSettingsOuter">
+      <div class="container">
+
+
+        <div class="row welcomeSection">
+          <div class="col-md-12 text-center">
+            @*<h2>What You Get Notified About</h2>*@
+          </div>
+        </div>
+
+@using (Html.BeginForm("EmailPreferences", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    {
+        TempData["message"] = "";
+    }
+        <div class="emailNotificationList">
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="emailNotifi flexSet"> <img src="~/Content/NewVersion/images/emailNotification.png"></div>
+            </div>
+            <div class="col-sm-8 flexSet">
+              <h6>Event reminders (recommended)</h6>
+              <p> Receive reminders about calendar events related to your transaction (while we
+                are in beta testing, please be sure to verify all events with the agent)
+              </p>
+            </div>
+            <div class="col-sm-2 flexSet">
+              <label class="switch">
+                  @if (Model.EventCalendar == true)
+                  {
+                      @Html.CheckBoxFor(model => model.EventCalendar, new { @checked = "checked" })
+
+
+                  }
+                  else
+                  {
+                      @Html.CheckBoxFor(model => model.EventCalendar)
+                  }
+             
+                <span class="slider round"></span>
+              </label></div>
+          </div>
+        </div>
+
+        <div class="emailNotificationList">
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="emailNotifi flexSet"> <img src="~/Content/NewVersion/images/emailNotification.png"></div>
+            </div>
+            <div class="col-sm-8 flexSet">
+              <h6>Deal updates </h6>
+              <p> BE informed on updates to your transaction (e.g., new documents uploaded) </p>
+            </div>
+            <div class="col-sm-2 flexSet">
+              <label class="switch">
+                  @if (Model.StatusTimeline == true)
+                  {
+                      @Html.CheckBoxFor(model => model.StatusTimeline, new { @checked = "checked" })
+
+                  }
+                  else
+                  {
+                      @Html.CheckBoxFor(model => model.StatusTimeline)
+
+                  }
+                <span class="slider round"></span>
+              </label></div>
+          </div>
+        </div>
+        <br>
+        <div class="row mobileAlign">
+            @*<div class="col-md-6">
+           
+                <a class="btn btn-lightGray" href="#" onclick="window.history.back();" role="button">Back</a>
+            </div>*@
+            <div class="col-md-12 text-center">
+                @*<a class="btn btn-darkGray fltRt" href="property.html" role="button">Save and Continue</a>*@
+@if (User.IsInRole("Client"))
+{
+                <button class="btn btn-darkGray">Save Changes</button>
+}
+                <!-- <button type="button" class="btn btn-darkGray"></button> -->
+            </div>
+        </div>
+}
+
+
+      </div>
+    </div>
+
+    <!-- Main Section E -->
+                                @*<div class="main-wrapper">
+                                    <div class="main">
+                                        <div class="main-inner">
+
+                                            <div class="content-title">
+                                                <div class="content-title-inner">
+                                                    <div class="container">
+                                                        <h1>What You Get Notified About</h1>
+
+                                                    </div><!-- /.container -->
+                                                </div><!-- /.content-title-inner -->
+                                            </div><!-- /.content-title -->
+
+                                            <div class="content">
+                                                <div class="container">
+                                                    <!-- /.filter -->
+
+                                                    <div class="row">
+
+                                                        <div class="col-md-12 col-lg-12">
+
+                                                            <div class="content">
+                                                                @using (Html.BeginForm("EmailPreferences", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                                                {
+                                                                    {
+                                                                        TempData["message"] = "";
+                                                                    }
+                                                                    <div class="faq">
+
+                                                                        <!-- /.faq-item -->
+
+                                                                        <div class="faq-item">
+                                                                            <div class="faq-item-question">
+                                                                                <h2>Turn on/off email notifications about events that are added to your calendar</h2>
+                                                                            </div><!-- /.faq-item-question -->
+
+
+
+                                                                            <div class="faq-item-meta">
+
+                                                                                <span class="rate">
+                                                                                    <label class="switch">
+                                                                                        @if (Model.EventCalendar == true)
+                                                                                        {
+                                                                                            @Html.CheckBoxFor(model => model.EventCalendar, new { @class = "Chk-box", @checked = "checked" })
+
+
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            @Html.CheckBoxFor(model => model.StatusTimeline, new { @class = "Chk-box" })
+                                                                                        }
+                                                                                        <span class="slider round"></span>
+                                                                                    </label>
+
+                                                                                   
+                                                                                </span><!-- /.rate -->
+                                                                            </div><!-- /.faq-item-meta -->
+                                                                        </div>
+
+                                                                        <div class="faq-item">
+                                                                            <div class="faq-item-question">
+                                                                                <h2>Turn on/off email notifications about steps that are added to your live deal tracker timeline</h2>
+                                                                            </div><!-- /.faq-item-question -->
+
+
+
+                                                                            <div class="faq-item-meta">
+
+                                                                                <span class="rate">
+                                                                                    <label class="switch">
+                                                                                        @if (Model.StatusTimeline == true)
+                                                                                        {
+                                                                                            @Html.CheckBoxFor(model => model.StatusTimeline, new { @class = "Chk-box", @checked = "checked" })
+
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            @Html.CheckBoxFor(model => model.StatusTimeline, new { @class = "Chk-box" })
+
+                                                                                        }
+                                                                                        <span class="slider round"></span>
+                                                                                    </label>
+
+
+
+                                                                            
+                                                                                </span><!-- /.rate -->
+                                                                            </div><!-- /.faq-item-meta -->
+                                                                        </div>
+
+                                                                        <div class="faq-item">
+                                                                            <div class="faq-item-question">
+                                                                                <h2>Turn on/off email notifications about settlement date that are added to your live deal tracker timeline</h2>
+                                                                            </div><!-- /.faq-item-question -->
+
+
+
+                                                                            <div class="faq-item-meta">
+
+                                                                                <span class="rate">
+                                                                                    <label class="switch">
+                                                                                        @if (Model.SettlementDate == true)
+                                                                                        {
+                                                                                            @Html.CheckBoxFor(model => model.SettlementDate, new { @class = "Chk-box", @checked = "checked" })
+
+
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            @Html.CheckBoxFor(model => model.SettlementDate, new { @class = "Chk-box" })
+
+                                                                                        }
+                                                                                        <span class="slider round"></span>
+                                                                                    </label>
+
+
+
+                                                                              
+                                                                                </span><!-- /.rate -->
+                                                                            </div><!-- /.faq-item-meta -->
+                                                                        </div>
+
+                                                                    </div><!-- /.faq -->
+
+                                                                    <div class="col-sm-12" style="margin-bottom:150px">
+                                                                        <button class="btn btn-primary pull-right">Save Changes</button>
+
+                                                                    </div>
+
+                                                                }
+                                                                <!-- /.pagination-wrapper -->
+                                                            </div>
+
+                                                        </div>
+
+
+
+
+
+
+                                                    </div>
+                                                    <!-- /.row -->
+                                                </div><!-- /.container -->
+                                            </div><!-- /.content -->
+                                        </div><!-- /.main-inner -->
+                                    </div><!-- /.main -->
+                                </div>*@
+
+                            }
+
+
+
+
+
+
+
+<div class="page-content-wrap"></div>
+
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $('.btngoback').on('click', function (e) {
+        window.history.go(-1);
+        return false;
+    })
+    </script>
+    @*<script type="text/javascript">
+
+            $(document).ready(function (e) {
+                $('form').submit(function () {
+                    var Events = ($("#Events").is(':checked')) ? true : false;
+                    var settlement = ($("#settlement").is(':checked')) ? true : false;
+                    var steps = ($("#steps").is(':checked')) ? true : false;
+
+                    $("#ajaxLoading").css("display", "block");
+                    $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                    $("#ajaxLoading").css("left", $(window).width() / 2);
+                    $("#ajaxLoading").css("position", "fixed");
+                    $("#ajax-backdrop").css("display", "block");
+                    $.ajax({
+                        url: '@Url.Action("emailpreferences")',
+                        type: "POST",
+                        data: { "Events": Events, "settlement": settlement, "steps": steps },
+                        success: function (result) {
+                            $("#ajaxLoading").css("display", "none");
+                            $("#ajax-backdrop").css("display", "none");
+                            $('#ErrorView').text(result).show();
+
+                        },
+                        error: function (result) {
+                            $('#ErrorView').text(result).show();
+                            //$('#Error').text(result.Email);
+                        }
+
+                    });
+                    return false;
+
+                });
+            });
+        </script>*@
+
+
+
+}
+
+
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            display: none;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + input[type="hidden"] + .slider,
+    input:checked + .slider {
+        background-color: #1c2a31;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + input[type="hidden"] + .slider:before,
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+    .faq-item:before {
+        display: none;
+    }
+</style>
+<style>
+    .settings {
+        display: table;
+        width: 100%;
+    }
+
+        .settings .row {
+            display: table-row;
+        }
+</style>
+

@@ -1,0 +1,211 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | About";
+}
+@section Style {
+
+
+@Styles.RenderFormat(
+    "<link href='https://justbere-d4d9.kxcdn.com/{0}' rel='stylesheet'></link>",
+    "~/Content/Home")
+    @*@Styles.Render("~/Content/Home")*@
+}
+<div id="titlebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>About us</h2>
+
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li>About us</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Headline -->
+            <h4 class="headline with-border margin-top-45 margin-bottom-25">Jay Bauer Group</h4>
+            <p>
+                The Jay Bauer Group is comprised of a dynamic group of experts in the fields of real estate, home construction, sustainability, and entrepreneurship. But most importantly we are people who are driven to help others and truly enjoy the “working-with-people” component of the real estate industry. Whether we are helping you sell your home for top dollar or find a new place to call home, we are only satisfied when you are happy with all aspects of your transaction.
+            </p>
+        </div>
+    </div>
+
+
+</div>
+
+
+<section class="fullwidth margin-top-95 margin-bottom-0">
+    <h3 class="headline-box">Meet The Team</h3>
+    <div class="container">
+        <div class="row">
+            <!-- Agents Container -->
+            <div class="agents-grid-container">
+                <div class="grid-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="agent">
+                        <div class="agent-avatar">
+                            <a href="@Url.Action("JayBauer","About")">
+                                <img src="https://justbere-d4d9.kxcdn.com/img/Jay.jpg" alt="">
+                                <span class="view-profile-btn">View Profile</span>
+                            </a>
+                        </div>
+                        <div class="agent-content">
+                            <div class="agent-name">
+                                <h4><a href="@Url.Action("JayBauer","About")">Jay Bauer</a></h4>
+                                <span class="margin-bottom-20">Vice President,Realtor</span>
+                            </div>
+                            <ul class="agent-contact-details">
+                                <li><i class="sl sl-icon-call-in"></i>301.785.1100</li>
+                                <li>
+                                    <i class="fa fa-envelope-o "></i><a href="#">
+                                        <span class="__cf_email__" style="font-size: 14px;">jay@jaybauergroup.com</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="social-icons">
+                                <li><a class="facebook" target="_blank" href="https://www.facebook.com/JayBauerGroup"><i class="icon-facebook"></i></a></li>
+                                <li><a class="twitter" target="_blank" href="https://twitter.com/jaybauergroup?lang=en"><i class="icon-twitter"></i></a></li>
+                                <li><a class="gplus" target="_blank" href="https://plus.google.com/100879112154046767164"><i class="icon-gplus"></i></a></li>
+                                <li><a class="linkedin" target="_blank" href="https://www.linkedin.com/in/jay-bauer-0938b36"><i class="icon-linkedin"></i></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="agent">
+                        <div class="agent-avatar">
+                            <a href="@Url.Action("DanaCloud","About")">
+                                <img src="https://justbere-d4d9.kxcdn.com/img/DanaCloud.jpg" alt="">
+                                <span class="view-profile-btn">View Profile</span>
+                            </a>
+                        </div>
+                        <div class="agent-content">
+                            <div class="agent-name">
+                                <h4><a href="@Url.Action("DanaCloud","About")">Dana Cloud</a></h4>
+                                <span>Realtor, Military Relocation Professional, MRP</span>
+                            </div>
+                            <ul class="agent-contact-details">
+                                <li><i class="sl sl-icon-call-in"></i>503.753.0060</li>
+                                <li><i class="fa fa-envelope-o "></i><a href="#"><span class="__cf_email__" style="font-size: 14px;">dana.cloud@compass.com</span></a></li>
+                            </ul>
+                            <ul class="social-icons">
+                                <li><a class="facebook" href="https://www.facebook.com/dana.cloud.1"><i class="icon-facebook"></i></a></li>
+                                <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+                                <li><a class="gplus" href="https://plus.google.com/117049635404201821581"><i class="icon-gplus"></i></a></li>
+                                <li><a class="linkedin" target="_blank" href="https://www.linkedin.com/in/dana-cloud-76343554"><i class="icon-linkedin"></i></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="agent">
+                        <div class="agent-avatar">
+                            <a href="@Url.Action("CalebEtoile","About")">
+                                <img src="https://justbere-d4d9.kxcdn.com/img/CalebLetoile.jpg" alt="">
+                                <span class="view-profile-btn">View Profile</span>
+                            </a>
+                        </div>
+                        <div class="agent-content" style="min-height:116px">
+                            <div class="agent-name">
+                                <h4><a href="@Url.Action("CalebEtoile","About")">Caleb L’Etoile</a></h4>
+                                <span>Listing Associate</span>
+                            </div>
+                           
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="agent">
+                        <div class="agent-avatar">
+                            <a href="@Url.Action("TanniRednor","About")">
+                                <img src="https://justbere-d4d9.kxcdn.com/img/tanni.jpg" alt="">
+                                <span class="view-profile-btn">View Profile</span>
+                            </a>
+                        </div>
+                        <div class="agent-content">
+                            <div class="agent-name">
+                                <h4><a href="@Url.Action("TanniRednor","About")">Tanni Rednor</a></h4>
+                                <span class="margin-bottom-20">Listing Associate</span>
+                            </div>
+                           
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+        </div>
+        <div class="row">
+            <div class="agents-grid-container">
+                
+                <div class="grid-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="agent">
+                        <div class="agent-avatar">
+                            <a href="@Url.Action("CiaraLee","About")">
+                                <img src="https://justbere-d4d9.kxcdn.com/img/ciaralee_.jpg" alt="">
+                                <span class="view-profile-btn">View Profile</span>
+                            </a>
+                        </div>
+                        <div class="agent-content">
+                            <div class="agent-name">
+                                <h4><a href="@Url.Action("CiaraLee","About")">Ciara Lee</a></h4>
+                                <span class="margin-bottom-20">Transaction Manager</span>
+                            </div>
+                          
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<a href="@Url.Action("Contact","Home")" class="flip-banner parallax" data-color="#333" data-color-opacity="0.9" data-img-width="2500" data-img-height="1000" style="background-attachment: fixed; background-size: 1349px 863.36px; background-position: 50% -213.59px;">
+    <div class="parallax-overlay" style="background-color: rgb(39, 74, 187); opacity: 0.9;"></div>
+    <div class="flip-banner-content">
+        <h2 class="flip-visible">We've Got You Covered!</h2>
+        <h2 class="flip-hidden">Contact Us <i class="sl sl-icon-arrow-right"></i></h2>
+    </div>
+</a>
+
+
+<a id="leadform" href="#leadModal" style="display:none"></a>
+
+<div class="modal-container">
+    <a class="btn btn-lg btn-modal" id="clickModal" href="#">
+        <i class="ti-layout-menu-v"></i>
+    </a>
+    <div class="foundry_modal text-center">
+        <i class="ti-close close-modal fa-close">X</i>
+
+    </div>
+</div>
+<div class="modal-screen"></div>
+<div modal-link="0" class="foundry_modal openmodal text-center">
+    <i class="ti-close close-modal" style="margin-top:0px">X</i>
+    <div class="leadContent11"></div>
+</div>
+
+<style>
+    body {
+    
+    color: #707070;
+    
+}
+</style>

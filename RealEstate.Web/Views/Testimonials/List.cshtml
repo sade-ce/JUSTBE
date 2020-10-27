@@ -1,0 +1,31 @@
+﻿@model RealEstate.Entities.ViewModels.TestimonialViewModel
+@{
+    ViewBag.Title = "Just BE | Testimonials";
+    Layout = "~/Views/Shared/_LayoutCommonNew.cshtml";
+}
+
+<section class="testimonialOuter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h3 class="testi-title">Testimonials</h3>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-3">
+                @*<select class="form-control" id="exampleFormControlSelect1">
+                        <option>Sort by: All</option>
+                        <option>Date</option>
+                        <option>Buyer</option>
+                        <option>Seller</option>
+                    </select>*@
+            </div>
+        </div>
+
+
+    
+       
+                    @Html.Partial("pvTestimonialList", Model)
+        
+    </div>
+</section>
+

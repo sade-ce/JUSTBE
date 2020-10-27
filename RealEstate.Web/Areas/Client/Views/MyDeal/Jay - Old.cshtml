@@ -1,0 +1,156 @@
+﻿@model RealEstate.Entities.ViewModels.MstAgentViewModel
+@{
+    ViewBag.Title = "Just BE | Agent";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+
+
+<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+
+            <div class="content-title">
+                <div class="content-title-inner">
+                    <div class="container">
+                        <h1>My Agent</h1>
+
+                    </div><!-- /.container -->
+                </div><!-- /.content-title-inner -->
+            </div><!-- /.content-title -->
+
+            <div class="content">
+                <div class="container">
+                    <!-- /.filter -->
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-lg-12">
+
+                            <div class="row">
+                                <div class="listing-detail col-md-12 col-lg-12">
+                                    <div class="listing-user">
+                                        <div class="listing-user-image">
+
+                                            
+                                                <a href="#" style="background-image: url('../../../../img/Jay.jpg');"></a>
+                                           
+                                        </div><!-- /.listing-user-image -->
+
+                                        <div class="listing-user-title">
+                                            <h2>Jay Bauer</h2>
+                                            <h3>Vice President, Realtor</h3>
+                                        </div><!-- /.listing-user-title -->
+                                        <!-- /.listing-user-social -->
+                                    </div><!-- /.listing-user -->
+
+                                    <div class="row">
+                                        <div class="col-lg-5">
+                                            <div class="overview">
+                                                <h2>Information</h2>
+
+                                                <ul>
+                                                    <li><strong>Name</strong><span>Jay Bauer</span></li>
+                                                    <li><strong>Phone</strong><span>+1-301-785-1100</span></li>
+                                                    <li><strong>E-mail</strong><span>info@jaybauergroup.com</span></li>
+                                                    <li><strong>Website</strong><span>www.JustBEre.com</span></li>
+                                                </ul>
+                                            </div><!-- /.overview -->
+                                        </div><!-- col-* -->
+
+                                        <div class="col-lg-7">
+                                            <h2>About Agent</h2>
+
+                                            <p>
+                                                A northeast native, I’ve called the D.C. metro area home for over 20 years. I’ve always had a passion for real estate. Even as a kid, I’d ask my parents if I could join them while they toured model homes. Little did I know that 20 years later I’d be the one bringing clients through model homes and negotiating sales on their behalf! As a Realtor, I’m customer-driven, and always dedicated to exceptional service and results for my clients. I’m licensed in D.C., Maryland, and Virginia, and I specialize in representing both buyers and sellers in the purchase and sale of single-family homes, row homes, townhouses, and condos throughout the D.C. metro area.
+
+                                            </p>
+                                            <p>
+                                                I’m a graduate of Walt Whitman High School in Bethesda and I hold a degree in communications from the University of Delaware. My hobbies include biking, D.C.-area sporting and social events, boating (especially when I have the opportunity to take my clients out on the Potomac), hiking, and helping out where I can in the community. I truly love the D.C. area, and I put my passion and deep knowledge of the area, along with 10 years of real estate experience, to work for each and every client.
+                                            </p>
+                                        </div><!-- /.col-* -->
+
+                                    </div><!-- /.row -->
+
+                                    <h2>Contact Agent</h2>
+
+
+                                    <div class="listing-contact-form">
+                                        <div class="row">
+                                            @{ Html.RenderAction("JayContact", "MyDeal");}
+                                        </div><!-- /.row -->
+                                    </div><!-- /.listing-contact-form -->
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        $('form').submit(function () {
+            if (isValidEmailAddress($("#Email").val())) {
+                $("#ajaxLoading").css("display", "block");
+                $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                $("#ajaxLoading").css("left", $(window).width() / 2);
+                $("#ajaxLoading").css("position", "fixed");
+                $("#ajax-backdrop").css("display", "block");
+                var serializedForm = $(this).serialize();
+                $.ajax({
+                    url: '@Url.Action("JayContact")',
+                    type: "POST",
+                    data: serializedForm,
+
+                    success: function (result) {
+                        $("#ajaxLoading").css("display", "none");
+                        $("#ajax-backdrop").css("display", "none");
+                        $('#ErrorView').text(result).show();
+
+                        $('#Message').val('');
+
+
+                    },
+                    error: function (result) {
+
+                        $('#ErrorView').text(result).show();
+                        //$('#Error').text(result.Email);
+                    }
+
+                });
+
+            }
+            else
+            {
+                $("#ErrorView").text("Invalid Email Address!").show().fadeOut("slow");
+            }
+
+            return false;
+        });
+    });
+
+    function isValidEmailAddress(emailAddress) {
+        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+        return pattern.test(emailAddress);
+    }
+
+
+    </script>
+
+
+}

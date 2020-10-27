@@ -1,0 +1,221 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientViewModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+<link href="~/Content/popup.css" rel="stylesheet" />
+
+<section class="content-header">
+    <h1>
+        Dashboard
+        <small>Admin Panel</small>
+    </h1>
+</section>
+<div class="content">
+    <div class="col-md-12">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>@Model.FullLead</h3>
+                    <p>Full Lead</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-desktop"></i>
+                </div>
+
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>@Model.PartialLead<sup style="font-size: 20px"></sup></h3>
+                    <p>Partial Lead</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-star-half"></i>
+                </div>
+
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>0</h3>
+                    <p>User Contact</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-comment"></i>
+                </div>
+
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>0</h3>
+                    <p>Help Request</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-bell"></i>
+                </div>
+
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">User Signup</span>
+                    <span class="info-box-number text-center-xs">@Model.MstClientView.Count()<small></small></span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-calendar"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Meeting Scheduled</span>
+                    <span class="info-box-number">0</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-coffee"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Total Client</span>
+                    <span class="info-box-number">0</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-briefcase"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Completed Deal</span>
+                    <span class="info-box-number">0</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <div class="col-md-12">
+        <div class="">
+            <div id='AddEditModal' class='modal fade in'>
+                <div class="modal-dialog">
+                    <div class="modal-content col-md-12">
+                        <div id='AddEditModalContent'></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="">
+
+                <div class="col-md-9 pull-left col-5 well well-sm">
+                    <form method="get" action="@Url.Action("Index")" data-kw-ajax="true" data-kw-target="#DataGrid">
+                        <div class="input-group">
+                            <input type="text" name="searchTerm" class="form-control" id="inputsearch" placeholder="Search by Name, Email or Phone ..." />
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger pull-left" type="submit" id="search" value="Search By Name">Go!</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+
+                @Html.ActionLink("Clear Results", "Index", null, new { @class = "btn btn-primary", id = "clear" })
+                <div class="clearfix"></div>
+
+               
+            </div>
+
+            @Html.Partial("pvUserList", Model)
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<a id="leadform" href="#leadModal" style="display:none"></a>
+
+<div class="modal-container">
+    <a class="btn btn-lg btn-modal" id="clickModal" href="#">
+        <i class="ti-layout-menu-v"></i>
+    </a>
+    <div class="foundry_modal text-center">
+        <i class="ti-close close-modal fa-close">X</i>
+
+    </div>
+</div>
+<div class="modal-screen"></div>
+<div modal-link="0" class="foundry_modal openmodal text-center">
+    <i class="ti-close close-modal" style="margin-top:0px">X</i>
+    <div class="leadContent11"></div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#clear").addClass("hidden");
+            $("#search").on("click", function (e) {
+                if ($("#inputsearch").val() != "") {
+                    $("#clear").removeClass("hidden");
+                }
+                else {
+                    $("#clear").addClass("hidden");
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $('.MarkClient').on('click', function () {
+
+            var $form = $(this);
+            var options = {
+                url: '/Admin/ControlPanel/MarkClient'
+                , data: { Email: this.id }
+            }
+
+            var target = $('.leadContent11');
+            $.ajax(options).done(function (data) {
+                var linkedModal = jQuery('.openmodal');
+
+                jQuery('.modal-screen').toggleClass('reveal-modal');
+                linkedModal.toggleClass('reveal-modal');
+                $(target).replaceWith(data);
+            });
+            return false;
+        });
+    </script>
+
+}
+
+
+
+
+

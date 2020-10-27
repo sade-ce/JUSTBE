@@ -1,0 +1,454 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="washington dc homes for sale, washington dc real estate, homes for sale in washington dc, real estate in washington dc, jay bauer compass real estate, maryland homes for sale, marryland real estate, virginia homes for sale, virginia real estate,Realtor,Realtors,finding a Realtor,how to find a Realtor,find real estate agents,how to find a real estate agent,best Realtor near dc,top realtor for buying a new home,top real estate agents in dc,selling a home,sell a home fast,fastest way to sell a home in dc,home selling tips,cost of selling your home,marketing your home,ways to sell your home,house staging tips,how to stage your home,foreclosure,forecloures,short sales,foreclosure or short sale,short selling,short sale process,cons of a short sale,short selling your home,for sale by owner,fsbo,why to use a Realtor,property for sale by owner,for sale by owner listings,top tips to get the best offer">
+
+    @*<title>@ViewBag.Title</title>*@
+    <title>Just BE | Real Estate</title>
+
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="~/Content/favicon/apple-icon-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="~/Content/HomeScreen/manifest.json">
+    <!-- Google Web Fonts
+    ================================================== -->
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
+
+    <!-- Basic Page Needs
+    ================================================== -->
+
+    @RenderSection("metatags", false)
+
+
+    <title>Welcome To ꓭ.</title>
+
+    <!--meta info-->
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Vendor CSS
+    ============================================ -->
+
+    @Styles.RenderFormat(
+    "<link href='https://justbere-d4d9.kxcdn.com/{0}' rel='stylesheet'></link>",
+    "~/201Murray/JBGHomeCss")
+
+    @Styles.RenderFormat(
+    "<link href='https://justbere-d4d9.kxcdn.com/{0}' rel='stylesheet'></link>",
+    "~/201Murray/JBGCommonCss")
+
+
+    @*@Styles.Render("~/201Murray/JBGHomeCss")
+        @Styles.Render("~/201Murray/JBGCommonCss")*@
+
+
+
+
+    @RenderSection("Style", false)
+    <style>
+                span.beta {
+                    position: fixed;
+                    background: #0bb7a5;
+                    top: 0;
+                    z-index: 999999999;
+                    right: 15px;
+                    color: #fff;
+                    padding: 1px 10px;
+                    font-family: 'Heebo', sans-serif;
+                    border-radius: 0 0 6px 6px;
+                    /*box-shadow: 0 2px 4px rgba(0,0,0,.1);*/
+                    letter-spacing: 1px;
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+                .header-blue .navbar.navbar-default .navbar-nav > li > a{
+                padding: 25px 15px!important;
+                font-size: 19px!important;
+        }
+        /*.header-blue .navbar .navbar-collapse p .login{
+               font-size: 15px!important;
+        }*/
+                .btnlogoutt {
+                    background: #fff !important;
+                    color: #000000 !important;
+                }
+
+                .btnlog {
+                    padding: 6px 14px !important;
+                    margin-right: 0px !important;
+                }
+
+                #chat-bot-launcher-container.chat-bot-avatar-launcher, #chat-bot-launcher-container.chat-bot-launcher-notext {
+                    bottom: 65px !important;
+                }
+
+                    #chat-bot-launcher-container.chat-bot-avatar-launcher .chat-bot-launcher-button:after {
+                        width: 0px !important;
+                        height: 0px !important;
+                    }
+
+                @@media only screen and (max-width: 767px) {
+                    span.beta {
+                        left: 0;
+                        right: 0;
+                        width: 112px;
+                        margin: 0 auto;
+                    }
+
+                    #chat-bot-launcher-container.chat-bot-avatar-launcher, #chat-bot-launcher-container.chat-bot-launcher-notext {
+                        bottom: 58px !important;
+                    }
+                }
+
+                div#navbar-menu {
+                    background: #ddd !important;
+                }
+
+                button#navbar-close {
+                    color: #000;
+                }
+                .navbar .homepage-logo {
+                    margin-right: 3px;
+                }
+                .navbar .homepage-logo img {
+                    width: 84px;
+                }
+
+                
+
+    </style>
+    <!-- Facebook Pixel Code -->
+    <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '2670780916336038');
+fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1"
+             src="https://www.facebook.com/tr?id=2670780916336038&ev=PageView
+&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+</head>
+
+
+<body id="ip-container">
+
+<!-- Covid Banner Start -->
+<style>
+.covidBanner { background: rgba(0,0,0,.5); text-align: center; color: #fff; font-size: 16px;
+line-height: 23px; position: relative; padding: 7px; padding-right:30px;  z-index:999; }
+ .covidBanner a {   color: #fff;  font-weight: bold; text-decoration: underline; }
+.covidBanner .close { position: absolute; right: 10px; z-index: 999;top: 5px;color: #ffff;text-shadow: none; opacity: 1;}
+</style>
+<div  class="covidBanner">
+<div class=""><span class="">COVID-19: With our new platform, we are ready to ensure your safety and help you <a href="/Home/Buyer">buy</a> or <a href="/Home/Seller">sell</a>  your home.</span></div>
+<button type="button" class="close" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div></div>
+<!-- Covid Banner End   -->
+
+
+
+    <!-- initial header -->
+    <header class="ip-header">
+        <h1 class="ip-logo">
+            <!-- logo -->
+            @*<img src="~/images/file.png" />*@
+
+        </h1>
+        <div class="ip-loader">
+            <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+                <path class="ip-loader-circlebg" />
+                <path id="ip-loader-circle" />
+            </svg>
+        </div>
+    </header>
+
+    <!--cookie-->
+    <!-- <div class="cookie">
+            <div class="container">
+              <div class="clearfix">
+                <span>Please note this website requires cookies in order to function correctly, they do not store any specific information about you personally.</span>
+                <div class="f-right"><a href="#" class="btn">Accept Cookies</a><a href="#" class="btn">Read More</a></div>
+              </div>
+            </div>
+          </div>-->
+    <!-- - - - - - - - - - - - - - Wrapper - - - - - - - - - - - - - - - - -->
+
+    <div id="wrapper" class="wrapper-container">
+
+
+        <div id="navbar-menu" class="navbar-menu">
+
+            <button type="button" id="navbar-close" class="nav-bttn close-bttn">Close</button>
+
+            <!-- Menu -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="@Url.Action("Brand","Home")">HOME</a></li>
+                    <li><a href="@Url.Action("BE","About")">ABOUT</a></li>
+                    @*<li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Buyer","Home")">BUYERS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Seller","Home")">SELLERS</a>
+                        </li>*@
+                    @*<li class="sub-menu">
+                            <a href="#">Listings</a>
+                            <ul>
+                                <li><a href="@Url.Action("JayBauerListing","Home")">Jay Bauer's Listings</a></li>
+                                <li><a href="@Url.Action("ZackLondonListings","Home")">Zack London's Listings</a></li>
+                            </ul>
+                        </li>*@
+                    <li><a href="@Url.Action("Community", "Neighborhood")">NEIGHBORHOODS</a></li>
+                    <li>
+                        <a href="@Url.Action("List","Blogs")">BLOGS</a>
+                        @*<ul>
+                                <li><a target="_blank" href="https://www.simplifyingthemarket.com/?a=352073-1a7cb6f23b47d79ccdfbe13b7aecbca0">Real Estate with Just BE</a></li>
+
+                                <li><a href="@Url.Action("List","Blogs")">Our publication</a></li>
+
+                            </ul>*@
+                    </li>
+                    <li><a href="@Url.Action("List","Testimonials")">TESTIMONIALS</a></li>
+                    <li><a href="@Url.Action("Contact","Home")">CONTACT</a></li>
+                    <li class="sub-menu">
+                        <a href="#">My Account</a>
+                        <ul>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+
+                                if (User.IsInRole("Admin"))
+                                {
+                                    <li><a href="@Url.Action("Index","Dashboard",new {area = "Admin" })">MY Dashboard</a></li>
+
+                                }
+                                if (User.IsInRole("Agent"))
+                                {
+                                    <li><a href="@Url.Action("Index","DashboardV2",new {area = "Coordinator" })">MY Dashboard</a></li>
+
+                                    @*<li><a href="@Url.Action("List","DealAgent",new {area = "Coordinator" })">MY Dashboard</a></li>*@
+
+                                }
+                                if (User.IsInRole("Client"))
+                                {
+                                    <li><a href="@Url.Action("List","MyDeal",new {area = "Client" })">MY Dashboard</a></li>
+
+
+                                }
+                                using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <li><a href="javascript:document.getElementById('logoutForm').submit()">LOGOUT</a></li>
+                                }
+
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Register","Account")">SIGNUP</a></li>
+                                <li><a href="@Url.Action("Login","Account")">LOGIN</a></li>
+                            }
+
+
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+
+
+        <header id="header" class="fixed-header">
+            <div class="header-blue">
+                <nav class="navbar navbar-default navigation-clean-search type-hr">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="@Url.Action("Brand","Home")" class="homepage-logo">
+                                <img src="~/Content/NewVersion/images/JustBWhiteBgTransparent.svg" width="84" />
+                            </a>
+                            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navcol-1">
+                            <ul class="nav navbar-nav">
+                                <li role="presentation"><a href="@Url.Action("BE","About")">ABOUT </a></li>
+                                @*<li role="presentation"><a href="@Url.Action("Buyer","Home")">BUYERS</a></li>
+                                    <li role="presentation"><a  href="@Url.Action("Seller","Home")">SELLERS</a> </li>*@
+
+                                <li role="presentation"><a href="@Url.Action("Community", "Neighborhood")">NEIGHBORHOODS</a></li>
+                                <li role="presentation"><a href="@Url.Action("List","Blogs")">BLOGS</a></li>
+                                <li role="presentation"><a href="@Url.Action("List","Testimonials")">TESTIMONIALS</a></li>
+                                @*<li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="@Url.Action("List","Blogs")">BLOGS <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a target="_blank" href="https://www.simplifyingthemarket.com/?a=352073-1a7cb6f23b47d79ccdfbe13b7aecbca0">REAL ESTATE WITH JUST BE</a></li>
+                                            <li><a href="@Url.Action("List","Blogs")">OUR PUBLICATION</a></li>
+                                        </ul>
+                                    </li>*@
+                                @*<li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">LISTINGS <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li role="presentation"><a href="@Url.Action("JayBauerListing","Home")">Jay Bauer's Listings</a></li>
+                                            <li><a href="@Url.Action("ZackLondonListings","Home")">Zack London's Listings</a></li>
+                                        </ul>
+                                    </li>*@
+                                <li role="presentation"><a href="@Url.Action("Contact","Home")">CONTACT</a></li>
+                            </ul>
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+                                <p class="navbar-text navbar-right">
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <a class="btn btn-default action-button btnlogoutt" href="@Url.Action("Index","Dashboard",new {area = "Admin" })">MY DASHBOARD</a>
+                                    }
+                                    @if (User.IsInRole("Agent"))
+                                    {
+                                        <a class="btn btn-default action-button btnlogoutt" href="@Url.Action("Index","DashboardV2",new {area = "Coordinator" })">MY DASHBOARD</a>
+
+                                        @*<a class="btn btn-default action-button btnlogoutt" href="@Url.Action("List","DealAgent",new {area = "Coordinator" })">MY DASHBOARD</a>*@
+
+                                    }
+                                    @if (User.IsInRole("Client"))
+                                    {
+                                        <a class="btn btn-default action-button btnlogoutt" href="@Url.Action("List","MyDeal",new {area = "Client" })">MY DASHBOARD</a>
+
+                                    }
+
+                                    <a class="navbar-link login btnlog" role="button" href="javascript:document.getElementById('logoutForm').submit()">LOGOUT</a>
+
+
+                                </p>
+
+                            }
+                            else
+                            {
+                                <p class="navbar-text navbar-right">
+                                    <a class="navbar-link login" href="@Url.Action("Login","Account")">LOG IN</a>
+                                    <a class="btn btn-default action-button" role="button" href="@Url.Action("Register","Account")">SIGN UP</a>
+                                </p>
+                            }
+
+
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- facebook link -->
+        @*<a href="https://www.facebook.com/JustBE.realestate/" target="_blank" class="fb-link"><i class="icon-facebook"></i></a>*@
+
+        <!-- main navigation -->
+
+
+
+        @RenderBody()
+
+        <!-- - - - - - - - - - - - - - End of Slider - - - - - - - - - - - - - - - - -->
+        <!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
+
+        <footer id="footer" class="fixed-footer">
+
+            <p class="copyright"><a href="@Url.Action("Terms","Legal")">Terms of use</a> | <a href="@Url.Action("Terms","Legal")">Legal & Privacy</a> | <a href="@Url.Action("Departments","Careers")">Careers</a>&nbsp;  | &nbsp; 660 Pennsylvania Ave. SE Suite 300, Washington, DC </p>
+
+            <ul class="social-icons">
+
+                <li><a href="https://www.facebook.com/JustBE.realestate/" target="_blank"><i class="icon-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/justbe_re/" target="_blank"><i class="icon-instagram-5"></i></a></li>
+                <li><a href="https://twitter.com/JustBEathome" target="_blank"><i class="icon-twitter"></i></a></li>
+                <li><a href="https://www.yelp.com/biz/jay-bauer-just-be-washington-3" target="_blank"><i class="icon-yelp"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/justbere/" target="_blank"><i class="icon-linkedin"></i></a></li>
+
+            </ul>
+
+        </footer>
+
+        <!-- - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
+
+    </div>
+
+    <!-- - - - - - - - - - - - end Wrapper - - - - - - - - - - - - - - -->
+    <!-- JS Libs & Plugins
+    ============================================ -->
+    @*<script type="text/javascript">(function (t, e) { var r = function (t) { try { var r = e.head || e.getElementsByTagName("head")[0]; a = e.createElement("script"); a.setAttribute("type", "text/javascript"); a.setAttribute("src", t); r.appendChild(a); } catch (t) { } }; t.CollectId = "5b50a82db9da48929e605a8b"; r("https://collectcdn.com/launcher.js"); })(window, document);</script>*@
+
+    <script async>(function(w, d) { w.CollectId = "5ce5a26f0e4b2e52093c42dc"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com{0}' ></script>",
+    "~/bundles/JBGHomeJs")
+
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com{0}' ></script>",
+    "~/bundles/JBGCommonJs")
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    @*<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126963521-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-126963521-1');
+    </script>*@
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166804159-1"></script>
+
+    <script>
+        $('.close').click(function () {
+            $('.covidBanner').hide();
+        })
+    </script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-166804159-1');
+    </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            console.log("Will the service worker register?");
+            navigator.serviceWorker.register('service-worker.js')
+              .then(function (reg) {
+                  console.log("Yes, it did.");
+              }).catch(function (err) {
+                  console.log("No it didn't. This happened:", err)
+              });
+        }
+    </script>
+
+
+    @RenderSection("scripts", required: false)
+
+    @*<span class="beta">Beta Version<span></span></span>*@
+</body>
+
+</html>
+
+

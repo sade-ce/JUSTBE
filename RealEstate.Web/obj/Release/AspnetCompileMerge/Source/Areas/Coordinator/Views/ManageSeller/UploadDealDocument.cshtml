@@ -1,0 +1,226 @@
+﻿@model RealEstate.Entities.ViewModels.MstSellerDealManageModel
+
+@{
+    ViewBag.Title = "UploadDealDocument";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+    }
+}
+
+@*<link href="~/Content/Plugins/Select2/select2.min.css" rel="stylesheet" />*@
+<section class="content-header">
+    <h1>
+        Upload Document <small>(Seller)</small>
+        <span class="pull-right"><a target="_blank" href="@Url.Action("Status", "MyDeal", new {TransactionID=Model.utblMstSellerTrackDeal.TransactionID,@area = "Client" }) #Doc">View Client Side</a></span>
+    </h1>
+
+</section>
+<section class="content">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <div class="box-body">
+                    <div class="col-md-3">
+                            <div class="box-body box-profile" style="min-height: 277px;">
+
+                                @if (@Model.UserProfile.UserPhotoThumb == null)
+                                {
+                                    <img class="profile-user-img img-responsive img-circle" src="~/img/NoImage.png" alt="User profile picture">
+
+                                }
+                                else
+                                {
+                                    <img class="profile-user-img img-responsive img-circle" src="@Model.UserProfile.UserPhotoThumb" alt="User profile picture">
+
+                                }
+
+                                <h3 class="profile-username text-center">Client Info</h3>
+
+                                <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item">
+                                        <b class="text-primary">Name: @Model.UserProfile.Name</b>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b class="text-primary">Email: @Model.UserProfile.Email</b>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b> <a href="tel:@Model.UserProfile.PhoneNumber">Phone: @Model.UserProfile.PhoneNumber</a></b>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                    </div>
+                    <div class="col-md-9">
+                        @Html.Partial("pvUploadDealDocument", Model)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 15px;">
+        <div class="box-footer well well-sm col-md-12 col-lg-12 text-right">
+            @Html.ActionLink("Previous", "CreateDeal", "ManageSeller", new { ClientID = @Model.utblMstSellerTrackDeal.ClientID, TransactionID = Model.utblMstSellerTrackDeal.TransactionID, AgentID = Model.TrackDealMasterView.AgentID }, new { @class = "btn btn-default pull-left" })
+            @Html.ActionLink("Finish", "ClientDetails", "DealAgent", new { ClientID = @Model.utblMstSellerTrackDeal.ClientID, AgentID = Model.TrackDealMasterView.AgentID }, new { @class = "btn btn-primary" })
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</section>
+
+@*model popup*@
+<div id='myEnquiryModal' class='modal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="text-center panel" id="ajaxLoading" style="display: none">
+    <div class="panel-body">
+        <img src="~/Content/img/ajax-loader.gif" />
+        <p>Please wait..</p>
+    </div>
+</div>
+
+<div class="text-center modal" id="waiting" style="display: none; box-shadow: 5px 5px 5px #888888;">
+    <div><h4>Sending Message</h4></div>
+    <div>
+        <img src="~/Content/img/496(1).GIF" alt="Loading" style="margin-bottom: 10px" /><br />
+        Please wait...
+    </div>
+</div>
+
+@*end*@
+
+@section Scripts {
+    @*<script src="~/Content/Plugins/Select2/select2.min.js"></script>*@
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //$("#utblMstTrackDealDoc_DocID").select2();
+            $('#fu1').change(function (evt) {
+                var val = $(this).val().toLowerCase();
+                var regex = new RegExp("(.*?)\.(txt|jpg|jpeg|docx|doc|pdf|xls|xlsm|xlsx)$");
+                if (!(regex.test(val))) {
+                    $(this).val('');
+                    evt.preventDefault();
+                    $('#myModalLabel').text('');
+                    $('#message').text('');
+                    var someText = "Information!";
+                    var message = "Please Select Correct File Format.(Microsoft Word,Pdf,Image) files are only allowed"
+                    $('#myModalLabel').append(document.createTextNode(someText));
+                    $('#message').append(document.createTextNode(message));
+                    $('#AnchorTag').click();
+
+                }
+            });
+
+        });
+    </script>
+    <script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+    </script>
+
+
+<script>
+    $('#leadsubmit').click(function () {
+        formsubmit();
+    });
+    function formsubmit() {
+            $.ajax({
+                url: '/Coordinator/ManageSeller/SaveDoc',
+                type: 'post',
+                data: $('#fullLeadForm').serialize(),
+                success: function (result) {
+                    if (result.success) {
+                        window.location.href = result.url;
+                    } else {
+                        $('.leadContent11').html(result);
+                    }
+                },
+                error: function (result) {
+                    //alert('errror');
+                }
+            });
+
+            return false;
+
+    }
+</script>
+
+<script type="text/javascript">
+    jQuery('.close-modal:not(.modal-strip .close-modal)').unbind('click').click(function () {
+        var modal = jQuery(this).closest('.foundry_modal');
+        modal.toggleClass('reveal-modal');
+        if (typeof modal.attr('data-cookie') !== "undefined") {
+            mr_cookies.setItem(modal.attr('data-cookie'), "true", Infinity);
+        }
+        if (modal.find('iframe').length) {
+            modal.find('iframe').attr('src', '');
+        }
+        jQuery('.modal-screen').removeClass('reveal-modal');
+    });
+</script>
+
+<script type="text/javascript">
+    $(function () {
+
+        //$.ajaxSetup({ cache: false });
+
+        $("a[data-modal]").on("click", function (e) {
+            // hide dropdown if any (this is used wehen invoking modal from link in bootstrap dropdown )
+            //$(e.target).closest('.btn-group').children('.dropdown-toggle').dropdown('toggle');
+
+            $('#myModalContent').load(this.href, function () {
+                $('#myEnquiryModal').modal({
+                    /*backdrop: 'static',*/
+                    keyboard: true
+                }, 'show');
+                bindForm(this);
+            });
+            return false;
+        });
+    });
+
+    function bindForm(dialog) {
+        $('form', dialog).submit(function (e) {
+            e.preventDefault();
+            $('#myEnquiryModal').modal('hide');
+            //$('#ajaxLoading').css("display","none");
+            $("#waiting").css("display", "block");
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: $(this).serialize(),
+                success: function (result) {
+                    $("#waiting").css("display", "none");
+                    if (result.success) {
+                        window.location.href = result.url;
+                        $('#myModalContent').modal('hide');
+                        $('#myEnquiryModal').modal('hide');
+                    } else {
+                        $('#myModalContent').html(result);
+                        $('#myEnquiryModal').modal('show');
+                        bindForm(dialog);
+                    }
+                }
+            });
+            return false;
+        });
+    }
+
+</script>
+}

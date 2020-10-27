@@ -1,0 +1,101 @@
+
+.registrationHeader { background: #202732!important; }
+/*navigation*/
+ /* .navbar-light .navbar-nav .nav-link { color: #fff;     padding: 15px 15px!important; font-weight: 500;  font-size: 20px;}*/
+  .navbar-light .navbar-nav .nav-link { color: #fff;     padding: 15px 15px!important; font-weight: 500;  font-size: 19px;}
+
+ .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #fff;
+}
+form.form-inline.my-2.my-lg-0.rightSideBtn a {
+    color: #fff!important;     padding: 25px 20px; font-weight: 500;  font-size: 15px;
+}
+
+form.form-inline.my-2.my-lg-0.rightSideBtn button {
+    color: #fff!important;
+    font-weight: 500;
+    font-size: 15px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+}
+.registrationHeaderMenu li a > .subDrop a { color: #000!important;}
+
+.footerOuter {
+    background: #f3f5f6; padding-top: 3rem; padding-bottom: 3rem; margin-top: 30px;
+
+
+}
+
+a.brand.pull-left img {
+    max-width: 100%;
+}
+ul.legalProperties {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    color: #000;
+}
+ul.social-icons.footerscomp li a img {
+    width: 17px;
+}
+
+ul.legalProperties a { color: #000; font-size: 18px; }
+.social-icons > li {
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 10px 0;
+}
+.social-icons > li > a {
+    display: inline-block;
+    text-align: center;
+    color: #202732;
+}
+
+#footer .copyright {
+    font-size: 14px;
+    color: #64686d;
+    line-height: 30px; margin-top: 30px;
+}
+
+ul.social-icons.footerscomp { margin: 0px; padding: 0px; }
+
+.signBtn {
+    border: 1px solid #fff;
+    padding: 6px 20px!important;
+    border-radius: 20px;
+}
+
+.signBtn:hover { background: #0bb7a5; }
+.signBtn:focus { background: #0bb7a5; }
+
+
+@media only screen and (max-width: 992px){
+/*ul.legalProperties { margin: 40px 0; }*/
+}
+@media only screen and (min-width: 990px) and (max-width:1199px) {
+    ul.agentProfile li {
+        WIDTH: 100%;
+    }
+}
+/*navigation*/
+@media only screen and (min-width: 768px) and (max-width:1024px) {
+    .navbar-light .navbar-nav .nav-link {
+   
+    font-size: 15px!important;
+}
+}
+@media only screen and (max-width: 1599px) and (min-width: 990px)  {
+.navbar-light .navbar-nav .nav-link {
+    padding: 15px 11px!important;
+    font-weight: 500;
+    font-size: 19px;
+}
+.form-inline.my-2.my-lg-0.rightSideBtn {
+    margin: 0px 0 10px 0!important;
+}
+.form-inline.my-2.my-lg-0.rightSideBtn a.nav-link {
+    font-size: 16px;
+    font-weight: 300;
+}
+}

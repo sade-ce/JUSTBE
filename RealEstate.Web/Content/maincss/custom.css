@@ -1,0 +1,33 @@
+﻿.form-group{
+    margin-bottom:0px;
+}
+.col-nil{
+    padding-left:0px;
+    padding-right:0px;
+}
+.col-left-nil{
+    padding-left:0px;
+}
+.col-right-nil{
+    padding-right:0px;
+}
+.col-right-5{
+    padding-right:5px;
+}
+.row-top-5{
+    padding-top:5px;
+}
+.row-top-10{
+    padding-top:10px;
+}
+.row-bottom-5{
+    padding-bottom:5px;
+}
+.field-validation-error{
+    color:blue;
+}
+.select2{
+    margin-bottom: 17px;
+  margin-top: 0;
+  padding: 0;
+}

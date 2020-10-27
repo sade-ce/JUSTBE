@@ -1,0 +1,199 @@
+﻿
+@model RealEstate.Entities.Models.utblMstStatus
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstateNew.cshtml";
+}
+@using System.Security.Claims;
+
+<section class="wrapper adminContentWrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row flex-wrap">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>Status</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello, @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new" /></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="addBlogWrapper addTestimonialsWrapper">
+                <div class="title">
+                    <h3>Create Tracking Status</h3>
+                </div>
+                <div class="add-new-blog-inner add-testimonials-inner">
+                  @using (Ajax.BeginForm("Create", "StatusV2", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "myform" }))
+                  {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        <label>Status</label>
+                                      
+                                        @Html.TextBoxFor(model => model.Status, new { @class = "form-control", id = "Status" })
+                                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        <label>Percentage</label>
+                                        @Html.TextBoxFor(model => model.Percentage, new { @class = "form-control", id = "Status" })
+                                        @Html.ValidationMessageFor(model => model.Percentage, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label>Video URL</label>
+                                @Html.TextBoxFor(model => model.VideoURL, new { @class = "form-control", id = "Status" })
+                                @Html.ValidationMessageFor(model => model.VideoURL, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        <label>Is this is a Contingencies?</label>
+                                        <div class="radio-switch-container">
+                                            <div class="radio-switch">
+                                                @*<input id="ContingenciesNo" name="satisfaction" type="radio" />
+                                                <input id="ContingenciesYes" name="satisfaction" type="radio" />
+                                                <label for="ContingenciesNo" class="switch-label switch-label-off">O</label>
+                                                <div class="radio-switch-toggle"></div>
+                                                <div class="toggle-switch-pill"></div>
+                                                <label for="ContingenciesYes" class="switch-label switch-label-on">I</label>*@
+                                                <label class="switch">
+                                                    @Html.CheckBoxFor(model => model.IsContingencies, new { @class = "Chk-box" })
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                @Html.ValidationMessageFor(model => model.IsContingencies, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                 
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        <label>Hierarchy</label>
+                                        @Html.TextBoxFor(model => model.Hierarchy, new { @class = "form-control", id = "Status" })
+                                        @Html.ValidationMessageFor(model => model.Hierarchy, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Content</label>
+                                    @Html.TextBoxFor(model => model.Description, new { @class = "form-control", id = "Status" })
+                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                    @*<textarea rows="4" columns="10" class="form-control"></textarea>*@
+                                </div>
+                            </div>
+                            <div class="col-sm-12 btn-wrap">
+                                @*<button class="btn greyButton">Back</button>
+                                <button class="btn tealButton">Save</button>*@
+
+                                @Html.ActionLink("Back", "list", null, new { @class = "btn greyButton" })
+                                <input type="submit" value="Save" id="save" class="btn tealButton" />
+                            </div>
+                        </div>
+                  }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+<script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+</script>
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            display: none;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + input[type="hidden"] + .slider,
+    input:checked + .slider {
+        background-color: #0bb7a5;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + input[type="hidden"] + .slider:before,
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+</style>

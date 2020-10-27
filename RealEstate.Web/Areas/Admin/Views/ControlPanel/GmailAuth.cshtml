@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "GmailAuth";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+
+<div class="content">
+    <div class="col-md-12">
+        <div class="well well-sm">
+            <div class="col-md-9 pull-left col-5">
+                <form method="post" action="@Url.Action("GmailAuth")">
+                    <div class="input-group">
+                        <input type="text" name="Gmail" class="form-control" id="Gmail" placeholder="Enter your gmail to sync calendar" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger pull-left" type="submit" id="search" value="Search By Name">Go!</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

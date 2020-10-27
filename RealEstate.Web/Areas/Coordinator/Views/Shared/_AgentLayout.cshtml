@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+
+
+    @Styles.RenderFormat(
+    "<link href='https://justbere-d4d9.kxcdn.com/{0}' rel='stylesheet'></link>",
+    "~/Content/css")
+
+    @Styles.RenderFormat(
+    "<link href='https://justbere-d4d9.kxcdn.com/{0}' rel='stylesheet'></link>",
+    "~/bundles/modernizr")
+
+
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+    @RenderSection("AddToHead", required: false)
+    <link rel="icon" type="image/png" href="~/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="~/favicon-16x16.png" sizes="16x16" />
+
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            @*<a href="~/Dashboard/Index" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>C</b>P</span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg" style="margin-left:-18px;margin-right:-18px;"><img src="~/Content/img/Jay Bauer Group.png" alt="Control Panel" style="height:50px;width:100%;" /></span>
+                </a>*@
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    @*<span class="sr-only">Toggle navigation</span>*@
+                    <i class="fa fa-menu-hamburger toggle-icon"></i>
+                </a>
+                <div class="navbar-custom-menu">
+
+                    <ul class="nav navbar-nav">
+                        <!-- User Account: style can be found in dropdown.less -->
+
+                        <li class="dropdown user user-menu" style="background-color: #213031;">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img class="user-image img-user" alt="User Image">
+                                <span class="hidden-xs">@User.Identity.Name</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img class="img-circle img-user" alt="User Image">
+                                    <p>
+                                        Logged In!
+                                        <small>
+                                            Date:@System.DateTime.Now.Date.ToShortDateString() ||
+                                            Time:@System.DateTime.Now.ToShortTimeString()
+                                        </small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="~/Account/EditProfile" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-default">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                @{Html.RenderAction("UserDetails", "ControlPanel", new { area = "Admin" });}
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="treeview" id="sidebar">
+                        <a href="@Url.Action("List", "DealAgent", new { area = "Coordinator" })">
+                            <i class="fa fa-home"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="treeview" id="sidebar">
+                        <a href="#">
+                            <i class="fa fa-truck"></i>
+                            <span>Manage Deal</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("List", "DealAgent", new { Area="Coordinator"})"><i class="fa fa-phone-square"></i>Tracking </a></li>
+                            <li><a href="@Url.Action("List", "MySchedule", new { Area="Coordinator"})"><i class="fa fa-calendar-o"></i>My Calendar </a></li>
+                            <li><a href="@Url.Action("AllSchedule", "Calendly", new { Area="Coordinator"})"><i class="fa fa-calendar"></i>All Event List</a></li>
+
+                            @*<li><a href="@Url.Action("Create", "TrackDeal", new { Area="Admin"})"><i class="fa fa-windows"></i>Create New </a></li>
+
+                                <li><a href="@Url.Action("List", "ClientResponse", new { Area="Admin"})"><i class="fa fa-windows"></i>Client Response </a></li>*@
+
+                        </ul>
+                    </li>
+                    <li class="treeview" id="sidebar">
+                        <a href="#">
+                            <i class="fa fa-user"></i>
+                            <span>Manage Profile</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="~/Account/EditProfile"><i class="fa fa-edit"></i> Edit Profile</a></li>
+                            <li><a href="~/Account/ChangePassword"><i class="fa fa-unlock"></i>Change Password </a></li>
+                            <li><a href="@Url.Action("Index", "MyGallery", new { Area="Coordinator"})"><i class="fa fa-image"></i>My Gallery </a></li>
+                        </ul>
+                    </li>
+
+                    @*<li class="treeview" id="sidebar">
+                        <a href="#">
+                            <i class="fa fa-eye"></i> <span>Vendors</span>
+                        </a>
+                    </li>*@
+
+                    <li class="treeview" id="sidebar">
+                        <a href="#">
+                            <i class="fa fa-calculator"></i>
+                            <span>Calculator's</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-calculator"></i>Buyer Closing Cost </a></li>
+                            <li><a href="@Url.Action("NetProceeds", "ToolKit", new { Area="Coordinator"})"><i class="fa fa-calculator"></i>Seller Net Sheet</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="treeview" id="sidebar">
+                        <a href="@Url.Action("Authenticate", "Google", new { area = "Coordinator" })">
+                            <i class="fa fa-home"></i> <span>Sync Google Calendar</span>
+                        </a>
+                    </li>
+                    <li class="treeview" id="sidebar">
+                        <a href="#">
+                            <i class="fa fa-mail-reply-all"></i>
+                            <span>Client Management</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="~/UserAgent/List"><i class="fa fa-user"></i>Manage Client </a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="sidebar">
+                        <a href="#">
+                            <i class="fa fa-users"></i>
+                            <span>Manage Vendors</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("list", "VendorType", new { Area="admin"})"><i class="fa fa-list-alt"></i>Vendor Type </a></li>
+                            <li><a href="@Url.Action("list", "Vendor", new { Area="admin"})"><i class="fa fa-list-alt"></i>Mange Vendor </a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="treeview" id="sidebar">
+                        <a href="#">
+                            <i class="fa fa-building"></i>
+                            <span>Manage Buildings</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("list", "BuildingAttachments", new { Area="admin"})"><i class="fa fa-list-alt"></i> Building Attachments </a></li>
+                            <li><a href="@Url.Action("list", "Rules", new { Area="admin"})"><i class="fa fa-list-alt"></i> Features </a></li>
+                            <li><a href="@Url.Action("list", "Building", new { Area="admin"})"><i class="fa fa-building"></i> Buildings </a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="treeview" id="sidebar">
+                        <a href="#">
+                            <i class="fa fa-folder-open"></i>
+                            <span>Manage Blogs</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li><a href="@Url.Action("list", "blog", new { Area="admin"})"><i class="fa fa-file"></i>Blogs </a></li>
+                            @*<li><a href="@Url.Action("Create", "TrackDeal", new { Area="Admin"})"><i class="fa fa-windows"></i>Create New </a></li>
+
+                <li><a href="@Url.Action("List", "ClientResponse", new { Area="Admin"})"><i class="fa fa-windows"></i>Client Response </a></li>*@
+
+                        </ul>
+                    </li>
+                    <li class="treeview" id="sidebar">
+                        <a href="#">
+                            <i class="fa fa-folder-open"></i>
+                            <span>Testimonials</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @*<li><a href="~/Roles/List"><i class="fa fa-rotate-left"></i> Manage Roles</a></li>*@
+                            <li><a href="@Url.Action("list", "Testmonial", new { Area="admin"})"><i class="fa fa-file"></i>Manage Testimonials </a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="sidebar">
+                        <a href="#">
+                            <i class="fa fa-folder-open"></i>
+                            <span>Quiz</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @*<li><a href="~/Roles/List"><i class="fa fa-rotate-left"></i> Manage Roles</a></li>*@
+                            <li><a href="@Url.Action("list", "Quizes", new { Area="admin"})"><i class="fa fa-file"></i>Manage Quiz </a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="sidebar">
+                        <a href="@Url.Action("Index","Resources",new { @area="Client"})" >
+                            <i class="fa fa-users"></i>
+                            <span>Resources</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                       
+                    </li>
+                    <li class="treeview" id="sidebar">
+                           @Html.AntiForgeryToken()
+                            <a href="javascript:document.getElementById('logoutForm').submit()">
+                                <i class="fa fa-power-off"></i> <span>LogOut</span>
+                            </a>
+                        
+                    </li>
+                   
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <section class="content-header">
+                           <p class="text-justify" style="margin-left: 13px;"><small>You can submit an error report to help us improve the quality of website at </small></p>
+                        <p style="margin-left: 13px;"><a href="mailto:webmaster@JustBEre.com">webmaster@JustBEre.com</a></p>
+                    </section>
+
+                    @RenderBody()
+                </div><!-- /.row -->
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
+        <div class="control-sidebar-bg"></div>
+
+    </div>
+    <footer class="main-footer pl">
+
+        <strong>Copyright &copy;2018 <a href="#">Just BE | Real Estate</a>.</strong> All rights
+        reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li class="active"><a href="#control-sidebar-home-tab" aria-expanded="true" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="control-sidebar-home-tab">
+                @{Html.RenderAction("ListActivityLog", "ActivityLogs", new { area = "Coordinator" });}
+            </div>
+            <!-- /.tab-pane -->
+            <!-- Settings tab content -->
+            <!-- /.tab-pane -->
+        </div>
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com{0}' ></script>",
+    "~/bundles/jquery")
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com{0}' ></script>",
+    "~/bundles/bootstrap")
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com{0}' ></script>",
+    "~/bundles/app")
+
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app")*@
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.img-user').attr('src', $('#user-img').attr('src'));
+        })
+    </script>
+
+</body>
+</html>
+<input type="hidden" id="ActiveURL" data-value="@ViewBag.ActiveURL" />
+
+
+<div class="panel panel-primary text-center" id="ajaxLoading" style="display: none; box-shadow: 10px 10px 5px #888888; z-index: 99999">
+    <div class="panel-heading">Loading data</div>
+    <div class="panel-body" style="padding-left: 30px; padding-right: 30px;">
+        <img src="~/img/loading.gif" alt="Loading" style="margin-bottom: 10px" /><br />
+        Please wait...
+    </div>
+</div>
+<div id="ajax-backdrop" class="fade in" style="background-color: rgb(0, 0, 0); bottom: 0px; left: 0px; position: fixed; right: 0px; top: 0px; z-index: 10000; opacity: 0.4; display: none;"></div>
+<div class="modal modal-styled" id="myErroMsgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModal()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myErroModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <h4 id="Msg"></h4>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10 text-right" style="padding-right: 0;">
+                    @*<input type="button" id="myErroMsgModalNoButton" class="btn btn-default btn-sm" data-dismiss="modal" onclick="CloseMyModal()" value="Cancel" />*@
+                    <input type="button" id="myErroMsgModalYesButton" value="OK" class="btn btn-info btn-sm hidden" onclick="OkMyModal()" />
+                </div>
+            </div>
+            <input type="hidden" id="eventSender" name="name" value="" />
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal modal-styled" id="myErroMsgModalT" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModalT()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myErroModalLabelT"></h4>
+            </div>
+            <div class="modal-body">
+                <h4 id="MsgT"></h4>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10 text-right" style="padding-right: 0;">
+                    <input type="button" id="myErroMsgModalYesButtonT" value="OK" class="btn btn-info btn-sm hidden" onclick="OkMyModalT()" />
+                    <input type="button" id="myErroMsgModalNoButtonT" class="btn btn-default btn-sm" data-dismiss="modal" onclick="CloseMyModalT()" value="Cancel" />
+
+                 </div>
+            </div>
+            <input type="hidden" id="eventSender" name="name" value="" />
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .content {
+        min-height: 600px;
+    }
+
+    .pl {
+        text-align: center;
+    }
+       .field-validation-error {
+    color: #e51f1f;
+}
+    .validation-summary-errors{
+ color:#e51f1f;
+    }
+</style>
+<script>
+    function OkMyModalT() {
+        $("#myErroMsgModalT").hide();
+        $('#ErrMsgHiddenFieldT').val("");
+        // Retrieve the sender infromation from hidden field and pass it to the function
+        CustomAjaxFormSubmitt($("#eventSender").val().split('|')[1], $("#eventSender").val().split('|')[0]);
+    }
+    function CloseMyModalT() {
+        $('#myErroMsgModalYesButtonT').addClass('hidden');
+        $('#ErrMsgHiddenFieldT').val("");
+        $("#myErroMsgModalT").hide();
+    }
+</script>

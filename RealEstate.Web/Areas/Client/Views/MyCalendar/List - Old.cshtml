@@ -1,0 +1,307 @@
+﻿@model RealEstate.Entities.ViewModels.MstCalenderManageModel
+@{
+    ViewBag.Title = "Just BE | My Calendar";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+
+<link href="https://justbere-d4d9.kxcdn.com/Scripts/dhtmlxScheduler/dhtmlxscheduler_flat.css" rel="stylesheet" />
+<link href="https://justbere-d4d9.kxcdn.com/Scripts/dhtmlxScheduler/dhtmlxscheduler-responsive.css" rel="stylesheet" />
+<link href="https://justbere-d4d9.kxcdn.com/Content/customcss/calstyle.css" rel="stylesheet" />
+
+<style>
+    @@media screen and (max-width: 767px) {
+        .dhx_cal_light {
+            left: auto !important;
+        }
+
+   
+    }
+    .dhx_cal_navline .dhx_cal_date {
+    
+    top: -5px;  
+    left: 29px;  
+}
+
+</style>
+
+
+<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+
+            <div class="content-title">
+                <div class="content-title-inner">
+                    <div class="container">
+                        <h1>My Calendar</h1>
+
+                    </div><!-- /.container -->
+                </div><!-- /.content-title-inner -->
+            </div><!-- /.content-title -->
+
+            <div class="content">
+                <div class="container">
+                    <!-- /.filter -->
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-lg-12">
+
+                            <div class="row">
+                                <div class="col-xl-3" style="margin-bottom: 15px;">
+
+                                    <div style="background: #f9f9f9">
+                                        <div id="cal_here"></div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xl-9">
+                                    <div class="container">
+                                        <div id="scheduler_here" class="dhx_cal_container scheduler_container">
+
+                                            <div id="scheduler_here" class="dhx_cal_container" style="width:100%; height:100%;">
+                                                <div class="dhx_cal_navline">
+                                                    <div class="dhx_cal_prev_button">&nbsp;</div>
+                                                    <div class="dhx_cal_next_button">&nbsp;</div>
+                                                    <div class="dhx_cal_today_button"></div>
+                                                    <div class="dhx_cal_date"></div>
+                                                    <div class="dhx_cal_tab" name="agenda_tab" style="right:76px;left: 143px;"></div>
+
+                                                    <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+                                                    <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+                                                    <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
+
+                                                </div>
+                                                <div class="dhx_cal_header">
+                                                </div>
+                                                <div class="dhx_cal_data">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div>
+
+
+
+<style type="text/css" media="screen">
+    .scheduler_container {
+        width: 100%;
+        height:720px;
+        border: 1px solid #aeaeae;
+    }
+
+    div.dhx_menu_head {
+        background: inherit;
+    }
+</style>
+<style type="text/css" media="screen">
+    .scheduler_container {
+        width: 100%;
+        height: 720px;
+        border: 1px solid #aeaeae;
+    }
+
+    div.dhx_menu_head {
+        background: inherit;
+    }
+
+    .widget-tabs li:first-child {
+        padding: 0 0 2px 0;
+        margin: -12px 0 0 0;
+    }
+
+    .widget-tabs li {
+        padding: 0 0 0px 0;
+        margin: 0px 0 0 0;
+    }
+</style>
+
+@section Scripts
+{
+    <script src="https://justbere-d4d9.kxcdn.com/Scripts/dhtmlxScheduler/dhtmlxscheduler.js"></script>
+    <script src="https://cdn.dhtmlx.com/scheduler/edge/ext/dhtmlxscheduler_tooltip.js"></script>
+    <script src="https://justbere-d4d9.kxcdn.com/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_readonly.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://justbere-d4d9.kxcdn.com/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_minical.js"></script>
+    <script src="https://justbere-d4d9.kxcdn.com/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_agenda_view.js"></script>
+    <script src="https://justbere-d4d9.kxcdn.com/Scripts/dhtmlxScheduler/dhtmlxscheduler-responsive.js"></script>
+
+    @*<script src="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.js"></script>*@
+    @*<script src="~/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_readonly.js"></script>*@
+    @*<script src="~/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_minical.js"></script>*@
+    @*<script src="~/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_agenda_view.js"></script>*@
+    <script>
+scheduler.config.serverLists = {};
+	scheduler.config.details_on_create = true;
+	scheduler.config.details_on_dblclick = true;
+	scheduler.config.prevent_cache = true;
+	scheduler.config.time_step = 30;
+	scheduler.config.limit_time_select = true;
+	scheduler.xy.scroll_width = 0;
+	scheduler.templates.event_class = function(start,end,ev){
+	var temp = "";temp += "event_" + ev.category + "";
+ return temp;
+};
+	initResponsive(scheduler);
+
+
+	scheduler.showCover = function (box) {
+	    if (box) {
+	        box.style.display = "block";
+	        //set custom position
+	        box.style.left = "330px";
+	        box.style.top = "250px";
+	    }
+
+	    scheduler.show_cover();
+	}
+    </script>
+    <script>
+        var events = [];
+        $.ajax({
+            type: 'GET',
+            url: '/Client/MyCalendar/GetCalendarInfo',
+            success: function (data) {
+                console.log(data)
+                $.each(data, function (i, v) {
+                    scheduler.parse([
+
+               { start_date: v.StartDate, end_date: v.EndDate, text: v.Description, color: v.color, TransactionId: v.TransactionID },
+                    ], "json");
+                })
+
+            },
+            error: function (error) {
+            }
+        })
+        scheduler.config.xml_date = "%Y-%m-%d %H:%i %A";
+        scheduler.config.hour_date = "%h:%i %A";
+        scheduler.config.item_date = "%h:%i %A";
+        scheduler.templates.tooltip_text = function (start, end, event) {
+            return "<b>TransactionId:</b> " +
+            event.TransactionId +
+            "<br><b>Event:</b> " +
+            event.text +
+            "<br/><b>Start date:</b> " +
+            scheduler.templates.tooltip_date_format(start) +
+            "<br/><b>End date:</b> " +
+            scheduler.templates.tooltip_date_format(end);
+        };
+
+        scheduler.init("scheduler_here", new Date(), "month");
+
+        scheduler.config.hour_date = "%h:%i %A";
+        scheduler.templates.hour_scale = function (date) {
+            return scheduler.date.date_to_str(scheduler.config.hour_date)(date);
+        };
+        scheduler.config.multi_day = true;
+        //scheduler.xy.margin_top = 40;
+
+
+
+        scheduler.config.readonly_form = true;
+        //block all modifications
+        scheduler.attachEvent("onBeforeDrag", function () { return false; })
+        scheduler.attachEvent("onClick", function () { return false; })
+        scheduler.config.details_on_dblclick = true;
+        scheduler.config.dblclick_create = false;
+
+
+        scheduler.config.agenda_start = new Date(2016, 7, 1);
+        scheduler.config.agenda_end = new Date(2019, 7, 1);
+
+        var calendar = scheduler.renderCalendar({
+            container: "cal_here",
+            navigation: true,
+            handler: function (date) {
+                scheduler.setCurrentView(date, scheduler._mode);
+            }
+        });
+        scheduler.linkCalendar(calendar);
+        scheduler.setCurrentView(scheduler._date, scheduler._mode);
+        scheduler.attachEvent("onClick", function (id) {
+            scheduler.showLightbox(id);
+            return false;
+        })
+
+
+
+
+    </script>
+    <script>
+        $(document).ready(function () {
+
+
+        })
+    </script>
+
+
+
+}
+
+<style>
+    /*.dhx_cal_container.dhx_mini_calendar .dhx_calendar_click {
+        color: red;
+    }*/
+
+    .dhx_cal_event_clear, .dhx_cal_event_line {
+        color: white;
+    }
+
+    .dhx_month_head.dhx_mini_calendar.dhx_year_event {
+        color: white;
+    }
+
+    .dhx_month_head.dhx_year_event {
+        background-color: white;
+        color: black;
+        border: 2px solid #eca2a2;
+        border-radius: 10px;
+    }
+
+
+
+    .dhx_mini_calendar .dhx_calendar_click {
+        background-color: #ffffff;
+    }
+</style>
+
+
+<style>
+    .dhx_scheduler_agenda .dhx_agenda_line {
+        background-color: transparent !important;
+    }
+
+    .dhx_cal_event_clear, .dhx_cal_event_line {
+        line-height: 15px;
+        /*background-color: transparent !important;*/
+    }
+
+    .dhx_cal_event_line_start, .dhx_cal_event_line_end {
+        height: 45px !important;
+        white-space: normal;
+    }
+
+    .dhx_cal_event_line {
+        height: 37px;
+        white-space: normal;
+    }
+</style>
+

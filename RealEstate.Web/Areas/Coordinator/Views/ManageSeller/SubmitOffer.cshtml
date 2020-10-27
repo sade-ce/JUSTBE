@@ -1,0 +1,102 @@
+﻿@model RealEstate.Entities.ViewModels.MstSellerOffer
+@{
+    ViewBag.Title = "SubmitOffer";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+    }
+}
+
+
+
+<section class="content-header">
+    <h1>
+        Submit an Offer
+        <small>Offer from new client</small>
+    </h1>
+</section>
+
+    <div class="content">
+        <div class="col-md-12">
+            @using (Ajax.BeginForm("SubmitOffer", "ManageSeller", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "myform" }))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.HiddenFor(model => model.utblMstSellerCounterOffer.TransactionID)
+                @Html.HiddenFor(model => model.utblMstSellerCounterOffer.SellerID)
+                @Html.HiddenFor(model => model.utblMstSellerCounterOffer.ClientTypeID)
+                @Html.HiddenFor(model => model.utblMstSellerCounterOffer.Status)
+
+                <div class="box box-info">
+                    <div class="box-body">
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true)
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.utblMstPotentialBuyer.BuyerName, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.utblMstPotentialBuyer.BuyerName, new { @class = "form-control ddl-select2" })
+                                    @Html.ValidationMessageFor(model => model.utblMstPotentialBuyer.BuyerName)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.utblMstPotentialBuyer.BuyerEmail, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.utblMstPotentialBuyer.BuyerEmail, new { @class = "form-control ddl-select2" })
+                                    @Html.ValidationMessageFor(model => model.utblMstPotentialBuyer.BuyerEmail)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.utblMstPotentialBuyer.BuyerPhone, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.utblMstPotentialBuyer.BuyerPhone, new { @class = "form-control ddl-select2" })
+                                    @Html.ValidationMessageFor(model => model.utblMstPotentialBuyer.BuyerPhone)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.utblMstPotentialBuyer.BuyerAddress, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.utblMstPotentialBuyer.BuyerAddress, new { @class = "form-control ddl-select2" })
+                                    @Html.ValidationMessageFor(model => model.utblMstPotentialBuyer.BuyerAddress)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.utblMstSellerCounterOffer.Price, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.utblMstSellerCounterOffer.Price, new { @class = "form-control ddl-select2" })
+                                    @Html.ValidationMessageFor(model => model.utblMstSellerCounterOffer.Price)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.utblMstSellerCounterOffer.Description, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.utblMstSellerCounterOffer.Description, new { @class = "form-control ddl-select2" })
+                                    @Html.ValidationMessageFor(model => model.utblMstSellerCounterOffer.Description)
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="box-footer">
+
+
+                        <div class="well well-sm col-md-12 col-lg-12 text-right">
+                            <div class="form-horizontal">
+                                @Html.ActionLink("Back to List", "ClientDetails", "DealAgent", new { ClientID=Model.utblMstSellerCounterOffer.SellerID }, new { @class = "btn btn-default pull-left" })
+                                <input type="submit" value="Save" id="save" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    }
+                </div>
+        @Html.Partial("pvSubmitOffer", Model)
+
+
+    </div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>

@@ -1,0 +1,414 @@
+﻿@model RealEstate.Entities.ViewModels.VendorView
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayoutNew.cshtml";
+}
+
+<div class="top-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="breadcrumbs">
+                    <ul class="align-items-center d-flex list-unstyled m-0 p-0">
+                        <li class="d-none d-lg-block mr-4">
+                            @*@if ((User.IsInRole("Agent") || User.IsInRole("Admin"))) { }
+                            else
+                            {*@
+                                <a href="#!" id="toggleHeader"><img src="~/Content/NewVersion/images/ham.png" alt="" class="img-fluid"></a>
+                            @*}*@
+                        </li>
+                        @*<li>Concierge<span>&nbsp;>&nbsp;</span></li>
+                        <li class="active">Vendors<span>&nbsp;>&nbsp;</span></li>*@
+                        @*<li class="active">@Model.Category_Name <span>&nbsp;>&nbsp;</span></li>*@
+                        @*<li class="active">@Model.Title <span>&nbsp;>&nbsp;</span></li>*@
+
+
+                        <li>
+                            <a class="nav-link nav-cal-drop nav-cal-drop-new dropdown-toggle " href="@Url.Action("Vendors", "MyDeal", new { area = "Client" })" role="button">Vendors<span style="color:#212529">&nbsp;>&nbsp;</span></a>
+                        </li>
+                        <li class="no-activee">@Model.Title </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 d-md-block d-none">
+                <div class="accountLog d-flex justify-content-end align-items-center">
+                    <p>Hello, &nbsp;<span>@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)</span></p>
+                    <div class="profileImgtop" style="background-size: cover; background-position: center;   height:50px;">
+                        <!-- <img alt="profile-img" id="profileimg" class="img-fluid profileimg"> -->
+                    </div>
+                    @*@if ((User.IsInRole("Agent") || User.IsInRole("Admin"))) { }
+                    else
+                    {*@
+                        <span> &nbsp; &nbsp; | &nbsp; </span>
+
+                        <div class="dropdown">
+                            <button class="btn  dropdown-toggle mybtn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                My Account
+                            </button>
+                            <div class="dropdown-menu MyAccountDrop" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="@Url.Action("EmailPreferences", "Account", new { @area = "" })"><i class="flaticon-gear"></i>Notification Settings</a>
+                                <a class="dropdown-item" href="@Url.Action("EditProfile", "Account", new { @area = "" })"><i class="flaticon-conversation"></i>Edit Profile</a>
+                                <a class="dropdown-item" href="@Url.Action("ChangePassword", "Account", new { @area = "" })"><i class="flaticon-password"></i>Change Password</a>
+
+                                @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                                }
+                            </div>
+                        </div>
+                    @*}*@
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@if (Model.DisplayType == "Double")
+{
+
+        <section class="vetedVendersOuter">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="vetedVendersInner p-20">
+
+
+
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="profilePic">
+
+                                        @{ var image = "";
+
+                                            if (String.IsNullOrEmpty( Model.VendorImage) )
+                                            { image = "no-image.jpg"; }
+                                            else { image = Model.VendorImage; }
+
+                                        }
+                                        <img src="../../../../img/vendors/@image" alt="profilePic">
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-8 col-lg-8 ">
+                                    <ul class="vettedVenderList">
+                                        <li> <strong> @Model.Title</strong> </li>
+                                        @if (!string.IsNullOrEmpty(Model.SubTitle))
+                                        {
+                                            <li>@Model.SubTitle</li>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.Phone))
+                                        {
+                                            <li><a href="tel:@Model.Phone" style="color: #0bb7a5">@Model.Phone</a></li>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.Email))
+                                        {
+                                            <li style="word-break:break-all;">@Model.Email</li>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.Location))
+                                        {
+                                            <li>@Model.Location</li>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.WebsiteLink))
+                                        {
+                                            <li style="word-break: break-all;"><a href="@Model.WebsiteLink" style="color: #0bb7a5;">@Model.WebsiteLink</a></li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            @if (!string.IsNullOrEmpty(Model.About))
+                            {
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>About @Model.Title</h3>
+                                        <p>
+                                            @Model.About
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- Edit Profile Sec end -->
+
+
+                                            
+                                            }
+                                            
+
+@if (Model.DisplayType == "Bio")
+{
+      <!-- Edit Profile Sec start -->
+
+
+
+
+
+    <section class="vetedVendersOuter">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="vetedVendersInner p-20">
+
+
+
+                        <div class="row">
+                            <div class="col-md-4 col-lg-4">
+                                <div class="profilePic">
+
+                                    @{ var image = "";
+
+                                        if (String.IsNullOrEmpty(Model.VendorImage))
+                                        { image = "no-image.jpg"; }
+                                        else { image = Model.VendorImage; }
+
+                                    }
+                                    <img src="../../../../img/vendors/@image" alt="profilePic">
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-8 col-lg-8 ">
+                                <ul class="vettedVenderList">
+                                    <li> <strong> @Model.Title</strong> </li>
+                                    @if (!string.IsNullOrEmpty(Model.SubTitle))
+                                    {
+                                        <li>@Model.SubTitle</li>
+                                    }
+                                    @if (!string.IsNullOrEmpty(Model.Phone))
+                                    {
+                                        <li><a href="tel:@Model.Phone" style="color: #0bb7a5">@Model.Phone</a></li>
+                                    }
+                                    @if (!string.IsNullOrEmpty(Model.Email))
+                                    {
+                                        <li style="word-break:break-all;">@Model.Email</li>
+                                    }
+                                    @if (!string.IsNullOrEmpty(Model.Location))
+                                    {
+                                        <li>@Model.Location</li>
+                                    }
+                                    @if (!string.IsNullOrEmpty(Model.WebsiteLink))
+                                    {
+                                        <li style="word-break:break-all;"><a href="@Model.WebsiteLink" style="color: #0bb7a5">@Model.WebsiteLink</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.About))
+                        {
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>About @Model.Title</h3>
+                                    <p>
+                                        @Model.About
+                                    </p>
+                                </div>
+                            </div>
+                        }
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Edit Profile Sec end -->
+
+
+                                            
+                                            }
+                                       
+@if (Model.DisplayType == "Single")
+{
+   
+        <section class="vettedVendors">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="vettedVendorsInner">
+                            @{ var image = "";
+
+                                if (String.IsNullOrEmpty(Model.VendorImage))
+                                { image = "no-image-banner.jpg"; }
+                                else { image = Model.VendorImage; }
+
+                            }
+
+
+                            <div class="vettedBanner" style="background: url('../../../../img/vendors/@image') ; background-size: cover; background-position: center;   height:278px;">
+
+                            </div>
+                            <div class="titleBanner">
+                                
+                               
+                                <h2>@Model.Title</h2>
+                                @{var Name = "";}
+                                @if (Model.Location != "") { Name = Model.SubTitle + " (" + Model.Location + ")"; } else { Name = Model.SubTitle; }
+                                
+                                <p>@Model.SubTitle</p>
+                            </div>
+
+
+                            <div class="row text-center vettedContact">
+                                <div class="col-md-6 bdr">
+                                    <i class="flaticon-smartphone"></i>
+                                    <p><a href="tel:@Model.Phone" style="color: #0bb7a5">@Model.Phone</a></p>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <i class="flaticon-mail"></i>
+                                    <p style="word-break:break-all;">@Model.Email</p>
+                                </div>
+                            </div>
+
+                            @if ( !string.IsNullOrEmpty(Model.About))
+                            {
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="vettedVenderDetail">
+                                            <h3>About @Name</h3>
+                                            <br>
+                                            <p>@Model.About</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+                                    }
+<section class="vetedVendersOuter m-0">
+
+    <div class="container">
+        @{ Html.RenderAction("VendorReview", "MyDeal", new { @Vendor = ViewBag.VendorId,@Title=ViewBag.VendorTitle });}
+    </div>
+
+</section>
+     <style>
+    .starFade {
+        color: #aaa;
+        cursor: pointer;
+
+    }
+     .starGlow {
+        color: #0bb7a5;
+        cursor: pointer;
+    }
+</style>         
+        
+<script src="~/Content/NewVersion/js/jquery-3.1.1.min.js"></script>  
+<script>
+
+    $(document).ready(function () {
+
+        $('form').submit(function () {
+
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+            var serializedForm = $(this).serialize();
+            $.ajax({
+                url: '@Url.Action("VendorReview")',
+                type: "POST",
+                data: serializedForm,
+
+                success: function (result) {
+                    $('#SucessView').css('display', 'none');;
+                    $('#ErrorView').text('').hide();
+                    $("#ajaxLoading").css("display", "none");
+                    $("#ajax-backdrop").css("display", "none");
+                    if (result == "Thank you!") {
+                        $('#SucessView').css('display', 'block');
+                      //  $('#conform').css('display', 'none');
+                        //$('#ContactPerson').val('');
+                        //$('#Email').val('');
+                        $('#Comment').val('');
+                        $("#Rating").val(0);
+                        for (var i = 1; i <= 5; i++) {
+                            $("#Rate" + i).attr('class', 'starFade');
+                        }
+                    }
+                    else {
+           
+                        $('#ErrorView').text(result).show();
+
+                    }
+
+                },
+                error: function (result) {
+
+    
+                    $("#ErrorView").text("Sorry, Something went wrong. Please try again.").show();
+                    //$('#Error').text(result.Email);
+                }
+
+            });
+
+
+
+            return false;
+        });
+    });
+  
+
+    function CRate(r) {
+        $("#Rating").val(r);
+        for (var i = 1; i <= r; i++) {
+            $("#Rate" + i).attr('class', 'starGlow');
+        }
+        // unselect remaining
+        for (var i = r + 1; i <= 5; i++) {
+            $("#Rate" + i).attr('class', 'starFade');
+        }
+    }
+
+    function CRateOver(r) {
+        for (var i = 1; i <= r; i++) {
+            $("#Rate" + i).attr('class', 'starGlow');
+        }
+    }
+
+    function CRateOut(r) {
+        for (var i = 1; i <= r; i++) {
+            $("#Rate" + i).attr('class', 'starFade');
+        }
+    }
+
+    function CRateSelected() {
+        var setRating = $("#Rating").val();
+        for (var i = 1; i <= setRating; i++) {
+            $("#Rate" + i).attr('class', 'starGlow');
+        }
+    }
+
+    
+</script>

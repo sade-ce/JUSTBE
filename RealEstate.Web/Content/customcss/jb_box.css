@@ -1,0 +1,142 @@
+.listpanel, .detailpanel {
+    
+    
+    max-height:auto;
+    overflow:auto;
+}
+.listpanel{
+    padding-right:0;
+    border-left:1px solid #e5e3e3;
+    border-right:1px solid #e5e3e3;
+    background-color:#fff;
+    margin-bottom:0px;
+    padding-bottom:0px;
+    padding-left: 0px;
+    /*height:600px;*/
+}
+.ps__scrollbar-y-rail{
+     right:10px;
+ }
+.detailpanel{
+    padding-left:0;
+    border-right:1px solid #e5e3e3;
+    background-color:#fff;
+    margin-bottom:100px;
+    padding-bottom:0px;
+    /*height:600px;*/
+    
+}
+
+.listheader{
+    border-bottom:1px solid #e5e3e3;
+    padding:10px;
+}
+.listtitle{
+    font-weight:bold;
+    font-size:13px;
+    color:#282c35 !important;
+
+}
+.cd-panel{
+    padding:0 0 0 0;
+}
+
+.userinfopanel{
+    padding:0 0 0 0;
+    background-color:#f8f8f8;
+    border-bottom:1px solid #d8dce3;
+    border-top:1px solid #d8dce3
+}
+.content{
+    padding:0;
+    
+}
+
+.transaction-detail{
+    padding:15px 0 0 0;
+   
+}
+.pd-x-20 {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 25px;
+}
+.pd-y-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.transaction-item{
+    border-bottom:1px solid #e5e3e3;
+}
+.transaction-item:hover, .transaction-item:focus {
+    background-color: #eaecf0;
+}
+.transaction-item.active {
+    position: relative;
+    background-color: rgb(243, 243, 243);
+}
+
+.d-block {
+    display: block !important;
+}
+.tx-size-12 {
+    font-size: 12px;
+}
+.tx-size-13 {
+    font-size: 13px;
+}
+.tx-size-15 {
+    font-size: 15px;
+}
+.jb-lighttext{
+color: #727780;
+}
+.mg-b-10{
+    margin-bottom:10px;
+}
+.jb-inverse {
+    color: #282c35 !important;
+     margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: inherit;
+}
+.jb-cursor{
+    cursor:pointer;
+}
+.jb-box{
+    padding:5px;
+    
+    border:1px solid #d8dce3;
+    border-radius:2px 2px;
+}
+.t_t_transact_detail{
+    padding:15px;
+    color: #282c35 !important;
+     margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: inherit;
+}
+.t_t_transact_left{
+    font-size:15px;
+    font-weight:bold;
+}
+.t_t_deal_list{
+    font-size:13px;
+    font-weight:bold;
+}
+.t_t_deal_table{
+    
+    font-size:13px;
+}
+.t_t_panelheading{
+    border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+padding:15px 15px;
+font-size:15px;
+font-weight:bold;
+}
+.t_t_panel{
+    border:0px;
+    
+}
+

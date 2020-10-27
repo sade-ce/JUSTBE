@@ -1,0 +1,886 @@
+﻿@model RealEstate.Entities.ViewModels.MstDealAgentManageModel
+@{
+    ViewBag.Title = "ClientDetails";
+
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+    }
+}
+
+@section AddToHead{
+    <link href="~/Content/customcss/jb_box.css" rel="stylesheet" />
+    <link href="~/Content/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="~/Content/popup.css" rel="stylesheet" />
+    <link href="~/Content/Plugins/cropper/cropper.min.css" rel="stylesheet" />
+    <link href="~/Scripts/dropzone/basic.css" rel="stylesheet" />
+    <link href="~/Scripts/dropzone/dropzone.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    
+}
+<section class="content-header">
+
+    <div class="col-md-12">
+        <h1>
+            Live Deal Tracker <small>All Transaction List</small>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <span class="pull-right"><a target="_blank" href="@Url.Action("List", "MyDeal", new {ClientID=Model.UserProfile.ClientID,AgentID= @ViewBag.AgentID,@area = "Client" })">View Client Side</a></span>
+
+            }
+
+            else
+            {
+                <span class="pull-right"><a target="_blank" href="@Url.Action("List", "MyDeal", new {ClientID=Model.UserProfile.ClientID,@area = "Client" })">View Client Side</a></span>
+
+            }
+        </h1>
+    </div>
+</section>
+
+<div class="container">
+    <div class="content">
+
+        @*testing*@
+        <div class="col-md-11">
+            <div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel"></h4>
+                        </div>
+                        <div class="modal-body" id="message">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="userinfopanel" class="col-md-12 userinfopanel">
+                <div class="col-md-4"></div>
+                <div class="col-md-12 pd-y-10 pull-right">
+                    <div class="media-left">
+                        @if (@Model.UserProfile.UserPhotoThumb == null || @Model.UserProfile.UserPhotoThumb == "")
+                        {
+                            <img class="media-object" src="~/img/NoImage.png" width="60" alt="User profile picture">
+
+                        }
+                        else
+                        {
+                            <img class="media-object" src="@Model.UserProfile.UserPhotoThumb" width="60" alt="User profile picture">
+
+                        }
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Client Info </h4>
+                        <div class="col-md-3">
+                            <span class="text-primary"><span class="text-bold">Name:</span>  @Model.UserProfile.Name</span>
+                        </div>
+                        <div class="col-md-9">
+                            <span class="text-primary"><span class="text-bold"> Email:</span> @Model.UserProfile.Email</span>
+                        </div>
+                        <div class="col-md-3">
+                            <span class="text-primary"><span class="text-bold"> Phone:</span> @Model.UserProfile.PhoneNumber</span>
+
+                        </div>
+                        <div class="col-md-9">
+                            <a class="btn btn-info btn-xs" target="_blank" href="@Url.Action("EmailPreferences", "Account", new {ClientID=Model.UserProfile.ClientID, @area="" })">Change Email Settings</a>
+                            <a class="btn btn-warning btn-xs" target="_blank" href="@Url.Action("List", "MyCalendar", new {ClientID=Model.UserProfile.ClientID,AgentID=@ViewBag.AgentID,@area = "Client" })">View Event Calendar</a>
+                            @if (Model.ClientDetails.Count() > 0)
+                            {
+                                foreach (var item in Model.ClientDetails)
+                                {
+                                    <a class="btn btn-warning btn-xs" target="_blank" href="@Url.Action("CreateEvent", "Calendly", new {Email=Model.UserProfile.Email,ClientID=Model.UserProfile.ClientID,TransactionID=item.TransactionID,AgentID=@ViewBag.AgentID,@area = "coordinator" })">Add New Event</a>
+                                    break;
+                                }
+                            }
+
+
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+
+        </div>
+        <div class="col-md-11">
+            <div id="listpanel" class="listpanel col-sm-12 col-md-4 col-lg-4 ps ps--active-y ">
+                <div id="listheader" class="listheader txt-lt pd-x-20 text-blue">
+                    <span class="listtitle text-uppercase">Transactions (@Model.ClientDetails.Count())</span>
+
+                    <span class="pull-right jb-lighttext jb-cursor" title="Add New">
+                        <a href="@Url.Action("createtransaction","agent",new { ClientID = Model.UserProfile.ClientID })" data-trans=""><i class="btn btn-sm btn-danger">Add new transaction</i></a>
+                    </span>
+
+
+
+                </div>
+                <div class="transaction-list " id="t_t_t_list">
+                    @if (Model.ClientDetails.Count() > 0)
+            {
+                foreach (var item in Model.ClientDetails)
+                {
+
+                            <div class="transaction-item pd-y-10 pd-x-20 d-block">
+                                <div class="transaction-title-detail mg-b-10 align-center">
+                                    <span class="t_t_type pull-left tx-size-13 jb-lighttext">@Html.DisplayFor(modelItem => item.ClientType)</span>
+                                    <span class="t_t_year pull-right tx-size-13 jb-lighttext">Year: @Html.DisplayFor(modelItem => item.Year)</span>
+                                </div>
+                                <div class="transaction-detail tx-size-15 mg-b-10">
+                                    <span id="t_t_id" class="t_t_id jb-inverse">
+                                        @if (item.ClientType == "Buyer")
+                                        {
+                                            <a href="#" data-async="" data-type="buyer" action-home="" action="@Url.Action("managedeal","agent", new {ClientID = item.ClientID, TransactionID=item.TransactionID, AgentID=item.AgentID})" action-upload="@Url.Action("uploaddealdocumentpv","agent", new {Email=item.Email,ClientID = item.ClientID, TransactionID=item.TransactionID, AgentID=item.AgentID})" action-gallery="@Url.Action("mediagallery","agent", new {Email=item.Email,ClientID = item.ClientID, TransactionID=item.TransactionID, AgentID=item.AgentID})" class="t_t_id jb-inverse">
+                                                Transaction ID:  #@Html.DisplayFor(modelItem => item.TransactionID)
+                                                @if (item.Status == "Active")
+                                                {
+                                                    <img src="~/img/new.png" />
+                                                }
+                                            </a>
+                                        }
+                                        else if (item.ClientType == "Seller")
+                                        {
+                                            <a href="#" data-async="" data-type="seller" action-home="@Url.Action("sellerhomepv","manageseller", new {Email=item.Email,ClientID = item.ClientID, TransactionID=item.TransactionID, AgentID=item.AgentID})" action="@Url.Action("managedeal","manageseller", new {ClientID = item.ClientID, TransactionID=item.TransactionID, AgentID=item.AgentID})" action-upload="@Url.Action("uploaddealdocumentpv","manageseller", new {Email=item.Email,ClientID = item.ClientID, TransactionID=item.TransactionID, AgentID=item.AgentID})" action-gallery="@Url.Action("mediagallery","agent", new {Email=item.Email,ClientID = item.ClientID, TransactionID=item.TransactionID, AgentID=item.AgentID})" class="t_t_id jb-inverse">
+                                                Transaction ID:  #@Html.DisplayFor(modelItem => item.TransactionID)
+                                                @if (item.Status == "Active")
+                                                {
+                                                    <img src="~/img/new.png" />
+                                                }
+                                            </a>
+                                        }
+                                    </span>
+                                </div>
+                                <div class="transaction-Address tx-size-12 mg-b-10">
+                                    <span>Address:<span class="jb-lighttext"> @Html.DisplayFor(modelItem => item.Address)</span></span>
+                                    @*<div>
+                                            <span class="tx-size-13 pull-right jb-lighttext">Status: @Html.DisplayFor(modelItem => item.Status)</span>
+                                        </div>*@
+                                </div>
+                            </div>
+                        }
+                    }
+                    <div id="t_t_trans_item"></div>
+                </div>
+
+            </div>
+            <div id="detailpanel" class="detailpanel col-lg-8 col-md-8 col-sm-12 hidden-sm ps ps--active-y">
+                <div id="t_t_details">
+                    <div id="t_t_deal_item">
+
+                    </div>
+                    <div id="t_t_document_item">
+
+                    </div>
+                    <div id="t_t_gallery_item">
+
+                    </div>
+                    <div id="t_t_seller_home_item">
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+        @*testing*@
+
+
+
+
+        @*<div style="margin-top: 15px;">
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="box-footer well well-sm col-md-12 col-lg-12 text-right">
+                        @Html.ActionLink("Previous", "List", "DealAssignAgent", new { area = "Admin" }, new { @class = "btn btn-default pull-left" })
+                        <div class="clearfix"></div>
+                    </div>
+                }
+                else
+                {
+                    <div class="box-footer well well-sm col-md-12 col-lg-12 text-right">
+                        @Html.ActionLink("Previous", "List", "DealAgent", new { ClientID = @Model.UserProfile.ClientID }, new { @class = "btn btn-default pull-left" })
+                        <div class="clearfix"></div>
+                    </div>
+                }
+
+            </div>*@
+        <div id='myEnquiryModal' class='modal'>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div id='myModalContent'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+<style>
+    .table th {
+        background: #ffffff;
+        background-color: #ffffff;
+    }
+
+
+    .box {
+        border-top: 3px solid #468dbc;
+    }
+</style>
+<style type="text/css">
+    .ui-datepicker {
+        font-size: 9pt !important;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .t_t_deal_list {
+        font-size: 21px;
+        font-weight: unset;
+    }
+
+    .user-block .description {
+        font-size: 13px;
+        margin-top: 15px;
+        font-weight: 600;
+        margin-left: 0px;
+        color: #333;
+    }
+
+
+    label {
+        font-size: 14px;
+        color: #8c8282;
+    }
+</style>
+
+@section scripts{
+    <script src="~/Content/Plugins/cropper/cropper.min.js"></script>
+    <script src="~/Content/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="~/Content/lib/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+    <script src="~/Scripts/dropzone/dropzone.js"></script>
+    <script src="~/Scripts/jquery.form.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+    <script type="text/javascript">
+        $("#MstClosingConfig_utblMstClosingDate_ClosingDate").datetimepicker({
+            format: "MM-DD-YYYY",
+            sideBySide: true,
+            minDate: new Date()
+        });
+    </script>
+
+
+    <script>
+        var DateValidation = function (e) {
+
+            $('.CheckBox:checkbox:checked').each(function () {
+                var $input = $(this);
+                var Datefield = $('input[name="[' + $input.attr("id") + '].UpdatedOn"').val()
+                if (Datefield == "") {
+                    e.preventDefault();
+                    $("#dateErr").text("* Please enter completion date for the selected steps ");
+                }
+            });
+           
+          
+        }
+    </script>
+<script>
+    var Checkboxchecked = function (e) {
+        if ($('.CheckBox:checkbox:checked').length > 0)
+            {
+            $('#bCheck').removeAttr("disabled");
+            $('#bCheck').css("background-color", "#82d5e8");
+            }
+
+           else {            
+            $('#bCheck').attr('disabled', 'disabled');
+            $('#bCheck').css("background-color", "#cccccc");
+            }
+        }
+
+</script>
+
+    <script>
+
+        $(function () {
+            $('#listpanel,#detailpanel').perfectScrollbar();
+
+        });
+        var uploaddoc = function (e) {
+            e.preventDefault();
+            $form = $('#docform').closest('form');
+            var form = $('#docform')[0];
+
+            // Create an FormData object
+            var data = new FormData(form);
+
+            $.ajax({
+                url: $form.attr('action'),
+                type: 'Post',
+                enctype: 'multipart/form-data',
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (html) {
+                    $('#t_t_document_item').empty().append(html);
+                }
+                //,
+                //xhr: function () {  // Custom XMLHttpRequest
+                //    var myXhr = $.ajaxSettings.xhr();
+                //    if (myXhr.upload) { // Check if upload property exists
+                //        // Progress code if you want
+                //    }
+                //    return myXhr;
+                //}
+
+            });
+
+        }
+        var setContingencyDays = function () {
+            var $input = $(this);
+            //$('input[name="[' + $input.attr("id") + '].StartDate"').toggle();
+            //$('input[name="[' + $input.attr("id") + '].NoOfDays"').toggle();
+            $('div[id="[' + $input.attr("id") + '].hidden"').toggle();
+            //$('input[name="[' + $input.attr("id") + '].StartDate"').dateDropper();
+        }
+        var setDeal = function (e) {
+            e.preventDefault();
+            var $form = $("#managedeal").closest('form');
+            $.ajax({
+                url: $form.attr('action'),
+                type: 'Post',
+                data: $(this).serialize(),
+                success: function (data) {
+                    if (data.val != null) {
+                        if (data.val == 1) {
+                            $('#myModalContent').load(data.url, function () {
+                                $('#myEnquiryModal').modal({
+                                    /*backdrop: 'static',*/
+                                    keyboard: true
+                                }, 'show');
+                                bindDealForm(this);
+                            });
+                        }
+                    } else {
+                        $('#t_t_deal_item').empty().append(data);
+                        $("input[datemodal]").datetimepicker({
+                            format: "MM-DD-YYYY",
+                            sideBySide: true
+                        });
+
+                    }
+
+                }
+            });
+        }
+        var setsellerDeal = function (e) {
+            e.preventDefault();
+            var formid = $(this).attr("data-form");
+            var $form = $("#" + formid).closest('form');
+            $.ajax({
+                url: $form.attr('action'),
+                type: 'Post',
+                data: $form.serialize(),
+                success: function (data) {
+                    if (data.val != null) {
+                        if (data.val == 1) {
+                            $('#myModalContent').load(data.url, function () {
+                                $('#myEnquiryModal').modal({
+                                    /*backdrop: 'static',*/
+                                    keyboard: true
+                                }, 'show');
+                                bindDealForm(this);
+                            });
+                        }
+                    } else {
+                        $('#t_t_deal_item').empty().append(data);
+                        $("input[datemodal]").datetimepicker({
+                            format: "MM-DD-YYYY",
+                            sideBySide: true
+                        });
+
+                    }
+
+                }
+            });
+
+        }
+
+        var loadCusModal = function (e) {
+            e.preventDefault();
+
+            $('#myModalContent').load(this.href, function () {
+                $('#myEnquiryModal').modal({
+                    /*backdrop: 'static',*/
+                    keyboard: true
+                }, 'show');
+                bindDealForm(this);
+            });
+        }
+        function bindDealForm(dialog) {
+            $('form', dialog).submit(function () {
+
+
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: $(this).serialize(),
+                    success: function (result) {
+
+                        if (result.success) {
+                            $('#myEnquiryModal').modal('hide');
+                            if (result.type == 'editRO') {
+                                $('#t_t_deal_item').load(result.url);
+                                $("input[datemodal]").datetimepicker({
+                                    format: "MM-DD-YYYY",
+                                    sideBySide: true
+                                });
+                            }
+                            else if (result.type == 'addDocType') {
+                                $('#t_t_document_item').load(result.url);
+
+                            }
+                            else if (result.type == 'gettrans') {
+
+                                window.location.href = result.url;
+                            }
+
+                            ShowMessageBox();
+                        } else {
+                            $('#myModalContent').html(result);
+                            bindDealForm(dialog);
+                            ShowMessageBox();
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+        $('.content').on('click', 'a[data-async]', function (e) {
+            //you want to start with blocking the default behavior:
+            $('.transaction-item').removeClass('active');
+            $(this).closest('.transaction-item').addClass('active');
+            e.preventDefault();
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'Get',
+                data: $(this).serialize(),
+                success: function (html) {
+                    $('#t_t_deal_item').empty().append(html);
+
+                    $("input[datemodal]").datetimepicker({
+                        format: "MM-DD-YYYY",
+                        sideBySide: true
+                    });
+
+                }
+            });
+            $.ajax({
+                url: $(this).attr('action-upload'),
+                type: 'Get',
+                data: $(this).serialize(),
+                success: function (html) {
+                    $('#t_t_document_item').empty().append(html);
+                }
+            });
+            $.ajax({
+                url: $(this).attr('action-gallery'),
+                type: 'Get',
+                data: $(this).serialize(),
+                success: function (gallhtml) {
+                    $('#t_t_gallery_item').empty().append(gallhtml);
+                    gallerymedia();
+                }
+            });
+            if ($(this).attr('action-home') != "") {
+                $.ajax({
+                    url: $(this).attr('action-home'),
+                    type: 'Get',
+                    data: $(this).serialize(),
+                    success: function (html) {
+                        $('#t_t_seller_home_item').empty().append(html);
+                        $('#dropzoneForm').dropzone();
+                        $("input[datemodal]").datetimepicker({
+                            format: "MM-DD-YYYY",
+                            sideBySide: true
+                        });
+
+                    }
+                });
+            } else {
+                $('#t_t_seller_home_item').empty();
+            }
+        });
+        $('#detailpanel').on("submit", '#docform', uploaddoc);
+        $('#detailpanel').on("submit", '#managedeal', setDeal);
+        $('#detailpanel').on("click", '.bCheckSeller', setsellerDeal);
+        $('#detailpanel').on("click", '.check', setContingencyDays);
+
+        $('#detailpanel').on("click", 'a[data-modal]', loadCusModal);
+        $('#listpanel').on("click", 'a[data-trans]', loadCusModal);
+        $('.content').on('click', '#bCheck',DateValidation);
+        $('.content').on('click', Checkboxchecked);
+
+    </script>
+    <script>
+        function OkMyModal() {
+            $("#myErroMsgModal").hide();
+            $('#ErrMsgHiddenField').val("");
+            // Retrieve the sender infromation from hidden field and pass it to the function
+            CustomAjaxFormSubmitt($("#eventSender").val().split('|')[1], $("#eventSender").val().split('|')[0]);
+        }
+        function CustomAjaxFormSubmitt(sender, url) {
+            if (url == "#")
+            { return false; }
+            var $form = $('a[href="' + decodeURI(url) + '"]').closest('form')
+            if ($form.attr("data-JB-ajax") == 'true') {
+                $.ajax({
+                    url: decodeURI(url),
+                    type: $form.attr("method"),
+                    data: $form.serialize(),
+                    success: function (html) {
+                        $('#t_t_deal_item').empty().append(html);
+                        $("input[datemodal]").datetimepicker({
+                            format: "MM-DD-YYYY",
+                            sideBySide: true
+                        });
+                        ShowMessageBox();
+                    }
+
+
+                });
+                return false;
+            } else if ($form.attr("data-doc-ajax") == 'true') {
+                $.ajax({
+                    url: decodeURI(url),
+                    type: $form.attr("method"),
+                    data: $form.serialize(),
+                    success: function (html) {
+                        $('#t_t_document_item').empty().append(html);
+                        ShowMessageBox();
+                    }
+                });
+            }
+            else if ($form.attr("data-gall-ajax") == 'true') {
+                $.ajax({
+                    url: decodeURI(url),
+                    type: $form.attr("method"),
+                    data: $form.serialize(),
+                    success: function (html) {
+                        $('#t_t_gallery_item').empty().append(html);
+                        gallerymedia();
+                        ShowMessageBox();
+                    }
+
+
+                });
+            }
+            else if ($form.attr("data-photo-ajax") == 'true') {
+                $.ajax({
+                    url: decodeURI(url),
+                    type: $form.attr("method"),
+                    data: $form.serialize(),
+                    success: function (html) {
+                        $('#t_t_seller_home_item').empty().append(html);
+                        $('#dropzoneForm').dropzone();
+                        ShowMessageBox();
+                    }
+                });
+            }
+            else {
+                return true;
+            }
+        };
+    </script>
+    <script type="text/javascript">
+
+        var mediaonsave = function (evt) {
+            var Imgpath = '~/Content/img/NoPhoto.jpg';
+            if ($("#EmpPhotoThumb").val() == '') {
+                evt.preventDefault();
+                $('#myModalLabel').text('');
+                $('#message').text('');
+                var someText = "Incomplete Info!";
+                var message = "Please Upload Photo.."
+                $('#myModalLabel').append(document.createTextNode(someText));
+                $('#message').append(document.createTextNode(message));
+                $('#AnchorTag').click();
+            }
+            else if ($("#Name").val() == '') {
+                evt.preventDefault();
+                $('#myModalLabel').text('');
+                $('#message').text('');
+                var someText = "Incomplete Info!";
+                var message = "Please write a description.."
+                $('#myModalLabel').append(document.createTextNode(someText));
+                $('#message').append(document.createTextNode(message));
+                $('#myHelpModal').modal('show');
+            }
+            else {
+                return true;
+            }
+
+            return false;
+
+        }
+        var mediaonchange = function (evt) {
+            var val = $(this).val().toLowerCase();
+            var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif)$");
+            if (!(regex.test(val))) {
+                $(this).val('');
+                evt.preventDefault();
+                $('#myModalLabel').text('');
+                $('#message').text('');
+                var someText = "Information!";
+                var message = "Please select correct file format,only images are  allowed"
+                $('#myModalLabel').append(document.createTextNode(someText));
+                $('#message').append(document.createTextNode(message));
+                $('#AnchorTag').click();
+            }
+        }
+        var gallerymedia = function () {
+            $(function () {
+                (function () {
+                    var $image = $(".img-container img"),
+                        $dataX = $("#dataX"),
+                        $dataY = $("#dataY"),
+                        $dataHeight = $("#dataHeight"),
+                        $dataWidth = $("#dataWidth"),
+                        options = {
+                            aspectRatio: 98 / 58,
+                            data: {
+                                x: 980,
+                                y: 580,
+                                width: 980,
+                                height: 580
+                            },
+                            preview: ".img-preview",
+                            done: function (data) {
+                                $dataX.val(data.x);
+                                $dataY.val(data.y);
+                                $dataHeight.val(data.height);
+                                $dataWidth.val(data.width);
+                            }
+                        };
+
+                    $image.cropper(options).on({
+                        "build.cropper": function (e) {
+                            console.log(e.type);
+                        },
+                        "built.cropper": function (e) {
+                            console.log(e.type);
+                        }
+                    });
+
+                    $(document).on("click", "[data-method]", function () {
+                        var data = $(this).data();
+
+                        if (data.method) {
+                            $image.cropper(data.method, data.option);
+                        }
+                    });
+
+                    var $inputImage = $("#inputImage");
+
+                    if (window.FileReader) {
+                        $inputImage.change(function () {
+                            var fileReader = new FileReader(),
+                                files = this.files,
+                                file;
+
+                            if (files.length) {
+                                file = files[0];
+
+                                if (/^image\/\w+$/.test(file.type)) {
+                                    fileReader.readAsDataURL(file);
+                                    fileReader.onload = function () {
+                                        $image.cropper("reset", true).cropper("replace", this.result);
+                                    };
+                                }
+                            }
+                        });
+                    } else {
+                        $inputImage.addClass("hide");
+                    }
+
+                    var $setDataX = $("#setDataX"),
+                        $setDataY = $("#setDataY"),
+                        $setDataWidth = $("#setDataWidth"),
+                        $setDataHeight = $("#setDataHeight");
+
+
+                    var $dataURLInto = $("#dataURLInto"),
+                        $dataURLView = $("#dataURLView");
+
+                    $("#getDataURL").click(function () {
+                        var dataURLNormal = $image.cropper("getDataURL", {
+                            width: 980,
+                            height: 580
+                        }, "image/jpeg", 0.8);
+
+                        var dataURLThumb = $image.cropper("getDataURL", {
+                            width: 980,
+                            height: 580
+                        }, "image/jpeg", 0.8);
+
+                        $(EmpPhotoNormal).text(dataURLNormal);
+                        $(EmpPhotoThumb).text(dataURLThumb);
+                        $(dataURLView).html('<img style="width: 255px; height: 140px;" src="' + dataURLNormal + '">');
+                        $(imgPhotoThumb).html('<img style="width: 110px; height: 130px;" src="' + dataURLNormal + '">');
+                    });
+                }());
+            });
+
+        }
+        var uploadmedia = function (e) {
+            e.preventDefault();
+            $form = $('#gallform').closest('form');
+            var form = $('#gallform')[0];
+
+            // Create an FormData object
+            var data = new FormData(form);
+
+            $.ajax({
+                url: $form.attr('action'),
+                type: 'Post',
+                enctype: 'multipart/form-data',
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (html) {
+                    $('#t_t_gallery_item').empty().append(html);
+                    gallerymedia();
+                }
+                //,
+                //xhr: function () {  // Custom XMLHttpRequest
+                //    var myXhr = $.ajaxSettings.xhr();
+                //    if (myXhr.upload) { // Check if upload property exists
+                //        // Progress code if you want
+                //    }
+                //    return myXhr;
+                //}
+
+            });
+
+        }
+        $('#detailpanel').on('click', '#save', mediaonsave)
+        $('#detailpanel').on('change', '#inputImage', mediaonchange);
+        $('#detailpanel').on("submit", '#gallform', uploadmedia);
+        function ShowFileMsg() {
+            if ($('#inputImage').val() == "") {
+                $("#ImageSpan").text("Upload photo...");
+                $('#getDataURL').css("pointer-events", "none");
+                $('#getDataURL').css("opacity:", ".3");
+            }
+            else {
+                $("#ImageSpan").text("");
+                $('#getDataURL').css("pointer-events", "");
+                $('#getDataURL').css("opacity", "1");
+            }
+
+            if ($('#dataURLInto').val() == "") {
+                $('#ModelDone').css("pointer-events", "none");
+                $('#ModelDone').css("opacity:", ".3");
+            }
+            else {
+                $('#ModelDone').css("pointer-events", "");
+                $('#ModelDone').css("opacity", "1");
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+
+
+        Dropzone.options.dropzoneForm = {
+            init: function () {
+                this.on("complete", function (data) {
+                    //var res = eval('(' + data.xhr.responseText + ')');
+                    var res = JSON.parse(data.xhr.responseText);
+                });
+            }
+        };
+        //File Upload response from the server
+        Dropzone.options.dropzoneForm = {
+            maxFiles: 10,
+            accept: function (file, done) {
+
+                if (file.type !== "image/jpeg" && file.type !== "image/png" && file.type !== "application/pdf") {
+                    done("Error! Files of this type are not accepted");
+                }
+                else { done(); }
+            },
+            url: "/Coordinator/ManageSeller/SellerHomePV",
+            init: function () {
+                this.on("maxfilesexceeded", function (data) {
+                    var res = eval('(' + data.xhr.responseText + ')');
+                });
+                //this.on("addedfile", function (file) {
+                //    // Create the remove button
+                //    var removeButton = Dropzone.createElement("<button>Remove file</button>");
+                //    // Capture the Dropzone instance as closure.
+                //    var _this = this;
+                //    // Listen to the click event
+                //    removeButton.addEventListener("click", function (e) {
+                //        // Make sure the button click doesn't submit the form:
+                //        e.preventDefault();
+                //        e.stopPropagation();
+                //        // Remove the file preview.
+                //        _this.removeFile(file);
+                //        // If you want to the delete the file on the server as well,
+                //        // you can do the AJAX request here.
+                //    });
+                //    // Add the button to the file preview element.
+                //    file.previewElement.appendChild(removeButton);
+                //});
+            },
+            success: function (file, response) {
+
+                $.ajax({
+                    url: response.url,
+                    type: 'GET',
+                    success: function (html) {
+                        $('#t_t_seller_home_item').empty().append(html);
+                        $('#dropzoneForm').dropzone();
+                    }
+                });
+            }
+        };
+
+
+    </script>
+
+    
+
+}
+
+
+
+

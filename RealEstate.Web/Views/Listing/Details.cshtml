@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | Listing Details";
+    //Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+
+    Layout = null;
+}
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+<link href="~/Content/Compass/css/compass.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+@*@ViewBag.HTML*@
+
+
+@Html.Raw(@ViewBag.HTML)
+
+
+<style type="text/css">
+    .idx-details-gallery-container .idx-details-gallery-button {
+        display: none;
+    }
+    /*.site-header {
+        display: none;
+    }*/
+
+    footer {
+        display: none;
+    }
+
+    .fw fw-copyright {
+        display: none !important;
+    }
+
+    .fw-copyright {
+        background-color: #9a9a9a;
+        display: none;
+    }
+
+    .toolbar-left {
+        display: none;
+    }
+
+    .fw-idx-details.fw-idx-listing-groups {
+        padding: 0;
+        background: #37b6bd;
+    }
+    /*@@media (min-width: 1024px) {
+        .uk-width-large-1-3, .uk-width-large-2-6 {
+            width: 33.333%;
+            display: none;
+        }
+    }*/
+
+    @@media (min-width: 768px) {
+        .fw-idx-details-desc .idx-deets-extras a:nth-child(1), .fw-idx-details-desc .idx-deets-extras a:nth-child(2) {
+            display: none;
+            border-top: none;
+        }
+    }
+
+    .fw-idx-details-desc .idx-deets-extras a:nth-last-of-type(1), .fw-idx-details-desc .idx-deets-extras a:nth-last-of-type(2) {
+        display: none;
+        border-bottom: none;
+    }
+
+    .fw-idx-details-desc .idx-deets-extras a:nth-child(even) {
+        border-right-color: transparent;
+        display: none;
+    }
+
+    .fw-idx-details-desc .idx-deets-save-listing button {
+        display: none;
+    }
+
+    .view-vtour {
+    }
+
+    .fw-idx-similar-listings.fw-idx-details {
+        background-color: #FFF;
+        display: none;
+    }
+
+    .fw-idx-details-desc .idx-deets-extras a {
+        min-width: 292px;
+        max-width: 292px;
+        font-size: 40px;
+    }
+
+    .fw-idx-details-toolbar .toolbar-content .uk-button-medium {
+        display: none;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+<style>
+    body {
+        font: 18px/30px 'Heebo', sans-serif;
+        color: #202732;
+        font-weight: normal;
+        position: relative;
+    }
+
+    .fw-idx-details-desc .idx-deets-extras a:nth-child(1), .fw-idx-details-desc .idx-deets-extras a:nth-child(2) {
+        display: none;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        background: #cee002;
+    }
+
+    ::selection {
+        background-color: #cee002;
+        color: #fff;
+    }
+
+    -webkit-::selection {
+        background-color: #cee002;
+        color: #fff;
+    }
+
+    ::-moz-selection {
+        background-color: #cee002;
+        color: #fff;
+    }
+</style>
+
+<style>
+    .uc-listingTransit-mapAndTransit {
+        visibility: hidden;
+        display: none;
+    }
+
+    .uc-listing-sectionTitle--spaced {
+        display: none;
+    }
+
+    .uc-listing-floatingColumn {
+        display: none;
+    }
+
+    .uc-listingGallery-maps {
+        display: none;
+    }
+
+    .uc-listing--full.uc-listing--sm .uc-listingActions-smOnly, .uc-listingActions-buttonsOnly .uc-listingActions-smOnly {
+        display: none;
+    }
+
+    .uc-listingInternalContacts-footerTextLink {
+        display: none;
+    }
+
+    .uc-listingActions-smOnly {
+        display: none;
+    }
+</style>

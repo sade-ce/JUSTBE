@@ -1,0 +1,129 @@
+﻿@model RealEstate.Entities.Calculator.MstMortgageCalculator
+@{
+    ViewBag.Title = "Just BE | Mortgage";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <div class="dashboard-header">
+        <h1>Direct Cost Calculator</h1>
+
+    </div>
+
+    <div class="page-header">
+        <h1>
+            My Deal
+        </h1>
+        <p>Track your progress and learn about the upcoming steps related to your deal. If you’d like to be notified when a step has been completed, simply update your email preferences by clicking here</p>
+    </div>
+    <div class="col-md-8 col-lg-8">
+        <div class="sidebar">
+            <!-- /.widget -->
+            <div class="widget">
+                <h3 class="widgettitle">Direct Cost Calculator</h3>
+                @using (Html.BeginForm("Mortgage", "Tools", FormMethod.Get, new { @id = "Mortgage", @class = "mortgage-calculator" }))
+                {
+
+
+
+
+                    <div class="form-group">
+                        <label>Property Jurisdiction</label>
+
+                        @Html.DropDownListFor(model => model.Inputs.StateID, new SelectList(Model.Region, "StateID", "State"), "--- Select --- ", new { @class = "form-control drop-change ddl-select2 chosen-select-no-single", @placeholder = "House price" })
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>HousePrice</label>
+                        @Html.TextBoxFor(model => model.Inputs.HousePrice, new { @data_unit = "$", @class = "drop-change form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Down Payment</label>
+                        @Html.TextBoxFor(model => model.Inputs.DownPayment, new { @data_unit = "$", @class = "drop-change form-control", @disabled = "disabled " })
+                    </div>
+                    <div class="form-group">
+                        <label>Down Percent</label>
+                        @Html.TextBoxFor(model => model.Inputs.DownPercent, new { @data_unit = "%", @class = "drop-change form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>No Of Yrs</label>
+                        @Html.DropDownListFor(model => model.Inputs.TimeFrame, new SelectList(Model.TimePeriod, "TimeFrame", "TimeFrame"), "--- Select Years --- ", new { @class = "form-control drop-change ddl-select2 form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Mortgage Rate</label>
+                        @Html.TextBoxFor(model => model.Inputs.MortgageRate, new { @data_unit = "%", @class = "drop-change form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Utilities</label>
+                        @Html.TextBoxFor(model => model.Inputs.Utilities, new { @data_unit = "$", @class = "drop-change form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Home Insurance</label>
+                        @Html.TextBoxFor(model => model.Inputs.HomeInsurance, new { @data_unit = "$", @class = "drop-change form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>PMI</label>
+                        @Html.TextBoxFor(model => model.Inputs.PMI, new { @data_unit = "$", @class = "drop-change form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Maintenance</label>
+                        @Html.TextBoxFor(model => model.Inputs.Maintenance, new { @data_unit = "$", @class = "drop-change form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>HOAFees</label>
+                        @Html.TextBoxFor(model => model.Inputs.HOAFees, new { @data_unit = "$", @class = "drop-change form-control" })
+                    </div>
+
+                }
+
+
+            </div><!-- /.widget -->
+            <!-- /.widget -->
+        </div><!-- /.sidebar -->
+    </div><!-- /.row -->
+
+    <div class="col-md-4 col-lg-4">
+        @Html.Partial("pvCalc", Model)
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $(".drop-change").on('change', function () {
+
+
+                var $form = $("#Mortgage");
+                var options = {
+                    url: $form.attr("action")
+                    , type: $form.attr("method")
+                    , data: $form.serialize()
+                }
+
+                var target = $("#DataGrid");
+                $.ajax(options).done(function (data) {
+                    $(target).replaceWith(data);
+                });
+                return false;
+
+
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+
+        });
+    </script>
+
+}

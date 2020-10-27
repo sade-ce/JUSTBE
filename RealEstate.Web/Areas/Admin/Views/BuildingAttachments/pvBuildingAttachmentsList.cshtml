@@ -1,0 +1,83 @@
+﻿@model RealEstate.Entities.ViewModels.BuildingAttachmentsViewModel
+<div id="DataGrid" class="col-left-nil col-right-nil">
+    @if (Model.BuildingAttachmentsList.Count() > 0)
+    {
+        <div class="table-responsive" style="overflow-x:visible;">
+            <table class="table table-striped table-condensed table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="vertical-align: middle;">
+                            Name
+                        </th>
+                        <th class="text-center" style="vertical-align:middle;">
+                            Created On
+
+                        </th>
+                        <th class="text-center" style="vertical-align:middle;">
+                            Created By
+                        </th>
+                       
+                        <th class="text-center" style="vertical-align: middle;">
+                            Action
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.BuildingAttachmentsList)
+                    {
+                        <tr>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td class="text-center">
+                                @item.CreatedOn.ToString("dd MMM yyyy hh:mm tt")    
+                            </td>
+                         
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.UserRole)
+                            </td>
+                            <td class="text-center">
+                                <div class="col-md-offset-3">
+                                    <div style="float:left; padding-right: 8px;">
+                                        <div style="float:left; padding-right: 8px;">
+                                            <a href="@Url.Action("Edit", new {  BuildingAttachmentId = item.BuildingAttachmentId })" data-toggle="tooltip" data-placement="bottom" title="Edit">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="float:left">
+                                        <form method="post" action="@Url.Action("delete","BuildingAttachments",new { area = "admin" })" data-kw-ajax="true" data-kw-target="#DataGrid">
+                                            @Html.AntiForgeryToken()
+                                            <a href="@Url.Action("delete", "BuildingAttachments", new { BuildingAttachmentId = item.BuildingAttachmentId, PgNo = @Model.PagingInfo.CurrentPage, PgSize = @Model.PagingInfo.ItemsPerPage, ListCount = @Model.BuildingAttachmentsList.Count() })" class="delete" data-toggle="tooltip" data-placement="bottom" title="Delete ">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="ns-grid-pager" data-kw-target="#DataGrid">
+            <div class="hidden-xs col-md-3 col-sm-3">
+                @Model.PagingInfo.TotalItems &nbsp;Record(s)
+            </div>
+            <div class="visible-lg visible-md visible-sm visible-xs col-md-9 col-sm-9 ns-pagination text-right" data-kw-target="#DataGrid" data-kw-actionlink="/admin/BuildingAttachments/List">
+                @Html.PageLinks(Model.PagingInfo, x => Url.Action("list", new { PageNo = x, PageSize = Model.PagingInfo.ItemsPerPage }))
+            </div>
+        </div>
+    }
+    else
+    {
+        <h3>No record found...</h3>
+    }
+
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>

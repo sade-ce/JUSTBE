@@ -1,0 +1,173 @@
+﻿@using System.Security.Claims;
+@{
+    ViewBag.Title = "Resources";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayoutNew.cshtml";
+    if (User.IsInRole("Agent")|| User.IsInRole("Admin"))
+    {
+        Layout = "/Views/Shared/_LayoutCommonNew.cshtml";
+
+    }
+}
+
+                                    <!-- TOP HEADER START -->
+@if ((User.IsInRole("Client")))
+{
+
+
+<div class="top-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="breadcrumbs">
+                    <ul class="align-items-center d-flex list-unstyled m-0 p-0">
+                        <li class="d-none d-lg-block mr-4">
+                           
+                                <a href="#!" id="toggleHeader"><img src="~/Content/NewVersion/images/ham.png" alt="" class="img-fluid"></a>
+                           
+                        </li>
+                        @*<li>My Account<span>&nbsp;>&nbsp;</span></li>
+                            <li class="active">Edit Profile<span>&nbsp;>&nbsp;</span></li>*@
+                        <li>
+                            <a class="nav-link nav-cal-drop nav-cal-drop-new dropdown-toggle " href="@Url.Action("Index", "Resources", new { area = "Client" })" role="button">Resources<span style="color:#212529">&nbsp;>&nbsp;</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 d-md-block d-none">
+                <div class="accountLog d-flex justify-content-end align-items-center">
+                    <p>Hello, &nbsp;<span>@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)</span></p>
+                    <div class="profileImgtop" style="background-size: cover; background-position: center;   height:50px;">
+                        <!-- <img alt="profile-img" id="profileimg" class="img-fluid profileimg"> -->
+                    </div>                                                    
+                        <span> &nbsp; &nbsp; | &nbsp; </span>
+
+                                                        <div class="dropdown">
+                                                            <button class="btn  dropdown-toggle mybtn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                My Account
+                                                            </button>
+                                                            <div class="dropdown-menu MyAccountDrop" aria-labelledby="dropdownMenuButton">
+                                                                <a class="dropdown-item" href="@Url.Action("EmailPreferences", "Account", new { @area = "" })"><i class="flaticon-gear"></i>Notification Settings</a>
+                                                                <a class="dropdown-item" href="@Url.Action("EditProfile", "Account", new { @area = "" })"><i class="flaticon-conversation"></i>Edit Profile</a>
+                                                                <a class="dropdown-item" href="@Url.Action("ChangePassword", "Account", new { @area = "" })"><i class="flaticon-password"></i>Change Password</a>
+
+                                                                @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                                                {
+                                                                    @Html.AntiForgeryToken()
+                                                                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                                                                }
+                                                            </div>
+                                                        </div>
+              
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+}
+<!-- TOP HEADER END -->
+<section class="resourcesWrapper">
+    <div class="resourcesBannerWrap">
+        <div class="container">
+            <h2>Welcome to the Just BE Resources Page</h2>
+            <p>Dummy Text Dummy Text Dummy Text Dummy Text Dummy Text Dummy Text Dummy Text</p>
+        </div>
+    </div>
+
+    <div class="resourcesContentWrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card resourcesInnerBlock">
+                        <img class="card-img-top" src="/img/Resource/resources1.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="@Url.Action("ResourceType","Resources",new {Id=1, area = "Client" })">Resources for buyers</a></h5>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua.
+                            </p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card resourcesInnerBlock">
+                        <img class="card-img-top" src="/img/Resource/resources2.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="@Url.Action("ResourceType","Resources",new {Id=2, area = "Client" })">Resources for sellers</a></h5>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua.
+                            </p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card resourcesInnerBlock">
+                        <img class="card-img-top" src="/img/Resource/resources3.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="@Url.Action("ResourceType","Resources",new {Id=3, area = "Client" })">Resources for renters</a></h5>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua.
+                            </p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card resourcesInnerBlock">
+                        <img class="card-img-top" src="/img/Resource/resources4.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="@Url.Action("ResourceType","Resources",new {Id=4, area = "Client" })">Resources for investors</a></h5>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua.
+                            </p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card resourcesInnerBlock">
+                        <img class="card-img-top" src="/img/Resource/no-photo.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="@Url.Action("ResourceType","Resources",new {Id=5, area = "Client" })">Resources for developers</a></h5>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua.
+                            </p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="col-12 col-sm-6 col-md-4">
+                    <div class="card resourcesInnerBlock">
+                        <img class="card-img-top" src="/img/Resource/resources1.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Resources for buyers</a></h5>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua.
+                            </p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+            <div class="row">
+                @*<div class="col-12 btn-wrap d-flex align-items-center justify-content-center">
+                    <button type="button" class="btn btn-darkGray resourcesSeeAllBtn">See All</button>
+                </div>*@
+            </div>
+        </div>
+    </div>
+
+</section>

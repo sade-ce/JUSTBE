@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+    @*@Styles.Render("~/Content/Dashboard")*@
+    @Styles.RenderFormat(
+    "<link href='https://justbere-d4d9.kxcdn.com/{0}' rel='stylesheet'></link>",
+    "~/Content/Dashboard")
+    @*@Styles.Render("~/Content/common")*@
+    <link rel="icon" type="image/png" href="~/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="~/favicon-16x16.png" sizes="16x16" />
+  <style>
+
+
+    </style>
+    <!-- Facebook Pixel Code -->
+    <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '2670780916336038');
+fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1"
+             src="https://www.facebook.com/tr?id=2670780916336038&ev=PageView
+&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="dashboard-login-wrapper">
+            <div class="dashboard-login-inner">
+                <div class="dashboard-login-left">
+                    @RenderBody()
+                    <!-- /.dashboard-footer -->
+                </div><!-- /.dashboard-login-left -->
+                <div class="dashboard-login-right">
+                    <div class="dashboard-login-right-content">
+                        @*<a href="index.html"><i class="fa fa-long-arrow-left"></i> Back To Front End</a>*@
+
+                        @*<h1>Villareal Back End Interface</h1>
+                        <h2>
+                            Mauris ut rutrum lacus. Donec vulputate, lorem et volutpat consectetur, sapien mauris consectetur sapien, eu sagittis dui quam id justo.
+                        </h2>*@
+                    </div><!-- /.dashboard-login-right-content -->
+                </div><!-- /.dashboard-login-right -->
+            </div><!-- /.dashboard-login -->
+        </div><!-- /.dashboard-login -->
+    </div>
+    
+
+    
+    @*<script type="text/javascript">(function(t,e){var r=function(t){try{var r=e.head||e.getElementsByTagName("head")[0];a=e.createElement("script");a.setAttribute("type","text/javascript");a.setAttribute("src",t);r.appendChild(a);}catch(t){}};t.CollectId = "5b50a82db9da48929e605a8b";r("https://collectcdn.com/launcher.js");})(window,document);</script>*@
+    <script async>(function(w, d) { w.CollectId = "5ce5a26f0e4b2e52093c42dc"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+        @*@Scripts.Render("~/bundles/bootstrap")*@
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com{0}' ></script>",
+    "~/bundles/ClientDash")
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com{0}' ></script>",
+    "~/bundles/app")
+
+    @*@Scripts.Render("~/bundles/ClientDash")
+    @Scripts.Render("~/bundles/app")*@
+
+
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.img-user').attr('src', $('#user-img').attr('src'));
+        })
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126963521-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-126963521-1');
+    </script>
+
+</body>
+</html>
+
+<input type="hidden" id="ActiveURL" data-value="@ViewBag.ActiveURL" />
+
+
+<div class="panel panel-primary text-center ajax-new-load" id="ajaxLoading" >
+    <div class="panel-heading">Loading data</div>
+    <div class="panel-body" style="padding-left: 30px; padding-right: 30px;">
+        <img src="~/img/loading.gif" alt="Loading" style="margin-bottom: 10px" /><br />
+        Please wait...
+    </div>
+</div>
+<div id="ajax-backdrop" class="fade in" style="background-color: rgb(0, 0, 0); bottom: 0px; left: 0px; position: fixed; right: 0px; top: 0px; z-index: 10000; opacity: 0.4; display: none;"></div>
+<div class="modal modal-styled" id="myErroMsgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModal()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myErroModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <h4 id="Msg"></h4>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10 text-right" style="padding-right: 0;">
+                    <input type="button" id="myErroMsgModalNoButton" class="btn btn-default btn-sm" data-dismiss="modal" onclick="CloseMyModal()" value="Cancel" />
+                    <input type="button" id="myErroMsgModalYesButton" value="Yes" class="btn btn-info btn-sm hidden" onclick="OkMyModal()" />
+                </div>
+            </div>
+            <input type="hidden" id="eventSender" name="name" value=" " />
+        </div>
+    </div>
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+<style>
+        .ajax-new-load{
+display: none;
+      box-shadow: rgb(0, 0, 0,0.3) 0px 0px 50px;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+
+    }
+
+</style>

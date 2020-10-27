@@ -1,0 +1,41 @@
+﻿@model RealEstate.Entities.Models.utblMstContact
+
+
+
+@using (Html.BeginForm("ContactPage", "Home",FormMethod.Post, new { id = "contact-form", @class = "contact-form" }))
+{
+
+    @Html.ValidationSummary(true)
+
+    <div class="text-danger " id="ErrorView"></div>
+    <div class="form-row">
+        <div class="form-col-2">
+            @Html.ValidationMessageFor(m => m.ContactPerson, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(model => model.ContactPerson, new { @placeholder = "Your Name", @required = "required" })
+        </div>
+        <div class="form-col-2">
+
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(model => model.Email, new { @required = "required", @placeholder = "Email Address", @type = "email" })
+
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-col">
+            @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+            @Html.TextAreaFor(model => model.Message, new { @required = "required", @class = "validate-required validate-email", @placeholder = "Message" })
+
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-col">
+            <div class="g-recaptcha" data-sitekey="6LdETW0UAAAAAL2AwkbmNixwIKlFm1dLGf2bFVvz"></div>
+
+        </div>
+    </div>
+
+
+    <input type="submit" class="btn style-5" id="submit" value="Send message" />
+
+}

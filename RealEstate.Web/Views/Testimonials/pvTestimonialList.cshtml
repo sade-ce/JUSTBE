@@ -1,0 +1,88 @@
+﻿@model RealEstate.Entities.ViewModels.TestimonialViewModel
+
+
+@if (Model.TestimonialList.Count() > 0)
+{
+    foreach (var item in Model.TestimonialList)
+    {
+   <!-- Testimonial One S -->
+<div class="row row justify-content-md-center offset-top30">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                @*<div class="row">
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-6">
+                        <p class="text-right lightGray">@item.CreatedOn.ToString("d")</p>
+                    </div>
+                </div>*@
+              
+
+                <div class="row" style="margin-top:10px">
+                    <div class="col-md-12">
+                        <p>@Html.Raw(System.Web.HttpUtility.HtmlDecode(item.Description))</p>
+                        <p class="text-center">
+                            <span>
+                               
+                                @for (var i = 1; i <= item.Rating; i++)
+                                {
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                }
+                             
+                                @for (var i = item.Rating + 1; i <= 5; i++)
+                                {
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                }
+                            </span>
+                        </p>
+                        <p class="text-center tname"><strong>@item.UserName</strong></p>
+                        <p class="text-center lightGray">@item.UserType</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial One E -->
+    }
+}
+
+
+@if (Model.TestimonialList.Count() > 0)
+{
+<div class="row justify-content-md-center offset-top30">
+    <div class="col-md-12">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+@if (Model.PagingInfo.CurrentPage > 1)
+{
+                <li class="page-item ">
+                  
+                        @Html.ActionLink("Previous", "List", new { area = "", SearchTerm = @ViewBag.SearchTerm, PageNo = Model.PagingInfo.CurrentPage - 1 }, new { @class = "page-link" })
+                    
+                   </li>
+}
+             
+          @if (Model.PagingInfo.TotalItems > (Model.PagingInfo.CurrentPage * Model.PagingInfo.ItemsPerPage))
+                {
+                    <li class="page-item">
+                        @Html.ActionLink("Next", "List", new { area = "", SearchTerm = @ViewBag.SearchTerm, PageNo = Model.PagingInfo.CurrentPage + 1 }, new { @class = "page-link" })
+                    </li>
+                }
+
+
+
+               
+            </ul>
+        </nav>
+    </div>
+</div>
+}
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+

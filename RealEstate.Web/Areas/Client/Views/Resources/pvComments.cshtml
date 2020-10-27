@@ -1,0 +1,66 @@
+﻿@model RealEstate.Entities.ViewModels.CommentsViewModel
+
+
+@if (Model.CommentsList.Count() > 0)
+{
+<div class="allCommentsWrap" id="divComments">
+    <div class="commentTextWrap">
+        <div class="commentTitleWrap">
+            <div class="commentTitle">Comment Title</div>
+            <div class="edit-delete-wrap">
+                <a href="#"><img src="/img/Resource/edit-icon.svg" /></a>
+                <a href="#"><img src="/img/Resource/pin-icon.svg" /></a>
+                <a href="#"><img src="/img/Resource/delete-icon.svg" /></a>
+            </div>
+        </div>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</p>
+
+        @*<div class="commentDescriptionBox form-group">
+                <label>Description</label>
+                <div class="commentBox">
+                    <textarea class="commentTextBox form-control" placeholder="What are your thoughts?"></textarea>
+                    <div class="btn-wrap"><button class="btn commentBtn">Comment</button></div>
+                </div>
+            </div>*@
+
+
+        <div class="commentNameTime">
+            <h5>Neha Sharma <span>April 09, 2020</span></h5>
+        </div>
+    </div>
+
+    <div class="commentTextWrap">
+        <div class="commentTitleWrap">
+            <div class="commentTitle">Comment Title</div>
+            <div class="edit-delete-wrap">
+                <a href="#"><img src="/img/Resource/edit-icon.svg" /></a>
+                <a href="#"><img src="/img/Resource/pin-icon.svg" /></a>
+                <a href="#"><img src="/img/Resource/delete-icon.svg" /></a>
+            </div>
+        </div>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</p>
+        <div class="commentNameTime">
+            <h5>Priyanka Sharma <span>April 09, 2020</span></h5>
+        </div>
+    </div>
+
+    <div class="commentTextWrap">
+        <div class="commentTitleWrap">
+            <div class="commentTitle">Comment Title</div>
+            <div class="edit-delete-wrap">
+                <a href="#"><img src="/img/Resource/edit-icon.svg" /></a>
+                <a href="#"><img src="/img/Resource/pin-icon.svg" /></a>
+                <a href="#"><img src="/img/Resource/delete-icon.svg" /></a>
+            </div>
+        </div>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.</p>
+        <div class="commentNameTime">
+            <h5>Neha Sharma <span>April 09, 2020</span></h5>
+        </div>
+    </div>
+</div>
+
+}
+<div class="moreCommentsLink">
+    <a href="#">40 Comments more</a>
+</div>

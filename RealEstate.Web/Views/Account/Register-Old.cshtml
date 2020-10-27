@@ -1,0 +1,154 @@
+﻿@model RealEstate.Web.Models.RegisterManagelModel
+@{
+    ViewBag.Title = "Just BE | Sign Up";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+
+}
+<style>
+    .dashboard-footer {
+    
+    position: unset;
+   margin-top:10px;
+   position:relative;
+   left:0px;
+}
+</style>
+
+
+<h2>Sign Up on 
+    Just BE</h2>
+
+@using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new {role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        <label for="">First Name</label>
+        <div>
+            @Html.ValidationMessageFor(m => m.RegisterViewModel.Name, "", new { @class = "text-danger" })
+        </div>
+        @Html.TextBoxFor(m => m.RegisterViewModel.Name, new { @class = "form-control" })
+
+    </div><!-- /.form-group -->
+    <div class="form-group">
+        <label for="">Last Name</label>
+        <div>
+            @Html.ValidationMessageFor(m => m.RegisterViewModel.LastName, "", new { @class = "text-danger" })
+        </div>
+        @Html.TextBoxFor(m => m.RegisterViewModel.LastName, new { @class = "form-control" })
+
+    </div>
+<!-- /.form-group -->
+    <div class="form-group">
+        <label for="">Email</label>
+        <div>
+            @Html.ValidationMessageFor(m => m.RegisterViewModel.Email, "", new { @class = "text-danger" })
+        </div>
+        @Html.TextBoxFor(m => m.RegisterViewModel.Email, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        <label for="">Phone #</label>
+        <div>
+            @Html.ValidationMessageFor(m => m.RegisterViewModel.PhoneNumber, "", new { @class = "text-danger" })
+        </div>
+        @Html.TextBoxFor(m => m.RegisterViewModel.PhoneNumber, new { @class = "form-control", @placeholder = "###.###.####", @maxlength = "12" })
+
+    </div>
+    <div class="form-group">
+        <label for="">Password</label>
+        <div>
+            @Html.ValidationMessageFor(m => m.RegisterViewModel.Password, "", new { @class = "text-danger" })
+        </div>
+        @Html.PasswordFor(m => m.RegisterViewModel.Password, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        <label for="">Repeat Password</label>
+        <div>
+            @Html.ValidationMessageFor(m => m.RegisterViewModel.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+        @Html.PasswordFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "form-control" })
+
+    </div>
+
+    <div class="form-group-btn">
+        <input type="submit" class="btn btn-primary pull-right" name="login" value="Sign Up" />
+
+    </div><!-- /.form-group-btn -->
+
+}
+<div class="dashboard-footer">
+    <p>
+        &copy; 2018 Just BE All Rights reserved.
+    </p>
+    <ul style="background-color: rgba(255, 255, 255, 0.4);border: 1px solid #DDDDDD;margin-bottom: 40px;">
+        <li><a style="font-size: 1.30em;" href="@Url.Action("ForgotPassword","Account")">I forgot my password</a></li>
+        <li><a style="font-size: 1.30em;" href="@Url.Action("Login","Account")">I already have an account</a></li>
+    </ul>
+</div>
+
+@section Scripts {
+
+@Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com/{0}' ></script>",
+    "~/bundles/jqueryval")
+
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+    <script>
+        $('#RegisterViewModel_PhoneNumber')
+
+      .keydown(function (e) {
+          var key = e.which || e.charCode || e.keyCode || 0;
+          $phone = $(this);
+
+          // Don't let them remove the starting '('
+
+
+          // Auto-format- do not expose the mask as the user begins to type
+          if (key !== 8 && key !== 9) {
+              if ($phone.val().length === 3) {
+                  $phone.val($phone.val() + '.');
+              }
+              if ($phone.val().length === 7) {
+                  $phone.val($phone.val() + '.');
+              }
+
+          }
+
+          // Allow numeric (and tab, backspace, delete) keys only
+          return (key == 8 ||
+                  key == 9 ||
+                  key == 46 ||
+                  (key >= 48 && key <= 57) ||
+                  (key >= 96 && key <= 105));
+      })
+
+      .bind('focus click', function () {
+          $phone = $(this);
+
+
+      })
+
+      .blur(function () {
+          $phone = $(this);
+
+
+      });
+    </script>
+}
+<style>
+    label {
+        font-size: 1.0em;
+    }
+
+    .dashboard-login-left ul li {
+        padding: 0px 0;
+    }
+
+    p {
+        font-size: 1.20em;
+    }
+  
+</style>

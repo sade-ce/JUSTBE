@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "Contact | Just BE";
+    Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+}
+
+<div id="content" class="page-content-wrap2">
+
+    <div class="container container-size">
+
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+
+                <h4 class="section-title">Our Office</h4>
+                <h4 class="section-title">Compass</h4>
+
+
+                <div class="content-element3">
+
+                    <!-- Our coodrinates -->
+                    <p>
+                        660 Pennsylvania Ave. SE Suite 300, <br>
+                        Washington, DC 20003
+                    </p>
+                    <p><span>Phone <a href="tel:301.785.1100">301.785.1100</a>  </span></p>
+                    <p><span>Office <a href="tel:202.545.6900">202.545.6900</a></span></p>
+             
+                 
+                    <p><a href="mailto:info@justbere.com" class="link-text">info@JustBEre.com</a></p>
+                    @*<p>
+                        Monday - Friday: 10am - 6pm <br>
+                        Saturday - Sunday: 1am - 6pm
+                    </p>*@
+
+                </div>
+
+                <div class="content-element3">
+                    <div class="map-section">
+                        <div id="googleMap" class="map-container size-2"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-6 col-sm-12">
+                <h4 class="section-title">Contact</h4>
+                @{Html.RenderAction("ContactPage", "Home");}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- Container / End -->
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAawqliBxwDYdgLhbfDAeLMz5NqNvrr-OE&libraries=places"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('form').submit(function () {
+            if (isValidEmailAddress($("#Email").val())) {
+                $("#ajaxLoading").css("display", "block");
+                $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                $("#ajaxLoading").css("left", $(window).width() / 2);
+                $("#ajaxLoading").css("position", "fixed");
+                $("#ajax-backdrop").css("display", "block");
+                var serializedForm = $(this).serialize();
+                $.ajax({
+                    url: '@Url.Action("ContactPage")',
+                    type: "POST",
+                    data: serializedForm,
+
+                    success: function (result) {
+                        $("#ajaxLoading").css("display", "none");
+                        $("#ajax-backdrop").css("display", "none");
+                        $('#ErrorView').text(result).show();
+                        $('#ContactPerson').val('');
+                        $('#Email').val('');
+                        $('#Message').val('');
+                        
+
+                    },
+                    error: function (result) {
+
+                        $('#ErrorView').text(result).show();
+                        //$('#Error').text(result.Email);
+                    }
+
+                });
+
+            }
+            else
+            {
+                $("#ErrorView").text("Invalid Email Address!").show().fadeOut("slow");
+            }
+
+            return false;
+        });
+    });
+
+    function isValidEmailAddress(emailAddress) {
+        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+        return pattern.test(emailAddress);
+    }
+    
+
+</script>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+}
+
+
+    
+

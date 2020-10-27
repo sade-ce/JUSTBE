@@ -1,0 +1,100 @@
+﻿@model RealEstate.Entities.Models.utblMstContact
+@using (Html.BeginForm("AgentContact", "MyDeal", FormMethod.Post, new { id = "contact-form"}))
+{
+    @Html.ValidationSummary(true)    
+    @Html.HiddenFor(m=>m.ContactPerson)
+    @Html.HiddenFor(m => m.Email)
+    @Html.HiddenFor(m => m.ContactDate)
+    @Html.Hidden("AgentID", new { Value = @ViewBag.AgentID })
+
+    @*<div class="col-sm-8 col-md-offset-2">
+        <div class="form-group">
+            <div class="text-danger " id="ErrorView"></div>
+
+            <label>Message</label>
+            @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+            @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @rows = "10", @placeholder = "Please keep your message as simple as possible." })
+        </div>
+    </div>
+
+    <div class="col-sm-10">
+        <div class="form-group-btn">
+            <button class="btn btn-primary pull-right">Send Message</button>
+        </div>
+    </div>*@
+
+
+
+ 
+   
+    <div id="conform">
+        <div class="text-danger " id="ErrorView" style="color:#e51f1f;font-weight:400"></div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h4 class="contactUsTitle">Message @ViewBag.AgentName!</h4>
+                <small>Agent will be in touch soon!</small>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+
+            @*<div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-field">
+                      
+                        @Html.TextBoxFor(m => m.ContactPerson,new { @required = "required"})
+                        <label for="firstName">Name:</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <div class="input-field">
+                     
+                        @Html.TextBoxFor(m => m.Email, new { @required = "required" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        <label for="email">Email:</label>
+                    </div>
+                </div>
+
+            </div>*@
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <div class="input-field">
+
+                        @Html.TextAreaFor(model => model.Message, new { @id = "msz", @rows = "4", @cols = "50", @required = "required" })
+                        <label for="msz">Message:</label>
+
+                        @*@Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="captchOuter1">
+                    <div class="g-recaptcha" data-sitekey="6LdETW0UAAAAAL2AwkbmNixwIKlFm1dLGf2bFVvz"></div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center" style="padding-top: 30px;">
+                <button class="btn btn-darkGray">Send Message</button>
+            </div>
+        </div>
+    </div>
+    <div id="SucessView" style="display:none;text-align:center">
+        <h3 style="color:#0bb7a5!important">Thanks, we will be in touch shortly.</h3>
+    </div>
+}

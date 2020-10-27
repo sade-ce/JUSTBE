@@ -1,0 +1,16 @@
+﻿@model RealEstate.Entities.ViewModels.MstContactViewModel
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+<section class="content-header">
+    <h1>
+      Contact Form
+        <small>List </small>
+    </h1>
+</section>
+<div>
+    @Html.Partial("pvContactList", Model);
+</div>
+

@@ -1,0 +1,22 @@
+﻿@model RealEstate.Entities.ViewModels.UserProfileViewModel
+
+<div class="user-panel">
+    <div class="pull-left image">
+        @if (Model.UserPhotoThumb == null || Model.UserPhotoThumb == "")
+        {
+            <img src="~/img/profile_img.jpg" class="img-circle" id="user-img" />
+        }
+        else
+        {
+            <img src="@Model.UserPhotoThumb" class="img-circle" id="user-img" />
+        }
+    </div>
+    <div class="pull-left info">
+        <p>@Model.Name</p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+    </div>
+</div>
+
+
+
+

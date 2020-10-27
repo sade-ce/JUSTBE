@@ -1,0 +1,1057 @@
+﻿@model RealEstate.Entities.ViewModels.MultipleDealClientManageModel
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "Just BE | My Transaction";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayoutNew.cshtml";
+}
+
+
+<!-- TOP HEADER START -->
+<div class="top-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="breadcrumbs">
+                    <ul class="align-items-center d-flex list-unstyled m-0 p-0">
+                        <li class="d-none d-lg-block mr-4">
+                            <a href="#!" id="toggleHeader"><img src="~/Content/NewVersion/images/ham.png" alt="" class="img-fluid"></a>
+                        </li>
+                        @if (User.IsInRole("Agent") || User.IsInRole("Admin"))
+                        {
+                            <li>
+                                <a class="nav-link nav-cal-drop nav-cal-drop-new dropdown-toggle " href="@Url.Action("List", "MyDeal", new {ClientID=Request.QueryString["ClientID"],AgentId=ViewBag.AgentID, area = "Client"})" role="button">My Transactions<span>&nbsp;&gt;</span></a>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li>
+                                <a class="nav-link nav-cal-drop nav-cal-drop-new dropdown-toggle " href="@Url.Action("List", "MyDeal", new { area = "Client" })" role="button">My Transactions<span>&nbsp;&gt;</span></a>
+                            </li>
+                        }
+                        @*<li class="active">My Transactions<span>&nbsp;>&nbsp;</span></li>*@
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 d-md-block d-none">
+                <div class="accountLog d-flex justify-content-end align-items-center">
+                    <p>Hello, &nbsp;<span>@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)</span></p>
+                    <div class="profileImgtop" style="background-size: cover; background-position: center;   height:50px;">
+					<!-- <img alt="profile-img" id="profileimg" class="img-fluid profileimg"> -->
+					</div>
+                    <span> &nbsp; &nbsp; | &nbsp; </span>
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle mybtn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            My Account
+                        </button>
+                        <div class="dropdown-menu MyAccountDrop" aria-labelledby="dropdownMenuButton">
+                            @if (User.IsInRole("Agent") || User.IsInRole("Admin"))
+                            {
+                                <a class="dropdown-item" href="@Url.Action("EmailPreferences", "Account", new {ClientID=Request.QueryString["ClientID"], @area = "" })"><i class="flaticon-gear"></i>Notification Settings</a>
+                            }
+                            else
+                            {
+                                <a class="dropdown-item" href="@Url.Action("EmailPreferences", "Account", new { @area = "" })"><i class="flaticon-gear"></i>Notification Settings</a>
+
+                            }
+                            <a class="dropdown-item" href="@Url.Action("EditProfile","Account",new { @area=""})"><i class="flaticon-conversation"></i>Edit Profile</a>
+                            <a class="dropdown-item" href="@Url.Action("ChangePassword","Account",new { @area=""})"><i class="flaticon-password"></i>Change Password</a>
+
+                            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- TOP HEADER END -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @if (Model.MultipleDealList.Count() > 0)
+            {
+
+                foreach (var item in Model.MultipleDealList)
+                {
+                    if (item.Image != "N/A" && item.Image != "")
+                    {
+
+                        <div class="col-md-6 col-xl-4 d-flex justify-content-center">
+                            <div class="property-outer">
+                                <div class="p-image position-relative-listtt">
+                                    <a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">
+                                        <img src="@item.Image" alt="Property Images" class="img-fluid  img-fluid-custom">
+                                    </a>
+                                    @*<div class="position-absolute p-title">*@
+                                    @if (@item.Address == "N/A")
+                                    {
+                                        @*<h4><a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">Still looking for the right place </a></h4>*@
+                                    }
+                                    else
+                                    {
+                                        <div class="position-absolute p-title">
+                                            <h4><a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">@item.Address</a></h4>
+                                        </div>
+                                    }
+
+
+                                    @*</div>*@
+                                    <div class="position-absolute p-badges">
+                                        @if (@item.ClientType == "Seller")
+                                        {
+                                            <h4 class="badge">My Property</h4>
+                                        }
+                                        else
+                                        {
+                                            if (@item.Status == "Completed")
+                                            {
+                                                <h4 class="badge">My Current Home</h4>
+
+                                            }
+                                            else
+                                            {
+                                                <h4 class="badge">My Future Home</h4>
+
+                                            }
+
+                                        }
+                                    </div>
+                                </div>
+                                <div class="p-name position-relative">
+                                    <ul class="list-unstyled p-0 m-0">
+                                        <li>
+                                            <p>
+
+
+                                                @if (@item.ClientType == "Seller")
+                                                {
+
+                                                    <i class="flaticon-house"> Role: Seller</i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="flaticon-house"> Role: Buyer</i>
+
+                                                }
+                                                <span class="p-share">
+                                                    @if (ViewBag.IsClient == "Client")
+                                                    {
+                                                        if (item.IsTransactionShared == "true")
+                                                        {
+                                                            <a href="@Url.Action("ShareDeal", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID })" data-share="" class="btn btn-primary btn-lg pull-right">
+
+                                                                Shared
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="@Url.Action("ShareDeal", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID })" data-share="" class="btn btn-primary btn-lg pull-right">
+
+                                                                Share
+                                                            </a>
+                                                        }
+                                                    }
+
+
+                                                    @*<a href="#!">Share</a>*@
+                                                </span>
+                                            </p>
+                                        </li>
+                                        @if (@item.ClientType == "Seller")
+                                        {
+
+                                            <li>
+                                                <p><i class="flaticon-crime"></i>Agent: @item.Name</p>
+                                            </li>
+                                            <li>
+                                                <p><i class="flaticon-phone"></i>@item.Phone</p>
+                                            </li>
+
+
+                                        }
+                                        else
+                                        {
+
+                                            <li>
+                                                <p><i class="flaticon-crime"></i>Agent: @item.Name</p>
+                                            </li>
+                                            <li>
+                                                <p><i class="flaticon-phone"></i> @item.Phone</p>
+                                            </li>
+
+
+                                        }
+
+                                    </ul>
+
+                                </div>
+                                @*<div class="p-features">
+                                        <ul class="list-unstyled d-flex flex-wrap p-0 m-0">
+                                            <li>
+                                                <p><i class="flaticon-bed"></i>1 Bed</p>
+                                            </li>
+                                            <li>
+                                                <p><i class="flaticon-bathtub-with-opened-shower"></i>1 Bath</p>
+                                            </li>
+                                            <li>
+                                                <p class="priceF"><i></i>$539,500</p>
+                                            </li>
+                                        </ul>
+                                    </div>*@
+                            </div>
+                        </div>
+                    }
+
+                    else
+                    {
+
+                        <div class="col-md-6 col-xl-4 d-flex justify-content-center">
+                            <div class="property-outer">
+                                <div class="p-image position-relative-listtt">
+                                    <a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">
+                                        <img src="~/Content/NewVersion/images/no-photo1.jpg" alt="Property Images" class="img-fluid img-fluid-custom">
+                                    </a>
+                                    @*<div class="position-absolute p-title">*@
+                                        @if (@item.Address == "N/A")
+                                        {
+                                            @*<h4><a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">Still looking for the right place</a></h4>*@
+                                        }
+                                        else
+                                        {
+                                            <div class="position-absolute p-title">
+                                                <h4><a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">@item.Address</a></h4>
+                                            </div>
+                                        }
+
+                                    @*</div>*@
+                                    <div class="position-absolute p-badges">
+                                        @if (@item.ClientType == "Seller")
+                                        {
+                                            <h4 class="badge">My Property</h4><!-- /.listing-box-image-label -->
+
+                                        }
+                                        else
+                                        {
+                                            if (@item.Status == "Completed")
+                                            {
+                                                <h4 class="badge">My Current Home</h4>
+
+                                            }
+                                            else
+                                            {
+                                                <h4 class="badge">My Future Home</h4>
+
+                                            }
+
+                                        }
+
+
+
+                                    </div>
+                                </div>
+                                <div class="p-name position-relative">
+                                    <ul class="list-unstyled p-0 m-0">
+                                        <li>
+                                            <p>
+                                                @if (@item.ClientType == "Seller")
+                                                {
+
+                                                    <i class="flaticon-house"> Role: Seller</i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="flaticon-house"> Role: Buyer</i>
+
+                                                }
+                                                <span class="p-share">
+
+                                                    @if (ViewBag.IsClient == "Client")
+                                                    {
+                                                        if (item.IsTransactionShared == "true")
+                                                        {
+                                                            <a href="@Url.Action("ShareDeal", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID })" data-share="" class="btn btn-primary btn-lg pull-right">
+
+                                                                Shared
+                                                            </a>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="@Url.Action("ShareDeal", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID })" data-share="" class="btn btn-primary btn-lg pull-right">
+
+                                                                Share
+                                                            </a>
+                                                        }
+                                                    }
+
+
+
+                                                </span>
+                                            </p>
+                                        </li>
+                                        @if (@item.ClientType == "Seller")
+                                        {
+
+                                            <li>
+                                                <p><i class="flaticon-crime"></i>Agent: @item.Name</p>
+                                            </li>
+                                            <li>
+                                                <p><i class="flaticon-phone"></i> @item.Phone</p>
+                                            </li>
+
+
+
+                                        }
+                                        else
+                                        {
+
+                                            <li>
+                                                <p><i class="flaticon-crime"></i>Agent: @item.Name</p>
+                                            </li>
+                                            <li>
+                                                <p><i class="flaticon-phone"></i>@item.Phone</p>
+                                            </li>
+
+
+                                        }
+                                    </ul>
+
+                                </div>
+                                @*<div class="p-features">
+                                        <ul class="list-unstyled d-flex flex-wrap p-0 m-0">
+                                            <li>
+                                                <p><i class="flaticon-bed"></i>1 Bed</p>
+                                            </li>
+                                            <li>
+                                                <p><i class="flaticon-bathtub-with-opened-shower"></i>1 Bath</p>
+                                            </li>
+                                            <li>
+                                                <p class="priceF"><i></i>$539,500</p>
+                                            </li>
+                                        </ul>
+                                    </div>*@
+                            </div>
+                        </div>
+
+
+                    }
+
+
+                }
+            }
+
+            @if(Model.SharedDealList.Count() ==0&&Model.MultipleDealList.Count()==0)
+            {
+
+                <span class="info-box"> No Results found,or you deal has not been started yet </span>
+
+            }
+
+            @*--------------------- Added By Neha 19-03-2020 Shared deal-----------------------------------*@
+
+            @if (Model.SharedDealList.Count() > 0)
+            {
+
+                foreach (var item in Model.SharedDealList)
+                {
+                    if (item.Image != "N/A")
+                    {
+
+                        <div class="col-md-6 col-xl-4 d-flex justify-content-center">
+                            <div class="property-outer">
+                                <div class="p-image position-relative-listtt">
+                                    <a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">
+                                        <img src="@item.Image" alt="Property Images" class="img-fluid  img-fluid-custom">
+                                    </a>
+                                    @*<div class="position-absolute p-title">*@
+                                    @if (@item.Address == "N/A")
+                                    {
+                                        @*<h4><a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">Still looking for the right place </a></h4>*@
+                                    }
+                                    else
+                                    {
+                                        <div class="position-absolute p-title">
+                                            <h4><a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">@item.Address</a></h4>
+                                        </div>
+                                    }
+
+
+                                    @*</div>*@
+                                    <div class="position-absolute p-badges">
+                                        @if (@item.ClientType == "Seller")
+                                        {
+                                            <h4 class="badge">My Property</h4>
+                                        }
+                                        else
+                                        {
+                                            if (@item.Status == "Completed")
+                                            {
+                                                <h4 class="badge">My Current Home</h4>
+
+                                            }
+                                            else
+                                            {
+                                                <h4 class="badge">My Future Home</h4>
+
+                                            }
+
+                                        }
+                                    </div>
+                                </div>
+                                <div class="p-name position-relative">
+                                    <ul class="list-unstyled p-0 m-0">
+                                        <li>
+                                            <p>
+
+
+                                                @if (@item.ClientType == "Seller")
+                                                {
+
+                                                    <i class="flaticon-house"> Role: Seller</i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="flaticon-house"> Role: Buyer</i>
+
+                                                }
+                                                <span class="p-share">
+                                                    @*@if (ViewBag.IsClient == "Client")
+                                                    {
+                                                        if (item.IsTransactionShared == "true")
+                                                        {
+                                                            <a href="@Url.Action("ShareDeal", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID })" data-share="" class="btn btn-primary btn-lg pull-right">
+
+                                                                Shared
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="@Url.Action("ShareDeal", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID })" data-share="" class="btn btn-primary btn-lg pull-right">
+
+                                                                Share
+                                                            </a>
+                                                        }
+                                                    }*@
+
+
+                                                    @*<a href="#!">Share</a>*@
+                                                </span>
+                                            </p>
+                                        </li>
+                                        @if (@item.ClientType == "Seller")
+                                        {
+
+                                            <li>
+                                                <p><i class="flaticon-crime"></i>Agent: @item.Name</p>
+                                            </li>
+                                            <li>
+                                                <p><i class="flaticon-phone"></i>@item.Phone</p>
+                                            </li>
+
+
+                                        }
+                                        else
+                                        {
+
+                                            <li>
+                                                <p><i class="flaticon-crime"></i>Agent: @item.Name</p>
+                                            </li>
+                                            <li>
+                                                <p><i class="flaticon-phone"></i> @item.Phone</p>
+                                            </li>
+
+
+                                        }
+
+                                    </ul>
+
+                                </div>
+                                @*<div class="p-features">
+                                <ul class="list-unstyled d-flex flex-wrap p-0 m-0">
+                                    <li>
+                                        <p><i class="flaticon-bed"></i>1 Bed</p>
+                                    </li>
+                                    <li>
+                                        <p><i class="flaticon-bathtub-with-opened-shower"></i>1 Bath</p>
+                                    </li>
+                                    <li>
+                                        <p class="priceF"><i></i>$539,500</p>
+                                    </li>
+                                </ul>
+                            </div>*@
+                            </div>
+                        </div>
+                    }
+
+                    else
+                    {
+
+                        <div class="col-md-6 col-xl-4 d-flex justify-content-center">
+                            <div class="property-outer">
+                                <div class="p-image position-relative-listtt">
+                                    <a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">
+                                        <img src="~/Content/NewVersion/images/no-photo1.jpg" alt="Property Images" class="img-fluid img-fluid-custom">
+                                    </a>
+                                    @*<div class="position-absolute p-title">*@
+                                    @if (@item.Address == "N/A")
+                                    {
+                                        @*<h4><a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">Still looking for the right place</a></h4>*@
+                                    }
+                                    else
+                                    {
+                                        <div class="position-absolute p-title">
+                                            <h4><a href="@Url.Action("Status","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">@item.Address</a></h4>
+                                        </div>
+                                    }
+
+                                    @*</div>*@
+                                    <div class="position-absolute p-badges">
+                                        @if (@item.ClientType == "Seller")
+                                        {
+                                            <h4 class="badge">My Property</h4><!-- /.listing-box-image-label -->
+
+                                        }
+                                        else
+                                        {
+                                            if (@item.Status == "Completed")
+                                            {
+                                                <h4 class="badge">My Current Home</h4>
+
+                                            }
+                                            else
+                                            {
+                                                <h4 class="badge">My Future Home</h4>
+
+                                            }
+
+                                        }
+
+
+
+                                    </div>
+                                </div>
+                                <div class="p-name position-relative">
+                                    <ul class="list-unstyled p-0 m-0">
+                                        <li>
+                                            <p>
+                                                @if (@item.ClientType == "Seller")
+                                                {
+
+                                                    <i class="flaticon-house"> Role: Seller</i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="flaticon-house"> Role: Buyer</i>
+
+                                                }
+                                                <span class="p-share">
+
+                                                    @*@if (ViewBag.IsClient == "Client")
+                                                    {
+                                                        if (item.IsTransactionShared == "true")
+                                                        {
+                                                            <a href="@Url.Action("ShareDeal", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID })" data-share="" class="btn btn-primary btn-lg pull-right">
+
+                                                                Shared
+                                                            </a>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="@Url.Action("ShareDeal", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID })" data-share="" class="btn btn-primary btn-lg pull-right">
+
+                                                                Share
+                                                            </a>
+                                                        }
+                                                    }*@
+
+                                                    @*<a href="#!">Share</a>*@
+
+                                                </span>
+                                            </p>
+                                        </li>
+                                        @if (@item.ClientType == "Seller")
+                                        {
+
+                                            <li>
+                                                <p><i class="flaticon-crime"></i>Agent: @item.Name</p>
+                                            </li>
+                                            <li>
+                                                <p><i class="flaticon-phone"></i> @item.Phone</p>
+                                            </li>
+
+
+
+                                        }
+                                        else
+                                        {
+
+                                            <li>
+                                                <p><i class="flaticon-crime"></i>Agent: @item.Name</p>
+                                            </li>
+                                            <li>
+                                                <p><i class="flaticon-phone"></i>@item.Phone</p>
+                                            </li>
+
+
+                                        }
+                                    </ul>
+
+                                </div>
+                                @*<div class="p-features">
+                                <ul class="list-unstyled d-flex flex-wrap p-0 m-0">
+                                    <li>
+                                        <p><i class="flaticon-bed"></i>1 Bed</p>
+                                    </li>
+                                    <li>
+                                        <p><i class="flaticon-bathtub-with-opened-shower"></i>1 Bath</p>
+                                    </li>
+                                    <li>
+                                        <p class="priceF"><i></i>$539,500</p>
+                                    </li>
+                                </ul>
+                            </div>*@
+                            </div>
+                        </div>
+
+
+                    }
+
+
+                }
+            }
+
+          
+
+
+
+            @*<div class="col-md-6 col-xl-4 d-flex justify-content-center">
+                    <div class="property-outer AddNew plusSign">
+                        <a href="!#" class="btn btn-info" target="_blank">Add Past Deal</a>
+                        <span class="circlePlus">+</span>
+                        <a href="!#" class="btn btn-primary" target="_blank">Add New Deal</a>
+
+                    </div>
+                </div>*@
+
+        </div>
+        @*<div class="row">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <nav aria-label="Page navigation example ">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>*@
+    </div>
+</div>
+
+
+<div id='myEnquiryModal' class='modal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    @@media screen and (min-width: 320px) and (max-width: 1024px) {
+        .listing-img-container {
+            height: 265px !important;
+        }
+    }
+
+    .listing-box-image {
+        height: 300px;
+    }
+</style>
+<style>
+    @@media screen and (min-width: 320px) and (max-width: 1024px) {
+        .listing-img-container {
+            height: 265px !important;
+        }
+    }
+
+    /*@@media screen and (min-width: 320px) and (max-width: 425px) {
+                                    .listing-box {
+                                        margin-left: -30px;
+                                        width: 100%;
+                                    }*/
+
+    /*.page-header p {
+                                        margin: 30px 94px 0 auto;
+                                            margin-left: -40px;
+                                    }
+                                    .page-header h1
+                                    {
+                                            margin-left: -160px;
+                                    }*/
+
+    .myIframe {
+        height: 350px !important;
+    }
+
+    .mobshare {
+        margin-bottom: 10px;
+    }
+
+    ol, ul, dl {
+        margin-top: 28px;
+    }
+
+
+
+    .listing-box-image {
+        height: 300px;
+    }
+
+    .modal-header {
+        background: #0bb7a5;
+        color: #fff;
+    }
+
+    .close {
+        text-shadow: none;
+        opacity: .5;
+        color: #fff;
+        opacity: 1;
+        font-size: 30px;
+    }
+</style>
+
+
+
+@section Scripts {
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    @*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>*@
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var sharebtn;
+            $('form').submit(function () {
+
+                $("#ajaxLoading").css("display", "block");
+                $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                $("#ajaxLoading").css("left", $(window).width() / 2);
+                $("#ajaxLoading").css("position", "fixed");
+                $("#ajax-backdrop").css("display", "block");
+                var serializedForm = $(this).serialize();
+                $.ajax({
+                    url: '@Url.Action("List")',
+                    type: "POST",
+                    data: serializedForm,
+
+                    success: function (result) {
+                        $("#ajaxLoading").css("display", "none");
+                        $("#ajax-backdrop").css("display", "none");
+                        $('#ErrorView').text(result).show();
+
+                    },
+                    error: function (result) {
+
+                        $('#ErrorView').text(result).show();
+                        //$('#Error').text(result.Email);
+                    }
+
+                });
+
+
+
+                return false;
+            });
+            var setAlert = function () {
+                setTimeout(function () {
+                    $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#success-alert").remove();
+                    });
+                }, 5000);
+            }
+            var loadCusModal = function (e) {
+                e.preventDefault();
+                sharebtn = this;
+                $('#myModalContent').load(this.href, function () {
+                    $('#myEnquiryModal').modal({
+                        /*backdrop: 'static',*/
+                        keyboard: true
+                    }, 'show');
+                    bindautocomplete();
+
+                    bindDealForm(this, sharebtn);
+                    $("#success-alert").hide();
+                });
+            }
+
+            function bindDealForm(dialog, btn) {
+
+                $('form', dialog).submit(function () {
+
+                    if ($('#sharedaccounts').val() == '')
+                        return false;
+                    $.ajax({
+                        url: this.action,
+                        type: this.method,
+                        data: $(this).serialize(),
+                        success: function (result) {
+
+                            if (result.success) {
+
+                                $('#myModalContent').load(result.url, function () {
+                                    bindautocomplete();
+                                    bindDealForm(dialog, btn);
+                                    $(".sharingtitle").text('Success!');
+                                    $(".sharingmessage").text('Shared Successfully');
+                                    setAlert();
+                                });
+                                //$('#myEnquiryModal').modal('hide');
+                                if ($(btn).hasClass('btn-warning')) {
+                                    $(btn).removeClass('btn-warning');
+                                    $(btn).addClass('btn-primary');
+                                    $(btn).text('Shared');
+                                }
+                            } else if (!result.success) {
+
+                                $('#myModalContent').load(result.url, function () {
+                                    bindautocomplete();
+                                    bindDealForm(dialog, btn);
+                                    $(".alert").removeClass('alert-info').addClass('alert-danger');
+                                    $(".sharingtitle").text('Warning!');
+                                    $(".sharingmessage").text('Invalid user email. Please select from the list and try again');
+                                    setAlert();
+                                });
+                            }
+                            else {
+                                $(".alert").removeClass('alert-info').addClass('alert-danger');
+                                $(".sharingtitle").text('Information!');
+                                $(".sharingmessage").text('Please select the user email to share with from the list');
+                                setAlert();
+                            }
+                        }
+                    });
+                    return false;
+                });
+            }
+
+
+            var removeSharing = function (e) {
+                e.preventDefault();
+                $form = $($(this).closest('form'));
+                var url = $(this).attr('href');
+                $.ajax({
+                    url: $form.attr('action'),
+                    type: 'POST',
+                    data: $form.serialize(),
+                    success: function (result) {
+                        if (result.success) {
+                            $('#myModalContent').load(result.url, function () {
+                                bindautocomplete();
+                                bindDealForm($('#myEnquiryModal').modal(), sharebtn);
+                                $(".sharingtitle").text('Success!');
+                                $(".sharingmessage").text(' Removed Successfully');
+                                setAlert();
+                            });
+                            if (result.sharedcount == 0) {
+                                if ($(sharebtn).hasClass('btn-primary')) {
+                                    $(sharebtn).removeClass('btn-primary');
+                                    $(sharebtn).addClass('btn-warning');
+                                    $(sharebtn).text('Share');
+                                }
+                            }
+                            //$('#myEnquiryModal').modal('hide');
+
+                        } else if (!result.success) {
+                            $('#myModalContent').load(result.url, function () {
+                                bindautocomplete($('#myEnquiryModal').modal(), sharebtn);
+                                bindDealForm($('#myEnquiryModal').modal(), sharebtn);
+                                $(".alert").removeClass('alert-info').addClass('alert-danger');
+                                $(".sharingtitle").text('Error!');
+                                $(".sharingmessage").text(' Error: Couldnot Remove sharing: please try again.');
+                                setAlert();
+                            });
+                        }
+                        else {
+                            $(".alert").removeClass('alert-info').addClass('alert-danger');
+                            $(".sharingtitle").text('Error!');
+                            $(".sharingmessage").text(' Error: Couldnot Remove sharing: please try again.');
+                            setAlert();
+                        }
+                    }
+                });
+            }
+            $('body').on("click", 'a[data-remove]', removeSharing);
+            $('body').on("click", 'a[data-share]', loadCusModal);
+            var bindautocomplete = function () {
+                $(".sharedaccounts").autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "/mydeal/getData?term=" + request.term,
+                            dataType: 'json',
+                            cache: false,
+                            global: false,
+                            success: function (data) {
+                                response(data);
+                            }
+                        });
+                        //$.getJSON("/mydeal/getData?term=" + request.term, function (data) {
+                        //    response(data);
+                        //});
+                    },
+                    minLength: 3,
+                    delay: 100
+                });
+            }
+        });
+
+
+    </script>
+    <style>
+        .ui-front {
+            z-index: 10001;
+        }
+    </style>
+}
+<style>
+    .testimonial {
+        text-align: center;
+    }
+
+        .testimonial .testimonial-content {
+            padding: 30px 50px;
+            background: #2ec4b6;
+            border-radius: 24px 0;
+            position: relative;
+            margin: 0 10px 35px;
+        }
+
+            .testimonial .testimonial-content:after {
+                content: "";
+                position: absolute;
+                border-top: 10px solid #2ec4b6;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                bottom: -9px;
+                left: 47%;
+            }
+
+        .testimonial .description {
+            font-size: 14px;
+            color: #fdfffc;
+            line-height: 25px;
+            margin: 0;
+        }
+
+        .testimonial .pic {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+            .testimonial .pic img {
+                width: 100%;
+                height: auto;
+            }
+
+        .testimonial .testimonial-title {
+            display: block;
+            font-size: 17px;
+            font-weight: bold;
+            color: #011627;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0 0 7px 0;
+        }
+
+        .testimonial .post {
+            display: block;
+            font-size: 14px;
+            color: #ff9f1c;
+        }
+
+    .owl-theme .owl-controls {
+        border-top: 1px solid #d5d5d5;
+        margin-top: 40px;
+        padding-top: 30px;
+    }
+
+        .owl-theme .owl-controls .owl-buttons div {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background: #ff9f1c;
+            border-radius: 4px;
+            opacity: 1;
+            padding: 0;
+        }
+
+    .owl-prev:before,
+    .owl-next:before {
+        font-family: 'FontAwesome';
+        color: #fdfffc;
+    }
+
+    .owl-next:before {
+        content: "\f054";
+    }
+
+    .owl-prev:hover:before,
+    .owl-next:hover:before {
+        color: #011627;
+    }
+
+    .owl-theme .owl-controls .owl-buttons {
+        position: static;
+    }
+
+    .testimonial {
+        box-shadow: none;
+    }
+
+        .testimonial:before {
+            content: none;
+        }
+</style>
+<style>
+    .myIframe {
+        position: relative;
+        padding-bottom: 30.25%;
+        padding-top: 30px;
+        height: 0;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        border: solid black 1px;
+    }
+
+        .myIframe iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+</style>

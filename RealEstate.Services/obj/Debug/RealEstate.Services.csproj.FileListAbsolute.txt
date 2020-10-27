@@ -1,0 +1,67 @@
+C:\Users\KnackWit\documents\visual studio 2015\Projects\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+C:\Users\KnackWit\documents\visual studio 2015\Projects\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+C:\Users\KnackWit\documents\visual studio 2015\Projects\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+C:\Users\KnackWit\documents\visual studio 2015\Projects\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+D:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+D:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+D:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+D:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+E:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+E:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+E:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.csprojResolveAssemblyReference.cache
+E:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+E:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+D:\Very Updated\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+D:\Very Updated\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+D:\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+D:\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+D:\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.csprojResolveAssemblyReference.cache
+F:\Very Updated\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+F:\Very Updated\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+F:\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+F:\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+F:\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.csprojResolveAssemblyReference.cache
+F:\site.capitalhillvalues\Very Updated\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+F:\site.capitalhillvalues\Very Updated\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+F:\site.capitalhillvalues\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.csprojResolveAssemblyReference.cache
+F:\site.capitalhillvalues\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+F:\site.capitalhillvalues\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Services\obj\Debug\RealEstate.Services.csprojResolveAssemblyReference.cache
+F:\BE\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+F:\BE\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+F:\BE\RealEstate.Services\obj\Debug\RealEstate.Services.csprojResolveAssemblyReference.cache
+F:\BE\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+F:\BE\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+F:\LaxumanBackupHP\BE\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+F:\LaxumanBackupHP\BE\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Services\obj\Debug\RealEstate.Services.csprojResolveAssemblyReference.cache
+F:\BEOriginal\BE\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+F:\BEOriginal\BE\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+F:\BEOriginal\BE\RealEstate.Services\obj\Debug\RealEstate.Services.csprojResolveAssemblyReference.cache
+F:\BEOriginal\BE\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+F:\BEOriginal\BE\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+F:\BE-Project\Latest\BE\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+F:\BE-Project\Latest\BE\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+F:\BE-Project\Latest\BE\RealEstate.Services\obj\Debug\RealEstate.Services.csprojResolveAssemblyReference.cache
+F:\BE-Project\Latest\BE\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+F:\BE-Project\Latest\BE\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Services\obj\Debug\RealEstate.Services.csprojResolveAssemblyReference.cache
+F:\BE-27012020 - WithoutVendor\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Services\obj\Debug\RealEstate.Services.pdb
+E:\BE-22052020-Latest\RealEstate.Services\bin\Debug\RealEstate.Services.dll
+E:\BE-22052020-Latest\RealEstate.Services\bin\Debug\RealEstate.Services.pdb
+E:\BE-22052020-Latest\RealEstate.Services\obj\Debug\RealEstate.Services.csprojResolveAssemblyReference.cache
+E:\BE-22052020-Latest\RealEstate.Services\obj\Debug\RealEstate.Services.dll
+E:\BE-22052020-Latest\RealEstate.Services\obj\Debug\RealEstate.Services.pdb

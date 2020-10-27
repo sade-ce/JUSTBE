@@ -1,0 +1,45 @@
+﻿@model RealEstate.Web.Models.RootObject
+<div id="DataGrid">
+    <div class="col-md-12">
+        @foreach (var item in Model.organic_results.search_results)
+            {
+                decimal Price = Convert.ToInt64(@item.cur_data.price);
+            <div class="col-md-4">
+
+                @using (Html.BeginForm("Listing", "MLS", FormMethod.Post, new { id = "form" }))
+                {
+                    <div class="listing-item">
+                        <a href="@Url.Action("Listing", "MLS", new { @MLS = @item.rets.mls_id })" class="listing-img-container">
+                            <div class="listing-img-content">
+                                <span class="listing-price">$  @Price.ToString("#,##0") <i>@item.images.Count() (Photos)</i></span>
+                                <span class="like-icon tooltip"></span>
+                            </div>
+                            <div class="listing-carousel">
+                                <div><img src="@item.images[0].url" alt="" height="300" width="300"></div>
+                            </div>
+                        </a>
+
+                        <div class="listing-content">
+                            <div class="listing-title">
+                                <h4><a href="@Url.Action("Listing", "MLS", new { @MLS = @item.rets.mls_id })" class="text-danger">@item.location.address @item.location.locality, @item.location.region @item.location.postal</a></h4>
+                                <a>
+                                    <i class="fa fa-map-marker"></i>
+                                    MLS# @item.rets.mls_id
+                                </a>
+                            </div>
+                            <div class="listing-footer">
+                                <a href="@Url.Action("Listing", "MLS", new { @MLS = @item.rets.mls_id })"><i class="fa fa-user"></i> Courtesy Of: @item.rets.oname</a>
+                                @Html.Hidden("MLS", @item.rets.mls_id)
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+
+            </div>
+
+        }
+    </div>
+
+</div>

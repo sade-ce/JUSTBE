@@ -1,0 +1,127 @@
+﻿@model RealEstate.Entities.ViewModels.VendorCategoryViewModel
+@using System.Security.Claims;
+
+
+@{
+    ViewBag.Title = "Just BE | Vendors";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayoutNew.cshtml";
+
+}
+<div class="top-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="breadcrumbs">
+                    <ul class="align-items-center d-flex list-unstyled m-0 p-0">
+                        <li class="d-none d-lg-block mr-4">
+                            @*@if ((User.IsInRole("Agent") || User.IsInRole("Admin"))) { }
+                            else
+                            {*@
+                                <a href="#!" id="toggleHeader"><img src="~/Content/NewVersion/images/ham.png" alt="" class="img-fluid"></a>
+                            @*}*@
+                        </li>
+                        @*<li>Concierge<span>&nbsp;>&nbsp;</span></li>
+                        <li class="active">Vendors<span>&nbsp;>&nbsp;</span></li>*@
+                        <li>
+                            <a class="nav-link nav-cal-drop nav-cal-drop-new dropdown-toggle " href="@Url.Action("Vendors", "MyDeal", new { area = "Client" })" role="button">Vendors<span>&nbsp;&gt;</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 d-md-block d-none">
+                <div class="accountLog d-flex justify-content-end align-items-center">
+                    <p>Hello, &nbsp;<span>@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)</span></p>
+                    <div class="profileImgtop" style="background-size: cover; background-position: center;   height:50px;">
+                        <!-- <img alt="profile-img" id="profileimg" class="img-fluid profileimg"> -->
+                    </div>
+                    @*@if ((User.IsInRole("Agent") || User.IsInRole("Admin"))) { }
+                    else
+                    {*@
+                        <span> &nbsp; &nbsp; | &nbsp; </span>
+
+                        <div class="dropdown">
+                            <button class="btn  dropdown-toggle mybtn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                My Account
+                            </button>
+                            <div class="dropdown-menu MyAccountDrop" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="@Url.Action("EmailPreferences", "Account", new { @area = "" })"><i class="flaticon-gear"></i>Notification Settings</a>
+                                <a class="dropdown-item" href="@Url.Action("EditProfile", "Account", new { @area = "" })"><i class="flaticon-conversation"></i>Edit Profile</a>
+                                <a class="dropdown-item" href="@Url.Action("ChangePassword", "Account", new { @area = "" })"><i class="flaticon-password"></i>Change Password</a>
+
+                                @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                                }
+                            </div>
+                        </div>
+                    @*}*@
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+  <!-- Main Section s -->
+<div class="ConciergeOuter">
+    <div class="container">
+
+
+        <div class="row welcomeSection">
+            <div class="col-md-12 text-center">
+
+            </div>
+        </div>
+
+ 
+        <div class="ConciergerSec">
+            <!-- First Row Start -->
+            <div class="row">
+                @foreach (var item in Model.VendorCategoryList)
+                {
+
+                <div class="col-md-6">
+                    <div class="ConciergeInner">
+                        @{ var image = "";
+                            var countText = "";
+                            if (item.CategoryImage == null)
+                            { image = "no-image.jpg"; }
+                            else { image = item.CategoryImage; }
+                            if (item.Count == 1) { countText = "Vendor"; } else { countText = "Vendors"; }
+                        }
+                        <div class="conBanner" style="background-image: url('/img/vendorCategory/@image') ; background-size: cover; background-position: center;   height:341px;">
+
+                        </div>
+                        <div class="pVenders">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4>@item.Name</h4>
+                                    <p>@item.Count @countText </p>
+                                </div>
+                                <div class="col-6">
+                                    <div class="button_C_Outer">
+                                        <a href="@Url.Action("VendorsList", "MyDeal", new { @area = "Client",Vendor=item.CategoryId })" class="btn btn-dark">View More</a>
+                                            @*<button type="button" class="btn btn-dark"> View More </button>*@
+</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                }
+            </div>
+       
+        </div>
+
+    </div>
+</div>
+
+<!-- Main Section E -->
+
+
+
+
+

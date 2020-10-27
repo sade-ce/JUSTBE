@@ -1,0 +1,68 @@
+﻿@model RealEstate.Web.Models.RoleViewModel
+
+@{
+    ViewBag.Title = "Just BE | Create Roles";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Roles
+        <small>Add</small>
+    </h1>
+</section>
+
+<div class="col-md-12">
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Assign New Roles</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+           @using (Html.BeginForm("create", "Roles", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+           {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+               
+                <div class="box-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RoleName, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.RoleName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.RoleName, "", new { @class = "text-danger" })
+
+
+                        </div>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+
+                        </div>
+                    </div>
+                    
+                </div>
+        <!-- /.box-body -->
+                <div class="box-footer">
+
+                    @Html.ActionLink("Back to List", "list", "Roles", null, new { @class = "btn btn-default pull-left" })
+                    <input type="submit" value="Create Roles" class="btn btn-primary pull-right" />
+                    <div class="clearfix"></div>
+                </div>
+        <!-- /.box-footer -->
+            }
+        </div>
+
+    </section>
+
+
+</div>
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>

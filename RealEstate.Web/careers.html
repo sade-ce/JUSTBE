@@ -1,0 +1,458 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="fonts/flaticon.css">
+    <title>Just BE | Real Estate </title>
+
+
+
+
+    <style>
+     .careersOuter  { padding: 20px 0;     background: #f1f1f1;  } 
+    .carrerInnerOne { background: #fff; padding: 15px; margin: 53px 0;}
+    .carrerInnerOne h3 {margin: 20px 0; font-weight: 600; }
+   .careersOuterTable { background: #f1f1f1;  }
+   .carrerInnerTwo {
+    background: #fff;
+    padding: 10px;
+    margin: -30px 0 60px 0;
+}
+
+.Careerstable-reponsive .responsive-table a {
+    color: #000;
+}
+
+button.btn.btn-darkGray.resetBtn {
+    min-width: 100px!important;  margin-bottom: 10px;
+} 
+
+button.btn.btn-darkGray.filterBtn {
+    min-width: 100px!important;  margin-bottom: 10px;
+}
+
+.btnBox {
+    padding: 32px 0 15px 0;
+}
+
+.carrerInnerTwo h3 {
+    margin-top: 21px;
+}
+
+.responsive-table {
+  width: 100%;
+  margin-bottom: 1.5em;
+  border-spacing: 0;
+}
+@media (min-width: 48em) {
+  .responsive-table {
+    font-size: .9em;
+  }
+}
+@media (min-width: 62em) {
+  .responsive-table {
+    font-size: 1em;
+  }
+}
+.responsive-table thead {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+@media (min-width: 48em) {
+  .responsive-table thead {
+    position: relative;
+    clip: auto;
+    height: auto;
+    width: auto;
+    overflow: auto;
+  }
+}
+.responsive-table thead th {
+  background-color: #10968a;
+  border: 1px solid #10968a;
+  font-weight: normal;
+  text-align: left;
+  color: white;
+}
+.responsive-table thead th:first-of-type {
+  text-align: left;
+}
+.responsive-table tbody,
+.responsive-table tr,
+.responsive-table th,
+.responsive-table td {
+  display: block;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+}
+@media (min-width: 48em) {
+  .responsive-table tr {
+    display: table-row;
+  }
+}
+.responsive-table th,
+.responsive-table td {
+  padding: .5em;
+  vertical-align: middle;
+}
+@media (min-width: 30em) {
+  .responsive-table th,
+  .responsive-table td {
+    padding: .75em .5em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table th,
+  .responsive-table td {
+    display: table-cell;
+    padding: .5em;
+  }
+}
+@media (min-width: 62em) {
+  .responsive-table th,
+  .responsive-table td {
+    padding: .75em .5em;
+  }
+}
+@media (min-width: 75em) {
+  .responsive-table th,
+  .responsive-table td {
+    padding: .75em;
+  }
+}
+.responsive-table caption {
+  margin-bottom: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+@media (min-width: 48em) {
+  .responsive-table caption {
+    font-size: 1.5em;
+  }
+}
+.responsive-table tfoot {
+  font-size: .8em;
+  font-style: italic;
+}
+@media (min-width: 62em) {
+  .responsive-table tfoot {
+    font-size: .9em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody {
+    display: table-row-group;
+  }
+}
+.responsive-table tbody tr {
+  margin-bottom: 1em;
+}
+@media (min-width: 48em) {
+  .responsive-table tbody tr {
+    display: table-row;
+    border-width: 1px;
+  }
+}
+.responsive-table tbody tr:last-of-type {
+  margin-bottom: 0;
+}
+@media (min-width: 48em) {
+  .responsive-table tbody tr:nth-of-type(even) {
+    background-color: rgba(94, 93, 82, 0.1);
+  }
+}
+.responsive-table tbody th[scope="row"] {
+  background-color: #10968a;
+  color: white;
+}
+@media (min-width: 30em) {
+  /* .responsive-table tbody th[scope="row"] {
+    border-left: 1px solid #10968a;
+    border-bottom: 1px solid #10968a;
+  } */
+}
+@media (min-width: 48em) {
+  .responsive-table tbody th[scope="row"] {
+    background-color: transparent;
+    color: #5e5d52;
+    text-align: left;
+  }
+}
+.responsive-table tbody td {
+  text-align: left;
+}
+@media (min-width: 48em) {
+  .responsive-table tbody td {
+    /* border-left: 1px solid #10968a;
+    border-bottom: 1px solid #10968a; */
+    text-align: left;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody td:last-of-type {
+    /* border-right: 1px solid #10968a; */
+  }
+}
+.responsive-table tbody td[data-type=currency] {
+  text-align: left;
+}
+.responsive-table tbody td[data-title]:before {
+  content: attr(data-title);
+  float: left;
+  font-size: .8em;
+  color: rgba(94, 93, 82, 0.75);
+  line-height: 26px;
+    min-width: 80px;
+}
+@media (min-width: 30em) {
+  .responsive-table tbody td[data-title]:before {
+    font-size: .9em;
+    line-height: 26px;
+    min-width: 100px;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody td[data-title]:before {
+    content: none;
+  }
+}
+
+
+ @media only screen and (min-width: 0px) and (max-width:767px){
+.bgcareer { background: #f1f1f1!important;}
+.carrerInnerOne { margin: 0px;  }
+.careersOuterTable  {  padding: 45px 0 0 0;}
+.careersOuter { margin: 0px;  }
+.bgcareer {padding: 15px 0;}
+.btnBox {
+    padding: 0px 0 15px 0;
+}
+    }
+
+    </style>
+
+  </head>
+  <body>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light registrationHeader sticky" >
+        <div class="container">
+          <a class="navbar-brand" href="#"><img src="images/JustBB.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto registrationHeaderMenu">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">  <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">NEIGHBORHOOD</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">BLOGS</a>
+                  </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    LISTINGS 
+                </a>
+                <div class="dropdown-menu subDrop" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">JAY BAUER'S LISTINGS</a>
+                  <a class="dropdown-item" href="#">ZACK LONDON'S LISTINGS</a>
+                  <a class="dropdown-item" href="#">CHRIS PLOG'S LISTINGS</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">CONTACT</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 rightSideBtn">
+                <a class="nav-link" href="#">LOG IN</a>
+              <a class="btn btn-outline-success signBtn" href="#" role="button">SIGN UP</a>
+            </form>
+          </div>
+        </div>
+        </nav>
+
+
+
+        <section class="careersOuter" >
+        <div class="bgcareer" style=" background: #f1f1f1 url('images/careersBg.jpg') ; background-size: contain; background-position: top right;    background-repeat: no-repeat;">
+          <div class="container">
+            <div class="row">
+
+              <div class="col-sm-12 col-md-7 col-lg-6 	d-block  d-md-none d-lg-none">
+                <img src="images/careersBg.jpg" alt="logoBlack" class="img-fluid">
+              </div>
+              <div class="col-sm-12 col-md-7 col-lg-6">
+                   <div class="carrerInnerOne">
+                    <div class="logoBlack text-center">
+                      <img src="images/logoBlack.png" alt="logoBlack" class="img-fluid">
+                      <h3>A forward focused team with a backwards facing B.</h3>
+                      <p>At Just BE, we're a bunch of fun, hardworking, and driven folks who love spending time together and with our clients.
+                        Our collective professional history is eclectic - from management consulting, to television production, to professional
+                        woodworking - no two of us have the same experiences, and we value and admire all the things that make each of us uniquely us.
+                        What we all have in common, however, is a shared sense of passion and commitment to our mission.</p>
+                        <p>Want to join us on our journey to shake up the real estate Industry as we know it? Check out our openings below and get in touch if you'd like more info.</p>
+                    </div>
+                   </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="careersOuterTable">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+               <div class="carrerInnerTwo">
+                 <h3> <strong>Current Openings</strong> </h3>
+<br>
+
+                 <!-- <div class="row">
+                   <div class="col-md-3"><div class="form-group">
+                    <label for="formGroupExampleInput">Title</label>
+                    <input type="text" class="form-control" id="" placeholder="Title">
+                  </div> </div>
+                   <div class="col-md-3"><div class="form-group">
+                    <label for="formGroupExampleInput">Location</label>
+                    <input type="text" class="form-control" id="" placeholder="Location">
+                  </div> </div>
+                   <div class="col-md-3"> <div class="form-group">
+                    <label for="formGroupExampleInput">Date</label>
+                    <input type="text" class="form-control" id="" placeholder="Date (M/d/yy)">
+                  </div> </div>
+                   <div class="col-md-3"> <div class="btnBox">
+                    <button type="button" class="btn btn-darkGray filterBtn" > Filter </button>
+                    <button type="button" class="btn btn-darkGray resetBtn"> Reset </button> 
+                  </div>  
+                  </div>
+                 </div> -->
+
+                
+
+                 <div class="Careerstable-reponsive">
+                  <div class="">
+                    <table class="responsive-table">
+                    
+                      <thead>
+                        <tr>
+                          <th scope="col">Title</th>
+                          <th scope="col">Location</th>
+                          <th scope="col">Date</th>
+                          
+                        
+                        </tr>
+                      </thead>
+                    
+                      <tbody>
+                        <tr>
+                          <th scope="row">  <a href="post1.html"> Data / Analytics Intern </a></th>
+                          <td data-title="Location">Area</td>
+                          <td data-title="Date">Jan 26, 2020</td>
+                        
+                        
+                        </tr>
+
+                         <tr>
+                          <th scope="row">  <a href="post2.html"> Marketing Intern </a> </th>
+                          <td data-title="Location">Area</td>
+                          <td data-title="Date">Jan 26, 2020</td>
+                        </tr>
+
+                        
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                 </div>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </section>
+
+        
+   
+
+   
+  
+
+      
+
+      <footer class="footerOuter">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <a class="brand pull-left" target="_blank" href="https://www.compass.com/agents/dc/jay-bauer/">
+                <img src="https://justbere-d4d9.kxcdn.com/img/jaybauerCompass.png">
+          
+            </a>
+            </div>
+            <div class="col-md-3">
+              <div class="inline-block">© Just BE | Real Estate 2019 <br>&nbsp;&nbsp; &nbsp; All Rights Resevered <br></div>
+            </div>
+            <div class="col-md-3">
+              <ul class="legalProperties">
+                <li><a href="/Legal/Terms">Terms of use</a></li>
+                <li><a href="/Legal/PrivacyPolicy">Privacy Policy</a></li>
+                <li><a href="/Careers/Departments">Careers</a></li>
+            </ul>
+            </div>
+            <div class="col-md-3">
+              <ul class="social-icons footerscomp">
+                <li><a href="https://www.facebook.com/JustBE.DMV/" target="_blank"><i class="icon-facebook">   <img src="fonts/social/facebook-logo.png"></i></a></li>
+                <li><a href="https://www.instagram.com/justbe.re/" target="_blank"><i class="icon-instagram-5"> <img src="fonts/social/instagram.png"></i></a></li>
+                <li><a href="https://twitter.com/jaybauergroup?lang=en" target="_blank"><i class="icon-twitter"> <img src="fonts/social/twitter.png"></i></a></li>
+                <li><a href="https://www.yelp.com/biz/jay-bauer-just-be-washington-3" target="_blank"><i class="icon-yelp"> <img src="fonts/social/yelp-logo.png"></i></a></li>
+                <li><a href="https://www.youtube.com/user/JayBauerRealtor/videos" target="_blank"><i class="icon-youtube-play"> <img src="fonts/social/youtube.png"></i></a></li>
+             
+         
+
+            </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+              <footer id="footer">
+                <p class="copyright"> 660 Pennsylvania Ave. SE Suite 300, Washington, DC 20003  &nbsp; | &nbsp;(301) 785-1100  </p>
+            </footer>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+    
+
+    
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html> 

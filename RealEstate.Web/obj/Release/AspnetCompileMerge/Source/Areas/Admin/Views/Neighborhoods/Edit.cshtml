@@ -1,0 +1,120 @@
+﻿@model RealEstate.Entities.ViewModels.MstNeighborhoodViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Neighborhood
+        <small>Edit </small>
+    </h1>
+</section>
+<section class="content">
+@using (Ajax.BeginForm("Edit", "Neighborhoods", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "myform" }))
+{
+    @Html.HiddenFor(model=>model.utblNeighborhoods.NeighborhoodID)
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        <div class="box box-info">
+            <div class="box-body">
+                <div class="form-group">
+                    <div class="col-md-6 container-fluid">
+                        <label class="control-label">Select Neighborhood :</label>
+                        <br />
+                        <br />
+                        @Html.DropDownListFor(model => model.utblNeighborhoods.StateID, new SelectList(Model.MstStateDDl, "StateID", "StateName"), "--- Select Neighborhood --- ", new { @class = "form-control drop-change ddl-select2" })
+                        @Html.ValidationMessageFor(m => m.utblNeighborhoods.StateID)
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">Select City :</label>
+                        <br />
+                        <br />
+                        @Html.DropDownListFor(model => model.utblNeighborhoods.CityID, new SelectList(string.Empty, "CityID", "CityName"), "--- Select City ---", new { @class = "form-control  ddl-select2" })
+                        @Html.ValidationMessageFor(m => m.utblNeighborhoods.CityID)
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="control-label">Post Content :</label>
+                        <div class="margin-top-10">
+                            @Html.TextAreaFor(m => m.utblNeighborhoods.PostContent, new { @id = "blogeditor", @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.utblNeighborhoods.PostContent)
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="well well-sm col-md-12 col-lg-12 text-right">
+        <div class="form-horizontal">
+            @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+            <input type="submit" value="Save" id="save" class="btn btn-primary" />
+        </div>
+    </div>
+    }
+</section>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+@section Scripts
+{
+    <script src="~/Content/Plugins/ckeditor/adapters/jquery.js" async></script>
+    <script src="~/Content/Plugins/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/Plugins/Select2/select2.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            CKEDITOR.replace("blogeditor");
+        });
+    </script>
+
+    <script type="text/javascript">
+        var getJsonCityList = function () {
+            $("#utblNeighborhoods_CityID").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetCity", "Neighborhoods")',
+                dataType: 'json',
+                data: { id: $("#utblNeighborhoods_StateID").val() },
+                success: function (data) {
+                    $("#utblNeighborhoods_CityID").append('<option value="">--- Select City ---</option>');
+                    $.each(data, function (i, item) {
+                        $("#utblNeighborhoods_CityID").append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                    });
+                    $("#utblNeighborhoods_CityID").select2("val", '@Model.utblNeighborhoods.CityID');
+
+                },
+                error: function (ex) {
+
+                }
+            });
+            return false;
+        };
+        $(".container-fluid").on("change", ".drop-change", getJsonCityList);
+        $(document).ready(function () {
+            getJsonCityList();
+            $(".ddl-select2").select2({ width: '100%' });
+            $.validator.setDefaults({
+                ignore: ''
+            });
+            
+        });
+    </script>
+
+<script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+</script>
+
+
+}

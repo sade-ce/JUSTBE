@@ -1,0 +1,42 @@
+﻿@model  IEnumerable<RealEstate.Entities.ViewModels.DealVendorView>
+
+<div class="widget-vend">
+    @foreach (var item in Model)
+    {
+
+
+        <div class="post" style="margin:0 0 10px 0" id="vendorlist">
+
+
+            @*<div class="post-title" style="font-size:0.6em">
+
+                    <h2><a href="#" style="cursor:initial;">@item.VendorCompany </a></h2>
+                </div>*@
+            <div class="post-title" style="font-size:0.6em">
+
+                <h2><a href="#" style="cursor:initial;">@item.VendorType: @item.Vendor  </a></h2>
+
+                @if (item.CreatedBy == ViewBag.loginuser && item.UserRole == "Client")
+                {
+                    <a href="#!" onclick="return getClientVendorByID(@item.Vendor_Id)">Edit</a>
+                                                                            <a href="#!" onclick="DeleleVendor(@item.Vendor_Id)">Delete</a>
+                }
+               
+
+            </div><!-- /.post-title -->
+            <div class="post-meta">
+                <!-- /.post-meta-item -->
+                <div class="post-meta-item">
+                    <a href="tel:@item.VendorPhone" style="color: #0bb7a5"> <i class="fa fa-phone"></i> @item.VendorPhone</a>
+                </div><!-- /.post-meta-item -->
+                <div class="post-meta-item">
+                    <i class="fa fa-envelope"></i> <a href="#!" style="color: #0bb7a5;cursor:initial">@item.VendorEmail</a>
+                </div><!-- /.post-meta-item -->
+            </div><!-- /.post-meta -->
+            <!-- /.post-content -->
+            <!-- /.post-read-more -->
+        </div>
+
+    }
+</div>
+

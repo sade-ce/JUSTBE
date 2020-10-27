@@ -1,0 +1,275 @@
+﻿@model RealEstate.Entities.ViewModels.VendorViewModel
+@{
+    ViewBag.Title = "Edit Vendor Subtype";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+    if (User.IsInRole("Agent"))
+    {
+        Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+    }
+}
+<section class="content-header">
+    <h1>
+        Vendor 
+        <small>Edit</small>
+    </h1>
+</section>
+<div class="col-md-12">
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Edit Vendor </h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Ajax.BeginForm("Edit", "Vendor", null, new AjaxOptions() { HttpMethod = "POST" }, new { @class = "form-horizontal", enctype = "multipart/form-data", id = "myform" }))
+            { @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(m => m.Vendor.VendorId)
+                @Html.HiddenFor(m => m.VendorContacts.VendorContactId,new { @id="VendorContactId"})
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Vendor Type</label>
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(model => model.Vendor.Category_Id, new SelectList(Model.CategoryDropDown, "Category_Id", "Name"), "--- Select Vendor Type --- ", new { @class = "form-control ddl-select2" })
+                                    @Html.ValidationMessageFor(model => model.Vendor.Category_Id, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Company Name</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Vendor.Title, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Vendor.Title, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Vendor.Location, new { @class = "col-md-4 control-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Vendor.Location, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Contact Name</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.VendorContacts.ContactName, new { @class = "form-control", @id = "txtContactName" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Contact Title</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.VendorContacts.ContactTitle, new { @class = "form-control", @id = "txtContactTitle" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Contact Phone</label>
+                                <div class="col-md-3">
+
+                                    @Html.TextBoxFor(model => model.VendorContacts.ContactPhone, new { @class = "form-control", @placeholder = "###.###.####", @maxlength = "12", @id = "txtContactPhone" })
+                                    @Html.ValidationMessageFor(model => model.VendorContacts.ContactPhone, "", new { @class = "text-danger" })
+                                </div>
+                                <label class="col-md-2 control-label">Vendor Phone</label>
+                                <div class="col-md-3">
+
+                                    @Html.TextBoxFor(model => model.Vendor.Phone, new { @class = "form-control", @placeholder = "###.###.####", @maxlength = "12", @id = "txtPhone" })
+                                    @Html.ValidationMessageFor(model => model.Vendor.Phone, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Vendor Title</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Vendor.SubTitle, new { @class = "form-control", @id = "txtDesignation" })
+                                </div>
+                            </div>
+                       
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Vendor.Email, new { @class = "col-md-4 control-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Vendor.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Vendor.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Vendor.WebsiteLink, new { @class = "col-md-4 control-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Vendor.WebsiteLink, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Vendor.WebsiteLink, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Description</label>
+                                <div class="col-md-8">
+                                    @Html.TextAreaFor(model => model.Vendor.About, new { @class = "form-control" })
+                                </div>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Choose Picture</label>
+                                <div class="col-md-8">
+                                    @Html.HiddenFor(m => m.Vendor.VendorImage)
+                                    <input type="file" name="files" id="fu1" class="control-label" />
+                                </div>
+                            </div>
+
+
+                        </div>
+               @if (Model.Vendor != null)
+               {
+                   if (Model.Vendor.VendorImage != null)
+                   {
+                            <div class="col-md-3 col-lg-3">
+                                <div class="form-horizontal" style="margin-top: 15px;">
+                                    <div class="row">
+                                        <div class="thumbnail" style="margin-bottom: 5px; height: 140px; width: 120px">
+                                            <div id="imgPhotoThumb" style="margin-left: auto; margin-right: auto;">
+
+                                                <img src="/img/vendors/@Model.Vendor.VendorImage" class="img-rounded" style="width: 110px; height: 131px;" />
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                   }
+               }
+                    </div>
+                </div>
+                <div class="box-footer">
+                    @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                    <input type="submit" value="Save Changes" class="btn btn-primary pull-right" />
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"></h4>
+                            </div>
+                            <div class="modal-body" id="message">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </section>
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+@section Scripts
+{ 
+<script>
+    //$(function () { setTimeout('location.reload(true)', 1000); });
+    
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+</script>
+<script>
+    $('#txtPhone').keydown(function (e) {
+          var key = e.which || e.charCode || e.keyCode || 0;
+          $phone = $(this);
+
+          // Don't let them remove the starting '('
+
+
+          // Auto-format- do not expose the mask as the user begins to type
+          if (key !== 8 && key !== 9) {
+              if ($phone.val().length === 3) {
+                  $phone.val($phone.val() + '.');
+              }
+              if ($phone.val().length === 7) {
+                  $phone.val($phone.val() + '.');
+              }
+
+          }
+
+          // Allow numeric (and tab, backspace, delete) keys only
+          return (key == 8 ||
+                  key == 9 ||
+                  key == 46 ||
+                  (key >= 48 && key <= 57) ||
+                  (key >= 96 && key <= 105));
+      })
+
+      .bind('focus click', function () {
+          $phone = $(this);
+
+
+      })
+
+      .blur(function () {
+          $phone = $(this);
+
+
+      });
+
+    $('#txtContactPhone').keydown(function (e) {
+        var key = e.which || e.charCode || e.keyCode || 0;
+        $phone = $(this);
+
+        // Don't let them remove the starting '('
+
+
+        // Auto-format- do not expose the mask as the user begins to type
+        if (key !== 8 && key !== 9) {
+            if ($phone.val().length === 3) {
+                $phone.val($phone.val() + '.');
+            }
+            if ($phone.val().length === 7) {
+                $phone.val($phone.val() + '.');
+            }
+
+        }
+
+        // Allow numeric (and tab, backspace, delete) keys only
+        return (key == 8 ||
+                key == 9 ||
+                key == 46 ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+    })
+
+.bind('focus click', function () {
+    $phone = $(this);
+
+
+})
+
+.blur(function () {
+    $phone = $(this);
+
+
+});
+
+   
+</script>
+}
+<style>
+    .form-horizontal .control-label {
+        padding-top: 0px;
+        margin-bottom: 13px;
+        text-align: right;
+        margin-top: 12px;
+    }
+</style>

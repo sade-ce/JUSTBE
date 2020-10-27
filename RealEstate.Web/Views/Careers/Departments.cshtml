@@ -1,0 +1,108 @@
+﻿@model RealEstate.Entities.ViewModels.MstCareerManageModel
+@{
+    ViewBag.Title = "Just BE | Careers";
+    Layout = "~/Views/Shared/_LayoutCommonNew.cshtml";
+}
+
+<section class="careersOuter">
+    <div class="bgcareer" style="background: #f1f1f1 url('/img/careersBg.jpg') ; background-size: contain; background-position: top right;    background-repeat: no-repeat;">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-12 col-md-7 col-lg-6 	d-block  d-md-none d-lg-none">
+                <img src="/img/careersBg.jpg" alt="logoBlack" class="img-fluid">
+            </div>
+            <div class="col-sm-12 col-md-7 col-lg-6">
+                <div class="carrerInnerOne">
+                    <div class="logoBlack text-center">
+                        <img src="/img/logoBlack.png" alt="logoBlack" class="img-fluid">
+                        <h3>A forward focused team with a backwards facing B.</h3>
+                        <p>
+                            At Just BE, we're a bunch of fun, hardworking, and driven folks who love spending time together and with our clients.
+                            Our collective professional history is eclectic - from management consulting, to television production, to professional
+                            woodworking - no two of us have the same experiences, and we value and admire all the things that make each of us uniquely us.
+                            What we all have in common, however, is a shared sense of passion and commitment to our mission.
+                        </p>
+                        <p>Want to join us on our journey to shake up the real estate Industry as we know it? Check out our openings below and get in touch if you'd like more info.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="careersOuterTable">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="carrerInnerTwo">
+                        <h3> <strong>Current Openings</strong> </h3>
+                        <br>
+
+                        <!-- <div class="row">
+                          <div class="col-md-3"><div class="form-group">
+                           <label for="formGroupExampleInput">Title</label>
+                           <input type="text" class="form-control" id="" placeholder="Title">
+                         </div> </div>
+                          <div class="col-md-3"><div class="form-group">
+                           <label for="formGroupExampleInput">Location</label>
+                           <input type="text" class="form-control" id="" placeholder="Location">
+                         </div> </div>
+                          <div class="col-md-3"> <div class="form-group">
+                           <label for="formGroupExampleInput">Date</label>
+                           <input type="text" class="form-control" id="" placeholder="Date (M/d/yy)">
+                         </div> </div>
+                          <div class="col-md-3"> <div class="btnBox">
+                           <button type="button" class="btn btn-darkGray filterBtn" > Filter </button>
+                           <button type="button" class="btn btn-darkGray resetBtn"> Reset </button>
+                         </div>
+                         </div>
+                        </div> -->
+
+
+
+                        <div class="Careerstable-reponsive">
+                            <div class="">
+                                <table class="responsive-table">
+
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Location</th>
+                                            @*<th scope="col">Date</th>*@
+
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+@if (Model.MstPositionList.Count() > 0)
+{
+    foreach (var item in Model.MstPositionList)
+    {
+        <tr>
+            <th scope="row">  <a href="@Url.Action("Position","Careers",new { @DepartmentID = item.DepartmentID})"> @item.Position</a></th>
+            <td data-title="Location">@item.Description</td>
+            @*<td data-title="Date">@item.UpdatedOn</td>*@
+
+
+        </tr>
+    }
+}
+                                        
+
+                                        
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

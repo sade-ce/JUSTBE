@@ -1,0 +1,217 @@
+﻿@model RealEstate.Entities.ViewModels.MstCreateClientAndAssignAgentModel
+@{
+    ViewBag.Title = "Add Transaction";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayoutVersion2.cshtml";
+}
+@if (User.IsInRole("Admin"))
+{
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstateVersion2.cshtml";
+}
+else if (User.IsInRole("Agent"))
+{
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayoutVersion2.cshtml";
+}
+@using System.Security.Claims;
+<section class="wrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>Add Transaction</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello, @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new" /></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <div class="add-transaction-wrap whiteBgBorderBox">
+                        <div class="heading-wrap">
+                            <h3>Add Transaction</h3>
+                            <button type="button" class="btn tealButton save-btn" id="btnSaveAddTrans">Save</button>
+                        </div>
+                        <div class="table-wrapper col-sm-12">
+                       
+                     @using (Ajax.BeginForm("createtransaction", "UserAgentNew", null, new AjaxOptions() { HttpMethod = "POST" }, new { id = "transactionform", @disabled = "disabled" }))
+                     {
+                        @Html.HiddenFor(model => model.utblMstTrackDealMasters.AgentID, new { Value = ViewBag.AgentID })
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label>Client</label>
+                                        <input type="text" class="form-control" id="txtClient" />
+                                        @Html.HiddenFor(m => m.utblMstTrackDealMasters.ClientID)
+                                        @Html.ValidationMessageFor(m => m.utblMstTrackDealMasters.ClientID)
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label>Type</label>
+                                        @Html.DropDownListFor(model => model.utblMstTrackDealMasters.ClientTypeID, new SelectList(Model.ClientTypeDropDown, "ClientTypeID", "ClientType"), "--- Select Transaction --- ", new { @class = "form-control drop-change ddl-select2" })
+                                        @Html.ValidationMessageFor(m => m.utblMstTrackDealMasters.ClientTypeID)
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label>Address</label>
+                                        @Html.TextBoxFor(model => model.utblMstTrackDealMasters.Address, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.utblMstTrackDealMasters.Address)
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label>Description</label>
+                                        @Html.TextBoxFor(model => model.utblMstTrackDealMasters.Description, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.utblMstTrackDealMasters.Description)
+                                    </div>
+                                </div>
+                     }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#utblMstTrackDealMasters_ClientID').val($("#txtClientId").val())
+        $('#utblMstTrackDealMasters_ClientTypeID').on('change', function () {
+            var ClientType = "Buyer"
+            var DDLText = document.getElementById("utblMstTrackDealMasters_ClientTypeID").options[document.getElementById('utblMstTrackDealMasters_ClientTypeID').selectedIndex].text;
+            if (ClientType == DDLText) {
+                $("#utblMstTrackDealMasters_Address").attr('disabled', 'disabled');
+                $("#utblMstTrackDealMasters_Address").val("");
+                $("#MstClosingConfig_utblMstClosingDate_MLSID").removeAttr('disabled');
+
+            }
+            else if ("Seller" == DDLText) {
+
+                $("#utblMstTrackDealMasters_Address").val("");
+                $("#utblMstTrackDealMasters_Address").removeAttr('disabled');
+
+            }
+            else {
+                $("#utblMstTrackDealMasters_Address").removeAttr('disabled');
+            }
+
+        });
+    });
+
+</script>
+<script>
+
+    $('#txtClient').autocomplete({
+        source: function (request, response) {
+            var itemnamecodes = new Array();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ClientAutocomplete", "UserAgentNew")',
+                dataType: 'json',
+                data: { term: request.term },
+                success: function (data) {
+
+                    response($.map(data, function (item) {
+                        return { label: item.Key, Id: item.Value };
+                    }))
+                }
+            })
+        },
+        select: function (e, i) {
+            $("#utblMstTrackDealMasters_ClientID").val(i.item.Id);
+        }
+    })
+
+    $('#btnSaveAddTrans').click(function () {
+        var res = validateTransaction();
+        if (res == false) {
+            return false;
+        }
+        var form = $('#transactionform')[0];
+        var dataString = new FormData(form);
+        $.ajax({
+            url: '/UserAgentNew/CreateTransaction',
+            data: dataString,
+            type: "POST",
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            success: function (result) {
+                if (result.success) {
+                    window.location.href = "/Coordinator/DealAgentV2/List";
+           
+                }
+                else {
+
+                    $('#lblErrorTrans').css('display', 'block')
+                    $('#lblErrorTrans').text(result)
+                }
+
+
+            },
+            error: function (errormessage) {
+                $('#lblErrorTrans').css('display', 'block');
+                $('#lblErrorTrans').text('Sorry, Something went wrong. Please try again.');
+
+            }
+        });
+    });
+
+    function validateTransaction() {
+        var isValid = true;
+        if ($('#utblMstTrackDealMasters_ClientID').val().trim() == "") {
+            $('#txtClient').css('border', '1px solid #EB5757')
+            isValid = false;
+        }
+        else {
+            $('#txtClient').css('border', '1px solid #ced4da')
+        }
+
+        if ($('#utblMstTrackDealMasters_ClientTypeID').val().trim() == "") {
+            $('#utblMstTrackDealMasters_ClientTypeID').css('border', '1px solid #EB5757')
+            isValid = false;
+        }
+        else {
+            $('#utblMstTrackDealMasters_ClientTypeID').css('border', '1px solid #ced4da')
+        }
+
+
+        if ($('#utblMstTrackDealMasters_Description').val().trim() == "") {
+            $('#utblMstTrackDealMasters_Description').css('border', '1px solid #EB5757')
+            isValid = false;
+        }
+        else {
+            $('#utblMstTrackDealMasters_Description').css('border', '1px solid #ced4da')
+        }
+
+
+
+        return isValid;
+    }
+</script>

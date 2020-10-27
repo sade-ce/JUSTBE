@@ -1,0 +1,468 @@
+﻿@model RealEstate.Entities.ViewModels.MstCreateClientAndAssignAgentModel
+
+@{
+    ViewBag.Title = "User Management";
+    ViewBag.ViewHeader = "Add User";
+}
+<link href="~/Content/Plugins/cropper/cropper.min.css" rel="stylesheet" />
+@if (User.IsInRole("Admin"))
+{
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+else if (User.IsInRole("Agent"))
+{
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        System User
+        <small>Add New</small>
+    </h1>
+</section>
+<div class="col-md-12">
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Assign New User</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm("create", "useragent", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "myform" }))
+            { @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Register.UserRole)
+                <a id="AnchorTag" href="#" data-toggle="modal" data-target="#myHelpModal" style="display:none"><span class="badge-help-link">?</span></a>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Register.ClientTypeID, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(model => model.Register.ClientTypeID, new SelectList(Model.AssignAgent.ClientTypeDropDown, "ClientTypeID", "ClientType"), "--- Select Transaction --- ", new { @class = "form-control drop-change ddl-select2" })
+                                    @Html.ValidationMessageFor(model => model.Register.ClientTypeID)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Register.Address, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Register.Address, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Register.Address)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Register.Name, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Register.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Register.Name, "", new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Register.LastName, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Register.LastName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Register.LastName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Register.Email, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Register.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Register.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Register.PhoneNumber, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.Register.PhoneNumber, new { @class = "form-control", @placeholder = "###.###.####" })
+                                    @Html.ValidationMessageFor(model => model.Register.PhoneNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                          
+                                
+                             
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Register.Description, new { @class = "control-label col-md-3 pull-left" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(model => model.Register.Description, new { @class = "form-control"})
+                                        @Html.ValidationMessageFor(model => model.Register.Description)
+                                    </div>
+                                </div>
+                         
+                        </div>
+                        <div class="col-md-3 col-lg-3">
+                            <div class="form-horizontal" style="margin-top: 15px;">
+                                <div class="row">
+                                    <div class="thumbnail" style="margin-bottom: 5px; height: 140px; width: 120px">
+                                        <div id="imgPhotoThumb" style="margin-left: auto; margin-right: auto;">
+                                            <img src="~/img/profile_img.jpg" class="img-rounded" style="width: 110px; height: 131px;" />
+                                        </div>
+                                    </div>
+                                    <div style="width: 130px; margin-top: 5px;">
+                                        <button type="button" style="width: 130px;" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#photo-modal">
+                                            Upload Photo
+                                        </button>
+                                    </div>
+                                    @Html.TextAreaFor(model => model.Register.UserPhotoNormal, new { @class = "hidden", @id = "UserPhotoNormal" })
+                                    @Html.TextAreaFor(model => model.Register.UserPhotoThumb, new { @class = "hidden", @id = "UserPhotoThumb" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    @Html.ActionLink("Back to List", "list", "useragent", null, new { @class = "btn btn-default pull-left" })
+                    <input type="submit" value="Create User" class="btn btn-primary pull-right" />
+                    <div class="clearfix"></div>
+                </div>
+            }
+            <div class="modal fade" id="photo-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content col-md-12">
+                        <form class="avatar-form" action="#" enctype="multipart/form-data" method="post">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal" type="button">&times;</button>
+                                <h4 class="modal-title" id="avatar-modal-label">Upload Photo</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="avatar-body">
+                                    <div class="col-md-8" style="padding: 0">
+                                        <div class="well well-sm well-table-header">
+                                            <div class="img-container">
+                                                <img src="#" class="img-rounded">
+                                                <span id="ImageSpan" style="font-size: 12pt; font-weight: bold; ">Upload photo...</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 col-sm-12" style="padding: 0">
+                                            <div class="well well-sm btn btn-primary" for="inputImage" title="Upload image file">
+                                                <input id="inputImage" class="img-rounded btn btn-default" name="file" type="file" accept="image/*" data-toggle="tooltip" title="Upload image" onchange="ShowFileMsg()">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4" style="padding-right: 0">
+                                        <div class="well well-sm well-table-header" style="text-align:center;">
+                                            <span style="font-size: 13pt; font-weight: bold;">Preview</span>
+                                            <div id="dataURLView" style="margin-left: auto; margin-right: auto; height: 140px; width: 120px;">
+                                                <img src="#" class="img-rounded" style="width: 120px;" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row text-right" style="padding-right: 0">
+
+                                        <button class="btn btn-danger" id="getDataURL" data-toggle="tooltip" type="button" title="Crop Image" style="pointer-events: none; opacity: .3">Crop Image</button>
+                                        <button class="btn btn-primary" data-dismiss="modal" type="button">Done</button>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                </div>
+
+                            </div>
+                            <!-- <div class="modal-footer">
+                              <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                            </div> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+<div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body" id="message">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Got It</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+<script src="~/Content/Plugins/Select2/select2.min.js"></script>
+<script src="~/Content/Plugins/cropper/cropper.min.js"></script>
+<script>
+        $('.ddl-select2').select2({ width: "100%" });
+    </script>
+<script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+    </script>
+<script>
+    $('#Register_PhoneNumber').keydown(function (e) {
+          var key = e.which || e.charCode || e.keyCode || 0;
+          $phone = $(this);
+
+          // Don't let them remove the starting '('
+
+
+          // Auto-format- do not expose the mask as the user begins to type
+          if (key !== 8 && key !== 9) {
+              if ($phone.val().length === 3) {
+                  $phone.val($phone.val() + '.');
+              }
+              if ($phone.val().length === 7) {
+                  $phone.val($phone.val() + '.');
+              }
+
+          }
+
+          // Allow numeric (and tab, backspace, delete) keys only
+          return (key == 8 ||
+                  key == 9 ||
+                  key == 46 ||
+                  (key >= 48 && key <= 57) ||
+                  (key >= 96 && key <= 105));
+      })
+
+      .bind('focus click', function () {
+          $phone = $(this);
+
+
+      })
+
+      .blur(function () {
+          $phone = $(this);
+
+
+      });
+    </script>
+<script type="text/javascript">
+            $(document).ready(function () {
+                $(".ddl-select2").select2({ width: '100%' });
+                $.validator.setDefaults({
+                    ignore: ''
+                });
+            });
+            function ShowFileMsg() {
+                if ($('#inputImage').val() == "") {
+                    $("#ImageSpan").text("Upload photo...");
+                    $('#getDataURL').css("pointer-events", "none");
+                    $('#getDataURL').css("opacity:", ".3");
+                }
+                else {
+                    $("#ImageSpan").text("");
+                    $('#getDataURL').css("pointer-events", "");
+                    $('#getDataURL').css("opacity", "1");
+                }
+
+                if ($('#dataURLInto').val() == "") {
+                    $('#ModelDone').css("pointer-events", "none");
+                    $('#ModelDone').css("opacity:", ".3");
+                }
+                else {
+                    $('#ModelDone').css("pointer-events", "");
+                    $('#ModelDone').css("opacity", "1");
+                }
+            }
+            $(function () {
+                (function () {
+                    var $image = $(".img-container img"),
+                        $dataX = $("#dataX"),
+                        $dataY = $("#dataY"),
+                        $dataHeight = $("#dataHeight"),
+                        $dataWidth = $("#dataWidth"),
+                        options = {
+                            aspectRatio: 12 / 14,
+                            data: {
+                                x: 480,
+                                y: 560,
+                                width: 480,
+                                height: 560
+                            },
+                            preview: ".img-preview",
+                            done: function (data) {
+                                $dataX.val(data.x);
+                                $dataY.val(data.y);
+                                $dataHeight.val(data.height);
+                                $dataWidth.val(data.width);
+                            }
+                        };
+
+                    $image.cropper(options).on({
+                        "build.cropper": function (e) {
+                            console.log(e.type);
+                        },
+                        "built.cropper": function (e) {
+                            console.log(e.type);
+                        }
+                    });
+
+                    $(document).on("click", "[data-method]", function () {
+                        var data = $(this).data();
+
+                        if (data.method) {
+                            $image.cropper(data.method, data.option);
+                        }
+                    });
+
+                    var $inputImage = $("#inputImage");
+
+                    if (window.FileReader) {
+                        $inputImage.change(function () {
+                            var fileReader = new FileReader(),
+                                files = this.files,
+                                file;
+
+                            if (files.length) {
+                                file = files[0];
+
+                                if (/^image\/\w+$/.test(file.type)) {
+                                    fileReader.readAsDataURL(file);
+                                    fileReader.onload = function () {
+                                        $image.cropper("reset", true).cropper("replace", this.result);
+                                    };
+                                }
+                            }
+                        });
+                    } else {
+                        $inputImage.addClass("hide");
+                    }
+
+                    var $setDataX = $("#setDataX"),
+                        $setDataY = $("#setDataY"),
+                        $setDataWidth = $("#setDataWidth"),
+                        $setDataHeight = $("#setDataHeight");
+
+
+                    var $dataURLInto = $("#dataURLInto"),
+                        $dataURLView = $("#dataURLView");
+
+                    $("#getDataURL").click(function () {
+                        var dataURLNormal = $image.cropper("getDataURL", {
+                            width: 480,
+                            height: 560
+                        }, "image/jpeg", 0.8);
+
+                        var dataURLThumb = $image.cropper("getDataURL", {
+                            width: 120,
+                            height: 140
+                        }, "image/jpeg", 0.8);
+
+                        $("#UserPhotoNormal").text(dataURLNormal);
+                        $("#UserPhotoThumb").text(dataURLThumb);
+                        $(dataURLView).html('<img style="width: 120px; height: 140px;" src="' + dataURLNormal + '">');
+                        $("#imgPhotoThumb").html('<img style="width: 110px; height: 130px;" src="' + dataURLNormal + '">');
+                    });
+                }());
+            });
+            function inputImage() {
+            }
+</script>
+
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#Register_ClientTypeID').on('change', function () {
+               
+                var ClientType = "Buyer"
+                var DDLText = document.getElementById("Register_ClientTypeID").options[document.getElementById('Register_ClientTypeID').selectedIndex].text;
+                if (ClientType == DDLText) {
+                    $("#Register_Address").attr('disabled', 'disabled');
+                    $("#Register_Address").val("");
+
+                }
+                else if ("Seller" == DDLText) {
+
+                    $("#Register_Address").val("");
+                    $("#Register_Address").removeAttr('disabled');
+
+                }
+                else {
+                    $("#Register_Address").removeAttr('disabled');
+                    $("#Register_Address").removeAttr('disabled');
+                    $("#Register_Address").removeAttr('disabled');
+                }
+
+            });
+
+            var ClientType = "Buyer"
+            var DDLText = document.getElementById("Register_ClientTypeID").options[document.getElementById('Register_ClientTypeID').selectedIndex].text;
+            if (ClientType == DDLText) {
+                $("#Register_Address").attr('disabled', 'disabled');
+                $("#Register_Address").val("");
+
+            }
+            else if ("Seller" == DDLText) {
+
+                $("#Register_Address").val("");
+                $("#Register_Address").removeAttr('disabled');
+
+            }
+            else {
+                $("#Register_Address").removeAttr('disabled');
+                $("#Register_Address").removeAttr('disabled');
+                $("#Register_Address").removeAttr('disabled');
+            }
+        });
+
+
+
+        $(document).ready(function () {
+            $('form').on('submit', function (e) {
+                // validation code here
+                var ClientType = "Seller"
+                var DDLClientType = document.getElementById("Register_ClientTypeID").options[document.getElementById('Register_ClientTypeID').selectedIndex].text;
+
+                 if ($("#Register_ClientTypeID").val() === "") {
+                    $('#myModalLabel').text('');
+                    $('#message').text('');
+                    var someText = "Message";
+                    var message = "Please select Transaction Type"
+                    $('#myModalLabel').append(document.createTextNode(someText));
+                    $('#message').append(document.createTextNode(message));
+                    $('#AnchorTag').click();
+                    e.preventDefault();
+                    $("#ajaxLoading").css("display", "none");
+
+                    $("#ajax-backdrop").css("display", "none");
+
+                }
+
+                 if (ClientType == DDLClientType) {
+                     if ($("#Register_Address").val() === "") {
+                         $('#myModalLabel').text('');
+                         $('#message').text('');
+                         var someText = "Message";
+                         var message = "Please Enter Address"
+                         $('#myModalLabel').append(document.createTextNode(someText));
+                         $('#message').append(document.createTextNode(message));
+                         $('#AnchorTag').click();
+                         e.preventDefault();
+                         $("#ajaxLoading").css("display", "none");
+
+                         $("#ajax-backdrop").css("display", "none");
+                     }
+
+                 }
+
+            });
+        });
+
+
+</script>
+
+
+}

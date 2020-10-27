@@ -1,0 +1,54 @@
+﻿@model RealEstate.Entities.Models.utblMstEventCalMaster
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+    }
+}
+
+<section class="content-header">
+    <h1>
+        Event Calendar
+        <small>Create </small>
+    </h1>
+</section>
+
+<div class="col-md-11">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.Hidden("Email",new { @Value= ViewBag.Email,@name="Email" })
+            @Html.Hidden("ClientID", new { @Value = ViewBag.ClientID, @name = "ClientID" })
+            @Html.Hidden("TransactionID", new { @Value = ViewBag.TransactionID, @name = "TransactionID" })
+            @Html.Hidden("AgentID", new { @Value = ViewBag.AgentID, @name = "AgentID" })
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EventText, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EventText, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EventText, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="well well-sm col-md-12 col-lg-12 text-right">
+            <div class="form-horizontal">
+                @Html.ActionLink("Back to List", "CreateEvent", "Calendly", new { Email = ViewBag.Email, ClientID = ViewBag.ClientID, TransactionID = ViewBag.TransactionID, AgentID = ViewBag.AgentID }, new { @class = "btn btn-default pull-left" })
+                <input type="submit" value="Save" id="save" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+
+ 
+</div>

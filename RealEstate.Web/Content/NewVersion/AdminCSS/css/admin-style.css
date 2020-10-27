@@ -1,0 +1,846 @@
+﻿
+.dashboardContent.adminDashboardContent {
+    margin-top: 0;
+} 
+.topHeader .account-wrap .dropdown-item:focus,
+.topHeader .account-wrap .dropdown-item:hover,
+.topHeader .account-wrap .dropdown-item.active,
+.topHeader .account-wrap .dropdown-item:active {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #fcfcfc;
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesContent,
+.adminDashboardContent .client-activity-wrap .clientActivityContent {
+    padding: 15px;
+}
+.adminDashboardContent .whiteBgBorderBox .title {
+    padding: 11px 15px;
+}
+.adminContentWrapper .top-filter-section {
+    margin-top: 20px;
+}
+.adminDashboardContent .client-activity-wrap .tealButton.resourcebtn {
+    min-width: 200px;
+    margin: 0 auto 24px;
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesContent .agentResourcesBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.14);
+    margin-bottom: 10px;
+    border-left: 4px solid #0BB7A5;
+    padding: 8px 12px 4px;
+}
+.dashboardContent .myCalendar .singleEventWrap{
+    height: auto !important;
+}
+.dashboardContent .myCalendar .singleEventWrap .eventDate {
+    align-self: stretch;
+    height: auto;
+}
+.dashboardContent .calendarWrap .ui-widget.ui-widget-content {
+    max-width: 300px!important;
+    margin: 0 auto;
+    width: auto !important;
+}
+.sty-client-email{
+    font-size:12px;
+}
+.adminDashboardContent .client-activity-wrap .whiteBgBorderBox {
+    min-height: 450px;
+    margin-bottom: 22px;
+}
+.adminDashboardContent .client-activity-wrap .whiteBgBorderBox:last-child {
+    margin-bottom: 0;
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesContent .agentResourcesInner {
+    height: 284px;
+    overflow: auto;
+}
+.adminDashboardContent .client-activity-wrap .clientActivityContent .clientActivityInner {
+    height: 414px;
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesContent .agentResourcesBlock h5 {
+    font-size: 12px;
+    padding: 0;
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesContent .agentResourcesBlock p {
+    padding: 0;
+    font-weight: normal;
+    font-size: 14px;
+    color: #858585;
+    margin: 0 0 2px;
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesBlock .agent-resources-right a {
+    line-height: normal;
+    display: inline-block;
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesBlock .agent-resources-right a.delete {
+    color: #EB5757;
+}
+
+.adminDashboardContent .client-activity-wrap .agentResourcesBlock .agent-resources-right a.edit {
+    color: #828282;
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesBlock .agent-resources-right a i.material-icons {
+    line-height: normal;
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesBlock .agent-resources-left {
+    display: inline-block;
+    width: calc(100% - 60px);
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesBlock .agent-resources-right {
+    display: inline-block;
+    width: 55px;
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesBlock .agent-resources-left a {
+    font-size: 13px;
+    color: #858585;
+    font-weight: 600;
+}
+.adminDashboardContent .client-activity-wrap .agentResourcesBlock .agent-resources-left a:hover {
+    color: #0BB7A5;
+    text-decoration: none;
+}
+
+.dashboardContent .performance-summary .whiteBgBorderBox {
+    min-height: auto!important;
+    overflow: hidden;
+}
+.adminDashboardContent .myCalendar .myCalendarSearch {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+.adminDashboardContent .myCalendar .myCalendarSearch .form-control {
+    height: 44px;
+    font-size: 15px;
+    font-weight: 400;
+    width: calc(100% - 48px);
+}
+.adminDashboardContent .myCalendar .myCalendarSearch .tealButton {
+    width: 48px;
+    margin-left: 10px;
+    border-radius: 7px;
+    height: 44px;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.dashboardContent.adminDashboardContent .totalClientsAgents {
+    float: left;
+    width: 100%;
+    margin: 24px 0 0;
+}
+
+.dashboardContent.adminDashboardContent .totalClientsAgents .whiteBgBorderBox {
+    border-radius: 6px;
+    overflow: auto;
+}
+.dashboardContent.adminDashboardContent .totalClientsAgents .whiteBgBorderBox h3 {
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: 0.2px;
+    color: #0BB7A5;
+    text-align: center;
+    margin: 0;
+    padding: 32px 10px 26px;
+}
+.dashboardContent.adminDashboardContent .totalClientsAgents .whiteBgBorderBox p {
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    color: #000000;
+    border-top: 1px solid #ECEBEB;
+    padding: 7px 10px;
+}
+.adminContentWrapper .header-search-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.adminContentWrapper .header-search-wrap .btn {
+    width: 40px;
+    margin: 20px 10px 0 0 !important;
+}
+
+.adminContentWrapper .header-search-wrap .searchByAgent.form-control,
+.adminContentWrapper .header-search-wrap .form-control {
+    width: 100%;
+}
+.adminContentWrapper .topHeader .heading-wrap .toggleMenu .material-icons {
+    margin-right: 20px;
+}
+.adminContentWrapper .header-search-wrap {
+    padding-right: 0;
+    margin: 10px 0 0;
+    border-right: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.adminContentWrapper .topHeader .account-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -8px;
+    right: 15px;
+}
+.adminContentWrapper .topHeader .search-my-account-wrap {
+    width: 100%;
+    margin-top: 10px;
+}
+.adminContentWrapper .header-search-wrap form.form-inline {
+    width: 100%;
+    margin-right: 0;
+}
+.adminContentWrapper .clients-list-section.deals-listing .tableCell.clientAddress {
+    min-width: 175px;
+}
+.addBlogWrapper {
+    background: #FFFFFF;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+    margin-top: 30px;
+}
+.addBlogWrapper .title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.19);
+    padding: 12px 20px 10px;
+}
+.addBlogWrapper .title h3 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0BB7A5;
+    margin: 0;
+}
+.addBlogWrapper .add-new-blog-inner {
+    padding: 20px 25px 30px;
+}
+.addBlogWrapper .add-new-blog-inner .form-group label {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    color: #070707;
+    margin: 0 0 15px;
+}
+.addBlogWrapper .add-new-blog-inner .form-group {
+    margin-bottom: 20px;
+}
+.addBlogWrapper .add-new-blog-inner .form-group .form-control {
+    background: #FFFFFF;
+    border: 1px solid #C6C6C6;
+    box-sizing: border-box;
+    border-radius: 3px;
+    height: 30px;
+    padding: 4px 10px;
+    font-size: 14px;
+}
+.addBlogWrapper .add-new-blog-inner .form-group textarea.form-control {
+    height: 115px;
+    resize: none;
+}
+.addBlogWrapper .add-new-blog-inner .form-group.choosePictureWrap {
+    margin: 10px 0 20px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #FAFAFA;
+    border: 1px solid #DCDCDC;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 20px;
+}
+.addBlogWrapper .add-new-blog-inner .form-group.choosePictureWrap label {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #9FA2B4;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+.addBlogWrapper .add-new-blog-inner .form-group.choosePictureWrap .form-control {
+    height: 38px;
+    width: 100%;
+    max-width: 370px;
+    padding: 8px 10px;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    color: #9FA2B4;
+}
+.addBlogWrapper .add-new-blog-inner .btn-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.addBlogWrapper .add-new-blog-inner .btn-wrap .btn {
+    height: 32px;
+    max-width: 100px;
+    width: 100%;
+}
+.blogListingWrapper {
+    margin-top: 30px;
+}
+.blogListingWrapper .blogInnerWrap {
+    background: #FFFFFF;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.blogListingWrapper .blogContent {
+    padding: 20px 15px 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.19);
+    min-height: auto;
+}
+.blogListingWrapper .blogContent h4 {
+    font-size: 16px;
+    line-height: 24px;
+    color: #0BB7A5;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    margin: 0 0 15px;
+    min-height: auto;
+}
+.blogListingWrapper .blogContent h4 a {
+    color: #0BB7A5;
+}
+.blogListingWrapper .blogContent p {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: #252733;
+    margin: 0 0 22px;
+}
+.blogListingWrapper .blogContent .blogInfo p {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+}
+.blogListingWrapper .blogContent .blogInfo p.mail {
+    color: #565656;
+    margin: 0 0 10px;
+}
+.blogListingWrapper .blogContent .blogInfo p.mail i {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 18px;
+    width: 30px;
+}
+.blogListingWrapper .blogContent .blogInfo p.dateTime {
+    color: #ABABAB;
+}
+.blogListingWrapper .blogContent .blogInfo p.dateTime i {
+    color: rgba(137, 137, 137, 0.87);
+    font-size: 16px;
+    width: 30px;
+}
+.blogListingWrapper .blogAction {
+    padding: 7px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.blogListingWrapper .blogAction a {
+    height: 43px;
+    width: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;    
+    margin: 0 0 0 14px;
+    transition: .5s;
+}
+.blogListingWrapper .blogAction a:hover {
+    text-decoration: none;
+}
+.blogListingWrapper .blogAction a.edit {
+    background: rgba(11, 183, 165, 0.18);
+}
+.blogListingWrapper .blogAction a.edit:hover {
+    background: #6FCF97;
+}
+.blogListingWrapper .blogAction a.delete {
+    background: #FFE3E3;
+}
+.blogListingWrapper .blogAction a.delete:hover {
+    background: #EB5757;
+}
+.blogListingWrapper .blogAction a.edit i {
+    color: #6FCF97;
+}
+.blogListingWrapper .blogAction a.edit:hover i {
+    color: #fff;
+}
+.blogListingWrapper .blogAction a.delete i {
+    color: #EB5757;
+}
+.blogListingWrapper .blogAction a.delete:hover i {
+    color: #fff;
+}
+.clients-list-section.testionials-wrap .testionials-listing .heading-wrap,
+.clients-list-section.status-wrap .status-listing .heading-wrap,
+.clients-list-section.buyer-document-wrap .document-listing .heading-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.clients-list-section.testionials-wrap .testionials-listing h3,
+.clients-list-section.status-wrap .status-listing h3,
+.clients-list-section.buyer-document-wrap .document-listing h3 {
+    padding: 0;
+}
+.clients-list-section.testionials-wrap .testionials-listing .tealButton,
+.clients-list-section.status-wrap .status-listing .tealButton,
+.clients-list-section.buyer-document-wrap .document-listing .tealButton {
+    height: 32px;
+    max-width: 120px;
+    width: 100%;
+}
+.adminContentWrapper .clients-list-section.testionials-wrap .tableCell,
+.adminContentWrapper .clients-list-section.status-wrap .tableCell,
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell {
+    min-width: 220px;
+}
+.adminContentWrapper .clients-list-section.testionials-wrap .tableCell.rating {
+    min-width: 160px;
+}
+.adminContentWrapper .clients-list-section.testionials-wrap .tableCell.createdOn {
+    min-width: 240px;
+}
+.adminContentWrapper .clients-list-section.status-wrap .tableCell.status {
+    min-width: 260px;
+}
+.adminContentWrapper .clients-list-section.status-wrap .tableCell.percentage {
+    min-width: 120px;
+}
+.adminContentWrapper .clients-list-section.status-wrap .tableCell.action,
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.action {
+    min-width: 80px;
+    text-align: center;
+}
+.adminContentWrapper .clients-list-section.status-wrap .tableCell.updatedOn a,
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.updatedOn a {
+    align-items: center;
+    justify-content: center;
+}
+.adminContentWrapper .clients-list-section.status-wrap .tableCell.updatedOn {
+    min-width: 160px;
+    text-align: left;
+}
+.adminContentWrapper .clients-list-section.testionials-wrap .tableCell.action {
+    min-width: 90px;
+    text-align: center;
+}
+.adminContentWrapper .clients-list-section.status-wrap .tableCell p,
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell p {
+    margin: 0;
+}
+.adminContentWrapper .clients-list-section.status-wrap .tableCell.description p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 15px;
+    letter-spacing: 0.2px;
+    font-weight: 500;
+}
+.adminContentWrapper .clients-list-section.testionials-wrap .tableCell:first-child,
+.adminContentWrapper .clients-list-section.status-wrap .tableCell:first-child,
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell:first-child {
+    padding: 26px 20px;
+}
+.adminContentWrapper .clients-list-section.testionials-wrap .tableRow .tableCell.userName a,
+.adminContentWrapper .clients-list-section.status-wrap .tableRow .tableCell.status a,
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableRow .tableCell.title a {
+    letter-spacing: 0.2px;
+    color: #0BB7A5;
+}
+.adminContentWrapper .clients-list-section.testionials-wrap .tableCell.action a.actioDelete,
+.adminContentWrapper .clients-list-section.status-wrap .tableCell.action a.actioDelete,
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.action a.actioDelete {
+    color: #EB5757;
+}
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell {
+    min-width: 220px;
+}
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.title {
+    min-width: 200px;
+}
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.description {
+    min-width: 240px;
+}
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.updatedOn p {
+    text-align: center;
+}
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.updatedOn p span {
+    white-space: nowrap;
+}
+.adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.action {
+    min-width: 90px;
+}
+.add-buyer-document-modal .modal-dialog {
+    max-width: 670px;
+}
+.add-buyer-document-modal .modal-dialog .modal-header {
+    min-height: 44px;    
+    justify-content: center;
+}
+.add-buyer-document-modal .modal-dialog .form-group .form-control {
+    border: 1px solid #C6C6C6;
+    border-radius: 3px;
+    height: 30px;
+}
+.add-buyer-document-modal .modal-dialog .form-group textarea.form-control {
+    height: 185px;
+    resize: none;
+}
+.add-buyer-document-modal .modal-dialog .form-group {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.add-buyer-document-modal .modal-dialog .form-group label {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: left;
+    letter-spacing: 0.5px;
+    color: #9FA2B4;
+    font-weight: 300;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 8px;
+}
+
+.add-buyer-document-modal .modal-dialog form {
+    padding: 10px 0;
+}
+.add-buyer-document-modal .modal-dialog .btn-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-buyer-document-modal .modal-dialog .btn-wrap .btn {
+    max-width: 100px;
+    width: 100%;
+    height: 32px;
+    margin: 0 8px;
+}
+.addTestimonialsWrapper .add-testimonials-inner .rating-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F5F5F5;
+    border: 1px solid #D3D3D3;
+    box-sizing: border-box;
+    border-radius: 3px;
+    height: 47px;
+    padding: 10px;
+}
+.addTestimonialsWrapper .add-testimonials-inner .rating-inner span {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
+    letter-spacing: 0.2px;
+    color: #070707;
+    margin: 0 20px 0 0;
+}
+.addTestimonialsWrapper .add-testimonials-inner .rating-inner span:last-of-type {
+    margin: 0 0 0 20px;
+}
+.addTestimonialsWrapper .add-testimonials-inner .rating-inner a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.addTestimonialsWrapper .add-testimonials-inner .rating-inner .starFade {
+    font-weight: normal;
+    color: #828282;
+    font-size: 24px;
+    margin: 0 2px;
+    cursor: pointer;    
+}
+.addTestimonialsWrapper .add-testimonials-inner .rating-inner .starGlow {
+    color: #0bb7a5;
+    cursor: pointer;    
+    font-weight: normal;
+    font-size: 24px;
+    margin: 0 2px;
+}
+.addBlogWrapper .add-new-blog-inner .radio-switch-container {
+    justify-content: flex-start;
+}
+.addBlogWrapper .add-new-blog-inner .radio-switch-container .toggle-switch-pill {
+    background: #fff;
+    border: 1px solid #C2C2C2;
+}
+.addBlogWrapper .add-new-blog-inner .radio-switch-container .radio-switch-toggle {
+    width: 23px;
+    height: 23px;
+    background-color: #C4C4C4;
+    right: 4px;
+    left: auto;
+}
+.addBlogWrapper .add-new-blog-inner .radio-switch-container .radio-switch {
+    width: 64px;
+    height: 31px;
+}
+.addBlogWrapper .add-new-blog-inner .form-group label.switch-label {
+    font-size: 0;
+    margin: 0;
+}
+#ContingenciesNo:checked~.radio-switch-toggle {
+    right: 36px;
+    left: auto;
+    background-color: #fff;
+}
+#ContingenciesNo:checked~.toggle-switch-pill {
+    background-color:#C4C4C4;
+    border: 1px solid #C4C4C4;
+}
+
+.adminContentWrapper .topHeader .heading-wrap {
+    padding-top: 60px;
+    width: 100%;
+    justify-content: flex-start !important;
+}
+.adminContentWrapper .clients-list-section .tableCell.clientDetails {
+    min-width: 180px;
+}
+
+.adminContentWrapper .clients-list-section .tableCell.vendorCreatedOn {
+    min-width: 160px;
+}
+.adminContentWrapper .clients-list-section .tableCell.vendorIsRecommended {
+    min-width: 200px;
+    text-align: center;
+}
+.adminContentWrapper .clients-list-section .tableCell.vendorAction {
+    min-width: 80px;
+}
+@media screen and (min-width: 480px) {
+    
+    .adminContentWrapper .topHeader .heading-wrap {
+        width: calc(100% - 190px);
+        padding-top: 0;
+    }
+    .blogListingWrapper .blogContent {
+        padding: 20px 20px 18px;
+    }
+}
+@media screen and (min-width: 576px) {
+    .add-buyer-document-modal .modal-dialog .form-group {
+        flex-direction: row;
+    }
+    .add-buyer-document-modal .modal-dialog .form-group label {
+        text-align: right;
+        width: 130px;
+        margin: 0 55px 0 0;
+        padding: 6px 0;
+    }
+    .add-buyer-document-modal .modal-dialog form {
+        padding: 20px 10px;
+    }
+}
+@media screen and (min-width: 600px) {
+    .adminContentWrapper .header-search-wrap .searchByAgent.form-control {
+        width: 190px;
+    }
+    .adminContentWrapper .header-search-wrap .form-control {
+        width: 260px;
+    }
+    .adminContentWrapper .header-search-wrap {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .adminContentWrapper .header-search-wrap form.form-inline {
+        width: auto;
+        margin-right: 0;
+    }
+    .adminContentWrapper .header-search-wrap .searchByAgent {
+        margin-right: 20px !important;
+    }
+    
+    .adminContentWrapper .header-search-wrap .btn {
+        width: 32px;
+        margin: 0 0 0 6px !important;
+    }
+    .blogListingWrapper .blogContent h4 {
+        min-height: auto;
+    }
+    .adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.updatedOn {
+        min-width: 160px;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 767px) {
+    .adminContentWrapper .header-search-wrap .searchByAgent.form-control {
+        width: 250px;
+    }
+    .adminContentWrapper .header-search-wrap .searchByAgent {
+        margin-right: 40px !important;
+    }
+    
+    .adminContentWrapper .header-search-wrap .form-control {
+        width: 280px;
+    }
+    .addBlogWrapper .add-new-blog-inner .form-group.choosePictureWrap {
+        margin: 36px 0 0;
+        height: 200px;
+    }
+    .blogListingWrapper .blogContent {
+        padding: 20px 20px 18px;
+        min-height: 240px;
+    }
+    .blogListingWrapper .blogInnerWrap {
+        margin-bottom: 50px;
+    }
+    .adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.description {
+        min-width: 280px;
+    }
+    .add-buyer-document-modal .modal-dialog form {
+        padding: 20px 60px;
+    }
+    .dashboardContent.adminDashboardContent {
+        margin-top: 35px;
+    } 
+}
+@media screen and (min-width: 992px) {
+    .adminContentWrapper .header-search-wrap .searchByAgent.form-control {
+        width: 190px;
+    }
+    .adminContentWrapper .top-filter-section {
+        margin-top: 20px;
+    }
+    .blogListingWrapper .blogContent {
+        min-height: 278px;
+    }
+    .adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.description {
+        min-width: 270px;
+    }
+    .clients-list-section.testionials-wrap .testionials-listing .heading-wrap,
+    .clients-list-section.status-wrap .status-listing .heading-wrap,
+    .clients-list-section.buyer-document-wrap .document-listing .heading-wrap {
+        padding: 26px 20px 26px 32px;
+    }
+    .adminContentWrapper .clients-list-section.testionials-wrap .tableCell:first-child,
+    .adminContentWrapper .clients-list-section.status-wrap .tableCell:first-child,
+    .adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell:first-child {
+        padding: 26px 20px 26px 32px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .dealPipelineTabsContent .dealPipelineUserBlock .dealPipelineUserInfo{
+        min-height:200px!important;
+    }
+    .adminContentWrapper .topHeader .heading-wrap {
+        width: auto;
+    }
+    .adminContentWrapper .topHeader .account-wrap { 
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+    .adminContentWrapper .topHeader .search-my-account-wrap {
+        margin-top: 0;
+        width: auto;
+    }
+    .adminContentWrapper .header-search-wrap .form-control {
+        width: 230px;
+        font-size: 14px;
+    }
+    .adminContentWrapper .header-search-wrap .searchByAgent.form-control {
+        width: 130px;
+    }
+    .adminContentWrapper .header-search-wrap .searchByAgent {
+        margin-right: 10px !important;
+    }
+    .adminContentWrapper .header-search-wrap .btn {
+        margin: 0 0 0 4px !important;
+    }
+    .adminContentWrapper .header-search-wrap {
+        padding-right: 10px;
+        margin: 0 10px 0 0;
+        border-right: 1px solid #DFE0EB;
+    }
+    
+    .topHeader .heading-wrap .toggleMenu .material-icons {
+        margin-right: 12px;
+    }
+    .adminContentWrapper .clients-list-section .tableCell{
+        min-width: 90px;
+    }
+    .adminContentWrapper .clients-list-section .tableCell.clientImage {
+        min-width: 80px;
+    }
+    .adminContentWrapper .clients-list-section .tableCell.clientDetails {
+        min-width: 180px;
+    }
+    .adminContentWrapper .clients-list-section .tableCell.agentName {
+        min-width: 115px;
+    }
+    .adminContentWrapper .clients-list-section .tableCell.clientPhnNumber {
+        min-width: 175px;
+    }
+    .adminContentWrapper .clients-list-section .tableCell.clientTier {
+        min-width: 80px;
+    }
+    .adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.title {
+        min-width: 220px;
+    }
+    .adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.description {
+        min-width: 440px;
+    }
+    .adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.updatedOn {
+        min-width: 220px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .topHeader .heading-wrap .toggleMenu .material-icons {
+        margin-right: 20px;
+    }
+    .adminContentWrapper .header-search-wrap {
+        padding-right: 35px;
+        margin-right: 35px;
+    }
+    .adminContentWrapper .header-search-wrap .btn {
+        margin: 0 0 0 6px !important;
+    }
+    .adminContentWrapper .header-search-wrap .form-control {
+        width: 280px;
+        font-size: 16px;
+    }
+    .adminContentWrapper .header-search-wrap .searchByAgent.form-control {
+        width: 200px;
+    }
+    .adminContentWrapper .header-search-wrap .searchByAgent {
+        margin-right: 40px !important;
+    }
+    .blogListingWrapper .blogContent {
+        padding: 28px 30px 22px;
+        min-height: 290px;
+    }
+    .adminContentWrapper .clients-list-section.buyer-document-wrap .tableCell.description {
+        min-width: 470px;
+    }
+}

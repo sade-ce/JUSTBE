@@ -1,0 +1,64 @@
+﻿@model RealEstate.Entities.ViewModels.TestimonialViewModel
+    <div id="DataGrid" >
+@if (Model.TestimonialList.Count() > 0)
+{
+    <div class="table-wrapper">
+        <div class="listing-table custom-table">
+            <div class="tableHeadRow">
+                <div class="tableCell userName"><a href="@Url.Action("List","TestimonialV2",new {area="Admin", sortOrder = Model.TestimonialSortingInfo.TitleSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.TestimonialFilterInfo.SearchFilter})" data-kw-target="#DataGrid" class="sorting"><img src="~/img/AdminImages/sort-icon.svg" />UserName</a></div>
+                <div class="tableCell userType"><a href="@Url.Action("List","TestimonialV2",new {area="Admin", sortOrder = Model.TestimonialSortingInfo.TypeSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.TestimonialFilterInfo.SearchFilter})" data-kw-target="#DataGrid" class="sorting"><img src="~/img/AdminImages/sort-icon.svg" />UserType</a></div>
+                <div class="tableCell rating"><a href="@Url.Action("List","TestimonialV2",new {area="Admin", sortOrder = Model.TestimonialSortingInfo.RatingSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.TestimonialFilterInfo.SearchFilter})" data-kw-target="#DataGrid" class="sorting"><img src="~/img/AdminImages/sort-icon.svg" />Rating</a></div>
+                <div class="tableCell createdOn"><a href="@Url.Action("List","TestimonialV2",new {area="Admin", sortOrder = Model.TestimonialSortingInfo.CreatedOnSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.TestimonialFilterInfo.SearchFilter})" data-kw-target="#DataGrid" class="sorting"><img src="~/img/AdminImages/sort-icon.svg" />Created On</a></div>
+                <div class="tableCell action"></div>
+            </div>
+@foreach (var item in Model.TestimonialList)
+{
+            <div class="tableRow">
+                <div class="tableCell userName"><a href="@Url.Action("Edit","TestimonialV2", new { Id = item.Id , area = "admin" })">@item.UserName</a></div>
+                <div class="tableCell userType">@item.UserType</div>
+                <div class="tableCell rating">@item.Rating</div>
+                <div class="tableCell createdOn">@item.CreatedOn.ToString("dd MMM yyyy hh:mm tt")</div>
+                <div class="tableCell action">
+
+                    <form method="post" action="@Url.Action("Delete","TestimonialV2",new { area = "admin" })" data-kw-ajax="true" data-kw-target="#DataGrid">
+                        @Html.AntiForgeryToken()
+                        <a href="@Url.Action("Delete", "TestimonialV2", new { Id = item.Id, PgNo = @Model.PagingInfo.CurrentPage, PgSize = @Model.PagingInfo.ItemsPerPage, ListCount = @Model.TestimonialList.Count(), sortOrder = Model.TestimonialSortingInfo.CurrentSort, searchterm = Model.TestimonialFilterInfo.SearchFilter , area = "admin"})" class="delete actioDelete" data-toggle="tooltip" data-placement="bottom" title="Delete ">
+                            <i class="material-icons">delete</i>
+                        </a>
+                    </form>
+                </div>
+            </div>
+            
+}
+        </div>
+    </div>
+
+
+
+    <div class="pagination-row ns-grid-pager" data-kw-target="#DataGrid">
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <div class="rowsPerPage">
+                    @Model.PagingInfo.TotalItems &nbsp;Record(s)
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <div class="pageNavigation ns-pagination" data-kw-target="#DataGrid" data-kw-actionlink="@Url.Action("list", "TestimonialV2", new { area = "Admin"})">
+                    @Html.PageLinksNew(Model.PagingInfo, x => Url.Action("list", "TestimonialV2", new { area = "Admin", PageNo = x, PageSize = Model.PagingInfo.ItemsPerPage, sortOrder = Model.TestimonialSortingInfo.CurrentSort, searchterm = Model.TestimonialFilterInfo.SearchFilter }))
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="table-wrapper">
+        <div class="listing-table custom-table">
+            <h3>No record found...</h3>
+            </div>
+        </div>
+            }
+        </div>
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>

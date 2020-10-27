@@ -1,0 +1,526 @@
+﻿@model RealEstate.Entities.ViewModels.MstAgentView
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "Just BE | Agent";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayoutNew.cshtml";
+}
+
+
+<div class="top-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="breadcrumbs">
+                    <ul class="align-items-center d-flex list-unstyled m-0 p-0">
+                        <li class="d-none d-lg-block mr-4">
+
+                            <a href="#!" id="toggleHeader"><img src="/Content/NewVersion/images/ham.png" alt="" class="img-fluid"></a>
+
+                        </li>
+                        @*<li>Concierge<span>&nbsp;>&nbsp;</span></li>
+                        <li class="active">My Agent<span>&nbsp;>&nbsp;</span></li>*@
+
+                        <li>
+                            <a class="nav-link nav-cal-drop nav-cal-drop-new dropdown-toggle " href="@Url.Action("MyAgent", "MyDeal", new { area = "Client",AgentID=ViewBag.AgentID,AgentName=ViewBag.AgentName })" role="button">My Agent<span style="color:#212529">&nbsp;>&nbsp;</span></a>
+                        </li>
+                        <li class="no-activee">@ViewBag.AgentName </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 d-md-block d-none">
+                <div class="accountLog d-flex justify-content-end align-items-center">
+                    <p>Hello, &nbsp;<span>@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)</span></p>
+                    <div class="profileImgtop" style="background-size: cover; background-position: center;   height:50px;">
+                        <!-- <img alt="profile-img" id="profileimg" class="img-fluid profileimg"> -->
+                    </div>
+
+                    <span> &nbsp; &nbsp; | &nbsp; </span>
+
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle mybtn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            My Account
+                        </button>
+                        <div class="dropdown-menu MyAccountDrop" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="@Url.Action("EmailPreferences", "Account", new { @area = "" })"><i class="flaticon-gear"></i>Notification Settings</a>
+                            <a class="dropdown-item" href="@Url.Action("EditProfile", "Account", new { @area = "" })"><i class="flaticon-conversation"></i>Edit Profile</a>
+                            <a class="dropdown-item" href="@Url.Action("ChangePassword", "Account", new { @area = "" })"><i class="flaticon-password"></i>Change Password</a>
+
+                            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<section class="myAgentOuter">
+
+    <div class="container-fluid">
+        <div class="myAgentInnerBanner d-none d-md-block d-lg-block ">
+            <div class="row">
+               
+@if ((Model.UserGalleryList.Count() > 0))
+{
+    foreach (var item in Model.UserGalleryList)
+    {
+                <div class="col-3 p-1" >
+                    <div class="smaGallery" style="background: url('/UploadedFiles/PhotoGallery/@item.Photo') ; background-size: cover; background-position: center;   height:200px;background-size: contain; background-repeat: no-repeat;">
+
+                    </div>
+                </div>
+    }
+}
+else
+{
+    @*<div class="col-12 p-1">
+        <div class="smaGallery" style="background: url('/UploadedFiles/PhotoGallery/no-photo3.jpg') ; background-size: cover; background-position: center;   height:200px;">
+
+        </div>
+    </div>*@
+    <div class="col-3 p-1">
+        <div class="smaGallery" style="background: url('/Content/NewVersion/images/myAgent1.jpg') ; background-size: cover; background-position: center;   height:200px;">
+
+        </div>
+    </div>
+                    <div class="col-3 p-1">
+                        <div class="smaGallery" style="background: url('/Content/NewVersion/images/myAgent2.jpg') ; background-size: cover; background-position: center;   height:200px;">
+
+                        </div>
+                    </div>
+                    <div class="col-3 p-1">
+                        <div class="smaGallery" style="background: url('/Content/NewVersion/images/myAgent3.jpg') ; background-size: cover; background-position: center;   height:200px;">
+
+                        </div>
+                    </div>
+                    <div class="col-3 p-1">
+                        <div class="smaGallery" style="background: url('/Content/NewVersion/images/myAgent4.jpg') ; background-size: cover; background-position: center;   height:200px;">
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-3 p-1">
+                        <div class="smaGallery" style="background :url('/Content/NewVersion/images/myAgent5.jpg') ; background-size: cover; background-position: center;   height:200px;">
+
+                        </div>
+                    </div>
+                    <div class="col-3 p-1">
+                        <div class="smaGallery" style="background: url('/Content/NewVersion/images/myAgent6.jpg') ; background-size: cover; background-position: center;   height:200px;">
+
+                        </div>
+                    </div>
+                    <div class="col-3 p-1">
+                        <div class="smaGallery" style="background: url('/Content/NewVersion/images/myAgent7.jpg') ; background-size: cover; background-position: center;   height:200px;">
+
+                        </div>
+                    </div>
+                    <div class="col-3 p-1">
+                        <div class="smaGallery" style="background: url('/Content/NewVersion/images/myAgent8.jpg') ; background-size: cover; background-position: center;   height:200px;">
+
+                        </div>
+                    </div>
+
+}
+            </div>
+       
+            @*<div class="row">
+                <div class="col-md-12 p-1">
+                    <div class="radiusBox"></div>
+                </div>
+            </div>*@
+
+
+        </div>
+    </div>
+    
+ 
+
+    <div class="myAgentInner p-1 mtopMobile">
+
+        <div class="container-fluid">
+
+            <!-- <div class="row"
+              >
+
+            </div> -->
+
+
+
+            <div class="row">
+                <div class="col col-12 col-md-4 col-lg-4  col-xl-3 text-center">
+
+                    @{ var image = ""; }
+                    @if (!string.IsNullOrEmpty(Model.MstAgentViewModel.UserPhotoNormal))
+                    {
+                        image = Model.MstAgentViewModel.UserPhotoNormal;
+
+                    }
+                    else
+                    {
+                        image = "../../../../img/NoImage.png";
+                    }
+                    <img class="fb-image-profile thumbnail profilePicAgent" src="@image" alt="Profile image" />
+
+                </div>
+                <div class="col col-12 col-md-8 col-lg-8 col-xl-9">
+                    <div class="fb-profile-text">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="profile-titlee">
+                                    <h3>@Model.MstAgentViewModel.Name</h3>
+                               
+                                    @if (ViewBag.AgentName == "Jay Bauer")
+                                    {
+                                        <h6>Jokester, Co-Founder</h6>
+                                    }
+                                    @if (ViewBag.AgentName == "Dana Cloud")
+                                    {
+                                        <h6>Realtor, Military Relocation Professional, MRP</h6>
+
+                                    }
+                                    @if (ViewBag.AgentName == "Jack London")
+                                    {
+                                        <h6>Listing Associate</h6>
+                                    }
+                                    @if (ViewBag.AgentName == "Chris Plog")
+                                    {
+                                        <h6> Realtor®</h6>
+                                    }
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-4">
+                                <ul class="socialIcons socilaicon11">
+
+
+                                    @if (ViewBag.AgentName == "Jay Bauer")
+                                    {
+
+                                        <li>
+                                            <a href="https://www.facebook.com/jay.s.bauer" target="_blank">
+                                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.instagram.com/jaybauer.ig/?hl=en" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                        </li>
+                                    }
+                                    @*else if (ViewBag.AgentName == "Dana Cloud")
+    {
+
+        <li>
+            <a href="#" target="_blank">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </li>
+    }
+    else if (ViewBag.AgentName == "Jack London")
+    {
+
+        <li>
+            <a href="#" target="_blank">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </li>
+    }
+    else if (ViewBag.AgentName == "Chris Plog")
+    {
+
+        <li>
+            <a href="#" target="_blank">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </li>
+    }
+    else
+    {
+
+        <li>
+            <a href="#" target="_blank">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </li>
+    }*@
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="agentProfile">
+                                    <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:@Model.MstAgentViewModel.Email">@Model.MstAgentViewModel.Email</a> </li>
+                                    <li><i class="fa fa-phone-square" aria-hidden="true"></i><a href="tel:+1-@Model.MstAgentViewModel.PhoneNumber">+1-@Model.MstAgentViewModel.PhoneNumber</a></li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+                            @if (ViewBag.AgentName == "Jay Bauer")
+                            {
+                                <p>
+                                    A northeast native, I’ve called the D.C. metro area home for over 20 years. I’ve always had a passion for real estate. Even as a kid, I’d ask my parents if I could join them while they toured model homes. Little did I know that 20 years later I’d be the one bringing clients through model homes and negotiating sales on their behalf! As a Realtor, I’m customer-driven, and always dedicated to exceptional service and results for my clients. I’m licensed in D.C., Maryland, and Virginia, and I specialize in representing both buyers and sellers in the purchase and sale of single-family homes, row homes, townhouses, and condos throughout the D.C. metro area.
+
+                                </p>
+                                <p>
+                                    I’m a graduate of Walt Whitman High School in Bethesda and I hold a degree in communications from the University of Delaware. My hobbies include biking, D.C.-area sporting and social events, boating (especially when I have the opportunity to take my clients out on the Potomac), hiking, and helping out where I can in the community. I truly love the D.C. area, and I put my passion and deep knowledge of the area, along with 10 years of real estate experience, to work for each and every client.
+                                </p>
+                            }
+                            else if (ViewBag.AgentName == "Dana Cloud")
+                            {
+
+                                <p>
+                                    Dana was born into the world of homes. Her grandfather and his twin brother started 'Reinke and Sons’ Construction in South Bend, Indiana which became a residential and commercial building success. Her father developed his skills in masonry, which paid for his degree in Architecture at the University of Cincinnati. Her father's brother became a successful real estate agent in South Bend. Her mother was also bit by the real estate bug and sold real estate in Loveland, Colorado in the 1980’s.
+                                </p>
+                                <p>
+                                    Without a doubt, Dana's family had a tremendous influence on her desire to become a Realtor back in 1996. Her career in real estate began in Boulder, Colorado, where she was later recruited by a top real estate brokerage to work predominantly as a Buyer’s Agent and Relocation Specialist.
+                                </p>
+                                    <p>
+                                        Dana enjoys the process of assisting individuals, couples and families with one of the most significant purchases and life changing events in their lives. She also enjoys working with investors and developers to find viable properties to renovate in the DC metro area. Dana's desire is to make the home buying and selling experience as enjoyable and stress free as possible for her clients.
+                                    </p>
+                                    <p>
+                                        Dana is pleased to be settled on the East Coast in Alexandria, Virginia. She welcomes the opportunity to work with buyers, sellers, and investors/developers with their real estate needs in the Washington DC, Maryland and Northern Virginia region.
+                                    </p>
+
+                            }
+                            else if (ViewBag.AgentName == "Jack London")
+                            {
+
+                                <p>
+                                    Born and raised in Northern Virginia, Zack has kept his focus on the DC area, earning a degree from Virginia Commonwealth University with a focus on creative writing. Having spent years in fine furniture design and woodworking, he has a unique and experienced eye for quality and precision, and his practiced approach to identifying a client’s preferences and desires translates perfectly into the real estate landscape.
+                                </p>
+                                <p>
+                                    A childhood interest in construction and architecture is rekindled in Zack through an entry into realty, and as a member of the Compass team he is proud and excited to take part in expanding the stories of the people in his community, one home at a time.
+                                </p>
+                            }
+                            else if (ViewBag.AgentName == "Sagar Sharma")
+                            {
+                                <p>
+                                    Bio Missing
+                                </p>
+                            }
+
+
+                            else if (ViewBag.AgentName == "Chris Plog")
+                            {
+
+                                <p>
+                                    Raised in the DC area, Chris graduated from Bethesda Chevy Chase High School and then went on to obtain dual degrees in Psychology and Criminal Justice from the University of Maryland. He has always been passionate about helping others and combined with his intimate knowledge of the DC metro area and the current market climate, Chris will be a true advocate in your journey towards a wonderful home.
+
+                                </p>
+                                <p>Chris was recently recognized by the Washingtonian Magazine as a regional top producing agent. </p>
+                                    <p>
+                                        Outside of real estate, you can find Chris performing with his band, enjoying outdoor adventures, and sampling the many offerings of the DMV’s burgeoning food scene. You may recognize him from his days with Mission Group DC, most recently as the General Manager of Mission DuPont.
+                                    </p>
+
+
+                            }
+                            else
+                            {
+                                <p></p>
+                            }
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+
+
+
+
+@*@if ((User.IsInRole("Agent") || User.IsInRole("Admin") || User.IsInRole("Client"))) { }
+    else
+    {*@
+<!-- ContactUs Start -->
+<section class="ContactUsOuter">
+<div class="ContactUsInner">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                
+
+                    <div class="contact_form">
+                        <div class="container">
+                            @{ Html.RenderAction("AgentContactPage", "MyDeal", new { @AgentID = ViewBag.AgentID });}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ContactUs End -->
+@*}*@
+@section Scripts {
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <script type="text/javascript">
+
+
+        $(function () {
+            function rescaleCaptcha() {
+                var width = $('.g-recaptcha').parent().width();
+                var scale;
+                if (width < 302) {
+                    scale = width / 302;
+                } else {
+                    scale = 1.0;
+                }
+
+                $('.g-recaptcha').css('transform', 'scale(' + scale + ')');
+                $('.g-recaptcha').css('-webkit-transform', 'scale(' + scale + ')');
+                $('.g-recaptcha').css('transform-origin', '0 0');
+                $('.g-recaptcha').css('-webkit-transform-origin', '0 0');
+            }
+
+            rescaleCaptcha();
+            $(window).resize(function () { rescaleCaptcha(); });
+
+        });
+
+        $(document).ready(function () {
+
+            $('form').submit(function () {
+                if (isValidEmailAddress($("#Email").val())) {
+                    $("#ajaxLoading").css("display", "block");
+                    $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                    $("#ajaxLoading").css("left", $(window).width() / 2);
+                    $("#ajaxLoading").css("position", "fixed");
+                    $("#ajax-backdrop").css("display", "block");
+                    var serializedForm = $(this).serialize();
+                    $.ajax({
+                        url: '@Url.Action("AgentContactPage")',
+                        type: "POST",
+                        data: serializedForm,
+
+                        success: function (result) {
+                            $('#SucessView').css('display', 'none');;
+                            $('#ErrorView').text('').hide();
+                            $("#ajaxLoading").css("display", "none");
+                            $("#ajax-backdrop").css("display", "none");
+                            if (result == "Thanks for your submission, agent will be in touch shortly.") {
+                                $('#SucessView').css('display', 'block');
+                                $('#conform').css('display', 'none');
+                                //$('#ContactPerson').val('');
+                                //$('#Email').val('');
+                                $('#Message').val('');
+                                grecaptcha.reset();
+                            }
+                            else {
+                                $('#ErrorView').text(result).show();
+
+                            }
+
+                        },
+                        error: function (result) {
+
+                            $('#ErrorView').text(result).show();
+                            //$('#Error').text(result.Email);
+                        }
+
+                    });
+
+                }
+                else {
+                    $("#ErrorView").text("Invalid email address!").show().fadeOut("slow");
+                }
+
+                return false;
+            });
+        });
+        @*$(document).ready(function () {
+
+            $('form').submit(function () {
+                if (isValidEmailAddress($("#Email").val())) {
+                    $("#ajaxLoading").css("display", "block");
+                    $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                    $("#ajaxLoading").css("left", $(window).width() / 2);
+                    $("#ajaxLoading").css("position", "fixed");
+                    $("#ajax-backdrop").css("display", "block");
+                    var serializedForm = $(this).serialize();
+                    $.ajax({
+                        url: '@Url.Action("AgentContactPage")',
+                        type: "POST",
+                        data: serializedForm,
+
+                        success: function (result) {
+                            $("#ajaxLoading").css("display", "none");
+                            $("#ajax-backdrop").css("display", "none");
+                            $('#ErrorView').text(result).show();
+
+                            $('#Message').val('');
+
+
+                        },
+                        error: function (result) {
+
+                            $('#ErrorView').text(result).show();
+                            //$('#Error').text(result.Email);
+                        }
+
+                    });
+
+                }
+                else {
+                    $("#ErrorView").text("Invalid Email Address!").show().fadeOut("slow");
+                }
+
+                return false;
+            });
+        });*@
+
+        function isValidEmailAddress(emailAddress) {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            return pattern.test(emailAddress);
+        }
+
+
+    </script>
+
+
+}

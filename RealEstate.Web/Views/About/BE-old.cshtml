@@ -1,0 +1,307 @@
+﻿@model RealEstate.Entities.ViewModels.TeamMemberViewModel
+@{
+    ViewBag.Title = "Just BE | About";
+    Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+}
+<style>
+    .team-para-sty {
+        min-height: 105px;
+    }
+
+    .tweet-icon:last-child {
+        margin-bottom: 10px;
+    }
+
+    .team-holder .team-item .team-member .member-photo {
+        display: inline-block;
+    }
+</style>
+<div id="content" class="page-content-wrap2">
+
+
+    <div class="container" style="margin-top:-150px">
+
+        <article class="entry entry-single">
+
+            <!-- - - - - - - - - - - - - - Entry body - - - - - - - - - - - - - - - - -->
+
+            <div class="entry-body">
+
+                <!-- - - - - - - - - - - - - - Entry Meta - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - End of Meta - - - - - - - - - - - - - - - - -->
+
+                <h3 class="entry-title align-center">We are really all about you</h3>
+
+                <!-- - - - - - - - - - - - - - Attachment - - - - - - - - - - - - - - - - -->
+
+                <div class="entry-attachment">
+
+
+                    <figure class="thumbnail-attachment"><img src="https://justbere-d4d9.kxcdn.com/images/About.jpg" alt=""></figure>
+
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Attachment - - - - - - - - - - - - - - - - -->
+
+                <div class="content-element2">
+
+                    <div class="row">
+                        <div class="col-md-2 col-no-space"></div>
+                        <div class="col-md-8">
+
+                            <h5 class="sub-title">Your home is the most important place in your life. It’s the one place where you can be. Be absolutely you.</h5>
+
+
+                            <p>Just BE is a Compass team of experienced real estate professionals that allows you to precisely be. Become a homeowner or a successful seller. Because it’s your home. It’s your decision. It’s your life. BE is here to provide the support, expertise, know-how, and Compass technology and data-driven platforms to help you throughout a fulfilling transaction. We go beyond to assist you in all your real estate needs. Whether it’s finding a bespoke property, a beautiful neighborhood, a place to begin again, or simply a sense of belonging.</p>
+
+                        </div>
+                        <div class="col-md-2 col-no-space"></div>
+                    </div>
+
+                </div>
+
+                <div class="content-element2">
+                    <div class="row">
+                        <div class="col-md-2 col-no-space"></div>
+                        <div class="col-md-8">
+
+                            <div class="content-element6">
+
+                                <div class="blockquote-holder with-bg">
+                                    <blockquote>
+                                        <p>Perhaps most importantly, we let you be. Our focus is on you and your wellbeing. It is your home, not ours. We simply leverage our expertise to deliver all the services and advice to help you find the place where you can be. Just be. </p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-no-space"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- - - - - - - - - - - - - - End of Entry body - - - - - - - - - - - - - - - - -->
+
+        </article>
+
+    </div>
+
+    <div class="content-element page-section-4">
+        <div class="container container-size">
+            <div class="content-element">
+
+                <h4 class="section-title">Team Members</h4>
+                <div class="team-holder">
+
+                    <div class="row">
+                        @foreach (var item in Model.TeamMemberList)
+                        {
+                            <div class="col-md-3 col-sm-6">
+
+                                <!-- team element -->
+                                <div class="team-item">
+
+                                    <div class="team-member">
+
+                                        <a href="@Url.Action("TeamMember", "About",new {Name=item.ProfileLink })" class="member-photo">
+                                            @*<img src="https://justbere-d4d9.kxcdn.com/img/Jay.jpg" />*@
+                                            <img src="~/img/teamMembers/@item.MemberImage" />
+
+                                        </a>
+                                        <div class="member-info">
+                                            <h5 class="member-name"><a href="#">@item.Name</a></h5>
+                                            <h6 class="member-position">@item.Designation</h6>
+                                            <p class="team-para-sty"> @item.ShortDescription</p>
+                                            <a href="@Url.Action("TeamMember", "About",new {Name=item.ProfileLink })" class="btn btn-big style-2">View full Profile</a>
+
+                                        </div>
+                                        <ul class="social-icons">
+                                            @if (item.Facebook != "#")
+                                            {
+                                                <li class="fb-icon"><a href="@item.Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+
+                                            }
+                                            @if (item.Instagram != "#")
+                                            {
+                                                <li class="insta-icon"><a href="@item.Instagram" target="_blank"><i class="icon-instagram-5"></i></a></li>
+
+                                            }
+                                            @if (item.Twitter != "#")
+                                            {
+                                                <li class="tweet-icon"><a href="@item.Twitter"><i class="icon-twitter"></i></a></li>
+
+                                            }
+                                            @*<li class="google-icon"><a href="@item.Pinterest"><i class="icon-pinterest"></i></a></li>*@
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        }
+                        @*<div class="col-md-3 col-sm-6">
+
+
+                                <div class="team-item">
+
+                                    <div class="team-member">
+
+                                        <a href="#" class="member-photo">
+                                            <img src="https://justbere-d4d9.kxcdn.com/img/Jay.jpg" />
+
+                                        </a>
+                                        <div class="member-info">
+                                            <h5 class="member-name"><a href="#">Jay Bauer</a></h5>
+                                            <h6 class="member-position">Vice President,Realtor</h6>
+                                            <p> I’ve always had a passion for real estate. Even as a kid, I’d ask my parents if I could join them while they toured model homes...</p>
+                                            <a href="@Url.Action("JayBauer", "About")" class="btn btn-big style-2">View full Jay's Profile</a>
+
+                                        </div>
+                                        <ul class="social-icons">
+
+                                            <li class="fb-icon"><a href="https://www.facebook.com/jay.s.bauer" target="_blank"><i class="icon-facebook"></i></a></li>
+                                            <li class="insta-icon"><a href="https://www.instagram.com/jaybauer.ig/" target="_blank"><i class="icon-instagram-5"></i></a></li>
+                                            <li class="tweet-icon"><a href="#"><i class="icon-twitter"></i></a></li>
+                                            <li class="google-icon"><a href="#"><i class="icon-pinterest"></i></a></li>
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                            </div>*@
+                        @*<div class="col-md-3 col-sm-6">
+
+
+                                <div class="team-item">
+
+                                    <div class="team-member">
+                                        <a href="#" class="member-photo">
+
+                                            <img src="~/img/Meridit.jpg" alt="">
+                                        </a>
+                                        <div class="member-info">
+                                            <h5 class="member-name"><a href="#">Meredith Werner</a></h5>
+                                            <h6 class="member-position">Realtor®</h6>
+                                            <p>With over 12 years of experience as a sales and marketing professional, Meredith provides an excellent combination of practicality and...</p>
+                                            <a href="@Url.Action("Meredith","About")" class="btn btn-big style-2">View full  Meredith's Profile</a>
+
+                                        </div>
+                                        <ul class="social-icons">
+
+                                            <li class="fb-icon"><a href="#"><i class="icon-facebook"></i></a></li>
+                                            <li class="insta-icon"><a href="#"><i class="icon-instagram-5"></i></a></li>
+                                            <li class="tweet-icon"><a href="#"><i class="icon-twitter"></i></a></li>
+                                            <li class="google-icon"><a href="#"><i class="icon-pinterest"></i></a></li>
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                            </div>*@
+
+                        @*<div class="col-md-3 col-sm-6">
+
+                                <!-- team element -->
+                                <div class="team-item">
+
+                                    <div class="team-member">
+
+                                        <a href="#" class="member-photo">
+                                            <img src="https://justbere-d4d9.kxcdn.com/images/Zack.jpg" />
+
+                                        </a>
+                                        <div class="member-info">
+                                            <h5 class="member-name"><a href="#">Zack London</a></h5>
+                                            <h6 class="member-position">Listing Associate</h6>
+                                            <p>Born and raised in Northern Virginia, Zack has kept his focus on the DC area, earning a degree from Virginia Commonwealth University with...</p>
+                                            <a href="@Url.Action("ZackLondon","About")" class="btn btn-big style-2">View Zack London's Profile</a>
+
+                                        </div>
+                                        <ul class="social-icons">
+
+                                            <li class="fb-icon"><a href="#"><i class="icon-facebook"></i></a></li>
+                                            <li class="insta-icon"><a href="#"><i class="icon-instagram-5"></i></a></li>
+                                            <li class="tweet-icon"><a href="#"><i class="icon-twitter"></i></a></li>
+                                            <li class="google-icon"><a href="#"><i class="icon-pinterest"></i></a></li>
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+
+                                <!-- team element -->
+                                <div class="team-item">
+
+                                    <div class="team-member">
+
+                                        <a href="#" class="member-photo">
+                                            <img src="https://justbere-d4d9.kxcdn.com/img/Chrisplog.jpg" />
+
+                                        </a>
+                                        <div class="member-info">
+                                            <h5 class="member-name"><a href="#">Christopher Plog</a></h5>
+                                            <h6 class="member-position">Realtor®</h6>
+                                            <p>Raised in the DC area, Chris graduated from Bethesda Chevy Chase High School and then went on to obtain dual degrees in Psychology and ...</p>
+                                            <a href="@Url.Action("ChristopherPlog","About")" class="btn btn-big style-2">View Christopher's Profile</a>
+
+                                        </div>
+                                        <ul class="social-icons">
+
+                                            <li class="fb-icon"><a href="#"><i class="icon-facebook"></i></a></li>
+                                            <li class="insta-icon"><a href="#"><i class="icon-instagram-5"></i></a></li>
+                                            <li class="tweet-icon"><a href="#"><i class="icon-twitter"></i></a></li>
+                                            <li class="google-icon"><a href="#"><i class="icon-pinterest"></i></a></li>
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+
+                                <!-- team element -->
+                                <div class="team-item">
+
+                                    <div class="team-member">
+
+                                        <a href="#" class="member-photo">
+                                            <img src="~/img/JuliaPark.jpg" />
+
+                                        </a>
+                                        <div class="member-info">
+                                            <h5 class="member-name"><a href="#">Julia Park</a></h5>
+                                            <h6 class="member-position">Realtor®</h6>
+                                            <p>Julia is licensed in D.C. and Virginia, and represents both buyers and sellers in the purchase and sale of single-family homes, row homes...</p>
+                                            <a href="@Url.Action("Julia","About")" class="btn btn-big style-2">View Julia's Profile</a>
+
+                                        </div>
+                                        <ul class="social-icons">
+
+                                            <li class="fb-icon"><a href="#"><i class="icon-facebook"></i></a></li>
+                                            <li class="insta-icon"><a href="#"><i class="icon-instagram-5"></i></a></li>
+                                            <li class="tweet-icon"><a href="#"><i class="icon-twitter"></i></a></li>
+                                            <li class="google-icon"><a href="#"><i class="icon-pinterest"></i></a></li>
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                            </div>*@
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

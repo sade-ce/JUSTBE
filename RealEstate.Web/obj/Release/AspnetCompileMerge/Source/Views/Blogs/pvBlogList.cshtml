@@ -1,0 +1,137 @@
+﻿@model RealEstate.Entities.ViewModels.BlogViewModel
+
+
+
+<div id="content" class="page-content-wrap">
+
+    <div class="container container-extra-2 content-element6">
+        <h4 class="section-title">Blogs</h4>
+        <!-- - - - - - - - - - - - - - Filter - - - - - - - - - - - - - - - - -->
+        <!-- - - - - - - - - - - - - - End of Filter - - - - - - - - - - - - - - - - -->
+
+        <div id="DataGrid" >
+
+            <div class="isotope three-collumn clearfix entry-holder type-list" data-isotope-options='{"itemSelector" : ".item","layoutMode" : "masonry","transitionDuration":"0.7s","masonry" : {"columnWidth":".item"}}'>
+            @if (Model.BlogList.Count() > 0)
+            {
+                foreach (var item in Model.BlogList)
+                {
+                <div class="item category_3">
+
+                    <article class="entry">
+                        <a href="@Url.Action("Recent","Blogs",new {@BlogID=item.BlogID})">
+
+                            <!-- - - - - - - - - - - - - - Attachment - - - - - - - - - - - - - - - - -->
+
+                            <div class="entry-attachment">
+
+                                <figure class="thumbnail-attachment"><img src="~/UploadedFiles/Blogs/@item.BlogID@item.BlogFile" alt=""></figure>
+
+                            </div>
+                        </a>
+                            <!-- - - - - - - - - - - - - - End of Attachment - - - - - - - - - - - - - - - - -->
+                            <!-- - - - - - - - - - - - - - Entry body - - - - - - - - - - - - - - - - -->
+
+                            <div class="entry-body">
+                                <a href="@Url.Action("Recent","Blogs",new {@BlogID=item.BlogID})">
+
+                                    <!-- - - - - - - - - - - - - - Entry Meta - - - - - - - - - - - - - - - - -->
+
+                                    <div class="entry-meta">
+
+                                        @*<a href="#" class="entry-cat">Interior</a>*@
+                                        <time class="entry-date" datetime="2018-06-15">@item.BlogCreatedOn.ToString("MMMM dd, yyyy")</time>
+
+                                    </div>
+
+                                    <!-- - - - - - - - - - - - - - End of Meta - - - - - - - - - - - - - - - - -->
+
+                                    <h4 class="entry-title"><a href="@Url.Action("Recent","Blogs",new {@BlogID=item.BlogID})">@Html.DisplayFor(modelItem => item.BlogTitle)</a></h4>
+
+                                    <p>@item.BlogDescription</p>
+
+                                </a>
+                                    <a href="@Url.Action("Recent","Blogs",new {@BlogID=item.BlogID})" class="info-btn">Read Full Article</a>
+
+</div>
+
+                            <!-- - - - - - - - - - - - - - End of Entry body - - - - - - - - - - - - - - - - -->
+                       
+                    </article>
+
+                </div>
+
+                }
+            }
+            else
+            {
+                if (@ViewBag.SearchTerm == "")
+                {
+                    <h3>No Blogs found... </h3>
+                }
+                else
+                {
+                    <h3>No Blogs found with the Search Term <mark><i>@ViewBag.SearchTerm</i></mark></h3>
+
+                }
+            }
+
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-12 margin-top-20">
+         
+
+                <!-- - - - - - - - - - - - - - Pagination - - - - - - - - - - - - - - - - -->
+
+
+                @if (Model.BlogList.Count() > 0)
+                {   <div class="align-center" style="margin-top: 60px;">
+
+                <ul class="pagination flex-h-center">
+                    <li>
+                        @if (Model.PagingInfo.TotalItems > (Model.PagingInfo.CurrentPage * Model.PagingInfo.ItemsPerPage))
+                            {
+                            @Html.ActionLink("Next", "List", new { area = "", SearchTerm = @ViewBag.SearchTerm, PageNo = Model.PagingInfo.CurrentPage + 1 },new { @class = "next-page" });
+                            }
+                            @*@if (Model.PagingInfo.TotalItems> Model.PagingInfo.ItemsPerPage)
+                                {
+                                    @Html.ActionLink("Next", "List", new { area = "", SearchTerm = @ViewBag.SearchTerm, PageNo = Model.PagingInfo.CurrentPage + 1 });
+                                }*@
+
+                        </li>
+                        <li>
+                            @if (Model.PagingInfo.CurrentPage > 1)
+                            {
+                            @Html.ActionLink("Previous", "List", new { area = "", SearchTerm = @ViewBag.SearchTerm, PageNo = Model.PagingInfo.CurrentPage - 1 },new { @class="prev-page"});
+                            }
+
+
+                        </li>
+                    </ul>
+                </div>
+                }
+                
+
+         
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .prev-page::before, .next-page::before {
+    font-size: 17px;
+}
+</style>
+
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+

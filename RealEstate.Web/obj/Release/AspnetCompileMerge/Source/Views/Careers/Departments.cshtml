@@ -1,0 +1,206 @@
+﻿@model RealEstate.Entities.ViewModels.MstCareerManageModel
+@{
+    ViewBag.Title = "Just BE | Careers";
+    Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+}
+
+<style>
+    #header {
+        top: 0px !important;
+    }
+    .video-section h1 {
+        font-size:68px !important;
+    }
+</style>
+
+<link href="~/Content/customcss/Career.css" rel="stylesheet" />
+<!-- Warming Up -->
+<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
+<!--Video Section-->
+
+<section class="content-section video-section" style="background-color: #f8f8f8">
+    <div class="pattern-overlay">
+        <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=fdJc1_IBKJA',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}">bg</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>We're growing</h1>
+                    <h3>Big challenges. Beautiful solutions.</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="content">
+    <div class="page-section-3 page-section-bg">
+
+        <div class="container">
+
+            <div class="align-center content-element3">
+
+                <h3>Together at Just BE</h3>
+
+            </div>
+
+            <div class="icons-box">
+
+                <div class="row flex-row">
+
+                    <div class="col-md-4 col-xs-6">
+
+                        <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                        <div class="icons-wrap">
+
+                            <div class="icons-item">
+                                <div class="item-box">
+                                    <i class="licon-pencil"></i>
+                                    <h6 class="icons-box-title"><a href="#">Create</a></h6>
+                                    <p>We build the best experience for our community - as a team.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+
+                        <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                        <div class="icons-wrap">
+
+                            <div class="icons-item">
+                                <div class="item-box">
+                                    <i class="licon-bubble-question"></i>
+                                    <h6 class="icons-box-title"><a href="#">Learn</a></h6>
+                                    <p>We look inside and outside for inspiration and learning.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+
+                        <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                        <div class="icons-wrap">
+
+                            <div class="icons-item">
+                                <div class="item-box">
+                                    <i class="licon-balloon"></i>
+                                    <h6 class="icons-box-title"><a href="#">Play</a></h6>
+                                    <p>Life is what happens when you're busy working. We make sure to enjoy it.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="page-section-2">
+
+        <div class="container">
+
+            <div class="align-center">
+
+                <h3 class="section-title">Open Positions</h3>
+
+            </div>
+
+        </div>
+        <div class="container">
+            <section class="content-section">
+                <div class="col-md-12">
+                    @if (Model.MstPositionList.Count() > 0)
+            {
+                foreach (var item in Model.MstPositionList)
+                {
+                            <div class="col-md-6">
+                                <div class="about-author">
+                                    <a class="jobs-card link-reset" href="@Url.Action("Position","Careers",new { @DepartmentID = item.DepartmentID})">
+                                        <div class="panel-body text-center">
+                                            <div class="row" onmouseover="this.style.background = '#e4e4e4';" onmouseout="this.style.background = 'white';" style="padding: 20px;">
+                                                <div class="col-12 col-center ">
+                                                    <h3 class="text-wrap">
+                                                        @item.Position
+                                                    </h3>
+                                                </div>
+                                                <div class="col-10 col-center ">
+                                                    <p>
+                                                        @item.Description
+                                                    </p>
+
+                                                    <p class="icon-rausch">
+                                                        Total Position:  @item.TotalPosition
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+
+                    }
+
+
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    
+
+  
+
+</div>
+
+
+
+
+<style>
+    .jobs-card {
+        display: block;
+        background: #fff;
+        -webkit-transition: background ease-in-out 200ms;
+        -o-transition: background ease-in-out 200ms;
+        -moz-transition: background ease-in-out 200ms;
+        transition: background ease-in-out 200ms;
+    }
+
+    .link-reset {
+        color: inherit;
+    }
+
+    .text-rausch, .icon-rausch {
+        color: #d43242;
+    }
+
+    .panel-body {
+        position: relative;
+    }
+
+    .about-author {
+        padding: 40px 45px;
+    }
+</style>
+@section Scripts
+{
+    <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(".player").mb_YTPlayer();
+
+        });
+    </script>
+}

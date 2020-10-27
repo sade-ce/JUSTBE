@@ -1,0 +1,28 @@
+﻿@model RealEstate.Entities.ViewModels.BlogViewModel
+@{
+    ViewBag.Title = "Blog List";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+    if (User.IsInRole("Agent"))
+    {
+        Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+    }
+}
+
+<section class="content-header">
+    <h1>
+        Blog
+        <small>Lists </small>
+    </h1>
+</section>
+<div class="content">
+    <div class="col-md-12">
+        <div class="well well-sm clearfix">
+            <div class="pull-right">
+                @Html.ActionLink(" Add New ", "createblog", null, new { @class = "btn btn-primary pull-right " })
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        @Html.Partial("pvBlogList", Model)
+    </div>
+</div>

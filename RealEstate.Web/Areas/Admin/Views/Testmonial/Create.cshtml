@@ -1,0 +1,187 @@
+﻿@model RealEstate.Entities.ViewModels.TestimonialViewModel
+@{
+    ViewBag.Title = "Testimonial";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+    if (User.IsInRole("Agent"))
+    {
+        Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+    }
+}
+
+
+
+<section class="content-header">
+    <h1>
+        Testimonial
+        <small>Create New </small>
+    </h1>
+</section>
+<section class="content">
+    @using (Ajax.BeginForm("Create", "Testmonial", null, new AjaxOptions() { HttpMethod = "POST" }, new { id = "myform" }))
+
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+            <a id="AnchorTag" href="#" data-toggle="modal" data-target="#myHelpModal" style="display:none"><span class="badge-help-link">?</span></a>
+
+            <div class="box box-info">
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label">User Type :</label>
+                            <br />
+                            @Html.DropDownListFor(m => m.Testimonial.UserType, new List<SelectListItem>
+{ new SelectListItem{ Text="--- Select ----", Value = "" },
+                                    new SelectListItem{ Text="Buyer", Value = "Buyer" },
+                                     new SelectListItem{ Text="Seller", Value = "Seller" },
+                                    new SelectListItem{ Text="Buyer/Seller", Value = "Buyer/Seller" },
+                                                 new SelectListItem{ Text="Vendor", Value = "Vendor" },
+
+ }, new { @class = "form-control", @required = "required" })
+                            
+                            @Html.ValidationMessageFor(m => m.Testimonial.UserType)
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="control-label">Username :</label>
+                            <br />
+                            @Html.TextBoxFor(m => m.Testimonial.UserName, new { @id = "UserName", @class = "form-control", @required = "required" })
+                            @Html.ValidationMessageFor(m => m.Testimonial.UserName)
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="control-label">Rating :</label>
+                            <br />
+                            <div class="rating" onmouseout="CRateSelected()">
+
+                                <span href="#1" class="starFade" title="Give 1 stars" id="Rate1" onclick="CRate(1)" onmouseover="CRateOver(1)" onmouseout="CRateOut(1)">★</span>
+                                <span href="#2" class="starFade" title="Give 2 stars" id="Rate2" onclick="CRate(2)" onmouseover="CRateOver(2)" onmouseout="CRateOut(2)">★</span>
+                                <span href="#3" class="starFade" title="Give 3 stars" id="Rate3" onclick="CRate(3)" onmouseover="CRateOver(3)" onmouseout="CRateOut(3)">★</span>
+                                <span href="#4" class="starFade" title="Give 4 stars" id="Rate4" onclick="CRate(4)" onmouseover="CRateOver(4)" onmouseout="CRateOut(4)">★</span>
+                                <span href="#5" class="starFade" title="Give 5 star" id="Rate5" onclick="CRate(5)" onmouseover="CRateOver(5)" onmouseout="CRateOut(5)">★</span>
+                            </div>
+                            @Html.HiddenFor(m => m.Testimonial.Rating, new { @id = "Rating", @class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Testimonial.Rating)
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="control-label">Content :</label>
+                            <div class="margin-top-10">
+                                @Html.TextAreaFor(m => m.Testimonial.Description, new { @id = "Description", @class = "form-control" , @required = "required" })
+                                @Html.ValidationMessageFor(m => m.Testimonial.Description)
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="well well-sm col-md-12 col-lg-12 text-right">
+                <div class="form-horizontal">
+                    @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                    <input type="submit" value="Save" id="save" class="btn btn-primary" />
+                </div>
+            </div>
+
+                <div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"></h4>
+                            </div>
+                            <div class="modal-body" id="message">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    }
+</section>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+@section Scripts
+{
+    <script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ckeditor/ckeditor.js"></script>
+    <script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ckeditor/adapters/jquery.js" async></script>
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            CKEDITOR.replace("Description");
+            //, { htmlEncodeOutput: true }
+            //CKEDITOR.config.removePlugins = 'save';
+        });
+</script>
+
+
+    <script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+
+        function CRate(r) {
+            $("#Rating").val(r);
+            for (var i = 1; i <= r; i++) {
+                $("#Rate" + i).attr('class', 'starGlow');
+            }
+            // unselect remaining
+            for (var i = r + 1; i <= 5; i++) {
+                $("#Rate" + i).attr('class', 'starFade');
+            }
+        }
+
+        function CRateOver(r) {
+            for (var i = 1; i <= r; i++) {
+                $("#Rate" + i).attr('class', 'starGlow');
+            }
+        }
+
+        function CRateOut(r) {
+            for (var i = 1; i <= r; i++) {
+                $("#Rate" + i).attr('class', 'starFade');
+            }
+        }
+
+        function CRateSelected() {
+            var setRating = $("#Rating").val();
+            for (var i = 1; i <= setRating; i++) {
+                $("#Rate" + i).attr('class', 'starGlow');
+            }
+        }
+    </script>
+
+}
+
+<style>
+    .form-horizontal .control-label {
+        padding-top: 0px;
+        margin-bottom: 13px;
+        text-align: right;
+        margin-top: 12px;
+    }
+
+    .starFade {
+        color: #aaa;
+        cursor: pointer;
+        font-size:20px;
+
+    }
+     .starGlow {
+        color: #0bb7a5;
+        cursor: pointer;
+        font-size:20px;
+    }
+</style>   

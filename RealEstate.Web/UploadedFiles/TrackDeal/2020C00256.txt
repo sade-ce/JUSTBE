@@ -1,0 +1,20 @@
+  slide: function( event, ui ) {
+                        if (ui.values[0] < 100 ){
+                            $( "#ds1" ).val( ui.values[ 0 ]+"K AED");
+                            $( "#ds2" ).val( (ui.values[ 1 ]/100)+"M AED" );
+
+                        } 
+
+                        if (ui.values[1] < 100 ){
+                            $( "#ds1" ).val( ui.values[ 0 ]+"K AED");
+                            $( "#ds2" ).val( ui.values[ 1 ]+"K AED" );
+
+                        } 
+
+                        if (ui.values[0] > 100 ){
+                            $( "#ds1" ).val( (ui.values[ 0 ] / 100)+"M AED");
+                            $( "#ds2" ).val( (ui.values[ 1 ]/100 )+"M AED" );
+                        } 
+      
+
+                    } 

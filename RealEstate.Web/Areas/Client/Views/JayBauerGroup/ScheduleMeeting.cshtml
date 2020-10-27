@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "ScheduleMeeting";
+    Layout = "~/Areas/Client/Views/Shared/_BuyProperty.cshtml";
+}
+
+
+
+<!-- Calendly inline widget begin -->
+<!-- Calendly inline widget end -->
+@section scripts {
+
+<script>
+    $(function () {
+        var f = $('#target')
+        f.load(function () {
+            f.contents().find('.popover-holder mbs').hide();
+        })
+    })
+</script>
+}

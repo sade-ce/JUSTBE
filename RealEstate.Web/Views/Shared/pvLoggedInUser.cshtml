@@ -1,0 +1,21 @@
+﻿@model RealEstate.Entities.ViewModels.MstCheckLoggedClientDeal
+
+@if (User.IsInRole("Client"))
+{
+if (Model.CheckDeal.Count() > 0)
+{
+    <li>
+        <a href="@Url.Action("List", "MyDeal", new { area = "Client" })">
+            <i class="fa fa-home"></i> My Deal
+        </a>
+    </li>
+}
+if (Model.CheckCalendar.Count() > 0)
+{
+    <li>
+        <a href="@Url.Action("List", "MyCalendar", new { area = "Client" })">
+            <i class="fa fa-calendar"></i>Calendar
+        </a>
+    </li>
+}
+}

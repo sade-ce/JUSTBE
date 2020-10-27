@@ -1,0 +1,97 @@
+﻿@model RealEstate.Entities.ViewModels.MstDealAgentManageModel
+
+
+<div class="col-sm-12 clients-list-section" id="DataGrid">
+    <div class="clients-list-inner">
+        <h3>All Deals</h3>
+        @if (Model.ClientList.Count() > 0)
+        {
+            <div class="table-wrapper">
+                <div class="listing-table custom-table">
+                    <div class="tableHeadRow">
+                        <div class="tableCell clientImage"></div>
+                        <div class="tableCell clientDetails"><a href="@Url.Action("List","DealAgentV2",new {area="Coordinator", sortOrder = Model.ClientSortingInfo.NameSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.ClientFilterInfo.SearchFilter,year=Model.ClientFilterInfo.YearFilter, type = Model.ClientFilterInfo.TypeFilter,stage=Model.ClientFilterInfo.StageFilter,tier=Model.ClientFilterInfo.TierFilter})" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Client Detail</a></div>
+                        @*<div class="tableCell clientPhnNumber"><a href="@Url.Action("List","UserAgentNew",new { sortOrder =  Model.ClientSortingInfo.PhoneSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.ClientFilterInfo.SearchFilter,year=Model.ClientFilterInfo.YearFilter, type = Model.ClientFilterInfo.TypeFilter})" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Phone Number</a></div>*@
+                        <div class="tableCell clientTier"><a href="@Url.Action("List","DealAgentV2",new { sortOrder =  Model.ClientSortingInfo.TierSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.ClientFilterInfo.SearchFilter,year=Model.ClientFilterInfo.YearFilter, type = Model.ClientFilterInfo.TypeFilter,stage=Model.ClientFilterInfo.StageFilter,tier=Model.ClientFilterInfo.TierFilter  })" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Tier</a></div>
+
+                         <div class="tableCell clientType"><a href="@Url.Action("List","DealAgentV2",new { area="Coordinator", sortOrder =  Model.ClientSortingInfo.TypeSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.ClientFilterInfo.SearchFilter,year=Model.ClientFilterInfo.YearFilter, type = Model.ClientFilterInfo.TypeFilter,stage=Model.ClientFilterInfo.StageFilter, tier = Model.ClientFilterInfo.TierFilter })" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Type</a></div>
+                       
+                        <div class="tableCell dealAddress"><a href="@Url.Action("List","DealAgentV2",new { area="Coordinator", sortOrder =  Model.ClientSortingInfo.AddressSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.ClientFilterInfo.SearchFilter,year=Model.ClientFilterInfo.YearFilter, type = Model.ClientFilterInfo.TypeFilter,stage=Model.ClientFilterInfo.StageFilter,tier=Model.ClientFilterInfo.TierFilter})" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Address</a></div>
+
+                        <div class="tableCell dealStage"><a href="@Url.Action("List","DealAgentV2",new { area="Coordinator", sortOrder =  Model.ClientSortingInfo.StageSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.ClientFilterInfo.SearchFilter,year=Model.ClientFilterInfo.YearFilter, type = Model.ClientFilterInfo.TypeFilter,stage=Model.ClientFilterInfo.StageFilter,tier=Model.ClientFilterInfo.TierFilter})" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Stage</a></div>
+                        <div class="tableCell dealYear"><a href="@Url.Action("List","DealAgentV2",new { area="Coordinator", sortOrder =  Model.ClientSortingInfo.YearSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.ClientFilterInfo.SearchFilter,year=Model.ClientFilterInfo.YearFilter, type = Model.ClientFilterInfo.TypeFilter,stage=Model.ClientFilterInfo.StageFilter,tier=Model.ClientFilterInfo.TierFilter})" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Year</a></div>
+ 
+                        <div class="tableCell dealId"><a href="@Url.Action("List","DealAgentV2",new { area="Coordinator", sortOrder =  Model.ClientSortingInfo.TransactionIdSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.ClientFilterInfo.SearchFilter,year=Model.ClientFilterInfo.YearFilter, type = Model.ClientFilterInfo.TypeFilter,stage=Model.ClientFilterInfo.StageFilter,tier=Model.ClientFilterInfo.TierFilter})" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Transaction</a></div>
+
+                        @*<div class="tableCell clientAction">Action</div>*@
+                    </div>
+                    @foreach (var item in Model.ClientList)
+                    {
+                        <div class="tableRow">
+                            <div class="tableCell clientImage">
+                                <span>
+                                    @if (item.Photos == null || item.Photos == "")
+                                    {
+                                        <img src="https://justbere-d4d9.kxcdn.com/img/NoImage.png" class="img-fluid" />                            }
+                                    else
+                                    {
+                                        <img src="@item.Photos" class="img-fluid" />
+                                    }
+                                </span>
+                            </div>
+                            <div class="tableCell clientDetails">
+                                @*<a target="_blank" href="@Url.Action("ClientDetails", "DealAgent", new { ClientID = item.ClientID, area = "Coordinator", })">@Html.DisplayFor(modelItem => item.Name) <span>@Html.DisplayFor(modelItem => item.Email)</span></a>*@
+
+                                @if (item.ClientType == "Buyer")
+                                {
+                                <a target="_blank" href="@Url.Action("Buyer", "DealTrackerV2", new {TransactionID=item.TransactionID,  ClientID = item.ClientID, area = "Coordinator", })" >@Html.DisplayFor(modelItem => item.Name) <span>@Html.DisplayFor(modelItem => item.Email)</span></a>
+                                }
+                                else
+                                {
+                                    @*<a target="_blank" href="@Url.Action("ClientDetails", "DealAgent", new { ClientID = item.ClientID, area = "Coordinator", })">@Html.DisplayFor(modelItem => item.Name) <span>@Html.DisplayFor(modelItem => item.Email)</span></a>*@
+                                    <a target="_blank" href="@Url.Action("Seller", "DealTrackerV2", new {TransactionID=item.TransactionID,  ClientID = item.ClientID, area = "Coordinator", })">@Html.DisplayFor(modelItem => item.Name) <span>@Html.DisplayFor(modelItem => item.Email)</span></a>
+
+                                }
+                             </div>
+                            @*<div class="tableCell clientPhnNumber">@Html.DisplayFor(modelItem => item.Phone)</div>*@
+                            <div class="tableCell clientType">@item.ClientTier</div>
+                            <div class="tableCell clientType">@item.ClientType</div>
+                            <div class="tableCell dealAddress">@item.Address</div>
+
+                            <div class="tableCell dealStage">@item.Stage</div>
+                            <div class="tableCell dealYear">@item.Year</div>
+                            <div class="tableCell dealYear">@item.TransactionID</div>
+                            @*<div class="tableCell clientAction"><a href="#" class="actioDelete"><i class="material-icons">delete</i></a></div>*@
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="pagination-row ns-grid-pager" data-kw-target="#DataGrid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <div class="rowsPerPage">
+                            @Model.PagingInfo.TotalItems &nbsp;Record(s)
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <div class="pageNavigation ns-pagination" data-kw-target="#DataGrid" data-kw-actionlink="/Coordinator/DealAgentV2/list">
+                            @Html.PageLinksNew(Model.PagingInfo, x => Url.Action("list", "DealAgentV2", new { area = "Coordinator", PageNo = x, PageSize = Model.PagingInfo.ItemsPerPage, sortOrder = Model.ClientSortingInfo.CurrentSort, searchterm = Model.ClientFilterInfo.SearchFilter, year = Model.ClientFilterInfo.YearFilter, type = Model.ClientFilterInfo.TypeFilter, stage = Model.ClientFilterInfo.StageFilter, tier = Model.ClientFilterInfo.TierFilter }))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <h3>No record found...</h3>
+        }
+
+
+    </div>
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+

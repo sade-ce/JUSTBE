@@ -1,0 +1,4 @@
+2. Data not updated on ajax post
+3. Save settlement as event on ratified date save.
+5. Change Hometype on state change
+6.datetimepicker for home contingency

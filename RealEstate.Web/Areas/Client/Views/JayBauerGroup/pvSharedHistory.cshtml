@@ -1,0 +1,11 @@
+﻿@model RealEstate.Entities.ViewModels.MultipleDealClientManageModel
+
+
+
+@if (Model.SharedDealList.Count() > 0)
+{
+
+    <li><a href="@Url.Action("SharedTransactions","MyDeal",new { @area="Client"})">Shared With Me</a></li>
+  
+
+}

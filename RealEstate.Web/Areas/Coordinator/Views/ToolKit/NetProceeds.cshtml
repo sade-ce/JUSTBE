@@ -1,0 +1,270 @@
+﻿@model RealEstate.Entities.ViewModels.MstAffordabilityCalculator
+
+@{
+    ViewBag.Title = "NetProceeds";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+}
+<section class="content-header">
+    <h1>
+        Calculator
+        <small>Seller Net Proceeds</small>
+    </h1>
+</section>
+
+<div class="content">
+
+
+    <div class="box box-info">
+        <div class="box-header with-border">
+        </div>
+        <div class="box-body">
+            <div class="filter filter-gray checkbox-light">
+                @using (Ajax.BeginForm("NetProceeds", "Toolkit", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "myform" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.NetProceed.__EVENTTARGET)
+                    @Html.HiddenFor(model => model.NetProceed.__EVENTARGUMENT)
+                    @Html.HiddenFor(model => model.NetProceed.__LASTFOCUS)
+                    @Html.HiddenFor(model => model.NetProceed.__VIEWSTATE)
+                    @Html.HiddenFor(model => model.NetProceed.__VIEWSTATEGENERATOR)
+                    @Html.HiddenFor(model => model.NetProceed.__EVENTVALIDATION)
+                    @Html.HiddenFor(model => model.NetProceed.ddlState)
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Property Description</label>
+                                @Html.DropDownListFor(model => model.NetProceed.ddlPropertyType, new SelectList(Model.PropertyType, "ddlPropertyType", "ddlPropertyType"), "--- Select Property Type --- ", new { @class = "form-control drop-change ddl-select2" })
+                                @Html.ValidationMessageFor(model => model.NetProceed.ddlPropertyType)
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Contract Sales Price ($)</label>
+                                <div class="search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        @Html.TextBoxFor(model => model.NetProceed.txtSalePrice, new { @class = "form-control" })
+                                    </div><!-- /.form-group -->
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtSalePrice)
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">1st Mortgage Payoff Amount </label>
+                                <div class="search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        @Html.TextBoxFor(model => model.NetProceed.txtLoanPayOffs, new { @class = "form-control" })
+                                    </div><!-- /.form-group -->
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtLoanPayOffs)
+
+
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                        <!-- /.col-* -->
+                        <!-- /.col-* -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">2nd Mortgage Payoff Amount</label>
+                                <div class="search" style="margin-top: 20px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        @Html.TextBoxFor(model => model.NetProceed.txtLoanPayOffs2, new { @class = "form-control" })
+
+                                    </div><!-- /.form-group -->
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtLoanPayOffs2)
+
+                            </div><!-- /.form-group -->
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Number of Mortgages / HELOCs being paid-off</label>
+
+                                @Html.DropDownListFor(model => model.NetProceed.ddlNumberMortgages, new SelectList(Model.MortgageNumber, "ddlNumberMortgages", "ddlNumberMortgages"), "--- Select Mortgage --- ", new { @class = "form-control drop-change ddl-select2" })
+                                @Html.ValidationMessageFor(model => model.NetProceed.ddlNumberMortgages)
+
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Who is paying the County/State Transfer/Recordation Taxes?</label>
+                                @Html.DropDownListFor(model => model.NetProceed.ddlTranferTaxesPayingBy, new SelectList(Model.TranferTaxesPayer, "ddlTranferTaxesPayingBy", "ddlTranferTaxesPayingBy"), "--- Select Option --- ", new { @class = "form-control drop-change ddl-select2" })
+                                @Html.ValidationMessageFor(model => model.NetProceed.ddlTranferTaxesPayingBy)
+
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                        <!-- /.col-* -->
+                        <!-- /.col-* -->
+                        <!-- /.col-* -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Seller Closing Cost Credit to Buyer / Seller Subsidy</label>
+                                <div class="search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        @Html.TextBoxFor(model => model.NetProceed.txtSellerCredit, new { @class = "form-control" })
+                                    </div><!-- /.form-group -->
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtSellerCredit)
+                            </div><!-- /.form-group -->
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Admin/Flat Fee to Real Estate Company</label>
+                                <div class="search" style="margin-top: 20px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        @Html.TextBoxFor(model => model.NetProceed.txtAdminFee, new { @class = "form-control" })
+                                    </div><!-- /.form-group -->
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtAdminFee)
+                            </div><!-- /.form-group -->
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Commission to Real Estate Company (percentage)</label>
+                                <div class="search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+                                        @Html.TextBoxFor(model => model.NetProceed.txtCommission, new { @class = "form-control" })
+                                    </div><!-- /.form-group -->
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtCommission)
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                       <!-- /.col-* -->
+                        <!-- /.col-* -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Settlement Date (mm-dd-yyyy format)</label>
+                                <div class="search" style="margin-top: 15px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+
+                                        @Html.TextBoxFor(model => model.NetProceed.txtSettlementDate, new { @class = "form-control" })
+
+                                    </div><!-- /.form-group -->
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtSettlementDate)
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Annual Real Estate Property Tax</label>
+                                <div class="search" style="margin-top: 15px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        @Html.TextBoxFor(model => model.NetProceed.txtRealEstatePropertyTax, new { @class = "form-control" })
+                                    </div><!-- /.form-group -->
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtRealEstatePropertyTax)
+
+                            </div><!-- /.form-group -->
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Termite Treatment / Repairs</label>
+                                <div class="search" style="margin-top: 15px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        @Html.TextBoxFor(model => model.NetProceed.txtTermiteInspection, new { @class = "form-control" })
+                                    </div><!-- /.form-group -->
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtTermiteInspection)
+                            </div><!-- /.form-group -->
+                        </div>
+                      
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Home Warranty</label>
+                                <div class="search" style="margin-top: 16px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        @Html.TextBoxFor(model => model.NetProceed.txtWarranty, new { @class = "form-control" })
+                                    </div><!-- /.form-group -->
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtWarranty)
+                            </div><!-- /.form-group -->
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Other Charges (Repairs, Rent Back, Security Deposit)</label>
+                                <div class="search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        @Html.TextBoxFor(model => model.NetProceed.txtOtherCharges, new { @class = "form-control" })
+                                    </div><!-- /.form-group -->
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtOtherCharges)
+
+
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Home Owner Association (HOA) / Condo Fees (Monthly Amount)</label>
+                                <div class="search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        @Html.TextBoxFor(model => model.NetProceed.txtHOAFee, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NetProceed.txtHOAFee)
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                        <!-- /.col-* -->
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Is the Seller subject to <a href="http://www.federaltitle.com/consumers/firpta" target="_blank">FIRPTA</a> withholding?</label>
+                                @Html.DropDownListFor(model => model.NetProceed.FIRPTA, new SelectList(Model.FIRPTA, "FIRPTA", "FIRPTA"), "--- Select Option --- ", new { @class = "form-control drop-change ddl-select2" })
+                                @Html.ValidationMessageFor(model => model.NetProceed.FIRPTA)
+                            </div><!-- /.form-group -->
+                        </div>
+                    </div>
+                        <div class="row filter-options">
+                            <!-- /.row -->
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="filter-order">
+                                    <div class="col-md-12">
+                                        <div class="form-group-btn form-group-btn-placeholder-gap">
+                                            <button type="submit" class="btn btn-primary btn-block">Get Quote</button>
+                                        </div><!-- /.form-group -->
+                                    </div>
+                                </div><!-- /.filter-order -->
+                            </div><!-- /.col-* -->
+                        </div><!-- /.row -->
+                }
+
+            </div>
+           
+            </div>
+        <!-- /.box-body -->
+    </div>
+    
+</div>
+
+<style>
+label
+{
+  color: #525050;
+}
+.field-validation-error
+{
+color:#b93131;
+}
+
+</style>

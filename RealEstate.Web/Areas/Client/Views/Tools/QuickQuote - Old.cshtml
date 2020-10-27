@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | Quick Quote";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+<meta charset="utf-8">
+<link rel="dns-prefetch" href="//d2mdw063ttlqtq.cloudfront.net">
+<link rel="dns-prefetch" href="//0.s3.envato.com">
+<link rel="dns-prefetch" href="//thumb-tf.s3.envato.com" />
+<link rel="dns-prefetch" href="//user-profile.s3.envato.com">
+<link rel="dns-prefetch" href="//image-tf.s3.envato.com" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="&amp;lt;img src=&amp;quot;https://s23.postimg.org/fpzcekwp7/15837871105_ce58e41de5_o.png&amp;quot; alt=&amp;quot;...">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
+
+<link rel="stylesheet" media="all" href="//public-assets.envato-static.com/assets/market/core/index-e9ba82e2efe7b447f1f3606e4bae448fd208598f68e5a52f19a45538623660f5.css" />
+<link rel="stylesheet" media="all" href="//public-assets.envato-static.com/assets/market/pages/preview/index-23bd1ac2a83a91cc37b86401b06d5fd570071dcedbf6380197b77581f58044fd.css" />
+
+@*<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/icons/themeforest.net/apple-touch-icon-144x144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/icons/themeforest.net/apple-touch-icon-114x114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/icons/themeforest.net/apple-touch-icon-72x72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="/icons/themeforest.net/apple-touch-icon-precomposed.png" />*@
+
+<script src="//public-assets.envato-static.com/assets/market/pages/full_screen_preview/index-e137c509e07db11c141dca806e3a388990cdf140aae8197e76cd6a3f8baccc67.js"></script>
+
+<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+
+            <div class="content-title">
+                <div class="content-title-inner">
+                    <div class="container">
+                        <h1>Buyer's Closing Cost Calculator</h1>
+
+                    </div><!-- /.container -->
+                </div><!-- /.content-title-inner -->
+            </div><!-- /.content-title -->
+
+            <div class="content" style="background-color:#ffffff;margin-top: -60px;margin-bottom: -61px;">
+                <div class="container">
+                    <!-- /.filter -->
+
+                    <div class="row">
+
+                        <div class="full-screen-preview">
+
+                            <div class="iframe-modal col-lg-offset-3">
+                                <iframe id="googframe" name="google" class="full-screen-preview__frame" src="" name="preview-frame" frameborder="0" noresize="noresize" data-view="fullScreenPreview"></iframe>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div>
+
+
+
+<div class="clearfix"></div>
+
+<style>
+    #tblQuote {
+        height: 100px;
+        border: 1px solid #3399cc;
+    }
+
+    .print_link {
+        display: none;
+    }
+
+
+
+    .modal-container {
+        display: none;
+    }
+
+    .iframe-modal {
+        width: 101.5%;
+        height: auto;
+        max-width: none;
+        padding: 0;
+        margin-top: -83px;
+    }
+
+    .full-screen-preview__frame {
+        width: 102%;
+        height: 600px;
+    }
+
+    .dashboard-content {
+        background-image: unset;
+        background-color: white;
+    }
+
+    .full-screen-preview__frame {
+        height: 920px !important;
+    }
+
+
+    @@media (max-width:768px) {
+        .dashboard-header {
+            margin-top: -21px;
+        }
+    }
+</style>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var actualURL = 'https://tools.federaltitle.com/titleagents/QuickQuote/Default.aspx';
+            //var actualURL = 'https://www.compass.com/agents/dc/jay-bauer/';
+            $('#googframe').attr('src', actualURL);
+
+        });
+
+
+    </script>
+
+    <script>
+        //function to fix height of iframe!
+        var calcHeight = function () {
+            var headerDimensions = $('.preview__header').height();
+            $('.full-screen-preview__frame').height($(window).height() - headerDimensions);
+        }
+
+        $(document).ready(function () {
+            calcHeight();
+
+        });
+
+        $(window).resize(function () {
+            calcHeight();
+        }).load(function () {
+            calcHeight();
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            var baseTag = document.createElement('base');
+            baseTag.target = '_blank';
+            $("iframe html head").append(baseTag);
+        });
+    </script>
+}

@@ -1,0 +1,68 @@
+﻿@model RealEstate.Entities.ViewModels.TestimonialViewModel
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstateNew.cshtml";
+}
+@using System.Security.Claims;
+
+
+<section class="wrapper adminContentWrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row flex-wrap">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>Testimonials</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="header-search-wrap">
+                            <form class="form-inline my-2 my-lg-0" method="get" action="@Url.Action("list","TestimonialV2")" data-otf-ajax="true" data-otf-target="#DataGrid" autocomplete="on">
+                                <input class="form-control mr-sm-2"  name="searchTerm" id="inputsearch" type="search" placeholder="Serach by User Name, User Type" aria-label="Search" value="@Model.TestimonialFilterInfo.SearchFilter">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+                                <button class="btn btn-refresh" type="submit"  id="btnClear"><i class="material-icons">cached</i></button>
+                            </form>
+                        </div>
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello, @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new" /></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-12 clients-list-section testionials-wrap">
+                    <div class="clients-list-inner testionials-listing">
+                        <div class="heading-wrap">
+                            <h3>Testimonials</h3>
+                            @*<button class="btn tealButton">Add New</button>*@
+                            @Html.ActionLink(" Add New ", "Create", null, new { @class = "btn tealButton" })
+                        </div>
+                        @Html.Partial("pvTestimonialList", Model)
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

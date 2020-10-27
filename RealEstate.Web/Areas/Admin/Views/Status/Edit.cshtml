@@ -1,0 +1,156 @@
+﻿@model RealEstate.Entities.Models.utblMstStatus
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Status
+        <small>Edit Tracking Status  </small>
+    </h1>
+</section>
+<div class="col-md-12">
+@using (Ajax.BeginForm("Edit", "Status", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "myform" }))
+{
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.StatusID)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.Status, new { @class = "form-control", id = "Status" })
+                    @Html.ValidationMessageFor(model => model.Status)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Percentage, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.Percentage, new { @class = "form-control", id = "Status" })
+                    @Html.ValidationMessageFor(model => model.Percentage)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.Description, new { @class = "form-control", id = "Status" })
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.VideoURL, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.VideoURL, new { @class = "form-control", id = "Status" })
+                    @Html.ValidationMessageFor(model => model.VideoURL)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsContingencies, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-6">
+
+                    <label class="switch">
+                        @Html.CheckBoxFor(model => model.IsContingencies, new { @class = "Chk-box", @checked = "checked" })
+                        <span class="slider round"></span>
+                    </label>
+                    @Html.ValidationMessageFor(model => model.IsContingencies)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Hierarchy, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.Hierarchy, new { @class = "form-control", id = "Status" })
+                    @Html.ValidationMessageFor(model => model.Hierarchy)
+                </div>
+            </div>
+
+        </div>
+        <div class="well well-sm col-md-12 col-lg-12 text-right">
+            <div class="form-horizontal">
+                @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                <input type="submit" value="Save" id="save" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+
+@section Scripts{
+<script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+</script>
+}
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            display: none;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + input[type="hidden"] + .slider,
+    input:checked + .slider {
+        background-color: #5ab6bd;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + input[type="hidden"] + .slider:before,
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+</style>

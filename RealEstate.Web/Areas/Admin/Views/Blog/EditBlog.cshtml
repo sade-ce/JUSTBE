@@ -1,0 +1,105 @@
+﻿@model RealEstate.Entities.ViewModels.BlogViewModel
+@{
+    ViewBag.Title = "Edit Blog";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+    if (User.IsInRole("Agent"))
+    {
+        Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+    }
+}
+<section class="content-header">
+    <h1>
+        Blog
+        <small>Edit</small>
+    </h1>
+</section>
+<section class="content">
+    @using (Html.BeginForm("editblog", "blog", FormMethod.Post, new { area = "admin", id = "myform",enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.utblBlogs.BlogID)
+
+        <div class="form-horizontal">
+            <div class="box box-info">
+                <div class="box-body">
+                    @Html.ValidationSummary(true)
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label">Title</label>
+                            <br />
+                            @Html.TextBoxFor(m => m.utblBlogs.BlogTitle, new { @id = "blogtitle", @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.utblBlogs.BlogTitle)
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="control-label">Description</label>
+                            <br />
+                            @Html.TextAreaFor(m => m.utblBlogs.BlogDescription, new { @id = "blogdesc", @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.utblBlogs.BlogDescription)
+                            <div class="clearfix"></div>
+                        </div>
+
+                        @if (Model.utblBlogs.BlogFile != null)
+                        {
+                            <div class="col-md-6">
+                                <label class="control-label">Change Picture :</label>
+                                <br />
+                                @Html.HiddenFor(m => m.utblBlogs.BlogFile)
+                                <input type="file" name="files" id="fu1" class="btn btn-default" value="@Model.utblBlogs.BlogFile" />
+                            </div>
+
+                        }
+                        else
+                        {
+                            <div class="col-md-6">
+                                <label class="control-label">Choose Picture :</label>
+                                <br />
+                                <input type="file" name="files" id="fu1" class="btn btn-default" />
+                            </div>
+                        }
+
+                        <div class="col-md-12">
+                            <label class="control-label">Blog Content</label>
+                            <br />
+                            @Html.TextAreaFor(m => m.utblBlogs.BlogContent, new { @id = "blogeditor", @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.utblBlogs.BlogContent)
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="well well-sm col-md-12 col-lg-12 text-right">
+            <div class="form-horizontal">
+                @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                <input type="submit" value="Save" id="save" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+</section>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+@section Scripts
+{
+    <script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ckeditor/ckeditor.js"></script>
+    <script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ckeditor/adapters/jquery.js" async></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            CKEDITOR.replace("blogeditor");
+            //CKEDITOR.config.removePlugins = 'save';
+        });
+    </script>
+<script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+</script>
+}

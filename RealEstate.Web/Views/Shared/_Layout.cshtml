@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://schema.org/NewsArticle">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    @RenderSection("metatags", false)
+    <meta name="keywords" content="washington dc homes for sale, washington dc real estate, homes for sale in washington dc, real estate in washington dc, jay bauer compass real estate, maryland homes for sale, marryland real estate, virginia homes for sale, virginia real estate,Realtor,Realtors,finding a Realtor,how to find a Realtor,find real estate agents,how to find a real estate agent,best Realtor near dc,top realtor for buying a new home,top real estate agents in dc,selling a home,sell a home fast,fastest way to sell a home in dc,home selling tips,cost of selling your home,marketing your home,ways to sell your home,house staging tips,how to stage your home,foreclosure,forecloures,short sales,foreclosure or short sale,short selling,short sale process,cons of a short sale,short selling your home,for sale by owner,fsbo,why to use a Realtor,property for sale by owner,for sale by owner listings,top tips to get the best offer">
+    <title>Jay Bauer: Washington DC Real Estate | COMPASS"</title>
+    @Styles.Render("~/Content/JayBauerFrontEndCSS")
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '2670780916336038');
+fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1"
+             src="https://www.facebook.com/tr?id=2670780916336038&ev=PageView
+&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    
+        @RenderSection("Style", false)
+        @*@Scripts.Render("~/bundles/modernizr")*@
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round" />
+        <link rel="icon" type="image/png" sizes="16x16" href="~/img/favicon-16x16.png">
+        @*<style>
+                .left-side {
+                    width: 67%;
+                }
+
+                .header-widget {
+                    top: -37px;
+                }
+                 @@media screen and (min-width: 320px) and (max-width: 1024px) {
+                    .header-widget {
+                        top: -14px;
+                    }
+                }
+            </style>*@
+        @*<meta http-equiv="refresh" content="240">*@
+</head>
+<body>
+
+    <div id="wrapper">
+        <header id="header-container">
+            <!-- Topbar -->
+            <div id="top-bar">
+                <div class="container">
+                    <!-- Left Side Content -->
+                    <div class="left-side">
+                        <!-- Top bar -->
+                        <ul class="top-bar-menu">
+                            <li><i class="fa fa-phone"></i><a href="tel:3017851100">(301) 785-1100 </a> </li>
+                            <li>
+                                <i class="fa fa-envelope"></i> <a href="@Url.Action("Contact","Home",new { @area=""})">
+                                    <span class="__cf_email__">info@jaybauergroup.com</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="right-side" style="width:auto">
+                        <!-- Top bar -->
+
+                        <ul class="top-bar-menu">
+                            <li>
+                                <div class="top-bar-dropdown">
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+
+                                        { Html.RenderAction("Welcome", "Home", new { area = "" }); }
+
+                                        <ul class="options">
+                                            <li><div class="arrow"></div></li>
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <li>
+                                                    <a class="@(ViewBag.Current == "Index" ? "current" : "")" href="@Url.Action("Index","Home", new { area = "" })">
+                                                        <i class="fa fa-dashboard"></i> MY Dashboard
+
+                                                    </a>
+                                                </li>
+
+                                            }
+                                            @if (User.IsInRole("Agent"))
+                                            {
+                                                <li>
+                                                    <a class="@(ViewBag.Current == "Index" ? "current" : "")" href="@Url.Action("Index","Home", new { area = "" })">
+                                                        <i class="fa fa-dashboard"></i> MY Dashboard
+                                                    </a>
+                                                </li>
+
+                                            }
+
+                                            <li>
+                                                <a href="@Url.Action("EditProfile","Account",new { @area=""})">
+                                                    <i class="fa fa-user"></i> Profile
+                                                </a>
+                                            </li>
+
+                                            @{Html.RenderAction("LoggedInUser", "JayBauerGroup", new { area = "Client" });}
+                                            <li>
+                                                @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                                {
+                                                    @Html.AntiForgeryToken()
+                                                    <a href="javascript:document.getElementById('logoutForm').submit()">
+                                                        <i class="fa fa-lock"></i> Logout
+                                                    </a>
+                                                }
+
+                                            </li>
+                                        </ul>
+                                                }
+
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!-- Topbar / End -->
+            <!-- Header -->
+            <div id="header">
+                <div class="container">
+
+
+                    <div class="left-side">
+
+                        <!-- Logo -->
+
+                        <div id="logo">
+                            <a href="@Url.Action("Index","Home", new { area = "",@URL="Home" })"><img src="~/img/logo.png" alt=""></a>
+                        </div>
+
+                        <div class="menu-responsive">
+                            <i class="fa fa-reorder menu-trigger"></i>
+                        </div>
+
+                        <!-- Main Navigation -->
+                        <nav id="navigation" class="style-1">
+                            <ul id="responsive">
+                                <li>
+                                    <a class="@(ViewBag.Current == "Index" ? "current" : "")" href="@Url.Action("Index","Home", new { area = "" ,@URL="Home" })">Home</a>
+                                </li>
+                                <li>
+                                    <a class="@(ViewBag.Current == "About" ? "current" : "")" href="@Url.Action("About","Home", new { area = "" })">About</a>
+                                    @*<ul>
+
+                                            <li>
+                                                <a href="#">Buyer</a>
+                                                <ul>
+                                                    <li><a href="#">Item 1</a></li>
+                                                    <li><a href="#">Item 2</a></li>
+                                                    <li><a href="#">Item 3</a></li>
+                                                    <li><a href="#">Item 4</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Seller</a>
+                                                <ul>
+                                                    <li><a href="#">Item 1</a></li>
+                                                    <li><a href="#">Item 2</a></li>
+                                                    <li><a href="#">Item 3</a></li>
+                                                    <li><a href="#">Item 4</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Meet The Team</a></li>
+                                        </ul>*@
+                                </li>
+                                <li>
+                                    <a class="@(ViewBag.Current == "Neighborhood" ? "current" : "")" href="@Url.Action("Neighborhood","Home", new { area = "" })">Neighborhoods</a>
+                                </li>
+                                @*<li>
+
+                                        <a class="@(ViewBag.Current == "BuyerGuides" ? "current" : "")" href="@Url.Action("BuyerGuides","Article", new { area = "" })">Advice</a>
+
+                                        <ul>
+
+                                            <li>
+                                                <a href="@Url.Action("SellerGuides","Article", new { area = "" })">Seller Guide</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("BuyerGuides","Article", new { area = "" })">Buyer Guides</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>*@
+                                @*<li>
+                                    <a class="@(ViewBag.Current == "JayBauerListing" ? "current" : "")" href="#">Listings</a>
+                                    <ul>
+                                        <li>
+                                            <a  href="@Url.Action("JayBauerListing","Home", new { area = "" })">Jay Bauer</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("DanaCloudListings","Home", new { area = "" })">Dana Cloud</a>
+                                        </li>
+                                    </ul>
+
+                                </li>*@
+                                <li>
+
+                                <li>
+                                    <a class="@(ViewBag.Current == "Blogs" ? "current" : "")" href="@Url.Action("List","Blogs", new { area = "" })">Blog</a>
+
+
+                                </li>
+                                <li>
+                                    <a class="@(ViewBag.Current == "Contact" ? "current" : "")" href="@Url.Action("Contact","Home", new { area = "" })">Contact</a>
+
+
+                                </li>
+
+
+                            </ul>
+                        </nav>
+                        <div class="clearfix"></div>
+
+                    </div>
+
+                    <div class="right-side">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+
+                            <div class="header-widget">
+                                <a style="color:#37b6bd" href="@Url.Action("Login","Account", new { area = "" })"><i></i> Log In || </a>
+                                <a style="color:#37b6bd" href="@Url.Action("Register","Account", new { area = "" })"><i></i> Register </a>
+
+                                <!--<a href="submit-property.html" class="button border">Submit Property</a>-->
+                            </div>
+                        }
+
+
+
+                        <!-- Header Widget / End -->
+                    </div>
+
+                </div>
+            </div>
+            <!-- Header / End -->
+        </header>
+        @RenderBody()
+
+
+     
+
+        <div class="panel panel-primary text-center ajax-new-load" id="ajaxLoading" >
+            <div class="panel-body" style="padding-left: 1px; padding-right: 30px;">
+                <img src="~/img/loader.gif" alt="Loading" style="margin-bottom: 10px" /><br />
+            </div>
+        </div>
+      
+      
+        <div class="clearfix"></div>
+
+        <div id="footer" class="sticky-footer ">
+            <!-- Main -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-sm-6">
+                        <img class="footer-logo" src="~/img/logo.png" alt="">
+                        <br><br>
+                        <p>
+                            Jay Bauer Group <br />
+                            Real Estate Professionals<br />
+                            Washington, DC
+                        </p>
+
+
+
+                    </div>
+                    <div class="col-md-4 col-sm-6 ">
+                        <h4>Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="@Url.Action("Index","Home",new { @area=""})">Home</a></li>
+                            <li><a href="https://www.compass.com/agents/dc/jay-bauer/" target="_blank">About</a></li>
+                            <li><a href="@Url.Action("jayBauerListing","Home",new { @area=""})">Listing</a></li>
+                            <li><a href="@Url.Action("terms","Legal",new { @area=""})">Privacy Policy</a></li>
+                            <li><a href="@Url.Action("terms","Legal",new { @area=""})">Terms & Conditions</a></li>
+
+                        </ul>
+                        <ul class="footer-links">
+
+                            <li><a href="@Url.Action("BuyerGuides", "Article",new { @area=""})">Articles</a></li>
+                            <li><a href="@Url.Action("Contact", "Home",new { @area=""})">Contact</a></li>
+                            <li><a href="@Url.Action("Departments", "Careers",new { @area=""})">Careers</a></li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="col-md-3  col-sm-12">
+                        <h4>Contact Us</h4>
+                        <div class="text-widget">
+                            <span>COMPASS : 660 Pennsylvania Ave. SE Suite 300, Washington, DC 20003</span> <br>
+                            Phone: <span><a href="tel:3017851100">(301) 785-1100</a>  </span><br>
+                            Office: <span><a href="tel:202.545.6900">(202) 545-6900</a>  </span><br>
+
+                            E-Mail:<span>
+                                <a href="@Url.Action("Contact","Home" ,new { @area=""})">
+                                    <span class="__cf_email__">info@jaybauergroup.com</span>
+                                </a>
+                            </span><br>
+                        </div>
+                        <ul class="social-icons margin-top-20">
+                            <li><a class="facebook" href="https://www.facebook.com/JayBauerGroup" target="_blank"><i class="icon-facebook"></i></a></li>
+                            <li><a class="linkedin" href="https://www.linkedin.com/in/jay-bauer-0938b36" target="_blank"><i class="icon-linkedin"></i></a></li>
+                            <li><a class="twitter" href="https://twitter.com/jaybauergroup?lang=en" target="_blank"><i class="icon-twitter"></i></a></li>
+                            <li><a class="gplus" target="_blank" href="https://www.google.co.in/search?ei=oQZGWsTwL8zhvATL0bWYCg&q=jay+bauer+group&oq=jay+bauer+group&gs_l=psy-ab.3..35i39k1.1512592.1516856.0.1517216.15.15.0.0.0.0.440.3462.2-5j5j1.11.0....0...1c.1.64.psy-ab..4.11.3458...0j0i131k1j0i67k1j0i20i263k1j0i131i20i263k1j0i10k1.0.bwHQKDoSTVk"><i class="icon-gplus"></i></a></li>
+                            <li><a class="fa fa-yelp margin-top-10" href="http://www.yelp.com/biz/jay-bauer-realtor-at-compass-washington" target="_blank"><i class="icon icon-yelp"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-3 col-lg-offset-2">
+                        <img src="~/img/equal-housing-logo.png" class="img img-responsive" />
+                    </div>
+
+                    <div class="col-md-3">
+                        <img src="~/img/NAOR.png" class="img img-responsive" />
+                    </div>
+                    <div class="col-md-3">
+                        <img src="~/img/jaybauerCompass.png" class="img img-responsive" />
+                    </div>
+
+                </div>
+                <!-- Copyright -->
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="copyrights">
+                            COMPASS IS A LICENSED REAL ESTATE BROKERAGE FIRM IN THE DISTRICT OF COLUMBIA, MARYLAND AND VIRGINIA.
+                            COMPASS IS LICENSED AS 'COMPASS REAL ESTATE' IN THE DISTRICT OF COLUMBIA.
+                        </div>
+                        <div class="copyrights">© @DateTime.Now.Year Jay Bauer Group. All Rights Reserved.</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        @*<div id="backtotop"><a href="#"></a></div>*@
+    </div>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/RealEstateFrontEndJS")
+
+    @RenderSection("scripts", required: false)
+    
+
+    <div class="content">
+        <div class="fixed-wrapper glyph fs1">
+            <h2>
+                @*<a href="@Url.Action("Enquiry","Home")" target="_blank" id="Gear" class="fixed quick-enquiry" data-modal = "">
+                    <i class="sl sl-icon-bell"></i>  Quick Enquiry
+                </a>*@
+            </h2>
+
+            @*<a href="#" class="rounded fixed btn medium border">Need Help?</a>*@
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    $(function () {
+
+        //$.ajaxSetup({ cache: false });
+
+        $("a[data-modal]").on("click", function (e) {
+            // hide dropdown if any (this is used wehen invoking modal from link in bootstrap dropdown )
+            //$(e.target).closest('.btn-group').children('.dropdown-toggle').dropdown('toggle');
+
+            $('.leadContent11').load(this.href, function () {
+                var linkedModal = jQuery('.openmodal');
+
+                jQuery('.modal-screen').toggleClass('reveal-modal');
+                linkedModal.toggleClass('reveal-modal');
+
+
+                bindForm(this);
+            });
+            return false;
+        });
+    });
+
+    function bindForm(dialog) {
+        $('form', dialog).submit(function (e) {
+            e.preventDefault();
+            $('#myEnquiryModal').modal('hide');
+            //$('#ajaxLoading').css("display","none");
+            $("#waiting").css("display", "block");
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: $(this).serialize(),
+                success: function (result) {
+                    $("#waiting").css("display", "none");
+                    if (result.success) {
+                        window.location.href = result.url;
+                        $('#myModalContent').modal('hide');
+                        $('#myEnquiryModal').modal('hide');
+                    } else {
+                        $('#myModalContent').html(result);
+                        $('#myEnquiryModal').modal('show');
+                        bindForm(dialog);
+                    }
+                }
+            });
+            return false;
+        });
+    }
+
+    </script>
+
+    <style type="text/css">
+        .content {
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .fixed-wrapper {
+            position: absolute;
+            bottom: 0px;
+            right: 40px;
+            width: 160px;
+            height: 30px;
+            border-radius: 50%;
+            z-index: 9999;
+        }
+
+            .fixed-wrapper .fixed {
+                position: fixed;
+                background-color: #37b6bd;
+                z-index: 1000;
+                height: 43px;
+                bottom: 20px;
+                padding: 13px 22px;
+                color: #fff;
+                font-size: 15px;
+                font-weight: 500;
+                display: inline-block;
+                transition: all 0.2s ease-in-out;
+                cursor: pointer;
+                margin-right: 6px;
+                overflow: hidden;
+                border: none;
+                border-radius: 30px;
+            }
+                .ajax-new-load{
+display: none;
+      box-shadow: rgb(0, 0, 0,0.3) 0px 0px 50px;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+
+    }
+
+    </style>
+    <style>
+        input, input[type="text"], input[type="password"], input[type="email"], input[type="number"], select, textarea {
+            vertical-align: middle;
+        }
+    </style>
+    <style>
+        /*.footer-shadow {
+            height:320px;
+        }*/
+    </style>
+</body>
+</html>

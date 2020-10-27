@@ -1,0 +1,614 @@
+﻿@model RealEstate.Entities.ViewModels.MstUpdateEmailPreferences
+@{
+    ViewBag.Title = "Just BE | Email Preferences";
+    ViewBag.ViewHeader = "Email Preferences";
+    if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+
+    }
+    else
+    {
+        Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+
+    }
+}
+<style>
+    #header {
+        top: 0px !important;
+    }
+</style>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{<div id="wrapper" class="wrapper-container">
+
+        <!-- facebook link -->
+        <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
+        <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+
+
+        <div id="content">
+
+            <div class="page-section-3 page-section-bg">
+                @if (ViewBag.message == "WelcomeBack")
+                {
+                    { TempData["message"] = ViewBag.message; }
+                    <div class="container">
+
+                        <div class="align-center content-element3">
+
+                            <h3>@{Html.RenderAction("UserDetails", "MyDeal", new { area = "Client" });}</h3>
+
+                        </div>
+
+                        <div class="icons-box">
+
+                            <div class="row flex-row">
+
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 1</h6>
+                                                <hr />
+                                                <i class="licon-checkmark-circle"></i>
+                                                <h6 class="icons-box-title"><a href="#">Password Secured</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 2</h6>
+                                                <hr />
+                                                <i class="licon-checkmark-circle"></i>
+                                                <h6 class="icons-box-title"><a href="#">Profile picture updated</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 3</h6>
+                                                <hr />
+                                                <i class="icon-email"></i>
+                                                <h6 class="icons-box-title"><a href="#">Set your notification settings</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 4</h6>
+                                                <hr />
+
+                                                <i class="licon-arrow-right"></i>
+                                                <h6 class="icons-box-title"><a href="#">Go to your dashboard</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+
+                else
+                {
+                    <div class="container">
+
+                        <div class="align-center content-element3">
+
+                            <h3>Welcome to Just BE</h3>
+
+                        </div>
+
+                        <div class="icons-box">
+
+                            <div class="row flex-row">
+
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 1</h6>
+                                                <hr />
+                                                <i class="licon-checkmark-circle"></i>
+                                                <h6 class="icons-box-title"><a href="#">Sign-up complete</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 2</h6>
+                                                <hr />
+                                                <i class="licon-checkmark-circle"></i>
+                                                <h6 class="icons-box-title"><a href="#">Profile picture updated</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 3</h6>
+                                                <hr />
+                                                <i class="icon-email"></i>
+                                                <h6 class="icons-box-title"><a href="#">Set your notification settings</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 4</h6>
+                                                <hr />
+                                                <i class="licon-arrow-right"></i>
+                                                <h6 class="icons-box-title"><a href="#">Go to your dashboard</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+
+
+            </div>
+
+
+
+            <div class="container">
+                @using (Html.BeginForm("EmailPreferences", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    { TempData["message"] = ViewBag.message; }
+
+
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="text-danger" id="ErrorView"></div>
+
+                            <div class="content-element">
+                                <div class="row">
+                                    <div class="col-sm-12" style="margin-top:20px">
+                                        <h4 class="section-title">Change your email notification</h4>
+                                        <div class="table-type-1">
+                                            <table>
+                                                <tbody>
+
+                                                    <tr>
+                                                        <td>
+                                                            <div>Get email notifications when events (e.g. home inspection, appraisal) are added to your calendar</div>
+                                                        </td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                @if (Model.EventCalendar == true)
+                                                                {
+                                                                @Html.CheckBoxFor(model => model.EventCalendar, new { @class = "Chk-box", @checked = "checked" })
+
+
+                                                                }
+                                                                else
+                                                                {
+                                                                @Html.CheckBoxFor(model => model.StatusTimeline, new { @class = "Chk-box" })
+                                                                }
+                                                                <span class="slider round"></span>
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr style="border-top: 1px solid #d2d4d6;">
+                                                        <td>Get email notifications when any updates are made to your real estate deal tracker</td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                @if (Model.StatusTimeline == true)
+                                                                {
+                                                                @Html.CheckBoxFor(model => model.StatusTimeline, new { @class = "Chk-box", @checked = "checked" })
+
+                                                                }
+                                                                else
+                                                                {
+                                                                @Html.CheckBoxFor(model => model.StatusTimeline, new { @class = "Chk-box" })
+
+                                                                }
+                                                                <span class="slider round"></span>
+                                                            </label>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Get email notifications when any files/documents are uploaded to your real estate deal tracker</td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                @if (Model.SettlementDate == true)
+                                                                {
+                                                                @Html.CheckBoxFor(model => model.SettlementDate, new { @class = "Chk-box", @checked = "checked" })
+
+
+                                                                }
+                                                                else
+                                                                {
+                                                                @Html.CheckBoxFor(model => model.SettlementDate, new { @class = "Chk-box" })
+
+                                                                }
+                                                                <span class="slider round"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="total-cell"></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-sm-12" style="margin-bottom:20px">
+                                        <button class="btn btn-big style-5 pull-right">Next Step</button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+}
+
+else
+{
+
+    <div class="main-wrapper">
+        <div class="main">
+            <div class="main-inner">
+
+                <div class="content-title">
+                    <div class="content-title-inner">
+                        <div class="container">
+                            <h1>What You Get Notified About</h1>
+
+                        </div><!-- /.container -->
+                    </div><!-- /.content-title-inner -->
+                </div><!-- /.content-title -->
+
+                <div class="content">
+                    <div class="container">
+                        <!-- /.filter -->
+
+                        <div class="row">
+
+                            <div class="col-md-12 col-lg-12">
+
+                                <div class="content">
+                                    @using (Html.BeginForm("EmailPreferences", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        { TempData["message"] = ""; }
+                                        <div class="faq">
+
+                                            <!-- /.faq-item -->
+
+                                            <div class="faq-item">
+                                                <div class="faq-item-question">
+                                                    <h2>Turn on/off email notifications about events that are added to your calendar</h2>
+                                                </div><!-- /.faq-item-question -->
+
+
+
+                                                <div class="faq-item-meta">
+
+                                                    <span class="rate">
+                                                        <label class="switch">
+                                                            @if (Model.EventCalendar == true)
+                                                            {
+                                                                @Html.CheckBoxFor(model => model.EventCalendar, new { @class = "Chk-box", @checked = "checked" })
+
+
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.CheckBoxFor(model => model.StatusTimeline, new { @class = "Chk-box" })
+                                                            }
+                                                            <span class="slider round"></span>
+                                                        </label>
+
+                                                        @*<a href="#">Yes</a><span class="separator">/</span><a href="#">No</a>*@
+                                                    </span><!-- /.rate -->
+                                                </div><!-- /.faq-item-meta -->
+                                            </div>
+
+                                            <div class="faq-item">
+                                                <div class="faq-item-question">
+                                                    <h2>Turn on/off email notifications about steps that are added to your live deal tracker timeline</h2>
+                                                </div><!-- /.faq-item-question -->
+
+
+
+                                                <div class="faq-item-meta">
+
+                                                    <span class="rate">
+                                                        <label class="switch">
+                                                            @if (Model.StatusTimeline == true)
+                                                            {
+                                                                @Html.CheckBoxFor(model => model.StatusTimeline, new { @class = "Chk-box", @checked = "checked" })
+
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.CheckBoxFor(model => model.StatusTimeline, new { @class = "Chk-box" })
+
+                                                            }
+                                                            <span class="slider round"></span>
+                                                        </label>
+
+
+
+                                                        @*<a href="#">Yes</a><span class="separator">/</span><a href="#">No</a>*@
+                                                    </span><!-- /.rate -->
+                                                </div><!-- /.faq-item-meta -->
+                                            </div>
+
+                                            <div class="faq-item">
+                                                <div class="faq-item-question">
+                                                    <h2>Turn on/off email notifications about settlement date that are added to your live deal tracker timeline</h2>
+                                                </div><!-- /.faq-item-question -->
+
+
+
+                                                <div class="faq-item-meta">
+
+                                                    <span class="rate">
+                                                        <label class="switch">
+                                                            @if (Model.SettlementDate == true)
+                                                            {
+                                                                @Html.CheckBoxFor(model => model.SettlementDate, new { @class = "Chk-box", @checked = "checked" })
+
+
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.CheckBoxFor(model => model.SettlementDate, new { @class = "Chk-box" })
+
+                                                            }
+                                                            <span class="slider round"></span>
+                                                        </label>
+
+
+
+                                                        @*<a href="#">Yes</a><span class="separator">/</span><a href="#">No</a>*@
+                                                    </span><!-- /.rate -->
+                                                </div><!-- /.faq-item-meta -->
+                                            </div>
+
+                                        </div><!-- /.faq -->
+
+                                        <div class="col-sm-12" style="margin-bottom:150px">
+                                            <button class="btn btn-primary pull-right">Save Changes</button>
+
+                                        </div>
+
+                                    }
+                                    <!-- /.pagination-wrapper -->
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+                        <!-- /.row -->
+                    </div><!-- /.container -->
+                </div><!-- /.content -->
+            </div><!-- /.main-inner -->
+        </div><!-- /.main -->
+    </div>
+    
+}
+
+
+
+
+
+
+
+<div class="page-content-wrap"></div>
+
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    @*<script type="text/javascript">
+
+            $(document).ready(function (e) {
+                $('form').submit(function () {
+                    var Events = ($("#Events").is(':checked')) ? true : false;
+                    var settlement = ($("#settlement").is(':checked')) ? true : false;
+                    var steps = ($("#steps").is(':checked')) ? true : false;
+
+                    $("#ajaxLoading").css("display", "block");
+                    $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                    $("#ajaxLoading").css("left", $(window).width() / 2);
+                    $("#ajaxLoading").css("position", "fixed");
+                    $("#ajax-backdrop").css("display", "block");
+                    $.ajax({
+                        url: '@Url.Action("emailpreferences")',
+                        type: "POST",
+                        data: { "Events": Events, "settlement": settlement, "steps": steps },
+                        success: function (result) {
+                            $("#ajaxLoading").css("display", "none");
+                            $("#ajax-backdrop").css("display", "none");
+                            $('#ErrorView').text(result).show();
+
+                        },
+                        error: function (result) {
+                            $('#ErrorView').text(result).show();
+                            //$('#Error').text(result.Email);
+                        }
+
+                    });
+                    return false;
+
+                });
+            });
+        </script>*@
+
+
+
+}
+
+
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            display: none;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + input[type="hidden"] + .slider,
+    input:checked + .slider {
+        background-color: #1c2a31;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + input[type="hidden"] + .slider:before,
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+    .faq-item:before {
+        display: none;
+    }
+  
+</style>
+<style>
+    .settings {
+        display: table;
+        width: 100%;
+    }
+
+        .settings .row {
+            display: table-row;
+        }
+</style>
+

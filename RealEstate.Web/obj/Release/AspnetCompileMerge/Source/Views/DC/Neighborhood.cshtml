@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | Neighborhood";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Neighborhood/style.css" rel="stylesheet" />
+
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row content">
+            <div class="col-md-6">
+                <div class="nytimes-container">
+                    <h3><span id="nytimes-header">Related DC Articles</span></h3>
+                    <ul id="nytimes-articles" class="article-list">What's going on in your new city?<br> Enter an address and hit submit and the NY Times will tell you here!</ul>
+                </div>
+            </div>
+            <div class="col-md-4 col-md-offset-2">
+                <div class="wikipedia-container">
+                    <h3><span id="wikipedia-header">Relevant Wikipedia Links</span></h3>
+                    <ul id="wikipedia-links" class="wiki-article-list">Type in an address above and find relevant<br> Wikipedia articles here!</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        function GetQueryStringParams(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) {
+                    return sParameterName[1];
+                }
+            }
+        }
+        var City = GetQueryStringParams('City');
+        function loadData() {
+
+            var $body = $('body');
+            var $wikiElem = $('#wikipedia-links');
+            var $nytHeaderElem = $('#nytimes-header');
+            var $nytElem = $('#nytimes-articles');
+            var $greeting = $('#greeting');
+            var $content = $('.content');
+
+            /* clear out old data before new request
+            */
+            $wikiElem.text("");
+            $nytElem.text("");
+
+            /* get the values of form inputs
+            */
+            var street = $('#street').val();
+            var city = City;
+            /* edit greeting message
+            */
+            $greeting.text('So, you want to live at ' + city + '?');
+            /* load Google Streetview
+            */
+            var mapsUrl = 'https://maps.googleapis.com/maps/api/streetview?size=1200x600&location=' + street + '+' + city;
+            $body.append('<img class="bgimg" src="' + mapsUrl + '">');
+
+            /* format NYTimes url
+            */
+            var nytUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+            nytUrl += '?' + $.param({
+                'q': city,
+                'sort': 'newest',
+                'fq': "Neighborhood",
+                'api-key': "9da87b6ffbca4e45bd5c6410566eda8a"
+            });
+            /* NYTimes AJAX request
+            */
+            $.getJSON(nytUrl, function (data) {
+                /* select the articles on the json and display 'em
+                */
+                var articles = data.response.docs;
+                for (var i = 0; i < articles.length; i++) {
+                    var article = articles[i];
+                    $nytElem.append('<li class="article">' +
+                        '<a href="' + article.web_url + '" target=_blank>' +
+                        article.headline.main + '</a>' +
+                        '<p class="text-justify">' + article.snippet + '</p>' +
+                        '</li>');
+                };
+            }).error(function (e) {
+                $nytHeaderElem.text('New York Times Articles could not be loaded');
+            });
+
+            /* format Wikipedia url 
+            */
+            
+          
+            //var replaced = City.replace(/%20/g, " ");
+            //alert(replaced);
+            //var State = 'Washington' + replaced;
+            //alert(State);
+            var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + City+ '&format=json&callback=wikiCallback';
+            /* manage errors on wikipedia request
+            */
+            var wikiRequestTimeout = setTimeout(function () {
+                $wikiElem.text('Failes to get Wikipedia resources');
+            }, 8000);
+            /* Wikipedia AJAX request 
+            */
+            $.ajax({
+                url: wikiUrl,
+                dataType: "jsonp",
+                //jsonp: "callback",
+                success: function (response) {
+                    var articleList = response[1];
+
+                    for (var i = 0; i < articleList.length; i++) {
+                        articleStr = articleList[i];
+                        var url = 'http://en.wikipedia.org/wiki/' + articleStr;
+                        $wikiElem.append('<li><a href="' + url + '" target=_blank>' + articleStr + '</a></li>');
+                    };
+
+                    $content.addClass('loaded');
+                    clearTimeout(wikiRequestTimeout);
+                }
+            });
+
+            return false;
+        };
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            loadData();
+        });
+    </script>
+<script src="~/Content/Neighborhood/jquery.min.js"></script>
+    @*<script src="~/Content/Neighborhood/script.js"></script>*@
+}

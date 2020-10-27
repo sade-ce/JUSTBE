@@ -1,0 +1,190 @@
+﻿@model RealEstate.Entities.ViewModels.BuildingViewModel
+
+<div id="t_t_vendor_grid" class="col-md-12">
+    <div class="row">
+        <div class="clearfix"></div>
+        <div id="accordion-building">
+            <div class="panel panel-default t_t_panel">
+                <div class="panel-heading t_t_panelheading">
+                    <a data-toggle="collapse" data-parent="#accordion-building" href="#collapseBuilding"> Building</a>
+                </div>
+                <div id="collapseBuilding" class="panel-collapse collapse in">
+                    <div class="col-md-12 panel-body">
+
+
+                @using (Ajax.BeginForm("DealBuilding", "agent", null, new AjaxOptions() { HttpMethod = "POST" }, new { id = "dealbuildingform" }))
+                {
+
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal well well-sm ">
+                                @Html.ValidationSummary(true)
+                                @Html.Hidden("AgentID", new { @Value = ViewBag.AgentID, @name = "AgentID" })
+                           
+                                @Html.HiddenFor(model => model.DealBuilding.TransactionBuildingId)
+                                @Html.HiddenFor(model => model.DealBuilding.Transaction_ID)
+                                @Html.HiddenFor(model => model.DealBuilding.Building_Id,new {id= "hdnBuildingId" })
+
+
+
+                                @Html.HiddenFor(model => model.DealBuilding.Email)
+                                @Html.HiddenFor(model => model.UserProfile.ClientID)
+
+
+                                <a id="AnchorTag" href="#" data-toggle="modal" data-target="#myHelpModal" style="display:none"><span class="badge-help-link">?</span></a>
+                                <div class="box-body">
+                                    <div class="col-md-12 ">
+                                        <div class="form-group" style="margin-top:25px">
+                                            <label class="col-md-4 control-label">Building </label>
+                                            <div class="col-md-6">
+                                                <div id="error" class="text-danger "></div>
+
+                                                @Html.DropDownList("Building", new SelectList(Model.BuildingDropdown, "BuildingId", "Name"), "--- Select Building--- ", new { @class = "form-control ddl-select2 " ,@id="ddlBuilding"})
+                                          
+                                            </div>
+                                            <div class="col-md-2">
+                                                <a href="/Admin/Building/Create" class="btn btn-primary btn-danger addnewdoc"> Add New </a>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group" style="margin-top:25px">
+                                            <label class="col-md-4 control-label">Neighborhood </label>
+                                            <div class="col-md-6">
+                                                <div id="error" class="text-danger "></div>
+                                                <input type="text" class = "form-control" readonly id="txtVNeighborhood" />
+                                            </div>
+                                            <div class="col-md-2">
+                                         
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:25px">
+                                            <label class="col-md-4 control-label">Address </label>
+                                            <div class="col-md-6">
+                                                <div id="error" class="text-danger "></div>
+                                                <input type="text" class="form-control" readonly id="txtBuldingAddress"/>
+                                            </div>
+                                            <div class="col-md-2">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:25px">
+                                            <label class="col-md-4 control-label">NumberOfUnits </label>
+                                            <div class="col-md-6">
+                                                <div id="error" class="text-danger "></div>
+                                                <input type="text" class="form-control" readonly id="txtNumberOfUnits" />
+                                            </div>
+                                            <div class="col-md-2">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:25px">
+                                            <label class="col-md-4 control-label">Front Desk Phone</label>
+                                            <div class="col-md-6">
+                                                <div id="error" class="text-danger "></div>
+                                                <input type="text" class="form-control" readonly id="txtFrontDeskPhone" />
+                                            </div>
+                                            <div class="col-md-2">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:25px">
+                                         
+                                            <div class="col-md-10">
+                                         <input type="submit" name="subbtn" value="Save" class="btn btn-primary pull-right" />
+                                                  
+                                                   
+                                                </div>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="progress pull-left" style="display: none;">
+                                                        <div class="progress-bar">0%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="text-left">
+                                                        <div id="status" class="text-danger"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel"></h4>
+                                        </div>
+                                        <div class="modal-body" id="message">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+
+                        <hr class="hr-style" />
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($('#hdnBuildingId').val() != 0) {
+            $("#ddlBuilding").val($('#hdnBuildingId').val())
+            $.getJSON("@Url.Action("GetBuildingById", "Agent",new { area = "coordinator" })", { BuildingId: $('#hdnBuildingId').val() },
+                       function (data) {
+                           $('#txtVNeighborhood').val(data.Neighborhood)
+                           $('#txtBuldingAddress').val(data.Address)
+                           $('#txtNumberOfUnits').val(data.NumberOfUnits)
+                           $('#txtFrontDeskPhone').val(data.FrontDeskPhone)
+                       });
+        }
+        else {
+   
+            $("#ddlBuilding").val('');
+        }
+         $("#ddlBuilding").change(function () {
+             var dID = $('#ddlBuilding option:selected').val();
+             $('#hdnBuildingId').val(dID)
+
+             if (dID == "") {
+                 $('#txtVNeighborhood').val("")
+                 $('#txtBuldingAddress').val("")
+                 $('#txtNumberOfUnits').val("")
+                 $('#txtFrontDeskPhone').val("")
+             }
+             else {
+           
+                 $.getJSON("@Url.Action("GetBuildingById", "Agent",new { area = "coordinator" })", { BuildingId: dID },
+                        function (data) {
+                            $('#txtVNeighborhood').val(data.Neighborhood)
+                            $('#txtBuldingAddress').val(data.Address)
+                            $('#txtNumberOfUnits').val(data.NumberOfUnits)
+                            $('#txtFrontDeskPhone').val(data.FrontDeskPhone)
+                            $('#hdnBuildingId').val(dID)
+                        });
+             }
+         });
+     });
+        </script>

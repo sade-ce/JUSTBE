@@ -1,0 +1,207 @@
+﻿@using System.Security.Claims;
+@{
+    ViewBag.Title = "Just BE | Net Proceeds";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayoutNew.cshtml";
+}
+
+
+<style>
+    .nav-cal-drop {
+        color:#0bb7a5!important;
+
+
+    padding: 0.3rem 0.2rem!important;
+    }
+       /*.nav-cal-drop:hover {
+color:#212529!important;
+    }*/
+
+       .nav-cal-drop::after {
+    display: none;
+}
+       .nav-cal-item.aactive{
+           color:#0bb7a5;
+       }
+    
+</style>
+<div class="top-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="breadcrumbs">
+                    <ul class="align-items-center d-flex list-unstyled m-0 p-0">
+                        <li class="d-none d-lg-block mr-4">
+                            @*@if ((User.IsInRole("Agent") || User.IsInRole("Admin"))) { }
+                            else
+                            {*@
+                                <a href="#!" id="toggleHeader"><img src="~/Content/NewVersion/images/ham.png" alt="" class="img-fluid"></a>
+                            @*}*@
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link nav-cal-drop dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">Calculators<span>&nbsp;></span></a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item nav-cal-item @(ViewBag.ActiveURL == "NetProceeds" ? "aactive" : "")" href="@Url.Action("NetProceeds","Tools",new { @area="Client"})">Seller Net Proceeds</a>
+                                <a class="dropdown-item nav-cal-item @(ViewBag.ActiveURL == "QuickQuote" ? "aactive" : "")" href="@Url.Action("QuickQuote","Tools",new { @area="Client"})">Buyer Closing Cost</a>
+
+                            
+                             </div>
+                        </li>
+
+                        
+
+                        @*<li>Calculators<span>&nbsp;>&nbsp;</span></li>*@
+                        <li class="no-activee">Net Proceeds For Seller<span>>&nbsp;</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 d-md-block d-none">
+                <div class="accountLog d-flex justify-content-end align-items-center">
+                    <p>Hello, &nbsp;<span>@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)</span></p>
+                    <div class="profileImgtop" style="background-size: cover; background-position: center;   height:50px;">
+                        <!-- <img alt="profile-img" id="profileimg" class="img-fluid profileimg"> -->
+                    </div>
+                    @*@if ((User.IsInRole("Agent") || User.IsInRole("Admin"))) { }
+                    else
+                    {*@
+                        <span> &nbsp; &nbsp; | &nbsp; </span>
+
+                                                        <div class="dropdown">
+                                                            <button class="btn  dropdown-toggle mybtn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                My Account
+                                                            </button>
+                                                            <div class="dropdown-menu MyAccountDrop" aria-labelledby="dropdownMenuButton">
+                                                                <a class="dropdown-item" href="@Url.Action("EmailPreferences", "Account", new { @area = "" })"><i class="flaticon-gear"></i>Notification Settings</a>
+                                                                <a class="dropdown-item" href="@Url.Action("EditProfile", "Account", new { @area = "" })"><i class="flaticon-conversation"></i>Edit Profile</a>
+                                                                <a class="dropdown-item" href="@Url.Action("ChangePassword", "Account", new { @area = "" })"><i class="flaticon-password"></i>Change Password</a>
+
+                                                                @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                                                {
+                                                                    @Html.AntiForgeryToken()
+                                                                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                                                                }
+                                                            </div>
+                                                        </div>
+                    @*}*@
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            <!-- div Calculator S -->
+<section class="cal">
+    <div class="container">
+        <div class="row full-screen-preview">
+            <div class="col-md-12 iframe-modal">
+          
+                <iframe id="googframe"  class="full-screen-preview__frame"  name="google" src="" height="800" width="100%"></iframe>
+
+              </div>
+        </div>
+    </div>
+</section>
+<!-- div Calculator E -->
+
+@*<style>
+    #tblQuote {
+        height: 100px;
+        border: 1px solid #3399cc;
+    }
+
+    .print_link {
+        display: none;
+    }
+
+
+
+    .modal-container {
+        display: none;
+    }
+
+    .iframe-modal {
+        width: 101.5%;
+        height: auto;
+        max-width: none;
+        padding: 0;
+        margin-top: -83px;
+    }
+
+    .full-screen-preview__frame {
+        width: 102%;
+        height: 600px;
+    }
+
+    .dashboard-content {
+        background-image: unset;
+        background-color: white;
+    }
+
+    .full-screen-preview__frame {
+        height: 650px !important;
+    }
+
+
+    @@media (max-width:768px) {
+        .dashboard-header {
+            margin-top: -21px;
+        }
+    }
+</style>*@
+
+<style>
+    section.cal .container {
+        margin: -90px 0 0 0;
+    }
+
+    section.cal {
+        overflow: hidden;
+        position: relative;
+        border-top: 1px solid #ddd;
+    }
+</style>
+
+@section Scripts {
+  
+
+ <script type="text/javascript">
+        $(document).ready(function () {
+            var actualURL = 'https://tools.federaltitle.com/titleagents/estimate/Default.aspx';
+            //var actualURL = 'https://www.compass.com/agents/dc/jay-bauer/';
+            $('#googframe').attr('src', actualURL);
+
+        });
+
+        //function to fix height of iframe!
+        //var calcHeight = function () {
+        //    var headerDimensions = $('.preview__header').height();
+        //    $('.full-screen-preview__frame').height($(window).height() - headerDimensions);
+        //}
+
+        //$(document).ready(function () {
+        //    calcHeight();
+
+        //});
+
+        //$(window).resize(function () {
+        //    calcHeight();
+        //}).load(function () {
+        //    calcHeight();
+        //});
+        //$(document).ready(function () {
+        //    var baseTag = document.createElement('base');
+        //    baseTag.target = '_blank';
+        //    $("iframe html head").append(baseTag);
+        //});
+</script>
+
+}
+
+
+
+

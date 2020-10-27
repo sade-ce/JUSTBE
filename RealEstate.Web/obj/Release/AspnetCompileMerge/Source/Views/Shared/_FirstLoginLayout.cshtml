@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+    @Styles.Render("~/Content/Dashboard")
+    <style>
+        .dashboard-header {
+            border-bottom: 1px solid rgba(0,0,0,.08);
+            margin: 0 -30px 30px -30px;
+            padding: 28px 30px;
+        }
+          .blocked
+    {
+        position:relative;
+    }
+    .blocked:after
+    {
+        content: '';
+        position: absolute;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        z-index:1;
+        background-color: rgba(0,0,0,0.4);
+    z-index: 10;
+    }
+    </style>
+    @*@Styles.Render("~/Content/common")*@
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/AppDashboard/assets/favicon.png">
+
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="dashboard-wrapper">
+            <div class="dashboard-sidebar blocked">
+                <div class="dashboard-title">
+                    <a href="#">
+                        <span>
+                            <img src="~/images/logo.png" style="margin-left: 80px;" />
+                        </span>
+                    </a>
+                    <button class="navbar-toggler pull-xs-right hidden-lg-up" type="button" data-toggle="collapse" data-target=".dashboard-nav-primary">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div><!-- /.dashboard-title -->
+                <div class="dashboard-user hidden-md-down">
+                    @{Html.RenderAction("UserDetails", "MyDeal", new { area = "Client" });}
+
+
+
+                </div><!-- /.dashboard-user -->
+                <div class="dashboard-nav-primary collapse navbar-toggleable-md">
+                    <ul class="nav nav-stacked">
+                        <li class="nav-item">
+                            <a href="@Url.Action("List","MyDeal",new { @area="Client"})" class="nav-link active">
+                                <i class="fa fa-building"></i> My Properties
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("MyAgent","MyDeal",new { @area="Client"})" class="nav-link ">
+                                <i class="fa fa-user"></i> My Agent
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Concierge","MyDeal",new { @area="Client"})" class="nav-link ">
+                                <i class="fa fa-globe"></i> Concierge
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="@Url.Action("List","MyCalendar")" class="nav-link ">
+                                <i class="fa fa-calendar"></i> Calendar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("FAQ","MyDeal")" class="nav-link ">
+                                <i class="fa fa-question"></i> FAQ
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Mortgage","Tools")" class="nav-link ">
+                                <i class="fa fa-calculator"></i> Direct Cost Calculator
+                            </a>
+                        </li>
+                        <li class="nav-item">
+
+                            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link"><i class="fa fa-power-off"></i> Logout</a>
+                            }
+
+                        </li>
+                    </ul>
+                </div><!-- /.dashboard-nav-primary -->
+                <!-- /.dashboard-tags -->
+                <div class="dashboard-text hidden-md-down">
+                    <h2>Do you need help?</h2>
+                    <p>
+                        If you have any questions, feel free to use our profile form. We will contact you as soon as possible.
+                    </p>
+                </div><!-- /.dashboard-text -->
+
+            </div>
+            <div class="dashboard-content">
+                @RenderBody()
+            </div>
+
+        </div>
+    </div>
+
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @Scripts.Render("~/bundles/ClientDash")
+    @Scripts.Render("~/bundles/app")
+
+
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.img-user').attr('src', $('#user-img').attr('src'));
+        })
+    </script>
+
+</body>
+</html>
+
+<input type="hidden" id="ActiveURL" data-value="@ViewBag.ActiveURL" />
+
+
+<div class="panel panel-primary text-center" id="ajaxLoading" style="display: none; box-shadow: 10px 10px 5px #888888; z-index: 99999">
+    <div class="panel-heading">Loading data</div>
+    <div class="panel-body" style="padding-left: 30px; padding-right: 30px;">
+        <img src="~/img/loading.gif" alt="Loading" style="margin-bottom: 10px" /><br />
+        Please wait...
+    </div>
+</div>
+<div id="ajax-backdrop" class="fade in" style="background-color: rgb(0, 0, 0); bottom: 0px; left: 0px; position: fixed; right: 0px; top: 0px; z-index: 10000; opacity: 0.4; display: none;"></div>
+<div class="modal modal-styled" id="myErroMsgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModal()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myErroModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <h4 id="Msg"></h4>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10 text-right" style="padding-right: 0;">
+                    <input type="button" id="myErroMsgModalNoButton" class="btn btn-default btn-sm" data-dismiss="modal" onclick="CloseMyModal()" value="Cancel" />
+                    <input type="button" id="myErroMsgModalYesButton" value="Yes" class="btn btn-info btn-sm hidden" onclick="OkMyModal()" />
+                </div>
+            </div>
+            <input type="hidden" id="eventSender" name="name" value=" " />
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .content {
+        min-height: 600px;
+    }
+
+    .pl {
+        text-align: center;
+    }
+</style>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>

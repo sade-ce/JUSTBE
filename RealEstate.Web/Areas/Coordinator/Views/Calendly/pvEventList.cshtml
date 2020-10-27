@@ -1,0 +1,87 @@
+﻿@model RealEstate.Entities.ViewModels.MstCalenderManageModel
+
+<div id="DataGrid" class="col-left-nil col-right-nil">
+    @if (Model.AppointmentViewModelList.Count() > 0)
+    {
+        <div class="table-responsive" style="overflow-x:visible;">
+            <table class="table table-striped table-condensed table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="vertical-align: middle;">
+                            Description
+                        </th>
+                        <th class="text-center" style="vertical-align: middle;">
+                            Client
+                        </th>
+                        <th class="text-center" style="vertical-align:middle;">
+                            StartDate
+                        </th>
+                        <th class="text-center" style="vertical-align:middle;">
+                            EndDate
+                        </th>
+                        <th class="text-center" style="vertical-align:middle;">
+                            UserRole
+                        </th>
+                        <th class="text-center" style="vertical-align: middle;">
+                            Action
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.AppointmentViewModelList)
+                    {
+                        <tr>
+
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.StartDate)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.EndDate)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.UserRole)
+                            </td>
+                            <td class="text-center">
+                                <div class="col-md-offset-3">
+                                    @*<div style="float:left; padding-right: 8px;">
+                                            <a href="@Url.Action("EditEvent", new { Id = @item.Id,Email=item.Email,ClientID=Model.UserProfile.ClientID,TransactionID=Model.TransactionView.TransactionID })" data-toggle="tooltip" data-placement="bottom" title="Edit">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                        </div>Removed by Neha*@
+                                    <div style="float:left; padding-right: 8px;">
+                                        <a href="@Url.Action("EditEvent", new { Id = @item.Id,Email=item.Email,ClientID=Model.UserProfile.ClientID,TransactionID=Model.TransactionView.TransactionID,AgentID=Model.AgentView.AgentID })" data-toggle="tooltip" data-placement="bottom" title="Edit">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </div>@*Added By Neha*@
+                                    <div style="float:left">
+                                        <form method="post" action="@Url.Action("delete", "Calendly",new { area = "Coordinator" })" data-kw-ajax="true" data-kw-target="#DataGrid">
+                                            @Html.AntiForgeryToken()
+                                            <a href="@Url.Action("delete", new { Id = item.Id,Email=Model.utblMstAppointment.Email,ClientID=Model.UserProfile.ClientID, TransactionID= Model.TransactionView.TransactionID})" class="delete" data-toggle="tooltip" data-placement="bottom" title="Delete ">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <h3>No record found...</h3>
+    }
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>

@@ -1,0 +1,233 @@
+﻿@model RealEstate.Entities.ViewModels.MstCalenderManageModel
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+    }
+}
+
+@*<link href="~/Scripts/dhtmlxScheduler/dhtmlxscheduler_flat.css" rel="stylesheet" />*@
+<link href="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.css" rel="stylesheet" />
+<link href="~/Scripts/dhtmlxScheduler/dhtmlxscheduler-responsive.css" rel="stylesheet" />
+
+
+<section class="content-header">
+    <h1>
+        My Calendar
+        <small>All Schedule</small>
+    </h1>
+</section>
+<div class="content">
+            <div class=".post_image ">
+
+                <div class=".image_img">
+                    <div id="scheduler_here" class="dhx_cal_container" style="width:100%; height:750px;">
+                        <div class="dhx_cal_navline">
+                            <div class="dhx_cal_prev_button">&nbsp;</div>
+                            <div class="dhx_cal_next_button">&nbsp;</div>
+                            <div class="dhx_cal_today_button"></div>
+                            <div class="dhx_cal_date"></div>
+                            <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+                            <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+                            <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
+
+                        </div>
+                        <div class="dhx_cal_header">
+                        </div>
+                        <div class="dhx_cal_data">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+</div>
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+
+<style type="text/css" media="screen">
+    
+
+    div.dhx_menu_head {
+        background: inherit;
+    }
+</style>
+<style type="text/css" media="screen">
+    .scheduler_container {
+        width: 100%;
+        height: 720px;
+        border: 1px solid #aeaeae;
+    }
+
+    div.dhx_menu_head {
+        background: inherit;
+    }
+
+    .widget-tabs li:first-child {
+        padding: 0 0 2px 0;
+        margin: -12px 0 0 0;
+    }
+
+    .widget-tabs li {
+        padding: 0 0 0px 0;
+        margin: 0px 0 0 0;
+    }
+</style>
+
+
+
+
+
+
+
+@section Scripts
+{
+    <script src="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.js"></script>
+<script src="~/Scripts/dhtmlxScheduler/dhtmlxscheduler-responsive.js"></script>
+
+    <script src="~/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_readonly.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="~/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_agenda_view.js"></script>
+    @*<script src="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.js"></script>*@
+    @*<script src="~/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_readonly.js"></script>*@
+    @*<script src="~/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_minical.js"></script>*@
+    @*<script src="~/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_agenda_view.js"></script>*@
+    <script>
+        $(document).ready(function () {
+
+            var events = [];
+            $.ajax({
+                type: 'GET',
+                url: '/Coordinator/MySchedule/GetCalendarInfo',
+                success: function (data) {
+                    $.each(data, function (i, v) {
+
+                        scheduler.parse([
+
+
+                   { start_date: v.StartDate, end_date: v.EndDate, text: v.Description, color: v.color },
+                        ], "json");
+                    })
+
+                },
+                error: function (error) {
+                }
+            })
+            scheduler.config.xml_date = "%Y-%m-%d %H:%i";
+            scheduler.init("scheduler_here", new Date(), "week");
+            scheduler.config.multi_day = true;
+            //scheduler.xy.margin_top = 40;
+
+            scheduler.config.readonly_form = true;
+            //block all modifications
+            scheduler.attachEvent("onBeforeDrag", function () { return false; })
+            scheduler.attachEvent("onClick", function () { return false; })
+            scheduler.config.details_on_dblclick = true;
+            scheduler.config.dblclick_create = false;
+            
+            scheduler.setCurrentView(scheduler._date, scheduler._mode);
+            scheduler.attachEvent("onClick", function (id) {
+                scheduler.showLightbox(id);
+                return false;
+            })
+            scheduler.attachEvent("onSchedulerResize", function () {
+                location.reload();
+            });
+            
+        });
+    </script>
+
+<script>
+scheduler.config.serverLists = {};
+	scheduler.config.details_on_create = true;
+	scheduler.config.details_on_dblclick = true;
+	scheduler.config.prevent_cache = true;
+	scheduler.config.first_hour = 8;
+	scheduler.config.last_hour = 20;
+	scheduler.config.time_step = 30;
+	scheduler.config.limit_time_select = true;
+	scheduler.xy.scroll_width = 0;
+	scheduler.templates.event_class = function(start,end,ev){
+	var temp = "";temp += "event_" + ev.category + "";
+ return temp;
+};
+	initResponsive(scheduler);
+
+
+
+</script>
+    
+}
+
+
+<style>
+    .demos-samples .samples_post .post_image {
+    padding-bottom: 4rem;
+}
+    .demos-samples .samples_post .post_image .image_img {
+    display: inline-block;
+    box-shadow: 0 0.2rem 0.8rem 0 rgba(0,0,0,0.08), 0 0.4rem 1.6rem 0 rgba(0,0,0,0.16);
+    width: 119.2rem;
+    max-width: 100%;
+    height: 600px;
+}
+</style>
+<style>
+    /*.dhx_cal_container.dhx_mini_calendar .dhx_calendar_click {
+        color: red;
+    }*/
+
+    .dhx_cal_event_clear, .dhx_cal_event_line {    
+            color: white;
+    }
+
+    .dhx_month_head.dhx_mini_calendar.dhx_year_event {
+        color: white;
+    }
+
+    .dhx_month_head.dhx_year_event {
+        background-color: white;
+        color: black;
+    }
+
+        .dhx_month_head.dhx_year_event:before {
+            content: "•";
+        }
+
+
+    .dhx_mini_calendar .dhx_calendar_click {
+        background-color: #ffffff;
+    }
+</style>
+
+
+<style>
+    .dhx_scheduler_agenda .dhx_agenda_line {
+        background-color: transparent !important;
+    }
+
+    .dhx_cal_event_clear, .dhx_cal_event_line {
+        line-height: 15px;
+        /*background-color: transparent !important;*/
+    }
+
+    .dhx_cal_event_line_start, .dhx_cal_event_line_end {
+        height: 45px !important;
+        white-space: normal;
+    }
+
+    .dhx_cal_event_line {
+        height: 37px;
+        white-space: normal;
+    }
+</style>
+
+
+<style>
+    tr.dhx_grid_event td{line-height:1.8!important}.dhx_cal_tab{float:right}.dhx_cal_light .dhx_cal_light_wide{top:25%!important}.dhx_btn_set{margin-bottom:20px!important}.dhx_wrap_section .dhx_section_time{height:auto!important;width:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.dhx_cal_light{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.dhx_cal_light_rec.dhx_cal_light_wide{width:738px!important}.dhx_cal_light_rec.dhx_cal_light_wide .dhx_cal_larea{width:730px!important}.dhx_repeat_center,.dhx_repeat_right{width:auto!important}.dhx_repeat_right{float:left!important}@@media screen and (min-width:768px) and (max-width :992px){.dhx_cal_date{font-size:13px!important}}@@media screen and (max-width:767px){.dhx_cal_navline .dhx_cal_tab,.dhx_cal_navline .dhx_cal_today_button,.dhx_cal_navline .dhx_minical_icon{position:relative!important;right:auto!important;left:auto!important}.dhx_cal_tab:hover,.dhx_cal_today_button:hover{text-decoration:none!important}.dhx_cal_navline .dhx_minical_icon{display:inline-block;left:80px!important;top:80px!important}.dhx_cal_navline .dhx_cal_date{display:block!important;left:0!important;width:100%!important;text-align:center!important}.dhx_cal_navline .dhx_cal_prev_button,.dhx_cal_navline .dhx_cal_next_button{z-index:1}.dhx_cal_navline .dhx_cal_prev_button{left:0!important;right:auto}.dhx_cal_navline .dhx_cal_next_button{right:0!important;left:auto}.dhx_cal_navline .dhx_cal_tab,.dhx_cal_today_button{top:70px!important}.dhx_cal_today_button{right:0!important;display:inline-block;float:left}.dhx_cal_today_button,.dhx_cal_tab,.dhx_cal_prev_button,.dhx_cal_next_button,.dhx_cal_tab_standalone{width:60px!important;height:40px!important;-ms-border-radius:4px!important;border-radius:4px!important;margin:4px 2px!important;padding:0!important;line-height:40px!important}.dhx_cal_larea{width:auto!important;margin-left:0!important;height:100%!important}.dhx_wrap_section,.dhx_cal_ltitle,.dhx_cal_larea{position:relative!important;display:block!important;overflow:initial!important}.dhx_wrap_section .dhx_section_time{height:100%!important}.dhx_section_time{display:inline-block;vertical-align:middle;min-height:0;position:relative;width:inherit;height:auto!important;width:100%!important}.dhx_section_time select{position:relative;min-height:1px;float:left;width:25%;margin-bottom:5px!important}.dhx_cal_data{overflow-y:auto!important}.grey_section,.red_section{font-size:14px!important}.dhx_form_repeat{overflow-y:auto!important;width:100%!important}.dhx_repeat_left,.dhx_repeat_center,.dhx_repeat_right{width:100%!important;display:block!important;left:0!important;margin-right:0!important}.dhx_repeat_divider{display:none}.dhx_grid_line div{width:30%!important;margin:0!important;padding:0!important}.dhx_grid_area tr.dhx_grid_event td{width:30%!important;border-left:1px solid #CECECE}.dhx_grid_area tr.dhx_grid_event td.dhx_grid_dummy{border:0}.dhx_grid_area table{width:auto!important}.dhx_grid_v_border{display:none}.dhx_cal_light{width:auto!important;height:auto!important}.dhx_cal_light_wide .dhx_cal_lsection{text-align:left!important}.dhx_cal_light_rec.dhx_cal_light_wide{width:100%!important}.dhx_cal_light_rec.dhx_cal_light_wide .dhx_cal_larea{width:100%!important}.dhx_form_repeat,.dhx_repeat_center{padding-left:0!important}.dhx_cal_ltext{display:block;width:100%;position:relative;padding:0!important;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.dhx_btn_set{position:relative!important;display:inline-block!important}.dhx_scale_bar{font-size:9px!important}.dhx_cal_tab p{display:inline-block}}@@media screen and (orientation :landscape) and (max-width:767px){.dhx_cal_ltext{height:auto!important}.dhx_cal_ltext textarea{height:70px!important}}@@media screen and (max-width :450px){.dhx_cal_date{font-size:14px!important;line-height:3!important;height:40px!important;font-weight:normal!important}.dhx_section_time span{display:none}.grey_section,.red_section{font-size:12px!important}.dhx_cal_ltext{display:block;width:100%;position:relative;padding:0!important;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#scheduler_here div.dhx_cal_navline{display:inline-block!important;margin:0 auto!important}.dhx_cal_navline{text-align:center!important}.dhx_grid_event td{width:auto!important}.dhx_grid_event .dhx_grid_dummy{width:1px!important}.dhx_cal_quick_info{left:0!important;padding-left:0!important;width:auto!important}.dhx_cal_navline .dhx_minical_icon{left:0!important}.dhx_cal_today_button,.dhx_cal_tab,.dhx_cal_prev_button,.dhx_cal_next_button,.dhx_cal_tab_standalone{width:50px!important}.dhx_year_tooltip{left:0!important}}
+</style>

@@ -1,0 +1,47 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Buyer Documents</h4>
+</div>
+@using (Html.BeginForm("BuyerDoc", "Agent", FormMethod.Post))
+{
+    <div class="modal-body">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model=>model.utblMstTrackDeal.Email)
+        @Html.HiddenFor(model => model.utblMstTrackDeal.ClientID)
+        @Html.HiddenFor(model => model.utblMstTrackDeal.TransactionID)
+        <div class="row-no-margin">
+            <div class="form-group">
+                @Html.LabelFor(model => model.utblMstBuyerDocument.Title, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.utblMstBuyerDocument.Title, new { @class = "form-control", id = "Status" })
+                    @Html.ValidationMessageFor(model => model.utblMstBuyerDocument.Title)
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group" style="margin-top: 10px">
+                @Html.LabelFor(model => model.utblMstBuyerDocument.Description, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.utblMstBuyerDocument.Description, new { @class = "form-control", id = "Status" })
+                    @Html.ValidationMessageFor(model => model.utblMstBuyerDocument.Description)
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="CloseMyModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+}
+<script>
+    function CloseMyModal() {
+        $("#myModal").modal('hide');
+    }
+</script>
+
+
+
+
+

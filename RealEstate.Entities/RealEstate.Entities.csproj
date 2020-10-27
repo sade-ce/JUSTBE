@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9ACDBB7-4EEA-4A10-81CD-1F8CC97B34C3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RealEstate.Entities</RootNamespace>
+    <AssemblyName>RealEstate.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DHTMLX, Version=3.4.6379.28343, Culture=neutral, PublicKeyToken=53f24791214eb8ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RealEstate.Web\bin\DHTMLX.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Web Tools\Packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="ExpressiveAnnotations, Version=2.7.2.0, Culture=neutral, PublicKeyToken=d3e372f3c1e83cec, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExpressiveAnnotations.dll.2.7.2\lib\net45\ExpressiveAnnotations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.29.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.29.2\lib\net45\Google.Apis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.29.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.29.2\lib\net45\Google.Apis.Auth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.29.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.29.2\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Calendar.v3, Version=1.29.2.1018, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Calendar.v3.1.29.2.1018\lib\net45\Google.Apis.Calendar.v3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.29.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.29.2\lib\net45\Google.Apis.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.29.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.29.2\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.6.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.6.20\lib\net45\Hangfire.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.6.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.6.20\lib\net45\Hangfire.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Primitives" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\..\..\..\Desktop\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Calculator\MstCalcDirectCost.cs" />
+    <Compile Include="Calculator\MstCalcInputs.cs" />
+    <Compile Include="Calculator\MstCalcOperations.cs" />
+    <Compile Include="Calculator\MstCalcRegion.cs" />
+    <Compile Include="Calculator\MstCalcTimePeriod.cs" />
+    <Compile Include="Calculator\MstMortgageCalculator.cs" />
+    <Compile Include="CustomAttributes\ImageCropperHelper.cs" />
+    <Compile Include="CustomAttributes\PercentageAttribute.cs" />
+    <Compile Include="DataAccess\dalAgentResource.cs" />
+    <Compile Include="DataAccess\dalComments.cs" />
+    <Compile Include="DataAccess\dalMstSellerDocuments.cs" />
+    <Compile Include="DataAccess\dalResources.cs" />
+    <Compile Include="DataAccess\dalQuiz.cs" />
+    <Compile Include="DataAccess\dalVendorContacts.cs" />
+    <Compile Include="DataAccess\dalVendorReviews.cs" />
+    <Compile Include="DataAccess\dalTestimonial.cs" />
+    <Compile Include="Models\Comments.cs" />
+    <Compile Include="Models\ResourceLinks.cs" />
+    <Compile Include="Models\Quiz.cs" />
+    <Compile Include="Models\ResourceTitles.cs" />
+    <Compile Include="Models\ResourceType.cs" />
+    <Compile Include="Models\Testimonial.cs" />
+    <Compile Include="Models\UserGallery.cs" />
+    <Compile Include="Models\VendorContacts.cs" />
+    <Compile Include="Models\VendorsReview.cs" />
+    <Compile Include="ViewModels\AgentResourceView.cs" />
+    <Compile Include="ViewModels\BuildingVendorView.cs" />
+    <Compile Include="DataAccess\dalBuildingAttachments.cs" />
+    <Compile Include="DataAccess\dalBuildings.cs" />
+    <Compile Include="DataAccess\dalClientDealDocuments.cs" />
+    <Compile Include="DataAccess\dalAdminCareer.cs" />
+    <Compile Include="DataAccess\dalAdminViewClientRespond.cs" />
+    <Compile Include="DataAccess\dalAgentDealSharing.cs" />
+    <Compile Include="DataAccess\dalAgentListing.cs" />
+    <Compile Include="DataAccess\dalAgentProfile.cs" />
+    <Compile Include="DataAccess\dalbepetworth.cs" />
+    <Compile Include="DataAccess\dalBlog.cs" />
+    <Compile Include="DataAccess\dalCareer.cs" />
+    <Compile Include="DataAccess\dalCheckUserDeal.cs" />
+    <Compile Include="DataAccess\dalClientLiveDealView.cs" />
+    <Compile Include="DataAccess\dalClientNeighborhood.cs" />
+    <Compile Include="DataAccess\dalClientRespond.cs" />
+    <Compile Include="DataAccess\dalClientToDoList.cs" />
+    <Compile Include="DataAccess\dalDealAdmin.cs" />
+    <Compile Include="DataAccess\dalDealAgent.cs" />
+    <Compile Include="DataAccess\dalDealVendor.cs" />
+    <Compile Include="DataAccess\dalJobDepartment.cs" />
+    <Compile Include="DataAccess\dalKeyInfoLink.cs" />
+    <Compile Include="DataAccess\dalLead.cs" />
+    <Compile Include="DataAccess\dalManageSeller.cs" />
+    <Compile Include="DataAccess\dalMortgagecalculator.cs" />
+    <Compile Include="DataAccess\dalMstAgentPhotoGallery.cs" />
+    <Compile Include="DataAccess\dalMstAppointment.cs" />
+    <Compile Include="DataAccess\dalMstBuyerDocuments.cs" />
+    <Compile Include="DataAccess\dalMstCalenderConfig.cs" />
+    <Compile Include="DataAccess\dalMstClientList.cs" />
+    <Compile Include="DataAccess\dalMstClientManagement.cs" />
+    <Compile Include="DataAccess\dalMstClientMLSHomeListing.cs" />
+    <Compile Include="DataAccess\dalMstClosingConfig.cs" />
+    <Compile Include="DataAccess\dalMstContact.cs" />
+    <Compile Include="DataAccess\dalMstEnquire.cs" />
+    <Compile Include="DataAccess\dalNeighborhood.cs" />
+    <Compile Include="DataAccess\dalRatifiedOffer.cs" />
+    <Compile Include="DataAccess\dalRules.cs" />
+    <Compile Include="DataAccess\dalScheduleMeeting.cs" />
+    <Compile Include="DataAccess\dalStatus.cs" />
+    <Compile Include="DataAccess\dalTaskSchedular.cs" />
+    <Compile Include="DataAccess\dalTeamMember.cs" />
+    <Compile Include="DataAccess\dalTrackActivity.cs" />
+    <Compile Include="DataAccess\dalTrackDeal.cs" />
+    <Compile Include="DataAccess\dalUser.cs" />
+    <Compile Include="DataAccess\dalVendor.cs" />
+    <Compile Include="DataAccess\dalVendorCategory.cs" />
+    <Compile Include="DataAccess\EFDBContext.cs" />
+    <Compile Include="DataAccess\SPErrorViewModel.cs" />
+    <Compile Include="Models\AspNetUser.cs" />
+    <Compile Include="Models\bepetworth.cs" />
+    <Compile Include="Models\BuildingAttachments.cs" />
+    <Compile Include="Models\Buildings.cs" />
+    <Compile Include="Models\ClientDealDocmuent.cs" />
+    <Compile Include="Models\ClientDealDocuments.cs" />
+    <Compile Include="Models\ClientDocument.cs" />
+    <Compile Include="Models\ClientToDoList.cs" />
+    <Compile Include="Models\DealVendor.cs" />
+    <Compile Include="Models\GoogleRefreshToken.cs" />
+    <Compile Include="Models\Infowindow.cs" />
+    <Compile Include="Models\Rules.cs" />
+    <Compile Include="Models\TeamMembers.cs" />
+    <Compile Include="Models\UserAuthenticateView.cs" />
+    <Compile Include="Models\UserProfile.cs" />
+    <Compile Include="Models\utblBlog.cs" />
+    <Compile Include="Models\utblGenCodeSeed.cs" />
+    <Compile Include="Models\utblLead.cs" />
+    <Compile Include="Models\utblMstAgentContacts.cs" />
+    <Compile Include="Models\utblMstAgentDealSharing.cs" />
+    <Compile Include="Models\utblMstAgentListing.cs" />
+    <Compile Include="Models\utblMstAppointment.cs" />
+    <Compile Include="Models\utblMstArticleEnquire.cs" />
+    <Compile Include="Models\utblMstBuyerDocument.cs" />
+    <Compile Include="Models\utblMstCalenderConfiguration.cs" />
+    <Compile Include="Models\utblMstCareerDepartment.cs" />
+    <Compile Include="Models\utblMstClient.cs" />
+    <Compile Include="Models\utblMstClientActivityLog.cs" />
+    <Compile Include="Models\utblMstClientGallerie.cs" />
+    <Compile Include="Models\utblMstClientHomeGallerie.cs" />
+    <Compile Include="Models\utblMstClientHomeListing.cs" />
+    <Compile Include="Models\utblMstClientTrackDealDoc.cs" />
+    <Compile Include="Models\utblMstClosingConfigutation.cs" />
+    <Compile Include="Models\utblMstClosingDate.cs" />
+    <Compile Include="Models\utblMstContact.cs" />
+    <Compile Include="Models\utblMstEnquire.cs" />
+    <Compile Include="Models\utblMstEventCalMaster.cs" />
+    <Compile Include="Models\utblMstGmailToken.cs" />
+    <Compile Include="Models\utblMstHelpRequest.cs" />
+    <Compile Include="Models\utblMstJobPosition.cs" />
+    <Compile Include="Models\utblMstKeyInfoLink.cs" />
+    <Compile Include="Models\utblMstNeighborhoodCity.cs" />
+    <Compile Include="Models\utblMstNeighborhoodState.cs" />
+    <Compile Include="Models\utblMstPotentialBuyer.cs" />
+    <Compile Include="Models\utblMstSellerClosingConfigutation.cs" />
+    <Compile Include="Models\utblMstSellerCounterOffer.cs" />
+    <Compile Include="Models\utblMstSellerDocument.cs" />
+    <Compile Include="Models\utblMstSellerStatus.cs" />
+    <Compile Include="Models\utblMstSellerTrackDeal.cs" />
+    <Compile Include="Models\utblMstSellerTrackDealDoc.cs" />
+    <Compile Include="Models\utblMstStatus.cs" />
+    <Compile Include="Models\utblMstTrackDeal.cs" />
+    <Compile Include="Models\utblMstTrackDealDoc.cs" />
+    <Compile Include="Models\utblMstTrackDealMaster.cs" />
+    <Compile Include="Models\utblNeighborhood.cs" />
+    <Compile Include="Models\utblUserDetail.cs" />
+    <Compile Include="Models\Vendor.cs" />
+    <Compile Include="Models\VendorCategory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\RealEstateUtility.cs" />
+    <Compile Include="ViewModels\AdminCareerManageModel.cs" />
+    <Compile Include="ViewModels\AdminCareerView.cs" />
+    <Compile Include="ViewModels\bepetworthViewModel.cs" />
+    <Compile Include="ViewModels\BlogView.cs" />
+    <Compile Include="ViewModels\BlogViewModel.cs" />
+    <Compile Include="ViewModels\BuildingAttachmentsViewModel.cs" />
+    <Compile Include="ViewModels\BuildingView.cs" />
+    <Compile Include="ViewModels\BuildingViewModel.cs" />
+    <Compile Include="ViewModels\CommentsView.cs" />
+    <Compile Include="ViewModels\CommentsViewModel.cs" />
+    <Compile Include="ViewModels\MstSellerDocumentManageModel.cs" />
+    <Compile Include="ViewModels\MstContingenciesViewVersion2.cs" />
+    <Compile Include="ViewModels\MstSellerContingenciesViewVersion2.cs" />
+    <Compile Include="ViewModels\ResourceLinksView.cs" />
+    <Compile Include="ViewModels\ResourceLinksViewModel.cs" />
+    <Compile Include="ViewModels\QuizView.cs" />
+    <Compile Include="ViewModels\QuizViewModel.cs" />
+    <Compile Include="ViewModels\ClientDealDocumentsViewModel.cs" />
+    <Compile Include="ViewModels\ClientDealDocumentsView.cs" />
+    <Compile Include="ViewModels\ClientToDoListView.cs" />
+    <Compile Include="ViewModels\ClientToDoListViewModel.cs" />
+    <Compile Include="ViewModels\DealAdminAssignAgentManageModel.cs" />
+    <Compile Include="ViewModels\DealVendorView.cs" />
+    <Compile Include="ViewModels\DealVendorViewModel.cs" />
+    <Compile Include="ViewModels\MstActivityLogViewModel.cs" />
+    <Compile Include="ViewModels\MstAffordabilityCalculator.cs" />
+    <Compile Include="ViewModels\MstAgentDealShareManageModel.cs" />
+    <Compile Include="ViewModels\MstAgentDealShareViewModel.cs" />
+    <Compile Include="ViewModels\MstAgentListings.cs" />
+    <Compile Include="ViewModels\MstAgentPhotoGalleryManageModel.cs" />
+    <Compile Include="ViewModels\MstAgentsClientView.cs" />
+    <Compile Include="ViewModels\MstAgentViewModel.cs" />
+    <Compile Include="ViewModels\MstBuyerClosingCosts.cs" />
+    <Compile Include="ViewModels\MstCareerManageModel.cs" />
+    <Compile Include="ViewModels\MstClientHomeGalleryManageModel.cs" />
+    <Compile Include="ViewModels\MstClientNeighborhoodView.cs" />
+    <Compile Include="ViewModels\MstClientShareDealManageModel.cs" />
+    <Compile Include="ViewModels\MstCompassAutocompleteView.cs" />
+    <Compile Include="ViewModels\MstContingenciesView.cs" />
+    <Compile Include="ViewModels\MstCreateClientAndAssignAgentModel.cs" />
+    <Compile Include="ViewModels\MstDealAgentManageModel.cs" />
+    <Compile Include="ViewModels\MstJobDepartmentModel.cs" />
+    <Compile Include="ViewModels\MstKeyInfoLinkManageModel.cs" />
+    <Compile Include="ViewModels\MstPhotoGalleryView.cs" />
+    <Compile Include="ViewModels\MstRatifiedEditViewModel.cs" />
+    <Compile Include="ViewModels\MstScheduleMeeting.cs" />
+    <Compile Include="ViewModels\MstSellerDealManageModel.cs" />
+    <Compile Include="ViewModels\MstSellerDealViewModel.cs" />
+    <Compile Include="ViewModels\MstSellerOffer.cs" />
+    <Compile Include="ViewModels\MstTaskSchedular.cs" />
+    <Compile Include="ViewModels\MstTruliaAutocomplete.cs" />
+    <Compile Include="ViewModels\MstUpdateEmailPreferences.cs" />
+    <Compile Include="ViewModels\MstUserAgentView.cs" />
+    <Compile Include="ViewModels\MstArticleSuggestionManageModel.cs" />
+    <Compile Include="ViewModels\MstBuyerDocumentManageModel.cs" />
+    <Compile Include="ViewModels\MstCalenderConfiguration.cs" />
+    <Compile Include="ViewModels\MstCalenderManageModel.cs" />
+    <Compile Include="ViewModels\MstCheckLoggedClientDeal.cs" />
+    <Compile Include="ViewModels\MstClientCalenderView.cs" />
+    <Compile Include="ViewModels\MstClientDealCreateManageModel.cs" />
+    <Compile Include="ViewModels\MstClientDealRespondManageModel.cs" />
+    <Compile Include="ViewModels\MstClientDealRespondViewModel.cs" />
+    <Compile Include="ViewModels\MstClientListManageModel.cs" />
+    <Compile Include="ViewModels\MstClientListView.cs" />
+    <Compile Include="ViewModels\MstClientLiveDealManageModel.cs" />
+    <Compile Include="ViewModels\MstClientLiveDealView.cs" />
+    <Compile Include="ViewModels\MstClientLiveDealViewModel.cs" />
+    <Compile Include="ViewModels\MstClientMLSHomeListing.cs" />
+    <Compile Include="ViewModels\MstClientRespondAdminManageModel.cs" />
+    <Compile Include="ViewModels\MstClientRespondView.cs" />
+    <Compile Include="ViewModels\MstClientViewModel.cs" />
+    <Compile Include="ViewModels\MstClosingConfigurationModel.cs" />
+    <Compile Include="ViewModels\MstClosingConfigViewModel.cs" />
+    <Compile Include="ViewModels\MstContactViewModel.cs" />
+    <Compile Include="ViewModels\MstDealViewModel.cs" />
+    <Compile Include="ViewModels\MstEnquireViewModel.cs" />
+    <Compile Include="ViewModels\MstFullLeadViewModel.cs" />
+    <Compile Include="ViewModels\MstHomeEstimationViewModel.cs" />
+    <Compile Include="ViewModels\MstNeighborhoodViewModel.cs" />
+    <Compile Include="ViewModels\MstPartialLeadViewModel.cs" />
+    <Compile Include="ViewModels\MstStatusViewModel.cs" />
+    <Compile Include="ViewModels\MultipleDealClientManageModel.cs" />
+    <Compile Include="ViewModels\PagingInfo.cs" />
+    <Compile Include="ViewModels\ResourceTitlesView.cs" />
+    <Compile Include="ViewModels\ResourceTypeView.cs" />
+    <Compile Include="ViewModels\ResourceTypeViewModel.cs" />
+    <Compile Include="ViewModels\RssFeed.cs" />
+    <Compile Include="ViewModels\RulesViewModel.cs" />
+    <Compile Include="ViewModels\SearchAutoCompleteViewModel.cs" />
+    <Compile Include="ViewModels\TeamMemberView.cs" />
+    <Compile Include="ViewModels\TeamMemberViewModel.cs" />
+    <Compile Include="ViewModels\TestimonialView.cs" />
+    <Compile Include="ViewModels\TestimonialViewModel.cs" />
+    <Compile Include="ViewModels\UserGalleryModel.cs" />
+    <Compile Include="ViewModels\UserGalleryView.cs" />
+    <Compile Include="ViewModels\UserProfileEditModel.cs" />
+    <Compile Include="ViewModels\UserProfileViewModel.cs" />
+    <Compile Include="ViewModels\VendorCategoryView.cs" />
+    <Compile Include="ViewModels\VendorCategoryViewModel.cs" />
+    <Compile Include="ViewModels\VendorContactView.cs" />
+    <Compile Include="ViewModels\VendorsReviewViewModel.cs" />
+    <Compile Include="ViewModels\VendorView.cs" />
+    <Compile Include="ViewModels\VendorViewModel.cs" />
+    <Compile Include="ViewModels\ZillowModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RealEstate.Services\RealEstate.Services.csproj">
+      <Project>{e690fb44-f44a-4f76-9b22-aef5d7019bb0}</Project>
+      <Name>RealEstate.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

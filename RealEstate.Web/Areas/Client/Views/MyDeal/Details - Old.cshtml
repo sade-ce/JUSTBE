@@ -1,0 +1,238 @@
+﻿@model RealEstate.Entities.ViewModels.VendorViewModel
+@{
+    //ViewBag.Title = "Detail";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+
+            <div class="content-title">
+                <div class="content-title-inner">
+                    <div class="container">
+                        <h1>Vetted Vendors (@ViewBag.Title) </h1>
+
+                    </div><!-- /.container -->
+                </div><!-- /.content-title-inner -->
+            </div><!-- /.content-title -->
+        @if (ViewBag.DisplayType == "Double")
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-lg-12">
+                        <div class="content">
+                            <div class="posts">
+                            @foreach (var item in Model.VendorList)
+                            {
+                                <div class="col-sm-6">
+                                    <div class="post">
+                                        @{ var image = "";
+
+                                            if (item.VendorImage == null)
+                                            { image = "noImage.png"; }
+                                            else { image = item.VendorImage; }
+
+                                        }
+
+
+                                        <div class="post-image">
+@if (item.WebsiteLink == "" || item.WebsiteLink == null)
+{
+                                            <a href="#!"   class="post-image-link" style="background-image: url('../../../../img/vendors/@image');cursor:initial"></a>
+}
+else
+{
+    <a href="@item.WebsiteLink" target="_blank" class="post-image-link" style="background-image: url('../../../../img/vendors/@image')"></a>
+}
+                                            <!-- /.post-author -->
+                                        </div><!-- /.post-image -->
+                                        <div class="post-title">
+                                        @{var Name = "";}
+
+                                            @if(item.SubTitle != ""){ Name = @item.Title+"- "+ @item.SubTitle; } else {@item.Title }
+                                        @if (item.Location != "") { Name = Name + " ("+item.Location+")"; }
+                                            <h2><a href="#!" style="cursor:initial">@Name</a></h2>
+                                        </div><!-- /.post-title -->
+                                        <div class="post-meta">
+                                            <!-- /.post-meta-item -->
+                                            <div class="post-meta-item">
+                                                <a href="tel:@item.Phone" style="color: #0bb7a5">  <i class="fa fa-phone"></i> @item.Phone</a>
+</div><!-- /.post-meta-item -->
+                                            <div class="post-meta-item">
+                                                <i class="fa fa-mail-forward"></i> <a href="#!" style="cursor:initial">@item.Email</a>
+                                            </div><!-- /.post-meta-item -->
+                                        </div><!-- /.post-meta -->
+                                        <!-- /.post-content -->
+                                        <!-- /.post-read-more -->
+                                        @if (item.About != "")
+                                        {
+                                            <div class="post-content">
+                                                <p>
+                                                    @item.About
+                                                </p>
+                                            </div>
+                                        }
+                                    </div>
+
+                                </div>
+                            }
+                                <!-- /.post-->
+                                <!-- /.post-->
+
+                            </div><!-- /.posts-->
+                            <!-- /.pagination-wrapper -->
+                        </div><!-- /.content -->
+                    </div><!-- /.col-* -->
+                    <!-- /.col-* -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        }
+@if (ViewBag.DisplayType == "Single")
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-12">
+                <div class="content">
+                    <div class="posts">
+
+@foreach (var item in Model.VendorList)
+{
+                        <div class="post">
+                           
+                            <div class="post-image" style="height:380px">
+                                @if (item.WebsiteLink == "" || item.WebsiteLink==null) {
+                                <a href="#!" class="post-image-link" style="background-image: url('../../../../img/vendors/@item.VendorImage');cursor:initial"></a>
+                                }
+                                else
+                                {
+                                    <a href="@item.WebsiteLink" target="_blank" class="post-image-link" style="background-image: url('../../../../img/vendors/@item.VendorImage')"></a>
+                                }
+                                <!-- /.post-author -->
+                            </div><!-- /.post-image -->
+                            <div class="post-title">
+                                @{var Name = "";}
+                                @if (item.SubTitle != "") { Name = @item.Title + ", " + @item.SubTitle; }
+                                else
+                                {@item.Title }
+                                @if (item.Location != "") { Name = Name + " (" + item.Location + ")"; }
+                                <h2><a href="#!"style="cursor:initial">@Name</a></h2>
+                            </div><!-- /.post-title -->
+                            <div class="post-meta">
+                                <!-- /.post-meta-item -->
+                                <div class="post-meta-item">
+                                    <a href="tel:@item.Phone" style="color: #0bb7a5"><i class="fa fa-phone"></i>@item.Phone</a>
+</div><!-- /.post-meta-item -->
+                                <div class="post-meta-item">
+                                    <i class="fa fa-mail-forward"></i> <a href="#!"  style="cursor:initial">@item.Email</a>
+                                </div><!-- /.post-meta-item -->
+                            </div><!-- /.post-meta -->
+                            @if (item.About != "")
+                            {
+                            <div class="post-content">
+                                <p>
+           @item.About
+                                </p>
+                            </div>
+                            }
+                        </div>
+
+}
+                    </div><!-- /.posts-->
+                    <!-- /.pagination-wrapper -->
+                </div><!-- /.content -->
+            </div><!-- /.col-* -->
+            <!-- /.col-* -->
+        </div><!-- /.row -->
+    </div>
+}
+            @if (ViewBag.DisplayType == "Bio")
+            {
+                <div class="content">
+                    <div class="container">
+                        <!-- /.filter -->
+
+                        <div class="row">
+
+                            <div class="col-md-12 col-lg-12">
+                               @foreach (var item in Model.VendorList)
+                               {
+                                <div class="row">
+                                    <div class="listing-detail col-md-12 col-lg-12">
+                                        <!-- /.listing-user -->
+                                        <div class="listing-user">
+                                            <div class="listing-user-image">
+                                                @{ var image = "";
+
+                                                    if (item.VendorImage == null)
+                                                    { image = "noImage.png"; }
+                                                    else { image = item.VendorImage; }
+
+                                                }
+                                            @if (item.WebsiteLink == "" || item.WebsiteLink == null)
+                                            {
+                                                <a href="#!" style="background-image: url('../../../../img/vendors/@image');;cursor:initial"></a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@item.WebsiteLink" target="_blank" style="background-image: url('../../../../img/vendors/@image')"></a>
+                                            }
+                                            </div><!-- /.listing-user-image -->
+
+                                            <div class="listing-user-title">
+                                                <h2>@item.Title</h2>
+                                                <h3>@item.SubTitle</h3>
+                                                @if (item.Location != "")
+                                                { <h3>@item.Location</h3> }
+                                            </div><!-- /.listing-user-title -->
+                                            <!-- /.listing-user-social -->
+                                        </div>
+                                        <!-- /.row -->
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <div class="overview">
+                                                    <h2>Information</h2>
+
+                                                    <ul>
+                                                        <li><strong>Name</strong><span>@item.Title</span></li>
+                                                        <li><strong>Phone</strong><span><a href="tel:@item.Phone" style="color: #0bb7a5">@item.Phone</a></span></li>
+                                                        <li><strong>E-mail</strong><span>@item.Email</span></li>
+                                                    </ul>
+                                                </div><!-- /.overview -->
+                                            </div><!-- col-* -->
+
+                                            <div class="col-lg-7">
+@if (item.About != "")
+{
+                                                <h2>About @item.Title</h2>
+
+                                                <p>
+                                                    @item.About
+                                                </p>
+}
+                                            </div><!-- /.col-* -->
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                               }
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+                        <!-- /.row -->
+                    </div><!-- /.container -->
+                </div>
+            }
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div>
+

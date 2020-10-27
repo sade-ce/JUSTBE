@@ -1,0 +1,209 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientLiveDealManageModel
+<div id="DataGrid" class="col-left-nil col-right-nil">
+    @if (Model.MstClientLiveDealList.Count() > 0)
+    {
+        <div class="col-md-9">
+            <table class="manage-table responsive-table">
+                <tr>
+                    <th><i class="fa fa-file-text"></i> Property</th>
+                    <th class="expire-date"><i class="fa fa-file"></i> File</th>
+                    <th class="expire-date"><i class="fa fa-calendar"></i>Date</th>
+                    <th><i class="fa fa-gear"></i> Action</th>
+                    <th></th>
+                </tr>             
+
+                @foreach (var item in Model.MstClientLiveDealList)
+                {
+
+                    
+                    <tr>
+                        <td class="title-container">
+                            <div class="title">
+                                <h4><a href="#">T-ID:(@item.TrackingID)</a></h4>
+                                <span>
+                                    Status:<br />
+                                    @item.Status
+                                </span>
+                                <span class="table-property-price">Completion(@item.Percentage %)</span>
+                            </div>
+
+                            <div class="title">
+                                <h4><a href="#">Description</a></h4>
+
+                                <span>@item.Note </span>
+                            </div>
+                        </td>
+
+                        @if (item.TrackDocFile != "NA")
+                        {
+                            <td>
+                                <div class="title">
+                                    <h4><a href="@Url.Action("ViewDocuments", new { TrackingID = item.TrackingID })" data-toggle="tooltip" data-placement="bottom" title="View">View</a></h4>
+                                </div>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <div class="title">
+                                    <h4>N/A</h4>
+                                </div>
+                            </td>
+                        }
+                        <td class="expire-date">@item.UpdatedOn.ToString("dd MMM yyyy")</td>
+
+
+                        @if (item.IsResReq == "Yes")
+                        {
+
+                            <td class="action">
+                                <a href="@Url.Action("Respond", new { TrackingID = item.TrackingID })" data-toggle="tooltip" data-placement="bottom" title="Response Required"><i class="fa fa-eye-slash"></i> Respond</a>
+                                
+                            </td>
+
+                        }
+
+                        else if (item.IsResReq == "Responded")
+                        {
+                            <td class="action">
+                                <a href="@Url.Action("Respond", new { TrackingID = item.TrackingID })" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i> Edit</a>
+
+                       </td>
+
+                        }
+                        else
+                        {
+                            <td class="text-center">
+                                N/A
+                            </td>
+                        }                     
+                    </tr>                    
+                }
+                
+            </table>
+        </div>
+
+
+
+
+        
+    }
+    else
+    {
+        <h3>No record found...</h3>
+    }
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+
+
+@*<section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Recent Transaction</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Tracking ID</th>
+                                <th>Status</th>
+
+                                <th>Completion</th>
+                                <th>Note</th>
+                                <th style="width: 40px">%</th>
+                                <th style="width: 40px">Date</th>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td>PA275678</td>
+                                <td>Update software</td>
+                                <td>
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                    </div>
+                                </td>
+                                <td>ABC</td>
+                                <td><span class="badge bg-red">55%</span></td>
+
+                                <td>10/11/2017</td>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td>PA275678</td>
+                                <td>Update software</td>
+                                <td>
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 50%"></div>
+                                    </div>
+                                </td>
+                                <td>ABC</td>
+                                <td><span class="badge bg-red">50%</span></td>
+                                <td>10/11/2017</td>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td>PA275678</td>
+                                <td>Update software</td>
+                                <td>
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 40%"></div>
+                                    </div>
+                                </td>
+                                <td>ABC</td>
+                                <td><span class="badge bg-red">40%</span></td>
+                                <td>10/11/2017</td>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td>PA275678</td>
+                                <td>Update software</td>
+                                <td>
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 30%"></div>
+                                    </div>
+                                </td>
+                                <td>ABC</td>
+                                <td><span class="badge bg-red">30%</span></td>
+                                <td>10/11/2017</td>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td>PA275678</td>
+                                <td>Update software</td>
+                                <td>
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 20%"></div>
+                                    </div>
+                                </td>
+                                <td>ABC</td>
+                                <td><span class="badge bg-red">10%</span></td>
+                                <td>10/11/2017</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer clearfix">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li><a href="#">&laquo;</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">&raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>*@

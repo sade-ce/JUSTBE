@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="washington dc homes for sale, washington dc real estate, homes for sale in washington dc, real estate in washington dc, jay bauer compass real estate, maryland homes for sale, marryland real estate, virginia homes for sale, virginia real estate,Realtor,Realtors,finding a Realtor,how to find a Realtor,find real estate agents,how to find a real estate agent,best Realtor near dc,top realtor for buying a new home,top real estate agents in dc,selling a home,sell a home fast,fastest way to sell a home in dc,home selling tips,cost of selling your home,marketing your home,ways to sell your home,house staging tips,how to stage your home,foreclosure,forecloures,short sales,foreclosure or short sale,short selling,short sale process,cons of a short sale,short selling your home,for sale by owner,fsbo,why to use a Realtor,property for sale by owner,for sale by owner listings,top tips to get the best offer">
+
+    <title>Just BE | Real Estate</title>
+
+    <!-- Google Web Fonts
+    ================================================== -->
+   
+    <link rel="icon" type="image/png" href="~/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="~/favicon-16x16.png" sizes="16x16" />
+
+     <link href="~/Content/customcss/StickyFooter.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
+
+
+    <!-- Basic Page Needs
+    ================================================== -->
+
+    @RenderSection("metatags", false)
+
+
+    <title>Welcome To ꓭ.</title>
+
+
+    <!--meta info-->
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Vendor CSS
+    ============================================ -->
+    @Styles.Render("~/201Murray/JBGHomeCss")
+    @Styles.Render("~/201Murray/JBGCommonCss")
+
+    <style>
+        #header {
+            padding: 0px;
+        }
+
+        .navbar-toggle {
+            margin-top: -50px;
+        }
+    </style>
+
+
+    @RenderSection("Style", false)
+
+</head>
+
+
+<body id="ip-container">
+
+    <!-- initial header -->
+    <!--cookie-->
+    <!-- <div class="cookie">
+            <div class="container">
+              <div class="clearfix">
+                <span>Please note this website requires cookies in order to function correctly, they do not store any specific information about you personally.</span>
+                <div class="f-right"><a href="#" class="btn">Accept Cookies</a><a href="#" class="btn">Read More</a></div>
+              </div>
+            </div>
+          </div>-->
+    <!-- - - - - - - - - - - - - - Wrapper - - - - - - - - - - - - - - - - -->
+
+    <div id="wrapper" class="wrapper-container">
+        <div id="navbar-menu" class="navbar-menu">
+
+            <button type="button" id="navbar-close" class="nav-bttn close-bttn">Close</button>
+
+            <!-- Menu -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="@Url.Action("Brand","Home")">HOME</a></li>
+                    <li><a href="@Url.Action("BE","About")">ABOUT</a></li>
+                    <li class="sub-menu">
+                        <a href="#">LISTINGS</a>
+                        <ul>
+                            @*<li><a href="http://dcmetrovalues.com">What's my home worth?</a></li>*@
+                            <li><a href="@Url.Action("JayBauerListing","Home")">JAY BAUER'S LISTINGS</a></li>
+                            <li><a href="@Url.Action("DanaCloudListings","Home")">DANA CLOUD'S LISTINGS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="@Url.Action("Community","Neighborhood")">NEIGHBORHOOD</a></li>
+                    <li><a href="@Url.Action("List","Blogs")">BLOG</a></li>
+                    <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                    <li class="sub-menu">
+                        <a href="#">My Account</a>
+                        <ul>
+
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+
+                                if (User.IsInRole("Admin"))
+                                {
+                                    <li><a href="@Url.Action("Index","ControlPanel",new {area = "Admin" })">DASHBOARD</a></li>
+
+                                }
+                                if (User.IsInRole("Agent"))
+                                {
+                                    <li><a href="@Url.Action("List","DealAgent",new {area = "Coordinator" })">DASHBOARD</a></li>
+
+                                }
+                                if (User.IsInRole("Client"))
+                                {
+                                    <li><a href="@Url.Action("List","MyDeal",new {area = "Client" })">DASHBOARD</a></li>
+
+
+                                }
+                                using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <li><a href="javascript:document.getElementById('logoutForm').submit()">LOGOUT</a></li>
+                                }
+
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Register","Account")">SIGNUP</a></li>
+                                <li><a href="@Url.Action("Login","Account")">LOGIN</a></li>
+                            }
+
+
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+        <header id="header" class="sticky-header">
+            <div class="header-blue">
+                <nav class="navbar navbar-default navigation-clean-search type-hr">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="@Url.Action("Brand","Home")">
+                                <img src="~/images/JustBB.png" class="img-responsive" />
+                            </a>
+                            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navcol-1">
+                            <ul class="nav navbar-nav">
+                                <li role="presentation"><a href="@Url.Action("BE","About")">ABOUT</a></li>
+                                <li role="presentation"><a href="@Url.Action("Community", "Neighborhood")">NEIGHBORHOOD</a></li>
+                                <li role="presentation"><a href="@Url.Action("List","Blogs")">BLOGS</a></li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">LISTINGS <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        @*<li role="presentation"><a href="http://dcmetrovalues.com" target="_blank">What's my home worth?</a></li>*@
+                                        <li role="presentation"><a href="@Url.Action("JayBauerListing","Home")">JAY BAUER'S LISTINGS</a></li>
+                                        <li role="presentation"><a href="@Url.Action("DanaCloudListings","Home")">DANA CLOUD'S LISTINGS</a></li>
+                                    </ul>
+                                </li>
+
+
+                                <li role="presentation"><a href="@Url.Action("Contact","Home")">CONTACT</a></li>
+                            </ul>
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+                                <p class="navbar-text navbar-right">
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <a class="navbar-link login" href="@Url.Action("Index","ControlPanel",new {area = "Admin" })">DASHBOARD</a>
+
+                                    }
+                                    @if (User.IsInRole("Agent"))
+                                    {
+                                        <a class="navbar-link login" href="@Url.Action("List","DealAgent",new {area = "Coordinator" })">DASHBOARD</a>
+
+                                    }
+                                    @if (User.IsInRole("Client"))
+                                    {
+                                        <a class="navbar-link login" href="@Url.Action("List","MyDeal",new {area = "Client" })">DASHBOARD</a>
+
+                                    }
+
+                                    <a class="btn btn-default action-button" role="button" href="javascript:document.getElementById('logoutForm').submit()">LOGOUT</a>
+
+                                </p>
+
+                            }
+                            else
+                            {
+                                <p class="navbar-text navbar-right">
+                                    <a class="navbar-link login" href="@Url.Action("Login","Account")">LOG IN</a>
+                                    <a class="btn btn-default action-button" role="button" href="@Url.Action("Register","Account")">SIGN UP</a>
+                                </p>
+                            }
+
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+        </header>
+        <!-- facebook link -->
+        <a href="https://www.facebook.com/JayBauerGroup/" target="_blank" class="fb-link"><i class="icon-facebook"></i></a>
+
+
+
+
+        @RenderBody()
+
+        <!-- - - - - - - - - - - - - - End of Slider - - - - - - - - - - - - - - - - -->
+        <!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
+
+        <div class="animsition">
+            <div class="wrapper boxed">
+
+                <footer id="footers" class="footers section">
+                    <div class="footers-flex">
+                        <div class="flex-item">
+                            <a class="brand pull-left" target="_blank" href="https://www.compass.com/agents/dc/jay-bauer/">
+                                <img src="~/img/jaybauerCompass.png" />
+
+                            </a>
+                        </div>
+
+                        <div class="flex-item">
+                            <div class="inline-block">© Just BE | Real Estate @System.DateTime.Now.Year <br>&nbsp;&nbsp; &nbsp; All Rights Resevered <br></div>
+                        </div>
+                        <div class="flex-item">
+                            <ul>
+                                <li><a href="@Url.Action("Terms","Legal")">Terms of use</a></li>
+                                <li><a href="@Url.Action("PrivacyPolicy","Legal")">Privacy Policy</a></li>
+                                <li><a href="@Url.Action("Departments","Careers")">Careers</a></li>
+                            </ul>
+                        </div>
+
+
+                        <div class="flex-item">
+                            <ul class="social-icons footerscomp">
+                                <li><a href="https://www.facebook.com/JayBauerGroup/" target="_blank"><i class="icon-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com/justb.dc/" target="_blank"><i class="icon-instagram-5"></i></a></li>
+                                <li><a href="https://twitter.com/jaybauergroup?lang=en" target="_blank"><i class="icon-twitter"></i></a></li>
+                                <li><a href="http://www.yelp.com/biz/jay-bauer-realtor-at-compass-washington" target="_blank"><i class="icon-yelp"></i></a></li>
+                                <li><a href="https://www.youtube.com/user/JayBauerRealtor/videos" target="_blank"><i class="icon-youtube-play"></i></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+        <footer id="footer">
+
+            <p class="copyright"> 660 Pennsylvania Ave. SE Suite 300, Washington, DC 20003  &nbsp; | &nbsp;(301) 785-1100  </p>
+
+
+
+        </footer>
+
+        <!-- - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
+
+    </div>
+
+    <!-- - - - - - - - - - - - end Wrapper - - - - - - - - - - - - - - -->
+    <!-- JS Libs & Plugins
+    ============================================ -->
+    <script type="text/javascript">(function (t, e) { var r = function (t) { try { var r = e.head || e.getElementsByTagName("head")[0]; a = e.createElement("script"); a.setAttribute("type", "text/javascript"); a.setAttribute("src", t); r.appendChild(a); } catch (t) { } }; t.CollectId = "5b50a82db9da48929e605a8b"; r("https://collectcdn.com/launcher.js"); })(window, document);</script>
+
+
+    @Scripts.Render("~/bundles/JBGHomeJs")
+
+
+
+    <!-- JS theme files
+    ============================================ -->
+    @Scripts.Render("~/bundles/JBGCommonJs")
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>

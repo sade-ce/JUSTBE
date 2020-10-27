@@ -1,0 +1,371 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | Closing Cost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="titlebar" class="submit-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2><i class="fa fa-calculator"></i> Closing Cost calculator</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <!-- Submit Page -->
+        <div class="col-md-12">
+            <div class="submit-page">
+                <div class="notification notice large margin-bottom-55">
+                    <h4>Net Proceeds Calculator </h4>
+                    <p>
+                        A complimentary tool designed for real estate
+                        agents and sellers.
+                    </p>
+                </div>
+                <div class="submit-section">
+                    
+
+                    <div class="row with-forms">
+                        <div class="col-md-4">
+                            <h5>Property Jurisdiction</h5>
+                            
+                        </div>
+                        <div class="col-md-8">
+                            <select class="chosen-select-no-single">
+                                <option label="blank"></option>
+                                <option>District of Columbia</option>
+                                <option>Maryland</option>
+                                <option>Virginia</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Property County</h5>
+                            
+                        </div>
+                        <div class="col-md-8">
+                            <select class="chosen-select-no-single">
+                                <option label="blank"></option>
+                                <option>Allegany</option>
+                                <option>Anne Arundel</option>
+                                <option>Baltimore</option>
+                                <option>Baltimore City</option>
+                                <option>Calvert</option>
+                                <option>Caroline</option>
+                                <option>Carroll</option>
+                                <option>Cecil</option>
+                                <option>Charles</option>
+                                <option>Dorchester</option>
+                                <option>Frederick</option>
+                                <option>Garrett</option>
+                                <option>Harford</option>
+                                <option>Howard</option>
+                                <option>Kent</option>
+                                <option>Montgomery</option>
+                                <option>Prince George's</option>
+                                <option>Queen Anne's</option>
+                                <option>Somerset</option>
+                                <option>St. Mary's</option>
+                                <option>Talbot</option>
+                                <option>Washington</option>
+                                <option>Wicomico</option>
+                                <option>Worcester</option>
+
+                                <option>Accomack</option>
+                                <option>Albemarle</option>
+                                <option>Alleghany</option>
+                                <option>Amelia</option>
+                                <option>Amherst</option>
+                                <option>Appomattox</option>
+                                <option>Arlington</option>
+                                <option>Augusta</option>
+                                <option>Bath</option>
+                                <option>Bedford</option>
+                                <option>Bland</option>
+                                <option>Botetourt</option>
+                                <option>Brunswick</option>
+                                <option>Buchanan</option>
+                                <option>Buckingham</option>
+                                <option>Campbell</option>
+                                <option>Caroline</option>
+                                <option>Carroll</option>
+                                <option>Charles City</option>
+                                <option>Charlotte</option>
+                                <option>Chesterfield</option>
+                                <option>City of Alexandria</option>
+                                <option>City of Falls Church</option>
+                                <option>Clarke</option>
+                                <option>Craig</option>
+                                <option>Culpeper</option>
+                                <option>Cumberland</option>
+                                <option>Dickenson</option>
+                                <option>Dinwiddie</option>
+                                <option>Essex</option>
+                                <option>Fairfax</option>
+                                <option>Fauquier</option>
+                                <option>Floyd</option>
+                                <option>Fluvanna</option>
+                                <option>Franklin</option>
+                                <option>Frederick</option>
+                                <option>Giles</option>
+                                <option>Gloucester</option>
+                                <option>Goochland</option>
+                                <option>Grayson</option>
+                                <option>Greene</option>
+                                <option>Greensville</option>
+                                <option>Halifax</option>
+                                <option>Hanover</option>
+                                <option>Henrico</option>
+                                <option>Henry</option>
+                                <option>Highland</option>
+                                <option>Isle of Wight</option>
+                                <option>James City</option>
+                                <option>King and Queen</option>
+                                <option>King George</option>
+                                <option>King William</option>
+                                <option>Lancaster</option>
+                                <option>Lee</option>
+                                <option>Loudoun</option>
+                                <option>Louisa</option>
+                                <option>Lunenburg</option>
+                                <option>Madison</option>
+                                <option>Mathews</option>
+                                <option>Mecklenburg</option>
+                                <option>Middlesex</option>
+                                <option>Montgomery</option>
+                                <option>Nelson</option>
+                                <option>New Kent</option>
+                                <option>Northampton</option>
+                                <option>Northumberland</option>
+                                <option>Nottoway</option>
+                                <option>Orange</option>
+                                <option>Page</option>
+                                <option>Patrick</option>
+                                <option>Pittsylvania</option>
+                                <option>Powhatan</option>
+                                <option>Prince Edward</option>
+                                <option>Prince George</option>
+                                <option>Prince William</option>
+                                <option>Pulaski</option>
+                                <option>Rappahannock</option>
+                                <option>Richmond</option>
+                                <option>Roanoke</option>
+                                <option>Rockbridge</option>
+                                <option>Rockingham</option>
+                                <option>Russell</option>
+                                <option>Scott</option>
+                                <option>Shenandoah</option>
+                                <option>Smyth</option>
+                                <option>Southampton</option>
+                                <option>Spotsylvania</option>
+                                <option>Stafford</option>
+                                <option>Surry</option>
+                                <option>Sussex</option>
+                                <option>Tazewell</option>
+                                <option>Warren</option>
+                                <option>Washington</option>
+                                <option>Westmoreland</option>
+                                <option>Wise</option>
+                                <option>Wythe</option>
+                                <option>York</option>
+
+
+
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Property Description <i class="tip" data-tip-content="Type of Property"></i></h5>
+                        </div>
+                        <div class="col-md-8">
+                            <select class="chosen-select-no-single">
+                                <option label="blank"></option>
+                                <option>Single Family Home</option>
+                                <option>Condo</option>
+                            </select>
+                        </div>
+                        <hr />
+                    </div>
+
+
+                    <div class="row with-forms">
+                        <div class="col-md-4">
+                            <h5>Contract Sales Price</h5>
+                           
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="$">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>1st Mortgage Payoff Amount</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="$">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>2nd Mortgage Payoff Amount (HELOCs)</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="$">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row with-forms">
+
+                        <div class="col-md-4">
+                            <h5>Number of Mortgages / HELOCs being paid-off</h5>
+                            
+                        </div>
+                        <div class="col-md-8">
+                            <select class="chosen-select-no-single">
+                                <option label="blank"></option>
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h5>Who is paying the County/State Transfer/Recordation Taxes?</h5>
+                            
+                        </div>
+                        <div class="col-md-8">
+                            <select class="chosen-select-no-single">
+                                <option label="blank"></option>
+                                <option>Split 50/50</option>
+                                <option>Buyer</option>
+                                <option>Seller</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row with-forms">
+                        <div class="col-md-4">
+                            <h5>Seller Closing Cost Credit to Buyer / Seller Subsidy</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="$">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Admin/Flat Fee to Real Estate Company</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="$">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row with-forms">
+                        <div class="col-md-4">
+                            <h5>Commission to Real Estate Company (percentage)</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="%">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Settlement Date</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="mm-dd-yyyy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row with-forms">
+                        <div class="col-md-4">
+                            <h5>Annual Real Estate Property Tax</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="$">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Termite Treatment / Repairs</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="$">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row with-forms">
+                        <div class="col-md-4">
+                            <h5>Home Warranty</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="$">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Other Charges (Repairs, Rent Back, Security Deposit)</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="$">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row with-forms">
+                        <div class="col-md-4">
+                            <h5>Home Owner Association (HOA) / Condo Fees (Monthly Amount)</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="$">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Other Charges (Repairs, Rent Back, Security Deposit)</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="select-input disabled-first-option">
+                                <input type="text" data-unit="$">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row with-forms">
+                        <div class="col-md-4">
+                            <h5>Is the Seller subject to FIRPTA withholding?</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="checkboxes in-row margin-bottom-20">
+
+                                <input id="check-2" type="checkbox" name="check">
+                                <label for="check-2">Yes</label>
+                                <input id="check-3" type="checkbox" name="check">
+                                <label for="check-3">No</label>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <a href="#" class="button col-lg-offset-6 preview margin-top-5">Calculate <i class="fa fa-calculator"></i></a>
+            </div>
+        </div>
+    </div>
+</div>

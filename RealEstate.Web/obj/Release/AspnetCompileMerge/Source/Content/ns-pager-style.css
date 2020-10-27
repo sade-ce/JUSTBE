@@ -1,0 +1,102 @@
+﻿#DataGrid
+{
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 15px;
+}
+
+.ns-grid-pager {
+    background: linear-gradient(#C1CDDF, #A3AEC0 60%, #8A95A7);
+    /*background-color: #717171;*/
+    color: #555555;
+    min-height: 45px;
+    line-height: 45px !important;
+    font-weight: bold;
+    vertical-align: middle;
+    border-bottom: 1px solid #898989 !important;
+    border-left: 1px solid #898989 !important;
+    border-right: 1px solid #898989 !important;
+}
+
+.ns-page-link {
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 11px;
+    color: #555;
+    margin-right: 5px;
+}
+
+    .ns-page-link:hover {
+        text-decoration: none;
+        color: #46b8da;
+    }
+
+.page-number, .page-size {
+    color: #555;
+    width: 40px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.ns-page-link-disabled,
+.ns-page-link-disabled:hover,
+.ns-page-link-disabled:focus {
+    color: #b0b0b0;
+    cursor: not-allowed;
+    background-color: #ffffff;
+    border-color: #ededed;
+    padding: 5px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 11px;
+    margin-right: 5px;
+}
+
+.ns-pagination {
+    float: right;
+    text-align: right;
+    padding-left: 2px;
+    padding-right: 5px;
+}
+/**************** Grid View Style ******************/
+.table {
+    margin-bottom: 0px !important;
+    border-width: 0;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #ddd !important;
+}
+
+.table th {
+    background: linear-gradient(#C1CDDF, #A3AEC0 60%, #8A95A7);
+    background-color: #DCDCDC;
+    color: #555555;
+    text-align: center;
+    font-weight: bold;
+    height: 40px;
+}
+
+@media (max-width : 480px) {
+    .page-size {
+        display: none;
+    }
+
+    .page-size-label {
+        display: none;
+    }
+}
+
+@media (max-width : 320px) {
+    .page-size {
+        display: none;
+    }
+
+    .page-size-label {
+        display: none;
+    }
+}
+/************** End Grid View Style ****************/
+

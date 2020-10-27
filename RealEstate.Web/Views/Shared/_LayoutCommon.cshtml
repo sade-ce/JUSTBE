@@ -1,0 +1,681 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="washington dc homes for sale, washington dc real estate, homes for sale in washington dc, real estate in washington dc, jay bauer compass real estate, maryland homes for sale, marryland real estate, virginia homes for sale, virginia real estate,Realtor,Realtors,finding a Realtor,how to find a Realtor,find real estate agents,how to find a real estate agent,best Realtor near dc,top realtor for buying a new home,top real estate agents in dc,selling a home,sell a home fast,fastest way to sell a home in dc,home selling tips,cost of selling your home,marketing your home,ways to sell your home,house staging tips,how to stage your home,foreclosure,forecloures,short sales,foreclosure or short sale,short selling,short sale process,cons of a short sale,short selling your home,for sale by owner,fsbo,why to use a Realtor,property for sale by owner,for sale by owner listings,top tips to get the best offer">
+
+    <title>Just BE | Real Estate</title>
+
+    <!-- Google Web Fonts
+    ================================================== -->
+
+    <link rel="icon" type="image/png" href="https://justbere-d4d9.kxcdn.com/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="https://justbere-d4d9.kxcdn.com/favicon-16x16.png" sizes="16x16" />
+
+    <link href="https://justbere-d4d9.kxcdn.com/Content/customcss/StickyFooter.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
+
+
+
+    <link rel="apple-touch-icon" href="~/Content/favicon/apple-icon-152x152.png">
+    <link rel="manifest" href="~/manifest.json">
+    <!-- Basic Page Needs
+    ================================================== -->
+
+    @RenderSection("metatags", false)
+
+
+    <title>Welcome To ꓭ.</title>
+
+
+    <!--meta info-->
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Vendor CSS
+    ============================================ -->
+
+    @Styles.RenderFormat(
+    "<link href='https://justbere-d4d9.kxcdn.com/{0}' rel='stylesheet'></link>",
+    "~/201Murray/JBGHomeCss")
+
+    @Styles.RenderFormat(
+    "<link href='https://justbere-d4d9.kxcdn.com/{0}' rel='stylesheet'></link>",
+    "~/201Murray/JBGCommonCss")
+
+
+    <link href="~/Content/GDRPCookies/example.css" rel="stylesheet" />
+
+    @*@Styles.Render("~/201Murray/JBGHomeCss")
+        @Styles.Render("~/201Murray/JBGCommonCss")*@
+
+    <style>
+                @@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+                #header {
+                    padding: 0px;
+                }
+
+                .navbar-toggle {
+                    margin-top: -50px;
+                }
+
+                ul.registrationHeaderMenus li.activenew {
+                    border-bottom: 2px solid #10968a !important;
+                }
+
+                ul.registrationHeaderMenus li {
+                    border-bottom: 2px solid transparent;
+                }
+
+                    ul.registrationHeaderMenus li.activenew a {
+                        color: #fff !important;
+                    }
+
+                .header-blue .navbar.navbar-default .navbar-nav > li > a{
+                padding: 25px 15px!important;
+                font-size: 19px!important;
+        }
+                /*.header-blue .navbar .navbar-collapse p .login{
+               font-size: 15px!important;
+        }*/
+
+                ::-webkit-scrollbar {
+                    width: 8px;
+                    height: 50px;
+                }
+
+                ::-webkit-scrollbar-button {
+                    background: #ddd;
+                }
+
+                ::-webkit-scrollbar-track-piece {
+                    background: #ddd;
+                }
+
+                ::-webkit-scrollbar-thumb {
+                    background: #0bb7a5;
+                }
+
+                #PrivacyModalPopUp .modal-title, .sub-title {
+                    display: inline-block;
+                    margin: 0;
+                    padding: 0;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 21px;
+                    font-weight: 500;
+                }
+
+                #TermsModalPopUp .modal-title, .sub-title {
+                    display: inline-block;
+                    margin: 0;
+                    padding: 0;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 21px;
+                    font-weight: 500;
+                }
+
+                #PrivacyModalPopUp, #TermsModalPopUp {
+                    font-size: 16px;
+                    font-family: 'Poppins', sans-serif;
+                }
+
+                @@media (min-width: 576px) {
+                    .modal-dialog {
+                        max-width: 600px;
+                        margin: 1.75rem auto;
+                    }
+                }
+    </style>
+
+
+    @RenderSection("Style", false)
+    <style>
+        span.beta {
+            position: fixed;
+            background: #0bb7a5;
+            top: 0;
+            z-index: 999999999;
+            right: 15px;
+            color: #fff;
+            padding: 1px 10px;
+            font-family: 'Heebo', sans-serif;
+            border-radius: 0 0 6px 6px;
+            /*box-shadow: 0 2px 4px rgba(0,0,0,.1);*/
+            letter-spacing: 1px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+          .navbar .homepage-logo {
+                    margin-right: 3px;
+                }
+                .navbar .homepage-logo img {
+                    width: 84px;
+                }
+
+        @@media only screen and (max-width: 767px) {
+            span.beta {
+                left: 0;
+                right: 0;
+                width: 112px;
+                margin: 0 auto;
+            }
+        }
+
+        @@media only screen and (min-width: 0px) and (max-width:767px) {
+            ul.registrationHeaderMenus li.activenew {
+                border-bottom: 2px solid transparent !important;
+            }
+        }
+    </style>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '2670780916336038');
+fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1"
+             src="https://www.facebook.com/tr?id=2670780916336038&ev=PageView
+&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+</head>
+
+
+<body id="ip-container">
+
+    <!-- initial header -->
+    <!--cookie-->
+    <!-- <div class="cookie">
+            <div class="container">
+              <div class="clearfix">
+                <span>Please note this website requires cookies in order to function correctly, they do not store any specific information about you personally.</span>
+                <div class="f-right"><a href="#" class="btn">Accept Cookies</a><a href="#" class="btn">Read More</a></div>
+              </div>
+            </div>
+          </div>-->
+    <!-- - - - - - - - - - - - - - Wrapper - - - - - - - - - - - - - - - - -->
+
+    <div id="wrapper" class="wrapper-container">
+        <div id="navbar-menu" class="navbar-menu">
+
+            <button type="button" id="navbar-close" class="nav-bttn close-bttn">Close</button>
+
+            <!-- Menu -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="@Url.Action("Brand","Home")">HOME</a></li>
+                    <li><a href="@Url.Action("BE","About")">ABOUT</a></li>
+                    @*<li><a href="@Url.Action("Buyer","Home")">BUYERS</a></li>
+                        <li><a href="@Url.Action("Seller","Home")">SELLERS</a></li>*@
+                    @*<li class="sub-menu">
+                            <a href="#">LISTINGS</a>
+                            <ul>
+                                <li><a href="@Url.Action("JayBauerListing","Home")">Jay Bauer's Listings</a></li>
+                                <li><a href="@Url.Action("ZackLondonListings","Home")">Zack London's Listings</a></li>
+                            </ul>
+                        </li>*@
+                    <li><a href="@Url.Action("Community","Neighborhood")">NEIGHBORHOODS</a></li>
+                    <li>
+                        <a href="@Url.Action("List","Blogs")">BLOGS</a>
+                        @*<ul>
+                                <li><a target="_blank" href="https://www.simplifyingthemarket.com/?a=352073-1a7cb6f23b47d79ccdfbe13b7aecbca0">REAL ESTATE WITH JUST BE</a></li>
+                                <li><a href="@Url.Action("List","Blogs")">OUR PUBLICATION</a></li>
+                            </ul>*@
+                    </li>
+                    <li><a href="@Url.Action("List","Testimonials")">TESTIMONIALS</a></li>
+                    <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                    <li class="sub-menu">
+                        <a href="#">My Account</a>
+                        <ul>
+
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+
+                                if (User.IsInRole("Admin"))
+                                {
+                                    <li><a href="@Url.Action("Index","Dashboard",new {area = "Admin" })">MY DASHBOARD</a></li>
+
+                                }
+                                if (User.IsInRole("Agent"))
+                                {
+                                    <li><a href="@Url.Action("Index","DashboardV2",new {area = "Coordinator" })">MY DASHBOARD</a></li>
+
+                                }
+                                if (User.IsInRole("Client"))
+                                {
+                                    <li><a href="@Url.Action("List","MyDeal",new {area = "Client" })">MY DASHBOARD</a></li>
+
+
+                                }
+                                using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <li><a href="javascript:document.getElementById('logoutForm').submit()">LOGOUT</a></li>
+                                }
+
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Register","Account")">SIGNUP</a></li>
+                                <li><a href="@Url.Action("Login","Account")">LOGIN</a></li>
+                            }
+
+
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+        <header id="header" class="sticky-header">
+            <div class="header-blue">
+                <nav class="navbar navbar-default navigation-clean-search type-hr">
+                    <div class="container">
+                        <div class="navbar-header" style="margin-right:30px">
+                            <a href="@Url.Action("Brand","Home")" class="homepage-logo">
+                                @*<img src="https://justbere-d4d9.kxcdn.com/images/JustBB.png" class="img-responsive" />*@
+                                <img src="~/Content/NewVersion/images/JustBWhiteBgTransparent.svg" width="84" />
+                            </a>
+                            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navcol-1">
+                            <ul class="nav navbar-nav registrationHeaderMenus">
+                                @*@(ViewBag.ActiveURL == "NetProceeds" ? "active" : "")"*@
+                                <li class="@(ViewBag.MenuActive == "About" ? "activenew" : "")" role="presentation"><a href="@Url.Action("BE","About")">ABOUT</a></li>
+                                @*<li role="presentation"><a href="@Url.Action("Buyer","Home")">BUYERS</a></li>
+                                    <li role="presentation"><a href="@Url.Action("Seller","Home")">SELLERS</a></li>*@
+                                <li class="@(ViewBag.MenuActive == "Neighborhood" ? "activenew" : "")" role="presentation"><a href="@Url.Action("Community", "Neighborhood")">NEIGHBORHOODS</a></li>
+                                <li class="@(ViewBag.MenuActive == "Blogs" ? "activenew" : "")" role="presentation"><a href="@Url.Action("List","Blogs")">BLOGS</a></li>
+                                @*<li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">BLOGS <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a target="_blank" href="https://www.simplifyingthemarket.com/?a=352073-1a7cb6f23b47d79ccdfbe13b7aecbca0">REAL ESTATE WITH JUST BE</a></li>
+                                            <li><a href="@Url.Action("List","Blogs")">OUR PUBLICATION</a></li>
+                                        </ul>
+                                    </li>*@
+                                @*<li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">LISTINGS <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li role="presentation"><a href="@Url.Action("JayBauerListing","Home")">Jay Bauer's Listings</a></li>
+                                            <li><a href="@Url.Action("ZackLondonListings","Home")">Zack London's Listings</a></li>
+                                        </ul>
+                                    </li>*@
+
+                                <li class="@(ViewBag.MenuActive == "Testimonials" ? "activenew" : "")" role="presentation"><a href="@Url.Action("List","Testimonials")">TESTIMONIALS</a></li>
+                                <li class="@(ViewBag.MenuActive == "Contact" ? "activenew" : "")" role="presentation"><a href="@Url.Action("Contact","Home")">CONTACT</a></li>
+                            </ul>
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+                                <p class="navbar-text navbar-right">
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <a class="btn btn-default action-button btnlogoutt" href="@Url.Action("Index","Dashboard",new {area = "Admin" })">MY DASHBOARD</a>
+
+                                    }
+                                    @if (User.IsInRole("Agent"))
+                                    {
+                                        <a class="btn btn-default action-button btnlogoutt" href="@Url.Action("Index","DashboardV2",new {area = "Coordinator" })">MY DASHBOARD</a>
+
+                                    }
+                                    @if (User.IsInRole("Client"))
+                                    {
+                                        <a class="btn btn-default action-button btnlogoutt" href="@Url.Action("List","MyDeal",new {area = "Client" })">MY DASHBOARD</a>
+
+                                    }
+
+                                    <a class="navbar-link login btnlog" role="button" href="javascript:document.getElementById('logoutForm').submit()">LOGOUT</a>
+
+                                </p>
+
+                            }
+                            else
+                            {
+                                <p class="navbar-text navbar-right">
+                                    <a class="navbar-link login" href="@Url.Action("Login","Account")">LOG IN</a>
+                                    <a class="btn btn-default action-button" role="button" href="@Url.Action("Register","Account")">SIGN UP</a>
+                                </p>
+                            }
+
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+        </header>
+        <!-- facebook link -->
+        @*<a href="https://www.facebook.com/JustBE.realestate/" target="_blank" class="fb-link"><i class="icon-facebook"></i></a>*@
+
+
+
+
+        @RenderBody()
+
+        <!-- - - - - - - - - - - - - - End of Slider - - - - - - - - - - - - - - - - -->
+        <!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
+
+        <div class="animsition">
+            <div class="wrapper boxed">
+
+                <footer id="footers" class="footers section">
+                    <div class="footers-flex footer-alg-center">
+                        <div class="flex-item">
+                            <a class="brand" target="_blank" href="https://www.compass.com/agents/dc/jay-bauer/">
+                                <img src="https://justbere-d4d9.kxcdn.com/img/jaybauerCompass.png" />
+
+                            </a>
+                        </div>
+
+                        <div class="flex-item footer-alg-center">
+                            <div class="inline-block">© Just BE | Real Estate @System.DateTime.Now.Year <br>&nbsp;&nbsp; &nbsp; All Rights Reserved <br></div>
+                        </div>
+                        <div class="flex-item footer-alg-center">
+                            <ul>
+                                <li>
+                                    <a href="!#" data-toggle="modal" data-target="#TermsModalPopUp">Terms of use</a>
+
+                                    @*<a href="@Url.Action("Terms","Legal")">Terms of use</a>*@
+                                </li>
+                                <li>
+                                    @*<a href="@Url.Action("Terms","Legal")">Privacy Policy</a>*@
+                                    <a href="!#" data-toggle="modal" data-target="#PrivacyModalPopUp">Privacy Policy</a>
+                                </li>
+                                <li><a href="@Url.Action("Departments","Careers")">Careers</a></li>
+                            </ul>
+                        </div>
+
+
+                        <div class="flex-item footer-alg-center">
+                            <ul class="social-icons footerscomp">
+                                <li><a href="https://www.facebook.com/JustBE.realestate/" target="_blank"><i class="icon-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com/justbe_re/" target="_blank"><i class="icon-instagram-5"></i></a></li>
+                                <li><a href="https://twitter.com/JustBEathome" target="_blank"><i class="icon-twitter"></i></a></li>
+                                <li><a href="https://www.yelp.com/biz/jay-bauer-just-be-washington-3" target="_blank"><i class="icon-yelp"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/justbere/" target="_blank"><i class="icon-linkedin"></i></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+        <footer id="footer">
+
+            <p class="copyright text-center"> 660 Pennsylvania Ave. SE Suite 300, Washington, DC 20003  &nbsp; | &nbsp;(301) 785-1100  </p>
+
+
+
+        </footer>
+
+        <!-- - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
+
+    </div>
+
+    <div class="modal DocumentModalPopUp" id="TermsModalPopUp" tabindex="-1" role="dialog" aria-labelledby="myDocumentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myDocumentModalLabel">Terms of Use</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                    <p>
+                        The Just BE website and client portal were developed to provide you, the client, with key information you will need during your search for and/or sale of real estate property. The site also provides you an online platform where your real estate deal can be tracked. It does not replace any legal or financial advice you may receive during a standard real estate deal. During your journey and while working with us, we will send you email notifications with updates to your real estate deal, and we ask that you notify us if your main email address changes.
+                    </p>
+                    <p>
+                        As a client and/or visitor to our site, you accept that your use of information on this site is at your own risk. Our real estate agents will assist you by providing guidance on real-time real estate market information.
+                    </p>
+
+
+
+                </div>
+
+                <div class="modal-footer">
+                    @*<input type="button" class="btn btn-primary" id="btnAddDocument" onclick="return AddDocument();" style="background-color: #0bb7a5; border-color:#0bb7a5" value="Send Email">*@
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal DocumentModalPopUp" id="PrivacyModalPopUp" tabindex="-1" role="dialog" aria-labelledby="myDocumentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myPrivacyModalLabel">Privacy Policy</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="max-height: 350px;overflow-x: auto;">
+
+
+                    <p>
+                        We are committed to respecting your right to privacy and protecting your information when you visit <a target="_blank" style="color: #37b6bd;" href="http://justbere.com"> Just BE</a> or use our services.
+                    </p>
+                    <p>
+                        This Privacy Policy explains our information practices, including how we collect, use and share your personal information. This Privacy Policy is incorporated by reference in our Terms of Use and by using the Website or the Services (as defined therein), you consent to the terms of this Privacy Policy.
+                    </p>
+
+                    <h5 class="sub-title">What information do we collect?</h5>
+
+                    <p>
+                        When you visit our website, and in the course of providing the Services, we collect information about you that does not identify you personally. This information may include the type of computer and browser you are using, Uniform Resource Locators ("URLs") used by you to access the Website, your Internet Protocol ("IP") address, your Machine Access Control ("MAC") address, and what web service you are using. We may also collect the date, time, and length of visit, and the pages you visit. Collecting this information helps us design the site and the services to best suit your needs. This information may be compiled and analyzed on both an individual and an aggregate basis.
+                    </p>
+
+                    <h5 class="sub-title">Do we use cookies or other tracking devices?</h5>
+
+                    <p>
+                        A "cookie" is a small text file that is stored on your computer and makes it easy for you to move around a website without having to continually re-enter your name, password, preferences, and so on. We use cookies to store visitors' preferences, record user-specific information on what pages users access or visit, customize web page content based on visitors' browser type or other information that the visitor sends, and generally to optimize your website experience.
+                    </p>
+
+                    <p>
+                        We may also use cookies for advertising and targeting purposes. In connection with this advertising, a unique ad-serving cookie will be placed on your computer by us or by a third party vendor. Non -personal information about your browser and your activity at this site may be used to inform, optimize and serve our ads.
+                    </p>
+
+
+                    <h5 class="sub-title">What information do we collect as part of the services?</h5>
+
+                    <p>
+                        1. Client Information :(“Just BE.”) designed the website client portal with the client’s right to online privacy in mind. When you register and login to our site and access our password-protected client portal, your information will only be used to enhance your experience on the client portal. For example, we may provide you with e-mail alerts once we’ve completed a step in your real estate deal process or when we schedule an event associated with your active deal. You may opt out of these alerts after you create your profile; alternatively, you may return at anytime to update your email preferences and opt out.
+                    </p>
+
+                    <p>
+                        Just BE. will not sell or share your information to any third parties.
+                    </p>
+                    <p>
+                        2. Anonymous Information: Just BE. may collect data on how anonymous visitors browse and use our site. Collected data does not capture private or personal user information, and like most sites today, Just BE. reserves the right to capture this data to help us understand the site visitor experience and enhance our the visitors’ experience on our site.
+                    </p>
+
+                </div>
+
+                <div class="modal-footer">
+                    @*<input type="button" class="btn btn-primary" id="btnAddDocument" onclick="return AddDocument();" style="background-color: #0bb7a5; border-color:#0bb7a5" value="Send Email">*@
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- - - - - - - - - - - - end Wrapper - - - - - - - - - - - - - - -->
+    <!-- JS Libs & Plugins
+    ============================================ -->
+
+    <style>
+        .footer-alg-center {
+            text-align: center;
+        }
+
+        #gdpr-cookie-message a {
+            color: #0bb7a5 !important;
+            border-bottom: none !important;
+        }
+
+        #gdpr-cookie-message h4 {
+            color: #0bb7a5 !important;
+        }
+
+        #gdpr-cookie-message button, button#ihavecookiesBtn {
+        }
+
+        #gdpr-cookie-message button, button#ihavecookiesBtn {
+            background: #0bb7a5 !important;
+        }
+
+            #gdpr-cookie-message button:hover {
+                background: white !important;
+                color: #0bb7a5 !important;
+            }
+
+        .social-icons li:last-child {
+            margin-bottom: 10px;
+        }
+
+        #chat-bot-launcher-container.chat-bot-avatar-launcher .chat-bot-launcher-button:after {
+            width: 0px !important;
+            height: 0px !important;
+        }
+
+        div#navbar-menu {
+            background: #ddd !important;
+        }
+
+        #footer .copyright {
+            text-align: center;
+            width: 100%;
+        }
+
+        @@media (max-width: 769px) {
+            #footer {
+                padding: 25px 0px !important;
+            }
+        }
+
+        @@media only screen and (min-width: 768px) and (max-width: 1200px) {
+            footer#footer {
+                width: 100%;
+                display: block;
+                text-align: center;
+                max-width: 100%;
+                padding: 20px 0 !important;
+                margin: 0;
+            }
+        }
+
+        @@media only screen and (max-device-width: 1024px) and (min-device-width: 481px) and (orientation: portrait) {
+            .footerscomp {
+                margin-top: -101px !important;
+                margin-left: 22px !important;
+            }
+        }
+
+        .btnlogoutt {
+            background: #fff !important;
+            color: #000000 !important;
+        }
+
+        .btnlog {
+            padding: 6px 14px !important;
+            margin-right: 0px !important;
+        }
+    </style>
+    @*<script type="text/javascript">(function (t, e) { var r = function (t) { try { var r = e.head || e.getElementsByTagName("head")[0]; a = e.createElement("script"); a.setAttribute("type", "text/javascript"); a.setAttribute("src", t); r.appendChild(a); } catch (t) { } }; t.CollectId = "5b50a82db9da48929e605a8b"; r("https://collectcdn.com/launcher.js"); })(window, document);</script>*@
+    <script async>(function(w, d) { w.CollectId = "5ce5a26f0e4b2e52093c42dc"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com/{0}' ></script>",
+    "~/bundles/JBGHomeJs")
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com/{0}' ></script>",
+    "~/bundles/JBGCommonJs")
+
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126963521-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-126963521-1');
+    </script>
+
+
+    @*@Scripts.Render("~/bundles/JBGHomeJs")
+
+        @Scripts.Render("~/bundles/JBGCommonJs")*@
+
+
+
+
+    <!-- JS theme files
+    ============================================ -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="~/Content/GDRPCookies/jquery.ihavecookies.js"></script>
+    <script type="text/javascript">
+        var options = {
+            title: 'Want some milk with those cookies?&#x1F36A;🥛',
+            message: 'By continuing to use our site, you are agreeing to our  ',
+            delay: 600,
+            expires: 1,
+            link: '@Url.Action("Terms","Legal")',
+            onAccept: function () {
+                var myPreferences = $.fn.ihavecookies.cookie();
+                console.log('Yay! The following preferences were saved...');
+                console.log(myPreferences);
+            },
+            uncheckBoxes: true,
+            acceptBtnLabel: 'Accept Cookies',
+            moreInfoLabel: 'cookie and privacy policies.',
+            cookieTypesTitle: 'Select which cookies you want to accept',
+            fixedCookieTypeLabel: 'Essential',
+            fixedCookieTypeDesc: 'These are essential for the website to work correctly.'
+        }
+
+        $(document).ready(function () {
+            $('body').ihavecookies(options);
+
+            if ($.fn.ihavecookies.preference('marketing') === true) {
+                console.log('This should run because marketing is accepted.');
+            }
+
+            $('#ihavecookiesBtn').on('click', function () {
+                $('body').ihavecookies(options, 'reinit');
+            });
+        });
+
+    </script>
+    @RenderSection("scripts", required: false)
+    @*<span class="beta">Beta Version<span></span></span>*@
+
+</body>
+</html>

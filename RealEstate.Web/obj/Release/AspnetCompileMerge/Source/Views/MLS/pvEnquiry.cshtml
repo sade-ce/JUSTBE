@@ -1,0 +1,48 @@
+﻿@model RealEstate.Entities.Models.utblMstArticleEnquire
+<div class="sidebar right">
+
+    <div class="widget">
+        <h3>Got any questions?</h3>
+        <div class="info-box margin-bottom-10">
+            <p>If you are having any questions, please feel free to ask.</p>
+            @using (Html.BeginForm("Enquiry", "Article", new { id = "form" }))
+            {
+                @Html.ValidationSummary(true)
+                <div class="text-danger " id="ErrorView"></div>
+
+                <div class="margin-top-10">
+                    <div class="input">
+
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.Name, new { @class = "validate-required", @placeholder = "Your Name", @required = "required" })
+                    </div>
+                </div>
+                <div>
+                    <div class="input">
+
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.Email, new { @class = "validate-required", @placeholder = "Your Email", @required = "required" })
+                    </div>
+                </div>
+                <div>
+                    <div class="input">
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.Email, new { @class = "validate-required", @placeholder = "Phone(optional)" })
+                    </div>
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+                    @Html.TextAreaFor(model => model.Message, new { @class = "validate-required validate-email", @placeholder = "Message" })
+                </div>
+              <input type="submit" class="button fullwidth pull-right margin-top-20 fa fa-envelope-o" id="submit" value="Drop us a line" />
+
+            }
+
+
+        </div>
+    </div>
+    <!-- Widget / End -->
+    <!-- Widget -->
+   
+</div>
+

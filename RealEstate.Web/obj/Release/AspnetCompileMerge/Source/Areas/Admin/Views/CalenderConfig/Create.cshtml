@@ -1,0 +1,55 @@
+﻿@model RealEstate.Entities.ViewModels.MstCalenderConfiguration
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+
+<link href="~/Content/Plugins/Select2/select2.min.css" rel="stylesheet" />
+<section class="content-header">
+    <h1>
+        Configuration
+        <small>Add Calendar Events </small>
+    </h1>
+</section>
+<div class="content">
+
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+    {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.utblMstCalenderConfiguration.StatusID, new { @class = "control-label col-md-3 pull-left" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.utblMstCalenderConfiguration.StatusID, new SelectList(Model.MstStatusList, "StatusID", "Status"), "--- Select Status --- ", new { @class = "form-control ddl-select2" })
+                        @Html.ValidationMessageFor(model => model.utblMstCalenderConfiguration.StatusID)
+                    </div>
+                </div>
+            </div>
+            <div class="well well-sm col-md-12 col-lg-12 text-right">
+                <div class="form-horizontal">
+                    @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                    <input type="submit" value="Save" id="save" class="btn btn-primary" />
+                </div>
+            </div>
+    }
+    </div>
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+@section Scripts {
+    <script src="~/Content/Plugins/Select2/select2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#utblMstCalenderConfiguration_StatusID").select2();
+            $.validator.setDefaults({
+                ignore: ''
+            });
+        });
+    </script>
+}

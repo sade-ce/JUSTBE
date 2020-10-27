@@ -1,0 +1,196 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientHomeGalleryManageModel
+
+@{
+    ViewBag.Title = "SellerHome";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+    }
+}
+<link href="https://justbere-d4d9.kxcdn.com/Scripts/dropzone/basic.css" rel="stylesheet" />
+<link href="https://justbere-d4d9.kxcdn.com/Scripts/dropzone/dropzone.css" rel="stylesheet" />
+
+<section class="content-header">
+    <h1>
+        Upload Home Photograph
+        <small>You are managing Deal for Client: @Model.UserProfile.Name</small>
+
+    </h1>
+
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="box box-primary">
+                <div class="box-body box-profile" style="min-height: 277px;">
+
+                    @if (@Model.UserProfile.UserPhotoThumb == null || Model.UserProfile.UserPhotoThumb == "")
+                    {
+                        <img class="profile-user-img img-responsive img-circle" src="https://justbere-d4d9.kxcdn.com/img/NoImage.png" alt="User profile picture">
+
+                    }
+                    else
+                    {
+                        <img class="profile-user-img img-responsive img-circle" src="@Model.UserProfile.UserPhotoThumb" alt="User profile picture">
+
+                    }
+
+                    <h3 class="profile-username text-center">@Model.UserProfile.Name</h3>
+
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item">
+                            <b>Email: @Model.UserProfile.Email</b>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Phone: @Model.UserProfile.PhoneNumber</b>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>  
+       <div class="col-md-9">
+            <div class="box box-default">
+                <div class="box-body">
+                    <div class="jumbotron">
+                        @using (Ajax.BeginForm("SellerHomes", "ManageSeller", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "dropzoneForm", @class = "dropzone " }))
+                        {
+                            @Html.HiddenFor(model => model.utblMstClientHomeGalleries.Email)
+                            @Html.HiddenFor(model => model.utblMstClientHomeGalleries.TransactionID)
+                            @Html.HiddenFor(model => model.utblMstClientHomeGalleries.ClientID)
+                            @Html.Hidden("AgentID",new {@Value=ViewBag.AgentID,@name= "AgentID" })
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
+                                <input type="submit" value="Upload" />
+                            </div>
+                        }
+
+                    </div>
+
+                    <div class="col-md-12">
+                        @Html.Partial("pvHomeGalleryList", Model)
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <div class="well well-sm col-md-12 col-lg-12 text-right">
+                            @Html.ActionLink("Finish", "ClientDetails", "DealAgent", new {ClientID=Model.UserProfile.ClientID,AgentID= @ViewBag.AgentID }, new { @class = "btn btn-primary" })
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<style>
+    .dropzone.dz-clickable {
+        cursor: pointer;
+    }
+
+    .dropzone {
+        position: relative;
+        border: 2px dashed #d0d0d0;
+        border-radius: 3px;
+        background: #fcfcfc;
+        transition: all 0.3s linear;
+        margin-bottom: 15px;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .dropzone {
+        min-height: 150px;
+        border: 2px solid rgba(0,0,0,0.3);
+        background: white;
+        padding: 20px 20px;
+    }
+
+        .dropzone, .dropzone * {
+            box-sizing: border-box;
+        }
+
+    .dropzone:before {
+    background: linear-gradient(to bottom,rgba(255,255,255,.95),rgba(255,255,255,.9));
+    background-color: #274abb;
+}
+.dropzone:before {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    content: "";
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom,rgba(255,255,255,0.95),rgba(255,255,255,0.9));
+    background-color: #66676b;
+    opacity: 0;
+    z-index: 10;
+    transition: all 0.3s linear;
+    border-radius: 3px;
+}
+</style>
+
+@section Scripts{
+    <script src="https://justbere-d4d9.kxcdn.com/Scripts/dropzone/dropzone.js"></script>
+    <script>
+        Dropzone.options.dropzoneForm = {
+            init: function () {
+                this.on("complete", function (data) {
+                    //var res = eval('(' + data.xhr.responseText + ')');
+                    var res = JSON.parse(data.xhr.responseText);
+                });
+            }
+        };
+    </script>
+
+
+    <script type="text/javascript">
+        //File Upload response from the server
+        Dropzone.options.dropzoneForm = {
+            maxFiles: 10,
+            accept: function (file, done) {
+               
+                if (file.type !== "image/jpeg" && file.type !== "image/png" && file.type !== "application/pdf") {
+                    done("Error! Files of this type are not accepted");
+                }
+                else { done(); }
+            },
+            url: "/Coordinator/ManageSeller/SellerHomes",
+            init: function () {
+                this.on("maxfilesexceeded", function (data) {
+                    var res = eval('(' + data.xhr.responseText + ')');
+                });
+                //this.on("addedfile", function (file) {
+                //    // Create the remove button
+                //    var removeButton = Dropzone.createElement("<button>Remove file</button>");
+                //    // Capture the Dropzone instance as closure.
+                //    var _this = this;
+                //    // Listen to the click event
+                //    removeButton.addEventListener("click", function (e) {
+                //        // Make sure the button click doesn't submit the form:
+                //        e.preventDefault();
+                //        e.stopPropagation();
+                //        // Remove the file preview.
+                //        _this.removeFile(file);
+                //        // If you want to the delete the file on the server as well,
+                //        // you can do the AJAX request here.
+                //    });
+                //    // Add the button to the file preview element.
+                //    file.previewElement.appendChild(removeButton);
+                //});
+            },
+            success: function (file, response) {
+                window.location.href = response.url;
+            }
+        };
+
+
+    </script>
+}
+

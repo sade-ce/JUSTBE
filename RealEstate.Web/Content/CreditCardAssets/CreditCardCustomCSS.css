@@ -1,0 +1,178 @@
+
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+     *, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #262626;
+  background: radial-gradient(circle at top center, #464646, #000000);
+  overflow-x: hidden;
+}
+
+.wrap {
+  max-width: 400px;
+  min-width: 380px;
+  margin: 0 auto;
+  padding: 80px 10px;
+  transform-style: preserve-3d;
+}
+
+.cc_images {
+  margin-bottom: 5px;
+  transform: translateY(20px);
+  z-index: 0;
+}
+.cc_images .card {
+  float: left;
+  width: 16.666%;
+  height: 40px;
+  position: relative;
+  text-align: center;
+  perspective: 500px;
+  transform-style: preserve-3d;
+  z-index: 50;
+  transition: .4s;
+}
+.cc_images .card.show_cvc .inside {
+  transform: rotateY(180deg);
+}
+.cc_images .card.show_card {
+  transform: translateY(-20px);
+}
+.cc_images .card.show_card .front img, .cc_images .card.show_card .back img {
+  opacity: 1;
+  -webkit-filter: grayscale(0);
+  filter: none;
+}
+.cc_images .card .inside {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform-style: preserve-3d;
+  transition: .4s ease-in-out;
+}
+.cc_images .card .front, .cc_images .card .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cc_images .card .front img, .cc_images .card .back img {
+  max-width: 100%;
+  display: block;
+  transition: .3s;
+  opacity: .1;
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+  /* Firefox 10+, Firefox on Android */
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.cc_images .card .back {
+  transform: rotateY(-180deg);
+}
+
+.input-wrap {
+  position: relative;
+}
+.input-wrap:after {
+  position: absolute;
+  font-family: "FontAwesome";
+  transition: .5s;
+  opacity: 0;
+}
+.input-wrap.valid:after {
+  content: "\f00c";
+  color: #03B410;
+  right: 10px;
+  top: 9px;
+  font-size: 22px;
+  opacity: 1;
+}
+.input-wrap.error:after {
+  content: "\f00d";
+  font-size: 20px;
+  color: #E43737;
+  right: 12px;
+  top: 10px;
+  opacity: 1;
+}
+
+#cc_number {
+  margin-bottom: 10px;
+}
+
+.expiration-wrap {
+  width: 58%;
+  margin-right: 2%;
+  float: left;
+}
+
+.cvc-wrap {
+  width: 40%;
+  float: left;
+}
+
+label {
+  position: absolute;
+  background: #2c2c2c;
+  background-image: linear-gradient(to bottom, #434343, #222);
+  border: 1px solid #222;
+  color: white;
+  height: 40px;
+  width: 60px;
+  font-size: 20px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  padding-top: 8px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+input {
+  z-index: 10;
+  border: 0;
+  height: 40px;
+  font-size: 18px;
+  padding: 0 5px;
+  padding-left: 70px;
+  width: 100%;
+  border: 1px solid black;
+}
+input:focus {
+  outline: none;
+}
+
+.info {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #bbb;
+  text-align: center;
+  margin-top: 20px;
+}
+.info small {
+  display: block;
+  font-size: .85em;
+}
+.info a {
+  color: skyblue;
+  text-decoration: none;
+}
+.info a:hover {
+  color: white;
+}
+

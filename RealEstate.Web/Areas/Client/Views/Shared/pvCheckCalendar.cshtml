@@ -1,0 +1,32 @@
+﻿
+@model RealEstate.Entities.ViewModels.MstCheckLoggedClientDeal
+
+
+@*@if (User.IsInRole("Client"))
+{
+    
+    if (Model.CheckCalendar.Count() > 0)
+    {
+
+        <li class="nav-item nav-item-parent" id="sidebar">
+            <a href="@Url.Action("List","MyCalendar",new { @area="Client"})" class="nav-link kk">
+                My Calendar
+            </a>
+
+        </li>
+
+
+    }
+}*@
+
+
+@if (User.IsInRole("Client"))
+{
+
+    if (Model.CheckCalendar.Count() > 0)
+    {
+
+        @*<a class="dropdown-item check-calendar" href="@Url.Action("List", "MyCalendar", new { @area = "Client" })"><i class="fa fa-calendar" aria-hidden="true"></i>My Calendar</a>*@
+        <li class="check-calendar"><a class="" href="@Url.Action("List", "MyCalendar", new { @area = "Client" })"><i class="fa fa-calendar" aria-hidden="true"></i>My Calendar</a> </li>
+    }
+}

@@ -1,0 +1,32 @@
+﻿@model RealEstate.Entities.ViewModels.MultipleDealClientManageModel
+
+<div id="DataGrid" class="col-left-nil col-right-nil">
+    <div class="sidebar right">
+        <div class="widget margin-top-20">
+           <div class="agent-widget" style="min-height:450px">
+                <div class="agent-title">
+                    <div class="agent-photo"><img src="~/img/Jay.jpg" alt="" /></div>
+                    <div class="agent-details">
+                        <h4><a href="#"> Jay Bauer</a></h4>
+                        <span><i class="sl sl-icon-call-in"></i> (301) 785-1100</span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="text-danger " id="ErrorView"></div>
+
+                @using (Html.BeginForm("sharedtransactions", "mydeal", new { id = "form" }))
+                 {
+                    @Html.ValidationSummary(true)
+
+                    @*@Html.DropDownListFor(model => model.utblMstHelpRequests.TransactionID, new SelectList(Model.TranDDL, "TransactionID", "TransactionID"), "--- Select #TID --- ", new { @class = "form-control ddl-select2" })*@
+                    @Html.TextAreaFor(model => model.utblMstHelpRequests.Message, new { @placeholder = "Quick Support..What can I help you WITH ?" })
+                    <button class="button fullwidth margin-top-5">Send Message</button>
+
+                 }
+
+
+            </div>
+            <!-- Agent Widget / End -->
+        </div>
+    </div>
+</div>

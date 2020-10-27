@@ -1,0 +1,318 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | Real Estate";
+    Layout = "~/Views/Shared/_JBGLayout.cshtml";
+}
+<link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
+
+
+
+<style>
+    .bbtn {
+        font-size: 13px !important;
+        line-height: 20px !important;
+        padding: 6px 19px !important;
+    }
+   
+
+    @@media screen and (min-width: 320px) and (max-width: 425px) {
+        .mobslider {
+            padding: 0px 18px !important;
+            font-size: 13px !important;
+
+        }
+        
+       
+       
+
+        .mobslidersmall {
+            padding: 0px 22px !important;
+            font-size: 12px !important;
+        }
+
+        .tp-bullet {
+            left: 11px !important;
+        }
+
+        .tparrows {
+            left: 104% !important;
+        }
+    }
+
+    @@media screen and (min-width: 768px) and (max-width: 1024px) {
+        .mobslider {
+            /*margin-left: -60px !important;*/
+            font-size: 24px !important;
+        }
+
+        .mobslidersmall {
+            margin-left: -60px !important;
+            font-size: 30px !important;
+        }
+
+       
+    }
+</style>
+
+<link href="~/201Murray/TempFIles/dropnav.css" rel="stylesheet" />
+
+<!-- - - - - - - - - - - - - - Revolution Slider - - - - - - - - - - - - - - - - -->
+
+<div class="rev-slider-wrapper">
+
+    <div id="rev-slider" class="rev-slider" data-version="5.0">
+
+        <ul>
+
+            <li data-transition="slidevertical" data-slotamount="1" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="1500" data-rotate="0">
+
+
+                <img src="~/images/AboutBE.jpg" class="rev-slidebg" alt="">
+                <!-- - - - - - - - - - - - - - Layer 1 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme scaption-white-large mobslider"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="-60"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":150,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+                    Looking to buy or sell a home?
+                    @*Welcome to <img src="~/images/BEJBG.png" style="margin-top:-40px" />*@
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Layer 1 - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Layer 2 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme scaption-white-medium mobslidersmall"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="10"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":450,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+                  We offer a next-gen experience built around you
+
+                </div>
+                @*<div class="tp-caption tp-resizeme scaption-white-smaill" style="font-size: 20px !important"
+                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                         data-y="['middle','middle','middle','middle']" data-voffset="80"
+                         data-whitespace="nowrap"
+                         data-frames='[{"delay":750,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                         data-responsive_offset="on"
+                         data-elementdelay="0.05">
+
+                        #BE STRONG # BECHAMPION #JUST BE.
+                    </div>*@
+
+                <!-- - - - - - - - - - - - - - End of Layer 2 - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Layer 3 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="120"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":750,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+
+                    <a href="javascript:;" data-fancybox data-src="https://www.youtube.com/watch?v=yOzUrOl4OBE&feature=youtu.be" class="video-icon-play"><span>Watch Video</span></a>
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Layer 3 - - - - - - - - - - - - - - - - -->
+
+            </li>
+
+            <li data-transition="slidevertical" data-slotamount="1" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="1500" data-rotate="0">
+
+                <img src="~/images/Home.jpg" class="rev-slidebg" alt="">
+
+                <!-- - - - - - - - - - - - - - Layer 1 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme scaption-white-large"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="-120"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":150,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+                    Home Buyers
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Layer 1 - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Layer 2 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme scaption-white-medium"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="10"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":450,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+                    Let us help you find 
+                    
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Layer 2 - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Layer 3 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme scaption-white-medium"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="80"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":750,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+
+                    your next home
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Layer 3 - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Layer 3 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme "
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="160"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":950,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-elementdelay="0.05">
+                    <a href="@Url.Action("JayBauerListing","Home")" class="btn bbtn style-5">Find Out More</a>
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Layer 3 - - - - - - - - - - - - - - - - -->
+
+            </li>
+
+            <li data-transition="slidevertical" data-slotamount="1" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="1500" data-rotate="0">
+
+                <img src="~/images/Image3.jpg" class="rev-slidebg" alt="">
+
+                <!-- - - - - - - - - - - - - - Layer 1 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme scaption-white-large"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="-120"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":150,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+                    Home Sellers
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Layer 1 - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Layer 2 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme scaption-white-medium"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="10"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":450,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+                    Our expertise can help you 
+                </div>
+                <div class="tp-caption tp-resizeme scaption-white-medium"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="80"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":750,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+
+                    get the most value for your home
+                </div>
+                <!-- - - - - - - - - - - - - - End of Layer 2 - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Layer 3 - - - - - - - - - - - - - - - - -->
+                @*<div class="tp-caption tp-resizeme scaption-white-medium"
+                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                         data-y="['middle','middle','middle','middle']" data-voffset="80"
+                         data-whitespace="nowrap"
+                         data-frames='[{"delay":750,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                         data-responsive_offset="on"
+                         data-elementdelay="0.05">
+
+                              from point A to BE.
+
+                    </div>*@
+
+                <!-- - - - - - - - - - - - - - End of Layer 3 - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Layer 3 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="160"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":950,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+                    <a href="http://dcmetrovalues.com" target="_blank" class="btn bbtn style-5">Find Out More </a>
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Layer 3 - - - - - - - - - - - - - - - - -->
+
+            </li>
+
+            <li data-transition="slidevertical" data-slotamount="1" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="1500" data-rotate="0">
+
+
+                <img src="~/images/2.jpg" class="rev-slidebg" alt="" />
+                <!-- - - - - - - - - - - - - - Layer 1 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme scaption-white-large"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="-80"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":150,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+                    NEIGHBORHOOD
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Layer 1 - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Layer 2 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme scaption-white-medium"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="-5"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":450,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+                    Explore where you want to BE
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Layer 2 - - - - - - - - - - - - - - - - -->
+                <!-- - - - - - - - - - - - - - Layer 3 - - - - - - - - - - - - - - - - -->
+
+                <div class="tp-caption tp-resizeme"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="100"
+                     data-whitespace="nowrap"
+                     data-frames='[{"delay":950,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                     data-responsive_offset="on"
+                     data-elementdelay="0.05">
+                    <a href="@Url.Action("Community", "Neighborhood")" class="btn bbtn style-5">Find Out More</a>
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Layer 3 - - - - - - - - - - - - - - - - -->
+
+            </li>
+
+
+            
+
+        </ul>
+
+    </div>
+</div>
+
+
+@section Scripts{
+
+    <script src="~/201Murray/plugins/revolution/js/jquery.themepunch.tools.min.js?ver=5.0"></script>
+    <script src="~/201Murray/plugins/revolution/js/jquery.themepunch.revolution.min.js?ver=5.0"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    
+}

@@ -1,0 +1,111 @@
+﻿@model RealEstate.Entities.Models.utblFullLead
+<div class="col-md-12 ">
+    <!-- Contact Details -->
+    
+    <h3 class="uppercase">Please help us with a few more details.</h3>
+    <p class="lead mb48">
+    We are almost ready to provide you with your FREE full market analysis of your property..
+    </p>
+    <!-- Contact Form -->
+    <div >
+        <section id="contact">
+            @*<h4 class="headline margin-bottom-35">We Will Inbox You </h4>*@
+            <div id="contact-message"></div>
+            @using (Html.BeginForm("savefulllead", "home", FormMethod.Post, new { @id = "fullLeadForm", @autocomplete = "on" }))
+            {
+                @Html.HiddenFor(m => m.VisitorID)
+                @Html.HiddenFor(m => m.Address)
+                @Html.HiddenFor(m => m.CityStateZip)
+                @Html.HiddenFor(m => m.UnitNo)
+                @Html.HiddenFor(m => m.City)
+                <div class="row">
+                    <div class="col-md-6">
+                        
+                        <div>
+                            @Html.TextBoxFor(m => m.Name, new { @placeholder = "Your Name"  })
+                            <div class="pull-left" style="margin-top: -26px;">
+                                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            @Html.TextBoxFor(m => m.EmailID, new { @placeholder = "Your Email" })
+                            <div class="pull-left" style="margin-top: -26px;">
+                                @Html.ValidationMessageFor(m => m.EmailID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            @Html.TextBoxFor(m => m.Phone, new { @placeholder = "Your Phone" })
+                            <div class="pull-left" style="margin-top: -26px;">
+                                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                            <div>
+                                <input type="button" class="submit button" id="leadsubmit" value="Show Me!" />
+                        </div>
+
+                    </div>
+                </div>
+
+            }
+        </section>
+    </div>
+    <!-- Contact Form / End -->
+</div>
+<script>
+    $('#leadsubmit').click(function () {
+        $("#leadsubmit").val("Please Wait..");
+        formsubmit();
+    });
+    function formsubmit() {
+       
+
+       
+            //e.preventDefault();
+
+            //$('#leadModal').modal('hide');
+            $.ajax({
+                url: '/home/savefulllead',
+                type: 'post',
+                data: $('#fullLeadForm').serialize(),
+                success: function (result) {
+                    if (result.success) {
+                        window.location.href = result.url;
+                    } else {
+                        $('.leadContent11').html(result);
+                        //document.getElementById('leadform').click();
+                        // $('#leadModal').modal('show');
+                        //var linkedModal = jQuery('.openmodal');
+
+                        //jQuery('.modal-screen').toggleClass('reveal-modal');
+                        //linkedModal.toggleClass('reveal-modal');
+                        //return false;
+                    }
+                },
+                error: function (result) {
+                    //alert('errror');
+                }
+            });
+
+            return false;
+
+    }
+</script>
+<script type="text/javascript">
+    jQuery('.close-modal:not(.modal-strip .close-modal)').unbind('click').click(function () {
+        var modal = jQuery(this).closest('.foundry_modal');
+        modal.toggleClass('reveal-modal');
+        if (typeof modal.attr('data-cookie') !== "undefined") {
+            mr_cookies.setItem(modal.attr('data-cookie'), "true", Infinity);
+        }
+        if (modal.find('iframe').length) {
+            modal.find('iframe').attr('src', '');
+        }
+        jQuery('.modal-screen').removeClass('reveal-modal');
+    });
+</script>

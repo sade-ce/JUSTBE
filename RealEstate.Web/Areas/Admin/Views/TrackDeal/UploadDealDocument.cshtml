@@ -1,0 +1,32 @@
+﻿@model RealEstate.Entities.ViewModels.MstDealViewModel
+
+@{
+    ViewBag.Title = "UploadDealDocument";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+<section class="content">
+    
+        <div class="box box-primary">
+            <div class="box-header with-border">
+            
+                <div class="box-body">
+                    <div class="col-md-12">
+
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                Client Email: <strong>@Model.utblMstTrackDeal.Email</strong>
+                            </div>
+                            <div class="col-md-6">
+                                @*Client Name: <strong>@Model.utblMstTrackDeal.Note</strong>*@
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                    @Html.Partial("pvUploadDealDocument", Model)
+
+                </div>
+            </div>
+        </div>
+       
+</section>

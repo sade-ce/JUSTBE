@@ -1,0 +1,774 @@
+﻿@model RealEstate.Entities.ViewModels.VendorViewModel
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "Vendor List";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayoutVersion2.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstateNew.cshtml";
+
+    }
+}
+<link href="~/Content/SlimImageCropper/slim.css" rel="stylesheet" />
+<style>
+    #slim-cropper {
+        height: 100%;
+    }
+
+    .text-danger {
+        font-size: 14px;
+    }
+</style>
+<style>
+   .form-control:disabled, .form-control[readonly]{
+     background-color:#ffffff!important;
+   }
+</style>
+<section class="wrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>Vendors</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello, @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new" /></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 addVendor-wrap vendorsCardWrap">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="mb-0">Add Vendor</h3>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="addEditVendorWrap">
+@using (Ajax.BeginForm("Edit", "VendorV2", null, new AjaxOptions() { HttpMethod = "POST" }, new { @class = "form-horizontal", enctype = "multipart/form-data", id = "myform" }))
+{ @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.Vendor.VendorId)
+                                <div class="row">
+                                    @*<div class="col-sm-12 saveBtnWrap">
+                                        <div class="btn-wrap">
+                                            <button class="btn tealButton btnEditProfile">Edit</button>
+                                            <button class="btn greyButton btnCancel" style="display:none">Cancel</button>
+                                            <button class="btn tealButton btnSaveProfile" style="display:none">Save</button>
+                                        </div>
+                                    </div>*@
+                                    <div class="col-sm-12 editPrifileBtnWrap">
+                                        <div class="btn-wrap">
+                                            <a href="#!" class="btn greyButton btnEditProfile">Edit</a>
+                                            <a href="#!" class="btn greyButton btnCancel" style="display:none">Cancel</a>
+                                            <a href="#!" class="btn tealButton btnSaveProfile" style="display:none">Save</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-xl-3 col-12 addEdit-profile-pic divVendor">
+                                        <div class="profile-pic-wrap">
+                                            <div class="profile-pic">
+                                                @*<i class="material-icons">party_mode</i>*@
+                                                @*<input type="file" name="uploadPhoto">*@
+                                                @if (Model.VendorViews != null)
+                                                {
+                                                    if (Model.VendorViews.VendorImage == null || Model.VendorViews.VendorImage == "")
+                                                    {
+                                                    <img src="https://justbere-d4d9.kxcdn.com/img/NoImage.png" class="img-fluid" />
+                                                    }
+                                                    else
+                                                    { <img src="/img/vendors/@Model.VendorViews.VendorImage" class="img-fluid" />
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                        <div class="col-md-8 col-xl-9 col-12 addEdit-vendor-info px-3 pl-md-0 divVendor" >
+                                           
+                                                <div class="form-group">
+                                                    @*<input type="text" class="form-control" value="Citizan Bank" />*@
+                                                    @Html.TextBoxFor(model => model.VendorViews.Title, new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-sm-6 form-group">
+                                                        @*<input type="text" class="form-control" value="Lender" />*@
+                                                        @Html.TextBoxFor(model => model.VendorViews.Category_Name, new { @class = "form-control", @disabled = "disabled" })
+                                                    </div>
+                                                    <div class="col-sm-6 form-group">
+                                                        @Html.TextBoxFor(model => model.VendorViews.SubTitle, new { @class = "form-control", @disabled = "disabled", @placeholder = "Title" })
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-sm-6 form-group">
+                                                        @Html.TextBoxFor(model => model.VendorViews.Location, new { @class = "form-control", @disabled = "disabled", @placeholder = "Address" })
+                                                    </div>
+                                                    <div class="col-sm-6 form-group">
+                                                        @Html.TextBoxFor(model => model.VendorViews.Email, new { @class = "form-control", @disabled = "disabled", @placeholder = "Email" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-sm-6 form-group">
+                                                        @Html.TextBoxFor(model => model.VendorViews.Phone, new { @class = "form-control", @disabled = "disabled", @placeholder = "###.###.####" })
+
+                                                    </div>
+                                                    <div class="col-sm-6 form-group">
+                                                        @Html.TextBoxFor(model => model.VendorViews.WebsiteLink, new { @class = "form-control dis-text", @disabled = "disabled", @placeholder = "Website Link" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                             
+                                                    @Html.TextBoxFor(model => model.VendorViews.About, new { @class = "form-control dis-text", @id = "txtAbout", @disabled = "disabled", @placeholder = "About" })
+                                                </div>
+                                        
+
+                                        </div>
+                                 
+                       
+                                    <div class="col-md-4 col-xl-3 col-12 addEdit-profile-pic divEditVendor" style="display:none">
+                                        <div class="profile-pic-wrap">
+                                            <div class="profile-pic">
+                                                @*<i class="material-icons">party_mode</i>*@
+                                                @*<input type="file" name="uploadPhoto">*@
+                                                <div id="slim-cropper" class="slim" data-size="248,253" style="max-width:248px;max-height:253px" data-did-remove="imageWillBeRemoved" data-label="Click and drag your image here">
+                                                    <input type="file" name="upfiles" />
+                                                    @if (Model.Vendor != null)
+                                                    {
+                                                        if (Model.Vendor.VendorImage == null || Model.Vendor.VendorImage == "")
+                                                        {
+                                                            <img src="https://justbere-d4d9.kxcdn.com/img/NoImage.png" class="img-fluid" />
+
+                                                        }
+                                                        else
+                                                        { <img src="/img/vendors/@Model.Vendor.VendorImage" class="img-fluid" />
+                                                        }
+                                                       
+
+                                                    }
+                                                </div>
+@if (Model.Vendor != null)
+{
+                                                @Html.HiddenFor(m => m.Vendor.VendorImage, new { id = "txtVenImage", name = "txtVenImage" })
+}
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="col-md-8 col-xl-9 col-12 addEdit-vendor-info px-3 pl-md-0 divEditVendor" style="display:none">
+                                          
+                                                <div class="form-group">
+                                                    @*<input type="text" class="form-control" value="Citizan Bank" />*@
+                                                    @Html.TextBoxFor(model => model.Vendor.Title, new { @class = "form-control", @id = "txtVendorName", @placeholder = "Name" })
+                                                    @Html.ValidationMessageFor(model => model.Vendor.Title, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-sm-6 form-group">
+                                                        @*<input type="text" class="form-control" value="Lender" />*@
+                                                        @Html.DropDownListFor(model => model.Vendor.Category_Id, new SelectList(Model.CategoryDropDown, "Category_Id", "Name"), "--- Select Vendor Type --- ", new { @class = "form-control ddl-select2", @id = "VendorType" })
+                                                        @Html.ValidationMessageFor(model => model.Vendor.Category_Id, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="col-sm-6 form-group">
+                                                        @Html.TextBoxFor(model => model.Vendor.SubTitle, new { @class = "form-control", @id = "txtDesignation", @placeholder = "Title" })
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-sm-6 form-group">
+                                                        @Html.TextBoxFor(model => model.Vendor.Location, new { @class = "form-control", @id = "txtLocation", autocomplete = "off", @placeholder = "Address" })
+                                                    </div>
+                                                    <div class="col-sm-6 form-group">
+                                                        @Html.TextBoxFor(model => model.Vendor.Email, new { @class = "form-control", @id = "txtEmail", @placeholder = "Email" })
+                                                        @Html.ValidationMessageFor(model => model.Vendor.Email, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-sm-6 form-group">
+                                                        @Html.TextBoxFor(model => model.Vendor.Phone, new { @class = "form-control", @placeholder = "###.###.####", @maxlength = "12", @id = "txtPhone" })
+                                                        @Html.ValidationMessageFor(model => model.Vendor.Phone, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="col-sm-6 form-group">
+                                                        @Html.TextBoxFor(model => model.Vendor.WebsiteLink, new { @class = "form-control", @id = "txtWebsitelink", @placeholder = "Website Link" })
+                                                        @Html.ValidationMessageFor(model => model.Vendor.WebsiteLink, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @*<textarea class="form-control">About</textarea>*@
+                                                    @Html.TextBoxFor(model => model.Vendor.About, new { @class = "form-control", @id = "txtAbout", @placeholder = "About" })
+                                                </div>
+                                          
+
+                                        </div>
+                                        <button type="submit" id="btnSave" style="display:none"></button>
+                         
+                                </div>
+}
+                            </div>
+
+
+                            <div class="vendor-inner-listing">
+                                <h3 class="heading">
+                                    Contacts
+                                    <a href="#!" class="btn tealButton"  id="btnAddC" data-toggle="modal" data-target="#addVendorContactModal">Add Contact</a>
+                                </h3>
+                                <div class="modal fade add-vendor-contact-modal" id="addVendorContactModal" tabindex="-1" role="dialog" aria-labelledby="addVendorContactModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="addVendorContactModalLabel">Add/Edit Contact</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="FormUpload">
+                                      
+                                                   
+                                                    @*@Html.HiddenFor(m=>m.Vendor.VendorId,new { @id = "Vendor_Id", @name = "Vendor_Id" })*@
+                                                    <div class="form-group">
+                                                        <label></label>
+                                                        
+                                                        <label class="text-danger" id="lblError" style="display:none;width:100%"></label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Name:</label>
+                                                            <input type="hidden" id="ContactVendor_Id" name="Vendor_Id" value="@Model.Vendor.VendorId"/>
+                                                            <input type="hidden" id="VendorContactId" name="VendorContactId" value="@Model.Vendor.VendorId" />
+                                                            <input type="text" class="form-control" id="ContactName" name="ContactName" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Title:</label>
+                                                            <input type="text" class="form-control" id="ContactTitle" name="ContactTitle" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Phone:</label>
+                                                            <input type="text" class="form-control" id="ContactPhone" name="ContactPhone" maxlength="12" />
+                                                        </div>
+                                                        <div class="btn-wrap">
+                                                            @*<button type="button" class="btn tealButton">Save</button>*@
+                                                           
+
+                                                            <input type="button" class="btn tealButton resourcebtnSave" id="btnAddResource" onclick="return AddContact();" value="Save" />
+                                                            <input type="button" class="btn tealButton" style="display:none;" id="btnUpdateResource" onclick="return UpdateContact();" value="Save">
+                                                            <button type="button" class="btn greyButton" data-dismiss="modal">Close</button>
+                                                        </div>
+</form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-wrapper">
+                                    <div class="custom-table listing-table Cbody">
+                                        @*<div class="tableHeadRow">
+                                            <div class="tableCell">Name</div>
+                                            <div class="tableCell">Title</div>
+                                            <div class="tableCell">Phone</div>
+                                            <div class="tableCell">Action</div>
+                                        </div>
+                                        <div class="tableRow">
+                                            <div class="tableCell"><a href="#">Bill Bray</a></div>
+                                            <div class="tableCell">Sr Technical</div>
+                                            <div class="tableCell">225-225-4512</div>
+                                            <div class="tableCell"><a href="#" class="delete-link"><i class="material-icons">delete_forever</i></a></div>
+                                        </div>
+                                        <div class="tableRow">
+                                            <div class="tableCell"><a href="#">John Johanson</a></div>
+                                            <div class="tableCell">Sr Technical</div>
+                                            <div class="tableCell">225-225-4512</div>
+                                            <div class="tableCell"><a href="#" class="delete-link"><i class="material-icons">delete_forever</i></a></div>
+                                        </div>
+                                        <div class="tableRow">
+                                            <div class="tableCell"><a href="#">Jack Trim</a></div>
+                                            <div class="tableCell">Sr Technical</div>
+                                            <div class="tableCell">225-225-4512</div>
+                                            <div class="tableCell"><a href="#" class="delete-link"><i class="material-icons">delete_forever</i></a></div>
+                                        </div>
+                                        <div class="tableRow">
+                                            <div class="tableCell"><a href="#">Jason Bull</a></div>
+                                            <div class="tableCell">Sr Technical</div>
+                                            <div class="tableCell">225-225-4512</div>
+                                            <div class="tableCell"><a href="#" class="delete-link"><i class="material-icons">delete_forever</i></a></div>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+<script src="~/Content/SlimImageCropper/slim.kickstart.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).ready(function () {
+        //var VendorId = getParameterByName("VendorId");
+        //$('#Vendor_Id').val(VendorId);
+        loadContacts();
+    });
+    //function getParameterByName(name) {
+    //    var regexS = "[\\?&]" + name + "=([^&#]*)",
+    //  regex = new RegExp(regexS),
+    //  results = regex.exec(window.location.search);
+    //    if (results == null) {
+    //        return "";
+    //    } else {
+    //        return decodeURIComponent(results[1].replace(/\+/g, " "));
+    //    }
+    //}
+    $(function () {
+        $(".btnEditProfile").click(function () {
+
+            $(".divVendor").hide(500);
+            $(".divEditVendor").show(500);
+            $(".btnEditProfile").hide(500);
+            $(".btnCancel").show(500);
+            $(".btnSaveProfile").show(500);
+        })
+        $(".btnCancel").click(function () {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+            location.reload(true);
+        })
+        $('#txtPhone').keydown(function (e) {
+            var key = e.which || e.charCode || e.keyCode || 0;
+            $phone = $(this);
+
+            // Don't let them remove the starting '('
+
+
+            // Auto-format- do not expose the mask as the user begins to type
+            if (key !== 8 && key !== 9) {
+                if ($phone.val().length === 3) {
+                    $phone.val($phone.val() + '.');
+                }
+                if ($phone.val().length === 7) {
+                    $phone.val($phone.val() + '.');
+                }
+
+            }
+
+            // Allow numeric (and tab, backspace, delete) keys only
+            return (key == 8 ||
+                    key == 9 ||
+                    key == 46 ||
+                    (key >= 48 && key <= 57) ||
+                    (key >= 96 && key <= 105));
+        })
+
+        .bind('focus click', function () {
+            $phone = $(this);
+
+
+        })
+
+        .blur(function () {
+            $phone = $(this);
+
+
+        });
+
+        $(".btnSaveProfile").click(function () {
+            var res = validate();
+            if (res == false) {
+                return false;
+            }
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+            $("#btnSave").click(); // Submit the form
+
+        });
+
+        function ValidateEmail(email) {
+            var expr = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,6})?$/
+            return expr.test(email);
+        };
+
+        function is_valid_url(url) {
+            return /^(http(s)?:\/\/)?(www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(url);
+        }
+
+
+        function validate() {
+            var isValid = true;
+            if ($('#txtVendorName').val().trim() == "") {
+                $('#txtVendorName').css('border', '1px solid #EB5757')
+                isValid = false;
+            }
+            else {
+                $('#txtVendorName').css('border', '1px solid #ced4da')
+            }
+
+         
+
+
+            if ($('#txtEmail').val() != "") {
+
+                if (!ValidateEmail($("#txtEmail").val())) {
+                    $('#txtEmail').css('border', '1px solid #EB5757')
+                    isValid = false;
+                }
+                else {
+                    $('#txtEmail').css('border', '1px solid #ced4da')
+                }
+
+
+            } else {
+                $('#txtEmail').css('border', '1px solid #ced4da')
+            }
+       
+
+
+
+
+            if ($('#txtPhone').val() != "") {
+                if ($('#txtPhone').val().length < 12) {
+                    $('#txtPhone').css('border', '1px solid #EB5757')
+                    isValid = false;
+                }
+                else {
+                    $('#txtPhone').css('border', '1px solid #ced4da')
+                }
+
+
+            }
+            else {
+                $('#txtPhone').css('border', '1px solid #ced4da')
+            }
+
+
+
+            if ($('#VendorType').val() == "") {
+
+                $('#VendorType').css('border', '1px solid #EB5757')
+                isValid = false;
+
+
+
+            }
+            else {
+                $('#VendorType').css('border', '1px solid #ced4da')
+            }
+
+
+            
+            if ($('#txtWebsitelink').val() != "") {
+
+                if (!is_valid_url($("#txtWebsitelink").val())) {
+                    $('#txtWebsitelink').css('border', '1px solid #EB5757')
+                    isValid = false;
+                }
+                else {
+
+
+                    $('#txtWebsitelink').css('border', '1px solid #ced4da')
+                }
+
+
+            }
+            else {
+                $('#txtWebsitelink').css('border', '1px solid #ced4da')
+            }
+      
+
+            return isValid;
+        }
+
+    });
+
+
+    function loadContacts() {
+        var ID = $('#ContactVendor_Id').val();
+        $.ajax({
+            url: "@Url.Action("VendorContacts", "VendorV2", new {area="Admin" })",
+            data: {
+                VendorId: ID,
+            },
+            type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+
+            var html = '';
+            if (Object.keys(result).length > 0) {
+                html += '<div class="tableHeadRow">'
+                html += '<div class="tableCell">Name</div>'
+                html += '<div class="tableCell">Title</div>'
+                html += '<div class="tableCell">Phone</div>'
+                html += '<div class="tableCell">Action</div>'
+                html += '</div>'
+                             
+                 $.each(result, function (key, item) {
+                     html += '<div class="tableRow">'
+                     html += '<div class="tableCell"><a href="#!" data-Id="' + item.VendorContactId + '" onclick="return getContactByID(' + item.VendorContactId + ')"  >' + item.ContactName + '</a></div>'
+                     html += '<div class="tableCell">' + item.ContactTitle + '</div>'
+                     html += '<div class="tableCell">'+ item.ContactPhone + '</div>'
+                     html += '<div class="tableCell"><a href="#!" id="aDelete" data-Id="' + item.VendorContactId + '"  onclick="DeleteContact(' + item.VendorContactId + ')"   class="delete-link"><i class="material-icons">delete_forever</i></a></div>'
+                     html += '</div>'
+
+                });
+                         
+            }
+            else{
+
+                html += '<div class="tableRow">'
+                html += '<p style="font-size:14px;text-align:center">No record found.</p>'
+                html += '</div>'
+            }
+            $('.Cbody').html("");
+            $('.Cbody').html(html);
+            //$('.modal-backdrop').remove();
+        },
+        error: function (errormessage) {
+            alert('Sorry, Something went wrong. Please try again.');
+        }
+    });
+    }
+
+    $('#btnAddC').click(function () {
+        $('#VendorContactId').val("");
+        $('#ContactName').val("");
+        $('#ContactPhone').val("");
+        $('#ContactTitle').val("");
+        $('#btnUpdateResource').hide();
+        $('#btnAddResource').show();
+    });
+
+
+    //Add Data Function
+    function AddContact() {
+        var res = validate();
+        if (res == false) {
+            return false;
+        }
+     
+
+        var form = $('#FormUpload')[0];
+        var dataString = new FormData(form);
+
+   
+        $.ajax({
+            url: "/Admin/VendorV2/AddContact",
+            data: dataString,
+            type: "POST",
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            success: function (result) {
+                //    alert(result) remove alert
+                if (result == "0") {
+                    loadContacts();
+                    $('#VendorContactId').val("");
+                    $('#ContactName').val("");
+                    $('#ContactPhone').val("");
+                    $('#ContactTitle').val("");
+                    $('#btnUpdateResource').hide();
+                    $('#btnAddResource').show();
+                    $('#addVendorContactModal').modal('hide');
+                    $('#lblError').css('display', 'none')
+                }
+                else {
+
+                    $('#lblError').css('display', 'block')
+                    $('#lblError').text(result)
+                }
+
+
+            },
+            error: function (errormessage) {
+                $('#lblError').css('display', 'block');
+                $('#lblError').text('Sorry, Something went wrong. Please try again.');
+                //alert(errormessage.responseText);
+            }
+        });
+    }
+
+    function getContactByID(Id) {
+        $('#VendorContactId').val("");
+        $('#ContactName').val("");
+        $('#ContactPhone').val("");
+        $('#ContactTitle').val("");
+        $('#lblError').css('display','none')
+     
+       
+        $.ajax({
+            url: "@Url.Action("getContactByID", "VendorV2",new {area="Admin" })",
+            data: {
+                VendorContactId: Id,
+            },
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+       
+            $('#VendorContactId').val(result.VendorContactId);
+            $('#ContactName').val(result.ContactName);
+            $('#ContactPhone').val(result.ContactPhone);
+            $('#ContactTitle').val(result.ContactTitle);
+
+            $('#addVendorContactModal').modal('show');
+            $('#btnUpdateResource').show();
+            $('#btnAddResource').hide();
+        },
+        error: function (errormessage) {
+            $('#lblError').css('display','block');
+            $('#lblError').text('Sorry, Something went wrong. Please try again.');
+        }
+    });
+    return false;
+    }
+
+    //function for updating document
+    function UpdateContact() {
+        var res = validate();
+        if (res == false) {
+            return false;
+        }
+
+        var form = $('#FormUpload')[0];
+        var dataString = new FormData(form);
+
+        $.ajax({
+            url: "@Url.Action("UpdateContact", "VendorV2", new { area = "Admin" })",
+            data:dataString,
+        type: "POST",
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: "json",
+        success: function (result) {
+            if(result=="0"){
+                loadContacts();
+                $('#addVendorContactModal').modal('hide');
+                $('#VendorContactId').val("");
+                $('#ContactName').val("");
+                $('#ContactPhone').val("");
+                $('#ContactTitle').val("");
+                $('#btnUpdateResource').hide();
+                $('#btnAddResource').show();
+         
+                $('#lblError').css('display','none')
+            }
+            else{
+
+                $('#lblError').css('display','block')
+                $('#lblError').text(result)
+            }
+        },
+        error: function (errormessage) {
+            $('#lblError').css('display','block');
+            $('#lblError').text('Sorry, Something went wrong. Please try again.');
+        }
+    });
+    }
+
+    //function for deleting employee's record
+    function DeleteContact(Id) {
+        var ans = confirm("Are you sure you want to delete this Record?");
+        if (ans) {
+       
+            $.ajax({
+
+                url: "/Admin/VendorV2/DeleteContact/" + Id,
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+
+                    loadContacts();
+                },
+                error: function (errormessage) {
+                    alert('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+    }
+
+
+    function validate() {
+        var isValid = true;
+        if ($('#ContactName').val().trim() == "") {
+            $('#ContactName').css('border', '1px solid #EB5757')
+            isValid = false;
+        }
+        else {
+            $('#ContactName').css('border', '1px solid #ced4da')
+        }
+
+        return isValid;
+    }
+
+
+    $('#ContactPhone').keydown(function (e) {
+        var key = e.which || e.charCode || e.keyCode || 0;
+        $phone = $(this);
+
+        // Don't let them remove the starting '('
+
+
+        // Auto-format- do not expose the mask as the user begins to type
+        if (key !== 8 && key !== 9) {
+            if ($phone.val().length === 3) {
+                $phone.val($phone.val() + '.');
+            }
+            if ($phone.val().length === 7) {
+                $phone.val($phone.val() + '.');
+            }
+
+        }
+
+        // Allow numeric (and tab, backspace, delete) keys only
+        return (key == 8 ||
+                key == 9 ||
+                key == 46 ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+    })
+
+.bind('focus click', function () {
+    $phone = $(this);
+
+
+})
+
+.blur(function () {
+    $phone = $(this);
+
+
+});
+</script>

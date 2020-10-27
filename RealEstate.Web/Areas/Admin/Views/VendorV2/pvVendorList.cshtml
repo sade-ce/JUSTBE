@@ -1,0 +1,109 @@
+﻿@model RealEstate.Entities.ViewModels.VendorViewModel
+
+
+<div class="col-sm-12 clients-list-section" id="DataGrid">
+    <div class="clients-list-inner">
+        <h3>All Vendors</h3>
+        @if (Model.VendorList.Count() > 0)
+        {
+            <div class="table-wrapper">
+                <div class="listing-table custom-table">
+                    <div class="tableHeadRow">
+                        @*<div class="tableCell vendorImage"></div>*@
+                        <div class="tableCell clientDetails"><a href="@Url.Action("List","VendorV2",new {area="Admin", sortOrder = Model.VendorSortingInfo.TitleSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.VendorFilterInfo.SearchFilter})" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Vendor</a></div>
+                        @*<div class="tableCell clientPhnNumber"><a href="@Url.Action("List","UserAgentNew",new { sortOrder =  Model.ClientSortingInfo.PhoneSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.ClientFilterInfo.SearchFilter,year=Model.ClientFilterInfo.YearFilter, type = Model.ClientFilterInfo.TypeFilter})" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Phone Number</a></div>*@
+                        <div class="tableCell clientTier"><a href="@Url.Action("List","VendorV2",new {area="Admin",  sortOrder =  Model.VendorSortingInfo.VendorTypeSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.VendorFilterInfo.SearchFilter })" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Vendor Type</a></div>
+
+                         <div class="tableCell clientTier"><a href="@Url.Action("List","VendorV2",new { area="Admin", sortOrder =  Model.VendorSortingInfo.CreatedOnSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.VendorFilterInfo.SearchFilter })" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" /> Created On</a></div>
+                       
+                        <div class="tableCell dealAddress"><a href="@Url.Action("List","VendorV2",new { area="Admin",  sortOrder =  Model.VendorSortingInfo.CreatedBySort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.VendorFilterInfo.SearchFilter})" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />  Created By</a></div>
+
+                        @*<div class="tableCell dealStage"><a href="@Url.Action("List","VendorV2",new { area="Coordinator", sortOrder =  Model.VendorSortingInfo.UserTypeSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.VendorFilterInfo.SearchFilter})" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />Role</a></div>*@
+                        <div class="tableCell dealYear"><a href="@Url.Action("List","VendorV2",new { area="Admin",  sortOrder =  Model.VendorSortingInfo.IsRecommendedSort, PageNo = Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage, searchterm=Model.VendorFilterInfo.SearchFilter})" class="sorting" data-kw-target="#DataGrid"><img src="~/img/AdminImages/sort-icon.svg" />    Is Recommended</a></div>
+ 
+
+                        <div class="tableCell clientAction">Action</div>
+                    </div>
+                    @foreach (var item in Model.VendorList)
+                    {
+                        <div class="tableRow">
+                            @*<div class="tableCell clientImage">
+                                <span>
+                                    @if (item.Photos == null || item.Photos == "")
+                                    {
+                                        <img src="https://justbere-d4d9.kxcdn.com/img/NoImage.png" class="img-fluid" />                            }
+                                    else
+                                    {
+                                        <img src="@item.Photos" class="img-fluid" />
+                                    }
+                                </span>
+                            </div>*@
+                            <div class="tableCell clientDetails">
+                               
+                                    <a target="_blank" href="@Url.Action("Edit","VendorV2", new {  VendorId = item.VendorId,VendorContactId=item.VendorContactId })">@Html.DisplayFor(modelItem => item.Title) </a>
+
+                             
+                              </div>
+                            @*<div class="tableCell clientPhnNumber">@Html.DisplayFor(modelItem => item.Phone)</div>*@
+                            <div class="tableCell clientType">@item.VendorType</div>
+                            <div class="tableCell clientType">@item.CreatedOn.ToString("dd MMM yyyy hh:mm tt")</div>
+                            <div class="tableCell dealAddress">@item.CreatedBy</div>
+
+                            @*<div class="tableCell dealStage">@item.UserType</div>*@
+                            <div class="tableCell dealYear" data-kw-target="#DataGrid" data-kw-ajax="true" data-kw-actionlink="@Url.Action("ChangeStatus","VendorV2" ,new { VendorId = item.VendorId, PageNo = @Model.PagingInfo.CurrentPage, PageSize = Model.PagingInfo.ItemsPerPage,ListCount=@Model.VendorList.Count(), sortOrder = Model.VendorSortingInfo.CurrentSort, searchterm = Model.VendorFilterInfo.SearchFilter,  area = "admin" })">
+                               
+
+                                    <a href="#!" data-toggle="tooltip" class="changeStatus" data-placement="bottom" title="Status">
+                                        @if (item.IsRecommended == false)
+                                        {
+                                            <img src="~/img/crosss.png" class="status-img" />
+                                        }
+                                        else
+                                        {
+                                            <img src="~/img/available.png" class="status-img" />
+                                        }
+                                    </a>
+
+                                </div>
+
+                                <div class="tableCell clientAction">
+                                    <form method="post" action="@Url.Action("delete","VendorV2",new { area = "admin" })" data-kw-ajax="true" data-kw-target="#DataGrid">
+                                        @Html.AntiForgeryToken()
+                                        <a class="actioDelete delete" href="@Url.Action("delete", "VendorV2", new { VendorId = item.VendorId,VendorContactId=item.VendorContactId, PgNo = @Model.PagingInfo.CurrentPage, PgSize = @Model.PagingInfo.ItemsPerPage, ListCount = @Model.VendorList.Count(),area = "admin"  })" data-toggle="tooltip" data-placement="bottom" title="Delete Vendor">
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </form>
+                                </div>
+                            </div>
+                    }
+                </div>
+            </div>
+            <div class="pagination-row ns-grid-pager" data-kw-target="#DataGrid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <div class="rowsPerPage">
+                            @Model.PagingInfo.TotalItems &nbsp;Record(s)
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <div class="pageNavigation ns-pagination" data-kw-target="#DataGrid" data-kw-actionlink="@Url.Action("list", "VendorV2", new { area = "Admin"})">
+                            @Html.PageLinksNew(Model.PagingInfo, x => Url.Action("list", "VendorV2", new { area = "Admin", PageNo = x, PageSize = Model.PagingInfo.ItemsPerPage, sortOrder = Model.VendorSortingInfo.CurrentSort, searchterm = Model.VendorFilterInfo.SearchFilter }))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <h3>No record found...</h3>
+        }
+
+
+    </div>
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+

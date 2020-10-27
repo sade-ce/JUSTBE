@@ -1,0 +1,168 @@
+﻿@model RealEstate.Entities.ViewModels.MstCalenderManageModel
+
+@{
+    ViewBag.Title = "CreateEvent";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+
+<link rel="stylesheet" href="https://www.jqwidgets.com/jquery-widgets-documentation/jqwidgets/styles/jqx.base.css" type="text/css" />
+<link href="https://justbere-d4d9.kxcdn.com/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<link href="https://justbere-d4d9.kxcdn.com/Content/Plugins/ColorPicker/bootstrap-colorpicker.min.css" rel="stylesheet" />
+
+
+<section class="content-header">
+    <h1>
+        Calendar
+        <small>Create Events</small>
+    </h1>
+</section>
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <div class="box-body">
+                <div class="col-md-12">
+                    @using (Ajax.BeginForm("CreateEvent", "Calendar", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "myform" }))
+                    {
+                        @Html.HiddenFor(model => model.utblMstAppointment.Email)
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true)
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.utblMstAppointment.Description, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.utblMstAppointment.Description, new { @class = "form-control", id = "Description" })
+                                    @Html.ValidationMessageFor(model => model.utblMstAppointment.Description)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.utblMstAppointment.StartDate, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-6">
+
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        @Html.TextBoxFor(model => model.utblMstAppointment.StartDate, new { @class = "form-control" })
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.utblMstAppointment.StartDate)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.utblMstAppointment.EndDate, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-6">
+
+                                    <div class='input-group date' id='datetimepicker2'>
+                                        @Html.TextBoxFor(model => model.utblMstAppointment.EndDate, new { @class = "form-control" })
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.utblMstAppointment.EndDate)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.utblMstAppointment.color, new { @class = "control-label col-md-3 pull-left" })
+                                <div class="col-md-6">
+                                    <div id="cp2" class="input-group colorpicker-component">
+                                        @Html.TextBoxFor(model => model.utblMstAppointment.color, new { @class = "form-control" })
+
+                                        <span class="input-group-addon">
+                                            <select id="colorselector">
+                                                <option value="106" data-color="#A0522D">sienna</option>
+                                                <option value="47" data-color="#CD5C5C" selected="selected">indianred</option>
+                                                <option value="87" data-color="#FF4500">orangered</option>
+                                                <option value="15" data-color="#DC143C">crimson</option>
+                                                <option value="24" data-color="#FF8C00">darkorange</option>
+                                                <option value="78" data-color="#C71585">mediumvioletred</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.utblMstAppointment.color)
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="well well-sm col-md-12 col-lg-12 text-right">
+                            <div class="form-horizontal">
+                                @Html.ActionLink("Back to List", "List", "Client", null, new { @class = "btn btn-default pull-left" })
+                                <input type="submit" value="Save" id="save" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div>
+                    @Html.Partial("pvEventList", Model)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="https://justbere-d4d9.kxcdn.com/Scripts/moment.min.js"></script>
+    <script src="https://justbere-d4d9.kxcdn.com/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="http://www.jqwidgets.com/jquery-widgets-documentation/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="http://www.jqwidgets.com/jquery-widgets-documentation/jqwidgets/jqxcolorpicker.js"></script>
+    <script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ColorPicker/bootstrap-colorpicker.js"></script>
+  
+    <link href="~/Scripts/bootstrap-colorselector.css" rel="stylesheet" />
+
+<script src="~/Scripts/bootstrap-colorselector.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () {
+                //$('#cp2').colorpicker(
+                //    {
+                //        color: '#AA3399'
+
+                //    });
+            });
+        });
+    </script>
+<script>
+    $('#colorselector').colorselector({
+          callback: function (value, color, title) {
+             // $("#colorValue").val(value);
+              $("#utblMstAppointment_color").val(color);
+             // $("#colorTitle").val(title);
+          }
+    });
+
+
+</script>
+    <script type="text/javascript">
+        $(function () {
+            $("#datetimepicker1").datetimepicker({
+                minDate: new Date("10/10/2016"),
+
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#datetimepicker2").datetimepicker({
+                minDate: new Date(),
+                useCurrent: false
+            });
+        });
+    </script>
+    <script>
+        $("#datetimepicker1").on("dp.change", function (e) {
+            $('#datetimepicker2').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker2").on("dp.change", function (e) {
+            $('#datetimepicker1').data("DateTimePicker").maxDate(e.date);
+        });
+    </script>
+    <script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+    </script>
+}

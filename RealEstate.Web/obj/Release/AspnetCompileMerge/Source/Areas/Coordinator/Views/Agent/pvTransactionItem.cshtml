@@ -1,0 +1,38 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+<div class="transaction-item pd-y-10 pd-x-20 d-block">
+    <div class="transaction-title-detail mg-b-10 align-center">
+        <span class="t_t_type pull-left tx-size-13 jb-lighttext">@Html.DisplayFor(modelItem => Model.TransactionDetails.ClientType)</span>
+        <span class="t_t_year pull-right tx-size-13 jb-lighttext">Year: @Html.DisplayFor(modelItem => Model.TransactionDetails.Year)</span>
+    </div>
+    <div class="transaction-detail tx-size-15 mg-b-10">
+        <span id="t_t_id" class="t_t_id jb-inverse">
+            @if (Model.TransactionDetails.ClientType == "Buyer")
+            {
+                <a href="#" data-async="" data-type="buyer" action-home="" action="@Url.Action(" managedeal","agent", new {ClientID=Model.TransactionDetails.ClientID, TransactionID=Model.TransactionDetails.TransactionID, AgentID= Model.TransactionDetails.AgentID})" action-upload="@Url.Action(" uploaddealdocumentpv","agent", new {Email= Model.TransactionDetails.Email,ClientID = Model.TransactionDetails.ClientID, TransactionID= Model.TransactionDetails.TransactionID, AgentID= Model.TransactionDetails.AgentID})" action-gallery="@Url.Action(" mediagallery","agent", new {Email= Model.TransactionDetails.Email,ClientID = Model.TransactionDetails.ClientID, TransactionID= Model.TransactionDetails.TransactionID, AgentID= Model.TransactionDetails.AgentID})" class="t_t_id jb-inverse">
+                    Transaction ID:  #@Html.DisplayFor(modelItem => Model.TransactionDetails.TransactionID)
+                    @if (Model.TransactionDetails.Status == "Active")
+                {
+                        <img src="~/img/new.png" />
+                    }
+                </a>
+            }
+            else if (Model.TransactionDetails.ClientType == "Seller")
+            {
+                <a href="#" data-async="" data-type="seller" action-home="@Url.Action(" sellerhomepv","manageseller", new {Email=Model.TransactionDetails.Email,ClientID =Model.TransactionDetails.ClientID, TransactionID= Model.TransactionDetails.TransactionID, AgentID= Model.TransactionDetails.AgentID})" action="@Url.Action(" managedeal","manageseller", new {ClientID= Model.TransactionDetails.ClientID, TransactionID= Model.TransactionDetails.TransactionID, AgentID= Model.TransactionDetails.AgentID})" action-upload="@Url.Action(" uploaddealdocumentpv","manageseller", new {Email= Model.TransactionDetails.Email,ClientID = Model.TransactionDetails.ClientID, TransactionID= Model.TransactionDetails.TransactionID, AgentID= Model.TransactionDetails.AgentID})" action-gallery="@Url.Action(" mediagallery","agent", new {Email= Model.TransactionDetails.Email,ClientID = Model.TransactionDetails.ClientID, TransactionID= Model.TransactionDetails.TransactionID, AgentID= Model.TransactionDetails.AgentID})" class="t_t_id jb-inverse">
+                    Transaction ID:  #@Html.DisplayFor(modelItem => Model.TransactionDetails.TransactionID)
+                    @if (Model.TransactionDetails.Status == "Active")
+                {
+                        <img src="~/img/new.png" />
+                    }
+                </a>
+            }
+        </span>
+    </div>
+    <div class="transaction-Address tx-size-12 mg-b-10">
+        <span>Address:<span class="jb-lighttext"> @Html.DisplayFor(modelItem => Model.TransactionDetails.Address)</span></span>
+        <div>
+            <span class="tx-size-13 pull-right jb-lighttext">Status: @Html.DisplayFor(modelItem => Model.TransactionDetails.Status)</span>
+        </div>
+    </div>
+</div>
+<div id="t_t_trans_item"></div>

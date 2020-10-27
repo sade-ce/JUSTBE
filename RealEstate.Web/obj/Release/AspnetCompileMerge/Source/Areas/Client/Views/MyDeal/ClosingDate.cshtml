@@ -1,0 +1,214 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientLiveDealViewModel
+
+@{
+    ViewBag.Title = "Just BE |ClosingDate";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+<link href="~/Content/customcss/calstyle.css" rel="stylesheet" />
+
+<div class="container-fluid">
+    <div class="dashboard-header">
+        <h1>Settlement Date</h1>
+    </div><!-- /.dashboard-header -->
+    <div class="page-header">
+        <h1>
+            My Deal
+        </h1>
+        <p>Track your progress and learn about the upcoming steps related to your deal. If you’d like to be notified when a step has been completed, simply update your email preferences by clicking here</p>
+    </div><!-- /.dashboard-header -->
+
+
+
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="dashboard-box">
+                <h2 class="dashboard-box-title">Settlement Date</h2>
+                <div class="calendar ">
+                    <div class="week">
+                        @Model.ClosingDate.ClosingDate.ToString("dddd")
+                    </div>
+                    <div class="date">
+                        @Model.ClosingDate.ClosingDate.ToString("dd")
+                    </div>
+                    <div class="week" style="margin-top: -38px;margin-left: 28px">
+                        @Model.ClosingDate.ClosingDate.ToString("MMMM")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="dashboard-box">
+                <h2 class="dashboard-box-title">Countdown</h2>
+
+                <div id="clockdiv">
+                    <div>
+                        <span class="days"></span>
+                        <div class="smalltext">Days</div>
+                    </div>
+                    <div>
+                        <span class="hours"></span>
+                        <div class="smalltext">Hours</div>
+                    </div>
+                    <div>
+                        <span class="minutes"></span>
+                        <div class="smalltext">Minutes</div>
+                    </div>
+                    <div>
+                        <span class="seconds"></span>
+                        <div class="smalltext">Seconds</div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!-- /.col-* -->
+    </div>
+
+
+</div>
+@section Scripts{
+<script>
+        function getTimeRemaining(endtime) {
+
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            return {
+                'total': t,
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+        }
+        function initializeClock(id, endtime) {
+            var clock = document.getElementById(id);
+            var daysSpan = clock.querySelector('.days');
+            var hoursSpan = clock.querySelector('.hours');
+            var minutesSpan = clock.querySelector('.minutes');
+            var secondsSpan = clock.querySelector('.seconds');
+            function updateClock() {
+                var t = getTimeRemaining(endtime);
+                var day = @Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Days;
+                daysSpan.innerHTML = day;
+                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                }
+            }
+
+            updateClock();
+            var timeinterval = setInterval(updateClock, 1000);
+        }
+        @*var day =@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Days;
+        var h =@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Hours.ToString();
+        var m =@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Minutes.ToString();
+        var s =@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(@DateTime.Now).Seconds.ToString();*@
+        var deadline = new Date(Date.parse(new Date(@Convert.ToDateTime(@Model.ClosingDate.ClosingDate).Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds)));
+
+        initializeClock('clockdiv', deadline);
+</script>
+
+}
+
+<style>
+    #clockdiv {
+        font-family: sans-serif;
+        color: #feffff;
+        background-color: #f8f9f9;
+        display: inline-block;
+        font-weight: 100;
+        text-align: center;
+        font-size: 36px;
+        padding: 24px;
+        margin-left: -28px;
+        margin-top: -24px;
+        margin-bottom: 4px;
+        height: 265px;
+        width: 444px;
+    }
+
+        #clockdiv > div {
+            padding: 10px;
+            border-radius: 3px;
+            background: #0c0c0c;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        #clockdiv div > span {
+            padding: 15px;
+            border-radius: 3px;
+            background: white;
+            color: red;
+            display: inline-block;
+            margin-top: 7px;
+        }
+
+    .smalltext {
+        padding-top: 5px;
+        font-size: 16px;
+    }
+</style>
+<style>
+    #theday {
+        -moz-border-radius: 5px;
+        background-color: #36387B;
+        color: #FFFFFF;
+        float: left;
+        font-size: 90px;
+        height: 173px;
+        line-height: 50px;
+        margin-top: -26px;
+        padding: 60px;
+        text-shadow: 0 0 5px #DDDDDD;
+        width: 449px;
+        margin-left: -31px;
+        margin-bottom: -5px;
+        text-align: center;
+    }
+
+
+
+        #theday span {
+            display: block;
+            font-size: 16px;
+            text-align: center;
+        }
+</style>
+
+<style>
+    .calendar {
+        background: #ffffff;
+        border: 2px solid #000;
+    }
+
+    #clockdiv > div {
+        background: #5ab6bd;
+    }
+
+    #clockdiv div > span {
+        color: #333333;
+    }
+
+    #clockdiv {
+        background-color: #ffffff;
+    }
+
+    .plan-features {
+        min-height: 210px;
+    }
+
+
+    #breadcrumbs ul li a {
+        color: #323332;
+    }
+</style>

@@ -1,0 +1,1396 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+
+
+
+      
+         
+
+       <style>
+           .checkRatified[disabled]
+{
+  pointer-events: none;
+  opacity: 0.7;
+}
+       </style>       
+
+                    <div id="dealTrackerAccordion">
+                               @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(m => m.UserInfo.Email)
+
+                @Html.HiddenFor(model => model.ClosingConfig.StatusID, new { Value = Model.ClosingConfig.StatusID })
+                @Html.HiddenFor(model => model.DealTracker.TransactionID, new { Value = Model.TrackDealMasterView.TransactionID })
+                @Html.HiddenFor(model => model.DealTracker.ClientID, new { Value = Model.TrackDealMasterView.ClientID })
+                @Html.HiddenFor(model => model.TrackDealMasterView.AgentID)
+                @Html.HiddenFor(model => model.UserInfo.Email, new { Value = Model.DealTracker.Email })
+                        <div class="card">
+                            <div class="card-header" id="leadHeading">
+                                <h5 class="mb-0">
+
+                                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#leadCollapse" aria-expanded="true" aria-controls="leadCollapse">
+                                        Lead
+
+
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="leadCollapse" class="collapse show" aria-labelledby="leadHeading" data-parent="#dealTrackerAccordion">
+                                <div class="card-body">
+                                    <div class="table-wrapper">
+                                        <div class="custom-table">
+                                            <div class="tableHeadRow">
+                                                <div class="tableCell stepsCell">Steps</div>
+                                                <div class="tableCell applicableCell">Applicable</div>
+                                                <div class="tableCell completedCell">Completed</div>
+                                                <div class="tableCell dateCell">Date</div>
+                                                <div class="tableCell additionInfoCell">Additional Information</div>
+                                                <div class="tableCell notesCell">Notes</div>
+                                            </div>
+                                            @{
+                                                var Welcome = Model.DealTrackerList.Where(x => x.StatusID == 14).FirstOrDefault();
+                                                @Html.Hidden("[0].StatusID", Welcome.StatusID)
+                                                @Html.Hidden("[0].IsApplicable", false)
+                                                @Html.Hidden("[0].IsContingencies", Welcome.IsContingencies)
+                                                @Html.Hidden("[0].TrackingID", Welcome.TrackingID)
+                                        
+                                                <div class="tableRow">
+                                                    <div class="tableCell stepsCell">Welcome</div>
+                                                    <div class="tableCell applicableCell">
+                                                        <div class="radio-switch-container">
+                                                            <div class="radio-switch">
+                                                                @Html.RadioButton("[0].IsShowClient", false, new { id = "off1" })
+                                                                @if (Welcome.IsShowClient == true)
+                                                                {
+                                                                    @Html.RadioButton("[0].IsShowClient", Welcome.IsShowClient, new { id = "on1", @class = "checkIsShowClient", @checked = "checked" })
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.RadioButton("[0].IsShowClient", Welcome.IsShowClient, new { id = "on1", @class = "checkIsShowClient" })
+
+                                                                }
+                                                                <label for="off1" class="switch-label switch-label-off">O</label>
+                                                                <div class="radio-switch-toggle"></div>
+                                                                <div class="toggle-switch-pill"></div>
+                                                                <label for="on1" class="switch-label switch-label-on">I</label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell completedCell">
+                                                        <div class="custom-control custom-checkbox applicable-checkbox IsCompleteCheck">
+
+                                                            
+                                                                @Html.CheckBox("[0].IsCompleted", Welcome.IsCompleted, new { @class = "custom-control-input chkStep", @id = "completed0" })
+
+
+                            
+                                                            <label class="custom-control-label" for="completed0"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell dateCell">
+
+                                                        @Html.TextBox("[0].UpdatedOn", Welcome.UpdatedOn, "{0:MM/dd/yyyy}", new { @class = "txtDate form-control" })
+                                                    </div>
+                                                    <div class="tableCell additionInfoCell"></div>
+                                                    <div class="tableCell notesCell">
+                                                        @*<label for="uploadNotes" class="uploadNotesButton"><img src="/Content/NewVersion/Admin/img/notes-icon.svg" /></label>
+            <input type="file" id="uploadNotes" name="uploadNotes" />*@
+                                                        @Html.Hidden("[0].Notes", Welcome.Notes, new { @id = "Notes14",@class="StepNotes" })
+                                               
+                                                        <div class="AddNewNote" style="display:none">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="GetNotes(@Welcome.StatusID)"  />
+                                                        </div> 
+                                                        <div class="EditNote" style="display:none">
+                                                        <div class="buttonOuter">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="ViewNotes(@Welcome.StatusID)" />
+                                                            <a href="#!" onclick="return GetNotes(@Welcome.StatusID)"><i class="material-icons">edit</i></a>
+                                                            <a href="#!" onclick="DeleteNotes(@Welcome.StatusID)" class="actionDelete"><i class="material-icons">delete</i></a>
+                                                            </div>
+                                                        </div> 
+                                                          </div>
+                                                        </div>
+                                                        }
+                                                    </div>
+                                    </div>
+                                    <div class="table-wrapper underContractchecklistItems">
+                                        <div class="custom-table">
+                                            <h3 class="heading">Check List Items</h3>
+                                            @Html.HiddenFor(m => m.DealTracker.CheckListItems, new { @id = "txtItems" })
+                                            @*<div class="tableHeadRow">
+                    <div class="tableCell">checkbox</div>
+                </div>*@
+                                            @if (Model.CheckListItems != null)
+                                            {
+                                                foreach (var c in Model.CheckListItems.Where(x=>x.Stage=="Lead"))
+                                                {
+                                                    <div class="tableRow">
+                                                        <div class="tableCell">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input chkchecklist" id="chkItem_@c.Id" value="@c.Id">
+                                                                <label class="custom-control-label" for="chkItem_@c.Id">
+                                                                    @c.Name
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <div class="tableRow">
+                                                    <div class="tableCell">
+                                                        <div class="custom-control">
+                                                            <label class="custom-control-label">No record found</label> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="relationshipHeading">
+                                <h5 class="mb-0">
+                                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#relationshipCollapse" aria-expanded="false" aria-controls="relationshipCollapse">
+                                        Relationship
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="relationshipCollapse" class="collapse" aria-labelledby="relationshipHeading" data-parent="#dealTrackerAccordion">
+                                <div class="card-body">
+                                    <div class="table-wrapper">
+                                        <div class="custom-table">
+                                            <div class="tableHeadRow">
+                                                <div class="tableCell stepsCell">Steps</div>
+                                                <div class="tableCell applicableCell">Applicable</div>
+                                                <div class="tableCell completedCell">Completed</div>
+                                                <div class="tableCell dateCell">Date</div>
+                                                <div class="tableCell additionInfoCell">Additional Information</div>
+                                                <div class="tableCell notesCell">Notes</div>
+                                            </div>
+                                            @{
+                                                var LenderCall = Model.DealTrackerList.Where(x => x.StatusID == 6).FirstOrDefault();
+                                                @Html.Hidden("[1].StatusID", LenderCall.StatusID)
+                                                @Html.Hidden("[1].IsApplicable", false)
+                                                @Html.Hidden("[1].IsContingencies", LenderCall.IsContingencies)
+                                                @Html.Hidden("[1].TrackingID", LenderCall.TrackingID)
+                                                <div class="tableRow">
+
+                                                    <div class="tableCell stepsCell">Lender Call / Questionnaire</div>
+                                                    <div class="tableCell applicableCell">
+                                                        <div class="radio-switch-container">
+                                                            <div class="radio-switch">
+
+                                                                @Html.RadioButton("[1].IsShowClient", false, new { id = "off2" })
+                                                                @if (LenderCall.IsShowClient == true)
+                                                                {
+                                                            @Html.RadioButton("[1].IsShowClient", LenderCall.IsShowClient, new { id = "on2", @class = "checkIsShowClient", @checked = "checked" })
+
+                                                                }
+                                                                else
+                                                                {
+                                                            @Html.RadioButton("[1].IsShowClient", LenderCall.IsShowClient, new { id = "on2", @class = "checkIsShowClient" })
+
+                                                                }
+
+                                                                <label for="off2" class="switch-label switch-label-off">O</label>
+                                                                <div class="radio-switch-toggle"></div>
+                                                                <div class="toggle-switch-pill"></div>
+                                                                <label for="on2" class="switch-label switch-label-on">I</label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell completedCell">
+                                                        <div class="custom-control custom-checkbox applicable-checkbox IsCompleteCheck">
+
+                                                           
+                                                        @Html.CheckBox("[1].IsCompleted", LenderCall.IsCompleted, new { @class = "custom-control-input chkStep", @id = "completed1" })
+
+                                                            <label class="custom-control-label" for="completed1"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell dateCell">
+
+                                                        @Html.TextBox("[1].UpdatedOn", LenderCall.UpdatedOn, "{0:MM/dd/yyyy}", new { @class = "txtDate form-control" })
+                                                    </div>
+                                                    <div class="tableCell additionInfoCell"></div>
+                                                    <div class="tableCell notesCell">
+                                                        @Html.Hidden("[1].Notes", LenderCall.Notes, new { @id = "Notes6", @class = "StepNotes" })
+
+                                                        <div class="AddNewNote" style="display:none">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="GetNotes(@LenderCall.StatusID)" />
+                                                        </div>
+                                                        <div class="EditNote" style="display:none">
+                                                         <div class="buttonOuter">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="ViewNotes(@LenderCall.StatusID)" />
+                                                            <a href="#!" onclick="return GetNotes(@LenderCall.StatusID)"><i class="material-icons">edit</i></a>
+                                                            <a href="#!" onclick="DeleteNotes(@LenderCall.StatusID)" class="actionDelete"><i class="material-icons">delete</i></a>
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            }
+
+                                            @{
+                                                var LenderPreapproval = Model.DealTrackerList.Where(x => x.StatusID == 2).FirstOrDefault();
+                                                @Html.Hidden("[2].StatusID", LenderPreapproval.StatusID)
+                                                @Html.Hidden("[2].IsApplicable", false)
+                                                @Html.Hidden("[2].IsContingencies", LenderPreapproval.IsContingencies)
+                                                @Html.Hidden("[2].TrackingID", LenderPreapproval.TrackingID)
+                                             
+                                                <div class="tableRow">
+
+                                                    <div class="tableCell stepsCell">Lender Pre-Approval Letter</div>
+                                                    <div class="tableCell applicableCell">
+                                                        <div class="radio-switch-container">
+                                                            <div class="radio-switch">
+
+                                                                @Html.RadioButton("[2].IsShowClient", false, new { id = "off3" })
+
+                                                                @if (LenderPreapproval.IsShowClient == true)
+                                                                {
+                                                                    @Html.RadioButton("[2].IsShowClient", LenderPreapproval.IsShowClient, new { id = "on3", @class = "checkIsShowClient", @checked = "checked" })
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.RadioButton("[2].IsShowClient", LenderPreapproval.IsShowClient, new { id = "on3", @class = "checkIsShowClient" })
+
+                                                                }
+                                                                <label for="off3" class="switch-label switch-label-off">O</label>
+                                                                <div class="radio-switch-toggle"></div>
+                                                                <div class="toggle-switch-pill"></div>
+                                                                <label for="on3" class="switch-label switch-label-on">I</label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell completedCell">
+                                                        <div class="custom-control custom-checkbox applicable-checkbox IsCompleteCheck">
+
+                                                                @Html.CheckBox("[2].IsCompleted", LenderPreapproval.IsCompleted, new { @class = "custom-control-input chkStep", @id = "completed2" })
+
+
+                                                            <label class="custom-control-label" for="completed2"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell dateCell">
+
+                                                        @Html.TextBox("[2].UpdatedOn", LenderPreapproval.UpdatedOn, "{0:MM/dd/yyyy}", new { @class = "txtDate form-control" })
+                                                    </div>
+                                                    <div class="tableCell additionInfoCell"></div>
+                                                    <div class="tableCell notesCell">
+                                                        @Html.Hidden("[2].Notes", LenderPreapproval.Notes, new { @id = "Notes2", @class = "StepNotes" })
+                                                        <div class="AddNewNote" style="display:none">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="GetNotes(@LenderPreapproval.StatusID)" />
+                                                        </div>
+                                                        <div class="EditNote" style="display:none">
+                                                         <div class="buttonOuter">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="ViewNotes(@LenderPreapproval.StatusID)" />
+                                                            <a href="#!" onclick="return GetNotes(@LenderPreapproval.StatusID)"><i class="material-icons">edit</i></a>
+                                                            <a href="#!" onclick="DeleteNotes(@LenderPreapproval.StatusID)" class="actionDelete"><i class="material-icons">delete</i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="table-wrapper underContractchecklistItems">
+                                        <div class="custom-table">
+                                            <h3 class="heading">Check List Items</h3>
+                                          
+                                            @*<div class="tableHeadRow">
+                    <div class="tableCell">checkbox</div>
+                </div>*@
+                                            @if (Model.CheckListItems != null)
+                                            {
+                                                foreach (var c in Model.CheckListItems.Where(x => x.Stage == "Relationship"))
+                                                {
+                                                    <div class="tableRow">
+                                                        <div class="tableCell">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input chkchecklist" id="chkItem_@c.Id" value="@c.Id">
+                                                                <label class="custom-control-label" for="chkItem_@c.Id">
+                                                                    @c.Name
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="activeHeading">
+                                <h5 class="mb-0">
+                                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#activeCollapse" aria-expanded="false" aria-controls="activeCollapse">
+                                        Active
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="activeCollapse" class="collapse" aria-labelledby="activeHeading" data-parent="#dealTrackerAccordion">
+                                <div class="card-body">
+                                    <div class="table-wrapper">
+                                        <div class="custom-table">
+                                            <div class="tableHeadRow">
+                                                <div class="tableCell stepsCell">Steps</div>
+                                                <div class="tableCell applicableCell">Applicable</div>
+                                                <div class="tableCell completedCell">Completed</div>
+                                                <div class="tableCell dateCell">Date</div>
+                                                <div class="tableCell additionInfoCell">Additional Information</div>
+                                                <div class="tableCell notesCell">Notes</div>
+                                            </div>
+                                            @{
+                                                var BuyerAgencyAgreement = Model.DealTrackerList.Where(x => x.StatusID == 15).FirstOrDefault();
+                                                @Html.Hidden("[3].StatusID", BuyerAgencyAgreement.StatusID)
+                                                @Html.Hidden("[3].IsApplicable", false)
+                                                @Html.Hidden("[3].IsContingencies", BuyerAgencyAgreement.IsContingencies)
+                                                @Html.Hidden("[3].TrackingID", BuyerAgencyAgreement.TrackingID)
+                                           
+                                                <div class="tableRow">
+
+                                                    <div class="tableCell stepsCell">Buyer-Agency Agreement</div>
+                                                    <div class="tableCell applicableCell">
+                                                        <div class="radio-switch-container">
+                                                            <div class="radio-switch">
+
+                                                                @Html.RadioButton("[3].IsShowClient", false, new { id = "off4" })
+                                                                @if (BuyerAgencyAgreement.IsShowClient == true)
+                                                                {
+                                                            @Html.RadioButton("[3].IsShowClient", BuyerAgencyAgreement.IsShowClient, new { id = "on4", @class = "checkIsShowClient", @checked = "checked" })
+
+                                                                }
+                                                                else
+                                                                {
+                                                            @Html.RadioButton("[3].IsShowClient", BuyerAgencyAgreement.IsShowClient, new { id = "on4", @class = "checkIsShowClient" })
+
+                                                                }
+
+                                                                <label for="off4" class="switch-label switch-label-off">O</label>
+                                                                <div class="radio-switch-toggle"></div>
+                                                                <div class="toggle-switch-pill"></div>
+                                                                <label for="on4" class="switch-label switch-label-on">I</label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell completedCell">
+                                                        <div class="custom-control custom-checkbox applicable-checkbox IsCompleteCheck">
+
+                                                                @Html.CheckBox("[3].IsCompleted", BuyerAgencyAgreement.IsCompleted, new { @class = "custom-control-input chkStep", @id = "completed3" })
+
+
+                                                            <label class="custom-control-label" for="completed3"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell dateCell">
+
+                                                        @Html.TextBox("[3].UpdatedOn", BuyerAgencyAgreement.UpdatedOn, "{0:MM/dd/yyyy}", new { @class = "txtDate form-control" })
+                                                    </div>
+                                                    <div class="tableCell additionInfoCell"></div>
+                                                    <div class="tableCell notesCell">
+                                                        @Html.Hidden("[3].Notes", BuyerAgencyAgreement.Notes, new { @id = "Notes15", @class = "StepNotes" })
+                                                        <div class="AddNewNote" style="display:none">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="GetNotes(@BuyerAgencyAgreement.StatusID)" />
+                                                        </div>
+                                                        <div class="EditNote" style="display:none">
+                                                         <div class="buttonOuter">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="ViewNotes(@BuyerAgencyAgreement.StatusID)" />
+                                                            <a href="#!" onclick="return GetNotes(@BuyerAgencyAgreement.StatusID)"><i class="material-icons">edit</i></a>
+                                                            <a href="#!" onclick="DeleteNotes(@BuyerAgencyAgreement.StatusID)" class="actionDelete"><i class="material-icons">delete</i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                            @{
+                                                var SearchCriteria = Model.DealTrackerList.Where(x => x.StatusID == 3).FirstOrDefault();
+                                                @Html.Hidden("[4].StatusID", SearchCriteria.StatusID)
+                                                @Html.Hidden("[4].IsApplicable", false)
+                                                @Html.Hidden("[4].IsContingencies", SearchCriteria.IsContingencies)
+                                                @Html.Hidden("[4].TrackingID", SearchCriteria.TrackingID)
+                                 
+                                                <div class="tableRow">
+
+                                                    <div class="tableCell stepsCell">Search Criteria Set</div>
+                                                    <div class="tableCell applicableCell">
+                                                        <div class="radio-switch-container">
+                                                            <div class="radio-switch">
+
+                                                                @Html.RadioButton("[4].IsShowClient", false, new { id = "off5" })
+                                                                @if (SearchCriteria.IsShowClient == true)
+                                                                {
+                                                                    @Html.RadioButton("[4].IsShowClient", SearchCriteria.IsShowClient, new { id = "on5", @class = "checkIsShowClient", @checked = "checked" })
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.RadioButton("[4].IsShowClient", SearchCriteria.IsShowClient, new { id = "on5", @class = "checkIsShowClient" })
+
+                                                                }
+
+                                                                <label for="off5" class="switch-label switch-label-off">O</label>
+                                                                <div class="radio-switch-toggle"></div>
+                                                                <div class="toggle-switch-pill"></div>
+                                                                <label for="on5" class="switch-label switch-label-on">I</label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell completedCell">
+                                                        <div class="custom-control custom-checkbox applicable-checkbox IsCompleteCheck">
+
+                                                          
+                                                                @Html.CheckBox("[4].IsCompleted", SearchCriteria.IsCompleted, new { @class = "custom-control-input chkStep", @id = "completed4" })
+
+
+                                                            <label class="custom-control-label" for="completed4"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell dateCell">
+
+                                                        @Html.TextBox("[4].UpdatedOn", SearchCriteria.UpdatedOn, "{0:MM/dd/yyyy}", new { @class = "txtDate form-control" })
+                                                    </div>
+                                                    <div class="tableCell additionInfoCell"></div>
+                                                    <div class="tableCell notesCell">
+                                                        @Html.Hidden("[4].Notes", SearchCriteria.Notes, new { @id = "Notes3", @class = "StepNotes" })
+                                                        <div class="AddNewNote" style="display:none">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="GetNotes(@SearchCriteria.StatusID)" />
+                                                        </div>
+                                                        <div class="EditNote" style="display:none">
+                                                         <div class="buttonOuter">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="ViewNotes(@SearchCriteria.StatusID)" />
+                                                            <a href="#!" onclick="return GetNotes(@SearchCriteria.StatusID)"><i class="material-icons">edit</i></a>
+                                                            <a href="#!" onclick="DeleteNotes(@SearchCriteria.StatusID)" class="actionDelete"><i class="material-icons">delete</i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+
+
+
+                                    </div>
+                                    @*<div class="table-wrapper underContractchecklistItems">
+                                        <div class="custom-table">
+                                            <h3 class="heading">Check List Items</h3>
+                      
+                                            @if (Model.CheckListItems != null)
+                                            {
+                                                foreach (var c in Model.CheckListItems.Where(x => x.Stage == "Active"))
+                                                {
+                                                    <div class="tableRow">
+                                                        <div class="tableCell">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input chkchecklist" id="chkItem_@c.Id" value="@c.Id">
+                                                                <label class="custom-control-label" for="chkItem_@c.Id">
+                                                                    @c.Name
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+
+                                         
+                                        </div>
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="underContractHeading">
+                                <h5 class="mb-0">
+                                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#underContractCollapse" aria-expanded="false" aria-controls="underContractCollapse">
+                                        Under Contract
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="underContractCollapse" class="collapse" aria-labelledby="underContractHeading" data-parent="#dealTrackerAccordion">
+                                <div class="card-body">
+                                    <div class="table-wrapper">
+                                        <div class="custom-table">
+                                            <div class="tableHeadRow">
+                                                <div class="tableCell stepsCell">Steps</div>
+                                                <div class="tableCell applicableCell">Applicable</div>
+                                                <div class="tableCell completedCell">Completed</div>
+                                                <div class="tableCell dateCell daysCell">Days</div>
+                                                <div class="tableCell dateCell">Date</div>
+                                                <div class="tableCell additionInfoCell">Additional Information</div>
+                                                <div class="tableCell notesCell">Notes</div>
+                                            </div>
+                                            @{ var RatifiedOffer = Model.DealTrackerList.Where(x => x.StatusID == 7).FirstOrDefault();
+                                                @Html.Hidden("[5].StatusID", RatifiedOffer.StatusID)
+                                                @Html.Hidden("[5].IsApplicable", false)
+                                                @Html.Hidden("[5].IsContingencies", RatifiedOffer.IsContingencies)
+                                                @Html.Hidden("[5].TrackingID", RatifiedOffer.TrackingID)
+                                               
+
+                                                <div class="tableRow">
+                                                    <div class="tableCell stepsCell">Ratified Offer</div>
+                                                    <div class="tableCell applicableCell">
+                                                        <div class="radio-switch-container">
+                                                            <div class="radio-switch">
+
+                                                                @Html.RadioButton("[5].IsShowClient", false, new { id = "off6" })
+                                                                @if (RatifiedOffer.IsShowClient == true)
+                                                                {
+                                                                    @Html.RadioButton("[5].IsShowClient", RatifiedOffer.IsShowClient, new { id = "on6", @class = "checkIsShowClient", @checked = "checked" })
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.RadioButton("[5].IsShowClient", RatifiedOffer.IsShowClient, new { id = "on6", @class = "checkIsShowClient" })
+
+                                                                }
+
+                                                                <label for="off6" class="switch-label switch-label-off">O</label>
+                                                                <div class="radio-switch-toggle"></div>
+                                                                <div class="toggle-switch-pill"></div>
+                                                                <label for="on6" class="switch-label switch-label-on">I</label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="tableCell completedCell">
+                                                        <div class="custom-control custom-checkbox applicable-checkbox IsCompleteCheck">
+
+
+                                                                @Html.CheckBox("[5].IsCompleted", RatifiedOffer.IsCompleted, new { @class = "custom-control-input chkStep chkContingency", @id = "completed5" })
+
+                                                            <label class="custom-control-label" for="completed5"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell dateCell daysCell">
+                                                    </div>
+                                                    <div class="tableCell dateCell">
+                                                        @Html.TextBox("[5].UpdatedOn", RatifiedOffer.UpdatedOn, "{0:MM/dd/yyyy}", new { @class = "form-control", @id = "txtRatifiedDate" })
+</div>
+                                               
+                                                    <div class="tableCell additionInfoCell">
+                                                        @if (@Model.MstClosingConfig.utblMstClosingDate != null)
+                                                        {
+                                                            <input type="hidden" name="ListingSHA" id="ListingSHA" value="@Model.MstClosingConfig.utblMstClosingDate.MLSID" />
+
+<a href="#" class="table_ank" id="aAddressDetails" data-toggle="modal" data-target="#addNewTransModal"><span id="spnAddress">@Model.MstClosingConfig.utblMstClosingDate.Address</span><br />
+    <span id="spnState">@(Model.MstClosingConfig.utblMstClosingDate.StateId == 1 ? "DC" : Model.MstClosingConfig.utblMstClosingDate.StateId == 2 ? "Virginia" : Model.MstClosingConfig.utblMstClosingDate.StateId == 3 ? "Maryland" : "")</span><br />
+ <span id="spnHomeType">@(Model.MstClosingConfig.utblMstClosingDate.HomeType == 1 ? "Condo" : Model.MstClosingConfig.utblMstClosingDate.HomeType == 2 ? "HOA" : Model.MstClosingConfig.utblMstClosingDate.HomeType == 3 ? "Fee Simple" :Model.MstClosingConfig.utblMstClosingDate.HomeType == 4 ? "Multi Family" : "")</span><br />
+    <span id="spnCondoType">@(Model.MstClosingConfig.utblMstClosingDate.ContingencyType == 1 ? "Re-Sale" : Model.MstClosingConfig.utblMstClosingDate.ContingencyType == 2 ? "New Construction" : "")</span><br />
+    <input type="hidden" id="hdnListingType" value="@Model.MstClosingConfig.utblMstClosingDate.ListingTypeID" />
+    <input type="hidden" id="hdnListingSHA" value="@Model.MstClosingConfig.utblMstClosingDate.MLSID"/>
+                                                          <span id="spnSettlementDate">@Convert.ToDateTime(Model.MstClosingConfig.utblMstClosingDate.ClosingDate).ToString("MM/dd/yyyy"))</span></a>
+
+                                                        }
+                                                        else
+                                                        {
+
+                                                                <a href="#" class="table_ank" style="display:none" id="aAddressDetails" data-toggle="modal" data-target="#addNewTransModal">
+                                                                    <span id="spnAddress"></span><br />
+                                                                    <span id="spnState"></span><br />
+                                                                    <span id="spnHomeType"></span><br />
+                                                                    <span id="spnCondoType"></span><br />
+                                                                    <span id="spnSettlementDate"></span>
+                                                                    <input type="hidden" id="hdnListingType" />
+                                                                    <input type="hidden" id="hdnListingSHA" />
+                                                                </a>
+
+                                                                <div class="backLink" style="display: block;">
+                                                                    <a href="#" id="backLink" data-toggle="modal" data-target="#addNewTransModal">Add Address</a>
+                                                                </div>
+
+
+                                                                <input type="hidden" name="ListingSHA" id="ListingSHA" />
+                                                        }
+
+                                                                @*<select class="form-control">
+                                                                        <option>Type of Home</option>
+                                                                        <option>Type of Home1</option>
+                                                                        <option>Type of Home2</option>
+                                                                    </select>*@
+
+
+
+
+
+                                                                @*<input type="text" class="form-control" placeholder="State" />*@
+                                                            </div>
+                                                    <div class="tableCell notesCell">
+                                                        @Html.Hidden("[5].Notes", RatifiedOffer.Notes, new { @id = "Notes7", @class = "StepNotes" })
+                                                        <div class="AddNewNote" style="display:none">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="GetNotes(@RatifiedOffer.StatusID)" />
+                                                        </div>
+                                                        <div class="EditNote" style="display:none">
+                                                         <div class="buttonOuter">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="ViewNotes(@RatifiedOffer.StatusID)" />
+                                                            <a href="#!" onclick="return GetNotes(@RatifiedOffer.StatusID)"><i class="material-icons">edit</i></a>
+                                                            <a href="#!" onclick="DeleteNotes(@RatifiedOffer.StatusID)" class="actionDelete"><i class="material-icons">delete</i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="modal fade add-vendor-modal" id="addNewTransModal" tabindex="-1" role="dialog" aria-labelledby="addNewVendorModalLabel" style="padding-right: 8px;" aria-modal="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="addNewVendorModalLabel">Ratified Offer (Settlement Date & Home Configuration)</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+
+                                                        
+                                                                @*<div class="form-group">
+
+                                                                    <div class="form-control-group">
+                                                                        <label class="text-danger" id="lblErrorTrans" style="display:none"></label>
+                                                                    </div>
+                                                                </div>*@
+                                                                <div class="form-group">
+                                                                    @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.ListingTypeID)
+                                                                    <div class="form-control-group">
+                                                                        @Html.DropDownListFor(model => model.MstClosingConfig.utblMstClosingDate.ListingTypeID, new SelectList(Model.MstClosingConfig.ListingTypeDDL, "ListingTypeID", "ListingType"), "--- Select Listing Type --- ", new { @class = "form-control drop-change" })
+                                                                        @*@Html.ValidationMessageFor(model => model.MstClosingConfig.utblMstClosingDate.ListingTypeID, "", new { @class = "text-danger" })*@
+                                                                        <label class="text-danger" id="lblListingType" style="display:none">Select listing type</label>
+                                                                      </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.MLSID)
+                                                                    <div class="form-control-group">
+@if (Model.MstClosingConfig.utblMstClosingDate != null)
+{
+                                                                        @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.MLSID, new { @class = "form-control" ,Value=@Model.MstClosingConfig.utblMstClosingDate.Address })
+}
+else
+{     @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.MLSID, new { @class = "form-control" })
+}
+      <label class="text-danger" id="lblMLSID" style="display:none">Please select address form dropdown</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.Address)
+                                                                    <div class="form-control-group">
+                                                                        @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.Address, new { @class = "form-control" })
+                                                                        <label class="text-danger" id="lblAddress" style="display:none">Please select address</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>State</label>
+                                                                    <div class="form-control-group">
+                                                                        @Html.DropDownListFor(model => model.MstClosingConfig.utblMstClosingDate.StateId, new SelectList(Model.MstClosingConfig.StateDDL, "StateID", "StateName"), "--- Select State --- ", new { @class = "form-control" })
+                                                                        <label class="text-danger" id="lblErrorState" style="display:none">Please select state</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Home Type</label>
+                                                                    <div class="form-control-group">
+                                                                        @Html.DropDownListFor(model => model.MstClosingConfig.utblMstClosingDate.HomeType, new SelectList(Model.MstClosingConfig.HomeTypeDDL, "HomeTypeId", "Name"), "--- Select Home Type --- ", new { @class = "form-control" })                                                                
+                                                                        <label class="text-danger" id="lblErrorHomeType" style="display:none">Please select home type</label>
+                                                                    </div>
+                                                                </div>
+                                                                @if (Model.MstClosingConfig.utblMstClosingDate != null)
+                                                                {
+                                                                    if (Model.MstClosingConfig.utblMstClosingDate.HomeType == 1|| Model.MstClosingConfig.utblMstClosingDate.HomeType == 2)
+                                                                    {
+
+                                                                <div class="form-group" id="divCondo" style="display:flex">
+                                                                    <label>Condo Type</label>
+                                                                    <div class="form-control-group">                                                                  
+                                                                        @Html.DropDownListFor(model => model.MstClosingConfig.utblMstClosingDate.ContingencyType, new SelectList(Model.CondoStepDDL, "Id", "Name"), "-Select Type- ", new { @class = "form-control", @id = "drpCondoType" })
+
+                                                                          <label class="text-danger" id="lblErrorConype" style="display:none">Please select condo type</label>
+                                                                    </div>
+                                                                </div>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <div class="form-group" id="divCondo" style="display:none">
+                                                                            <label>Condo Type</label>
+                                                                            <div class="form-control-group">
+                                                                                @Html.DropDownListFor(model => model.MstClosingConfig.utblMstClosingDate.ContingencyType, new SelectList(Model.CondoStepDDL, "Id", "Name"), "-Select Type- ", new { @class = "form-control", @id = "drpCondoType" })
+
+                                                                                <label class="text-danger" id="lblErrorConype" style="display:none">Please select condo type</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                <div class="form-group" id="divCondo" style="display:none">
+                                                                    <label>Condo Type</label>
+                                                                    <div class="form-control-group">
+                                                                        @Html.DropDownListFor(model => model.MstClosingConfig.utblMstClosingDate.ContingencyType, new SelectList(Model.CondoStepDDL, "Id", "Name"), "-Select Type- ", new { @class = "form-control", @id = "drpCondoType" })
+
+                                                                        <label class="text-danger" id="lblErrorConype" style="display:none">Please select condo type</label>
+                                                                    </div>
+                                                                </div>
+                                                                }
+                                                                <div class="form-group">
+                                                                    <label>Listing URL</label>
+                                                                    <div class="form-control-group">
+                                                                        @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.URL, new { @class = "form-control" })
+                                                                    
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.ClosingDate)
+                                                                    <div class="form-control-group">
+                                                                        @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.ClosingDate, "{0:MM/dd/yyyy}", new { @class = "form-control", @autocomplete = "off" })
+                                                                        <label class="text-danger" id="lblClosingDate" style="display:none">Settlement date is required</label>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="btn-wrap">
+                                                                    <button type="button" class="btn tealButton" id="btnAddRatified" >OK</button>
+                                                                    <button type="button" class="btn greyButton" data-dismiss="modal" id="CADetails" >Close</button>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+
+                                            @{ var Steps = Model.DealTrackerList.Where(x => x.IsContingencies == true||x.StatusID==19).ToList();
+                                                var Contingencies1 = true;
+                                                if (Model.MstClosingConfig.utblMstClosingDate != null)
+                                                { Contingencies1 = false; }
+                                                int i = 6;
+                                                int j = 7;
+                                                foreach (var c in Steps)
+                                                {
+
+                                                    string str = c.Status;
+                                                    string Ids = str.Substring(0, str.IndexOf(' '));
+                                                    var checkboxid = "chk" + Ids;
+
+
+
+                                                <div class="tableRow" >
+
+                                                  
+                                                    <div class="tableCell stepsCell checkRatified" disabled=@Contingencies1>@c.Status
+                                                  
+                                                    </div>
+                                                    <div class="tableCell applicableCell">
+                                                        <div class="radio-switch-container">
+                                                            <div class="radio-switch">
+                                                                @Html.RadioButton("[" + i + "].IsShowClient", false, new { id = "off"+j+"" })
+                                                                @if (c.IsShowClient == true)
+                                                                {
+                                                                    @Html.RadioButton("[" + i + "].IsShowClient", c.IsShowClient, new { id = "on"+j+"", @class = "checkIsShowClient", @checked = "checked" })
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.RadioButton("[" + i + "].IsShowClient", c.IsShowClient, new { id = "on"+j+"", @class = "checkIsShowClient" })
+
+                                                                }
+                                                                @Html.Label("off" + j.ToString() + "","O",new { @class = "switch-label switch-label-off" })
+                                                                <div class="radio-switch-toggle"></div>
+                                                                <div class="toggle-switch-pill"></div>
+                                                                @Html.Label("on" + j.ToString() + "", "I", new { @class = "switch-label switch-label-on" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell completedCell checkRatified" disabled=@Contingencies1>
+                                                        <div class="custom-control custom-checkbox applicable-checkbox IsCompleteCheck">
+                                                           
+                                                                @Html.CheckBox("[" + i + "].IsCompleted", c.IsCompleted, new { @class = "custom-control-input chkStep",@id= @checkboxid })
+
+
+                                                            <label class="custom-control-label" for="@checkboxid"></label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="tableCell dateCell daysCell checkRatified" disabled=@Contingencies1>
+@if (c.StatusID != 19)
+{
+                                                        @Html.TextBox("[" + i + "].NoOfDays", c.NoOfDays, new { @class = "getDate form-control", @type = "number", @value = "0", @step = "1", @min = "0", @style = "width:50px" })
+}
+                                                      </div>
+
+                                                    <div class="tableCell dateCell checkRatified" disabled=@Contingencies1>
+                                                        @*@Html.TextBox("[" + i + "].UpdatedOn", c.UpdatedOn, "{0:d}", new { @class = "txtDate setDate form-control" })*@
+
+
+                                                        @Html.TextBox("[" + i + "].UpdatedOn", c.UpdatedOn, "{0:MM/dd/yyyy}", new { @class = "txtDate setDate form-control" })
+                                                       @Html.Hidden("[" + i + "].Time", @c.Time,new { @class = "hdnTime" })
+                                                        @if (c.StatusID != 19)
+                                                        {
+                                                         if (string.IsNullOrEmpty(c.Time))
+                                                         {
+                                                            <span class="spnTime" style="display:none"  ><i class="material-icons">alarm</i></span>
+
+                                                         }
+                                                         else
+                                                         {
+                                                            <span class="spnTime" ><i class="material-icons">alarm</i>@c.Time</span>
+                                                         }
+                                                        }
+                                                    </div>
+                                                 
+                                                    <div class="tableCell additionInfoCell checkRatified" disabled=@Contingencies1>
+                                                        @if (c.StatusID == 18)//Condo / HOA Document Review Period
+                                                        {
+                                                            @Html.TextBox("[" + i + "].AdditionalInfo", c.AdditionalInfo, new { @class = "txtDate form-control", @placeholder = "mm/dd/yyyy", @id = "txtCondoRecieveDate", @autocomplete = "off" })
+
+                                                        <p>Date Received</p>
+                                                        @*<p>lots @Html.TextBox("[" + i + "].Slots", c.Slots, new { @class ="form-control", @type = "number", @value = "0", @step = "1", @min = "0", @style = "width:50px",@id="txtlots" })</p>*@
+                                                        }
+                                                        @if (c.StatusID == 8)//Home Inspection Contingency
+                                                        {
+                                                            @Html.TextBox("[" + i + "].AdditionalInfo", c.AdditionalInfo, new { @class = "txtDate form-control", @placeholder = "mm/dd/yyyy", @autocomplete = "off" })
+                                                            <p>Inspection Date</p>
+                                                        }
+                                                        @if (c.StatusID == 9)//Appraisal Contingency
+                                                        {
+                                                            @Html.TextBox("[" + i + "].AdditionalInfo", c.AdditionalInfo, new { @class = "txtDate form-control", @placeholder = "mm/dd/yyyy", @autocomplete = "off" })
+                                                            <p>Appraisal Date</p>
+                                                        }
+                                                        @if (c.StatusID == 16)// Pre - Settlement Occupancy Agreement
+                                                        {
+                                                            @Html.TextBox("[" + i + "].AdditionalInfo", c.AdditionalInfo, new { @class = "txtDate form-control", @placeholder = "mm/dd/yyyy", @id="txtAIPreSet", @autocomplete = "off" })
+                                                            <p>Start Date</p>
+                                                        }
+                                                        @if (c.StatusID == 17)// Post - Settlement Occupancy Agreement
+                                                        {
+                                                            if (Model.MstClosingConfig.utblMstClosingDate != null)
+                                                            {
+                                                            @Html.TextBox("[" + i + "].AdditionalInfo", Model.MstClosingConfig.utblMstClosingDate.ClosingDate, "{0:MM/dd/yyyy}", new { @class = "form-control", @placeholder = "mm/dd/yyyy", @id = "txtAIPostSet" })
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.TextBox("[" + i + "].AdditionalInfo", c.AdditionalInfo, new { @class = "form-control", @placeholder = "mm/dd/yyyy", @id = "txtAIPostSet" })
+
+                                                            }
+                                                                 <p>Start Date</p>
+                                                        }
+                                                        
+                                                    </div>
+                                                    <div class="tableCell notesCell checkRatified" disabled=@Contingencies1>
+                                                        @Html.Hidden("[" + i + "].Notes", c.Notes, new { @id = "Notes" + c.StatusID + "", @class = "StepNotes" })
+                                                        <div class="AddNewNote" style="display:none">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="GetNotes(@c.StatusID)" />
+                                                        </div>
+                                                        <div class="EditNote" style="display:none">
+                                                         <div class="buttonOuter">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="ViewNotes(@c.StatusID)" />
+                                                            <a href="#!" onclick="return GetNotes(@c.StatusID)"><i class="material-icons">edit</i></a>
+                                                            <a href="#!" onclick="DeleteNotes(@c.StatusID)" class="actionDelete"><i class="material-icons">delete</i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @Html.Hidden("[" + i + "].StatusID", c.StatusID, new { @class = "getStatus" })
+                                                    @Html.Hidden("[" + i + "].IsApplicable", false)
+                                                    @Html.Hidden("[" + i + "].IsContingencies", c.IsContingencies)
+                                                    @Html.Hidden("[" + i + "].TrackingID", c.TrackingID)
+                                                 
+                                                </div>
+                                                    i = i + 1;
+                                                    j = j + 1;
+                                                }
+                                            }
+
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="table-wrapper underContractchecklistItems">
+                                        <div class="custom-table">
+                                            <h3 class="heading">Check List Items</h3>
+                                       
+                                            @*<div class="tableHeadRow">
+                                                <div class="tableCell">checkbox</div>
+                                            </div>*@
+                                            @if (Model.CheckListItems != null)
+                                            {
+                                                foreach (var c in Model.CheckListItems.Where(x=>x.Stage== "Under Contract"))
+                                                {
+                                                    <div class="tableRow">
+                                                        <div class="tableCell">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input chkchecklist" id="chkItem_@c.Id" value="@c.Id">
+                                                                <label class="custom-control-label" for="chkItem_@c.Id">
+                                                                   @c.Name
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                         
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="settledHeading">
+                                <h5 class="mb-0">
+                                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#settledCollapse" aria-expanded="false" aria-controls="settledCollapse">
+                                        Settled
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="settledCollapse" class="collapse" aria-labelledby="settledHeading" data-parent="#dealTrackerAccordion">
+                                <div class="card-body">
+                                    <div class="table-wrapper">
+                                        <div class="custom-table">
+                                            <div class="tableHeadRow">
+                                                <div class="tableCell stepsCell">Steps</div>
+                                                <div class="tableCell applicableCell">Applicable</div>
+                                                <div class="tableCell completedCell">Completed</div>
+                                                <div class="tableCell dateCell">Date</div>
+                                                <div class="tableCell additionInfoCell">Additional Information</div>
+                                                <div class="tableCell notesCell">Notes</div>
+                                            </div>
+                                            @{
+                                                var Finalwalkthrough = Model.DealTrackerList.Where(x => x.StatusID == 12).FirstOrDefault();
+                                                @Html.Hidden("[14].StatusID", Finalwalkthrough.StatusID)
+                                                @Html.Hidden("[14].IsApplicable", false)
+                                                @Html.Hidden("[14].IsContingencies", Finalwalkthrough.IsContingencies)
+                                                @Html.Hidden("[14].TrackingID", Finalwalkthrough.TrackingID)
+                                              
+                                                <div class="tableRow">
+
+                                                    <div class="tableCell stepsCell">Final walk-through</div>
+                                                    <div class="tableCell applicableCell">
+                                                        <div class="radio-switch-container">
+                                                            <div class="radio-switch">
+
+                                                                @Html.RadioButton("[14].IsShowClient", false, new { id = "off15" })
+                                                                @if (Finalwalkthrough.IsShowClient == true)
+                                                                {
+                                                                    @Html.RadioButton("[14].IsShowClient", Finalwalkthrough.IsShowClient, new { id = "on15", @class = "checkIsShowClient", @checked = "checked" })
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.RadioButton("[14].IsShowClient", Finalwalkthrough.IsShowClient, new { id = "on15", @class = "checkIsShowClient" })
+
+                                                                }
+
+                                                                <label for="off15" class="switch-label switch-label-off">O</label>
+                                                                <div class="radio-switch-toggle"></div>
+                                                                <div class="toggle-switch-pill"></div>
+                                                                <label for="on15" class="switch-label switch-label-on">I</label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell completedCell">
+                                                        <div class="custom-control custom-checkbox applicable-checkbox IsCompleteCheck">
+
+                                                                @Html.CheckBox("[14].IsCompleted", Finalwalkthrough.IsCompleted, new { @class = "custom-control-input chkStep", @id = "completed15" })
+
+
+                                                            <label class="custom-control-label" for="completed15"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell dateCell">
+
+                                                        @Html.TextBox("[14].UpdatedOn", Finalwalkthrough.UpdatedOn, "{0:MM/dd/yyyy}", new { @class = "txtDate form-control" })
+                                                    </div>
+                                                    <div class="tableCell additionInfoCell"></div>
+                                                    <div class="tableCell notesCell">
+                                                        @Html.Hidden("[14].Notes", Finalwalkthrough.Notes, new { @id = "Notes12", @class = "StepNotes" })
+                                                        <div class="AddNewNote" style="display:none">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="GetNotes(@Finalwalkthrough.StatusID)" />
+                                                        </div>
+                                                        <div class="EditNote" style="display:none">
+                                                         <div class="buttonOuter">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="ViewNotes(@Finalwalkthrough.StatusID)" />
+                                                            <a href="#!" onclick="return GetNotes(@Finalwalkthrough.StatusID)"><i class="material-icons">edit</i></a>
+                                                            <a href="#!" onclick="DeleteNotes(@Finalwalkthrough.StatusID)" class="actionDelete"><i class="material-icons">delete</i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                            @{
+                                                var Settlement = Model.DealTrackerList.Where(x => x.StatusID == 13).FirstOrDefault();
+                                                @Html.Hidden("[15].StatusID", Settlement.StatusID)
+                                                @Html.Hidden("[15].IsApplicable", false)
+                                                @Html.Hidden("[15].IsContingencies", Settlement.IsContingencies)
+                                                @Html.Hidden("[15].TrackingID", Settlement.TrackingID)
+                                              
+                                                <div class="tableRow">
+
+                                                    <div class="tableCell stepsCell">Settlement</div>
+                                                    <div class="tableCell applicableCell">
+                                                        <div class="radio-switch-container">
+                                                            <div class="radio-switch">
+
+                                                                @Html.RadioButton("[15].IsShowClient", false, new { id = "off16" })
+
+                                                                @if (Settlement.IsShowClient == true)
+                                                                {
+                                                                    @Html.RadioButton("[15].IsShowClient", Settlement.IsShowClient, new { id = "on16", @class = "checkIsShowClient", @checked = "checked" })
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.RadioButton("[15].IsShowClient", Settlement.IsShowClient, new { id = "on16", @class = "checkIsShowClient" })
+
+                                                                }
+                                                                <label for="off16" class="switch-label switch-label-off">O</label>
+                                                                <div class="radio-switch-toggle"></div>
+                                                                <div class="toggle-switch-pill"></div>
+                                                                <label for="on16" class="switch-label switch-label-on">I</label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell completedCell">
+                                                        <div class="custom-control custom-checkbox applicable-checkbox IsCompleteCheck">
+
+                                                           
+                                                                @Html.CheckBox("[15].IsCompleted", Settlement.IsCompleted, new { @class = "custom-control-input chkStep", @id = "completed16" })
+
+
+
+                                                            <label class="custom-control-label" for="completed16"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tableCell dateCell">
+
+                                                        @Html.TextBox("[15].UpdatedOn", Settlement.UpdatedOn, "{0:MM/dd/yyyy}", new { @class = "txtDate form-control" })
+                                                    </div>
+                                                    <div class="tableCell additionInfoCell"></div>
+                                                    <div class="tableCell notesCell">
+                                                        @Html.Hidden("[15].Notes", Settlement.Notes, new { @id = "Notes13", @class = "StepNotes" })
+                                                        <div class="AddNewNote" style="display:none">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="GetNotes(@Settlement.StatusID)" />
+                                                        </div>
+                                                        <div class="EditNote" style="display:none">
+                                                         <div class="buttonOuter">
+                                                            <img src="/Content/NewVersion/Admin/img/notes-icon.svg" onclick="ViewNotes(@Settlement.StatusID)" />
+                                                            <a href="#!" onclick="return GetNotes(@Settlement.StatusID)"><i class="material-icons">edit</i></a>
+                                                            <a href="#!" onclick="DeleteNotes(@Settlement.StatusID)" class="actionDelete"><i class="material-icons">delete</i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+              
+  
+          
+
+
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="min-height: 0; padding: 7px 20px;">
+                <h5 class="modal-title lblNotesTitle" id="staticBackdropLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="FormUpload" method="post">
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            @*<label class="text-danger" id="lblError" style="display:none"></label>*@
+                        </div>
+
+
+                        <div class="form-group col-sm-12">
+                            <div id="divNotesDescription"></div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop1" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop1Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdrop1Label">Add/Edit</h5>
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>*@
+            </div>
+            <div class="modal-body">
+                <form id="FormUpload" method="post">
+                    <input type="hidden" id="txtId" name="Id" />
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label class="text-danger" id="lblNotesError" style="display:none">Notes is required</label>
+                        </div>
+                        @*<div class="form-group col-sm-12">
+                            <label>Title</label>
+                            <input type="text" class="form-control" name="Title" id="txtTitle">
+                        </div>*@
+
+                        <div class="form-group col-sm-12">
+                            <label>Notes</label>
+                            <textarea class="form-control" id="txtNoteDescription" rows="3"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn tealButton" id="btnAddNotes" onclick="return AddNotes();" value="Save" />
+                <button type="button" class="btn greyButton" data-dismiss="modal" id="btnClearNote" onclick="return clearNote();">Close</button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#aAddressDetails').on('click', function () {CheckListing();})
+        $('#MstClosingConfig_utblMstClosingDate_ListingTypeID').on('change', function () {
+            CheckListing();
+        });
+        $('#MstClosingConfig_utblMstClosingDate_HomeType').on('change', function () {
+            if ($('#MstClosingConfig_utblMstClosingDate_HomeType').val() == "3" || $('#MstClosingConfig_utblMstClosingDate_HomeType').val() == "4") {
+                $('#drpCondoType').val("")
+            }
+        })
+        $('#MstClosingConfig_utblMstClosingDate_StateId').on('change', function () {
+            //No HOA in DC
+            if ($(this).val() == '1') {
+                $("#MstClosingConfig_utblMstClosingDate_HomeType").children("option[value^=2]").hide();
+            }
+            else {
+                $("#MstClosingConfig_utblMstClosingDate_HomeType").children("option[value^=2]").show();
+            }
+        });
+
+
+        $('#MstClosingConfig_utblMstClosingDate_HomeType').on('change', function () {
+            //No Condo for Fee Simple
+            if ($(this).val() == '3' || $(this).val() == '4') {
+                $("#divCondo").hide();
+            }
+            else {
+                $("#divCondo").show();
+            }
+        });
+     
+        $("#MstClosingConfig_utblMstClosingDate_ClosingDate").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "mm/dd/yy",
+            //minDate: new Date()
+        });
+
+
+
+        $('#MstClosingConfig_utblMstClosingDate_MLSID').autocomplete({
+            source: function (request, response) {
+                var itemnamecodes = new Array();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Autocomplete", "Agent")',
+                    dataType: 'json',
+                    data: { term: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.Key, Id: item.Value };
+                        }))
+                    }
+                })
+            },
+            select: function (e, i) {
+                $("#ListingSHA").val(i.item.Id);
+
+            }
+        })
+
+
+        $(".content").on("click", "#btnAddRatified", function (e) {
+            var res = validateRatified();
+            if (res == false) {
+                return false;
+            }
+            if ($('#MstClosingConfig_utblMstClosingDate_ListingTypeID').val() == "1") {
+                $("#spnAddress").text($('#MstClosingConfig_utblMstClosingDate_MLSID').val());
+                
+            }
+            else {
+                $("#spnAddress").text($('#MstClosingConfig_utblMstClosingDate_Address').val());
+                $("#ListingSHA").val("");
+                $("#hdnListingSHA").val("");
+                
+            }
+            $("#spnHomeType").text($('#MstClosingConfig_utblMstClosingDate_HomeType option:selected').text())
+            if($('#drpCondoType option:selected').val()==''){
+                $("#spnCondoType").css("display","none")
+            }else{
+                $("#spnCondoType").css("display","block")
+                $("#spnCondoType").text($('#drpCondoType option:selected').text())
+            }
+            
+
+            $("#spnState").text($('#MstClosingConfig_utblMstClosingDate_StateId option:selected').text())
+            $("#spnSettlementDate").text($('#MstClosingConfig_utblMstClosingDate_ClosingDate').val())
+            $("#txtAIPostSet").val($('#MstClosingConfig_utblMstClosingDate_ClosingDate').val())
+            $("#spnState").text($('#MstClosingConfig_utblMstClosingDate_StateId option:selected').text())
+            $("#hdnListingType").val($('#MstClosingConfig_utblMstClosingDate_ListingTypeID option:selected').val())
+            
+            $("#hdnListingSHA").val($("#ListingSHA").val());
+
+            $("#addNewTransModal").modal('hide');
+            $("#aAddressDetails").css('display', 'block');
+            $("#backLink").css('display', 'none');
+            if ($('input[name="[5].IsCompleted"]').is(':checked')) {
+                $('.checkRatified').removeAttr("disabled");
+            }
+
+        })
+
+        function validateRatified() {
+            var isValid = true;
+            if ($('#MstClosingConfig_utblMstClosingDate_ListingTypeID').val() == "") {
+                $('#lblListingType').css('display', 'block')
+                isValid = false;
+            }
+            else {
+                $('#lblListingTypeID').css('display', 'none')
+            }
+
+            if ($('#MstClosingConfig_utblMstClosingDate_ListingTypeID').val() == "1") {
+                if ($('#MstClosingConfig_utblMstClosingDate_MLSID').val() == "") {
+                    $('#lblMLSID').css('display', 'block')
+                    isValid = false;
+                }
+                else if($("#ListingSHA").val()==""){
+                    $('#lblMLSID').css('display', 'block')
+                    isValid = false;
+                }
+                else {
+                    //$("#ListingSHA").val(i.item.Id);
+                    $('#lblMLSID').css('display', 'none')
+
+                }
+
+            }
+
+            if ($('#MstClosingConfig_utblMstClosingDate_ListingTypeID').val() == "2") {
+                if ($('#MstClosingConfig_utblMstClosingDate_Address').val() == "") {
+                    $('#lblAddress').css('display', 'block')
+                    isValid = false;
+                }
+                else {
+                    $('#lblAddress').css('display', 'none')
+
+                }
+
+            }
+
+            if ($('#MstClosingConfig_utblMstClosingDate_ClosingDate').val() == "") {
+                $('#lblClosingDate').css('display', 'block')
+                isValid = false;
+            }
+            else {
+                $('#lblClosingDate').css('display', 'none')
+
+            }
+
+            if ($('#MstClosingConfig_utblMstClosingDate_HomeType').val() == "") {
+                $('#lblErrorHomeType').css('display', 'block')
+                isValid = false;
+            }
+            else {
+                $('#lblErrorHomeType').css('display', 'none')
+
+            }
+
+            if ($('#MstClosingConfig_utblMstClosingDate_StateId').val() == "") {
+                $('#lblErrorState').css('display', 'block')
+                isValid = false;
+            }
+            else {
+                $('#lblErrorState').css('display', 'none')
+
+            }
+
+
+            if ($('#MstClosingConfig_utblMstClosingDate_HomeType').val() == "1" || $('#MstClosingConfig_utblMstClosingDate_HomeType').val() == "2") {//if hometype is codo or HOA and not Fee Simple
+                if ($('#drpCondoType').val() == "") {
+                    $('#lblErrorConype').css('display', 'block')
+                    isValid = false;
+                }
+                else {
+                    $('#lblErrorConype').css('display', 'none')
+
+                }
+            }
+            return isValid;
+        }
+    });
+
+    var CheckListing = function () {
+        var ListingType = "MLS"
+        var DDLText = document.getElementById("MstClosingConfig_utblMstClosingDate_ListingTypeID").options[document.getElementById('MstClosingConfig_utblMstClosingDate_ListingTypeID').selectedIndex].text;
+        if (ListingType == DDLText) {
+            $("#MstClosingConfig_utblMstClosingDate_Address").attr('disabled', 'disabled');
+            $("#MstClosingConfig_utblMstClosingDate_Address").val("");
+            $("#MstClosingConfig_utblMstClosingDate_URL").attr('disabled', 'disabled');
+            $("#MstClosingConfig_utblMstClosingDate_URL").val("");
+
+            $("#MstClosingConfig_utblMstClosingDate_MLSID").removeAttr('disabled');
+
+        }
+        else if ("Private" == DDLText) {
+
+            $("#MstClosingConfig_utblMstClosingDate_MLSID").attr('disabled', 'disabled');
+            $("#MstClosingConfig_utblMstClosingDate_MLSID").val("");
+
+            $("#MstClosingConfig_utblMstClosingDate_Address").removeAttr('disabled');
+            $("#MstClosingConfig_utblMstClosingDate_URL").removeAttr('disabled');
+
+        }
+        else {
+            $("#utblMstClientHomeListing_MLSID").removeAttr('disabled');
+            $("#MstClosingConfig_utblMstClosingDate_Address").removeAttr('disabled');
+            $("#MstClosingConfig_utblMstClosingDate_URL").removeAttr('disabled');
+        }
+    }
+
+
+
+</script>

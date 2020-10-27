@@ -1,0 +1,5705 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/NewVersion/css/bootstrap/bootstrap1.css">
+    <link rel="stylesheet" href="~/Content/NewVersion/css/style1.css">
+    <link rel="stylesheet" href="~/Content/NewVersion/css/register.css">
+    <link rel="stylesheet" href="~/Content/NewVersion/fonts/flaticon.css">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css"> -->
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/materialize-stepper@2.1.4/materialize-stepper.css" rel="stylesheet"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- Materializecss compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <!-- jQueryValidation Plugin -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu5hm3q1OMGgxsO5JpjUVqEJEztCkF0aQ&libraries=places"></script>
+    <script src="~/Scripts/Autocomplete.js" async></script>
+    <title>Just BE | Real Estate </title>
+    <style>
+                   .ajax-new-load{
+display: none;
+      box-shadow: rgb(0, 0, 0,0.3) 0px 0px 50px;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+
+    }
+                button.waves-effect.waves-dark.btn.previous-step-new {
+    background: #10968a;
+    color: #fff;
+    margin-right: 8px!important;
+}
+.waves-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+    z-index: 1;
+    will-change: opacity, transform;
+    transition: all .3s ease-out
+}
+
+.waves-effect .waves-ripple {
+    position: absolute;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.2);
+    transition: all 0.7s ease-out;
+    transition-property: opacity, -webkit-transform;
+    transition-property: transform, opacity;
+    transition-property: transform, opacity, -webkit-transform;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    pointer-events: none
+}
+
+.waves-effect.waves-light .waves-ripple {
+    background-color: rgba(255, 255, 255, 0.45)
+}
+
+.waves-effect.waves-red .waves-ripple {
+    background-color: rgba(244, 67, 54, 0.7)
+}
+
+.waves-effect.waves-yellow .waves-ripple {
+    background-color: rgba(255, 235, 59, 0.7)
+}
+
+.waves-effect.waves-orange .waves-ripple {
+    background-color: rgba(255, 152, 0, 0.7)
+}
+
+.waves-effect.waves-purple .waves-ripple {
+    background-color: rgba(156, 39, 176, 0.7)
+}
+
+.waves-effect.waves-green .waves-ripple {
+    background-color: rgba(76, 175, 80, 0.7)
+}
+
+.waves-effect.waves-teal .waves-ripple {
+    background-color: rgba(0, 150, 136, 0.7)
+}
+
+.waves-effect input[type="button"],
+.waves-effect input[type="reset"],
+.waves-effect input[type="submit"] {
+    border: 0;
+    font-style: normal;
+    font-size: inherit;
+    text-transform: inherit;
+    background: none
+}
+
+.waves-effect img {
+    position: relative;
+    z-index: -1
+}
+
+.waves-notransition {
+    transition: none !important
+}
+
+.waves-circle {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%)
+}
+
+.waves-input-wrapper {
+    border-radius: 0.2em;
+    vertical-align: bottom
+}
+
+.waves-input-wrapper .waves-button-input {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1
+}
+
+.waves-circle {
+    text-align: center;
+    width: 2.5em;
+    height: 2.5em;
+    line-height: 2.5em;
+    border-radius: 50%;
+    -webkit-mask-image: none
+}
+
+.waves-block {
+    display: block
+}
+
+.waves-effect .waves-ripple {
+    z-index: -1
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: #fafafa;
+    padding: 0;
+    max-height: 70%;
+    width: 55%;
+    margin: auto;
+    overflow-y: auto;
+    border-radius: 2px;
+    will-change: top, opacity
+}
+
+@@media only screen and (max-width: 992px) {
+    .modal {
+        width: 80%
+    }
+}
+
+.modal h1,
+.modal h2,
+.modal h3,
+.modal h4 {
+    margin-top: 0
+}
+
+.modal .modal-content {
+    padding: 24px
+}
+
+.modal .modal-close {
+    cursor: pointer
+}
+
+.modal .modal-footer {
+    border-radius: 0 0 2px 2px;
+    background-color: #fafafa;
+    padding: 4px 6px;
+    height: 56px;
+    width: 100%
+}
+
+.modal .modal-footer .btn,
+.modal .modal-footer .btn-large,
+.modal .modal-footer .btn-flat {
+    float: right;
+    margin: 6px 0
+}
+
+.lean-overlay {
+    position: fixed;
+    z-index: 999;
+    top: -100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 125%;
+    width: 100%;
+    background: #000;
+    display: none;
+    will-change: opacity
+}
+
+.modal.modal-fixed-footer {
+    padding: 0;
+    height: 70%
+}
+
+.modal.modal-fixed-footer .modal-content {
+    position: absolute;
+    height: calc(100% - 56px);
+    max-height: 100%;
+    width: 100%;
+    overflow-y: auto
+}
+
+.modal.modal-fixed-footer .modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 0
+}
+
+.modal.bottom-sheet {
+    top: auto;
+    bottom: -100%;
+    margin: 0;
+    width: 100%;
+    max-height: 45%;
+    border-radius: 0;
+    will-change: bottom, opacity
+}
+
+.collapsible {
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    margin: 0.5rem 0 1rem 0
+}
+
+.collapsible-header {
+    display: block;
+    cursor: pointer;
+    min-height: 3rem;
+    line-height: 3rem;
+    padding: 0 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd
+}
+
+.collapsible-header i {
+    width: 2rem;
+    font-size: 1.6rem;
+    line-height: 3rem;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-right: 1rem
+}
+
+.collapsible-body {
+    display: none;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box
+}
+
+.collapsible-body p {
+    margin: 0;
+    padding: 2rem
+}
+
+.side-nav .collapsible,
+.side-nav.fixed .collapsible {
+    border: none;
+    box-shadow: none
+}
+
+.side-nav .collapsible li,
+.side-nav.fixed .collapsible li {
+    padding: 0
+}
+
+.side-nav .collapsible-header,
+.side-nav.fixed .collapsible-header {
+    background-color: transparent;
+    border: none;
+    line-height: inherit;
+    height: inherit;
+    padding: 0 16px
+}
+
+.side-nav .collapsible-header:hover,
+.side-nav.fixed .collapsible-header:hover {
+    background-color: rgba(0, 0, 0, 0.05)
+}
+
+.side-nav .collapsible-header i,
+.side-nav.fixed .collapsible-header i {
+    line-height: inherit
+}
+
+.side-nav .collapsible-body,
+.side-nav.fixed .collapsible-body {
+    border: 0;
+    background-color: #fff
+}
+
+.side-nav .collapsible-body li a,
+.side-nav.fixed .collapsible-body li a {
+    padding: 0 23.5px 0 31px
+}
+
+.collapsible.popout {
+    border: none;
+    box-shadow: none
+}
+
+.collapsible.popout>li {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin: 0 24px;
+    transition: margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+}
+
+.collapsible.popout>li.active {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    margin: 16px 0
+}
+
+.chip {
+    display: inline-block;
+    height: 32px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 32px;
+    padding: 0 12px;
+    border-radius: 16px;
+    background-color: #e4e4e4;
+    margin-bottom: 5px;
+    margin-right: 5px
+}
+
+.chip img {
+    float: left;
+    margin: 0 8px 0 -12px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%
+}
+
+.chip .close {
+    cursor: pointer;
+    float: right;
+    font-size: 16px;
+    line-height: 32px;
+    padding-left: 8px
+}
+
+.chips {
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    box-shadow: none;
+    margin-bottom: 30px;
+    min-height: 45px;
+    outline: none;
+    padding-bottom: 5px;
+    transition: all .3s
+}
+
+.chips.focus {
+    border-bottom: 1px solid #26a69a;
+    box-shadow: 0 1px 0 0 #26a69a
+}
+
+.chips:hover {
+    cursor: text
+}
+
+.chips .chip.selected {
+    background-color: #26a69a;
+    color: #fff
+}
+
+.chips .input {
+    background: none;
+    border: 0;
+    color: rgba(0, 0, 0, 0.6);
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    height: 32px;
+    margin-right: 20px;
+    line-height: 32px;
+    outline: 0;
+    padding: 0 !important;
+    width: 120px !important
+}
+
+.chips .input:focus {
+    border: 0 !important;
+    box-shadow: none !important
+}
+
+.materialboxed {
+    display: block;
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+    position: relative;
+    transition: opacity .4s
+}
+
+.materialboxed:hover {
+    will-change: left, top, width, height
+}
+
+.materialboxed:hover:not(.active) {
+    opacity: .8
+}
+
+.materialboxed.active {
+    cursor: -webkit-zoom-out;
+    cursor: zoom-out
+}
+
+#materialbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #292929;
+    z-index: 1000;
+    will-change: opacity
+}
+
+.materialbox-caption {
+    position: fixed;
+    display: none;
+    color: #fff;
+    line-height: 50px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0% 15%;
+    height: 50px;
+    z-index: 1000;
+    -webkit-font-smoothing: antialiased
+}
+
+select:focus {
+    outline: 1px solid #c9f3ef
+}
+
+button:focus {
+    outline: none;
+    background-color: #2ab7a9
+}
+
+label {
+    font-size: 0.8rem;
+    color: #9e9e9e
+}
+
+::-webkit-input-placeholder {
+    color: #d1d1d1
+}
+
+:-moz-placeholder {
+    color: #d1d1d1
+}
+
+::-moz-placeholder {
+    color: #d1d1d1
+}
+
+:-ms-input-placeholder {
+    color: #d1d1d1
+}
+
+input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea.materialize-textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.3s
+}
+
+input:not([type]):disabled,
+input:not([type])[readonly="readonly"],
+input[type=text]:disabled,
+input[type=text][readonly="readonly"],
+input[type=password]:disabled,
+input[type=password][readonly="readonly"],
+input[type=email]:disabled,
+input[type=email][readonly="readonly"],
+input[type=url]:disabled,
+input[type=url][readonly="readonly"],
+input[type=time]:disabled,
+input[type=time][readonly="readonly"],
+input[type=date]:disabled,
+input[type=date][readonly="readonly"],
+input[type=datetime]:disabled,
+input[type=datetime][readonly="readonly"],
+input[type=datetime-local]:disabled,
+input[type=datetime-local][readonly="readonly"],
+input[type=tel]:disabled,
+input[type=tel][readonly="readonly"],
+input[type=number]:disabled,
+input[type=number][readonly="readonly"],
+input[type=search]:disabled,
+input[type=search][readonly="readonly"],
+textarea.materialize-textarea:disabled,
+textarea.materialize-textarea[readonly="readonly"] {
+    color: rgba(0, 0, 0, 0.26);
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.26)
+}
+
+input:not([type]):disabled+label,
+input:not([type])[readonly="readonly"]+label,
+input[type=text]:disabled+label,
+input[type=text][readonly="readonly"]+label,
+input[type=password]:disabled+label,
+input[type=password][readonly="readonly"]+label,
+input[type=email]:disabled+label,
+input[type=email][readonly="readonly"]+label,
+input[type=url]:disabled+label,
+input[type=url][readonly="readonly"]+label,
+input[type=time]:disabled+label,
+input[type=time][readonly="readonly"]+label,
+input[type=date]:disabled+label,
+input[type=date][readonly="readonly"]+label,
+input[type=datetime]:disabled+label,
+input[type=datetime][readonly="readonly"]+label,
+input[type=datetime-local]:disabled+label,
+input[type=datetime-local][readonly="readonly"]+label,
+input[type=tel]:disabled+label,
+input[type=tel][readonly="readonly"]+label,
+input[type=number]:disabled+label,
+input[type=number][readonly="readonly"]+label,
+input[type=search]:disabled+label,
+input[type=search][readonly="readonly"]+label,
+textarea.materialize-textarea:disabled+label,
+textarea.materialize-textarea[readonly="readonly"]+label {
+    color: rgba(0, 0, 0, 0.26)
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #26a69a;
+    box-shadow: 0 1px 0 0 #26a69a
+}
+
+input:not([type]):focus:not([readonly])+label,
+input[type=text]:focus:not([readonly])+label,
+input[type=password]:focus:not([readonly])+label,
+input[type=email]:focus:not([readonly])+label,
+input[type=url]:focus:not([readonly])+label,
+input[type=time]:focus:not([readonly])+label,
+input[type=date]:focus:not([readonly])+label,
+input[type=datetime]:focus:not([readonly])+label,
+input[type=datetime-local]:focus:not([readonly])+label,
+input[type=tel]:focus:not([readonly])+label,
+input[type=number]:focus:not([readonly])+label,
+input[type=search]:focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #26a69a
+}
+
+input:not([type]).valid,
+input:not([type]):focus.valid,
+input[type=text].valid,
+input[type=text]:focus.valid,
+input[type=password].valid,
+input[type=password]:focus.valid,
+input[type=email].valid,
+input[type=email]:focus.valid,
+input[type=url].valid,
+input[type=url]:focus.valid,
+input[type=time].valid,
+input[type=time]:focus.valid,
+input[type=date].valid,
+input[type=date]:focus.valid,
+input[type=datetime].valid,
+input[type=datetime]:focus.valid,
+input[type=datetime-local].valid,
+input[type=datetime-local]:focus.valid,
+input[type=tel].valid,
+input[type=tel]:focus.valid,
+input[type=number].valid,
+input[type=number]:focus.valid,
+input[type=search].valid,
+input[type=search]:focus.valid,
+textarea.materialize-textarea.valid,
+textarea.materialize-textarea:focus.valid {
+    border-bottom: 1px solid #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50
+}
+
+input:not([type]).valid+label:after,
+input:not([type]):focus.valid+label:after,
+input[type=text].valid+label:after,
+input[type=text]:focus.valid+label:after,
+input[type=password].valid+label:after,
+input[type=password]:focus.valid+label:after,
+input[type=email].valid+label:after,
+input[type=email]:focus.valid+label:after,
+input[type=url].valid+label:after,
+input[type=url]:focus.valid+label:after,
+input[type=time].valid+label:after,
+input[type=time]:focus.valid+label:after,
+input[type=date].valid+label:after,
+input[type=date]:focus.valid+label:after,
+input[type=datetime].valid+label:after,
+input[type=datetime]:focus.valid+label:after,
+input[type=datetime-local].valid+label:after,
+input[type=datetime-local]:focus.valid+label:after,
+input[type=tel].valid+label:after,
+input[type=tel]:focus.valid+label:after,
+input[type=number].valid+label:after,
+input[type=number]:focus.valid+label:after,
+input[type=search].valid+label:after,
+input[type=search]:focus.valid+label:after,
+textarea.materialize-textarea.valid+label:after,
+textarea.materialize-textarea:focus.valid+label:after {
+    content: attr(data-success);
+    color: #4CAF50;
+    opacity: 1
+}
+
+input:not([type]).invalid,
+input:not([type]):focus.invalid,
+input[type=text].invalid,
+input[type=text]:focus.invalid,
+input[type=password].invalid,
+input[type=password]:focus.invalid,
+input[type=email].invalid,
+input[type=email]:focus.invalid,
+input[type=url].invalid,
+input[type=url]:focus.invalid,
+input[type=time].invalid,
+input[type=time]:focus.invalid,
+input[type=date].invalid,
+input[type=date]:focus.invalid,
+input[type=datetime].invalid,
+input[type=datetime]:focus.invalid,
+input[type=datetime-local].invalid,
+input[type=datetime-local]:focus.invalid,
+input[type=tel].invalid,
+input[type=tel]:focus.invalid,
+input[type=number].invalid,
+input[type=number]:focus.invalid,
+input[type=search].invalid,
+input[type=search]:focus.invalid,
+textarea.materialize-textarea.invalid,
+textarea.materialize-textarea:focus.invalid {
+    border-bottom: 1px solid #F44336;
+    box-shadow: 0 1px 0 0 #F44336
+}
+
+input:not([type]).invalid+label:after,
+input:not([type]):focus.invalid+label:after,
+input[type=text].invalid+label:after,
+input[type=text]:focus.invalid+label:after,
+input[type=password].invalid+label:after,
+input[type=password]:focus.invalid+label:after,
+input[type=email].invalid+label:after,
+input[type=email]:focus.invalid+label:after,
+input[type=url].invalid+label:after,
+input[type=url]:focus.invalid+label:after,
+input[type=time].invalid+label:after,
+input[type=time]:focus.invalid+label:after,
+input[type=date].invalid+label:after,
+input[type=date]:focus.invalid+label:after,
+input[type=datetime].invalid+label:after,
+input[type=datetime]:focus.invalid+label:after,
+input[type=datetime-local].invalid+label:after,
+input[type=datetime-local]:focus.invalid+label:after,
+input[type=tel].invalid+label:after,
+input[type=tel]:focus.invalid+label:after,
+input[type=number].invalid+label:after,
+input[type=number]:focus.invalid+label:after,
+input[type=search].invalid+label:after,
+input[type=search]:focus.invalid+label:after,
+textarea.materialize-textarea.invalid+label:after,
+textarea.materialize-textarea:focus.invalid+label:after {
+    content: attr(data-error);
+    color: #F44336;
+    opacity: 1
+}
+
+input:not([type]).validate+label,
+input[type=text].validate+label,
+input[type=password].validate+label,
+input[type=email].validate+label,
+input[type=url].validate+label,
+input[type=time].validate+label,
+input[type=date].validate+label,
+input[type=datetime].validate+label,
+input[type=datetime-local].validate+label,
+input[type=tel].validate+label,
+input[type=number].validate+label,
+input[type=search].validate+label,
+textarea.materialize-textarea.validate+label {
+    width: 100%;
+    pointer-events: none
+}
+
+input:not([type])+label:after,
+input[type=text]+label:after,
+input[type=password]+label:after,
+input[type=email]+label:after,
+input[type=url]+label:after,
+input[type=time]+label:after,
+input[type=date]+label:after,
+input[type=datetime]+label:after,
+input[type=datetime-local]+label:after,
+input[type=tel]+label:after,
+input[type=number]+label:after,
+input[type=search]+label:after,
+textarea.materialize-textarea+label:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 60px;
+    opacity: 0;
+    transition: .2s opacity ease-out, .2s color ease-out
+}
+
+.input-field {
+    position: relative;
+    margin-top: 1rem
+}
+
+.input-field.col label {
+    left: 0.75rem
+}
+
+.input-field.col .prefix ~ label,
+.input-field.col .prefix ~ .validate ~ label {
+    width: calc(100% - 3rem - 1.5rem)
+}
+
+.input-field label {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0.8rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: .2s ease-out
+}
+
+.input-field label.active {
+    font-size: 0.8rem;
+    -webkit-transform: translateY(-140%);
+    transform: translateY(-140%)
+}
+
+.input-field .prefix {
+    position: absolute;
+    width: 3rem;
+    font-size: 2rem;
+    transition: color .2s
+}
+
+.input-field .prefix.active {
+    color: #26a69a
+}
+
+.input-field .prefix ~ input,
+.input-field .prefix ~ textarea,
+.input-field .prefix ~ label,
+.input-field .prefix ~ .validate ~ label,
+.input-field .prefix ~ .autocomplete-content {
+    margin-left: 3rem;
+    width: 92%;
+    width: calc(100% - 3rem)
+}
+
+.input-field .prefix ~ label {
+    margin-left: 3rem
+}
+
+@@media only screen and (max-width: 992px) {
+    .input-field .prefix ~ input {
+        width: 86%;
+        width: calc(100% - 3rem)
+    }
+}
+
+@@media only screen and (max-width: 600px) {
+    .input-field .prefix ~ input {
+        width: 80%;
+        width: calc(100% - 3rem)
+    }
+}
+
+.input-field input[type=search] {
+    display: block;
+    line-height: inherit;
+    padding-left: 4rem;
+    width: calc(100% - 4rem)
+}
+
+.input-field input[type=search]:focus {
+    background-color: #fff;
+    border: 0;
+    box-shadow: none;
+    color: #444
+}
+
+.input-field input[type=search]:focus+label i,
+.input-field input[type=search]:focus ~ .mdi-navigation-close,
+.input-field input[type=search]:focus ~ .material-icons {
+    color: #444
+}
+
+.input-field input[type=search]+label {
+    left: 1rem
+}
+
+.input-field input[type=search] ~ .mdi-navigation-close,
+.input-field input[type=search] ~ .material-icons {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    color: transparent;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: .3s color
+}
+
+textarea {
+    width: 100%;
+    height: 3rem;
+    background-color: transparent
+}
+
+textarea.materialize-textarea {
+    overflow-y: hidden;
+    padding: .8rem 0 1.6rem 0;
+    resize: none;
+    min-height: 3rem
+}
+
+.hiddendiv {
+    display: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding-top: 1.2rem
+}
+
+.autocomplete-content {
+    margin-top: -15px;
+    display: block;
+    opacity: 1;
+    position: static
+}
+
+.autocomplete-content li .highlight {
+    color: #444
+}
+
+.autocomplete-content li img {
+    height: 40px;
+    width: 40px;
+    margin: 5px 15px
+}
+
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+    position: absolute;
+    left: -9999px;
+    opacity: 0
+}
+
+[type="radio"]:not(:checked)+label,
+[type="radio"]:checked+label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1rem;
+    transition: .28s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+[type="radio"]+label:before,
+[type="radio"]+label:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 4px;
+    width: 16px;
+    height: 16px;
+    z-index: 0;
+    transition: .28s ease
+}
+
+[type="radio"]:not(:checked)+label:before,
+[type="radio"]:not(:checked)+label:after,
+[type="radio"]:checked+label:before,
+[type="radio"]:checked+label:after,
+[type="radio"].with-gap:checked+label:before,
+[type="radio"].with-gap:checked+label:after {
+    border-radius: 50%
+}
+
+[type="radio"]:not(:checked)+label:before,
+[type="radio"]:not(:checked)+label:after {
+    border: 2px solid #5a5a5a
+}
+
+[type="radio"]:not(:checked)+label:after {
+    z-index: -1;
+    -webkit-transform: scale(0);
+    transform: scale(0)
+}
+
+[type="radio"]:checked+label:before {
+    border: 2px solid transparent
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"].with-gap:checked+label:before,
+[type="radio"].with-gap:checked+label:after {
+    border: 2px solid #26a69a
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"].with-gap:checked+label:after {
+    background-color: #26a69a;
+    z-index: 0
+}
+
+[type="radio"]:checked+label:after {
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02)
+}
+
+[type="radio"].with-gap:checked+label:after {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5)
+}
+
+[type="radio"].tabbed:focus+label:before {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1)
+}
+
+[type="radio"].with-gap:disabled:checked+label:before {
+    border: 2px solid rgba(0, 0, 0, 0.26)
+}
+
+[type="radio"].with-gap:disabled:checked+label:after {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.26)
+}
+
+[type="radio"]:disabled:not(:checked)+label:before,
+[type="radio"]:disabled:checked+label:before {
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0.26)
+}
+
+[type="radio"]:disabled+label {
+    color: rgba(0, 0, 0, 0.26)
+}
+
+[type="radio"]:disabled:not(:checked)+label:before {
+    border-color: rgba(0, 0, 0, 0.26)
+}
+
+[type="radio"]:disabled:checked+label:after {
+    background-color: rgba(0, 0, 0, 0.26);
+    border-color: #BDBDBD
+}
+
+form p {
+    margin-bottom: 10px;
+    text-align: left
+}
+
+form p:last-child {
+    margin-bottom: 0
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+    opacity: 0
+}
+
+[type="checkbox"]+label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none
+}
+
+[type="checkbox"]+label:before,
+[type="checkbox"]:not(.filled-in)+label:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    z-index: 0;
+    border: 2px solid #5a5a5a;
+    border-radius: 1px;
+    margin-top: 2px;
+    transition: .2s
+}
+
+[type="checkbox"]:not(.filled-in)+label:after {
+    border: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0)
+}
+
+[type="checkbox"]:not(:checked):disabled+label:before {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.26)
+}
+
+[type="checkbox"].tabbed:focus+label:after {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1)
+}
+
+[type="checkbox"]:checked+label:before {
+    top: -4px;
+    left: -5px;
+    width: 12px;
+    height: 22px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid #26a69a;
+    border-bottom: 2px solid #26a69a;
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%
+}
+
+[type="checkbox"]:checked:disabled+label:before {
+    border-right: 2px solid rgba(0, 0, 0, 0.26);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.26)
+}
+
+[type="checkbox"]:indeterminate+label:before {
+    top: -11px;
+    left: -12px;
+    width: 10px;
+    height: 22px;
+    border-top: none;
+    border-left: none;
+    border-right: 2px solid #26a69a;
+    border-bottom: none;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%
+}
+
+[type="checkbox"]:indeterminate:disabled+label:before {
+    border-right: 2px solid rgba(0, 0, 0, 0.26);
+    background-color: transparent
+}
+
+[type="checkbox"].filled-in+label:after {
+    border-radius: 2px
+}
+
+[type="checkbox"].filled-in+label:before,
+[type="checkbox"].filled-in+label:after {
+    content: '';
+    left: 0;
+    position: absolute;
+    transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+    z-index: 1
+}
+
+[type="checkbox"].filled-in:not(:checked)+label:before {
+    width: 0;
+    height: 0;
+    border: 3px solid transparent;
+    left: 6px;
+    top: 10px;
+    -webkit-transform: rotateZ(37deg);
+    transform: rotateZ(37deg);
+    -webkit-transform-origin: 20% 40%;
+    transform-origin: 100% 100%
+}
+
+[type="checkbox"].filled-in:not(:checked)+label:after {
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 2px solid #5a5a5a;
+    top: 0px;
+    z-index: 0
+}
+
+[type="checkbox"].filled-in:checked+label:before {
+    top: 0;
+    left: 1px;
+    width: 8px;
+    height: 13px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    -webkit-transform: rotateZ(37deg);
+    transform: rotateZ(37deg);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%
+}
+
+[type="checkbox"].filled-in:checked+label:after {
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #26a69a;
+    background-color: #26a69a;
+    z-index: 0
+}
+
+[type="checkbox"].filled-in.tabbed:focus+label:after {
+    border-radius: 2px;
+    border-color: #5a5a5a;
+    background-color: rgba(0, 0, 0, 0.1)
+}
+
+[type="checkbox"].filled-in.tabbed:checked:focus+label:after {
+    border-radius: 2px;
+    background-color: #26a69a;
+    border-color: #26a69a
+}
+
+[type="checkbox"].filled-in:disabled:not(:checked)+label:before {
+    background-color: transparent;
+    border: 2px solid transparent
+}
+
+[type="checkbox"].filled-in:disabled:not(:checked)+label:after {
+    border-color: transparent;
+    background-color: #BDBDBD
+}
+
+[type="checkbox"].filled-in:disabled:checked+label:before {
+    background-color: transparent
+}
+
+[type="checkbox"].filled-in:disabled:checked+label:after {
+    background-color: #BDBDBD;
+    border-color: #BDBDBD
+}
+
+.switch,
+.switch * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none
+}
+
+.switch label {
+    cursor: pointer
+}
+
+.switch label input[type=checkbox] {
+    opacity: 0;
+    width: 0;
+    height: 0
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #84c7c1
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #26a69a;
+    left: 24px
+}
+
+.switch label .lever {
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 15px;
+    background-color: #818181;
+    border-radius: 15px;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+    vertical-align: middle;
+    margin: 0 16px
+}
+
+.switch label .lever:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    background-color: #F1F1F1;
+    border-radius: 21px;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
+    left: -5px;
+    top: -3px;
+    transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease
+}
+
+input[type=checkbox]:checked:not(:disabled) ~ .lever:active::after,
+input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::after {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(38, 166, 154, 0.1)
+}
+
+input[type=checkbox]:not(:disabled) ~ .lever:active:after,
+input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.08)
+}
+
+.switch input[type=checkbox][disabled]+.lever {
+    cursor: default
+}
+
+.switch label input[type=checkbox][disabled]+.lever:after,
+.switch label input[type=checkbox][disabled]:checked+.lever:after {
+    background-color: #BDBDBD
+}
+
+select {
+    display: none
+}
+
+select.browser-default {
+    display: block
+}
+
+select {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #f2f2f2;
+    border-radius: 2px;
+    height: 3rem
+}
+
+.select-label {
+    position: absolute
+}
+
+.select-wrapper {
+    position: relative
+}
+
+.select-wrapper input.select-dropdown {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    outline: none;
+    height: 3rem;
+    line-height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+    padding: 0;
+    display: block
+}
+
+.select-wrapper span.caret {
+    color: initial;
+    position: absolute;
+    right: 0;
+    top: 16px;
+    font-size: 10px
+}
+
+.select-wrapper span.caret.disabled {
+    color: rgba(0, 0, 0, 0.26)
+}
+
+.select-wrapper+label {
+    position: absolute;
+    top: -14px;
+    font-size: 0.8rem
+}
+
+select:disabled {
+    color: rgba(0, 0, 0, 0.3)
+}
+
+.select-wrapper input.select-dropdown:disabled {
+    color: rgba(0, 0, 0, 0.3);
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3)
+}
+
+.select-wrapper i {
+    color: rgba(0, 0, 0, 0.3)
+}
+
+.select-dropdown li.disabled,
+.select-dropdown li.disabled>span,
+.select-dropdown li.optgroup {
+    color: rgba(0, 0, 0, 0.3);
+    background-color: transparent
+}
+
+.prefix ~ .select-wrapper {
+    margin-left: 3rem;
+    width: 92%;
+    width: calc(100% - 3rem)
+}
+
+.prefix ~ label {
+    margin-left: 3rem
+}
+
+.select-dropdown li img {
+    height: 40px;
+    width: 40px;
+    margin: 5px 15px;
+    float: right
+}
+
+.select-dropdown li.optgroup {
+    border-top: 1px solid #eee
+}
+
+.select-dropdown li.optgroup.selected>span {
+    color: rgba(0, 0, 0, 0.7)
+}
+
+.select-dropdown li.optgroup>span {
+    color: rgba(0, 0, 0, 0.4)
+}
+
+.select-dropdown li.optgroup ~ li.optgroup-option {
+    padding-left: 1rem
+}
+
+.file-field {
+    position: relative
+}
+
+.file-field .file-path-wrapper {
+    overflow: hidden;
+    padding-left: 10px
+}
+
+.file-field input.file-path {
+    width: 100%
+}
+
+.file-field .btn,
+.file-field .btn-large {
+    float: left;
+    height: 3rem;
+    line-height: 3rem
+}
+
+.file-field span {
+    cursor: pointer
+}
+
+.file-field input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0)
+}
+
+.range-field {
+    position: relative
+}
+
+input[type=range],
+input[type=range]+.thumb {
+    cursor: pointer
+}
+
+input[type=range] {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    margin: 15px 0;
+    padding: 0
+}
+
+input[type=range]:focus {
+    outline: none
+}
+
+input[type=range]+.thumb {
+    position: absolute;
+    border: none;
+    height: 0;
+    width: 0;
+    border-radius: 50%;
+    background-color: #26a69a;
+    top: 10px;
+    margin-left: -6px;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+}
+
+input[type=range]+.thumb .value {
+    display: block;
+    width: 30px;
+    text-align: center;
+    color: #26a69a;
+    font-size: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+input[type=range]+.thumb.active {
+    border-radius: 50% 50% 50% 0
+}
+
+input[type=range]+.thumb.active .value {
+    color: #fff;
+    margin-left: -1px;
+    margin-top: 8px;
+    font-size: 10px
+}
+
+input[type=range] {
+    -webkit-appearance: none
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 3px;
+    background: #c2c0c2;
+    border: none
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background-color: #26a69a;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    margin: -5px 0 0 0;
+    transition: .3s
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc
+}
+
+input[type=range] {
+    border: 1px solid white
+}
+
+input[type=range]::-moz-range-track {
+    height: 3px;
+    background: #ddd;
+    border: none
+}
+
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: #26a69a;
+    margin-top: -5px
+}
+
+input[type=range]:-moz-focusring {
+    outline: 1px solid #fff;
+    outline-offset: -1px
+}
+
+input[type=range]:focus::-moz-range-track {
+    background: #ccc
+}
+
+input[type=range]::-ms-track {
+    height: 3px;
+    background: transparent;
+    border-color: transparent;
+    border-width: 6px 0;
+    color: transparent
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #777
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #ddd
+}
+
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: #26a69a
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #888
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc
+}
+
+.table-of-contents.fixed {
+    position: fixed
+}
+
+.table-of-contents li {
+    padding: 2px 0
+}
+
+.table-of-contents a {
+    display: inline-block;
+    font-weight: 300;
+    color: #757575;
+    padding-left: 20px;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    letter-spacing: .4;
+    display: inline-block
+}
+
+.table-of-contents a:hover {
+    color: #a8a8a8;
+    padding-left: 19px;
+    border-left: 1px solid #ea4a4f
+}
+
+.table-of-contents a.active {
+    font-weight: 500;
+    padding-left: 18px;
+    border-left: 2px solid #ea4a4f
+}
+
+.side-nav {
+    position: fixed;
+    width: 300px;
+    left: 0;
+    top: 0;
+    margin: 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    height: 100%;
+    height: calc(100% + 60px);
+    height: -moz-calc(100%);
+    padding-bottom: 60px;
+    background-color: #fff;
+    z-index: 999;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow-y: auto;
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%)
+}
+
+.side-nav.right-aligned {
+    right: 0;
+    -webkit-transform: translateX(105%);
+    transform: translateX(105%);
+    left: auto;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%)
+}
+
+.side-nav .collapsible {
+    margin: 0
+}
+
+.side-nav li {
+    float: none;
+    line-height: 48px
+}
+
+.side-nav li.active {
+    background-color: rgba(0, 0, 0, 0.05)
+}
+
+.side-nav a {
+    color: rgba(0, 0, 0, 0.87);
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px
+}
+
+.side-nav a:hover {
+    background-color: rgba(0, 0, 0, 0.05)
+}
+
+.side-nav a.btn,
+.side-nav a.btn-large,
+.side-nav a.btn-large,
+.side-nav a.btn-flat,
+.side-nav a.btn-floating {
+    margin: 10px 15px
+}
+
+.side-nav a.btn,
+.side-nav a.btn-large,
+.side-nav a.btn-large,
+.side-nav a.btn-floating {
+    color: #fff
+}
+
+.side-nav a.btn-flat {
+    color: #343434
+}
+
+.side-nav a.btn:hover,
+.side-nav a.btn-large:hover,
+.side-nav a.btn-large:hover {
+    background-color: #2bbbad
+}
+
+.side-nav a.btn-floating:hover {
+    background-color: #26a69a
+}
+
+.side-nav li>a>i,
+.side-nav li>a>[class^="mdi-"],
+.side-nav li>a>[class*="mdi-"],
+.side-nav li>a>i.material-icons {
+    float: left;
+    line-height: 48px;
+    margin: 0 32px 0 0;
+    width: 24px;
+    color: rgba(0, 0, 0, 0.54)
+}
+
+.side-nav .divider {
+    margin: 8px 0 0 0
+}
+
+.side-nav .subheader {
+    cursor: initial;
+    pointer-events: none;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 48px
+}
+
+.side-nav .subheader:hover {
+    background-color: transparent
+}
+
+.side-nav .userView {
+    overflow: hidden;
+    position: relative;
+    padding: 32px 32px 0;
+    margin-bottom: 8px
+}
+
+.side-nav .userView a {
+    height: auto;
+    padding: 0
+}
+
+.side-nav .userView a:hover {
+    background-color: transparent
+}
+
+.side-nav .userView .background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1
+}
+
+.side-nav .userView .circle,
+.side-nav .userView .name,
+.side-nav .userView .email {
+    display: block
+}
+
+.side-nav .userView .circle {
+    height: 64px;
+    width: 64px
+}
+
+.side-nav .userView .name,
+.side-nav .userView .email {
+    font-weight: 14px;
+    line-height: 24px
+}
+
+.side-nav .userView .name {
+    margin-top: 16px;
+    font-weight: 500
+}
+
+.side-nav .userView .email {
+    padding-bottom: 16px;
+    font-weight: 400
+}
+
+.drag-target {
+    height: 100%;
+    width: 10px;
+    position: fixed;
+    top: 0;
+    z-index: 998
+}
+
+.side-nav.fixed a {
+    display: block;
+    padding: 0 16px;
+    color: rgba(0, 0, 0, 0.87)
+}
+
+.side-nav.fixed {
+    left: 0;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    position: fixed
+}
+
+.side-nav.fixed.right-aligned {
+    right: 0;
+    left: auto
+}
+
+@@media only screen and (max-width: 992px) {
+    .side-nav.fixed {
+        -webkit-transform: translateX(-105%);
+        transform: translateX(-105%)
+    }
+    .side-nav.fixed.right-aligned {
+        -webkit-transform: translateX(105%);
+        transform: translateX(105%)
+    }
+    .side-nav a {
+        padding: 0 16px
+    }
+    .side-nav .userView {
+        padding: 16px 16px 0
+    }
+}
+
+.side-nav .collapsible-body li.active,
+.side-nav.fixed .collapsible-body li.active {
+    background-color: #ee6e73
+}
+
+.side-nav .collapsible-body li.active a,
+.side-nav.fixed .collapsible-body li.active a {
+    color: #fff
+}
+
+#sidenav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 997;
+    will-change: opacity
+}
+
+.preloader-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 48px;
+    height: 48px
+}
+
+.preloader-wrapper.small {
+    width: 36px;
+    height: 36px
+}
+
+.preloader-wrapper.big {
+    width: 64px;
+    height: 64px
+}
+
+.preloader-wrapper.active {
+    -webkit-animation: container-rotate 1568ms linear infinite;
+    animation: container-rotate 1568ms linear infinite
+}
+
+@@-webkit-keyframes container-rotate {
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@@keyframes container-rotate {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+.spinner-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-color: #26a69a
+}
+
+.spinner-blue,
+.spinner-blue-only {
+    border-color: #4285f4
+}
+
+.spinner-red,
+.spinner-red-only {
+    border-color: #db4437
+}
+
+.spinner-yellow,
+.spinner-yellow-only {
+    border-color: #f4b400
+}
+
+.spinner-green,
+.spinner-green-only {
+    border-color: #0f9d58
+}
+
+.active .spinner-layer.spinner-blue {
+    -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, blue-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both
+}
+
+.active .spinner-layer.spinner-red {
+    -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, red-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both
+}
+
+.active .spinner-layer.spinner-yellow {
+    -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, yellow-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both
+}
+
+.active .spinner-layer.spinner-green {
+    -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, green-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both
+}
+
+.active .spinner-layer,
+.active .spinner-layer.spinner-blue-only,
+.active .spinner-layer.spinner-red-only,
+.active .spinner-layer.spinner-yellow-only,
+.active .spinner-layer.spinner-green-only {
+    opacity: 1;
+    -webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both
+}
+
+@@-webkit-keyframes fill-unfill-rotate {
+    12.5% {
+        -webkit-transform: rotate(135deg)
+    }
+    25% {
+        -webkit-transform: rotate(270deg)
+    }
+    37.5% {
+        -webkit-transform: rotate(405deg)
+    }
+    50% {
+        -webkit-transform: rotate(540deg)
+    }
+    62.5% {
+        -webkit-transform: rotate(675deg)
+    }
+    75% {
+        -webkit-transform: rotate(810deg)
+    }
+    87.5% {
+        -webkit-transform: rotate(945deg)
+    }
+    to {
+        -webkit-transform: rotate(1080deg)
+    }
+}
+
+@@keyframes fill-unfill-rotate {
+    12.5% {
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg)
+    }
+    25% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg)
+    }
+    37.5% {
+        -webkit-transform: rotate(405deg);
+        transform: rotate(405deg)
+    }
+    50% {
+        -webkit-transform: rotate(540deg);
+        transform: rotate(540deg)
+    }
+    62.5% {
+        -webkit-transform: rotate(675deg);
+        transform: rotate(675deg)
+    }
+    75% {
+        -webkit-transform: rotate(810deg);
+        transform: rotate(810deg)
+    }
+    87.5% {
+        -webkit-transform: rotate(945deg);
+        transform: rotate(945deg)
+    }
+    to {
+        -webkit-transform: rotate(1080deg);
+        transform: rotate(1080deg)
+    }
+}
+
+@@-webkit-keyframes blue-fade-in-out {
+    from {
+        opacity: 1
+    }
+    25% {
+        opacity: 1
+    }
+    26% {
+        opacity: 0
+    }
+    89% {
+        opacity: 0
+    }
+    90% {
+        opacity: 1
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@@keyframes blue-fade-in-out {
+    from {
+        opacity: 1
+    }
+    25% {
+        opacity: 1
+    }
+    26% {
+        opacity: 0
+    }
+    89% {
+        opacity: 0
+    }
+    90% {
+        opacity: 1
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@@-webkit-keyframes red-fade-in-out {
+    from {
+        opacity: 0
+    }
+    15% {
+        opacity: 0
+    }
+    25% {
+        opacity: 1
+    }
+    50% {
+        opacity: 1
+    }
+    51% {
+        opacity: 0
+    }
+}
+
+@@keyframes red-fade-in-out {
+    from {
+        opacity: 0
+    }
+    15% {
+        opacity: 0
+    }
+    25% {
+        opacity: 1
+    }
+    50% {
+        opacity: 1
+    }
+    51% {
+        opacity: 0
+    }
+}
+
+@@-webkit-keyframes yellow-fade-in-out {
+    from {
+        opacity: 0
+    }
+    40% {
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+    75% {
+        opacity: 1
+    }
+    76% {
+        opacity: 0
+    }
+}
+
+@@keyframes yellow-fade-in-out {
+    from {
+        opacity: 0
+    }
+    40% {
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+    75% {
+        opacity: 1
+    }
+    76% {
+        opacity: 0
+    }
+}
+
+@@-webkit-keyframes green-fade-in-out {
+    from {
+        opacity: 0
+    }
+    65% {
+        opacity: 0
+    }
+    75% {
+        opacity: 1
+    }
+    90% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+@@keyframes green-fade-in-out {
+    from {
+        opacity: 0
+    }
+    65% {
+        opacity: 0
+    }
+    75% {
+        opacity: 1
+    }
+    90% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+.gap-patch {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    width: 10%;
+    height: 100%;
+    overflow: hidden;
+    border-color: inherit
+}
+
+.gap-patch .circle {
+    width: 1000%;
+    left: -450%
+}
+
+.circle-clipper {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-color: inherit
+}
+
+.circle-clipper .circle {
+    width: 200%;
+    height: 100%;
+    border-width: 3px;
+    border-style: solid;
+    border-color: inherit;
+    border-bottom-color: transparent !important;
+    border-radius: 50%;
+    -webkit-animation: none;
+    animation: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0
+}
+
+.circle-clipper.left .circle {
+    left: 0;
+    border-right-color: transparent !important;
+    -webkit-transform: rotate(129deg);
+    transform: rotate(129deg)
+}
+
+.circle-clipper.right .circle {
+    left: -100%;
+    border-left-color: transparent !important;
+    -webkit-transform: rotate(-129deg);
+    transform: rotate(-129deg)
+}
+
+.active .circle-clipper.left .circle {
+    -webkit-animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both
+}
+
+.active .circle-clipper.right .circle {
+    -webkit-animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both
+}
+
+@@-webkit-keyframes left-spin {
+    from {
+        -webkit-transform: rotate(130deg)
+    }
+    50% {
+        -webkit-transform: rotate(-5deg)
+    }
+    to {
+        -webkit-transform: rotate(130deg)
+    }
+}
+
+@@keyframes left-spin {
+    from {
+        -webkit-transform: rotate(130deg);
+        transform: rotate(130deg)
+    }
+    50% {
+        -webkit-transform: rotate(-5deg);
+        transform: rotate(-5deg)
+    }
+    to {
+        -webkit-transform: rotate(130deg);
+        transform: rotate(130deg)
+    }
+}
+
+@@-webkit-keyframes right-spin {
+    from {
+        -webkit-transform: rotate(-130deg)
+    }
+    50% {
+        -webkit-transform: rotate(5deg)
+    }
+    to {
+        -webkit-transform: rotate(-130deg)
+    }
+}
+
+@@keyframes right-spin {
+    from {
+        -webkit-transform: rotate(-130deg);
+        transform: rotate(-130deg)
+    }
+    50% {
+        -webkit-transform: rotate(5deg);
+        transform: rotate(5deg)
+    }
+    to {
+        -webkit-transform: rotate(-130deg);
+        transform: rotate(-130deg)
+    }
+}
+
+#spinnerContainer.cooldown {
+    -webkit-animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+@@-webkit-keyframes fade-out {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
+}
+
+@@keyframes fade-out {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
+}
+
+.slider {
+    position: relative;
+    height: 400px;
+    width: 100%
+}
+
+.slider.fullscreen {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0
+}
+
+.slider.fullscreen ul.slides {
+    height: 100%
+}
+
+.slider.fullscreen ul.indicators {
+    z-index: 2;
+    bottom: 30px
+}
+
+.slider .slides {
+    background-color: #9e9e9e;
+    margin: 0;
+    height: 400px
+}
+
+.slider .slides li {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: inherit;
+    overflow: hidden
+}
+
+.slider .slides li img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center
+}
+
+.slider .slides li .caption {
+    color: #fff;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    opacity: 0
+}
+
+.slider .slides li .caption p {
+    color: #e0e0e0
+}
+
+.slider .slides li.active {
+    z-index: 2
+}
+
+.slider .indicators {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0
+}
+
+.slider .indicators .indicator-item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    margin: 0 12px;
+    background-color: #e0e0e0;
+    transition: background-color .3s;
+    border-radius: 50%
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: #4CAF50
+}
+
+.carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    -webkit-perspective: 500px;
+    perspective: 500px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%
+}
+
+.carousel.carousel-slider {
+    top: 0;
+    left: 0;
+    height: 0
+}
+
+.carousel.carousel-slider .carousel-fixed-item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    z-index: 1
+}
+
+.carousel.carousel-slider .carousel-fixed-item.with-indicators {
+    bottom: 68px
+}
+
+.carousel.carousel-slider .carousel-item {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.carousel.carousel-slider .carousel-item h2 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px
+}
+
+.carousel.carousel-slider .carousel-item p {
+    font-size: 15px
+}
+
+.carousel .carousel-item {
+    display: none;
+    width: 200px;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.carousel .carousel-item img {
+    width: 100%
+}
+
+.carousel .indicators {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0
+}
+
+.carousel .indicators .indicator-item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    margin: 24px 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: background-color .3s;
+    border-radius: 50%
+}
+
+.carousel .indicators .indicator-item.active {
+    background-color: #fff
+}
+
+.picker {
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.2;
+    color: #000000;
+    position: absolute;
+    z-index: 10000;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.picker__input {
+    cursor: default
+}
+
+.picker__input.picker__input--active {
+    border-color: #0089ec
+}
+
+.picker__holder {
+    width: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+
+/*!
+ * Default mobile-first, responsive styling for pickadate.js
+ * Demo: http://amsul.github.io/pickadate.js
+ */
+
+.picker__holder,
+.picker__frame {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%
+}
+
+.picker__holder {
+    position: fixed;
+    transition: background 0.15s ease-out, top 0s 0.15s;
+    -webkit-backface-visibility: hidden
+}
+
+.picker__frame {
+    position: absolute;
+    margin: 0 auto;
+    min-width: 256px;
+    width: 300px;
+    max-height: 350px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+    transition: all 0.15s ease-out
+}
+
+@@media (min-height: 28.875em) {
+    .picker__frame {
+        overflow: visible;
+        top: auto;
+        bottom: -100%;
+        max-height: 80%
+    }
+}
+
+@@media (min-height: 40.125em) {
+    .picker__frame {
+        margin-bottom: 7.5%
+    }
+}
+
+.picker__wrap {
+    display: table;
+    width: 100%;
+    height: 100%
+}
+
+@@media (min-height: 28.875em) {
+    .picker__wrap {
+        display: block
+    }
+}
+
+.picker__box {
+    background: #ffffff;
+    display: table-cell;
+    vertical-align: middle
+}
+
+@@media (min-height: 28.875em) {
+    .picker__box {
+        display: block;
+        border: 1px solid #777777;
+        border-top-color: #898989;
+        border-bottom-width: 0;
+        border-radius: 5px 5px 0 0;
+        box-shadow: 0 12px 36px 16px rgba(0, 0, 0, 0.24)
+    }
+}
+
+.picker--opened .picker__holder {
+    top: 0;
+    background: transparent;
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#1E000000,endColorstr=#1E000000)";
+    zoom: 1;
+    background: rgba(0, 0, 0, 0.32);
+    transition: background 0.15s ease-out
+}
+
+.picker--opened .picker__frame {
+    top: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity: 1
+}
+
+@@media (min-height: 35.875em) {
+    .picker--opened .picker__frame {
+        top: 10%;
+        bottom: auto
+    }
+}
+
+.picker__input.picker__input--active {
+    border-color: #E3F2FD
+}
+
+.picker__frame {
+    margin: 0 auto;
+    max-width: 325px
+}
+
+@@media (min-height: 38.875em) {
+    .picker--opened .picker__frame {
+        top: 10%;
+        bottom: auto
+    }
+}
+
+.picker__box {
+    padding: 0 1em
+}
+
+.picker__header {
+    text-align: center;
+    position: relative;
+    margin-top: .75em
+}
+
+.picker__month,
+.picker__year {
+    display: inline-block;
+    margin-left: .25em;
+    margin-right: .25em
+}
+
+.picker__select--month,
+.picker__select--year {
+    height: 2em;
+    padding: 0;
+    margin-left: .25em;
+    margin-right: .25em
+}
+
+.picker__select--month.browser-default {
+    display: inline;
+    background-color: #FFFFFF;
+    width: 40%;
+}
+
+.picker__select--year.browser-default {
+    display: inline;
+    background-color: #FFFFFF;
+    width: 26%;
+}
+
+.picker__select--month:focus,
+.picker__select--year:focus {
+    border-color: rgba(0, 0, 0, 0.05)
+}
+
+.picker__nav--prev,
+.picker__nav--next {
+    position: absolute;
+    padding: .5em 1.25em;
+    width: 1em;
+    height: 1em;
+    box-sizing: content-box;
+    top: -0.25em
+}
+
+.picker__nav--prev {
+    left: -1em;
+    padding-right: 1.25em
+}
+
+.picker__nav--next {
+    right: -1em;
+    padding-left: 1.25em
+}
+
+.picker__nav--disabled,
+.picker__nav--disabled:hover,
+.picker__nav--disabled:before,
+.picker__nav--disabled:before:hover {
+    cursor: default;
+    background: none;
+    border-right-color: #f5f5f5;
+    border-left-color: #f5f5f5
+}
+
+.picker__table {
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: .75em;
+    margin-bottom: .5em
+}
+
+.picker__table th,
+.picker__table td {
+    text-align: center
+}
+
+.picker__table td {
+    margin: 0;
+    padding: 0
+}
+
+.picker__weekday {
+    width: 14.285714286%;
+    font-size: .75em;
+    padding-bottom: .25em;
+    color: #999999;
+    font-weight: 500
+}
+
+@@media (min-height: 33.875em) {
+    .picker__weekday {
+        padding-bottom: .5em
+    }
+}
+
+.picker__day--today {
+    position: relative;
+    color: #595959;
+    letter-spacing: -.3;
+    padding: .75rem 0;
+    font-weight: 400;
+    border: 1px solid transparent
+}
+
+.picker__day--disabled:before {
+    border-top-color: #aaaaaa
+}
+
+.picker__day--infocus:hover {
+    cursor: pointer;
+    color: #000;
+    font-weight: 500
+}
+
+.picker__day--outfocus {
+    display: none;
+    padding: .75rem 0;
+    color: #fff
+}
+
+.picker__day--outfocus:hover {
+    cursor: pointer;
+    color: #dddddd;
+    font-weight: 500
+}
+
+.picker__day--highlighted:hover,
+.picker--focused .picker__day--highlighted {
+    cursor: pointer
+}
+
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected {
+    border-radius: 50%;
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+    background: #0089ec;
+    color: #ffffff
+}
+
+.picker__day--disabled,
+.picker__day--disabled:hover,
+.picker--focused .picker__day--disabled {
+    background: #f5f5f5;
+    border-color: #f5f5f5;
+    color: #dddddd;
+    cursor: default
+}
+
+.picker__day--highlighted.picker__day--disabled,
+.picker__day--highlighted.picker__day--disabled:hover {
+    background: #bbbbbb
+}
+
+.picker__footer {
+    text-align: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.picker__button--today,
+.picker__button--clear,
+.picker__button--close {
+    border: 1px solid #ffffff;
+    background: #ffffff;
+    font-size: .8em;
+    padding: .66em 0;
+    font-weight: bold;
+    width: 33%;
+    display: inline-block;
+    vertical-align: bottom
+}
+
+.picker__button--today:hover,
+.picker__button--clear:hover,
+.picker__button--close:hover {
+    cursor: pointer;
+    color: #000000;
+    background: #b1dcfb;
+    border-bottom-color: #b1dcfb
+}
+
+.picker__button--today:focus,
+.picker__button--clear:focus,
+.picker__button--close:focus {
+    background: #b1dcfb;
+    border-color: rgba(0, 0, 0, 0.05);
+    outline: none
+}
+
+.picker__button--today:before,
+.picker__button--clear:before,
+.picker__button--close:before {
+    position: relative;
+    display: inline-block;
+    height: 0
+}
+
+.picker__button--today:before,
+.picker__button--clear:before {
+    content: " ";
+    margin-right: .45em
+}
+
+.picker__button--today:before {
+    top: -0.05em;
+    width: 0;
+    border-top: 0.66em solid #0059bc;
+    border-left: .66em solid transparent
+}
+
+.picker__button--clear:before {
+    top: -0.25em;
+    width: .66em;
+    border-top: 3px solid #ee2200
+}
+
+.picker__button--close:before {
+    content: "\D7";
+    top: -0.1em;
+    vertical-align: top;
+    font-size: 1.1em;
+    margin-right: .35em;
+    color: #777777
+}
+
+.picker__button--today[disabled],
+.picker__button--today[disabled]:hover {
+    background: #f5f5f5;
+    border-color: #f5f5f5;
+    color: #dddddd;
+    cursor: default
+}
+
+.picker__button--today[disabled]:before {
+    border-top-color: #aaaaaa
+}
+
+.picker__box {
+    border-radius: 2px;
+    overflow: hidden
+}
+
+.picker__date-display {
+    text-align: center;
+    background-color: #26a69a;
+    color: #fff;
+    padding-bottom: 15px;
+    font-weight: 300
+}
+
+.picker__nav--prev:hover,
+.picker__nav--next:hover {
+    cursor: pointer;
+    color: #000000;
+    background: #a1ded8
+}
+
+.picker__weekday-display {
+    background-color: #1f897f;
+    padding: 10px;
+    font-weight: 200;
+    letter-spacing: .5;
+    font-size: 1rem;
+    margin-bottom: 15px
+}
+
+.picker__month-display {
+    text-transform: uppercase;
+    font-size: 2rem
+}
+
+.picker__day-display {
+    font-size: 4.5rem;
+    font-weight: 400
+}
+
+.picker__year-display {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.4)
+}
+
+.picker__box {
+    padding: 0
+}
+
+.picker__calendar-container {
+    padding: 0 1rem
+}
+
+.picker__calendar-container thead {
+    border: none
+}
+
+.picker__table {
+    margin-top: 0;
+    margin-bottom: .5em
+}
+
+.picker__day--infocus {
+    color: #595959;
+    letter-spacing: -.3;
+    padding: .75rem 0;
+    font-weight: 400;
+    border: 1px solid transparent
+}
+
+.picker__day.picker__day--today {
+    color: #26a69a
+}
+
+.picker__day.picker__day--today.picker__day--selected {
+    color: #fff
+}
+
+.picker__weekday {
+    font-size: .9rem
+}
+
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected {
+    border-radius: 50%;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    background-color: #26a69a;
+    color: #ffffff
+}
+
+.picker__day--selected.picker__day--outfocus,
+.picker__day--selected:hover.picker__day--outfocus,
+.picker--focused .picker__day--selected.picker__day--outfocus {
+    background-color: #a1ded8
+}
+
+.picker__footer {
+    text-align: right;
+    padding: 5px 10px
+}
+
+.picker__close,
+.picker__today {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+    color: #26a69a
+}
+
+.picker__nav--prev:before,
+.picker__nav--next:before {
+    content: " ";
+    border-top: .5em solid transparent;
+    border-bottom: .5em solid transparent;
+    border-right: 0.75em solid #676767;
+    width: 0;
+    height: 0;
+    display: block;
+    margin: 0 auto
+}
+
+.picker__nav--next:before {
+    border-right: 0;
+    border-left: 0.75em solid #676767
+}
+
+button.picker__today:focus,
+button.picker__clear:focus,
+button.picker__close:focus {
+    background-color: #a1ded8
+}
+
+.picker__list {
+    list-style: none;
+    padding: 0.75em 0 4.2em;
+    margin: 0
+}
+
+.picker__list-item {
+    border-bottom: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    margin-bottom: -1px;
+    position: relative;
+    background: #ffffff;
+    padding: .75em 1.25em
+}
+
+@@media (min-height: 46.75em) {
+    .picker__list-item {
+        padding: .5em 1em
+    }
+}
+
+.picker__list-item:hover {
+    cursor: pointer;
+    color: #000000;
+    background: #b1dcfb;
+    border-color: #0089ec;
+    z-index: 10
+}
+
+.picker__list-item--highlighted {
+    border-color: #0089ec;
+    z-index: 10
+}
+
+.picker__list-item--highlighted:hover,
+.picker--focused .picker__list-item--highlighted {
+    cursor: pointer;
+    color: #000000;
+    background: #b1dcfb
+}
+
+.picker__list-item--selected,
+.picker__list-item--selected:hover,
+.picker--focused .picker__list-item--selected {
+    background: #0089ec;
+    color: #ffffff;
+    z-index: 10
+}
+
+.picker__list-item--disabled,
+.picker__list-item--disabled:hover,
+.picker--focused .picker__list-item--disabled {
+    background: #f5f5f5;
+    border-color: #f5f5f5;
+    color: #dddddd;
+    cursor: default;
+    border-color: #dddddd;
+    z-index: auto
+}
+
+.picker--time .picker__button--clear {
+    display: block;
+    width: 80%;
+    margin: 1em auto 0;
+    padding: 1em 1.25em;
+    background: none;
+    border: 0;
+    font-weight: 500;
+    font-size: .67em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #666
+}
+
+.picker--time .picker__button--clear:hover,
+.picker--time .picker__button--clear:focus {
+    color: #000000;
+    background: #b1dcfb;
+    background: #ee2200;
+    border-color: #ee2200;
+    cursor: pointer;
+    color: #ffffff;
+    outline: none
+}
+
+.picker--time .picker__button--clear:before {
+    top: -0.25em;
+    color: #666;
+    font-size: 1.25em;
+    font-weight: bold
+}
+
+.picker--time .picker__button--clear:hover:before,
+.picker--time .picker__button--clear:focus:before {
+    color: #ffffff
+}
+
+.picker--time .picker__frame {
+    min-width: 256px;
+    max-width: 320px
+}
+
+.picker--time .picker__box {
+    font-size: 1em;
+    background: #f2f2f2;
+    padding: 0
+}
+
+@@media (min-height: 40.125em) {
+    .picker--time .picker__box {
+        margin-bottom: 5em
+    }
+}
+
+
+
+
+    </style>
+
+    <script>
+  $(document).ready(function() {
+  $('.stepper').activateStepper();
+})
+
+function validateStepOne() {
+  // Extract the checked checkboxes from the first step
+  if($('.step').first().find('input[type="checkbox"]:checked').length)
+    return true;
+  return false;
+}
+
+function validateStepThree() {
+  var validation = true;
+  if($('.step:nth-child(3) input[type="text"]').val().indexOf('materialize') === -1)
+    validation = false;
+  if($('.step:nth-child(3) input[type="checkbox"]:checked').length === 0)
+    validation = false;
+  return validation;
+
+}
+
+function nextStepThreeHandler() {
+  if(validateStepThree())
+    $('.stepper').nextStep();
+  else {
+    $('.stepper ').destroyFeedback();              $('.stepper').getStep($('.stepper').getActiveStep()).addClass('wrong');
+  }
+}
+
+
+
+
+/* Materializecss Stepper - By Kinark 2016
+// https://github.com/Kinark/Materialize-stepper
+// JS v2.1.3
+*/
+
+var validation = $.isFunction($.fn.valid) ? 1 : 0;
+
+$.fn.isValid  = function() {
+   if(validation){
+      return this.valid();
+   } else {
+      return true;
+   }
+};
+
+if (validation) {
+   $.validator.setDefaults({
+      errorClass: 'invalid',
+      validClass: "valid",
+      errorPlacement: function (error, element) {
+         if(element.is(':radio') || element.is(':checkbox')) {
+            error.insertBefore($(element).parent());
+         } else {
+            error.insertAfter(element); // default error placement.
+            // element.closest('label').data('error', error);
+            // element.next().attr('data-error', error);
+         }
+      },
+      success: function (element) {
+         if(!$(element).closest('li').find('label.invalid:not(:empty)').length){
+            $(element).closest('li').removeClass('wrong');
+         }
+      }
+   });
+
+   // When parallel stepper is defined we need to consider invisible and
+   // hidden fields
+   if($('.stepper.parallel').length) $.validator.setDefaults({ignore:''});
+}
+
+$.fn.getActiveStep  = function() {
+   var active = this.find('.step.active');
+   return $(this.children('.step:visible')).index($(active))+1;
+};
+
+$.fn.activateStep  = function(callback) {
+   if($(this).hasClass('step')) return;
+   var stepper = $(this).closest('ul.stepper');
+   stepper.find('>li').removeAttr("data-last");
+   if(window.innerWidth < 993 || !stepper.hasClass('horizontal')) {
+      $(this).addClass("step").stop().slideDown(400, function(){
+         $(this).css({'height':'auto', 'margin-bottom': '','display': 'inherit'});if(callback)callback();
+         stepper.find('>li.step').last().attr('data-last', 'true');
+      });
+   } else {
+      $(this).addClass("step").stop().css({'width':'0%','display': 'inherit'}).animate({width:'100%'}, 400, function(){
+         $(this).css({'height':'auto', 'margin-bottom': '','display': 'inherit'});if(callback)callback();
+         stepper.find('>li.step').last().attr('data-last', 'true');
+      });
+   }
+};
+
+$.fn.deactivateStep  = function(callback) {
+   if(!$(this).hasClass('step')) return;
+   var stepper = $(this).closest('ul.stepper');
+   stepper.find('>li').removeAttr("data-last");
+   if(window.innerWidth < 993 || !stepper.hasClass('horizontal')) {
+      $(this).stop().css({'transition':'none', '-webkit-transition':'margin-bottom none'}).slideUp(400, function(){
+         $(this).removeClass("step").css({'height':'auto','margin-bottom':'','transition':'margin-bottom .4s','-webkit-transition':'margin-bottom .4s'});
+         if(callback)callback();
+         stepper.find('>li').removeAttr("data-last");
+         stepper.find('>li.step').last().attr('data-last', 'true');
+      });
+   } else {
+      $(this).stop().animate({width:'0%'}, 400, function(){
+         $(this).removeClass("step").hide().css({'height':'auto', 'margin-bottom': '','display': 'none', 'width': ''});
+         if(callback)callback();
+         stepper.find('>li.step').last().attr('data-last', 'true');
+      });
+   }
+};
+
+$.fn.showError  = function(error) {
+   if(validation) {
+      var name = this.attr('name');
+      var form = this.closest('form');
+      var obj = {};
+      obj[name] = error;
+      form.validate().showErrors(obj);
+      this.closest('li').addClass('wrong');
+   } else {
+      this.removeClass('valid').addClass('invalid');
+      this.next().attr('data-error', error);
+   }
+};
+
+$.fn.activateFeedback  = function() {
+   var active = this.find('.step.active:not(.feedbacking)').addClass('feedbacking').find('.step-content');
+   active.prepend('<div class="wait-feedback"> <div class="preloader-wrapper active"> <div class="spinner-layer spinner-blue"> <div class="circle-clipper left"> <div class="circle"></div></div><div class="gap-patch"> <div class="circle"></div></div><div class="circle-clipper right"> <div class="circle"></div></div></div><div class="spinner-layer spinner-red"> <div class="circle-clipper left"> <div class="circle"></div></div><div class="gap-patch"> <div class="circle"></div></div><div class="circle-clipper right"> <div class="circle"></div></div></div><div class="spinner-layer spinner-yellow"> <div class="circle-clipper left"> <div class="circle"></div></div><div class="gap-patch"> <div class="circle"></div></div><div class="circle-clipper right"> <div class="circle"></div></div></div><div class="spinner-layer spinner-green"> <div class="circle-clipper left"> <div class="circle"></div></div><div class="gap-patch"> <div class="circle"></div></div><div class="circle-clipper right"> <div class="circle"></div></div></div></div></div>');
+};
+
+$.fn.destroyFeedback  = function() {
+   var active = this.find('.step.active.feedbacking');
+   if(active) {
+      active.removeClass('feedbacking');
+      active.find('.wait-feedback').remove();
+   }
+   return true;
+};
+
+$.fn.resetStepper  = function(step) {
+   if(!step) step = 1;
+   var form = $(this).closest('form');
+   $(form)[0].reset();
+   Materialize.updateTextFields();
+   return $(this).openStep(step);
+};
+
+$.fn.submitStepper  = function(step) {
+   var form = this.closest('form');
+   if(form.isValid()) {
+      form.submit();
+   }
+};
+
+$.fn.nextStep = function(callback, activefb, e) {
+   var stepper = this;
+   var settings = $(stepper).data('settings');
+   var form = this.closest('form');
+   var active = this.find('.step.active');
+   var next = $(this.children('.step:visible')).index($(active))+2;
+   var feedback = active.find('.next-step').length > 1 ? (e ? $(e.target).data("feedback") : undefined) : active.find('.next-step').data("feedback");
+   // If the stepper is parallel, we want to validate the input of the current active step. Not all elements.
+   if((settings.parallel && $(active).validateStep()) || (!settings.parallel && form.isValid())) {
+      if(feedback && activefb) {
+         if(settings.showFeedbackLoader) stepper.activateFeedback();
+         return window[feedback].call();
+      }
+      active.removeClass('wrong').addClass('done');
+      this.openStep(next, callback);
+      return this.trigger('nextstep');
+   } else {
+      return active.removeClass('done').addClass('wrong');
+   }
+};
+
+$.fn.prevStep = function(callback) {
+   var active = this.find('.step.active');
+   if(active.hasClass('feedbacking')) return;
+   var prev = $(this.children('.step:visible')).index($(active));
+   active.removeClass('wrong');
+   this.openStep(prev, callback);
+   return this.trigger('prevstep');
+};
+
+$.fn.openStep = function(step, callback) {
+   var settings = $(this).closest('ul.stepper').data('settings');
+   var $this = this;
+   var step_num = step - 1;
+   step = this.find('.step:visible:eq('+step_num+')');
+   if(step.hasClass('active')) return;
+   var active = this.find('.step.active');
+   var next;
+   var prev_active = next = $(this.children('.step:visible')).index($(active));
+   var order = step_num > prev_active ? 1 : 0;
+   if(active.hasClass('feedbacking')) $this.destroyFeedback();
+   active.closeAction(order);
+   step.openAction(order, function(){
+      if(settings.autoFocusInput) step.find('input:enabled:visible:first').focus();
+      $this.trigger('stepchange').trigger('step'+(step_num+1));
+      if(step.data('event')) $this.trigger(step.data('event'));
+      if(callback)callback();
+   });
+};
+
+$.fn.closeAction = function(order, callback) {
+   var closable = this.removeClass('active').find('.step-content');
+   if(window.innerWidth < 993 || !this.closest('ul').hasClass('horizontal')) {
+      closable.stop().slideUp(300,"easeOutQuad", callback);
+   } else {
+      if(order==1) {
+         closable.animate({left: '-100%'},function(){closable.css({display: 'none', left: '0%'}, callback);});
+      } else {
+         closable.animate({left: '100%'},function(){closable.css({display: 'none', left: '0%'}, callback);});
+      }
+   }
+};
+
+$.fn.openAction = function(order, callback) {
+   var openable = this.removeClass('done').addClass('active').find('.step-content');
+   if(window.innerWidth < 993 || !this.closest('ul').hasClass('horizontal')) {
+      openable.slideDown(300,"easeOutQuad", callback);
+   } else {
+      if(order==1) {
+         openable.css({left: '100%', display: 'block'}).animate({left: '0%'}, callback);
+      } else {
+         openable.css({left: '-100%', display: 'block'}).animate({left: '0%'}, callback);
+      }
+   }
+};
+
+$.fn.activateStepper = function(options) {
+   var settings = $.extend({
+      linearStepsNavigation: true,
+      autoFocusInput: true,
+      showFeedbackLoader: true,
+      autoFormCreation: true,
+      parallel: false // By default we don't assume the stepper is parallel
+   }, options);
+   $(document).on('click', function(e){
+      if(!$(e.target).parents(".stepper").length){
+         $('.stepper.focused').removeClass('focused');
+      }
+   });
+
+   $(this).each(function(){
+      var $stepper = $(this);
+      if(!$stepper.parents("form").length && settings.autoFormCreation) {
+         var method = $stepper.data('method');
+         var action = $stepper.data('action');
+         var method = (method ? method : "GET");
+         action = (action ? action : "?");
+         $stepper.wrap( '<form action="'+action+'" method="'+method+'"></form>' );
+      }
+
+      $stepper.data('settings', {linearStepsNavigation: settings.linearStepsNavigation,autoFocusInput: settings.autoFocusInput,showFeedbackLoader:settings.showFeedbackLoader, parallel:$stepper.hasClass('parallel')});
+      $stepper.find('li.step.active').openAction(1);
+      $stepper.find('>li').removeAttr("data-last");
+      $stepper.find('>li.step').last().attr('data-last', 'true');
+
+      $stepper.on("click", '.step:not(.active)', function () {
+         var object = $($stepper.children('.step:visible')).index($(this));
+         if($stepper.data('settings').parallel && validation) { // Invoke parallel stepper behaviour
+            $(this).addClass('temp-active');
+            $stepper.validatePreviousSteps()
+            $stepper.openStep(object + 1);
+            $(this).removeClass('temp-active');
+         } else if(!$stepper.hasClass('linear')) {
+            $stepper.openStep(object+1);
+         } else if(settings.linearStepsNavigation) {
+            var active = $stepper.find('.step.active');
+            if($($stepper.children('.step:visible')).index($(active))+1 == object) {
+               $stepper.nextStep(undefined, true, undefined);
+            } else if ($($stepper.children('.step:visible')).index($(active))-1 == object) {
+               $stepper.prevStep(undefined);
+            }
+         } 
+      }).on("click", '.next-step', function(e) {
+         e.preventDefault();
+         $stepper.nextStep(undefined, true, e);
+      }).on("click", '.next-step-goto', function (e) {
+          var object = $($stepper.children('.step:visible')).index($(this));
+          e.preventDefault();
+          $stepper.openStep(object + 10);
+      }).on("click", '.btnbackGoodLuck', function (e) {
+          var object = $($stepper.children('.step:visible')).index($(this));
+          e.preventDefault();
+          $stepper.openStep(object + 7);
+      }).on("click", '.previous-step', function (e) {
+         e.preventDefault();
+         $stepper.prevStep(undefined);
+      }).on("click", "button:submit:not(.next-step, .previous-step)", function (e) {
+         e.preventDefault();
+         feedback = e ? $(e.target).data("feedback") : undefined;
+         var form = $stepper.closest('form');
+         if(form.isValid()) {
+            if(feedback) {
+               stepper.activateFeedback();
+               return window[feedback].call();
+            }
+            form.submit();
+         }
+      }).on("click", function () {
+         $('.stepper.focused').removeClass('focused');
+         $(this).addClass('focused');
+      });
+   });
+};
+
+
+$.fn.getStep = function(step) {
+    var settings = $(this).closest('ul.stepper').data('settings');
+    var $this = this;
+    var step_num = step - 1;
+    step = this.find('.step:visible:eq('+step_num+')');
+    return step;
+};
+
+/**
+ * Run validation over all previous steps from the steps this
+ * function is called on.
+ */
+$.fn.validatePreviousSteps = function() {
+    var active = $(this).find('.step.temp-active');
+    var index = $(this.children('.step')).index($(active));
+    // We assume that the validator is set to ignore nothing.
+    $(this.children('.step')).each(function(i) {
+        if (i >= index) {
+            $(this).removeClass('wrong done');
+        } else {
+            $(this).validateStep();
+        }
+    });
+};
+
+/**
+ * Validate the step that this function is called on.
+ */
+$.fn.validateStep = function() {
+    var stepper = this.closest('ul.stepper');
+    var form = this.closest('form');
+    var step = $(this);
+    // Retrieve the custom validator for that step if exists.
+    var validator = step.find('.next-step').data("validator");
+    if(this.validateStepInput()) { // If initial base validation succeeded go on
+      if(validator) { // If a custom validator is given also call that validator
+         if (window[validator].call()) {
+             step.removeClass('wrong').addClass('done');
+             return true;
+         }
+         else {
+             step.removeClass('done').addClass('wrong');
+             return false;
+         }
+      }
+      step.removeClass('wrong').addClass('done');
+      return true;
+    } else {
+      step.removeClass('done').addClass('wrong');
+      return false;
+    }
+};
+
+
+$.fn.validateStepInput = function() {
+    var valid = true;
+    if (validation) {
+        // Find all input fields dat need validation in current step.
+        $(this).find('input.validate').each(function() {
+            if (!$(this).valid()) {
+                valid = false;
+                return false;
+            }
+        });
+    }
+    return valid;
+};
+    </script>
+
+    <style>
+
+
+label.invalid {
+   font-size: 12.8px;
+   font-size: 0.8rem;
+   font-weight: 500;
+   color: red !important;
+   top: 50px !important;
+}
+
+label.invalid.active {
+   -webkit-transform: translateY(0%) !important;
+   transform: translateY(0%) !important;
+}
+/*Validate.js FIX*/
+
+ul.stepper {
+   counter-reset: section;
+   overflow-y: auto;
+   overflow-x: hidden;
+   /*max-width: 800px;*/
+}
+
+.card-content ul.stepper {
+   margin: 1em -24px;
+   padding: 0 24px;
+}
+
+@@media only screen and (min-width: 993px){
+   ul.stepper.horizontal {
+      position: relative;
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex;
+      -ms-flex-pack: justify;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+
+
+   }
+
+   .card-content ul.stepper.horizontal {
+      margin-left: -24px;
+      margin-right: -24px;
+      padding-left: 24px;
+      padding-right: 24px;
+      overflow: hidden;
+   }
+
+   .card-content ul.stepper.horizontal:first-child {
+      margin-top: -24px;
+   }
+
+   ul.stepper.horizontal:before {
+      content: '';
+      background-color: transparent;
+      width: 100%;
+      min-height: 84px;
+      box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+      position: absolute; display: none;
+      left: 0;
+   }
+}
+
+ul.stepper .wait-feedback {
+   left: 0;
+   right: 0;
+   top: 0;
+   z-index: 2;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   display: -ms-flexbox;
+   display: -webkit-box;
+   display: flex;
+   -ms-flex-pack: center;
+   -webkit-box-pack: center;
+   justify-content: center;
+   -ms-flex-align: center;
+   -webkit-box-align: center;
+   align-items: center;
+}
+
+ul.stepper .step {
+   position: relative;
+}
+
+ul.stepper .step.feedbacking .step-content>*:not(.wait-feedback) {
+   opacity: 0.1;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+}
+
+@@media only screen and (min-width: 993px){
+   ul.stepper.horizontal .step {
+      position: static;
+      margin: 0;
+      width: 100%;
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex;
+      -ms-flex-align: center;
+      -webkit-box-align: center;
+      align-items: center;
+      height: 0px !important;
+   }
+
+   ul.stepper.horizontal>.step:last-of-type, ul.stepper.horizontal>.step[data-last="true"] {
+      width: auto !important;
+   }
+
+   ul.stepper.horizontal .step:not(:last-of-type):after, ul.stepper.horizontal>.step.active:not(:last-of-type):after{
+      content: '';
+      position: static;
+      display: inline-block;
+      width: 100%;
+      height: 1px; display: none;
+   }
+}
+
+ul.stepper>li:not(:last-of-type) {
+   margin-bottom: 10px;
+   -webkit-transition: margin-bottom 0.4s;
+   transition: margin-bottom 0.4s;
+}
+
+/* ul.stepper .step:not(:last-of-type).active {
+   margin-bottom: 36px;
+} */
+
+ul.stepper .step:before {
+   position: absolute;
+   top: 12px;
+   counter-increment: section;
+   content: counter(section);
+   height: 28px;
+   width: 28px;
+   color: white;
+   background-color: rgba(0,0,0,0.3);
+   border-radius: 50%;
+   text-align: center;
+   line-height: 28px;
+   font-weight: 400; display: none;
+}
+
+ul.stepper .step.active:before, ul.stepper .step.done:before {
+   background-color: #2196f3;
+}
+
+ul.stepper .step.done:before {
+   content: '\e5ca';
+   font-size: 16px;
+   font-family: 'Material Icons';
+}
+
+ul.stepper .step.wrong:before {
+   content: '\e001';
+   font-size: 24px;
+   font-family: 'Material Icons';
+   background-color: red !important;
+}
+
+ul.stepper .step-title {
+   margin: 0 -24px;
+   cursor: pointer;
+   padding: 15.5px 44px 24px 64px;
+   display: block;
+}
+
+@@media only screen and (min-width: 993px){
+   ul.stepper.horizontal .step.active .step-title:before, ul.stepper.horizontal .step.done .step-title:before {
+      background-color: #2196f3;
+   }
+
+   ul.stepper.horizontal .step.done .step-title:before {
+      content: '\e5ca';
+      font-size: 16px;
+      font-family: 'Material Icons';
+   }
+
+   ul.stepper.horizontal .step.wrong .step-title:before {
+      content: '\e001';
+      font-size: 24px;
+      font-family: 'Material Icons';
+      background-color: red !important;
+   }
+
+   ul.stepper.horizontal .step-title {
+      line-height: 84px;
+      height: 84px;
+      margin: 0;
+      padding: 0 25px 0 65px;
+      display: inline-block;
+      max-width: 220px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+   }
+
+   ul.stepper.horizontal .step:before {
+      content: none;
+   }
+
+   ul.stepper.horizontal .step .step-title:before {
+      position: absolute;
+      top: 28.5px;
+      left: 19px;
+      counter-increment: section;
+      content: counter(section);
+      height: 28px;
+      width: 28px;
+      color: white;
+      background-color: rgba(0,0,0,0.3);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-weight: 400;
+   }
+}
+
+/*.card-content ul.stepper.horizontal .step .step-title:first-child {
+margin-left: -20px;
+padding-left: 85px;
+}
+
+.card-content ul.stepper.horizontal .step .step-title:first-child::before {
+left: 39px;
+}
+
+.card-content ul.stepper.horizontal .step .step-title:last-child {
+margin-right: -20px;
+padding-right: 45px;
+}
+
+.card-content ul.stepper.horizontal .step .step-title:last-child::before {
+left: 39px;
+}*/
+
+ul.stepper .step-title:after {
+   content: attr(data-step-label);
+   display: block;
+   position: absolute;
+   font-size: 12.8px;
+   font-size: 0.8rem;
+   color: #424242;
+   font-weight: 400;
+}
+
+@@media only screen and (min-width: 993px){
+   ul.stepper.horizontal .step-title:after {
+      top:15px;
+   }
+}
+
+ul.stepper .step-title:hover {
+   background-color: rgba(0, 0, 0, 0.06);
+}
+
+ul.stepper .step.active .step-title {
+   font-weight: 500;
+}
+
+ul.stepper .step-content {
+   position: relative;
+   display: none;
+   height: calc(100% - 132px);
+   width: inherit;
+   overflow: visible;
+   /* margin-left: 41px;
+   margin-right: 24px; */
+}
+
+@@media only screen and (min-width: 993px){
+   ul.stepper.horizontal .step-content {
+      position: absolute;
+      height: calc(100% - 84px);
+      top:0;
+      left: 0;
+      width: 100%;
+
+      margin: 0;
+      padding: 5px;
+   }
+
+   .card-content ul.stepper.horizontal .step-content {
+      padding-left: 40px;
+      padding-right: 40px;
+   }
+}
+
+ul.stepper>.step:not(:last-of-type):after {
+   content: '';
+   position: absolute;
+   top: 50px;
+   left: 13.5px;
+   width: 1px;
+   height: 40%;
+   height: calc(100% - 38px);
+   background-color: rgba(0,0,0,0.1);
+   -webkit-transition: all 0.4s;
+   transition: all 0.4s; display: none;
+}
+
+ul.stepper>.step.active:not(:last-child):after {
+   height: 93%;
+   height: calc(100% - 12px);
+}
+
+ul.stepper>.step[data-last="true"]:after {
+   height: 0;
+   width: 0;
+}
+
+ul.stepper>.step[data-last="true"] {
+   margin-bottom: 0;
+}
+
+ul.stepper .step-actions {
+   padding-top: 16px;
+   -webkit-display: flex;
+   -moz-display: flex;
+   -ms-display: flex;
+   display: -webkit-box;
+   display: flex;
+   -ms-flex-pack: start;
+   -webkit-box-pack: start;
+   justify-content: flex-start;
+}
+
+ul.stepper .step-actions .btn:not(:last-child), ul.stepper .step-actions .btn-flat:not(:last-child), ul.stepper .step-actions .btn-large:not(:last-child) {
+   margin-right:5px;
+}
+
+@@media only screen and (min-width: 993px){
+   ul.stepper.horizontal .step-actions .btn:not(:last-child), ul.stepper.horizontal .step-actions .btn-flat:not(:last-child), ul.stepper.horizontal .step-actions .btn-large:not(:last-child) {
+      margin-left:5px;
+      margin-right:0;
+   }
+
+   ul.stepper.horizontal .step-actions {
+       position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background-color: #fff;
+      /* -ms-flex-direction: row-reverse;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      flex-direction: row-reverse; */
+   }
+
+   .card-content ul.stepper.horizontal .step-actions {
+      padding-left: 40px;
+      padding-right: 40px;
+   }
+}
+
+ul.stepper .step-content .row {
+   margin-bottom: 7px;
+}
+
+     /********************************************************************************************************************************/
+
+  ul.stepper.horizontal .step-actions { position:relative;  }
+
+  p.cardBox {width: auto; display: inline-block; border:1px solid #ddd; margin-bottom: 0px; }
+  .cardBox {width: 100%; display: block; border:1px solid #ddd; margin-bottom:15px; border-radius:5px;  }
+   .cardBox label {line-height:40px; font-size:20px;}
+   ul.stepper.horizontal {
+    height:100%;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    min-height:660px;
+}
+@@media only screen and (max-width: 767px) and (min-width: 0px)  {
+    ul.stepper.horizontal {height: max-content;}
+}
+  .questionForm {
+    max-width: 300px;
+    margin: 70px auto 0;
+}
+.questionForm [type="checkbox"]+label { height:auto;  }
+.questionForm [type="radio"]:not(:checked)+label, .questionForm  [type="radio"]:checked+label {
+    position: relative;
+        padding-left: 65px;
+    cursor: pointer;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1rem;
+    transition: .28s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /*Added by Neha*/
+    font-size:18px;
+    color:#000;
+}
+.questionForm [type="radio"]+label:before, .questionForm [type="radio"]+label:after {
+    width: 30px;
+    height: 30px;
+    top: 6px;
+    LEFT: 7PX;
+}
+
+
+.questionForm  [type="checkbox"]+label:before, [type="checkbox"]:not(.filled-in)+label:after {
+   top: 9px;
+    left: 8px;
+}
+
+.questionForm [type="checkbox"]+label {
+    height: auto;
+    width: 100%; padding-left: 40px;
+}
+
+.questionForm [type="checkbox"]:checked+label:before {
+    top: 4px;
+    left: 3px;}
+
+
+.questionForm input[type="radio"]  {  padding-left:20px; }
+.questionForm input[type="radio"]:checked+label {
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.2);
+}
+
+
+
+
+ .imgBoxOuter [type="checkbox"]+label:after {
+   width: 30px!important;  height: 30px!important; top: -21px!important;
+    LEFT: 0;  margin: 0 auto; right:0px;  display: none;
+
+    background-color: #fff;}
+
+    .imgBoxOuter [type="checkbox"]+label:before { top: -15px!important;
+    LEFT: 7PX;  margin: 0 auto; right:0px;}
+
+
+    .imgBoxOuter [type="checkbox"]+label {   padding-left: 0; height: 100%;      max-height: 300px;  }
+
+
+    .imgBoxOuter [type="checkbox"]:checked+label {   padding-left: 0;  border: 1px solid rgba(0,0,0,0.4); height: 100%;
+    background: rgba(0,0,0,0.05); }
+
+
+    .imgBoxOuter [type="radio"]+label:before, .imgBoxOuter [type="radio"]+label:after {
+   width: 30px;  height: 30px; top: -21px;
+    LEFT: 7PX;  margin: 0 auto; right:0px;  display: none;
+    }
+
+    .imgBoxOuter [type="radio"]:not(:checked)+label, [type="radio"]:checked+label {
+    position: relative;
+    padding-left: 0;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    line-height: 25px;
+    font-size: 1rem;
+    transition: .28s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+.imgBoxOuter [type="checkbox"]+label:before, .imgBoxOuter [type="checkbox"]+label:after {
+   width: 30px;  height: 30px; top: -21px;
+    LEFT: 7PX;  margin: 0 auto; right:0px;  display: none;
+    }
+
+    .imgBoxOuter.multiSelectionimg [type="checkbox"]:not(:checked)+label, .imgBoxOuter.multiSelectionimg [type="checkbox"]:checked+label {
+    position: relative;
+    padding-left: 0;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    line-height: 25px;
+    font-size: 1rem;
+    transition: .28s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.imgBoxOuter input[type="radio"] { border: 1px solid rgba(0,0,0,0.4);}
+.imgBoxOuter input[type="radio"]:checked+label {
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.4);
+    /*background: rgba(0,0,0,0.05);*/
+    background:rgba(0,0,0,0.2);
+    transition: all 0.5s ease;
+}
+
+
+.imgBoxOuter label.form-check-label img {
+    max-width: 100%;
+    margin: 5px auto;
+    display: block;
+}
+
+
+
+.form-check  { padding-left:0px;  }
+
+
+
+.mt70 { margin-top: 30px;  }
+
+.justify-content-center.mt70.imgBoxOuter {
+    text-align: center;
+}
+
+.imgBoxOuter p.cardBox {
+   width: 240px;
+    display: inline-block;
+    border: 1px solid #ddd;
+
+    FLOAT: none;
+    /* min-height: 310px; */
+
+    margin: 0 5px 20px;
+}
+
+.step-actions.text-center {
+    width: 100%;
+}
+
+.ImgBOXtxt {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    margin: 10px;
+    color: #000;
+ }
+
+
+
+
+p.cardBox:hover {
+    border: 1px solid #26a69a;
+}
+
+.cardBox:hover {
+    border: 1px solid #26a69a;
+}
+
+
+.rangeOuter {  position: relative;   }
+
+.auntyImageOuter {
+    display: block;
+    text-align: center; position: relative; margin-top: 30px;
+}
+.auntyImageInner {
+    width: 100px;
+    height: 113px;
+    margin: 0 auto;
+    border-radius: 0;
+    overflow: hidden;
+    margin-bottom: 15px;
+   
+}
+.auntyImageInner img {
+    width: 100%;
+    margin: 0 auto;
+}
+.auntyImageOuter:before {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: rgba(0,0,0,.3);
+    content: "";
+    left: 0;
+    right: 0;
+    top: 50%;
+    z-index: -1;
+}
+
+.titleOuter h3 {
+    font-size: 30px;
+    line-height: 35px; font-weight: 300;
+}
+
+.titleOuter h5 {
+    font-size: 21px;
+    line-height: 28px;
+    font-weight: 600;font-weight: 300;
+}
+
+
+.imgBoxOuter svg {
+    overflow: hidden;
+    vertical-align: middle;
+    max-width: 150px;
+    margin: 10px auto;
+    display: block;
+    /* margin: 10px 0; */
+}
+
+.st0{fill:#FFFFFF;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+.st1{fill:#FFFFFF;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+.st2{fill:#FFFFFF;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+.st3{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+.st4{fill:#FFFFFF;stroke:#000000;stroke-width:0.125;stroke-miterlimit:10;}
+.st5{fill:url(#SVGID_1_);stroke:#000000;stroke-miterlimit:10;}
+.st6{fill:url(#SVGID_2_);stroke:#000000;stroke-miterlimit:10;}
+
+#Layer_06 .st4 { stroke-width: 1;}
+#Layer_08 .st4 { stroke-width: 1;}
+
+.cardBox .form-check-label:hover  .st0, .cardBox .form-check-label:hover  .st1, .cardBox .form-check-label:hover .st2,
+.cardBox .form-check-label:hover .st3, .cardBox .form-check-label:hover .st4, .cardBox .form-check-label:hover .st5,
+.cardBox .form-check-label:hover.st6 {stroke:#10968a;}
+.cardBox .form-check-label:focus .st0{stroke:#10968a;}
+
+button.waves-effect.waves-dark.btn.next-step {
+    background: #10968a;
+    color: #fff;
+}
+
+button.waves-effect.waves-dark.btn.previous-step {
+    background: #10968a;
+    color: #fff; margin-right: 8px!important;
+}
+
+
+p.cardBox:hover {
+    border: 1px solid #26a69a;
+    box-shadow: 0 2px 20px rgba(0,0,0,.2);
+}
+.cardBox .form-check-label:hover .ImgBOXtxt { color: #10968a;}
+
+.questionForm.mt30.thanksMsz {
+    margin: 0 auto;
+}
+
+.questionForm.mt30.thanksMsz svg {
+max-width: 150px;
+}
+
+svg#Layer_07 {
+    margin: 28px auto;
+}
+
+
+@@media only screen and (max-width: 992px){
+.imgBoxOuter p.cardBox {
+    width: 42%;
+    display: inline-block;
+    border: 1px solid #ddd;
+    FLOAT: none;
+    /* min-height: 310px; */
+    margin: 5px 10px;
+    height: fit-content;
+    margin-bottom: 11px;
+    /* padding: 15px; */
+}
+.imgBoxOuter svg {
+    max-width: 100px;
+}
+.ImgBOXtxt {
+    font-size: 13px;
+    margin-bottom: 10px;
+    line-height: 17px;
+}
+.titleOuter h3 {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 500;
+}
+.titleOuter h5 {
+    font-size: 14px;
+    line-height: 20px;
+}
+svg#Layer_07 {
+    margin: 22px auto;
+}
+
+}
+
+.custom-selection{
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.2);
+    transition: all 0.5s ease
+}
+.custom-selection::before{
+  background-color: #26a69a!important;
+    z-index: 0!important;
+    border:#26a69a!important;
+}
+
+
+svg#Layer_3a {
+    margin: 33px auto;
+}
+
+@@media only screen and (max-width:480px){ 
+svg#Layer_07 {
+    margin: 22px auto!important;
+}
+svg#Layer_3a {
+    margin: 35px auto!important;
+}
+}
+    </style>
+
+    <script>
+
+        $(function () {
+            //$('#txtfname').keydown(function (e) {
+            //    if (e.ctrlKey || e.altKey) {
+            //        e.preventDefault();
+            //    } else {
+            //        var key = e.keyCode;
+            //      //  if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+            //            if (!((key == 8) ||  (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+            //            e.preventDefault();
+            //        }
+            //    }
+            //});
+
+            //$('#txtlname').keydown(function (e) {
+            //    if (e.ctrlKey || e.altKey) {
+            //        e.preventDefault();
+            //    } else {
+            //        var key = e.keyCode;
+            //        if (!((key == 8) ||  (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+            //            e.preventDefault();
+            //        }
+            //    }
+            //});
+            topFunction();
+            $('#Finish').click(function () {
+                $("#ajaxLoading").css("display", "block");
+                $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                $("#ajaxLoading").css("left", $(window).width() / 2);
+                $("#ajaxLoading").css("position", "fixed");
+                $("#ajax-backdrop").css("display", "block");
+                var url = '/Quiz/Finish?FirstName=' + $('#txtfname').val().substr(0, 1).toUpperCase() + $('#txtfname').val().substr(1).toLowerCase() + '&LastName=' + $('#txtlname').val().substr(0, 1).toUpperCase() + $('#txtlname').val().substr(1).toLowerCase() + '&Email=' + $('#ss').val();
+
+                setTimeout(function () {
+                    window.location.href = url;
+                }, 4000);
+
+            })
+            if ($('#txtfname').val() == "" || $('#txtlname').val() == "") {
+
+                $('#btnfirst').attr('disabled', 'disabled');
+
+
+            }
+            else {
+                $('#btnfirst').removeAttr('disabled');
+            }
+
+
+
+            if ($('#ss').val() == "") {
+
+                $('#btnSubmit').attr('disabled', 'disabled');
+
+
+            }
+            else {
+                $('#btnSubmit').removeAttr('disabled');
+            }
+            var Question1 = $('#Question1').text(), Question2 = $('#Question2').text(), Question3 = $('#Question3').text(), Question4 = $('#Question4').text(),
+              Question5 = $('#Question5').text(), Question6 = $('#Question6').text(), Question7 = $('#Question7').text(), Question8 = $('#Question8').text(), Question9 = $('#Question9').text();
+            var Answer1 = "", Answer2 = "", Answer3 = "", Answer4 = "", Answer5 = "", Answer6 = "",FirstName = "", LastName = "", Address = "", Unit = "", EmailAddress = "";
+            $("#txtfname").on("input", function () {
+         
+                LastName = $('#txtlname').val();
+                 FirstName = $('#txtfname').val();
+                if (LastName == "" || FirstName == "") {
+          
+                    $('#btnfirst').attr('disabled', 'disabled');
+                
+                }
+                else {
+                    $('#btnfirst').removeAttr('disabled');
+                }
+
+            });
+            $("#txtlname").on("input", function () {
+                LastName = $('#txtlname').val();
+                 FirstName = $('#txtfname').val();
+                 if (LastName == "" || FirstName == "") {
+                    $('#btnfirst').attr('disabled', 'disabled');
+             
+                }
+                else {
+           
+                    $('#btnfirst').removeAttr('disabled');
+                }
+
+            });
+
+   
+            $("#btnfirst").click(function () {
+                LastName = $('#txtlname').val();
+                FirstName = $('#txtfname').val();
+                $('.spnFirstName').text(FirstName.substr(0, 1).toUpperCase() + FirstName.substr(1).toLowerCase());
+                Answer1 = FirstName + ' ' + LastName
+            
+
+
+                $('.answer2').each(function (index, value) {
+                    if (($(this).find('input[type=radio]').val() == Answer2)) {
+                        $(this).find('label').addClass('custom-selection');
+                    }
+             
+                });
+            })
+        
+           
+            $('.answer2').click(function () {
+                ($('.answer2').find('label').removeClass('custom-selection'));
+                Answer2 = ($(this).find('label').text());
+                Answer2 = $.trim(Answer2.replace(/[\t\n]+/g, ' '));
+
+             
+             
+            })
+
+           
+            $('.answer3').click(function () {
+                ($('.answer3').find('label').removeClass('custom-selection'));
+                Answer3 = ($(this).find('label').find('strong').text());
+                Answer3 = $.trim(Answer3.replace(/[\t\n]+/g, ' '));
+
+
+
+            })
+           
+      
+            $('.answer4').click(function () {
+                ($('.answer4').find('label').removeClass('custom-selection'));
+                Answer4 = ($(this).find('label').find('strong').text());
+                //if (Answer4 == "Yes") {
+                //    $(".btnanswer4").removeClass("next-step")
+                //    $(".btnanswer4").addClass("next-step-goto")
+                //    $(".btnanswer4").addClass("previous-step-new")
+
+                //}
+                //else {
+                //    $(".btnanswer4").addClass("next-step")
+                //    $(".btnanswer4").removeClass("next-step-goto")
+                //    $(".btnanswer4").removeClass("previous-step-new")
+                //}
+            })
+         
+
+
+            $('.answer5').click(function () {
+                ($('.answer5').find('label').removeClass('custom-selection'));
+                Answer5 = ($(this).find('label').text());
+                Answer5 = $.trim(Answer5.replace(/[\t\n]+/g, ' '));
+            })
+           
+
+            $('.answer6').click(function () {
+                ($('.answer6').find('label').removeClass('custom-selection'));
+                Answer6 = ($(this).find('label').text());
+                Answer6 = $.trim(Answer6.replace(/[\t\n]+/g, ' '));
+            })
+        
+        
+         
+            
+            $("#ss").on("input", function () {
+                var res = validate();
+                if (res == false) {
+                    return false;
+                }
+
+            });
+
+
+
+
+            //------------------------------------------------Next button clicks start--------------------------------------------
+
+
+            $('.btnanswer2').click(function () {
+
+                $('.answer3').each(function (index, value) {
+                    if (($(this).find('input[type=radio]').val() == Answer3)) {
+                        $(this).find('label').addClass('custom-selection');
+                    }
+
+                });
+
+            })
+            $('.btnanswer3').click(function () {
+                //$('.answer4').each(function (index, value) {
+                //    if (($(this).find('input[type=radio]').val() == Answer4)) {
+                //        $(this).find('label').addClass('custom-selection');
+                //    }
+
+                //});
+                $('.answer5').each(function (index, value) {
+                    if (($(this).find('input[type=radio]').val() == Answer5)) {
+                        $(this).find('label').addClass('custom-selection');
+                    }
+
+                });
+            })
+            $('.btnanswer4').click(function () {
+                
+            })
+            $('.btnanswer5').click(function () {
+                $('.answer6').each(function (index, value) {
+                    if (($(this).find('input[type=radio]').val() == Answer6)) {
+                        $(this).find('label').addClass('custom-selection');
+                    }
+
+                });
+            })
+            $('.btnanswer6').click(function () {
+                $('.answer4').each(function (index, value) {
+                    if (($(this).find('input[type=radio]').val() == Answer4)) {
+                        $(this).find('label').addClass('custom-selection');
+                    }
+
+                });
+            })
+            //------------------------------------------------Next button clicks end-------------------------------------------
+
+
+
+            //------------------------------------------------Back button clicks start------------------------------------------
+            $('.btnback2').click(function () {
+                topFunction();
+                $('#txtlname').val(LastName)
+                $('#txtfname').val(FirstName);
+            });
+
+            $('.btnback3').click(function () {
+                topFunction();
+                $('.answer2').each(function (index, value) {
+                    if (($(this).find('input[type=radio]').val() == Answer2)) {
+                        $(this).find('label').addClass('custom-selection');
+                    }
+
+                });
+
+            })
+            $('.btnback4').click(function () {
+                topFunction()
+                //$('.answer3').each(function (index, value) {
+                //    if (($(this).find('input[type=radio]').val() == Answer3)) {
+                //        $(this).find('label').addClass('custom-selection');
+                //    }
+
+                //});
+
+                $('.answer6').each(function (index, value) {
+                    if (($(this).find('input[type=radio]').val() == Answer6)) {
+                        $(this).find('label').addClass('custom-selection');
+                    }
+
+                });
+
+            })
+            $('.btnback5').click(function () {
+                topFunction()
+                $('.answer3').each(function (index, value) {
+                    if (($(this).find('input[type=radio]').val() == Answer3)) {
+                        $(this).find('label').addClass('custom-selection');
+                    }
+
+                });
+                //$('.answer4').each(function (index, value) {
+                //    if (($(this).find('input[type=radio]').val() == Answer4)) {
+                //        $(this).find('label').addClass('custom-selection');
+                //    }
+
+                //});
+            })
+            $('.btnback6').click(function () {
+                topFunction()
+                $('.answer5').each(function (index, value) {
+                    if (($(this).find('input[type=radio]').val() == Answer5)) {
+                        $(this).find('label').addClass('custom-selection');
+                    }
+
+                });
+            })
+            $('.btnemailback').click(function () {
+                topFunction()
+
+                //$('.answer6').each(function (index, value) {
+                //    if (($(this).find('input[type=radio]').val() == Answer6)) {
+                //        $(this).find('label').addClass('custom-selection');
+                //    }
+
+                //});
+
+                $('.answer4').each(function (index, value) {
+                    if (($(this).find('input[type=radio]').val() == Answer4)) {
+                        $(this).find('label').addClass('custom-selection');
+                    }
+
+                });
+
+
+            })
+            
+            //------------------------------------------------Back button clicks end--------------------------------------------
+
+            //Valdidation using jquery
+            function validate() {
+                var isValid = true;
+                if ($('#ss').val() != "") {
+
+                    if (!ValidateEmail($("#ss").val())) {
+                        $('#btnSubmit').attr('disabled', 'disabled');
+                        $('#ss').css('color', '#e51f1f');
+                        isValid = false;
+                    }
+                    else {
+                    
+                        $('#btnSubmit').removeAttr('disabled');
+                        $('#ss').css('color', '#495057');
+                    }
+
+
+                }
+                else {
+                    $('#btnSubmit').attr('disabled', 'disabled');
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            function ValidateEmail(email) {
+                var expr = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,6})?$/
+                return expr.test(email);
+            };
+
+
+
+            $("#btnSubmit").click(function () {
+                EmailAddress = $('#ss').val();
+                    var BuyersQuiz = [];
+
+
+                    var BuyersQuiz = [
+                            //AlterQuestion is the Id from QuestionaireResult
+       { 'Question': Question1, 'Answer': Answer1, Email: EmailAddress, FirstName: FirstName, LastName: LastName, Address: Address, Unit: Unit,AlterQuestion:0 },
+        { 'Question': Question2, 'Answer': Answer2, Email: EmailAddress, FirstName: FirstName, LastName: LastName, Address: Address, Unit: Unit, AlterQuestion: 10 },
+        { 'Question': Question3, 'Answer': Answer3, Email: EmailAddress, FirstName: FirstName, LastName: LastName, Address: Address, Unit: Unit, AlterQuestion:11},
+        { 'Question': Question4, 'Answer': Answer4, Email: EmailAddress, FirstName: FirstName, LastName: LastName, Address: Address, Unit: Unit, AlterQuestion: 14 },
+        { 'Question': Question5, 'Answer': Answer5, Email: EmailAddress, FirstName: FirstName, LastName: LastName, Address: Address, Unit: Unit, AlterQuestion: 12 },
+        { 'Question': Question6, 'Answer': Answer6, Email: EmailAddress, FirstName: FirstName, LastName: LastName, Address: Address, Unit: Unit, AlterQuestion: 13 },
+
+
+                    ];
+
+
+                    var data1 = { 'listObject': BuyersQuiz };
+                    var data = JSON.stringify(data1)
+                    // alert(data)
+                    $.ajax({
+                        type: 'post',
+                        url: '/Quiz/SaveSeller',
+                        data: data,
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (response) {
+                            //do your actions
+                           // $('#btnNextStep').click();
+                        },
+                        error: function (response) {
+                            alert("error occured");
+                        }
+                    });
+
+                })
+
+        })
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light registrationHeader sticky">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Brand","Home")"><img src="~/Content/NewVersion/images/JustBB.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto registrationHeaderMenu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Brand","Home")">  <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item @(ViewBag.MenuActive == "About" ? "active" : "")">
+                        <a class="nav-link" href="@Url.Action("BE","About")">ABOUT</a>
+                    </li>
+                    @*<li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Buyer","Home")">BUYERS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Seller","Home")">SELLERS</a>
+                        </li>*@
+
+                    <li class="nav-item @(ViewBag.MenuActive == "Neighborhood" ? "active" : "")">
+                        <a class="nav-link" href="@Url.Action("Community","Neighborhood")">NEIGHBORHOODS</a>
+                    </li>
+                    <li class="nav-item @(ViewBag.MenuActive == "Blogs" ? "active" : "")">
+                        <a class="nav-link" href="@Url.Action("List","Blogs")">BLOGS</a>
+                    </li>
+                    @*<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                LISTINGS
+                            </a>
+                            <div class="dropdown-menu subDrop" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="@Url.Action("JayBauerListing","Home")">Jay Bauer's Listings</a>
+                                <a class="dropdown-item" href="@Url.Action("ZackLondonListings","Home")">Zack London's Listings</a>
+                            </div>
+                        </li>*@
+                    <li class="nav-item @(ViewBag.MenuActive == "Testimonials" ? "active" : "")">
+                        <a class="nav-link" href="@Url.Action("List","Testimonials")">TESTIMONIALS</a>
+                    </li>
+                    <li class="nav-item @(ViewBag.MenuActive == "Contact" ? "active" : "")">
+                        <a class="nav-link " href="@Url.Action("Contact","Home")">CONTACT</a>
+                    </li>
+
+                </ul>
+                <div class="form-inline my-2 my-lg-0 rightSideBtn">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+
+                        if (User.IsInRole("Admin"))
+                        {
+                            <a class="nav-link btndashboard" href="@Url.Action("Index","Dashboard",new {area = "Admin" })">MY DASHBOARD</a>
+
+                        }
+                        if (User.IsInRole("Agent"))
+                        {
+                            <a class="nav-link btndashboard" href="@Url.Action("Index","DashboardV2",new {area = "Coordinator" })">MY DASHBOARD</a>
+
+                        }
+                        if (User.IsInRole("Client"))
+                        {
+                            <a class="nav-link btndashboard" href="@Url.Action("List","MyDeal",new {area = "Client" })">MY DASHBOARD</a>
+
+
+                        }
+                        using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <a class="btn btnDash" href="javascript:document.getElementById('logoutForm').submit()">LOGOUT</a>
+                        }
+
+                    }
+                    else
+                    {
+                        <a class="nav-link" href="@Url.Action("Login","Account")">LOGIN</a>
+                        <a class="btn btn-outline-success signBtn" href="@Url.Action("Register","Account")">SIGNUP</a>
+
+                    }
+                    @*<a class="nav-link" href="#">LOG IN</a>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SIGN UP</button>*@
+                </div>
+            </div>
+        </div>
+    </nav>
+
+   
+
+
+    <div class="container">
+
+
+
+        <form>
+
+            <div class="auntyImageOuter">
+                <div class="auntyImageInner">
+                    <img src="../img/headshot1.jpg" alt="dsd">
+                </div>
+            </div>
+            <ul class="stepper parallel horizontal">
+
+                <!-- First Slide S -->
+                <li class="step active">
+                    <div class="step-content">
+                        <div class="row">
+                            <div class='form-field col s12'>
+                                <div class="titleOuter text-center">
+                                    <h3>Hi, I'm Donna!</h3>
+                                    <h5 id="Question1">I’m here to help your selling process be as smooth as possible!</h5>
+                                    <h5>Let's get started.</h5>
+                                </div>
+
+                                <div class="justify-content-center mt70 imgBoxOuter">
+                                    <div class="row">
+                                        <div class="col-md-4 offset-md-2">
+                                            <div class="form-group">
+                                                <label for="" style="float:left ;" class="">First Name</label>
+                                                <input type="text" class="form-control" id="txtfname" value="@ViewBag.FirstName" autocomplete="off" maxlength="50">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="" style="float:left ;">Last Name</label>
+                                                <input type="text" class="form-control" id="txtlname" value="@ViewBag.LastName" autocomplete="off" maxlength="50">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="step-actions d-flex justify-content-center">
+                            <button class="waves-effect waves-dark btn btn-flat previous-step-new" type="button" onclick="location.href = '/Home/Seller'">BACK</button>
+                            <button class="waves-effect waves-dark btn next-step" onclick="topFunction()" id="btnfirst" disabled>NEXT</button>
+                        </div>
+                    </div>
+
+
+                </li>
+                <!-- First Slide E -->
+                <!-- Second Slide S -->
+                <li class="step ">
+                    <div class="step-content">
+                        <div class="row">
+                            <div class='form-field col s12'>
+                                <div class="titleOuter text-center">
+                                    <h3>Great, Nice to meet you <span class="spnFirstName"></span>!</h3>
+                                    <h5 id="Question2">First things first, where do you live now?</h5>
+                                </div>
+
+
+                                
+
+                                <div class="questionForm mt30">
+                                    <div class="form-check cardBox answer2">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2a" value="DC" >
+                                        <label class="form-check-label" for="exampleRadios2a">
+                                            DC
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check cardBox answer2">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2b" value="Maryland">
+                                        <label class="form-check-label" for="exampleRadios2b">
+                                            Maryland
+                                        </label>
+                                    </div>
+                                    <div class="form-check cardBox answer2">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2c" value="Virginia">
+                                        <label class="form-check-label" for="exampleRadios2c">
+                                            Virginia
+                                        </label>
+                                    </div>
+                                    <div class="form-check cardBox answer5">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2c" value="Other">
+                                        <label class="form-check-label" for="exampleRadios2c">
+                                            Other
+                                        </label>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="step-actions d-flex justify-content-center">
+                            <button class="waves-effect waves-dark btn btn-flat previous-step btnback2" type="button">BACK</button>
+                            <button class="waves-effect waves-dark btn next-step btnanswer2" onclick="topFunction()">NEXT</button>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="step ">
+                    <div class="step-content">
+                        <div class="row">
+                            <div class='form-field col s12'>
+
+                                <div class="titleOuter text-center">
+                                    <h3 >That’s great.</h3>
+                                     <h5 id="Question3">So, is this your first time selling a home?</h5> 
+                                </div>
+
+                                <div class="justify-content-center mt70 imgBoxOuter">
+                                    <p class="cardBox answer3">
+                                        <input class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios1C" value="Yes">
+                                        <label class="form-check-label" for="exampleRadios1C">
+                                            <svg version="1.1" id="Layer_03" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                 viewBox="0 0 216 216" style="enable-background:new 0 0 216 216;" xml:space="preserve">
+                                            <style type="text/css">
+
+                                            svg#Layer_03 { width: 130px; margin: 20px auto; }
+                                            
+	#Layer_3 .st0{fill:#FFFFFF;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	#Layer_3 .st1{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	#Layer_3 .st2{fill:#FFFFFF;stroke:#000000;stroke-width:2.5;stroke-miterlimit:10;}
+	#Layer_3 .st3{fill:none;stroke:#000000;stroke-width:2.5;stroke-miterlimit:10;}
+
+
+   
+     .cardBox:hover #Layer_3 .st0{fill:#FFFFFF;stroke:#10968a;stroke-width:3;stroke-miterlimit:10;}
+	 .cardBox:hover #Layer_3 .st1{fill:none;stroke:#10968a;stroke-width:3;stroke-miterlimit:10;}
+	 .cardBox:hover #Layer_3 .st2{fill:#FFFFFF;stroke:#10968a;stroke-width:2.5;stroke-miterlimit:10;}
+	 .cardBox:hover #Layer_3 .st3{fill:none;stroke:#10968a;stroke-width:2.5;stroke-miterlimit:10;}
+	
+</style>
+                                            <polygon class="st0" points="177.74,73.18 160.41,60.18 160.41,47.13 177.74,47.13 " />
+                                            <polygon class="st1" points="188.74,195.39 26.74,195.39 26.74,96.39 107.74,35.39 188.74,96.39 " />
+                                            <path class="st1" d="M165.87,137.31" />
+                                            <polygon class="st2" points="198.74,89.13 107.74,21.13 16.74,89.13 14.74,95.96 16.74,103.13 107.74,35.13 198.74,103.13
+                 200.74,95.82 " />
+                                            <rect x="56.26" y="144.88" class="st0" width="27.89" height="50.51" />
+                                            <circle class="st0" cx="65.85" cy="170.13" r="4.36" />
+                                            <g>
+                                            <rect x="85.24" y="78.36" class="st2" width="45" height="45" />
+                                            <line class="st3" x1="107.74" y1="78.36" x2="107.74" y2="123.36" />
+                                            <line class="st3" x1="85.24" y1="100.86" x2="130.24" y2="100.86" />
+              </g>
+              </svg>
+                                            <strong class="ImgBOXtxt">Yes</strong>
+                                        </label>
+                                    </p>
+
+
+                                    <p class="cardBox answer3">
+                                        <input class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios1D" value="No">
+                                        <label class="form-check-label" for="exampleRadios1D">
+                                             <svg version="1.1" id="Layer_3a" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 265.3 183.4" style="enable-background:new 0 0 265.3 183.4;" xml:space="preserve">
+<style type="text/css">
+    svg#Layer_3a {
+    margin: 33px auto;}
+	#Layer_3a .st0{fill:#FFFFFF;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	#Layer_3a .st1{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	#Layer_3a .st2{fill:#FFFFFF;stroke:#000000;stroke-width:2.5;stroke-miterlimit:10;}
+	#Layer_3a .st3{fill:none;stroke:#000000;stroke-width:2.5;stroke-miterlimit:10;}
+	#Layer_3a .st4{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	#Layer_3a .st5{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+
+   
+     .cardBox:hover #Layer_3a .st0{fill:#FFFFFF;stroke:#10968a;stroke-width:3;stroke-miterlimit:10;}
+	 .cardBox:hover #Layer_3a .st1{fill:none;stroke:#10968a;stroke-width:3;stroke-miterlimit:10;}
+	 .cardBox:hover #Layer_3a .st2{fill:#FFFFFF;stroke:#10968a;stroke-width:2.5;stroke-miterlimit:10;}
+	 .cardBox:hover #Layer_3a .st3{fill:none;stroke:#10968a;stroke-width:2.5;stroke-miterlimit:10;}
+	 .cardBox:hover #Layer_3a .st4{fill:#FFFFFF;stroke:#10968a;stroke-width:2;stroke-miterlimit:10;}
+	 .cardBox:hover #Layer_3a .st5{fill:none;stroke:#10968a;stroke-width:2;stroke-miterlimit:10;}
+</style>
+<title>Not First Time Buyer (Icon Flipped)</title>
+<polygon class="st0" points="95.3,55.6 113.3,42.2 113.3,28.7 95.3,28.7 "/>
+<polygon class="st0" points="84,181.9 251.3,181.9 251.3,79.6 167.7,16.6 84,79.6 "/>
+<path class="st0" d="M107.6,121.9"/>
+<polygon class="st0" points="73.7,72.1 167.7,1.9 261.6,72.1 263.7,79.2 261.6,86.6 167.7,16.3 73.7,86.6 71.6,79 "/>
+<rect x="192" y="129.7" class="st0" width="28.8" height="52.2"/>
+<circle class="st0" cx="210.9" cy="155.8" r="4.5"/>
+<rect x="144.4" y="61" class="st0" width="46.5" height="46.5"/>
+<line class="st1" x1="167.7" y1="61" x2="167.7" y2="107.5"/>
+<line class="st1" x1="190.9" y1="84.2" x2="144.4" y2="84.2"/>
+<polygon class="st2" points="42.9,90.3 55.9,80.5 55.9,70.7 42.9,70.7 "/>
+<polygon class="st2" points="34.6,181.9 156.1,181.9 156.1,107.7 95.3,61.9 34.6,107.7 "/>
+<path class="st2" d="M51.8,138.3"/>
+<polygon class="st2" points="27.1,102.2 95.3,51.2 163.6,102.2 165.1,107.3 163.6,112.7 95.3,61.7 27.1,112.7 25.6,107.2 "/>
+<rect x="113" y="144" class="st2" width="20.9" height="37.9"/>
+<circle class="st2" cx="126.8" cy="162.9" r="3.3"/>
+<rect x="78.5" y="94.1" class="st2" width="33.7" height="33.7"/>
+<line class="st3" x1="95.3" y1="94.1" x2="95.3" y2="127.9"/>
+<line class="st3" x1="112.2" y1="111" x2="78.5" y2="111"/>
+<polygon class="st4" points="11.4,126.9 19.2,121.1 19.2,115.2 11.4,115.2 "/>
+<polygon class="st4" points="6.4,181.9 79.3,181.9 79.3,137.3 42.9,109.9 6.4,137.3 "/>
+<path class="st4" d="M16.7,155.7"/>
+<polygon class="st4" points="1.9,134.1 42.9,103.5 83.8,134.1 84.7,137.1 83.8,140.4 42.9,109.8 1.9,140.4 1,137.1 "/>
+<rect x="53.5" y="159.2" class="st4" width="12.6" height="22.7"/>
+<circle class="st4" cx="61.7" cy="170.5" r="2"/>
+<rect x="32.8" y="129.2" class="st4" width="20.2" height="20.2"/>
+<line class="st5" x1="42.9" y1="129.2" x2="42.9" y2="149.5"/>
+<line class="st5" x1="53" y1="139.4" x2="32.8" y2="139.4"/>
+</svg>
+
+
+                                            <strong class="ImgBOXtxt">No</strong>
+                                        </label>
+                                    </p>
+                                </div>
+
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="step-actions d-flex justify-content-center">
+                            <button class="waves-effect waves-dark btn btn-flat previous-step btnback3">BACK</button>
+                            <button class="waves-effect waves-dark btn next-step btnanswer3" onclick="topFunction()"  type="button">NEXT</button>
+                            <!-- <button class="waves-effect waves-dark btn-flat previous-step">BACK</button> -->
+                        </div>
+                    </div>
+                </li>
+                
+                <!-- Second Slide E -->
+
+                @*<li class="step ">
+                    <div class="step-content">
+                        <div class="row">
+                            <div class='form-field col s12'>
+
+                                <div class="titleOuter text-center">
+                                    <h3 id="Question3">Nice to meet you, <span class="spnFirstName"></span>! What's your current address?</h3>
+                                </div>
+
+                                <div class="justify-content-center mt70 imgBoxOuter">
+
+
+                                    
+
+                                    <div class="row">
+                                        <div class="col-md-5 offset-md-2">
+                                            <div class="form-group">
+                                                <p style="padding-left: 30px;">Street Address, City, State</p>
+                                                <div class="row">
+                                                    <div class="col-md-1"><i class="material-icons ssd">location_on </i></div>
+                                                    <div class="col-md-11"><input type="text" class="form-control" id="addressme" placeholder="" autocomplete="off"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <p for="">APT/UNIT #</p>
+                                                <input type="text" class="form-control" id="txtUnit">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <input type="text" id="txtCity" name="txtCity" style="display:none" />
+                                    <input type="text" id="Street" name="Street" style="display:none" />
+                                    <input type="text" id="City" name="City" style="display:none" />
+                                    <input type="hidden" name="data[Lead][address]" id="addressParam" />
+                                    <input type="hidden" name="data[Lead][temp_address]" id="temp_address" />
+                                    <input type="hidden" name="data[Lead][is_valid_address]" id="isValidAddress" />
+                                    <input type="hidden" name="data[Lead][mapparams]" id="leadMapparams" />
+                                    <input type="hidden" name="data[Lead][Step2StreetViewPanoramaId]" id="step2_panorama_id" />
+                                    <div id="map_address" style='display:none'></div>
+                                    <div id="step2_street_view_canvas" style='display:none'></div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="step-actions d-flex justify-content-center">
+                             <button class="waves-effect waves-dark btn btn-flat previous-step">BACK</button> 
+                            <button class="waves-effect waves-dark btn next-step btnanswer3" >NEXT</button>
+                        </div>
+                    </div>
+                </li>*@
+
+
+                @*<li class="step ">
+                    <div class="step-content">
+                        <div class="row">
+                            <div class='form-field col s12'>
+
+                                <div class="titleOuter text-center">
+                                    <h3>Okay, Great!</h3>
+                                    <h5 id="Question4">Is 3164 17th Street NW the property you'll be selling?</h5>
+                                </div>
+
+                                <div class="questionForm mt30">
+                                    <div class="form-check cardBox answer4">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadiosSQ1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadiosSQ1">
+                                            Yes
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check cardBox answer4">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadiosSQ2" value="option2">
+                                        <label class="form-check-label" for="exampleRadiosSQ2">
+                                            No, that address is:
+                                        </label>
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="step-actions d-flex justify-content-center">
+                        <button class="waves-effect waves-dark btn btn-flat previous-step">BACK</button> 
+                            <button class="waves-effect waves-dark btn next-step btnanswer4" >NEXT</button>
+                           
+                        </div>
+                    </div>
+                </li>*@
+
+
+                
+
+
+
+                <li class="step ">
+                    <div class="step-content">
+                        <div class="row">
+                            <div class='form-field col s12'>
+                                <div class="titleOuter text-center">
+                                    <h3>Great, now let’s talk timeline!</h3>
+                                    <h5 id="Question5">How soon would you like to sell your home?</h5>
+                                </div>
+
+
+                                <div class="questionForm mt30">
+                                    <div class="form-check cardBox answer5">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5a" value="1-3 months" >
+                                        <label class="form-check-label" for="exampleRadios5a">
+                                            1-3 months
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check cardBox answer5">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5b" value="3-6 months">
+                                        <label class="form-check-label" for="exampleRadios5b">
+                                            3-6 months
+                                        </label>
+                                    </div>
+                                    <div class="form-check cardBox answer5">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5c" value="6-12 months">
+                                        <label class="form-check-label" for="exampleRadios5c">
+                                            6-12 months
+                                        </label>
+                                    </div>
+                                    <div class="form-check cardBox answer5">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5d" value="1 year +">
+                                        <label class="form-check-label" for="exampleRadios5d">
+                                            1 year +
+                                        </label>
+                                    </div>
+
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="step-actions d-flex justify-content-center">
+                            <button class="waves-effect waves-dark btn btn-flat previous-step btnback5">BACK</button>
+                            <button class="waves-effect waves-dark btn next-step btnanswer5" onclick="topFunction()" >NEXT</button>
+                            <!-- <button class="waves-effect waves-dark btn-flat previous-step">BACK</button> -->
+                        </div>
+                    </div>
+                </li>
+
+
+
+                <li class="step ">
+                    <div class="step-content">
+                        <div class="row">
+                            <div class='form-field col s12'>
+
+                                <div class="titleOuter text-center">
+                                    <h3 >Sounds good!</h3>
+                                     <h5 id="Question6">When the time comes, will you be looking to purchase a new home as well?</h5> 
+                                </div>
+
+                                <div class="questionForm mt30">
+                                    <div class="form-check cardBox answer6">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadiosSQ3" value="Yes" >
+                                        <label class="form-check-label" for="exampleRadiosSQ3">
+                                            Yes
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check cardBox answer6">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadiosSQ4" value="No">
+                                        <label class="form-check-label" for="exampleRadiosSQ4">
+                                            No
+                                        </label>
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="step-actions d-flex justify-content-center">
+                            <button class="waves-effect waves-dark btn btn-flat previous-step btnback6">BACK</button>
+                            <button class="waves-effect waves-dark btn next-step btnanswer6" onclick="topFunction()">NEXT</button>
+                            <!-- <button class="waves-effect waves-dark btn-flat previous-step">BACK</button> -->
+                        </div>
+                    </div>
+                </li>
+
+                <li class="step ">
+                    <div class="step-content">
+                        <div class="row">
+                            <div class='form-field col s12'>
+
+                                <div class="titleOuter text-center">
+                                    <h3>Terrific!</h3>
+                                    <h5 id="Question4">Now, have you committed to working with another agent?</h5>
+                                </div>
+
+
+                                <div class="justify-content-center mt70 imgBoxOuter">
+                                    <p class="cardBox answer4">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1A" value="Yes">
+                                        <label class="form-check-label" for="exampleRadios1A">
+                                            <svg version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                 viewBox="0 0 216 216" style="enable-background:new 0 0 216 216;" xml:space="preserve">
+                                            <style type="text/css">
+                                                #Layer_4 .st0 {
+                                                    fill: #fff;
+                                                }
+
+                                                .cardBox:hover #Layer_4 .st0 {
+                                                    stroke: #10968a;
+                                                }
+</style>
+                                            <g id="g5yeQt.tif">
+                                            <g>
+                                            <path d="M26.4,115.73c0.66-1.52,1.3-3,2-4.6c3.05,1.07,6.06,2.09,9.05,3.17c3.37,1.22,3.44,1.2,4.77-2.2
+                           c6.42-16.38,12.85-32.76,19.28-49.15c0.77-1.97,0.62-2.34-1.36-3.14c-2.62-1.07-5.25-2.12-7.97-3.21c0.7-1.6,1.37-3.15,2.11-4.84
+                           c4.18,1.73,8.3,3.38,12.37,5.14c1.53,0.66,1.86,1.77,1.36,3.5c-1.34,4.67-2,1.89,1.56,2.49c2.75,0.47,5.49,1.03,8.26,1.32
+                           c1.19,0.12,2.55-0.11,3.66-0.6c5.12-2.23,10.2-4.54,15.24-6.94c3.36-1.6,6.86-1.77,10.45-1.48c6.29,0.52,12.58,1.08,18.88,1.55
+                           c0.9,0.07,3.31,0.97,3.67,0.42c0.69-1.07-1.79-2.48-2.38-3.11c-3.26-3.43-3.27-3.93,0.16-7.14c2.53-2.37,5.06-4.74,7.65-7.17
+                           c1.3,1.17,2.53,2.28,3.87,3.48c-1.76,1.66-3.45,3.26-5.14,4.86c-0.26,0.25-0.55,0.47-0.81,0.72c-1.43,1.38-1.45,2.09-0.03,3.49
+                           c7.41,7.33,14.82,14.67,22.24,21.99c6.33,6.25,12.67,12.48,19.01,18.72c1.6,1.58,2.08,1.58,3.7,0.07c2.24-2.1,4.49-4.19,6.74-6.27
+                           c0.39-0.36,0.84-0.67,1.34-1.08c1.22,1.11,2.41,2.18,3.76,3.4c-3.23,3.02-6.35,5.95-9.47,8.87c-0.73,0.68-1.46,1.34-2.22,1.99
+                           c-1.58,1.35-2.65,1.33-4.12-0.13c-1.16-1.14-2.3-2.3-3.38-3.5c-0.68-0.75-1.29-1.7-1.97-1.07c-1.22,1.13-2.45,3.26-3.67,4.41
+                           c-0.66,0.62-0.63,1.17,0.09,1.8c1.15,1,2.37,1.98,3.3,3.17c2.53,3.28,2.39,6.86,0.77,10.48c-1.55,3.47-4.33,5.19-8.05,5.49
+                           c-2.64,0.21-3.11,0.57-3.89,3.1c-1.56,5.07-4.19,7.15-9.49,7.5c-1.86,0.12-2.43,0.6-2.88,2.43c-1.27,5.17-4.38,7.77-9.74,8.16
+                           c-1.82,0.13-2.3,0.54-2.78,2.36c-1.91,7.15-8.45,10.18-15.08,7c-1.38-0.66-1.93-0.5-2.86,0.98c-1.59,2.53-3.6,4.49-6.64,5.17
+                           c-5.2,1.16-9.86-1.07-12.02-5.92c-0.67-1.49-1.64-2.12-3.25-2.04c-4.81,0.22-8.22-1.84-10.11-6.33c-0.59-1.4-1.68-2-3.19-2.09
+                           c-1.21-0.07-2.42-0.25-3.61-0.51c-3.08-0.68-5.31-2.44-6.4-5.44c-0.51-1.41-1.36-1.95-2.84-1.91c-3.23,0.1-6.21-0.72-8.51-3.12
+                           c-3-3.15-3.32-6.86-1.97-10.82c0.23-0.68,0.58-1.32,0.85-1.99c0.37-0.93,0.16-1.69-0.73-2.19c-2.08-1.17-4.17-4.33-6.26-5.49
+                           c-0.96-0.54-1.51,1.87-1.87,2.79c-0.78,2.01-1.57,4.02-2.38,6.03c-1.23,3.04-2.19,3.48-5.3,2.4c-4.46-1.55-8.92-3.13-13.37-4.7
+                           C26.7,115.97,26.63,115.9,26.4,115.73z M81.32,85.52c-5.22-0.26-9.34-3.96-9.94-9.03c-0.26-2.19,0.29-4.21,1.01-6.21
+                           c0.38-1.04,0.12-1.64-1-1.84c-1.51-0.27-3.01-0.54-4.52-0.83c-1.23-0.23-1.86,0.27-2.32,1.45c-4.52,11.62-7.09,20.22-11.65,31.83
+                           c-0.64,1.63-0.39,3.22,1.13,4.07c1.93,1.07,1.86,4.14,3.76,5.26c1.97,1.16,2.73,1,3.97-0.99c2.88-4.63,5.73-9.28,8.63-13.9
+                           c2.43-3.89,6.6-5.48,11.29-4.36c4.18,1,6.96,4.33,7.35,8.82c0.24,2.77,0.42,2.99,3.13,3.79c4.64,1.38,7.01,4.27,7.41,9.05
+                           c0.23,2.7,0.25,2.73,2.89,3.42c4.66,1.22,7.51,4.65,7.7,9.27c0.1,2.36,0.3,2.62,2.59,3.25c6.62,1.81,9.66,7.93,7.09,14.3
+                           c-0.3,0.75-0.74,1.52-0.74,2.29c0,0.57,0.47,1.47,0.95,1.65c2.1,0.8,4.81,0.69,6.41-1.64c1.49-2.17,1.38-4.63-0.5-6.54
+                           c-0.84-0.86-1.92-1.48-2.87-2.23c-0.63-0.5-1.33-0.96-1.84-1.56c-0.74-0.88-0.74-1.92-0.1-2.88c0.63-0.96,1.6-1,2.54-0.65
+                           c0.84,0.31,1.62,0.77,2.4,1.22c1.95,1.13,3.85,2.33,5.82,3.42c2.85,1.57,5.83,0.86,7.34-1.67c1.53-2.56,0.78-5.44-1.93-7.28
+                           c-1.04-0.71-2.14-1.34-3.19-2.03c-2.03-1.34-4.09-2.63-6.03-4.07c-0.9-0.66-0.92-1.72-0.29-2.68c0.61-0.94,1.49-1.35,2.56-0.95
+                           c0.84,0.31,1.65,0.72,2.42,1.18c3.45,2.05,6.87,4.15,10.33,6.17c0.92,0.54,1.92,1.02,2.95,1.31c3.08,0.86,5.75-0.76,6.34-3.75
+                           c0.51-2.57-0.27-4.25-2.82-5.86c-3.74-2.35-7.5-4.65-11.25-6.99c-0.99-0.62-1.98-1.27-2.9-1.98c-1.09-0.84-1.35-2.05-0.76-3.11
+                           c0.66-1.19,1.73-1.23,2.82-0.87c0.8,0.26,1.58,0.66,2.31,1.1c3.24,1.95,6.45,3.97,9.7,5.91c2.78,1.67,5.53,3.4,8.42,4.86
+                           c2.34,1.19,5.01,0.27,6.42-1.86c1.39-2.11,1.03-4.81-0.96-6.62c-0.7-0.63-1.47-1.21-2.27-1.7c-15.17-9.31-30.34-18.62-45.52-27.91
+                           c-3.84-2.35-7.77-2.72-11.97-0.75c-5.63,2.63-11.34,5.08-17.06,7.51C84.89,84.62,83.07,84.99,81.32,85.52z M108,69.82
+                           c3.54,0.42,6.92,0.99,9.98,2.88c10.16,6.27,20.33,12.52,30.5,18.77c2.84,1.74,5.67,3.5,8.58,5.14c1.93,1.09,3.04,0.85,4.62-0.69
+                           c0.77-0.75,0.46-1.59,1.19-2.4c0.76-0.84,0.14-4.38,0.15-4.89c0.01-0.55,1.59,1.93,0.74,1.1c-9.6-9.47-19.21-18.95-28.82-28.42
+                           c-0.26-0.25-0.52-0.5-0.8-0.73c-0.64-0.56,1.68,0.42,1.05,0.99c-1.6,1.45-6.54,0.74-8.56,0.56c-6.42-0.57-12.84-1.11-19.25-1.82
+                           c-3.36-0.37-6.46-0.1-9.55,1.48c-4.41,2.25-8.99,4.16-13.49,6.22c-1.8,0.83-3.62,1.61-5.37,2.54c-2.27,1.2-3.22,3.4-2.66,5.79
+                           c0.54,2.27,2.37,3.97,4.73,3.89c1.48-0.05,2.99-0.58,4.38-1.16c6.73-2.82,13.41-5.75,20.12-8.6
+                           C106.32,70.11,107.18,70.02,108,69.82z M79.06,95.64c-2.46,0.07-3.51,0.73-4.97,3.08c-2.25,3.64-4.52,7.27-6.75,10.91
+                           c-2.17,3.53-4.39,7.03-6.43,10.63c-1.57,2.77-0.64,5.65,2.06,7.18c2.42,1.37,5.43,0.48,7.01-2.09c0.87-1.42,1.74-2.84,2.61-4.26
+                           c3.63-5.91,7.26-11.82,10.89-17.73c1.06-1.73,1.13-3.48,0.04-5.23C82.49,96.48,81.05,95.56,79.06,95.64z M78.86,136.18
+                           c1.83,0.01,3.24-0.85,4.17-2.35c3.69-5.93,7.35-11.87,10.96-17.84c1.57-2.6,0.83-5.52-1.64-7.09c-2.29-1.46-5.45-0.86-7.09,1.44
+                           c-0.89,1.24-1.65,2.58-2.45,3.88c-2.89,4.73-5.8,9.44-8.65,14.19C71.87,132.25,75.02,136.18,78.86,136.18z M86.47,139.25
+                           c0.15,2.18,1.67,4.14,3.87,4.85c2.28,0.74,4.4,0.17,5.61-1.75c2.92-4.65,5.82-9.32,8.58-14.07c1.57-2.7,0.75-5.35-1.79-6.85
+                           c-2.54-1.49-5.34-0.94-6.96,1.61c-2.9,4.56-5.69,9.19-8.47,13.82C86.88,137.57,86.74,138.45,86.47,139.25z M105.38,152.5
+                           c1.55-0.07,3.01-0.67,3.98-2.13c1.46-2.22,2.93-4.44,4.29-6.72c0.78-1.31,1.48-2.7,1.95-4.14c0.75-2.29-0.42-4.6-2.68-5.71
+                           c-2.34-1.15-4.93-0.66-6.27,1.39c-2.09,3.2-4.17,6.43-6.04,9.76C98.59,148.52,101.12,152.53,105.38,152.5z" />
+                                            <path class="st0" d="M50.92,103.88c4.55-11.61,9.13-23.21,13.65-34.83c0.46-1.18,0.09-2.68,1.32-2.45
+                           c1.5,0.29,4.01,1.56,5.52,1.83c1.12,0.2,1.37,0.79,1,1.84c-0.72,2-1.27,4.02-1.01,6.21c0.59,5.08,4.72,8.78,9.94,9.03
+                           c1.75-0.53,3.57-0.89,5.25-1.61c5.72-2.43,11.43-4.88,17.06-7.51c4.2-1.97,8.13-1.6,11.97,0.75
+                           c15.18,9.29,30.35,18.59,45.52,27.91c0.8,0.49,1.58,1.06,2.27,1.7c1.99,1.81,2.35,4.51,0.96,6.62c-1.41,2.13-4.08,3.05-6.42,1.86
+                           c-2.88-1.47-5.64-3.2-8.42-4.86c-3.25-1.95-6.45-3.96-9.7-5.91c-0.73-0.44-1.5-0.84-2.31-1.1c-1.09-0.36-2.17-0.31-2.82,0.87
+                           c-0.59,1.06-0.33,2.27,0.76,3.11c0.93,0.71,1.91,1.36,2.9,1.98c3.74,2.34,7.51,4.64,11.25,6.99c2.55,1.61,3.33,3.29,2.82,5.86
+                           c-0.59,2.99-3.26,4.61-6.34,3.75c-1.03-0.29-2.03-0.76-2.95-1.31c-3.46-2.03-6.88-4.13-10.33-6.17c-0.77-0.46-1.58-0.87-2.42-1.18
+                           c-1.07-0.4-1.95,0.01-2.56,0.95c-0.63,0.96-0.6,2.02,0.29,2.68c1.95,1.44,4.01,2.74,6.03,4.07c1.05,0.69,2.15,1.32,3.19,2.03
+                           c2.71,1.84,3.46,4.72,1.93,7.28c-1.51,2.52-4.49,3.24-7.34,1.67c-1.97-1.09-3.88-2.29-5.82-3.42c-0.78-0.45-1.56-0.92-2.4-1.22
+                           c-0.94-0.34-1.9-0.3-2.54,0.65c-0.64,0.97-0.64,2,0.1,2.88c0.51,0.61,1.21,1.07,1.84,1.56c0.95,0.75,2.03,1.38,2.87,2.23
+                           c1.88,1.9,2,4.37,0.5,6.54c-1.6,2.33-4.32,2.45-6.41,1.64c-0.48-0.18-0.95-1.08-0.95-1.65c0-0.76,0.44-1.54,0.74-2.29
+                           c2.56-6.37-0.47-12.49-7.09-14.3c-2.29-0.62-2.5-0.89-2.59-3.25c-0.19-4.62-3.04-8.05-7.7-9.27c-2.64-0.69-2.66-0.72-2.89-3.42
+                           c-0.4-4.78-2.77-7.67-7.41-9.05c-2.71-0.8-2.89-1.02-3.13-3.79c-0.39-4.5-3.17-7.83-7.35-8.82c-4.69-1.12-8.86,0.47-11.29,4.36
+                           c-2.89,4.62-5.75,9.27-8.63,13.9c-1.23,1.99-1.99,2.15-3.97,0.99c-1.9-1.12-3.83-2.19-5.76-3.26" />
+                                            <path class="st0" d="M164.86,90.51c-0.72,0.81-2.41,4.64-3.19,5.4c-1.58,1.55-2.69,1.78-4.62,0.69c-2.9-1.63-5.74-3.39-8.58-5.14
+                           c-10.17-6.24-20.34-12.49-30.5-18.77c-3.06-1.89-6.45-2.45-9.98-2.88c-0.81,0.2-1.67,0.3-2.43,0.62
+                           c-6.71,2.85-13.4,5.78-20.12,8.6c-1.39,0.58-2.91,1.11-4.38,1.16c-2.37,0.08-4.2-1.62-4.73-3.89c-0.57-2.4,0.38-4.59,2.66-5.79
+                           c1.75-0.92,3.57-1.71,5.37-2.54c4.5-2.06,9.08-3.98,13.49-6.22c3.09-1.58,6.19-1.85,9.55-1.48c6.4,0.71,12.83,1.25,19.25,1.82
+                           c2.03,0.18,4.96,0.89,6.56-0.56c0.63-0.57,1.3-0.54,1.95,0.01c0.27,0.24-0.46-0.52-0.2-0.27" />
+                                            <path class="st0" d="M79.06,95.64c1.99-0.08,3.43,0.84,4.46,2.49c1.09,1.75,1.03,3.5-0.04,5.23c-3.63,5.91-7.26,11.82-10.89,17.73
+                           c-0.87,1.42-1.74,2.84-2.61,4.26c-1.58,2.57-4.59,3.46-7.01,2.09c-2.69-1.53-3.62-4.4-2.06-7.18c2.03-3.61,4.26-7.1,6.43-10.63
+                           c2.24-3.65,4.51-7.27,6.75-10.91C75.55,96.37,76.6,95.71,79.06,95.64z" />
+                                            <path class="st0" d="M78.86,136.18c-3.84,0-6.99-3.93-4.7-7.77c2.84-4.75,5.76-9.47,8.65-14.19c0.8-1.31,1.56-2.64,2.45-3.88
+                           c1.65-2.3,4.8-2.91,7.09-1.44c2.47,1.58,3.21,4.49,1.64,7.09c-3.61,5.98-7.27,11.92-10.96,17.84
+                           C82.1,135.33,80.69,136.19,78.86,136.18z" />
+                                            <path class="st0" d="M86.47,139.25c0.27-0.8,0.41-1.68,0.84-2.39c2.78-4.63,5.57-9.27,8.47-13.82c1.62-2.55,4.42-3.1,6.96-1.61
+                           c2.55,1.5,3.36,4.16,1.79,6.85c-2.76,4.75-5.66,9.42-8.58,14.07c-1.21,1.92-3.33,2.49-5.61,1.75
+                           C88.14,143.38,86.62,141.43,86.47,139.25z" />
+                                            <path class="st0" d="M105.38,152.5c-4.26,0.03-6.78-3.98-4.77-7.56c1.87-3.33,3.94-6.56,6.04-9.76c1.34-2.05,3.93-2.54,6.27-1.39
+                           c2.26,1.11,3.43,3.41,2.68,5.71c-0.47,1.44-1.18,2.83-1.95,4.14c-1.35,2.28-2.82,4.5-4.29,6.72
+                           C108.39,151.83,106.93,152.43,105.38,152.5z" />
+                   </g>
+               </g>
+               </svg>
+
+                                            <strong class="ImgBOXtxt">Yes</strong>
+                                        </label>
+                                    </p>
+
+
+
+                                    <p class="cardBox answer4">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1B" value="Still Searching">
+                                        <label class="form-check-label" for="exampleRadios1B">
+                                              <svg version="1.1" id="Layer_07" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 278.2 211.3" style="enable-background:new 0 0 278.2 211.3;" xml:space="preserve">
+<style type="text/css">
+   
+	#Layer_07 .st0{fill:#FFFFFF;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	#Layer_07 .st1{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	
+	 .cardBox:hover #Layer_07 .st0 {  stroke: #10968a; fill:#FFFFFF; } 
+     .cardBox:hover #Layer_07 .st1 {  stroke: #10968a; fill:#FFFFFF; } 
+</style>
+<title>Still Searching for Agent</title>
+<circle class="st0" cx="138.5" cy="96" r="66.2"/>
+<circle class="st0" cx="138.5" cy="96" r="51.7"/>
+<path class="st0" d="M47.4,209.8c-15.7,0.6-23.3-6.9-22.7-22.6l48.5-48.5L96,161.3L47.4,209.8z"/>
+<path class="st0" d="M91.7,157l-14.2-14.2l7.1-7.1c3.8,5.6,8.6,10.4,14.1,14.2L91.7,157z"/>
+<rect x="73.2" y="138.6" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -85.955 101.7964)" class="st0" width="13.4" height="32"/>
+<path class="st0" d="M107.5,137.5c-0.2-1.1-0.8-14.7-0.8-15.9c0-13.4,5.6-14,25.6-14.6c31.8-0.9,37.9,1.1,37.9,14.6
+	c0,1.6,0.4,13.2,0,14.7"/>
+<path class="st0" d="M138.5,114.2L138.5,114.2z"/>
+<ellipse class="st0" cx="138.5" cy="89.9" rx="13.8" ry="17"/>
+<path class="st1" d="M126.2,84.8c0,0,12.4,1.6,16,0s8.5,0,8.5,0"/>
+<circle class="st0" cx="236.7" cy="41.8" r="32.6"/>
+<path class="st0" d="M217.2,68c-0.1-0.7-0.5-9.3-0.5-10c0-8.5,3.5-8.8,16.2-9.2c20-0.6,23.9,0.7,23.9,9.2c0,1,0.2,8.3,0,9.3"/>
+<ellipse class="st0" cx="236.7" cy="37.9" rx="8.7" ry="10.7"/>
+<path class="st1" d="M228.9,34.7c0,0,7.8,1,10.1,0c2.3-1,5.4,0,5.4,0"/>
+<circle class="st0" cx="41.2" cy="41.8" r="32.6"/>
+<path class="st0" d="M21.6,68c-0.1-0.7-0.5-9.3-0.5-10c0-8.5,3.5-8.8,16.2-9.2c20-0.6,23.9,0.7,23.9,9.2c0,1,0.2,8.3,0,9.3"/>
+<ellipse class="st0" cx="41.1" cy="37.9" rx="8.7" ry="10.7"/>
+<path class="st1" d="M33.4,34.7c0,0,7.8,1,10.1,0c2.3-1,5.4,0,5.4,0"/>
+<path class="st1" d="M237.2,55.2L237.2,55.2z"/>
+</svg>
+                                            <strong class="ImgBOXtxt">Still Searching</strong>
+                                        </label>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="step-actions d-flex justify-content-center">
+                            <button class="waves-effect waves-dark btn btn-flat previous-step btnback4">BACK</button>
+                            <button class="waves-effect waves-dark btn next-step btnanswer4" onclick="topFunction()" type="button">NEXT</button>
+
+                        </div>
+                    </div>
+                </li>
+
+
+
+                <li class="step">
+                    <div class="step-content">
+
+                        <div class="titleOuter text-center">
+                            <h3>Thank you, <span class="spnFirstName"></span>!</h3>
+                            <h5>Could you please provide your e-mail address so we can save your preferences under your profile?</h5>
+                        </div>
+
+                        <div class="questionForm mt30">
+                            <div class="cardBox1">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Enter your email</label>
+                                    <input type="email" class="form-control" id="ss" aria-describedby="emailHelp" value="@ViewBag.Email" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-actions d-flex justify-content-center">
+                            <button class="waves-effect waves-dark btn btn-flat previous-step btnemailback">BACK</button> 
+                            <button class="waves-effect waves-dark btn next-step" onclick="topFunction()" id="btnSubmit" disabled>Submit</button>
+                            
+                        </div>
+
+                    </div>
+                </li>
+
+
+
+                <li class="step">
+                    <div class="step-content">
+
+                        <div class="titleOuter text-center">
+                            <h3>That's it for now!</h3>
+                            <h5>Thanks, You're a real gem!</h5>
+                        </div>
+
+                        <div class="questionForm mt30 thanksMsz">
+                            <div class="cardBox1 text-center">
+                                <svg version="1.1" id="Layer_17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 216 216" style="enable-background:new 0 0 216 216;" xml:space="preserve">
+@* <style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style> *@
+<g id="voN1F1.tif">
+                                <g>
+                                <path d="M103.99,62.1c14.71,0,29.43-0.25,44.13,0.2c3.18,0.1,7.03,2.04,9.28,4.37c6.74,6.98,12.75,14.64,19.22,21.88
+			c3.18,3.56,3.53,6.54,0.47,10.59c-19.53,25.87-38.85,51.91-58.23,77.9c-4.04,5.42-8.12,10.81-12.07,16.3
+			c-3.41,4.74-5.2,5.03-8.64,0.35c-10.72-14.62-21.29-29.34-31.84-44.08c-11.93-16.67-23.7-33.45-35.74-50.04
+			c-2.95-4.06-3.35-7.13,0.28-11.08c6.55-7.13,12.32-14.99,19.05-21.93c2.36-2.43,6.55-4.19,9.96-4.3c14.7-0.46,29.42-0.2,44.13-0.2
+			C103.99,62.07,103.99,62.09,103.99,62.1z M102.42,185.26c1.85-2.88,3.14-4.43,3.94-6.2c4.27-9.49,8.38-19.06,12.62-28.57
+			c6.86-15.36,13.85-30.66,20.65-46.04c2.78-6.29,1.83-7.68-5.18-7.72c-20.95-0.12-41.91-0.15-62.86-0.16
+			c-6.25,0-6.86,0.99-4.41,6.76c8.78,20.73,17.55,41.46,26.39,62.16C96.21,171.68,99.06,177.77,102.42,185.26z M82.87,161.77
+			c0.51-0.31,1.03-0.62,1.54-0.93c-0.46-1.52-0.77-3.1-1.39-4.55c-6.6-15.49-13.2-30.97-19.91-46.41
+			c-5.99-13.79-6.05-13.8-19.93-13.26c-1.51,0.06-3,0.84-4.5,1.29c0.52,1.67,0.66,3.62,1.62,4.97
+			c12.33,17.28,24.78,34.48,37.21,51.69C79.26,156.98,81.08,159.37,82.87,161.77z M169.62,98.83c-0.3-0.75-0.6-1.49-0.9-2.24
+			c-4.43,0-8.87,0.16-13.28-0.05c-4.05-0.19-6.41,1.45-8.02,5.17c-6.16,14.26-12.52,28.43-18.82,42.63c-1.18,2.67-2.5,5.28-3.6,7.98
+			c-1,2.45-1.8,4.98-2.69,7.48c0.45,0.22,0.89,0.44,1.34,0.66C138.97,139.92,154.3,119.38,169.62,98.83z M133.12,89.88
+			c0.15-0.37,0.29-0.75,0.44-1.12c-1.22-0.89-2.41-1.83-3.67-2.66c-4.28-2.78-8.74-5.31-12.85-8.33
+			c-12.33-9.04-12.3-9.14-25.01-1.07c-6.1,3.87-12.1,7.88-18.15,11.82c0.13,0.45,0.26,0.9,0.39,1.35
+			C93.88,89.88,113.5,89.88,133.12,89.88z M90.72,70.18c-0.24-0.66-0.49-1.31-0.73-1.97c-6.01,0-12.02,0-18.03,0
+			c-14.55,0.01-14.65,0.14-10.91,14.38c0.09,0.35,0.2,0.71,0.27,1.06c0.72,3.44,2.51,4.2,5.49,2.26c3.98-2.6,8-5.12,11.97-7.73
+			C82.79,75.55,86.74,72.85,90.72,70.18z M117.39,68.33c-0.24,0.65-0.47,1.31-0.71,1.96c8.35,5.39,16.65,10.87,25.15,16.02
+			c0.71,0.43,3.77-1.13,4.07-2.23c1.05-3.85,1.64-7.88,1.83-11.87c0.06-1.25-1.63-3.68-2.58-3.71
+			C135.91,68.22,126.65,68.33,117.39,68.33z M38.52,88.72c0.24,0.55,0.47,1.1,0.71,1.65c4.79,0,9.58,0.09,14.37-0.09
+			c0.75-0.03,2.14-1.38,2.07-2c-0.51-4.69-1.3-9.35-2.01-14.01c-0.64-0.14-1.28-0.29-1.92-0.43C47.33,78.8,42.93,83.76,38.52,88.72z
+			 M167.47,90.38c0.38-0.65,0.75-1.29,1.13-1.94c-4.27-4.91-8.54-9.81-13.92-16.01c-1.38,6.22-2.52,10.57-3.18,15
+			c-0.13,0.84,1.54,2.75,2.47,2.82C158.46,90.54,162.97,90.38,167.47,90.38z" />
+                                <path d="M171.02,72.17c-1.53-1.14-2.78-1.6-3.06-2.4c-0.29-0.82,0.04-2.47,0.67-2.89c3.63-2.37,7.38-4.58,11.22-6.6
+			c0.62-0.33,2.22,0.35,2.8,1.03c0.55,0.65,0.8,2.56,0.41,2.84C179.13,66.96,175.04,69.54,171.02,72.17z" />
+                                <path d="M181.31,117.39c3.93,1.05,7.15,1.74,10.23,2.82c0.94,0.33,2.2,1.9,2.05,2.64c-0.19,0.95-1.75,2.38-2.58,2.3
+			c-4.33-0.43-8.66-1.15-12.91-2.11c-0.65-0.15-1.51-2.79-1.21-3.04C178.26,118.84,180,118.11,181.31,117.39z" />
+                                <path d="M183.86,152.2c-1.62,0.54-3.48,1.85-4.53,1.38c-3.77-1.7-7.33-3.91-10.82-6.15c-0.66-0.42-1.18-2.27-0.81-2.78
+			c0.6-0.84,2.33-1.83,2.97-1.52c4.17,2.06,8.18,4.44,12.21,6.79C183.25,150.13,183.31,150.86,183.86,152.2z" />
+                                <path d="M39.88,69.49c-0.99,0.64-2.26,1.97-2.79,1.73c-4.2-1.97-8.31-4.15-12.28-6.55c-0.49-0.3-0.33-2.43,0.17-3.37
+			c0.35-0.65,2.09-1.27,2.71-0.95c3.68,1.9,7.26,4.02,10.77,6.23C39.09,66.98,39.25,68.13,39.88,69.49z" />
+                                <path d="M16.75,125.4c-0.66-0.57-1.9-1.64-3.14-2.7c0.96-0.92,1.77-2.37,2.89-2.66c3.5-0.91,7.09-1.65,10.69-1.88
+			c1.18-0.08,2.48,1.59,3.72,2.45c-0.96,0.95-1.78,2.44-2.92,2.74C24.66,124.23,21.2,124.63,16.75,125.4z" />
+                                <path d="M80.26,180c-1.51,3.85-2.65,7.32-4.27,10.56c-0.46,0.92-2.29,1.16-3.49,1.71c-0.54-1.22-1.77-2.62-1.5-3.63
+			c0.93-3.5,2.19-6.96,3.75-10.23c0.46-0.96,2.49-1.9,3.5-1.65C79.15,176.97,79.62,178.87,80.26,180z" />
+                                <path d="M27.67,154.58c-1.54-1.04-2.8-1.45-3.11-2.24c-0.32-0.82-0.07-2.56,0.53-2.92c3.69-2.26,7.5-4.34,11.42-6.13
+			c0.31-0.14,1.81,2.3,2.75,3.54C35.39,149.41,31.52,152,27.67,154.58z" />
+                                <path d="M163.48,175.91c-1.37,0.36-3.48,1.46-3.98,0.96c-3.08-3.07-5.9-6.43-8.49-9.93c-0.25-0.34,1.64-2.25,2.54-3.44
+			c3.53,3.44,7.06,6.89,10.59,10.33C163.91,174.52,163.69,175.22,163.48,175.91z" />
+                                <path d="M137.1,25.11c-1.67,4.03-2.98,7.6-4.67,10.98c-0.41,0.82-2.09,1-3.18,1.47c-0.51-1.21-1.7-2.61-1.42-3.6
+			c0.97-3.47,2.27-6.88,3.84-10.13c0.46-0.96,2.37-1.94,3.34-1.72C135.92,22.33,136.46,24.12,137.1,25.11z" />
+                                <path d="M57.47,47.94c-1.27,1.86-1.68,2.99-2.48,3.46c-0.54,0.32-1.96,0.01-2.42-0.51c-2.73-3.14-5.38-6.37-7.84-9.72
+			c-0.44-0.6-0.19-2.12,0.29-2.87c0.33-0.52,2.03-0.9,2.38-0.57C50.84,41.03,54.12,44.49,57.47,47.94z" />
+                                <path d="M134.87,192.99c-1.58-1.04-2.9-1.41-3.24-2.21c-1.59-3.64-3.04-7.35-4.2-11.14c-0.24-0.79,0.78-2.6,1.59-2.89
+			c0.87-0.31,2.86,0.3,3.2,1.04c1.72,3.76,3.22,7.65,4.42,11.61C136.89,190.25,135.61,191.57,134.87,192.99z" />
+                                <path d="M57.52,166.9c-3.47,3.52-6.93,7.05-10.4,10.57c-0.85-1.33-2.74-3.36-2.39-3.88c2.31-3.4,4.94-6.64,7.86-9.53
+			c0.62-0.61,2.87,0.41,4.37,0.68C57.15,165.46,57.34,166.18,57.52,166.9z" />
+                                <path d="M106.51,24.69c0,1.63,0.34,3.37-0.1,4.86c-0.39,1.31-1.67,2.35-2.56,3.51c-0.91-1.17-2.47-2.28-2.6-3.53
+			c-0.35-3.22-0.32-6.54,0.07-9.75c0.16-1.29,1.65-2.41,2.54-3.61c0.87,1.21,2.12,2.31,2.52,3.66c0.44,1.5,0.1,3.23,0.1,4.86
+			C106.49,24.69,106.5,24.69,106.51,24.69z" />
+                                <path d="M163.92,40.53c-3.42,3.65-6.85,7.3-10.27,10.95c-0.9-1.33-2.86-3.38-2.53-3.88c2.22-3.29,4.75-6.44,7.62-9.17
+			c0.79-0.75,3.08,0.06,4.68,0.15C163.59,39.23,163.76,39.88,163.92,40.53z" />
+                                <path d="M80.12,34.37c-0.76,1.29-1.19,2.81-1.8,2.89c-1.04,0.14-2.91-0.34-3.21-1.06c-1.58-3.81-2.88-7.75-4.01-11.72
+			c-0.18-0.65,0.81-2.14,1.56-2.4c0.75-0.26,2.44,0.26,2.74,0.89C77.15,26.71,78.59,30.59,80.12,34.37z" />
+                                <path class="st0" d="M90.72,70.18c-3.98,2.67-7.94,5.38-11.94,8.01c-3.97,2.61-7.99,5.13-11.97,7.73
+			c-2.98,1.95-4.77,1.18-5.49-2.26c-0.08-0.36-0.18-0.71-0.27-1.06c-3.73-14.24-3.63-14.37,10.91-14.38c6.01,0,12.02,0,18.03,0
+			C90.24,68.86,90.48,69.52,90.72,70.18z" />
+	</g>
+</g>
+</svg>
+
+                            </div>
+                        </div>
+
+
+                        <div class="titleOuter text-center">
+                            <h5>a member of our team will be in touch soon.</h5>
+                            <h5>We're excited to get to know you!</h5>
+                        </div>
+
+                        <div class="step-actions d-flex justify-content-center">
+                            <button class="waves-effect waves-dark btn btn-flat previous-step">BACK</button> 
+                            <button class="waves-effect waves-dark btn previous-step-new btnFinish" id="Finish" type="button">Finish</button>                            <!-- <button class="waves-effect waves-dark btn-flat previous-step">BACK</button> -->
+                        </div>
+
+                    </div>
+                </li>
+                <li class="step">
+                    <div class="step-content">
+
+                        <div class="titleOuter text-center">
+                            <h3>Terrific!</h3>
+                            <h5>Best of luck in your search, </h5>
+                        </div>
+
+                        <div class="questionForm mt30 thanksMsz">
+                            <div class="cardBox1 text-center">
+                                <svg version="1.1" id="Layer_17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 216 216" style="enable-background:new 0 0 216 216;" xml:space="preserve">
+                                <style type="text/css">
+                                    <!-- .st0 {
+                                        fill: #FFFFFF;
+                                        stroke: #000000;
+                                        stroke-miterlimit: 10;
+                                    }
+
+                                    .st1 {
+                                        fill: #FFFFFF;
+                                        stroke: #000000;
+                                        stroke-width: 0.1;
+                                        stroke-miterlimit: 10;
+                                    }
+                                    -->
+</style>
+                                <g>
+                                <path class="st0" d="M104.13,111.89c-1.79,4.23-3.21,8.2-5.1,11.98c-4.84,9.63-5.71,18.26-10.92,27.74
+                   c-4.73,8.61-17.1,13.92-27.59,15.07c-7.21,0.79-17.28,3.05-24.02,0.45c-9.68-3.73-11.34-13.7-10.52-22.98
+                   c0.08-0.89-0.31-2.18-1.03-2.69c-8.69-6.26-13.28-14.04-10.33-23.99c3.09-10.4,11.15-16.74,22.82-19.41
+                   c8.69-1.99,17.5-1.23,26.28-0.45c13.53,1.21,25.62,5.83,37.16,12.3L104.13,111.89z" />
+                                <path class="st0" d="M109.79,108.89c4.23,1.79,8.2,3.21,11.98,5.1c9.63,4.84,18.26,5.71,27.74,10.92
+                   c8.61,4.73,13.92,17.1,15.07,27.59c0.79,7.21,3.05,17.28,0.45,24.02c-3.73,9.68-13.7,11.34-22.98,10.52
+                   c-0.89-0.08-2.18,0.31-2.69,1.03c-6.26,8.69-14.04,13.28-23.99,10.32c-10.4-3.09-16.74-11.15-19.41-22.82
+                   c-1.99-8.69-1.23-17.5-0.45-26.28c1.21-13.53,5.83-25.62,12.3-37.16L109.79,108.89z" />
+                                <path class="st0" d="M111.87,105.11c1.79-4.23,3.21-8.2,5.1-11.98c4.84-9.63,5.71-18.26,10.92-27.74
+                   c4.73-8.61,17.1-13.92,27.59-15.07c7.21-0.79,17.28-3.05,24.02-0.45c9.68,3.73,11.34,13.7,10.52,22.98
+                   c-0.08,0.89,0.31,2.18,1.03,2.69c8.69,6.26,13.28,14.04,10.32,23.99c-3.09,10.4-11.15,16.74-22.82,19.41
+                   c-8.69,1.99-17.5,1.23-26.28,0.45c-13.53-1.21-25.62-5.83-37.16-12.3L111.87,105.11z" />
+                                <path class="st0" d="M106.21,107.11c-4.23-1.79-8.2-3.21-11.98-5.1c-9.63-4.84-18.26-5.71-27.74-10.92
+                   c-8.61-4.73-13.92-17.1-15.07-27.59c-0.79-7.21-3.05-17.28-0.45-24.02c3.73-9.68,13.7-11.34,22.98-10.52
+                   c0.89,0.08,2.18-0.31,2.69-1.03c6.26-8.69,14.04-13.28,23.99-10.33c10.4,3.09,16.74,11.15,19.41,22.82
+                   c1.99,8.69,1.23,17.5,0.45,26.28c-1.21,13.53-5.83,25.62-12.3,37.16L106.21,107.11z" />
+                                <path class="st1" d="M166.23,79.89c-0.03-0.39-0.25-0.74-0.57-0.97c-0.85-0.6-2.01-0.08-2.16,0.95
+                   c-1.36,9.27-19.13,10.59-24.12,12.09c-17.61,5.27-25.42,9.56-31.74,13.92c-4.97-7.29-9.59-14.6-15.13-35.54
+                   c-1.42-5.37-2.17-25.19-13.19-24.62c-0.39,0.02-0.75,0.23-0.99,0.54c-0.63,0.83-0.15,2.01,0.88,2.19
+                   c9.22,1.66,9.97,19.46,11.3,24.5c5.33,20.17,9.81,27.69,14.58,34.73c0,0,0,0,0,0c-1.03,0.74-2.04,1.49-3.09,2.26
+                   c-6.94,5.59-15.33,12.76-39.38,15.54c-10.06,1.16-17.64,3.62-18.53,9.75c-0.08,0.52,0.14,1.04,0.56,1.35l0.25,0.18
+                   c0.78,0.56,1.84,0.15,2.12-0.77c1.63-5.3,8.86-7.51,18.27-8.6c24.05-2.78,32.44-9.96,39.38-15.54c0.73-0.53,1.45-1.06,2.17-1.59
+                   c0.14,0.21,0.28,0.41,0.42,0.62c5.36,7.12,12.26,15.73,14.26,39.86c0.84,10.09,3.04,17.75,9.15,18.84c0.52,0.09,1.05-0.1,1.37-0.52
+                   l0.19-0.25c0.58-0.76,0.21-1.83-0.7-2.14c-5.24-1.8-7.22-9.1-8-18.54c-1.99-23.95-8.8-32.61-14.14-39.7
+                   c6.49-4.58,14.19-9.04,32.66-14.56C147.37,92.28,167.16,90.89,166.23,79.89z" />
+           </g>
+           </svg>
+
+                            </div>
+                        </div>
+
+
+                        <div class="titleOuter text-center">
+                            <h5>and thanks so much for visiting our site!</h5>
+                            <h5>Please feel free to reach out with any questions!</h5>
+
+                        </div>
+             
+                        <div class="step-actions d-flex justify-content-center">
+                            <button class="waves-effect waves-dark btn btn-flat previous-step-new btnbackGoodLuck" type="button">Back</button>
+
+                            <button class="waves-effect waves-dark btn previous-step-new btnFinish" type="button"   onclick="location.href = '/Quiz/Finish?FirstName=' + $('#txtfname').val().substr(0, 1).toUpperCase() + $('#txtfname').val().substr(1).toLowerCase() + '&LastName=' + $('#txtlname').val().substr(0, 1).toUpperCase() + $('#txtlname').val().substr(1).toLowerCase() + '&Email=' + $('#ss').val()">Finish</button>
+                            <!-- <button class="waves-effect waves-dark btn-flat previous-step">BACK</button> -->
+                        </div>
+
+                    </div>
+                </li>
+
+            </ul>
+        </form>
+
+    </div>
+
+
+
+    <footer class="footerOuter">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <a class="brand pull-left" target="_blank" href="https://www.compass.com/agents/dc/jay-bauer/">
+                        <img src="https://justbere-d4d9.kxcdn.com/img/jaybauerCompass.png" class="compass-img-footer">
+
+                    </a>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="inline-block">© Just BE | Real Estate @System.DateTime.Now.Year</div>
+                    <div class="inline-block right-reserve">All Rights Reserved <br></div>
+                </div>
+                <div class="col-md-3">
+                    <ul class="legalProperties">
+                        <li>
+                            <a href="!#" data-toggle="modal" data-target="#TermsModalPopUp">Terms of use</a>
+
+                            @*<a href="@Url.Action("Terms","Legal")">Terms of use</a>*@
+                        </li>
+                        <li>
+                            @*<a href="@Url.Action("Terms","Legal")">Privacy Policy</a>*@
+                            <a href="!#" data-toggle="modal" data-target="#PrivacyModalPopUp">Privacy Policy</a>
+                        </li>
+                        <li><a href="@Url.Action("Departments","Careers")">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 text-center">
+                    <ul class="social-icons footerscomp">
+                        <li><a href="https://www.facebook.com/JustBE.realestate/" target="_blank"><i class="icon-facebook">   <img src="~/Content/NewVersion/fonts/social/facebook-logo.png"></i></a></li>
+                        <li><a href="https://www.instagram.com/justbe_re/" target="_blank"><i class="icon-instagram-5"> <img src="~/Content/NewVersion/fonts/social/instagram.png"></i></a></li>
+                        <li><a href="https://twitter.com/JustBEathome" target="_blank"><i class="icon-twitter"> <img src="~/Content/NewVersion/fonts/social/twitter.png"></i></a></li>
+                        <li><a href="https://www.yelp.com/biz/jay-bauer-just-be-washington-3" target="_blank"><i class="icon-yelp"> <img src="~/Content/NewVersion/fonts/social/yelp-logo.png"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/justbere/" target="_blank"><i class="icon-linkedin"> <img src="~/Content/NewVersion/fonts/social/linked-in.png"></i></a></li>
+
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <footer id="footer">
+                        <p class="copyright"> 660 Pennsylvania Ave. SE Suite 300, Washington, DC 20003  &nbsp; | &nbsp;(301) 785-1100  </p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="modal DocumentModalPopUp" id="TermsModalPopUp" tabindex="-1" role="dialog" aria-labelledby="myDocumentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myDocumentModalLabel">Terms of Use</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                    <p>
+                        The Just BE website and client portal were developed to provide you, the client, with key information you will need during your search for and/or sale of real estate property. The site also provides you an online platform where your real estate deal can be tracked. It does not replace any legal or financial advice you may receive during a standard real estate deal. During your journey and while working with us, we will send you email notifications with updates to your real estate deal, and we ask that you notify us if your main email address changes.
+                    </p>
+                    <p>
+                        As a client and/or visitor to our site, you accept that your use of information on this site is at your own risk. Our real estate agents will assist you by providing guidance on real-time real estate market information.
+                    </p>
+
+
+
+                </div>
+
+                <div class="modal-footer">
+                    @*<input type="button" class="btn btn-primary" id="btnAddDocument" onclick="return AddDocument();" style="background-color: #0bb7a5; border-color:#0bb7a5" value="Send Email">*@
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal DocumentModalPopUp" id="PrivacyModalPopUp" tabindex="-1" role="dialog" aria-labelledby="myDocumentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myPrivacyModalLabel">Privacy Policy</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="max-height: 350px;overflow-x: auto;">
+
+
+                    <p>
+                        We are committed to respecting your right to privacy and protecting your information when you visit <a target="_blank" style="color: #37b6bd;" href="http://justbere.com"> Just BE</a> or use our services.
+                    </p>
+                    <p>
+                        This Privacy Policy explains our information practices, including how we collect, use and share your personal information. This Privacy Policy is incorporated by reference in our Terms of Use and by using the Website or the Services (as defined therein), you consent to the terms of this Privacy Policy.
+                    </p>
+
+                    <h5 class="sub-title">What information do we collect?</h5>
+
+                    <p>
+                        When you visit our website, and in the course of providing the Services, we collect information about you that does not identify you personally. This information may include the type of computer and browser you are using, Uniform Resource Locators ("URLs") used by you to access the Website, your Internet Protocol ("IP") address, your Machine Access Control ("MAC") address, and what web service you are using. We may also collect the date, time, and length of visit, and the pages you visit. Collecting this information helps us design the site and the services to best suit your needs. This information may be compiled and analyzed on both an individual and an aggregate basis.
+                    </p>
+
+                    <h5 class="sub-title">Do we use cookies or other tracking devices?</h5>
+
+                    <p>
+                        A "cookie" is a small text file that is stored on your computer and makes it easy for you to move around a website without having to continually re-enter your name, password, preferences, and so on. We use cookies to store visitors' preferences, record user-specific information on what pages users access or visit, customize web page content based on visitors' browser type or other information that the visitor sends, and generally to optimize your website experience.
+                    </p>
+
+                    <p>
+                        We may also use cookies for advertising and targeting purposes. In connection with this advertising, a unique ad-serving cookie will be placed on your computer by us or by a third party vendor. Non -personal information about your browser and your activity at this site may be used to inform, optimize and serve our ads.
+                    </p>
+
+
+                    <h5 class="sub-title">What information do we collect as part of the services?</h5>
+
+                    <p>
+                        1. Client Information :(“Just BE.”) designed the website client portal with the client’s right to online privacy in mind. When you register and login to our site and access our password-protected client portal, your information will only be used to enhance your experience on the client portal. For example, we may provide you with e-mail alerts once we’ve completed a step in your real estate deal process or when we schedule an event associated with your active deal. You may opt out of these alerts after you create your profile; alternatively, you may return at anytime to update your email preferences and opt out.
+                    </p>
+
+                    <p>
+                        Just BE. will not sell or share your information to any third parties.
+                    </p>
+                    <p>
+                        2. Anonymous Information: Just BE. may collect data on how anonymous visitors browse and use our site. Collected data does not capture private or personal user information, and like most sites today, Just BE. reserves the right to capture this data to help us understand the site visitor experience and enhance our the visitors’ experience on our site.
+                    </p>
+
+                </div>
+
+                <div class="modal-footer">
+                    @*<input type="button" class="btn btn-primary" id="btnAddDocument" onclick="return AddDocument();" style="background-color: #0bb7a5; border-color:#0bb7a5" value="Send Email">*@
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<script>
+//Get the button
+//var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+   // mybutton.style.display = "block";
+  } else {
+    //mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<div class="panel panel-primary text-center ajax-new-load" id="ajaxLoading" style="display:none">
+    <div class="panel-heading">Loading data</div>
+    <div class="panel-body" style="padding-left: 30px; padding-right: 30px;">
+        <img src="~/img/loading.gif" alt="Loading" style="margin-bottom: 10px" /><br />
+        Please wait...
+    </div>
+</div>
+<div id="ajax-backdrop" class="fade in" style="background-color: rgb(0, 0, 0); bottom: 0px; left: 0px; position: fixed; right: 0px; top: 0px; z-index: 10000; opacity: 0.4; display: none;"></div>

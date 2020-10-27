@@ -1,0 +1,265 @@
+﻿@model RealEstate.Entities.ViewModels.DealAdminAssignAgentManageModel
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+<style>
+    @@media screen and (max-width:768px) {
+ .col-xs-12.mb15 {
+    margin-bottom: 15px;
+}}
+</style>
+<section class="content-header">
+    <h1>
+        Client 
+        <small>List</small>
+    </h1>
+</section>
+<div class="col-md-12">
+    <div class="well well-sm">
+        <div class="col-md-5 col-xs-12 mb15">
+            <form method="get" action="@Url.Action("List")" data-kw-ajax="true" data-kw-target="#DataGrid" autocomplete="on">
+                <div class="input-group">
+                    <input type="text" name="searchTerm" class="form-control" id="inputsearch" placeholder="Search by Name, Email or Status ..." />
+
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger pull-left" type="submit" id="search" value="Search By Name">Go!</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4 pull-left col-5 col-xs-7">
+            <form method="get" action="@Url.Action("ListAgent")" data-kw-ajax="true" data-kw-target="#DataGrid" autocomplete="on">
+                <div class="input-group">
+                    <input type="text" name="searchTerm" class="form-control" id="inputsearchagent" placeholder="Search by Agent ..." />
+
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger pull-left" type="submit" id="searchagent" value="Search By Agent Name">Go!</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        @Html.ActionLink("Clear Results", "List", null, new { @class = "btn btn-primary", id = "clear" })
+        <div class="pull-right">
+            @Html.ActionLink(" Add New ", "create", null, new { @class = "btn btn-primary pull-right " })
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    @Html.Partial("pvList", Model)
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#clear").addClass("hidden");
+            $("#search").on("click", function (e) {
+                if ($("#inputsearch").val() != "") {
+                    $("#clear").removeClass("hidden");
+                }
+                else {
+                    $("#clear").addClass("hidden");
+                }
+            });
+            $("#searchagent").on("click", function (e) {
+                if ($("#inputsearchagent").val() != "") {
+                    $("#clear").removeClass("hidden");
+                }
+                else {
+                    $("#clear").addClass("hidden");
+                }
+            });
+        });
+    </script>
+
+@*//Added by sonika*@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    .ui-front {
+        z-index: 9999;
+        width: 200px;
+    }
+</style>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        $('#inputsearch').autocomplete({
+            source: function (request, response) {
+                var itemnamecodes = new Array();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Autocomplete", "DealAssignAgent")',
+                    dataType: 'json',
+                    data: { term: request.term },
+                    success: function (data) {
+
+                        response($.map(data, function (item) {
+                            console.log(item);
+                            return { label: item.Key, Id: item.Value };
+                        }))
+                    }
+                })
+            },
+            select: function (e, i) {
+                $("#ListingSHA").val(i.item.Id);
+
+            }
+        });
+        $('#inputsearchagent').autocomplete({
+            source: function (request, response) {
+                var itemnamecodes = new Array();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("AutocompleteAgent", "DealAssignAgent")',
+                    dataType: 'json',
+                    data: { term: request.term },
+                    success: function (data) {
+
+                        response($.map(data, function (item) {
+                            console.log(item);
+                            return { label: item.Key, Id: item.Value };
+                        }))
+                    }
+                })
+            },
+            select: function (e, i) {
+                $("#ListingSHA").val(i.item.Id);
+
+            }
+        });
+    })
+    function OkMyModalT() {
+        $("#myErroMsgModalT").hide();
+        $('#ErrMsgHiddenFieldT').val("");
+        // Retrieve the sender infromation from hidden field and pass it to the function
+        CustomAjaxFormSubmitt($("#eventSender").val().split('|')[1], $("#eventSender").val().split('|')[0]);
+    }
+
+    function CloseMyModalT() {
+        $('#myErroMsgModalYesButtonT').addClass('hidden');
+        $('#ErrMsgHiddenFieldT').val("");
+        $("#myErroMsgModalT").hide();
+    }
+    $(".content").on("click", ".deleteTransaction", function (e) {
+
+        if ($(this).text() != "Cancel") {
+            // Set the sender infromation in hidden field and its closest form
+            $("#eventSender").val(($(this).attr('href')) + '|' + $($(this).closest('form')));
+
+            $('#myModalLabelT').text('Information');
+            var transId = $(this).attr('data-transactionid');
+            var str = "<i class='fa fa-warning' style='font-size:24px;color:red'></i> Are you sure you want to delete the transaction <b>" + transId + "</b>? It will delete the transaction completely. ";
+
+            $('#MsgT').html(str);
+
+            $('#myErroMsgModalYesButtonT').removeClass('hidden');
+            $('#myErroMsgModalT').show();
+            e.preventDefault();
+        }
+
+    });
+    function CustomAjaxFormSubmitt(sender, url) {
+        if (url == "#")
+        { return false; }
+        var $form = $('a[href="' + decodeURI(url) + '"]').closest('form')
+        if ($form.attr("data-JB-ajax") == 'true') {
+            $.ajax({
+                url: decodeURI(url),
+                type: $form.attr("method"),
+                data: $form.serialize(),
+                success: function (html) {
+                    $('#t_t_deal_item').empty().append(html);
+                    $("input[datemodal]").datetimepicker({
+                        format: "MM-DD-YYYY",
+                        sideBySide: true,
+                        widgetPositioning: {
+                            horizontal: 'auto',
+                            vertical: 'bottom'
+                        }
+                    });
+                    ShowMessageBox();
+                }
+
+
+            });
+            return false;
+        } else if ($form.attr("data-vendor-ajax") == 'true') {
+            $.ajax({
+                url: decodeURI(url),
+                type: $form.attr("method"),
+                data: $form.serialize(),
+                success: function (html) {
+                    $('#t_t_vendor_item').empty().append(html);
+                    //  gallerymedia();
+                    ShowMessageBox();
+                }
+
+
+            });
+        } else if ($form.attr("data-doc-ajax") == 'true') {
+            $.ajax({
+                url: decodeURI(url),
+                type: $form.attr("method"),
+                data: $form.serialize(),
+                success: function (html) {
+                    $('#t_t_document_item').empty().append(html);
+                    ShowMessageBox();
+                }
+            });
+        }
+        else if ($form.attr("data-gall-ajax") == 'true') {
+            $.ajax({
+                url: decodeURI(url),
+                type: $form.attr("method"),
+                data: $form.serialize(),
+                success: function (html) {
+                    $('#t_t_gallery_item').empty().append(html);
+                    gallerymedia();
+                    ShowMessageBox();
+                }
+
+
+            });
+        }
+        else if ($form.attr("data-photo-ajax") == 'true') {
+            $.ajax({
+                url: decodeURI(url),
+                type: $form.attr("method"),
+                data: $form.serialize(),
+                success: function (html) {
+                    $('#t_t_seller_home_item').empty().append(html);
+                    $('#dropzoneForm').dropzone();
+                    ShowMessageBox();
+                }
+            });
+        }
+        else if ($form.attr("data-kw-ajax") == 'true') {
+            var options = {
+                url: decodeURI(url)
+                , type: $form.attr("method")
+                , data: $form.serialize()
+            }
+            var target = $($form.attr("data-kw-target"));
+            $.ajax(options).done(function (data) {
+                $(target).replaceWith(data);
+                ShowMessageBox();
+            });
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+</script>
+}
+
+

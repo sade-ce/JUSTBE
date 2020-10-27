@@ -1,0 +1,201 @@
+﻿@model RealEstate.Entities.ViewModels.MstAgentPhotoGalleryManageModel
+
+<div id="t_t_gallery_grid" class="col-md-12">
+    <div class="row">
+        <div class="clearfix"></div>
+        <div id="accordion-gall">
+            <div class="panel panel-default t_t_panel">
+                <div class="panel-heading t_t_panelheading">
+                    <a data-toggle="collapse" data-parent="#accordion-gall" href="#collapseGall"> Media Gallery</a>
+                </div>
+                <div id="collapseGall" class="panel-collapse collapse in">
+                    <div class="col-md-12 panel-body">
+                        @using (Ajax.BeginForm("mediagallery", "agent", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "gallform" }))
+            {  <a id="AnchorTag" href="#" data-toggle="modal" data-target="#myHelpModal" style="display:none"><span class="badge-help-link">?</span></a>
+                        @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true)
+                                @Html.Hidden("AgentID", new { @Value = ViewBag.AgentID, @name = "AgentID" })
+                                @Html.HiddenFor(model => model.utblMstClientGalleries.Email)
+                                @Html.HiddenFor(model => model.utblMstClientGalleries.TransactionID)
+                                @Html.HiddenFor(model => model.UserProfile.ClientID)
+                                <div class="well well-sm ">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-4">
+                                                        <div class="thumbnail" style="margin-left: -14px;margin-bottom: 5px; height: 140px; width: 120px">
+                                                            <div id="imgPhotoThumb" style="margin-left: auto; margin-right: auto;">
+                                                                <img src="~/Content/img/DefaultPhoto.png" class="img-rounded" style="width: 110px; height: 130px;" />
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 120px; margin-top: 5px;">
+                                                            <button type="button" style="width: 120px;margin-left: -12px;" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#photo-modal">
+                                                                Choose Photo Here
+                                                            </button>
+                                                        </div>
+                                                        @Html.TextAreaFor(model => model.utblMstClientGalleries.PhotoThumb, new { @class = "hidden", @id = "EmpPhotoNormal" })
+                                                        @Html.TextAreaFor(model => model.utblMstClientGalleries.PhotoThumb, new { @class = "hidden", @id = "EmpPhotoThumb" })
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading"> </h4>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    @Html.LabelFor(model => model.utblMstClientGalleries.Description, new { @class = "control-label  " })
+                                                    <div class="row-top-10">
+                                                        @Html.TextAreaFor(model => model.utblMstClientGalleries.Description, new { @class = "form-control", id = "Name" })
+                                                        @Html.ValidationMessageFor(model => model.utblMstClientGalleries.Description)
+                                                    </div>
+                                                        
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 ">
+                                                <input type="submit" value="Submit" id="save" class="btn btn-primary pull-right " />
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                    
+                                   
+                                </div>
+                            </div>
+                            <div class="modal fade" id="photo-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <form class="avatar-form" action="#" enctype="multipart/form-data" method="post">
+                                            <div class="modal-header">
+                                                <button class="close" data-dismiss="modal" type="button">&times;</button>
+                                                <h4 class="modal-title" id="avatar-modal-label">Choose Photo</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="avatar-body">
+                                                    <div class="col-md-8" style="padding: 0">
+                                                        <div class="well well-sm well-table-header">
+                                                            <div class="img-container">
+                                                                <img src="#" class="img-rounded">
+                                                                <span id="ImageSpan" style="font-size: 12pt; font-weight: bold; ">Choose photo...</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-12 col-sm-12" style="padding: 0">
+                                                            <div class="well well-sm btn btn-primary" for="inputImage" title="Upload image file">
+                                                                <input id="inputImage" class="img-rounded btn btn-default" name="file" type="file" accept="image/*" data-toggle="tooltip" title="Upload image" onchange="ShowFileMsg()">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-4" style="padding-right: 0">
+                                                        <div class="well well-sm well-table-header" style="text-align:center;">
+                                                            <span style="font-size: 13pt; font-weight: bold;">Preview</span>
+                                                            <div id="dataURLView" style="height: 140px; width: 255px;">
+                                                                <img src="#" class="img-rounded" style="width: 120px;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row text-right" style="padding-right: 18px">
+
+                                                        <button class="btn btn-danger" id="getDataURL" data-toggle="tooltip" type="button" title="Crop Image" style="pointer-events: none; opacity: .3">Crop Image</button>
+                                                        <button class="btn btn-primary" data-dismiss="modal" type="button">Done</button>
+
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+
+                                                </div>
+
+
+
+                                            </div>
+                                            <!-- <div class="modal-footer">
+                                              <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                                            </div> -->
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        }
+
+                        @if (Model.MstGalleryList.Count() > 0)
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-striped table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" style="vertical-align: middle;">
+                                                Thumbnail
+                                            </th>
+                                            <th class="text-center" style="vertical-align: middle;">
+                                                Preview Photo
+                                            </th>
+
+                                            <th class="text-center" style="vertical-align: middle;">
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.MstGalleryList)
+                                        {
+                                            <tr>
+                                                <td style="width:120px;">
+                                                    <img src="@item.PhotoThumb" class="img-rounded" style="width: 120px; height: 120px;" />
+                                                </td>
+                                                @if (item.PhotoNormal != "")
+                                                {
+                                                    <td class="text-center">
+                                                        <a href="~/UploadedFiles/PhotoGallery/@item.GallaryID@item.PhotoNormal" target="_blank">View/Download</a>
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td class="text-center">
+                                                        <label>Not Available</label>
+                                                    </td>
+                                                }
+                                                <td class="text-center" style="width: 70px;">
+                                                    <div style="float: right;">
+                                                        <div style="float:left; padding-right: 10px;">
+                                                            <form method="post" action="@Url.Action("deletegallery", "agent")" data-gall-ajax="true">
+                                                                @Html.Hidden("GallaryID", item.GallaryID)
+                                                                @Html.Hidden("ClientID", new { Value = Model.UserProfile.ClientID })
+                                                                @Html.AntiForgeryToken()
+                                                                <a href="@Url.Action("DeleteGallery", new { GallaryID = item.GallaryID,Email=item.Email,ClientID=Model.UserProfile.ClientID, TransactionID=item.TransactionID })" class="delete btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                                                    Remove
+                                                                </a>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-12">
+                                <span class="text-danger">No Photo Gallery Image Uploaded...</span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+

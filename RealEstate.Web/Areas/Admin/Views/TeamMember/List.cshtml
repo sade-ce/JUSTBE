@@ -1,0 +1,44 @@
+﻿@model RealEstate.Entities.ViewModels.TeamMemberViewModel
+@{
+    ViewBag.Title = "Team Member List";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+    //if (User.IsInRole("Agent"))
+    //{
+    //    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+    //}
+}
+<style>
+    .status-img {
+        height: 20px;
+        width: 20px;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        Team Member
+        <small>List </small>
+    </h1>
+</section>
+<div class="content">
+    <div class="col-md-12">
+        <div class="well well-sm clearfix">
+            <div class="col-md-6 pull-left">
+                <form method="get" action="@Url.Action("list","TeamMember")" data-otf-ajax="true" data-otf-target="#DataGrid">
+                    <div class="input-group">
+                        <input type="text" name="searchTerm" id="inputsearch" class="form-control" placeholder="Search by Name" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger pull-left" type="submit" value="Search By Name" id="search">Go!</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="pull-right">
+                @Html.ActionLink(" Add New ", "Create", null, new { @class = "btn btn-primary pull-right " })
+            </div>
+            @Html.ActionLink("Clear Results", "List", null, new { @class = "btn btn-primary", id = "clear" })
+            <div class="clearfix"></div>
+        </div>
+        @Html.Partial("pvTeamMemberList", Model)
+    </div>
+</div>

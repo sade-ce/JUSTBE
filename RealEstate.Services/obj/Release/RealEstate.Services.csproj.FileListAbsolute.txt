@@ -1,0 +1,17 @@
+D:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\bin\Release\RealEstate.Services.dll
+D:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\bin\Release\RealEstate.Services.pdb
+D:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\obj\Release\RealEstate.Services.dll
+D:\FIle Backup 5192017\JayBauerGroup\RealEstate.Services\obj\Release\RealEstate.Services.pdb
+F:\Very Updated\JayBauerGroup\RealEstate.Services\bin\Release\RealEstate.Services.dll
+F:\Very Updated\JayBauerGroup\RealEstate.Services\bin\Release\RealEstate.Services.pdb
+F:\Very Updated\JayBauerGroup\RealEstate.Services\obj\Release\RealEstate.Services.dll
+F:\Very Updated\JayBauerGroup\RealEstate.Services\obj\Release\RealEstate.Services.pdb
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Services\bin\Release\RealEstate.Services.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Services\bin\Release\RealEstate.Services.pdb
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Services\obj\Release\RealEstate.Services.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Services\obj\Release\RealEstate.Services.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Services\bin\Release\RealEstate.Services.dll
+F:\LaxumanBackupHP\BE\RealEstate.Services\bin\Release\RealEstate.Services.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Services\obj\Release\RealEstate.Services.csprojResolveAssemblyReference.cache
+F:\LaxumanBackupHP\BE\RealEstate.Services\obj\Release\RealEstate.Services.dll
+F:\LaxumanBackupHP\BE\RealEstate.Services\obj\Release\RealEstate.Services.pdb

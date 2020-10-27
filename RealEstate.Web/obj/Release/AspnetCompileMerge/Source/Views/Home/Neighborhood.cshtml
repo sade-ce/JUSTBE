@@ -1,0 +1,1150 @@
+﻿@*@model RealEstate.Entities.Models.utblNeighborhood*@
+
+@{
+    ViewBag.Title = "Neighborhood";
+}
+@section Style {
+    @Styles.Render("~/Content/Home")
+}
+<div class="clearfix"></div>
+
+<div id="titlebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Neighborhood Profiles</h2>
+
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li>Neighborhood</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12" style="background-color: #f7f7f7; background-image:url('~/img/Jay Bauer Pattern.jpg')">
+    <div class="col-md-7">
+
+        <section class="search margin-bottom-10" style="background-color:none">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Title -->
+                    @*<h4 class="search-title">Neighborhood</h4>*@
+                    <!-- Form -->
+                    <div class="main-search-box no-shadow ">
+                        <div class="row">
+
+                            <div class="col-md-12 ">
+                                <div class="style-1 ">
+
+
+                                    <div class="tabs-container">
+                                        <h3>Washington</h3>
+                                        <div class="tab-content" id="News">
+
+                                            <table class="basic-table text-center">
+                                                <tr>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Adams Morgan"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Adams Morgan'], 'click');" class="button3">Adams Morgan</a></td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="AU Park"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['AU Park'], 'click');" class="button3">AU Park</a> </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Burleith"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Burleith'], 'click');" class="button3">Burleith</a> </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Cathedral Heights"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Cathedral Heights'], 'click');" class="button3"> Cathedral Heights</a> </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Chevy Chase"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Chevy Chase News'], 'click');" class="button3">  Chevy Chase</a>   </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Cleveland Park DC"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Cleveland Park'], 'click');" class="button3">Cleveland Park</a> </td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Columbia Heights Washington DC"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Columbia Heights'], 'click');" class="button3">  Columbia Heights</a></td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Dupont Circle Real Estate"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Dupont Circle'], 'click');" class="button3"> Dupont Circle</a></td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Foggy Bottom & West End"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Foggy Bottom & West End'], 'click');" class="button3"> Foggy Bottom & West End</a> </td>
+
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Fort Totten"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Fort Totten'], 'click');" class="button3"> Fort Totten</a></td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Foxhall Village"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Foxhall Village'], 'click');" class="button3">Foxhall Village</a> </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Friendship Heights"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Friendship Heights'], 'click');" class="button3">Friendship Heights</a> </td>
+
+                                                </tr>
+                                                <tr>
+
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Georgetown DC"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Georgetown'], 'click');" class="button3">Georgetown</a> </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Kalorama"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Kalorama'], 'click');" class="button3">Kalorama</a> </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Logan Circle"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Logan Circle'], 'click');" class="button3">Logan Circle</a> </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Glover Park"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Glover Park'], 'click');" class="button3">Glover Park</a> </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Mount Vernon Triangle"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Mount Vernon Triangle'], 'click');" class="button3">Mount Vernon Triangle</a> </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Petworth"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Petworth'], 'click');" class="button3">Petworth</a> </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Shaw Washington DC"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Shaw'], 'click');" class="button3">Shaw</a> </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Shepherd Park"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Shepherd Park'], 'click');" class="button3">Shepherd Park</a> </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Takoma Washington DC"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Takoma'], 'click');" class="button3">Takoma</a> </td>
+
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Tenleytown"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Tenleytown'], 'click');" class="button3">Tenleytown</a> </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="U Street Corridor"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['U Street Corridor'], 'click');" class="button3">U Street Corridor</a> </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Woodley Park"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Woodley Park'], 'click');" class="button3">Woodley Park</a> </td>
+                                                </tr>
+                                            </table>
+                                            <h3>Virginia</h3>
+
+                                        </div>
+
+
+                                        <div class="tab-content" id="News">
+
+                                            <table class="basic-table text-center">
+
+                                                <tr>
+                                                    <td>  <a href="@Url.Action("News","Neighborhood",new { City="Crystal City"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Crystal City'], 'click');" class="button3"> Crystal City</a>  </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Lyon Village"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Lyon Village'], 'click');" class="button3">Lyon Village</a> </td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Rosslyn"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Rosslyn'], 'click');" class="button3"> Rosslyn</a> </td>
+
+                                                </tr>
+                                                <tr>
+
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Shirlington"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Shirlington'], 'click');" class="button3"> Shirlington</a>   </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Del Ray"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Del Ray'], 'click');" class="button3">Del Ray</a> </td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Eisenhower Avenue"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Eisenhower Avenue'], 'click');" class="button3">Eisenhower Avenue</a></td>
+
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Ballston"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Ballston'], 'click');" class="button3">Ballston</a> </td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Old Town"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Old Town'], 'click');" class="button3"> Old Town</a></td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Parkfairfax"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Parkfairfax'], 'click');" class="button3"> Parkfairfax</a> </td>
+
+                                                </tr>
+                                                <tr>
+
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Downtown Falls Church"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Downtown Falls Church'], 'click');" class="button3"> Falls Church </a></td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Tysons Corner"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Tysons Corner'], 'click');" class="button3"> Tysons Corner</a></td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Columbia Pike"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Columbia Pike'], 'click');" class="button3">Columbia Pike</a> </td>
+
+                                                </tr>
+                                            </table>
+                                        </div>
+
+
+
+                                        <h3>Maryland</h3>
+                                        <div class="tab-content" id="MA">
+
+                                            <table class="basic-table text-center ">
+                                                <tr>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Bethesda"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Bethesda'], 'click');" class="button3">Bethesda</a> </td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Cabin John"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Cabin John'], 'click');" class="button3">Cabin John</a></td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Chevy Chase"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Chevy Chase'], 'click');" class="button3">Chevy Chase</a> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>  <a href="@Url.Action("News","Neighborhood",new { City="Downtown Silver Spring"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Downtown Silver Spring'], 'click');" class="button3"> Downtown Silver Spring</a>  </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Potomac"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Potomac'], 'click');" class="button3">Potomac</a> </td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Rockville Town Square"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Rockville Town Square'], 'click');" class="button3"> Rockville Town Square</a> </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Takoma Park"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Takoma Park'], 'click');" class="button3"> Takoma Park</a>   </td>
+                                                    <td> <a href="@Url.Action("News","Neighborhood",new { City="Wheaton"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Wheaton'], 'click');" class="button3">Wheaton</a> </td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Capitol Heights"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Capitol Heights'], 'click');" class="button3">Capitol Heights</a></td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Hyattsville"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Hyattsville'], 'click');" class="button3">Hyattsville</a></td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="Mount Rainier"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['Mount Rainier'], 'click');" class="button3">Mount Rainier</a></td>
+                                                    <td><a href="@Url.Action("News","Neighborhood",new { City="National Harbor"})" onmouseover="javascript: google.maps.event.trigger(gmarkers['National Harbor'], 'click');" class="button3"> National Harbor</a> </td>
+
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+    <div class="col-md-5 margin-top-100">
+        <div id="map-container">
+            <div id="map">
+                <!-- map goes here -->
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class="clearfix"></div>
+
+<a id="leadform" href="#leadModal" style="display:none"></a>
+
+<div class="modal-container">
+    <a class="btn btn-lg btn-modal" id="clickModal" href="#">
+        <i class="ti-layout-menu-v"></i>
+    </a>
+    <div class="foundry_modal text-center">
+        <i class="ti-close close-modal fa-close">X</i>
+
+    </div>
+</div>
+<div class="modal-screen"></div>
+<div modal-link="0" class="foundry_modal openmodal text-center">
+    <i class="ti-close close-modal" style="margin-top:0px">X</i>
+    <div class="leadContent11"></div>
+</div>
+
+
+
+
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAawqliBxwDYdgLhbfDAeLMz5NqNvrr-OE&libraries=places"></script>
+    <script type="text/javascript">
+        var Adams = '<div id="iw-container">' +
+                   '<div class="iw-title">Adams Morgan</div>' +
+                   '<div class="iw-content">' +
+                     '<img src="http://assets.urbanturf.com/dc/images/blog/2011/04/adams_morgan_buildings_160.jpg" alt="Adams Morgan" height="115" width="83">' +
+                     '<p>Nestled in the middle of a cluster of vibrant communities, Adams Morgan offers a wide spectrum of independently-owned stores and services and is still home to one of the city\'s most diverse populations.</p>'
+        ;
+
+        var AU = '<div id="iw-container">' +
+                   '<div class="iw-title">AU Park</div>' +
+                   '<div class="iw-content">' +
+                     '<img src="https://assets.urbanturf.com/dc/images/blog/2011/10/au_park_160.jpg" alt="AU Park" height="115" width="83">' +
+                     '<p>American University Park (AU Park) is one of a handful of DC neighborhoods that are about as suburban as you can get and still be within the city\'s borders.</p>';
+
+        var Burleith = '<div id="iw-container">' +
+                 '<div class="iw-title">Burleith</div>' +
+                 '<div class="iw-content">' +
+                 '<img src="https://assets.urbanturf.com/dc/images/blog/2012/05/dukeellington_160.jpg" alt="Burleith" height="115" width="83">' +
+                 '<p>For people who have found it, 535-home Burleith offers a distinctive housing stock and a quiet, more affordable way to live close to the action on Wisconsin Avenue than Georgetown, its neighbor to the south.</p>';
+
+
+        var CathedralHeights = '<div id="iw-container">' +
+                '<div class="iw-title">Cathedral Heights</div>' +
+                '<div class="iw-content">' +
+                '<img src="https://assets.urbanturf.com/dc/images/blog/2011/07/cathedral_hts_160.jpg" alt="Cathedral Heights" height="115" width="83">' +
+                '<p>The slender area that lies just west of the National Cathedral offers a peaceful sense of remove from the hustle and bustle of downtown DC.</p>';
+
+        var ChevyChase = '<div id="iw-container">' +
+               '<div class="iw-title">Chevy Chase</div>' +
+               '<div class="iw-content">' +
+               '<img src="https://assets.urbanturf.com/dc/images/blog/2011/08/chevy_chase_160.jpg" alt="Chevy Chase" height="115" width="83">' +
+               '<p>Chevy Chase DC is a well-known suburb-in-the-city, but be careful not to mistake the far northwest DC neighborhood for Chevy Chase, Md.</p>';
+
+        var ClevelandPark = '<div id="iw-container">' +
+              '<div class="iw-title">Cleveland Park</div>' +
+              '<div class="iw-content">' +
+              '<img src="https://assets.urbanturf.com/dc/images/blog/2010/11/cleve_park_street_160.jpg" alt="Cleveland Park" height="115" width="83">' +
+              '<p>Cleveland Park had a rough 2009, a year that was marked by a retail exodus and growing tensions among neighborhood residents</p>';
+
+
+        var ColumbiaHeights = '<div id="iw-container">' +
+              '<div class="iw-title">Columbia Heights</div>' +
+              '<div class="iw-content">' +
+              '<img src="https://assets.urbanturf.com/dc/images/blog/2011/03/wonderland_yawper_160.jpg" alt="Columbia Heights" height="115" width="83">' +
+              '<p>Columbia Heights has changed notably over the past decade. With the NW neighborhood still in transition, it\'s not clear whether it best characteristic -- the dynamic mix of people -- will remain a permanent feature.</p>';
+
+
+        var DupontCircle = '<div id="iw-container">' +
+              '<div class="iw-title">Dupont Circle</div>' +
+              '<div class="iw-content">' +
+              '<img src="https://assets.urbanturf.com/dc/images/blog/2010/05/dupont_circle_160x120.jpg" alt="Dupont Circle" height="115" width="83">' +
+              '<p>The Real World decided to base its DC season there, its bars and restaurants are perpetually buzzing, and its name is familiar to the rest of the.</p>';
+
+        var FoggyBottom = '<div id="iw-container">' +
+              '<div class="iw-title">Foggy Bottom</div>' +
+              '<div class="iw-content">' +
+              '<img src="https://assets.urbanturf.com/dc/images/blog/2010/06/foggybottom_160.jpg" alt="Foggy Bottom" height="115" width="83">' +
+              '<p>Driving through the Foggy Bottom and West End neighborhoods can feel a bit like passing through a vast canyon: high, anonymous buildings line the..</p>';
+
+
+        var FortTotten = '<div id="iw-container">' +
+              '<div class="iw-title">Fort Totten</div>' +
+              '<div class="iw-content">' +
+              '<img src="https://assets.urbanturf.com/dc/images/blog/2011/04/fort_totten_160.jpg" alt="Fort Totten" height="115" width="83">' +
+              '<p>For most DC residents, Fort Totten is little more than a transfer point for three Metro lines. But planned development could make the neighborhood to the north of Brookland a destination in a few years.</p>';
+
+
+        var FoxhallVillage = '<div id="iw-container">' +
+            '<div class="iw-title">Foxhall Village</div>' +
+            '<div class="iw-content">' +
+            '<img src="https://assets.urbanturf.com/dc/images/blog/2012/09/foxhall_field_160.jpg" alt="Foxhall Village" height="115" width="83">' +
+            '<p>Hidden away between Palisades and Georgetown, Foxhall Village is home to high-end Tudor homes, top schools and residents who sometimes never leave.</p>';
+
+
+        var FriendshipHeights = '<div id="iw-container">' +
+           '<div class="iw-title">Friendship Heights</div>' +
+           '<div class="iw-content">' +
+           '<img src="https://assets.urbanturf.com/dc/images/blog/2012/01/fship_160.jpg" alt="Friendship Heights" height="115" width="83">' +
+           '<p>If living in a city means enjoying a walkable neighborhood, having retail and public transportation around the corner, and being able to rent an apartment in a high-rise building, Friendship Heights has got it all. But.</p>';
+
+
+        var Georgetown = '<div id="iw-container">' +
+          '<div class="iw-title">Georgetown</div>' +
+          '<div class="iw-content">' +
+          '<img src="https://assets.urbanturf.com/dc/images/blog/2011/09/spring_valley_house_160.jpg" alt="Georgetown" height="115" width="83">' +
+          '<p>Spring Valley is considered one of DC\'s more prestigious neighborhoods, but remains an unfamiliar place to many city residents. Unlike Georgetown, though, Spring Valley feels like a suburb.</p>';
+
+
+        var Kalorama = '<div id="iw-container">' +
+          '<div class="iw-title">Kalorama</div>' +
+          '<div class="iw-content">' +
+          '<img src="https://assets.urbanturf.com/dc/images/blog/2012/05/mendota160.jpg" alt="Kalorama" height="115" width="83">' +
+          '<p>The enclave of Kalorama emerged during a period of rapid development in DC\'s history, and the architecture is a kind of time capsule that tells a story of upper-middle class tastes..</p>';
+
+        var LoganCircle = '<div id="iw-container">' +
+         '<div class="iw-title">Logan Circle</div>' +
+         '<div class="iw-content">' +
+         '<img src="https://assets.urbanturf.com/dc/images/blog/2017/01/logan-st-ex--160.jpg" alt="Logan Circle" height="115" width="83">' +
+         '<p>Once rife with prostitution and drug abuse, Logan Circle is now home to trendy eateries and $2,000/mo studio apartments..</p>';
+
+
+        var GloverPark = '<div id="iw-container">' +
+        '<div class="iw-title">Glover Park</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2011/05/glover_160.jpg" alt="Glover Park" height="115" width="83">' +
+        '<p>Second only to Georgetown in its preppiness factor, the northwest DC neighborhood of Glover Park has also made a name for itself as a destination for young families.</p>';
+
+        var MountVernonTriangle = '<div id="iw-container">' +
+       '<div class="iw-title">Mount Vernon Triangle</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2010/01/mount_vernon_160.jpg" alt="Mount Vernon Triangle" height="115" width="83">' +
+       '<p>As part of UrbanTurf\'s continuing partnership with The Washington Post, we published an article about Mount Vernon Triangle that ran this past..</p>';
+
+
+        var Petworth = '<div id="iw-container">' +
+     '<div class="iw-title">Petworth</div>' +
+     '<div class="iw-content">' +
+     '<img src="https://assets.urbanturf.com/dc/images/blog/2012/08/parkview_rec_center_160.jpg" alt="Petworth" height="115" width="83">' +
+     '<p>A sense of identity is one of the main factors that residents cite for attracting them to the oft-overlooked neighborhood of Park View..</p>';
+
+        var Shaw = '<div id="iw-container">' +
+      '<div class="iw-title">Shaw</div>' +
+      '<div class="iw-content">' +
+      '<img src="https://assets.urbanturf.com/dc/images/blog/2011/06/shaw_skateboarder_160.jpg" alt="Shaw" height="115" width="83">' +
+      '<p>While many of DC\'s communities have taken off in the past few years, attracting hordes of new residents and developing commercial areas to serve them, the Northwest neighborhood of Shaw has been slower to grow.</p>';
+
+        var ShepherdPark = '<div id="iw-container">' +
+       '<div class="iw-title">Shepherd Park</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2017/02/1204-holly--160.jpg" alt="Shepherd Park" height="115" width="83">' +
+       '<p>Ask most residents of this tight-knit neighborhood in upper Northwest, and you’re bound to hear similar praise of Shepherd Park as something of a special oasis.</p>';
+
+        var Takoma = '<div id="iw-container">' +
+       '<div class="iw-title">Takoma</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2012/08/Takoma_house_160.jpg" alt="Takoma" height="115" width="83">' +
+       '<p>You can say a lot of things about the northwest DC neighborhood of Takoma. Just don\'t call it Maryland.</p>';
+
+
+        var Tenleytown = '<div id="iw-container">' +
+       '<div class="iw-title">Tenleytown</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2011/03/tenley_160.jpg" alt="Tenleytown" height="115" width="83">' +
+       '<p>Tenleytown is similar to other northwest DC neighborhoods where those with means choose to settle. The area\'s commercial strip is uninspiring on the restaurant and retail front, but that could soon be changing.</p>';
+
+        var UStreetCorridor = '<div id="iw-container">' +
+        '<div class="iw-title">U Street Corridor</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2017/03/u-street-ted-eytan--160.jpg" alt="U Street Corridor" height="115" width="83">' +
+        '<p>A renewed look at a northwest DC neighborhood that is balancing everyday residents with its weekend visitors.</p>';
+
+        var WoodleyPark = '<div id="iw-container">' +
+       '<div class="iw-title">Woodley Park</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2010/07/woodley_160.jpg" alt="U Street Corridor" height="115" width="83">' +
+       '<p>For many DC residents, Woodley Park consists of a small commercial stretch along Connecticut Avenue, an area that they might occasionally head for</p>';
+
+
+        var CrystalCity = '<div id="iw-container">' +
+       '<div class="iw-title">Crystal City</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2011/03/crystal_city_near23rd_st_160.jpg" alt="Crystal City" height="115" width="83">' +
+       '<p>Characterized by 1960s-era architecture and urban planning concepts, Crystal City was for years the quiet home of government agencies and military contractors. Now, it is in the process of enhancing that stodgy reputation.</p>';
+
+        var LyonVillage = '<div id="iw-container">' +
+       '<div class="iw-title">Lyon Village</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2011/06/lyon_village_160.jpg" alt="Lyon Village" height="115" width="83">' +
+       '<p>Its cute houses and immediate access to Clarendon\'s many offerings have made Lyon Village one of the more attractive Arlington neighborhoods in which to live. But little by little, the community\'s character could be fading away</p>';
+
+        var Rosslyn = '<div id="iw-container">' +
+       '<div class="iw-title">Rosslyn</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2011/02/rosslyn_key_bridge_160.jpg" alt="Rosslyn" height="115" width="83">' +
+       '<p>To many, Rosslyn is little more than a collection of high-rises. But to real estate insiders, it has a number of advantages that are turning it into one of the region\'s booming residential markets.</p>';
+
+        var Shirlington = '<div id="iw-container">' +
+   '<div class="iw-title">Shirlington</div>' +
+   '<div class="iw-content">' +
+   '<img src="https://assets.urbanturf.com/dc/images/blog/2010/07/busboys_poets_160.jpg" alt="Shirlington" height="115" width="83">' +
+   '<p>Thanks to recent planning by Arlington County, the close-in neighborhood of Shirlington has become a dense, pedestrian-friendly area of restaurants.</p>';
+
+
+        var DelRay = '<div id="iw-container">' +
+       '<div class="iw-title">Del Ray</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2011/01/del_ray_porch_160.jpg" alt="Del Ray" height="115" width="83">' +
+       '<p>The Alexandria neighborhood of Del Ray proudly offers a slew of cute, independent businesses and a very attractive housing stock that has made its residents never want to leave.</p>';
+
+
+        var EisenhowerAvenue = '<div id="iw-container">' +
+       '<div class="iw-title">Eisenhower Avenue</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2011/09/eisenhower_160.jpg" alt="Eisenhower Avenue" height="115" width="83">' +
+       '<p>The Eisenhower Avenue area has the crisp and appealing atmosphere of a new neighborhood, but not many of the amenities that tend to come with it. However, a redevelopment effort could change that in the coming years</p>';
+
+
+
+        var Ballston = '<div id="iw-container">' +
+       '<div class="iw-title">Ballston</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2010/12/ballston_at_night_160.jpg" alt="Ballston" height="115" width="83">' +
+       '<p>The Arlington neighborhood of Ballston is one that has developed the reputation as an area known for its convenient location and chain restaurants. Area business owners are now hoping to at least change the second part of that reputation.</p>';
+
+
+        var OldTown = '<div id="iw-container">' +
+       '<div class="iw-title">Old Town</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2010/10/old_town_homes_160.jpg" alt="Old Town" height="115" width="83">' +
+       '<p>Despite its busy neighborhood center, Old Town, Alexandria still has a small town feel for many of its residents. And the price tag to enjoy this.</p>';
+
+        var Parkfairfax = '<div id="iw-container">' +
+        '<div class="iw-title">Parkfairfax</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2011/08/parkfairfax_climbing_160.jpg" alt="Parkfairfax" height="115" width="83">' +
+        '<p>Wandering around Parkfairfax in Alexandria, one might start thinking they\'re on a college campus -- or in a 1950s housing development. Sited on 132 green acres, the area is serene, leafy, and completely residential.</p>';
+
+
+
+        var FallsChurch = '<div id="iw-container">' +
+       '<div class="iw-title">Falls Church</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2011/11/falls_strip_shops_160.jpg" alt="Falls Church" height="115" width="83">' +
+       '<p>With its homey vibe and simple strip of low-key shops and restaurants, downtown Falls Church is a bit of an anomaly in a Northern Virginia that\'s busy reinventing itself.</p>';
+
+        var TysonsCorner = '<div id="iw-container">' +
+       '<div class="iw-title">Tysons Corner</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2011/05/tysons_160.jpg" alt="Tysons Corner" height="115" width="83">' +
+       '<p>Residents of a future Tysons Corner will find it hard to believe that their lively, walkable neighborhood was once the Washington region\'s poster child for poor planning. But that future will only happen if all the plans for the area actually come to fruition.</p>';
+
+        var ColumbiaPike = '<div id="iw-container">' +
+       '<div class="iw-title">Columbia Pike</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2011/04/arlington_drafthouse_160.jpg" alt="Columbia Pike" height="115" width="83">' +
+       '<p>Columbia Pike has its fans and its detractors. However, a county-led revitalization effort could change the face of an area known mainly for the four-lane highway that runs through it.</p>';
+
+
+        var Bethesda = '<div id="iw-container">' +
+       '<div class="iw-title">Bethesda</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2017/05/bethesda-row--160.jpg" alt="Bethesda" height="115" width="83">' +
+       '<p>There is excitement but also concern over the wave of development designed to transform the Maryland neighborhood.</p>';
+
+        var CabinJohn = '<div id="iw-container">' +
+        '<div class="iw-title">Cabin John</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2011/10/cabin_john_160.jpg" alt="Cabin John" height="115" width="83">' +
+        '<p>Nestled close to the Potomac River, Cabin John is an eclectic, leafy community with a long history, a range of funky houses, and just enough commercial and community amenities to provide a feeling of cohesion</p>';
+
+        var ChevyChase = '<div id="iw-container">' +
+        '<div class="iw-title">Chevy Chase</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2011/03/fairglen_for_sale_160.jpg" alt="Chevy Chase" height="115" width="83">' +
+        '<p>Chevy Chase is a Maryland suburb that most DC-area residents associate with serenity, high-priced homes and wealthy residents. All those associations are pretty accurate.</p>';
+
+        var DowntownSilverSpring = '<div id="iw-container">' +
+        '<div class="iw-title">Downtown Silver Spring</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2010/07/downtown_silver_facelessb_160.jpg" alt="Downtown Silver Spring" height="115" width="83">' +
+        '<p>The renaissance that started in downtown Silver Spring nearly a decade ago continues apace with a surge of new housing, restaurants, shops and...</p>';
+
+        var Potomac = '<div id="iw-container">' +
+        '<div class="iw-title">Potomac</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2010/11/nat_harbor_street_160.jpg" alt="Potomac" height="115" width="83">' +
+        '<p>Ten years ago, there wasn\'t much to see on the eastern bank of the Potomac River just south of the Woodrow Wilson Bridge. These days, however, the..</p>';
+
+
+
+        var RockvilleTownSquare = '<div id="iw-container">' +
+        '<div class="iw-title">Rockville Town Square</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2011/07/rockville_town_square_160.jpg" alt="Rockville Town Square" height="115" width="83">' +
+        '<p>Rockville Town Square is the kind of development that makes "new urbanism" fans smile with its mix of retail, restaurants, residences, and public space that focus on pedestrian traffic.</p>';
+
+
+
+        var TakomaPark = '<div id="iw-container">' +
+       '<div class="iw-title">Takoma Park</div>' +
+       '<div class="iw-content">' +
+       '<img src="https://assets.urbanturf.com/dc/images/blog/2015/05/home_on_holly_160.jpg" alt="Takoma Park" height="115" width="83">' +
+       '<p>Once the unquestionable hippie colony of the DC area, Takoma Park may be transitioning to an ever so slightly more mainstream profile..</p>';
+
+        var Wheaton = '<div id="iw-container">' +
+        '<div class="iw-title">Wheaton</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2012/03/signage160.jpg" alt="Wheaton" height="115" width="83">' +
+        '<p>The mixed-income area adjacent to Silver Spring has been quietly declining for decades, and though the ethnic restaurant scene is a draw, the vibe around town is one of neglect. But this is about to change.</p>';
+
+        var CapitolHeights = '<div id="iw-container">' +
+        '<div class="iw-title">Capitol Heights</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2011/08/capitol_hts_160.jpg" alt="Capitol Heights" height="115" width="83">' +
+        '<p>Despite being right next to DC, Capitol Heights, Md. feels lush and overgrown, almost like a rural community. However, underneath the peaceful appearance is the reality that a high crime rate still plagues the area.</p>';
+
+        var Hyattsville = '<div id="iw-container">' +
+        '<div class="iw-title">Hyattsville</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2011/01/hyattsville_bungalow_160.jpg" alt="Hyattsville" height="115" width="83">' +
+        '<p>One of the areas hit hardest by the foreclosure crisis in the region, Hyattsville is a Maryland town that is back on track after a few rough years.</p>';
+
+        var MountRainier = '<div id="iw-container">' +
+        '<div class="iw-title">Mount Rainier</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2010/09/mt_rainier_flaghouse_160.jpg" alt="Mount Rainier" height="115" width="83">' +
+        '<p>Mount Rainier is a tight-knit century-old community with an arts district, a food co-op, an active e-mail listserv and even a silo full of corn used..</p>';
+
+        var NationalHarbor = '<div id="iw-container">' +
+        '<div class="iw-title">National Harbor</div>' +
+        '<div class="iw-content">' +
+        '<img src="https://assets.urbanturf.com/dc/images/blog/2010/11/nat_harbor_street_160.jpg" alt="National Harbor" height="115" width="83">' +
+        '<p>Ten years ago, there wasn\'t much to see on the eastern bank of the Potomac River just south of the Woodrow Wilson Bridge. These days, however, the.</p>';
+
+        var locations = [
+       [
+       "Adams Morgan",
+       Adams,
+       "38.92139",
+       "-77.0425"
+       ],
+       [
+       "AU Park",
+      AU,
+       " 38.9455",
+       "-77.0881"
+       ],
+
+        [
+       "Cathedral Heights",
+       CathedralHeights,
+       "38.9335",
+       "-77.0798"
+        ],
+       [
+       "Burleith",
+        Burleith,
+       "38.9145",
+       "-77.0752"
+       ],
+       [
+       "Chevy Chase News",
+       ChevyChase,
+       "38.9693",
+       "-77.0789"
+       ],
+
+        [
+       "Cleveland Park",
+       ClevelandPark,
+       "38.9362221",
+       "-77.0655331"
+        ],
+       [
+        "Columbia Heights",
+        ColumbiaHeights,
+       "45.0482",
+       "-93.2474"
+       ],
+
+
+        [
+       "Dupont Circle",
+       DupontCircle,
+       "38.909645",
+       "-77.043465"
+        ],
+        [
+       "Foggy Bottom & West End",
+       FoggyBottom,
+       "38.9007",
+       "-77.0518"
+        ],
+
+
+        [
+       "Fort Totten",
+       FortTotten,
+       "47.9800",
+       "-98.9929"
+        ],
+        [
+       "Foxhall Village",
+       FoxhallVillage,
+       "38.9132484",
+       "-77.0866646"
+        ],
+
+        [
+       "Friendship Heights",
+       FriendshipHeights,
+       "38.957",
+       "-77.0837778"
+        ],
+        [
+       "Georgetown",
+       Georgetown,
+       "30.6333",
+       "-97.6780"
+        ],
+        [
+       "Kalorama",
+       Kalorama,
+       "-37.8180",
+       "145.3660"
+        ],
+
+
+        [
+       "Logan Circle",
+       LoganCircle,
+       "38.9096",
+       "-77.0296"
+        ],
+        [
+       "Glover Park",
+       GloverPark,
+       "38.920162986",
+       "-77.071499714"
+        ],
+
+
+        [
+       "Mount Vernon Triangle",
+       MountVernonTriangle,
+       "38.90249",
+       "-77.01896"
+        ],
+
+        [
+       "Petworth",
+       Petworth,
+       "50.9867",
+       "-0.6107"
+        ],
+        [
+       "Shaw",
+       Shaw,
+       "38.91095 ",
+       "-77.02046"
+        ],
+        [
+       "Shepherd Park",
+       ShepherdPark,
+       "38.9827",
+       "-77.0316"
+        ],
+
+        [
+       "Takoma",
+       Takoma,
+       "38.97255",
+       "-77.02046"
+        ],
+        [
+       "Tenleytown",
+       Tenleytown,
+       "38.9459817",
+       "-77.0809093"
+        ],
+        [
+       "U Street Corridor",
+       UStreetCorridor,
+       "38.917321",
+       "-77.030452"
+        ],
+        [
+       "Woodley Park",
+       WoodleyPark,
+       "38.92799",
+       "-77.05789"
+        ],
+        [
+       "Ballston",
+       Ballston,
+       "38.8858",
+       "-77.1054"
+        ],
+
+
+        [
+       "Crystal City",
+       CrystalCity,
+       "38.85542",
+       "-77.05213"
+        ],
+        [
+       "Lyon Village",
+       LyonVillage,
+       "38.89110",
+       "-77.09530"
+        ],
+        [
+       "Rosslyn",
+       Rosslyn,
+       "38.8967784",
+       "-77.0724776"
+        ],
+        [
+       "Shirlington",
+       Shirlington,
+       "38.83825",
+       "-77.09386"
+        ],
+        [
+       "Del Ray",
+       DelRay,
+       "38.82409",
+       "-77.05932"
+        ],
+        [
+       "Eisenhower Avenue",
+       EisenhowerAvenue,
+       "38.8020752",
+       "-77.0809093"
+        ],
+
+        [
+       "Old Town",
+       OldTown,
+       "38.80672",
+       "-77.04205"
+        ],
+        [
+       "Parkfairfax",
+       Parkfairfax,
+       "38.8371",
+       "-77.0794"
+        ],
+        [
+       "Downtown Falls Church",
+      FallsChurch,
+       "38.882334",
+       "-77.1710914"
+        ],
+        [
+         "Tysons Corner",
+         TysonsCorner,
+       "38.9187222",
+       "-77.2310925"
+        ],
+         [
+         "Columbia Pike",
+         ColumbiaPike,
+       "38.84257",
+       "-77.14555"
+         ],
+
+[
+"Bethesda",
+Bethesda,
+"38.98465",
+"-77.09471"
+],
+[
+"Cabin John",
+CabinJohn,
+"38.975388",
+"-77.1580349"
+],
+[
+"Chevy Chase",
+ChevyChase,
+"38.99492",
+"-77.07721"
+],
+[
+"Downtown Silver Spring",
+DowntownSilverSpring,
+"38.9906657",
+"-77.026088"
+],
+[
+"Potomac",
+Potomac,
+"39.0181651",
+"-77.2085914"
+],
+[
+"Rockville Town Square",
+RockvilleTownSquare,
+"39.0862764",
+"-77.1512049"
+],
+[
+"Takoma Park",
+TakomaPark,
+"38.9778882",
+"-77.0074765"
+],
+[
+"Wheaton",
+Wheaton,
+"39.0398314",
+"-77.0552555"
+],
+[
+"Capitol Heights",
+CapitolHeights,
+"38.8851122",
+"-76.9158068"
+],
+[
+"Hyattsville",
+Hyattsville,
+"38.9559442",
+"-76.9455301"
+],
+[
+"Mount Rainier",
+MountRainier,
+"38.9415",
+"-76.9649751"
+],
+[
+"National Harbor",
+NationalHarbor,
+"38.78975",
+"-77.01449"
+],
+
+        ];
+
+        gmarkers = [];
+
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: new google.maps.LatLng(38.909577, -77.044963),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: [
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#37b6bd"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+            ]
+        })
+
+        //var icon1 = "/img/black.png";
+        //var icon2 = "/img/red.png";
+        var infowindow = new google.maps.InfoWindow();
+        var icon1 = "/img/black.png"
+        var icon2 = "/img/red.png"
+
+        function createMarker(latlng, html) {
+            var marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                zIndex: Math.round(latlng.lat() * -100000) << 5,
+                icon: icon1
+
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.setContent(html);
+                infowindow.open(map, marker);
+                map.setZoom(15);
+                map.setCenter(this.getPosition());
+            });
+
+            google.maps.event.addListener(marker, 'mouseover', function () {
+                infowindow.setContent(html);
+                infowindow.open(map, marker);
+                this.setIcon(icon2);
+            });
+
+            google.maps.event.addListener(marker, 'mouseout', function () {
+                infowindow.close();
+                this.setIcon(icon1);
+            });
+
+            return marker;
+        }
+
+
+
+
+        for (var i = 0; i < locations.length; i++) {
+            gmarkers[locations[i][0]] =
+            createMarker(new google.maps.LatLng(locations[i][2], locations[i][3]), locations[i][1]);
+        }
+
+
+        google.maps.event.addListener(infowindow, 'domready', function () {
+
+            // Reference to the DIV that wraps the bottom of infowindow
+            var iwOuter = $('.gm-style-iw');
+
+            /* Since this div is in a position prior to .gm-div style-iw.
+             * We use jQuery and create a iwBackground variable,
+             * and took advantage of the existing reference .gm-style-iw for the previous div with .prev().
+            */
+            var iwBackground = iwOuter.prev();
+
+            // Removes background shadow DIV
+            iwBackground.children(':nth-child(2)').css({ 'display': 'none' });
+
+            // Removes white background DIV
+            iwBackground.children(':nth-child(4)').css({ 'display': 'none' });
+
+            // Moves the infowindow 115px to the right.
+            iwOuter.parent().parent().css({ left: '115px' });
+
+            // Moves the shadow of the arrow 76px to the left margin.
+            iwBackground.children(':nth-child(1)').attr('style', function (i, s) { return s + 'left: 76px !important;' });
+
+            // Moves the arrow 76px to the left margin.
+            iwBackground.children(':nth-child(3)').attr('style', function (i, s) { return s + 'left: 76px !important;' });
+
+            // Changes the desired tail shadow color.
+            iwBackground.children(':nth-child(3)').find('div').children().css({ 'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px 6px', 'z-index': '1' });
+
+            // Reference to the div that groups the close button elements.
+            var iwCloseBtn = iwOuter.next();
+
+            // Apply the desired effect to the close button
+            iwCloseBtn.css({ opacity: '1', right: '52px', top: '15px', 'border-radius': '0px', 'box-shadow': '0 0 5px #3990B9' });
+
+            // If the content of infowindow not exceed the set maximum height, then the gradient is removed.
+            if ($('.iw-content').height() < 140) {
+                $('.iw-bottom-gradient').css({ display: 'none' });
+            }
+
+            // The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
+            iwCloseBtn.mouseout(function () {
+                $(this).css({ opacity: '1' });
+            });
+        });
+
+        //google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".gm-style-iw").parents('div').css('color', 'red');
+
+        });
+    </script>
+}
+
+
+<style>
+    html {
+        height: 100%;
+    }
+
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #map-canvas {
+        margin: 0;
+        padding: 0;
+        height: 400px;
+        max-width: none;
+    }
+
+        #map-canvas img {
+            max-width: none !important;
+        }
+
+    .gm-style-iw {
+        width: 350px !important;
+        top: 15px !important;
+        left: 0px !important;
+        background-color: #fff;
+        box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+        border: 1px solid rgba(245, 9, 9, 0.60);
+        border-radius: 2px 2px 10px 10px;
+    }
+
+    #iw-container {
+        margin-bottom: 10px;
+    }
+
+        #iw-container .iw-title {
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+            padding: 10px;
+            background-color: #37b6bd;
+            color: white;
+            margin: 0;
+            border-radius: 2px 2px 0 0;
+        }
+
+        #iw-container .iw-content {
+            font-size: 13px;
+            line-height: 18px;
+            font-weight: 400;
+            margin-right: 1px;
+            padding: 15px 5px 20px 15px;
+            max-height: 140px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+    .iw-content img {
+        float: right;
+        margin: 0 5px 5px 10px;
+    }
+
+    .iw-subTitle {
+        font-size: 16px;
+        font-weight: 700;
+        padding: 5px 0;
+        color: #333;
+    }
+
+    .iw-bottom-gradient {
+        position: absolute;
+        width: 326px;
+        height: 25px;
+        bottom: 10px;
+        right: 18px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+        background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+        background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+        background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    }
+</style>
+
+<style type="text/css">
+    table.basic-table tr:nth-child(odd) {
+        background-color: none;
+    }
+
+    #map {
+        position: absolute;
+    }
+
+    #map-container {
+        box-shadow: 0px 0px 30px 0px rgb(0, 0, 0);
+        /*box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);*/
+        /*background-color: #37b6bd;*/
+        height: 498px;
+    }
+
+    section.search {
+        background-color: transparent;
+    }
+
+    #titlebar {
+        margin-bottom: 0px;
+    }
+</style>
+<style>
+    body {
+        color: #707070;
+    }
+</style>

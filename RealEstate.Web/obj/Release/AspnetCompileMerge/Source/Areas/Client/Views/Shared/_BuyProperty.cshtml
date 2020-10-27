@@ -1,0 +1,222 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/common")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            @*<a href="~/Dashboard/Index" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>C</b>P</span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg" style="margin-left:-18px;margin-right:-18px;"><img src="~/Content/img/Jay Bauer Group.png" alt="Control Panel" style="height:50px;width:100%;" /></span>
+                </a>*@
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    @*<span class="sr-only">Toggle navigation</span>*@
+                    <i class="fa fa-menu-hamburger toggle-icon"></i>
+                </a>
+                <div class="navbar-custom-menu">
+
+                    <ul class="nav navbar-nav">
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img class="user-image img-user" alt="User Image">
+                                <span class="hidden-xs">@User.Identity.Name</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img class="img-circle img-user" alt="User Image">
+                                    <p>
+                                        Logged In!
+                                        <small>
+                                            Date:@System.DateTime.Now.Date.ToShortDateString() ||
+                                            Time:@System.DateTime.Now.ToShortTimeString()
+                                        </small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-default">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                @{Html.RenderAction("UserDetails", "JayBauerGroup", new { area = "Client" });}
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="treeview" id="sidebar">
+                        <a href="@Url.Action("Dashboard", "JayBauerGroup", new { area = "Client" })">
+                            <i class="fa fa-home"></i> <span>Dashboard</span>
+                        </a>
+                       
+                    </li>
+                    @{Html.RenderAction("LoggedInUser", "JayBauerGroup", new { area = "Client" });}
+
+                   
+                    
+                    @*<li class="treeview" id="sidebar">
+                        <a  href="@Url.Action("ScheduleMeeting", "JayBauerGroup", new { area = "Client" })">
+                            <i class="fa fa-briefcase"></i>
+                            <span>Schedule Meeting</span>
+                        </a>
+
+                    </li>*@
+                    <li class="treeview" id="sidebar">
+                        <a href="#">
+                            <i class="fa fa-user"></i>
+                            <span>Manage Profile</span>
+
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="~/Account/EditProfile"><i class="fa fa-edit"></i> Edit Profile</a></li>
+                            <li><a href="~/Account/ChangePassword"><i class="fa fa-unlock"></i>Change Password </a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="min-height: 976px;">
+            <!-- Content Header (Page header) -->
+            @*<section class="content-header">
+                <h1 class="text-center">
+                    @ViewBag.ViewHeader
+                </h1>
+
+            </section>*@
+            <!-- Main content -->
+            <section class="content" >
+                <div class="row">
+                    @RenderBody()
+                </div><!-- /.row -->
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
+        <div class="control-sidebar-bg"></div>
+
+    </div>
+    <footer class="main-footer pl">
+
+        <strong>Copyright &copy;2017 <a href="#">Jay Bauer Group</a>.</strong> All rights
+        reserved.
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.img-user').attr('src', $('#user-img').attr('src'));
+        })
+    </script>
+
+</body>
+</html>
+<input type="hidden" id="ActiveURL" data-value="@ViewBag.ActiveURL" />
+
+
+
+
+
+<div class="panel panel-primary text-center" id="ajaxLoading" style="display: none; box-shadow: 10px 10px 5px #888888; z-index: 99999">
+    <div class="panel-heading">Loading data</div>
+    <div class="panel-body" style="padding-left: 30px; padding-right: 30px;">
+        <img src="~/img/loading.gif" alt="Loading" style="margin-bottom: 10px" /><br />
+        Please wait...
+    </div>
+</div>
+<div id="ajax-backdrop" class="fade in" style="background-color: rgb(0, 0, 0); bottom: 0px; left: 0px; position: fixed; right: 0px; top: 0px; z-index: 10000; opacity: 0.4; display: none;"></div>
+<div class="modal modal-styled" id="myErroMsgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModal()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myErroModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <h4 id="Msg"></h4>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10 text-right" style="padding-right: 0;">
+                    <input type="button" id="myErroMsgModalNoButton" class="btn btn-default btn-sm" data-dismiss="modal" onclick="CloseMyModal()" value="Cancel" />
+                    <input type="button" id="myErroMsgModalYesButton" value="Yes" class="btn btn-info btn-sm hidden" onclick="OkMyModal()" />
+                </div>
+            </div>
+            <input type="hidden" id="eventSender" name="name" value=" " />
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .content {
+        min-height: 600px;
+       
+    }
+
+    .pl {
+        padding-left: 350px;
+    }
+</style>
+
+<!-- Calendly badge widget begin -->
+@*<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<script type="text/javascript">Calendly.initBadgeWidget({ url: 'https://calendly.com/ms86100', text: 'Schedule Meeting', color: '#3c8dbc', branding: false });</script>*@
+<!-- Calendly badge widget end -->
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Calendy").on("click", function (event) {
+           
+            setTimeout(
+                function () {
+                    $("#ajaxLoading").css("display", "block");
+                    $("#ajaxLoading").css("top", $(window).height() / 2);
+                    $("#ajaxLoading").css("left", $(window).width() / 2);
+                    $("#ajaxLoading").css("position", "fixed");
+                    window.location.href = "http://Google.com"
+                 
+                  
+                },
+                5000
+            );
+        });
+    });
+</script>*@

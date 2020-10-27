@@ -1,0 +1,1088 @@
+﻿@model RealEstate.Entities.ViewModels.MstCalenderManageModel
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstateNew.cshtml";
+}
+
+
+
+<style>
+    .canvasjs-chart-credit {
+        display: none;
+    }
+</style>
+
+<section class="wrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>Dashboard</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello, @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new" /></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 dashboardContent adminDashboardContent">
+                    <div class="dashboardContent">
+                        <div class="dashboardAgentContent">
+                            <div class="row">
+                                <div class="col-xl-4 col-md-6 col-12 performance-summary">
+
+                                    <div class="whiteBgBorderBox numberOfDeals">
+                                        <div class="title">
+                                            <h4>Performance Summary</h4>
+                                        </div>
+                                        <h5># of Deals</h5>
+                                        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                                        <h5 style="text-align:center;color:#000000">Total # of Deals: @ViewBag.TotalDeals</h5>
+                                    </div>
+
+                                    <div class="whiteBgBorderBox numberOfNewClients">
+                                        <h5># of New Clients</h5>
+                                        <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+                                        <h5 style="text-align:center;color:#000000">Total # of Clients: @ViewBag.TotalClients</h5>
+                                    </div>
+                                    <div class="totalClientsAgents">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="whiteBgBorderBox totalClientsAgentsInner">
+                                                    <h3>@ViewBag.TotalClients</h3>
+                                                    <p>Total Clients</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="whiteBgBorderBox totalClientsAgentsInner">
+                                                    <h3>@ViewBag.TotalAgents</h3>
+                                                    <p>Total Agents</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-md-6 col-12 myCalendar">
+                                    <div class="whiteBgBorderBox numberOfDeals">
+                                        <div class="title">
+                                            <h4>Calendar</h4>
+                                        </div>
+                                        <div class="myCalendarSearch">
+                                            <input type="text" id="txtAgenttext" class="form-control" placeholder="Search by Agent" />
+                                            <button class="btn tealButton" id="btnSearchbyAgent">Go</button>
+                                            <input type="hidden" id="hdnAgentId" />
+                                        </div>
+                                        <div class="calendarWrap">
+                                            <div class="datepickertest"></div>
+                                        </div>
+                                        <div class="backLink" style="display:none">
+                                            <a href="#!" id="backLink">Back</a>
+                                        </div>
+                                        <div class="eventsWrap tEventsbody">
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-md-6 col-12 client-activity-wrap">
+                                    <div class="whiteBgBorderBox">
+                                        <div class="title">
+                                            <h4>Agent Resources</h4>
+                                        </div>
+
+                                        <div class="clientActivityContent resourceBodynw" style="padding: 10px;">
+                                            <button type="button" id="btnAddR" class="btn tealButton resourcebtn" data-toggle="modal" data-target="#staticBackdrop">Add Resource</button>
+
+                                            <div class="clientActivityInner Rbody">
+                                            </div>
+                                        </div>
+
+
+                                        @*<div class="resourceBody">
+                                <button type="button" class="btn tealButton resourcebtn" data-toggle="modal" data-target="#staticBackdrop">Add Resource</button>
+                                <ul class="list-group">
+                                <li class="list-group-item">
+                                   <div class="ar_list_left">
+                                       <a href="#">Title</a>
+                                       <p>February 09 2019 08:41 AM</p>
+                                   </div>
+                                   <div class="ar_list_right">
+                                       <a href="#" class="actionDelete"><i class="material-icons">delete</i></a>
+                                   </div>
+                                </li>
+
+                                <li class="list-group-item">
+                                   <div class="ar_list_left">
+                                       <a href="#">Title</a>
+                                       <p>February 09 2019 08:41 AM</p>
+                                   </div>
+                                   <div class="ar_list_right">
+                                       <a href="#" class="actionDelete"><i class="material-icons">delete</i></a>
+                                   </div>
+                                </li>
+
+                                <li class="list-group-item">
+                                   <div class="ar_list_left">
+                                       <a href="#">Title</a>
+                                       <p>February 09 2019 08:41 AM</p>
+                                   </div>
+                                   <div class="ar_list_right">
+                                       <a href="#" class="actionDelete"><i class="material-icons">delete</i></a>
+                                   </div>
+                                </li>
+
+                                <li class="list-group-item">
+                                   <div class="ar_list_left">
+                                       <a href="#">Title</a>
+                                       <p>February 09 2019 08:41 AM</p>
+                                   </div>
+                                   <div class="ar_list_right">
+                                       <a href="#" class="actionDelete"><i class="material-icons">delete</i></a>
+                                   </div>
+                                </li>
+
+                                <li class="list-group-item">
+                                   <div class="ar_list_left">
+                                       <a href="#">Title</a>
+                                       <p>February 09 2019 08:41 AM</p>
+                                   </div>
+                                   <div class="ar_list_right">
+                                       <a href="#" class="actionDelete"><i class="material-icons">delete</i></a>
+                                   </div>
+                                </li>
+
+
+
+                                </ul>
+                            </div>*@
+                                    </div>
+                                    <div class="whiteBgBorderBox">
+                                        <div class="title">
+                                            <h4>Client Activity</h4>
+                                        </div>
+                                        <div class="clientActivityContent">
+                                            <div class="clientActivityInner">
+                                                @if (ViewBag.ClientActivity != null)
+                                                {
+                                                    foreach (var item in ViewBag.ClientActivity)
+                                                    {
+                                                        <div class="clientActivityBlock">
+                                                            <h5>@item.TrackingSource @item.Remarks </h5>
+                                                           
+                                                            @{
+                                                                string[] values = item.ActivityTitle.Split(',');
+                                                                for (int i = 0; i < values.Length; i++)
+                                                                {
+                                                                    <p>@values[i].Trim()</p>
+                                                                }
+                                                            }
+                                                            <p>@item.TrackingDate.ToString("MMMM dd yyyy hh:mm tt")</p>
+                                                            <p class="sty-client-email">@item.Name (@item.Email)</p>
+                                                        </div>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    <div class="clientActivityBlock">
+                                                                        <p style="font-size:14px">No record found.</p>
+
+                                                                    </div>
+                                                                }
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add/Edit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="FormUpload" method="post">
+                    <input type="hidden" id="txtId" name="Id" />
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label class="text-danger" id="lblError" style="display:none"></label>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Title</label>
+                            <input type="text" class="form-control" name="Title" id="txtTitle">
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label>Description</label>
+                            <textarea class="form-control" id="txtDescription" rows="3"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn tealButton resourcebtnSave" id="btnAddResource" onclick="return AddResource();" value="Save" />
+                <input type="button" class="btn btn-secondary" style="display:none;" id="btnUpdateResource" onclick="return UpdateResource();" value="Save">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="staticBackdrop1" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="min-height: 0; padding: 7px 20px;">
+                <h5 class="modal-title lblTitle" id="staticBackdropLabel1"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="FormUpload" method="post">
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            @*<label class="text-danger" id="lblError" style="display:none"></label>*@
+                        </div>
+
+
+                        <div class="form-group col-sm-12">
+                            <div id="divDescription"></div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+<script src="~/Content/NewVersion/Admin/js/moment.js"></script>
+<script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ckeditor/ckeditor.js"></script>
+<script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ckeditor/adapters/jquery.js" async></script>
+<script>
+           $(document).ready(function () {
+               CKEDITOR.config.toolbar = 'Basic';
+               CKEDITOR.config.toolbar_Basic =
+    [
+        ['Bold', 'Italic', 'Underline', 'Link', 'Unlink', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat', 'BulletedList', 'NumberedList', 'Blockquote', 'Table', 'Image', 'Flash']
+    ];
+               //CKEDITOR.config.extraPlugins = [
+               //    ['html5video','widget','widgetselection','clipboard','lineutils']
+               //];
+               CKEDITOR.replace("txtDescription");
+               //CKEDITOR.replace("txtDescription1");
+               //, { htmlEncodeOutput: true }
+            //   CKEDITOR.config.removePlugins = 'save';
+
+
+           });
+    window.onload = function () {
+        var result = @Html.Raw(ViewBag.DataPoints);
+        var dataPoints =[];
+        for(var i = 0; i < result.length; i++){
+            dataPoints.push({
+                x:new Date(result[i].x),
+                y:result[i].y
+            });
+        }
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title: {
+                text: ""
+            },
+            axisX:{
+                interval: 12,
+                intervalType: "month",
+            },
+            axisY:{
+                interval: 1,
+                includeZero: true,
+            },
+            data: [
+            {
+                xValueFormatString: "MMM YYYY",
+                type: "line",
+                indexLabelOrientation: "horizontal",
+                //toolTip:{
+                //    content:"x: {x}, y: {y}" ,
+                //},
+
+                toolTip:{
+                    contentFormatter: function ( e ) {
+                        alert(e.entries[0].dataPoint.x)
+                        return  e.entries[0].dataPoint.x; +  e.entries[0].dataPoint.y;
+                    }
+                },
+                dataPoints: dataPoints,
+            }
+            ]
+        });
+
+
+
+        var resultClients = @Html.Raw(ViewBag.ClientDataPoints);
+        var ClientdataPoints =[];
+        for(var i = 0; i < resultClients.length; i++){
+            ClientdataPoints.push({
+                x:new Date(resultClients[i].x),
+                y:resultClients[i].y
+            });
+        }
+
+        var chartclient = new CanvasJS.Chart("chartContainer1", {
+            animationEnabled: true,
+            title: {
+                text: ""
+            },
+            axisX:{
+                interval: 1,
+                intervalType: "month",
+            },
+            axisY:{
+                interval: 1
+            },
+            data: [
+            {
+                xValueFormatString: "MMM YYYY",
+                type: "line",
+                indexLabelOrientation: "horizontal",
+                //toolTip:{
+                //    content:"x: {x}, y: {y}" ,
+                //},
+
+                toolTip:{
+                    contentFormatter: function ( e ) {
+                        alert(e.entries[0].ClientdataPoints.x)
+                        return  e.entries[0].ClientdataPoints.x; +  e.entries[0].ClientdataPoints.y;
+                    }
+                },
+                dataPoints: ClientdataPoints,
+            }
+            ]
+        });
+        chart.render();
+        chartclient.render();
+
+    }
+    $(function () {
+  
+
+
+      //  var calendarDate = $("#datepicker").datepicker("getDate");
+       // var disabledDays = {};
+        var disabledDays = [];
+
+        getEvents();
+        getUpcomingEvents();
+        $("#backLink").click(function(){
+            if($("#txtAgenttext").val()==""||$("#txtAgenttext").val()==null){
+                getUpcomingEvents();
+            }
+            else{
+                GetUpcomingCalendarInfoByAgent();
+            }
+        })
+        // getChart();
+        $("#btnSearchbyAgent").click(function(){
+            disabledDays = [];
+            if($("#txtAgenttext").val()==""||$("#txtAgenttext").val()==null){
+                $("#hdnAgentId").val("");
+                getEvents();
+                getUpcomingEvents();
+           
+            }
+            else{
+                
+                GetEventsByAgent();
+                GetUpcomingCalendarInfoByAgent();
+            }
+        });
+        function getEvents() {
+            $.ajax({
+                url: '/Admin/Dashboard/GetCalendarInfo',
+                type: 'GET',
+
+                dataType: 'json',
+                processdata: false,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                   // disabledDays = data;
+                    $.each(data, function (i, v) {
+                        var ret = v.EndDate.split(" ");
+                        var str1 = ret[0];
+                        var str2 = ret[1];
+                        var temp = str1.split('/');
+                        var newDateTimeFormat = temp[0] + "-" + temp[1] + "-" + temp[2];
+                        disabledDays.push(newDateTimeFormat);
+                    });
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                },
+                complete: function (x, y) {
+                    InitializeDate();
+                }
+            });
+        }
+
+        function GetEventsByAgent() {
+            var AgentId=$("#hdnAgentId").val();
+            $.ajax({
+                url: '/Admin/Dashboard/GetCalendarInfoByAgent',
+                type: 'GET',
+                data: { Id: AgentId},
+                dataType: 'json',
+                processdata: false,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    // disabledDays = data;
+                    $.each(data, function (i, v) {
+                        var ret = v.EndDate.split(" ");
+                        var str1 = ret[0];
+                        var str2 = ret[1];
+                        var temp = str1.split('/');
+                        var newDateTimeFormat = temp[0] + "-" + temp[1] + "-" + temp[2];
+                        disabledDays.push(newDateTimeFormat);
+                    });
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                },
+                complete: function (x, y) {
+                    InitializeDate();
+                }
+            });
+        }
+
+
+        function getUpcomingEvents() {
+            $.ajax({
+                url: '/Admin/Dashboard/GetUpcomingCalendarInfo',
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $('.backLink').css('display','none')
+                    SetHtml(result);
+
+
+                },
+                error: function (errormessage) {
+                    alert('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+
+        function GetUpcomingCalendarInfoByAgent() {
+            var AgentId=$("#hdnAgentId").val();
+            $.ajax({
+                url: '/Admin/Dashboard/GetUpcomingCalendarInfoByAgent',
+                type: "GET",
+                data: { Id: AgentId},
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $('.backLink').css('display','none')
+                    SetHtml(result);
+
+
+                },
+                error: function (errormessage) {
+                    alert('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+
+
+        function getEventsByDate(date) {
+            $.ajax({
+                url: '/Admin/Dashboard/GetCalendarInfoByDate',
+                type: "GET",
+                data: { date: date},
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $('.backLink').css('display','block')
+                    SetHtml(result);
+
+                },
+                error: function (errormessage) {
+                    alert('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+
+        function getEventsByDateAndAgent(date) {
+            var AgentId=$("#hdnAgentId").val();
+            $.ajax({
+                url: '/Admin/Dashboard/GetCalendarInfoByDateAndAgent',
+                type: "GET",
+                data: { date: date,Id:AgentId},
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $('.backLink').css('display','block')
+                    SetHtml(result);
+
+                },
+                error: function (errormessage) {
+                    alert('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+
+        function SetHtml(result) {
+            if(result.length>0){
+            var html = '';
+            $.each(result, function (key, v) {
+                var StartDate = v.EventStartDate.split(" ");
+                var SDatePart = StartDate[0]; //Date
+                var STimePart = StartDate[1];//Time
+                var SplitDatePart = SDatePart.split('/');
+
+                var EndDate = v.EndDate.split(" ");
+                var EDatePart = EndDate[0]; //Date
+                var ETimePart = EndDate[1];//Time
+                var SplitEDatePart = EDatePart.split('/');
+
+
+
+                if (SDatePart == EDatePart) {
+                    html += '<div class="singleEventWrap">';
+                    html += '<div class="eventDate">'
+                    html += '<h2>' + SplitEDatePart[2] + ' <span>' + SplitEDatePart[1] + '</span></h2>';
+                    html += '</div>';
+                    html += '<div class="eventContent">';
+                    html += '<p >' + v.Description + '</p>';
+                    html += '<p style="word-break: break-all;">' + v.Agent + '</p>';
+                    html += '<div class="eventTime"><i class="material-icons">alarm</i>' + STimePart + ' - ' + ETimePart + '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                }
+                else {
+                    var SDate = SplitDatePart[2] + ' ' + SplitDatePart[1] + ' ' + SplitDatePart[0] + ' ' + StartDate[1];
+                    var EDate = SplitEDatePart[2] + ' ' + SplitEDatePart[1] + ' ' + SplitEDatePart[0] + ' ' + EndDate[1];
+                    html += '<div class="singleEventWrap">';
+                    html += '<div class="eventDate">'
+                    html += '<h2>' + SplitEDatePart[2] + ' <span>' + SplitEDatePart[1] + '</span></h2>';
+                    html += '</div>';
+                    html += '<div class="eventContent">';
+                    html += '<p >' + v.Description + '</p>';
+                    html += '<p style="word-break: break-all;">' + v.Agent + '</p>';
+                    html += '<div class="eventTime"><i class="material-icons">alarm</i>' + SDate + '</br>' + EDate + '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                }
+
+            });
+            $('.tEventsbody').html("");
+            $('.tEventsbody').html(html);
+            }
+            else {
+                html = '<div class="singleEventWrap"><div class="eventContent" style="align-items:center"><p style="font-size:14px">No record found.</p></div></div>'
+                $('.tEventsbody').html("");
+                $('.tEventsbody').html(html);
+            }
+        }
+
+
+        function getChart() {
+            $.ajax({
+                url: '/Admin/Dashboard/GetChartData',
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+
+
+                    var dataPoints =[];
+                   for (var i = 0; i < result.length; i++) {
+                        dataPoints.push({
+                            x: result[i].x,
+                            y: result[i].y
+                        });
+                    };
+
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                        animationEnabled: true,
+                        title: {
+                            text: ""
+                        },
+
+                        data: [
+                        {
+                            type: "line",
+                            name: "Desktops",
+                            showInLegend: true,
+                            dataPoints: dataPoints,
+                        }
+                        ]
+                    });
+                    chart.render();
+
+                },
+                error: function (errormessage) {
+                    alert('Sorry, Something went wrong. Please try again.');
+                }
+            });
+
+
+        }
+
+        function InitializeDate() {
+            $(".datepickertest").datepicker("destroy");
+            $(".datepickertest").datepicker({
+                dateFormat: 'yy-mm-dd',
+                beforeShowDay: function (date) {
+                    var month = date.getMonth() + 1;
+                    var year = date.getFullYear();
+                    var day = date.getDate();
+                    if (day < 10) {
+                        day = "0" + day;
+                    }
+                    if (month < 10) {
+                        month = "0" + month;
+                    }
+                    // Change format of date
+                    var newdate = year + "-" + month + '-' + day;
+
+                    for (i = 0; i < disabledDays.length; i++) {
+                        if ($.inArray(newdate, disabledDays) != -1) {
+
+                            return [true, "highlight"];
+                        }
+                        return [true, '', ''];
+                    }
+
+                    //var day = date.getDate();
+                    //if (day in disabledDays) {
+                    //    if (disabledDays[day] == undefined) {
+
+                    //        return [true, 'isActive'];
+                    //    }
+                    //    return [true, 'isActive', disabledDays[day]];
+                    //}
+                    return [false, ''];
+
+                },
+                onSelect: function (date) {
+                    if($("#txtAgenttext").val()==""||$("#txtAgenttext").val()==null){
+                        getEventsByDate(date)
+                    }
+                    else{
+                        getEventsByDateAndAgent(date);
+                    }
+                }
+                //,
+                //onChangeMonthYear: function (year, month, inst) {
+                //    calendarEvents = {};
+                //    getEvents();
+                //}
+                //dateFormat: "dd-M-yy",
+
+             });
+
+    }
+
+
+
+
+        @*var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title: {
+                text: ""
+            },
+            axisY: {
+                includeZero: false
+            },
+            toolTip: {
+                shared: true
+            },
+            data: [{
+		type: "line",
+		name: "Desktops",
+		showInLegend: true,
+		dataPoints: @Html.Raw(ViewBag.DataPoints1)}, {
+		type: "line",
+		name: "Laptops",
+		showInLegend: true,
+		}]
+        });
+        chart.render();*@
+
+    });
+
+     @*----------------------------------- Add Document Script---------------------------------*@
+
+
+
+
+
+            $(document).ready(function () {
+
+                loadResource();
+            });
+
+    //Load Data function    Recent change replace loaddata()
+    function loadResource() {
+        $.ajax({
+            url: "@Url.Action("AgentResourceList", "Dashboard",new {area="Admin" })",
+            type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+
+            var html = '';
+            if(Object.keys(result).length>0){
+                $.each(result, function (key, item) {
+                    html += '<div class="clientActivityBlock">'
+                    html += '<div class="ar_list_left">';
+                    html += '<a href="#!" id="aGetData" data-Id="'+item.Id+'"  onclick="return getData('+ item.Id +')" >'+item.Title+'</a>'
+                    html += '<p>'+item.Date+'</p>'
+                    html += '</div>'
+                    html += '<div class="ar_list_right">'
+                    html += '<a href="#!" id="aEdit" data-Id="'+item.Id+'"    onclick="return getResourceByID('+ item.Id +')" ><i class="material-icons">edit</i></a>'
+                    html += '<a href="#!" id="aDelete" data-Id="'+item.Id+'"   onclick="DeleteResource(this)" class="actionDelete"><i class="material-icons">delete</i></a>'
+                    html += ' </div></div>'
+                    html += '</div>'
+                });
+
+            }
+            else{
+
+                html += '<div class="clientActivityBlock">'
+                html += '<p style="font-size:14px">No record found.</p>'
+                html += '</div>'
+            }
+            $('.Rbody').html("");
+            $('.Rbody').html(html);
+            //$('.modal-backdrop').remove();
+        },
+        error: function (errormessage) {
+            alert('Sorry, Something went wrong. Please try again.');
+        }
+    });
+    }
+
+
+
+    $('#btnAddR').click(function(){
+        $('#txtId').val("");
+        $('#txtTitle').val("");
+        $('#btnUpdateResource').hide();
+        $('#btnAddResource').show();
+        CKEDITOR.instances.txtDescription.setData("")
+    });
+
+
+    //Add Data Function
+    function AddResource() {
+        var res = validate();
+        if (res == false) {
+            return false;
+        }
+        var text= CKEDITOR.instances.txtDescription.getData();
+
+        var form = $('#FormUpload')[0];
+        var dataString = new FormData(form);
+
+        dataString.append('Description', text);
+        $.ajax({
+            url: "/Admin/Dashboard/AddAgentResource",
+            data:dataString,
+            type: "POST",
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+        success: function (result) {
+            //    alert(result) remove alert
+            if(result=="0"){
+                loadResource();
+                $('#txtId').val("");
+                $('#txtTitle').val("");
+                $('#btnUpdateResource').hide();
+                $('#btnAddResource').show();
+                CKEDITOR.instances.txtDescription.setData("")
+                $('#staticBackdrop').modal('hide');
+                $('#lblError').css('display','none')
+            }
+            else{
+
+                $('#lblError').css('display','block')
+                $('#lblError').text(result)
+            }
+
+
+        },
+        error: function (errormessage) {
+            $('#lblError').css('display','block');
+            $('#lblError').text('Sorry, Something went wrong. Please try again.');
+            //alert(errormessage.responseText);
+        }
+    });
+    }
+
+    //Function for getting the Data Based upon Document ID
+    function getResourceByID(Id) {
+        $('#txtId').val("");
+        $('#txtTitle').val("");
+        //$('#txtDescription').val("");
+        CKEDITOR.instances.txtDescription.setData("")
+        $('#lblError').css('display','none')
+
+        var ClientDocId= $("#aEdit").attr("data-Id")
+        $.ajax({
+            url: "@Url.Action("GetAgentResourceByID", "Dashboard",new {area="Admin" })",
+            data: {
+            Id: Id,
+            },
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            $('#txtId').val(result.Id);
+            $('#txtTitle').val(result.Title);
+          //  $('#txtDescription').val(result.Description);
+            CKEDITOR.instances.txtDescription.setData(result.Description);
+
+            $('#staticBackdrop').modal('show');
+            $('#btnUpdateResource').show();
+            $('#btnAddResource').hide();
+        },
+        error: function (errormessage) {
+            $('#lblError').css('display','block');
+            $('#lblError').text('Sorry, Something went wrong. Please try again.');
+        }
+    });
+    return false;
+    }
+
+    //function for updating document
+    function UpdateResource() {
+        var res = validate();
+        if (res == false) {
+            return false;
+        }
+        var text= CKEDITOR.instances.txtDescription.getData();
+        var form = $('#FormUpload')[0];
+        var dataString = new FormData(form);
+        dataString.append('Description', text);
+        $.ajax({
+            url: "@Url.Action("UpdateAgentResource", "Dashboard", new { area = "Admin" })",
+            data:dataString,
+        type: "POST",
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: "json",
+        success: function (result) {
+            if(result=="0"){
+                loadResource();
+                $('#staticBackdrop').modal('hide');
+                $('#txtId').val("");
+                $('#txtTitle').val("");
+                $('#btnUpdateResource').hide();
+                $('#btnAddResource').show();
+                //$('#txtDescription').val("");
+                CKEDITOR.instances.txtDescription.setData("")
+                $('#lblError').css('display','none')
+            }
+            else{
+
+                $('#lblError').css('display','block')
+                $('#lblError').text(result)
+            }
+        },
+        error: function (errormessage) {
+            $('#lblError').css('display','block');
+            $('#lblError').text('Sorry, Something went wrong. Please try again.');
+        }
+    });
+    }
+
+    //function for deleting employee's record
+    function DeleteResource(obj) {
+        var ans = confirm("Are you sure you want to delete this Record?");
+        if (ans) {
+            var ID= $(obj).attr("data-Id")
+            $.ajax({
+
+                url: "/Admin/Dashboard/DeleteResource/" + ID,
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+
+                    loadResource();
+                },
+                error: function (errormessage) {
+                    alert('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+    }
+
+
+
+    //Function for getting the Data Based upon Document ID
+    function getData(Id) {
+        $.ajax({
+            url: "@Url.Action("GetAgentResourceByID", "Dashboard",new {area="Admin" })",
+            data: {
+            Id: Id,
+            },
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            $('.lblTitle').text(result.Title);
+            $('#divDescription').html(result.Description);
+
+            $('#staticBackdrop1').modal('show');
+        },
+        error: function (errormessage) {
+        //    $('#lblError').css('display','block');
+        //    $('#lblError').text('Sorry, Something went wrong. Please try again.');
+        }
+    });
+    return false;
+    }
+
+
+    //Function for clearing the textboxes
+    //function clearTextBox() {
+    //    $('#txtId').val("");
+    //    $('#txtTitle').val("");
+    //    //$('#txtDescription').val("");
+    //    CKEDITOR.instances.txtDescription.setData("")
+    //    $('#btnUpdateResource').hide();
+    //    $('#btnAddResource').show();
+    //    $('#lblError').css('display','none')
+    //}
+    //Valdidation using jquery
+    function validate() {
+        var isValid = true;
+        if ($('#txtTitle').val().trim() == "") {
+            $('#txtTitle').css('border', '1px solid #EB5757')
+            isValid = false;
+        }
+        else {
+            $('#txtTitle').css('border', '1px solid #ced4da')
+        }
+
+        return isValid;
+    }
+
+
+@*----------------------------------- Add Document Script---------------------------------*@
+        $(".datepickertest").datepicker();
+
+</script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    //Added by sonika
+    $(document).ready(function () {
+        $(document).ajaxStart(function () {
+            $("#ajaxLoading").css("display", "none");
+            $("#ajax-backdrop").css("display", "none");
+        });
+        $('#txtAgenttext').autocomplete({
+            source: function (request, response) {
+                var itemnamecodes = new Array();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Autocomplete", "Dashboard",new { area = "Admin" })',
+                    dataType: 'json',
+                    data: { term: request.term },
+                    success: function (data) {
+
+                            response($.map(data, function (item) {
+                                return { label: item.Key, Id: item.Value };
+                            }))
+                    }
+                    })
+            },
+            select: function (e, i) {
+                $("#hdnAgentId").val(i.item.Id);
+
+            }
+        })
+    })
+</script>
+
+<style type="text/css">
+    .highlight a {
+        background: #0BB7A5 !important;
+        color: #fff !important;
+        border-radius: 100px !important;
+        height: 30px !important;
+        width: 30px !important;
+        vertical-align: middle !important;
+        text-align: center !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+    }
+</style>
+
+
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+

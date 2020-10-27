@@ -1,0 +1,482 @@
+﻿@model RealEstate.Entities.ViewModels.MultipleDealClientManageModel
+@{
+    ViewBag.Title = "Just BE | Shared List";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+
+
+
+
+
+<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+
+            <div class="content-title">
+                <div class="content-title-inner">
+                    <div class="container">
+                        <h1>My Transactions</h1>
+
+                    </div><!-- /.container -->
+                </div><!-- /.content-title-inner -->
+            </div><!-- /.content-title -->
+
+
+
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-lg-12">
+                            <div class="row">
+
+
+
+                                @if (Model.SharedDealList.Count() > 0)
+                                {
+
+                                    foreach (var item in Model.SharedDealList)
+                                    {
+                                        if (item.Image != "N/A")
+                                        {
+
+                                            <div class="col-md-6  col-xs-12">
+                                                <div class="listing-box">
+                                                    <a href="@Url.Action("SharedHome","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">
+                                                        <div class="listing-box-image" style="background-image: url('@item.Image')">
+                                                            @if (@item.ClientType == "Seller")
+                                                        {
+                                                            <div class="listing-box-image-label">@item.ClientName's Property</div><!-- /.listing-box-image-label -->
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="listing-box-image-label">@item.ClientName's Future Home </div><!-- /.listing-box-image-label -->
+
+                                                        }
+                                                            <span class="listing-box-image-links">
+                                                                @*@if (item.MLS != "N/A")
+                                                                    {
+
+                                                                                    <a href="@Url.Action("Status", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID, AgentID = @ViewBag.AgentID })"><i class="fa fa fa-heart"></i> <span>View Transaction</span></a>
+
+                                                                    }*@
+                                                                @*@if (item.URL != "N/A")
+                                                                    {
+                                                                        <a target="_blank" href="@item.URL"><i class="fa fa-search"></i> <span>Listing Details</span></a>
+                                                                      <a href="@Url.Action("Status", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID, AgentID = @ViewBag.AgentID })"><i class="fa fa fa-heart"></i> <span>View Transaction</span></a>
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <a href="@Url.Action("Status", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID, AgentID = @ViewBag.AgentID })"><i class="fa fa fa-heart"></i> <span>View Transaction</span></a>
+
+                                                                    }*@
+
+                                                                x
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                    <div class="listing-box-title">
+
+                                                        @if (@item.Address == "N/A")
+                                                        {
+                                                        <h2><a href="@Url.Action("SharedHome","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">Still looking for the right place </a></h2>
+                                                        }
+                                                        else
+                                                        {
+                                                        <h2><a href="@Url.Action("SharedHome","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">@item.Address</a></h2>
+                                                        }
+
+
+
+                                                    </div>
+                                                    <div class="listing-box-content">
+
+                                                        @if (@item.ClientType == "Seller")
+                                                        {
+                                                            <dl>
+                                                                <dt>Type</dt>
+                                                                <dd>Seller</dd>
+                                                                <dt>Agent</dt>
+                                                                <dd>@item.Name</dd>
+                                                                <dt>Phone #</dt>
+                                                                <dd>@item.Phone</dd>
+                                                                <dt>Shared By #</dt>
+                                                                <dd>@item.ClientName</dd>
+                                                            </dl>
+                                                        }
+                                                        else
+                                                        {
+                                                            <dl>
+                                                                <dt>Type</dt>
+                                                                <dd>Buyer Deal</dd>
+                                                                <dt>Agent</dt>
+                                                                <dd>@item.Name</dd>
+                                                                <dt>Phone #</dt>
+                                                                <dd>@item.Phone</dd>
+                                                                <dt>Shared By #</dt>
+                                                                <dd>@item.ClientName</dd>
+                                                            </dl>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+                                        else
+                                        {
+                                            <div class="col-md-6 col-xs-12 ">
+                                                <div class="listing-box">
+                                                    <a href="@Url.Action("SharedHome","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">
+                                                        <div class="listing-box-image" style="background-image: url('../../../../img/BuyHouse.jpg')">
+                                                            @if (@item.ClientType == "Seller")
+                                                            {
+                                                        <div class="listing-box-image-label">@item.ClientName's Property</div><!-- /.listing-box-image-label -->
+
+                                                            }
+                                                            else
+                                                            {
+                                                        <div class="listing-box-image-label">@item.ClientName's Future Home </div><!-- /.listing-box-image-label -->
+
+                                                            }
+
+                                                            <span class="listing-box-image-links">
+                                                                @*@if (item.MLS != "N/A")
+                                                                    {
+
+
+                                                                    }
+                                                                    @if (item.URL != "N/A")
+                                                                    {
+                                                                        <a target="_blank" href="@item.URL"><i class="fa fa-search"></i> <span>View detail</span></a>
+                                                                        <a href="@Url.Action("Status", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID, AgentID = @ViewBag.AgentID })"><i class="fa fa fa-heart"></i> <span>View Transaction</span></a>
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <a href="@Url.Action("Status", "MyDeal", new { area = "Client", TransactionID = @item.TransactionID, AgentID = @ViewBag.AgentID })"><i class="fa fa fa-heart"></i> <span>View Transaction</span></a>
+
+                                                                    }*@
+
+                                                            </span>
+                                                        </div><!-- /.listing-box-image -->
+
+
+                                                    </a>
+
+                                                    <div class="listing-box-title">
+                                                        @if (@item.Address == "N/A")
+                                                        {
+                                                            <h2><a href="@Url.Action("SharedHome","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">Still looking for the right place</a></h2>
+                                                        }
+                                                        else
+                                                        {
+                                                            <h2><a href="@Url.Action("SharedHome","MyDeal",new {area="Client", TransactionID = @item.TransactionID ,AgentID=@ViewBag.AgentID })">@item.Address</a></h2>
+                                                        }
+
+
+
+
+                                                    </div><!-- /.listing-box-title -->
+
+                                                    <div class="listing-box-content">
+                                                        @*<div class="row-no-margin">
+
+                                                                <div class="clearfix"></div>
+                                                                <div class="form-group" style="margin-top: 10px">
+                                                                    @Html.Label("Share With", new { @class = "control-label col-md-3" })
+                                                                    <div class="col-md-9">
+                                                                        @Html.TextBox("sharedaccounts", "", new { @class = "form-control sharedaccounts", @autocomplete = "on" })
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>*@
+                                                        @if (@item.ClientType == "Seller")
+                                                        {
+                                                            <dl>
+                                                                <dt>Type</dt>
+                                                                <dd>Seller</dd>
+                                                                <dt>Agent</dt>
+                                                                <dd>@item.Name</dd>
+                                                                <dt>Phone #</dt>
+                                                                <dd>@item.Phone</dd>
+                                                                <dt>Shared By #</dt>
+                                                                <dd>@item.ClientName</dd>
+                                                            </dl>
+                                                        }
+                                                        else
+                                                        {
+                                                            <dl>
+                                                                <dt>Type</dt>
+                                                                <dd>Buyer Deal</dd>
+                                                                <dt>Agent</dt>
+                                                                <dd>@item.Name</dd>
+                                                                <dt>Phone #</dt>
+                                                                <dd>@item.Phone</dd>
+                                                                <dt>Shared By #</dt>
+                                                                <dd>@item.ClientName</dd>
+                                                            </dl>
+                                                        }
+
+                                                    </div><!-- /.listing-box-cotntent -->
+                                                </div>
+                                            </div>
+
+                                        }
+
+
+                                    }
+                                }
+
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div>
+
+
+<style>
+    @@media screen and (min-width: 320px) and (max-width: 1024px) {
+        .listing-img-container {
+            height: 265px !important;
+        }
+    }
+
+    .listing-box-image {
+        height: 300px;
+    }
+</style>
+<style>
+    @@media screen and (min-width: 320px) and (max-width: 1024px) {
+        .listing-img-container {
+            height: 265px !important;
+        }
+    }
+
+    @@media screen and (min-width: 320px) and (max-width: 425px) {
+        .listing-box {
+            width: 100%;
+        }
+
+        .page-header p {
+            margin: 30px 94px 0 auto;
+            margin-left: -40px;
+        }
+
+        .page-header h1 {
+            margin-left: -160px;
+        }
+
+        .myIframe {
+            height: 350px !important;
+        }
+
+        .mobshare {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        ol, ul, dl {
+            margin-top: 28px;
+        }
+    }
+
+    .listing-box-image {
+        height: 300px;
+    }
+</style>
+
+
+
+
+
+<div class="clearfix"></div>
+@section Scripts {
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    @*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>*@
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('form').submit(function () {
+
+                $("#ajaxLoading").css("display", "block");
+                $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                $("#ajaxLoading").css("left", $(window).width() / 2);
+                $("#ajaxLoading").css("position", "fixed");
+                $("#ajax-backdrop").css("display", "block");
+                var serializedForm = $(this).serialize();
+                $.ajax({
+                    url: '@Url.Action("List")',
+                    type: "POST",
+                    data: serializedForm,
+
+                    success: function (result) {
+                        $("#ajaxLoading").css("display", "none");
+                        $("#ajax-backdrop").css("display", "none");
+                        $('#ErrorView').text(result).show();
+
+                    },
+                    error: function (result) {
+
+                        $('#ErrorView').text(result).show();
+                        //$('#Error').text(result.Email);
+                    }
+
+                });
+
+
+
+                return false;
+            });
+
+        });
+
+
+    </script>
+    <style>
+        .ui-front {
+            z-index: 10001;
+        }
+    </style>
+}
+<style>
+    .testimonial {
+        text-align: center;
+    }
+
+        .testimonial .testimonial-content {
+            padding: 30px 50px;
+            background: #2ec4b6;
+            border-radius: 24px 0;
+            position: relative;
+            margin: 0 10px 35px;
+        }
+
+            .testimonial .testimonial-content:after {
+                content: "";
+                position: absolute;
+                border-top: 10px solid #2ec4b6;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                bottom: -9px;
+                left: 47%;
+            }
+
+        .testimonial .description {
+            font-size: 14px;
+            color: #fdfffc;
+            line-height: 25px;
+            margin: 0;
+        }
+
+        .testimonial .pic {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+            .testimonial .pic img {
+                width: 100%;
+                height: auto;
+            }
+
+        .testimonial .testimonial-title {
+            display: block;
+            font-size: 17px;
+            font-weight: bold;
+            color: #011627;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0 0 7px 0;
+        }
+
+        .testimonial .post {
+            display: block;
+            font-size: 14px;
+            color: #ff9f1c;
+        }
+
+    .owl-theme .owl-controls {
+        border-top: 1px solid #d5d5d5;
+        margin-top: 40px;
+        padding-top: 30px;
+    }
+
+        .owl-theme .owl-controls .owl-buttons div {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background: #ff9f1c;
+            border-radius: 4px;
+            opacity: 1;
+            padding: 0;
+        }
+
+    .owl-prev:before,
+    .owl-next:before {
+        font-family: 'FontAwesome';
+        color: #fdfffc;
+    }
+
+    .owl-next:before {
+        content: "\f054";
+    }
+
+    .owl-prev:hover:before,
+    .owl-next:hover:before {
+        color: #011627;
+    }
+
+    .owl-theme .owl-controls .owl-buttons {
+        position: static;
+    }
+
+    .testimonial {
+        box-shadow: none;
+    }
+
+        .testimonial:before {
+            content: none;
+        }
+</style>
+<style>
+    .myIframe {
+        position: relative;
+        padding-bottom: 30.25%;
+        padding-top: 30px;
+        height: 0;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        border: solid black 1px;
+    }
+
+        .myIframe iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+</style>
+
+

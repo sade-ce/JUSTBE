@@ -1,0 +1,120 @@
+﻿@model RealEstate.Entities.ViewModels.VendorViewModel
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "Vendor List";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayoutVersion2.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstateNew.cshtml";
+
+    }
+}
+
+<section class="wrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>My Vendors</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="header-search-wrap">
+                            <form class="form-inline my-2 my-lg-0" method="get" action="@Url.Action("list","VendorV2",new {area="Admin" })" data-kw-ajax="true" data-kw-target="#DataGrid" autocomplete="on">
+                                <input name="searchTerm" id="inputsearch" class="form-control mr-sm-2" type="search" placeholder="Search by Name Email or Phone" aria-label="Search" value="@Model.VendorFilterInfo.SearchFilter">
+                               
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btnGo">Go</button>
+                                <button class="btn btn-refresh" type="button" id="btnClear"><i class="material-icons">cached</i></button>
+                            </form>
+                        </div>
+                     
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello, @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new" /></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+
+                @Html.Partial("pvVendorList", Model)
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $("#btnClear").click(function () {
+            $('#inputsearch').val('');
+            $('#btnGo').click();
+        });
+
+
+            $('#inputsearch').autocomplete({
+                source: function (request, response) {
+                    var itemnamecodes = new Array();
+                    $.ajax({
+                        type: 'POST',
+                       url: '@Url.Action("Autocomplete", "VendorV2", new { area = "Admin" })',
+                        dataType: 'json',
+                        data: { term: request.term },
+                        success: function (data) {
+
+                            response($.map(data, function (item) {
+                                return { label: item.Key, Id: item.Value };
+                            }))
+                        }
+                    })
+                },
+                select: function (e, i) {
+                    $("#ListingSHA").val(i.item.Id);
+
+                }
+            })
+        $(".content").on("click", ".changeStatus", getTierFilter);
+
+    })
+    var getTierFilter = function (e) {
+
+        var TargetURL = $(this).parent().attr("data-kw-actionlink");
+        var tier = "";
+
+        var options = {
+            url: TargetURL
+            , data: $("form").serialize()
+            , type: "get"
+        }
+        var target = $(this).parent().attr("data-kw-target");
+        $.ajax(options).done(function (data) {
+            $(target).replaceWith(data);
+        });
+        e.preventDefault();
+    };
+   
+
+</script>
+

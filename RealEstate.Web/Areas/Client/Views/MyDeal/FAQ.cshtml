@@ -1,0 +1,427 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | FAQ";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayoutNew.cshtml";
+}
+@using System.Security.Claims;
+  <!-- TOP HEADER START -->
+<div class="top-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="breadcrumbs">
+                    <ul class="align-items-center d-flex list-unstyled m-0 p-0">
+                        <li class="d-none d-lg-block mr-4">
+                            <a href="#!" id="toggleHeader"><img src="~/Content/NewVersion/images/ham.png" alt="" class="img-fluid"></a>
+                        </li>
+                        <li>
+                            <a class="nav-link nav-cal-drop nav-cal-drop-new dropdown-toggle " href="@Url.Action("FAQ", "MyDeal", new { area = "Client" })" role="button">FAQ's<span>&nbsp;&gt;</span></a>
+
+                        </li>
+                        @*<li class="active">FAQ's<span>&nbsp;>&nbsp;</span></li>*@
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 d-md-block d-none">
+                <div class="accountLog d-flex justify-content-end align-items-center">
+                    <p>Hello, &nbsp;<span>@(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)</span></p>
+                    <div class="profileImgtop" style="background-size: cover; background-position: center;   height:50px;">
+                        <!-- <img alt="profile-img" id="profileimg" class="img-fluid profileimg"> -->
+                    </div>
+                    <span> &nbsp; &nbsp; | &nbsp; </span>
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle mybtn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            My Account
+                        </button>
+                        <div class="dropdown-menu MyAccountDrop" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="@Url.Action("EmailPreferences","Account",new { @area=""})"><i class="flaticon-gear"></i>Notification Settings</a>
+                            <a class="dropdown-item" href="@Url.Action("EditProfile","Account",new { @area=""})"><i class="flaticon-conversation"></i>Edit Profile</a>
+                            <a class="dropdown-item" href="@Url.Action("ChangePassword","Account",new { @area=""})"><i class="flaticon-password"></i>Change Password</a>
+
+                            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- TOP HEADER END -->
+<!-- FAQ section start -->
+<section class="faqOuter">
+    <div class="container">
+        <div id="accordion" class="accordion">
+            <div class="card mb-0">
+                <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                    <a class="card-title">
+                        Welcome step?
+                    </a>
+                </div>
+                <div id="collapseOne" class="card-body collapse" data-parent="#accordion">
+                    <p>
+                        You’ve taken the first step in your journey towards either home ownership or the sale of your home. Thank you for choosing to work with The Bauer Group. Please know that we do not take this responsibility lightly. We are dedicated real estate experts putting our 20+ years of real estate experience to work for each and every client. Your satisfaction is our #1 goal, keeping you as a client for life - our mission. As mentioned earlier, the home buying or selling process is a journey. Most likely it is the single most expensive purchase you will make in your life. In light of this, we felt it was important to ensure that our clients have the best tools available at their disposal. For that exact reason, when we noticed an opportunity to provide our clients with a better experience and realized it didn’t exist - we built it. We will do whatever it takes to ensure our clients are both happy and successful. Rest assured, we’ve got you covered!
+                    </p>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    <a class="card-title">
+                        Lender Call / Questionnaire?
+                    </a>
+                </div>
+                <div id="collapseTwo" class="card-body collapse" data-parent="#accordion">
+                    <p>
+                        Lender Call / Questionnaire - The best first step that you can take when considering a home purchase is to speak with a lender. Often times, Buyers will over estimate or under estimate what they can actually afford. Getting off on sound financial footing is a crucial step when setting up your home search criteria. Why waste time focusing on homes that are out of reach or checking out homes that are below par for what you could potentially afford. A great lender can advise you on steps that you can take before officially beginning your home search or during the process that can have a positive impact on your bottom line. Sage advice could potentially save you thousands of dollars over the term of your mortgage loan.
+                    </p>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                    <a class="card-title">
+                        Lender Pre-Approval Letter?
+                    </a>
+                </div>
+                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Lender Pre-Approval Letter - One of the required elements of a real estate offer. Typically a lender will have you fill out a lender questionnaire followed by a a brief phone call to get a snapshot of your financial situation. Once they run you through their system your lender will be able to generate a pre-approval letter. While this letter is not a guarantee of lender approval, it’s enough to for you to be able to make an offer for a property within the price range of your Pre-Approval letter.
+                    </div>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                    <a class="card-title">
+                        Buyer-Agency Agreement?
+                    </a>
+                </div>
+                <div id="collapseFour" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Buyer Agency Agreement - Since you’ve made the decision to work with us as your Agent, it’s time to make it official. This agreement is legally required before an agent is allowed to take you through a property. In essence it protects both the Buyer and the Agent. If a Buyer were to inadvertently reach out to the listing agent on a property and make arrangements to see it without having a Buyer agency agreement in place with their Agent, then technically the Listing Agent could make the argument that they were procuring cause and cut your Agent out of the loop. This agreement may be terminated by either party at any time.
+                    </div>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                    <a class="card-title">
+                        Search Criteria Set?
+                    </a>
+                </div>
+                <div id="collapseFive" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Search Criteria Set - Now that they beginning steps have been completed and we know the price range you have been pre-approved for by a lender, we can get your search set up. We may ask more questions than most, but its because we take a different approach to real estate. We aren’t selling you a home, we view it as selling you a life that you will love and that falls in line with your goals. At this stage, we generally like when possible to meet in person and build out your search together.
+                    </div>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                    <a class="card-title">
+                        What is Ratified Offer?
+                    </a>
+                </div>
+                <div id="collapseSix" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Ratified Offer (Contract) - Ahh…the moment you’ve been waiting for and the pivotal point where working with us and this dashboard really comes into play. A ratified contract by definition means that both parties have come to an agreement. The ratified date on the contract is the date that all (if any) contingencies in a contract are tied to. Most agents and brokers focus their time on the front end of the home buying process (the search). While we agree that this is an important component, we feel that once a deal is ratified there is more value that we can provide to out clients to better guide them through the process. That is why we have created this dashboard for you to use. The goal is simple, we understand that the stress levels can increase once an offer is ratified. For this reason we wanted to make sure that there was a place that Buyers and Sellers could turn to that would provide all the info, dates, and documents that were relevant to their deal. Real Estate transactions are date and time sensitive. By using our client dashboard, our hope is that you will never feel left in the dark. All contingency dates are tied to the date of ratification.
+                    </div>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+                    <a class="card-title">
+                        Condo / HOA Document Review Period?
+                    </a>
+                </div>
+                <div id="collapseSeven" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        This is the opportunity for a Buyer to review the bylaws, financials, and other governing documents related to a condo, coop, or HOA association. There are a set number of days, which vary based on jurisdiction, that a Buyer has the right to review and either move forward with the purchase or void the contract without penalty.
+                    </div>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+                    <a class="card-title">
+                        Home Inspection Contingency?
+                    </a>
+                </div>
+                <div id="collapseEight" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Home Inspection Contingency - More often than not, especially in a non-competitive offer situation, we will include a Home Inspection Contingency in our offer. The purpose of this contingency is to allow Buyers an opportunity to conduct a 3rd party inspection of the property. Many of the rowhomes in DC were built between 1890-1920. With this contingency a Buyer can have greater peace of mind moving forward in the transaction, or be made aware of an issue that might cause them to reconsider. In most cases the items that come up in an inspection can be negotiated and between the Buyer and Seller. The Buyer may choose the number of days they have from the date of ratification to perform their inspection. Assuming the Seller has agreed, the Buyer will have that many days from date of ratification to complete the inspection and equally as important get the Home Inspection Notice document to the Seller either asking for repairs, a credit, or possible declaring the contract void. At this point, the Seller can either agree or counter. Each counter allows the other party three (3) calendar days to respond.
+                    </div>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">
+                    <a class="card-title">
+                        Appraisal Contingency?
+                    </a>
+                </div>
+                <div id="collapseNine" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Appraisal Contingency - An Appraisal Contingency, when used, is there to protect the Buyer should the value of the property be less than the agreed upon sales price between the Buyer and Seller in the ratified contract. In the event an appraisal comes in lower than the contract amount, the Buyer has the right to ask the Seller to reduce the Sales Price to the appraised value. The Seller may then choose to accept, reject, counter, or challenge the appraisal (often it is the Buyer who winds up challenging the appraisal. In reality, more often than not, the Appraisal comes back at a satisfactory value. In the event that the Appraisal comes back at above list price, the Buyer (in theory) is getting the property with some equity already in the property.
+                    </div>
+                </div>
+                
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">
+                    <a class="card-title">
+                        Financing Contingency?
+                    </a>
+                </div>
+                <div id="collapseEleven" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Financing Contingency - Like the Appraisal Contingency, the Financing is there to protect a Buyer should their financing fall through. More often then not, especially if you are using a trusted lender and Realtor your ducks are already in a row prior to submitting an offer. However in the unlikely event that a Buyer has a major set back, whether due to a health condition, loss of job, or anything else that might happen between the time a contract is ratified and settlement occurs to negatively affect a Buyer's ability to obtain financing, they would be protected by this Contingency.
+                    </div>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNew">
+                    <a class="card-title">
+                        Sale of Home Contingency?
+                    </a>
+                </div>
+                <div id="collapseNew" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Sale of Home Contingency - This is a contingency that is used when a Buyer is under contract to purchase a property, but needs the proceeds from the sale of their existing home in order to be able to settle on the new property. The Seller's of the place the Buyer is under contract for will require that the Buyer has their own property already on the market for sale or will agree to have it on the market by an agreed upon date. The Buyer is then protected should they not be able to get their property under contract and settled in time. The Seller may elect to accept other offers in the meantime. Should another acceptable offer come in, the currently contracted Buyers will have a set number of days to remove their Sale of Home Contingency or risk losing the property to the other set of Buyers.
+                    </div>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve">
+                    <a class="card-title">
+                        Final walk-through?
+                    </a>
+                </div>
+                <div id="collapseTwelve" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Final Walk Through - The is the Buyers opportunity to check on the property prior to settlement. Usually this walk through is conducted the day of settlement or the day before. During this event a Buyer can confirm that items from a Home Inspection Notice (if any) were properly addressed as well as confirming that no damage was done to the property upon the Seller moving out.
+                    </div>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen">
+                    <a class="card-title">
+                        Pre-Settlement Occupancy Agreement?
+                    </a>
+                </div>
+                <div id="collapseThirteen" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        This clause is used when a buyer is under contract and needs to move into the home prior to settlement. This generally can only happen if the home is already vacant or the Seller intends to leave prior to the Buyer moving in. A Buyer might choose to do this in the even that they need to settle on the sale of their current home before settling on the new home. This clause acts as a bridge in this gap period of not having a home. The Buyer will then negotiate an agreed upon per diem rate for living in their new home prior to becoming the owner. These can be tricky.
+                    </div>
+                </div>
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen">
+                    <a class="card-title">
+                        Settlement?
+                    </a>
+                </div>
+                <div id="collapseFourteen" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Settlement - You made it! Congrats! By the time you've reached the settlement table all the I's have been dotted and the T's crossed. Settlement generally takes place at a settlement office and is the process by which a property transfers from one owner to another. A good settlement officer will walk you through the loan docs (if any) and deed. The most important document for both Buyers and Sellers to review is the ALTA Statement (formerly the HUD-1). This is the net sheet that breaks down the costs of the sale / purchase and shows what the Seller stands to collect (or owes) and the Buyer needs to bring to the table for the purchase.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ section end -->
+
+@*<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+
+            <div class="content-title">
+                <div class="content-title-inner">
+                    <div class="container">
+                        <h1>Frequently Asked Questions</h1>
+
+                    </div><!-- /.container -->
+                </div><!-- /.content-title-inner -->
+            </div><!-- /.content-title -->
+
+            <div class="content">
+                <div class="container">
+                    <!-- /.filter -->
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-lg-12">
+
+                            <div class="row">
+
+                                <div class="content">
+                                    <div class="faq">
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>Welcome step?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    You’ve taken the first step in your journey towards either home ownership or the sale of your home.  Thank you for choosing to work with The Bauer Group.  Please know that we do not take this responsibility lightly.  We are dedicated real estate experts putting our 20+ years of real estate experience to work for each and every client.  Your satisfaction is our #1 goal, keeping you as a client for life - our mission.  As mentioned earlier, the home buying or selling process is a journey. Most likely it is the single most expensive purchase you will make in your life.  In light of this, we felt it was important to ensure that our clients have the best tools available at their disposal.  For that exact reason, when we noticed an opportunity to provide our clients with a better experience and realized it didn’t exist - we built it.  We will do whatever it takes to ensure our clients are both happy and successful.  Rest assured, we’ve got you covered!
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div><!-- /.faq-item -->
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>Lender Call / Questionnaire?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    Lender Call / Questionnaire - The best first step that you can take when considering a home purchase is to speak with a lender.  Often times, Buyers will over estimate or under estimate what they can actually afford.  Getting off on sound financial footing is a crucial step when setting up your home search criteria.  Why waste time focusing on homes that are out of reach or checking out homes that are below par for what you could potentially afford.  A great lender can advise you on steps that you can take before officially beginning your home search or during the process that can have a positive impact on your bottom line.  Sage advice could potentially save you thousands of dollars over the term of your mortgage loan.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div><!-- /.faq-item -->
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>Lender Pre-Approval Letter?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    Lender Pre-Approval Letter - One of the required elements of a real estate offer.  Typically a lender will have you fill out a lender questionnaire followed by a a brief phone call to get a snapshot of your financial situation.  Once they run you through their system your lender will be able to generate a pre-approval letter.  While this letter is not a guarantee of lender approval, it’s enough to for you to be able to make an offer for a property within the price range of your Pre-Approval letter.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div><!-- /.faq-item -->
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2> Buyer-Agency Agreement?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    Buyer Agency Agreement - Since you’ve made the decision to work with us as your Agent, it’s time to make it official.  This agreement is legally required before an agent is allowed to take you through a property.  In essence it protects both the Buyer and the Agent.  If a Buyer were to inadvertently reach out to the listing agent on a property and make arrangements to see it without having a Buyer agency agreement in place with their Agent, then technically the Listing Agent could make the argument that they were procuring cause and cut your Agent out of the loop.  This agreement may be terminated by either party at any time.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div><!-- /.faq-item -->
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>Search Criteria Set?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    Search Criteria Set - Now that they beginning steps have been completed and we know the price range you have been pre-approved for by a lender, we can get your search set up.  We may ask more questions than most, but its because we take a different approach to real estate.  We aren’t selling you a home, we view it as selling you a life that you will love and that falls in line with your goals.  At this stage, we generally like when possible to meet in person and build out your search together.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div><!-- /.faq-item -->
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>What is Ratified Offer?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    Ratified Offer (Contract) - Ahh…the moment you’ve been waiting for and the pivotal point where working with us and this dashboard really comes into play.  A ratified contract by definition means that both parties have come to an agreement.  The ratified date on the contract is the date that all (if any) contingencies in a contract are tied to.  Most agents and brokers focus their time on the front end of the home buying process (the search).  While we agree that this is an important component, we feel that once a deal is ratified there is more value that we can provide to out clients to better guide them through the process.  That is why we have created this dashboard for you to use.  The goal is simple, we understand that the stress levels can increase once an offer is ratified.  For this reason we wanted to make sure that there was a place that Buyers and Sellers could turn to that would provide all the info, dates, and documents that were relevant to their deal.  Real Estate transactions are date and time sensitive.  By using our client dashboard, our hope is that you will never feel left in the dark.  All contingency dates are tied to the date of ratification.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div>
+
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>Condo / HOA Document Review Period?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    This is the opportunity for a Buyer to review the bylaws, financials, and other governing documents related to a condo, coop, or HOA association.  There are a set number of days, which vary based on jurisdiction, that a Buyer has the right to review and either move forward with the purchase or void the contract without penalty.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div>
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>Home Inspection Contingency?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    Home Inspection Contingency - More often than not, especially in a non-competitive offer situation, we will include a Home Inspection Contingency in our offer.  The purpose of this contingency is to allow Buyers an opportunity to conduct a 3rd party inspection of the property.  Many of the rowhomes in DC were built between 1890-1920.  With this contingency a Buyer can have greater peace of mind moving forward in the transaction, or be made aware of an issue that might cause them to reconsider.  In most cases the items that come up in an inspection can be negotiated and between the Buyer and Seller.  The Buyer may choose the number of days they have from the date of ratification to perform their inspection.  Assuming the Seller has agreed, the Buyer will have that many days from date of ratification to complete the inspection and equally as important get the Home Inspection Notice document to the Seller either asking for repairs, a credit, or possible declaring the contract void.  At this point, the Seller can either agree or counter.  Each counter allows the other party three (3) calendar days to respond.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div>
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>Appraisal Contingency?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    Appraisal Contingency - An Appraisal Contingency, when used, is there to protect the Buyer should the value of the property be less than the agreed upon sales price between the Buyer and Seller in the ratified contract.  In the event an appraisal comes in lower than the contract amount, the Buyer has the right to ask the Seller to reduce the Sales Price to the appraised value.  The Seller may then choose to accept, reject, counter, or challenge the appraisal (often it is the Buyer who winds up challenging the appraisal.  In reality, more often than not, the Appraisal comes back at a satisfactory value.  In the event that the Appraisal comes back at above list price, the Buyer (in theory) is getting the property with some equity already in the property.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div>
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>Financing Contingency?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    Financing Contingency -  Like the Appraisal Contingency, the Financing is there to protect a Buyer should their financing fall through.  More often then not, especially if you are using a trusted lender and Realtor your ducks are already in a row prior to submitting an offer.  However in the unlikely event that a Buyer has a major set back, whether due to a health condition, loss of job, or anything else that might happen between the time a contract is ratified and settlement occurs to negatively affect a Buyer's ability to obtain financing, they would be protected by this Contingency.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div>
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>Sale of Home Contingency?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    Sale of Home Contingency - This is a contingency that is used when a Buyer is under contract to purchase a property, but needs the proceeds from the sale of their existing home in order to be able to settle on the new property.  The Seller's of the place the Buyer is under contract for will require that the Buyer has their own property already on the market for sale or will agree to have it on the market by an agreed upon date.  The Buyer is then protected should they not be able to get their property under contract and settled in time.  The Seller may elect to accept other offers in the meantime.  Should another acceptable offer come in, the currently contracted Buyers will have a set number of days to remove their Sale of Home Contingency or risk losing the property to the other set of Buyers.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div>
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2> Final walk-through?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    Final Walk Through - The is the Buyers opportunity to check on the property prior to settlement.  Usually this walk through is conducted the day of settlement or the day before.  During this event a Buyer can confirm that items from a Home Inspection Notice (if any) were properly addressed as well as confirming that no damage was done to the property upon the Seller moving out.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div>
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>Pre-Settlement Occupancy Agreement?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    This clause is used when a buyer is under contract and needs to move into the home prior to settlement.  This generally can only happen if the home is already vacant or the Seller intends to leave prior to the Buyer moving in.  A Buyer might choose to do this in the even that they need to settle on the sale of their current home before settling on the new home.  This clause acts as a bridge in this gap period of not having a home.  The Buyer will then negotiate an agreed upon per diem rate for living in their new home prior to becoming the owner.  These can be tricky.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div>
+
+                                        <div class="faq-item">
+                                            <div class="faq-item-question">
+                                                <h2>Settlement?</h2>
+                                            </div><!-- /.faq-item-question -->
+                                            <div class="faq-item-answer">
+                                                <p>
+                                                    Settlement - You made it!  Congrats!  By the time you've reached the settlement table all the I's have been dotted and the T's crossed.  Settlement generally takes place at a settlement office and is the process by which a property transfers from one owner to another.  A good settlement officer will walk you through the loan docs (if any) and deed.  The most important document for both Buyers and Sellers to review is the ALTA Statement (formerly the HUD-1).  This is the net sheet that breaks down the costs of the sale / purchase and shows what the Seller stands to collect (or owes) and the Buyer needs to bring to the table for the purchase.
+                                                </p>
+                                            </div><!-- /.faq-item-answer -->
+                                            <!-- /.faq-item-meta -->
+                                        </div>
+
+
+
+                                    </div><!-- /.faq -->
+                                    <!-- /.pagination-wrapper -->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div>*@
+
+

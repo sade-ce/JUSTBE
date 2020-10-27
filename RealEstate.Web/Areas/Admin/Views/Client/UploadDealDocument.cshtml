@@ -1,0 +1,71 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+@{
+    ViewBag.Title = "UploadDealDocument";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+@*<link href="~/Content/Plugins/Select2/select2.min.css" rel="stylesheet" />*@
+<section class="content-header">
+    <h1>
+        Tracking
+        <small>Upload Documents</small>
+    </h1>
+</section>
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <div class="box-body">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            Client Email: <strong>@Model.utblMstTrackDeal.Email</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @*Client Name: <strong>@Model.utblMstTrackDeal.Note</strong>*@
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                @Html.Partial("pvUploadDealDocument", Model)
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+@*<script src="~/Content/Plugins/Select2/select2.min.js"></script>*@
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            //$("#utblMstTrackDealDoc_DocID").select2();
+            $('#fu1').change(function (evt) {
+                var val = $(this).val().toLowerCase();
+                var regex = new RegExp("(.*?)\.(jpg|jpeg|docx|doc|pdf|xls|xlsm|xlsx)$");
+                if (!(regex.test(val))) {
+                    $(this).val('');
+                    evt.preventDefault();
+                    $('#myModalLabel').text('');
+                    $('#message').text('');
+                    var someText = "Information!";
+                    var message = "Please Select Correct File Format.(Microsoft Word,Pdf,Image) files are only allowed"
+                    $('#myModalLabel').append(document.createTextNode(someText));
+                    $('#message').append(document.createTextNode(message));
+                    $('#AnchorTag').click();
+
+                }
+            });
+
+        });
+</script>
+
+<script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+</script>
+   
+}

@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://schema.org/NewsArticle">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    @RenderSection("metatags", false)
+    <meta name="keywords" content="washington dc homes for sale, washington dc real estate, homes for sale in washington dc, real estate in washington dc, jay bauer compass real estate, maryland homes for sale, marryland real estate, virginia homes for sale, virginia real estate,Realtor,Realtors,finding a Realtor,how to find a Realtor,find real estate agents,how to find a real estate agent,best Realtor near dc,top realtor for buying a new home,top real estate agents in dc,selling a home,sell a home fast,fastest way to sell a home in dc,home selling tips,cost of selling your home,marketing your home,ways to sell your home,house staging tips,how to stage your home,foreclosure,forecloures,short sales,foreclosure or short sale,short selling,short sale process,cons of a short sale,short selling your home,for sale by owner,fsbo,why to use a Realtor,property for sale by owner,for sale by owner listings,top tips to get the best offer">
+    <title>Jay Bauer: Washington DC Real Estate | COMPASS"</title>
+    @Styles.Render("~/Content/JayBauerFrontEndCSS")
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-98453491-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-98453491-1');
+    </script>
+
+
+    <!-- Facebook Pixel Code -->
+    <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '2670780916336038');
+fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1"
+             src="https://www.facebook.com/tr?id=2670780916336038&ev=PageView
+&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+
+        @RenderSection("Style", false)
+        @*@Scripts.Render("~/bundles/modernizr")*@
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round" />
+        <link rel="icon" type="image/png" sizes="16x16" href="~/img/favicon-16x16.png">
+        @*<style>
+                .left-side {
+                    width: 67%;
+                }
+
+                .header-widget {
+                    top: -37px;
+                }
+                 @@media screen and (min-width: 320px) and (max-width: 1024px) {
+                    .header-widget {
+                        top: -14px;
+                    }
+                }
+            </style>*@
+        @*<meta http-equiv="refresh" content="240">*@
+</head>
+<body>
+
+    <div id="wrapper">
+        <header id="header-container">
+            <!-- Topbar -->
+            <div id="top-bar">
+                <div class="container">
+                    <!-- Left Side Content -->
+                    <div class="left-side">
+                        <!-- Top bar -->
+                        <ul class="top-bar-menu">
+                            <li><i class="fa fa-phone"></i><a href="tel:3017851100">(301) 785-1100 </a> </li>
+                            <li>
+                                <i class="fa fa-envelope"></i> <a href="@Url.Action("Contact","Home",new { @area=""})">
+                                    <span class="__cf_email__">info@jaybauergroup.com</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!-- Topbar / End -->
+            <!-- Header -->
+            
+            <!-- Header / End -->
+        </header>
+        @RenderBody()
+        <div class="panel panel-primary text-center" id="ajaxLoading" style="display: none; z-index: 99999">
+            <div class="panel-body" style="padding-left: 1px; padding-right: 30px;">
+                <img src="~/img/loader.gif" alt="Loading" style="margin-bottom: 10px" /><br />
+            </div>
+        </div>
+        @*<div class="flip-banner-content">
+                <div class="padding80 bgimage2">
+                    <div class="container text-center">
+                        <h2 class="flip-visible">We've Got You Covered!</h2>
+                        <h2 class="flip-hidden">Contact Us <i class="sl sl-icon-arrow-right"></i></h2>
+
+                    </div>
+                </div>
+            </div>*@
+
+
+        <div class="clearfix"></div>
+
+        <div id="footer" class="sticky-footer ">
+            <!-- Main -->
+            <div class="container">
+                
+
+                <div class="row">
+
+                    <div class="col-md-3 col-lg-offset-2">
+                        <img src="~/img/equal-housing-logo.png" class="img img-responsive" />
+                    </div>
+
+                    <div class="col-md-3">
+                        <img src="~/img/NAOR.png" class="img img-responsive" />
+                    </div>
+                    <div class="col-md-3">
+                        <img src="~/img/jaybauerCompass.png" class="img img-responsive" />
+                    </div>
+
+                </div>
+                <!-- Copyright -->
+                <div class="row">
+
+                    <div class="col-md-12">
+                        
+                        <div class="copyrights">© @DateTime.Now.Year Jay Bauer Group. All Rights Reserved.</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        @*<div id="backtotop"><a href="#"></a></div>*@
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/RealEstateFrontEndJS")
+    @RenderSection("scripts", required: false)
+    @*<div class="content">
+            <div class="fixed-wrapper glyph fs1">
+
+                <h2>
+                    <a href="https://calendly.com/jaysbauer" target="_blank" id="Gear" class="fixed">
+                        <i class="sl sl-icon-bell"></i>  Schedule Meeting
+                    </a>
+                </h2>
+
+            </div>
+        </div>*@
+
+
+
+    <style type="text/css">
+        .content {
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .fixed-wrapper {
+            position: absolute;
+            bottom: 0px;
+            right: 40px;
+            width: 160px;
+            height: 30px;
+            border-radius: 50%;
+            z-index: 9999;
+        }
+
+            .fixed-wrapper .fixed {
+                position: fixed;
+                background-color: #37b6bd;
+                z-index: 1000;
+                height: 43px;
+                bottom: 20px;
+                padding: 13px 22px;
+                color: #fff;
+                font-size: 15px;
+                font-weight: 500;
+                display: inline-block;
+                transition: all 0.2s ease-in-out;
+                cursor: pointer;
+                margin-right: 6px;
+                overflow: hidden;
+                border: none;
+                border-radius: 30px;
+            }
+    </style>
+    <style>
+        input, input[type="text"], input[type="password"], input[type="email"], input[type="number"], select, textarea {
+            vertical-align: middle;
+        }
+    </style>
+    <style>
+        /*.footer-shadow {
+            height:320px;
+        }*/
+    </style>
+</body>
+</html>

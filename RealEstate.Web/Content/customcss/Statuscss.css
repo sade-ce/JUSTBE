@@ -1,0 +1,288 @@
+﻿ 
+.listing-small {
+    margin: -20px 14px 25px 0 !important;
+}
+.listing-small-image a:after {
+   background-color: unset;
+}
+
+.listing-small-image a:before
+
+{
+    display:none;
+}
+
+body {
+    background-color: #F9F9F8;
+    color: #323232;
+    font-family: 'Raleway', 'Arial', sans-serif;   
+    height: 100%;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+
+    .help-tip {
+        text-align: center;
+        background-color: #333;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+        line-height: 26px;
+        cursor: default;
+    }
+
+        .help-tip:before {
+            content: '?';
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .help-tip:hover p {
+            display: block;
+            transform-origin: 100% 0%;
+            -webkit-animation: fadeIn 0.3s ease-in-out;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .help-tip p {
+            display: none;
+            text-align: left;
+            background-color: #00c0ef;
+            padding: 20px;
+            width: 300px;
+            position: absolute;
+            border-radius: 3px;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+            right: 311px;
+            color: #FFF;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+            .help-tip p:before {
+                position: absolute;
+                content: '';
+                width: 0;
+                height: 0;
+                border: 6px solid transparent;
+                border-bottom-color: #00c0ef;
+                right: 10px;
+                top: -12px;
+            }
+
+            .help-tip p:after {
+                width: 100%;
+                height: 40px;
+                content: '';
+                position: absolute;
+                top: -40px;
+                left: 0;
+            }
+
+
+      
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+       #clockdiv{
+
+
+        margin-left: 115px;
+
+    }
+    }
+
+        #clockdiv {
+        font-family: sans-serif;
+        color: #feffff;
+        background-color: #f8f9f8;
+        display: inline-block;
+        font-weight: 100;
+        text-align: center;
+        font-size: 36px;
+        /* padding: 24px; */
+        /* margin-left: -28px; */
+        margin-top: 48px;
+        /* margin-bottom: 4px; */
+        height: 197px;
+    }
+
+            #clockdiv > div {
+                padding: 10px;
+                border-radius: 3px;
+                    background: #333;
+
+                display: inline-block;
+                margin-bottom: 15px;
+            }
+
+            #clockdiv div > span {
+                padding: 15px;
+                border-radius: 3px;
+                background: white;
+                color: red;
+                display: inline-block;
+                margin-top: 7px;
+            }
+
+        .smalltext {
+            padding-top: 5px;
+            font-size: 16px;
+        }
+
+    #theday {
+        -moz-border-radius: 5px;
+        background-color: #36387B;
+        color: #FFFFFF;
+        float: left;
+        font-size: 90px;
+        height: 173px;
+        line-height: 50px;
+        margin-top: -26px;
+        padding: 60px;
+        text-shadow: 0 0 5px #DDDDDD;
+        width: 449px;
+        margin-left: -31px;
+        margin-bottom: -5px;
+        text-align: center;
+    }
+
+
+
+        #theday span {
+            display: block;
+            font-size: 16px;
+            text-align: center;
+        }
+
+    .calendar {
+        background: #ffffff;
+        border: 2px solid #000;
+    }
+
+    #clockdiv > div {
+        background: #333;
+    }
+
+    #clockdiv div > span {
+        color: #333333;
+    }
+
+    #clockdiv {
+        background-color: #f8f9f8;
+    }
+
+    .plan-features {
+        min-height: 210px;
+    }
+
+
+    #breadcrumbs ul li a {
+        color: #323332;
+    }
+
+    table.manage-table td {
+        padding: 12px 20px;
+    }
+
+   
+
+    .tooltip1 {
+        display: none;
+        position: absolute;
+        border: 1px solid #333;
+        background-color: #161616;
+        border-radius: 5px;
+        padding: 10px;
+        color: #fff;
+        width: 600px;
+        z-index: 99999;
+        font-size: 12px Arial;
+
+    }
+
+    @media (max-width:900px) {
+        .tooltip1 {
+            width: auto;
+        }
+    }
+
+    .table th {
+        background: none;
+        text-align: center;
+        font-weight: bold;
+        height: 10px;
+    }
+
+    .table td {
+        text-align: center;
+    }
+
+    .table-bordered th {
+        border: none;
+    }
+
+
+    
+    @media (max-width:767px) {
+        .tooltip1 {
+            left: 0px !important;
+        }
+    }
+     @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+       .tooltip1 {
+            left: 0px !important;
+        }
+    }
+
+
+
+    .tab-content {
+        padding: 7px 6px;
+    }
+    .text-info {
+    color: #141415!important;
+}
+    .highcharts-background
+    {
+       
+        fill:#F9F9F8 !important;
+    }
+        circle{
+            display:none;
+        }
+
+        .dashboard-header
+        {
+            margin-top:-3px;
+        }
+        .dashboard-content {
+        background-image: linear-gradient(to right,rgba(0,0,0,.04),transparent 2px);
+        padding:unset;
+    }
+        table.manage-table th{
+            font-weight:600;
+        }
+.listing-box-image-title h2 {
+    left: 10px;
+   white-space: unset;
+}
+.listing-detail, .post-detail {
+    height: 90px;
+}
+           ol, ul, dl {
+        margin-top: 28px;
+        font-size: .9em;
+    }
+
+
+
+           h4{
+                   font-size: 25px;
+                   line-height:35px;
+           }
+
+
+.main {
+    padding-bottom: 233px;
+}

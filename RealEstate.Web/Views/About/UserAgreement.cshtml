@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | UserAgreement";
+    Layout = "~/Views/Shared/_LayoutCommonNew.cshtml";
+}
+
+
+
+<section class="postOuter ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">User Agreement</h2>
+            </div>
+        </div>
+
+
+
+
+        <!-- Testimonial One S -->
+        <div class="row row justify-content-md-center offset-top30">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Please review and accept the following.</p>
+                                <h4 class="headline with-border">
+                                    Just BE. Site User Agreement
+                                </h4>
+                                <p>This Agreement applies to all notices, documents and information related to your BE. real estate online experience.</p>
+                                <p>
+                                    To accept the Privacy Policy and Terms and Conditions, please read this full agreement and click continue at the end/bottom of this page.
+                                </p>
+                                <h4 class="headline with-border margin-top-25 margin-bottom-25">What information do we collect as part of the services?</h4>
+
+                                <p class="text-justify">
+                                    1. Client Information :The (“BE.”) designed the website client portal with the client’s right to online privacy in mind. When you register and login to our site and access our password-protected client portal, your information will only be used to enhance your experience on the client portal. For example, we may provide you with e-mail alerts once we’ve completed a step in your real estate deal process or when we schedule an event associated with your active deal. You may opt out of these alerts after you create your profile; alternatively, you may return at anytime to update your email preferences and opt out.
+                                </p>
+                                <p class="text-justify">
+                                    BE. will not sell or share your information to any third parties.
+                                </p>
+
+                                <p class="text-justify">
+                                    2. Anonymous Information: BE. may collect data on how anonymous visitors browse and use our site. Collected data does not capture private or personal user information, and like most sites today, BE. reserves the right to capture this data to help us understand the site visitor experience and enhance our the visitors’ experience on our site.
+                                </p>
+
+                                <h4 class="headline with-border">
+                                    Terms and Conditions
+                                </h4>
+                                <p class="text-justify">
+                                    The BE. website and client portal were developed to provide you, the client, with key information you will need during your search for and/or sale of real estate property. The site also provides you an online platform where your real estate deal can be tracked. It does not replace any legal or financial advice you may receive during a standard real estate deal. During your journey and while working with us, we will send you email notifications with updates to your real estate deal, and we ask that you notify us if your main email address changes.
+                                </p>
+                                <p class="text-justify">
+                                    As a client and/or visitor to our site, you accept that your use of information on this site is at your own risk. Our real estate agents will assist you by providing guidance on real-time real estate market information.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center mtop20 mbottom20">
+                                <a id="ContinueButton" href="@Url.Action("ChangePassword","Account",new { Message="WelcomeBack"})" class="btn btn-darkGray filterBtn">I have read and I agree</a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial One E -->
+
+
+
+    </div>
+</section>
+
+@section Scripts {
+
+    @*<script type="text/javascript">
+        $(document).ready(function () {
+
+            // Initially disable the button
+            $("#ContinueButton").attr("disabled", "disabled");
+            $("#ContinueButton").addClass('disabled').removeAttr("href");
+            $('#ContinueButton').css({ 'background-color': '#dddddf' });
+            // Map the function below to the scroll event of our Terms DIV
+            $("#Terms").scroll(function () {
+                if ($("#Terms").AtEnd()) {
+                    // Enable the button once we reach the end of the DIV
+                    $("#ContinueButton").removeAttr("disabled");
+                    $("#ContinueButton").removeClass("disabled").attr("href", "@Url.Action("ChangePassword", "Account", new { Message = "WelcomeBack" })");
+                    $('#ContinueButton').css({ 'background-color': '#fdbc36' });
+                }
+            });
+        });
+
+        $.fn.AtEnd = function () {
+            return this[0].scrollTop + this.height() >= this[0].scrollHeight;
+        }
+    </script>*@
+    @*<script>
+        $(document).ready(function () {
+
+            $("#ContinueButton").click(function () {
+                if ($('#ContinueButton').attr('href') === undefined) {
+                    alert("Please read the full agreement to continue");
+                }
+               
+            });
+        })
+    </script>*@
+}
+
+

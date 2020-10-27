@@ -1,0 +1,335 @@
+﻿@model RealEstate.Web.Models.RootObject
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Slider/css/demo.css" rel="stylesheet" />
+<link href="~/Slider/css/style1.css" rel="stylesheet" />
+<div class="parallax">
+    <div class="parallax-content">
+        <div class="container">
+            <div class="row">
+                <ul class="cb-slideshow">
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                </ul>
+                <div class="col-md-12">
+                    <!-- Main Search Container -->
+                    <div class="main-search-container">
+                        <h2>
+                            SEARCH for REAL ESTATE
+                        </h2>
+                        <!-- Main Search -->
+                        <form method="get" action="@Url.Action("Index")" data-kw-ajax="true" data-kw-target="#DataGrid">
+
+                            <div class="search-type" style="display:none">
+                                <label class="active"><input class="first-tab" name="tab" checked="checked" type="radio">Any Status</label>
+                                <label><input name="tab" type="radio">For Sale</label>
+                                <label><input name="tab" type="radio">For Rent</label>
+                                <div class="search-type-arrow"></div>
+                            </div>
+
+                            <!-- Box -->
+
+                            <div class="main-search-box">
+                                <div class="main-search-input larger-input">
+                                    <input type="text" id="addressme" name="addressme" data-autocomplete=@Url.Action("autocomplete", "Listing") class="ico-01 " placeholder="Enter City,Zip,Neighborhood,Address" value="" autocomplete="off" />
+
+                                    <div class="ui-widget">
+                                        <ul>
+                                            <li id="Complete" name="Complete">
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <input type="text" id="txtCity" name="txtCity" style="display:none" />
+                                    <input type="text" id="Street" name="Street" style="display:none" />
+                                    <input type="text" id="City" name="City" style="display:none" />
+
+                                    @*<input type="button" id="Estimate" class="button" value="Estimate!" />*@
+
+                                    <button id="Estimate" class="button" type="submit">Search!</button>
+
+                                </div>
+                                <i>  <span id="Error" style="display:none;color:#ff0033"> </span></i>
+
+                                <!-- Main Search Input -->
+                                <!-- Row -->
+                                <div class="row with-forms" style="display:none">
+                                    <!-- Property Type -->
+                                    <div class="col-md-4">
+                                        <select data-placeholder="Any Type" class="chosen-select-no-single">
+                                            <option>Any Type</option>
+                                            <option>Apartments</option>
+                                            <option>Houses</option>
+                                            <option>Commercial</option>
+                                            <option>Garages</option>
+                                            <option>Lots</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Min Price -->
+                                    <div class="col-md-4">
+
+                                        <!-- Select Input -->
+                                        <div class="select-input">
+                                            <input type="text" placeholder="Min Price" data-unit="USD">
+                                        </div>
+                                        <!-- Select Input / End -->
+                                    </div>
+
+                                    <!-- Max Price -->
+                                    <div class="col-md-4">
+
+                                        <!-- Select Input -->
+                                        <div class="select-input">
+                                            <input type="text" placeholder="Max Price" data-unit="USD">
+                                        </div>
+                                        <!-- Select Input / End -->
+                                    </div>
+                                </div>
+                                <!-- Row / End -->
+                                <!-- More Search Options -->
+                                <!-- More Search Options / End -->
+
+                            </div>
+                            <input type="hidden" name="ListingSHA" id="ListingSHA" />
+                            <input type="hidden" name="data[Lead][address]" id="addressParam" />
+                            <input type="hidden" name="data[Lead][temp_address]" id="temp_address" />
+                            <input type="hidden" name="data[Lead][is_valid_address]" id="isValidAddress" />
+                            <input type="hidden" name="data[Lead][mapparams]" id="leadMapparams" />
+                            <input type="hidden" name="data[Lead][Step2StreetViewPanoramaId]" id="step2_panorama_id" />
+                            <div id="map_address" style='display:none'></div>
+                            <div id="step2_street_view_canvas" style='display:none'></div>
+                        </form>
+                        <!-- Main Search -->
+                    </div>
+                    <!-- Main Search Container / End -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="headline margin-bottom-25 margin-top-60">FEATURED LISTINGS</h3>
+        </div>
+        @*@Html.Partial("pvMLS",Model)*@
+    </div>
+
+</div>
+<style type="text/css">
+    .parallax-content {
+        padding: 162px 0;
+    }
+
+    .main-search-box {
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .cb-slideshow,
+    .cb-slideshow:after {
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        z-index: 0;
+    }
+</style>
+<style>
+    .ui-menu-item {
+        background-color: #FFFFFF;
+        border: 1px solid #FFFFFF;
+        font-family: "Varela Round","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: none;
+        color: #333;
+        padding: 2px 0px 2px 6px;
+    }
+
+        .ui-menu-item .ui-menu-item-wrapper:hover {
+            border: none !important;
+            background-color: #37b6bd;
+        }
+
+
+    ul.ui-autocomplete.ui-menu {
+        width: 400px;
+        padding: 2px 0px 2px 4px;
+    }
+
+        ul.ui-autocomplete.ui-menu li:first-child a {
+            color: #ff0033;
+        }
+
+
+    .ui-widget.ui-widget-content {
+        border: 1px solid #ff0033;
+    }
+
+    .ui-menu {
+        list-style: none;
+        padding: 2px;
+        margin: 0;
+        display: block;
+        float: left;
+    }
+
+        .ui-menu .ui-menu {
+            margin-top: -3px;
+        }
+
+        .ui-menu .ui-menu-item {
+            margin: 0;
+            padding: 0;
+            zoom: 1;
+            float: left;
+            clear: left;
+            width: 100%;
+        }
+
+            .ui-menu .ui-menu-item a {
+                text-decoration: none;
+                display: block;
+                padding: .2em .4em;
+                line-height: 1.5;
+                zoom: 1;
+            }
+
+                .ui-menu .ui-menu-item a.ui-state-hover,
+                .ui-menu .ui-menu-item a.ui-state-active {
+                    font-weight: normal;
+                    margin: -1px;
+                }
+</style>
+@section Scripts {
+
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">*@
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    @*<script type="text/javascript">
+            $(document).ready(function () {
+                $("#addressme").autocomplete({
+                    source: function (request, response) {
+
+                        var val = $("#addressme").val();
+                        var url = "https://autosuggestb.placester.net/autosuggest";
+
+                        var parameters = {
+                            query: val,
+                            region_id: "va_dc_md",
+                            purchase_type: "buy",
+                            origin_ids: "4f7a2922d23a5474f800007a"
+                        };
+                        var url = buildUrl(url, parameters);
+
+
+                        $.ajax({
+                            url: url,
+                            type: "POST",
+                            dataType: "json",
+                            data: { term: request.term },
+                            success: function (data) {
+                                response($.map(data.suggestions, function (item) {
+                                    return item;
+                                }))
+                            }
+                        })
+                    },
+                    messages: {
+                        noResults: "", results: "",
+                        select: function (e, i) {
+
+
+                            $("#Complete").val(i.item.val);
+
+                        },
+                        minLength: 1
+                    }
+                });
+            })
+
+
+
+
+        </script>
+        <script>
+            function buildUrl(url, parameters) {
+                var qs = "";
+                for (var key in parameters) {
+                    var value = parameters[key];
+                    qs += encodeURIComponent(key) + "=" + encodeURIComponent(value) + "&";
+                }
+                if (qs.length > 0) {
+                    qs = qs.substring(0, qs.length - 1); //chop off last "&"
+                    url = url + "?" + qs;
+                }
+                return url;
+            }
+        </script>*@
+    @*<script>
+            $(document).ready(function () {
+                $("#addressme").each(function () {
+                    var url = $(this).data('autocomplete');
+                    $(this).autocomplete({
+                        source: function (request, response) {
+                            $.getJSON(url, {
+                                term: request.term
+                            }, response);
+                            alert(response);
+                        }
+                    });
+                });
+            });
+        </script>*@
+
+    <script>
+        $(document).ready(function () {
+            $('#addressme').autocomplete({
+                source: function (request, response) {
+                    var itemnamecodes = new Array();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("Autocomplete", "Listing")',
+                        dataType: 'json',
+                        data: { term: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.Key, Id: item.Value };
+                            }))
+                        }
+                    })
+                },
+                select: function (e, i) {
+                    $("#ListingSHA").val(i.item.Id);
+
+                }
+            })
+        })
+    </script>
+
+}
+<style type="text/css">
+    .parallax-content {
+        padding: 162px 0;
+    }
+
+    .main-search-box {
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .cb-slideshow,
+    .cb-slideshow:after {
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        z-index: 0;
+    }
+</style>

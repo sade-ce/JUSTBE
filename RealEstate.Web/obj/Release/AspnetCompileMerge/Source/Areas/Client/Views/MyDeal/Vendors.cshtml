@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | Vendors";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+
+}
+<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+
+            <div class="content-title">
+                <div class="content-title-inner">
+                    <div class="container">
+                        <h1>Preferred Vendor List</h1>
+
+                    </div><!-- /.container -->
+                </div><!-- /.content-title-inner -->
+            </div><!-- /.content-title -->
+            <div class="push-bottom">
+                <div class="page-header">
+                    <h5>These companies and people represent the best in the DC Metro area. We've done the vetting to save you time and money
+</h5>
+                    <p>
+                    </p>
+                </div><!-- /.page-header -->
+                <div class="categories">
+                    <!-- /.row -->
+                </div><!-- /.categories -->
+            </div>
+            <div class="content">
+                <div class="container">
+                    <!-- /.filter -->
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-lg-12">
+
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="category" style="background-image: url('../../../../img/vendors/Staging.jpg');background-position:unset">
+                                        <a href="@Url.Action("Staging","MyDeal",new { @area="Client"})"  class="category-link">
+                                            <span class="category-content">
+                                                <span class="category-title">Staging</span>
+                                                <span class="category-subtitle">2 Vendors</span>
+                                                <span class="btn btn-primary">View </span>
+                                            </span><!-- /.category-content -->
+                                        </a>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="category" style="background-image: url('../../../../img/vendors/movers.jpg');">
+                                                <a href="@Url.Action("Moving","MyDeal",new { @area="Client"})"  class="category-link">
+                                                    <span class="category-content">
+                                                        <span class="category-title">Moving / Storage</span>
+                                                        <span class="category-subtitle">2 Vendors</span>
+                                                        <span class="btn btn-primary">View List</span>
+                                                    </span><!-- /.category-content -->
+                                                </a>
+                                            </div><!-- /.category -->
+                                        </div><!-- /.col-* -->
+                                        <div class="col-sm-6">
+                                            <div class="category" style="background-image: url('../../../../img/vendors/painting.jpg');">
+                                                <a href="@Url.Action("Painting","MyDeal",new { @area="Client"})"  class="category-link">
+                                                    <span class="category-content">
+                                                        <span class="category-title">Painting / Handyman</span>
+                                                        <span class="category-subtitle">1 Vendor</span>
+                                                        <span class="btn btn-primary">View List</span>
+                                                    </span><!-- /.category-content -->
+                                                </a>
+                                            </div><!-- /.category -->
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.row -->
+
+                                    <div class="category" style="background-image: url('../../../../img/vendors/DesignRemodel.jpg');">
+                                        <a href="@Url.Action("Design","MyDeal",new { @area="Client"})"  class="category-link">
+                                            <span class="category-content">
+                                                <span class="category-title">Design / Redeign Bucket</span>
+                                                <span class="category-subtitle">1 Vendor</span>
+                                                <span class="btn btn-primary">View</span>
+                                            </span><!-- /.category-content -->
+                                        </a>
+                                    </div><!-- /.category -->
+
+                                </div><!-- /.col-* -->
+                                <div class="col-lg-4">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="category" style="background-image: url('../../../../img/vendors/Settlement.png');">
+                                                <a href="@Url.Action("Settlement","MyDeal",new { @area="Client"})"  class="category-link">
+                                                    <span class="category-content">
+                                                        <span class="category-title">Settlement Title Company</span>
+                                                        <span class="category-subtitle">1 Vendor</span>
+                                                        <span class="btn btn-primary">View List</span>
+                                                    </span><!-- /.category-content -->
+                                                </a>
+                                            </div><!-- /.category -->
+                                        </div><!-- /.col-* -->
+                                        <!-- /.col-* -->
+                                    </div>
+                                    <div class="category category-vertical" style="background-image: url('../../../../img/vendors/Appraiser.jpg');">
+                                        <a href="@Url.Action("Appraiser","MyDeal",new { @area="Client"})"  class="category-link">
+                                            <span class="category-content">
+                                                <span class="category-title">Appraiser</span>
+                                                <span class="category-subtitle">1 Vendor</span>
+                                                <span class="btn btn-primary">View List</span>
+                                            </span><!-- /.category-content -->
+                                        </a>
+                                    </div><!-- /.category -->
+
+                                </div><!-- /.col-* -->
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div>
+
+
+
+

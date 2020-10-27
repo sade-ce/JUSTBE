@@ -1,0 +1,137 @@
+﻿@model RealEstate.Entities.ViewModels.bepetworthViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BEpetworth</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <style>
+               .field-validation-error {
+    color: #ffffff;
+}
+    .validation-summary-errors{
+  color: #ffffff;
+    }
+    </style>
+    @if (ViewBag.Message != null)
+    {
+        <script>
+
+            $(document).ready(function () {
+
+               // alert('@ViewBag.Message');
+                $('#myModal').modal('show');
+
+            });
+
+        </script>
+
+    }
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137864929-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137864929-1');
+    </script>
+
+</head>
+<body>
+    @*<div>
+        @using (Html.BeginForm("Index", "BEpetworth", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "myform" }))
+        { @Html.AntiForgeryToken()
+                  @Html.ValidationSummary(true)
+          @Html.TextBoxFor(m => m.bepetworth.Name, new { @id = "Name", @class = "form-control", @required = "required" })
+          @Html.ValidationMessageFor(m => m.bepetworth.Name)
+          @Html.TextBoxFor(m => m.bepetworth.Email, new { @id = "Email", @class = "form-control", @required = "required" })
+          @Html.ValidationMessageFor(m => m.bepetworth.Email)
+          <input type="submit" value="Save" id="save" class="btn btn-primary" />
+        }
+          </div>*@
+
+    <section class="mainContainer">
+        <div class="container">
+            <div class=" row">
+                <div class=" col-md-offset-1 col-md-10 ptop45">
+                    <div class="bgColor">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>
+                                    Hope you had a great April Cools’ Day! Photos will BE up
+                                    soon. Leave us your info and we’ll let you know when ...
+                                </h2>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                @using (Html.BeginForm("Index", "BEpetworth", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "myform" }))
+                            { @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
+                                    <div class="row">
+                                        <div class="col-md-4 text-center">
+                                            @Html.TextBoxFor(m => m.bepetworth.Name, new { @id = "name", @class = "form-control", @required = "required", @placeholder = "Name" })
+                                            @Html.ValidationMessageFor(m => m.bepetworth.Name)
+                                            @*<input type="text" class="form-control" id="name" placeholder="Name">*@
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.TextBoxFor(m => m.bepetworth.Email, new { @id = "email", @class = "form-control", @required = "required", @placeholder = "Email" })
+                                            @Html.ValidationMessageFor(m => m.bepetworth.Email)
+                                            @*<input type="text" class="form-control" id="email" placeholder="Email">*@
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="submit" class="btn btn-default ">Submit</button>
+                                        </div>
+                                    </div>
+                            }
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p style="font-weight:bold; font-size:20px;text-align:center">Thank you. We will be in touch.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

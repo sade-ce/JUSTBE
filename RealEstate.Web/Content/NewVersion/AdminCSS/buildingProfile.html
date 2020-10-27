@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../Dashboard/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../Dashboard/css/style.css">
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Just BE | Real Estate </title>
+
+    <style>
+
+    .adminContentWrapper .profile-info-section.building-profile-section {
+        margin-top: 30px;
+    }
+    .adminContentWrapper .building-profile-section .profile-wrap .profile-pic-wrap {
+        padding: 20px 18px 20px 20px;
+    }
+    .adminContentWrapper .building-profile-section .profile-wrap .profile-pic-wrap .profile-pic {
+        width: 160px;
+        height: 160px;
+    }
+    .adminContentWrapper .building-profile-section .profile-wrap .profile-infor-wrap h3 {
+        padding: 20px 10px 14px;
+        width: 100%;
+    }
+    .adminContentWrapper .building-profile-section .profile-wrap .profile-infor-wrap p {
+        min-height: auto;
+        padding: 0 20px 0 5px;
+        align-items: flex-start;
+    }
+    .adminContentWrapper .building-profile-section .profile-wrap .profile-infor-wrap li {
+        padding: 8px 20px 8px 12px;
+        justify-content: flex-start;
+    }
+    .adminContentWrapper .building-profile-section .profile-wrap .profile-infor-wrap li label {
+        width: 160px;
+        margin-right: 10px;
+        font-weight: 600;
+    }
+    .adminContentWrapper .building-profile-section .whiteBgBorderBox {
+        min-height: auto;
+    }
+    .adminContentWrapper .building-profile-section .buildingDetails li {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding: 8px 15px;
+    }
+    .adminContentWrapper .building-profile-section .buildingDetails li label {
+        width: 210px;
+        margin-right: 10px;
+        font-weight: 600;
+    }
+    .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap {
+        min-height: auto;
+    }
+    .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        width: 100%;
+    }
+    .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap li {
+        border-top: 1px solid #EBEDF0;
+        font-weight: normal;
+        font-size: 14px;
+        color: #858585;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 12px 15px;
+        flex-wrap: wrap;
+    }
+    .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap li:last-child {
+        border-bottom: 0;
+    }
+    .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap li label {
+        font-weight: 600;
+        margin: 0 12px 0 0;
+        width: 100%;
+    }
+    .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap li span.dot {
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        border-radius: 100px;
+        margin: 0 7px 0 0;
+    }
+    .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap li span.dot.red {
+        background:#e80000;
+    }
+    .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap li span.dot.yellow {
+        background:#ffc107;
+    }
+    .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap li span.dot.green {
+        background: #009e00;
+    }
+    .adminContentWrapper .building-profile-section .building-gallery .buildingGalleyWrap {
+        padding: 14px 0px 2px;
+        min-height: auto;
+    }
+    .adminContentWrapper .building-profile-section .building-gallery .buildingGalleyWrap .row {
+        margin-right: -8px;
+        margin-left: -8px;
+    }
+    .adminContentWrapper .building-profile-section .building-gallery .buildingGalleyWrap .buildingGalleyImg {
+        padding: 0 5px;
+        height: 170px;
+        margin-bottom: 12px;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .adminContentWrapper .building-profile-section .building-gallery .buildingGalleyWrap .buildingGalleyImg img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 15px;
+    }
+
+    @media screen and (min-width: 400px) {
+      .adminContentWrapper .building-profile-section .building-gallery .buildingGalleyWrap .buildingGalleyImg {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+        height: 130px;
+      }
+    }
+
+    @media screen and (min-width: 576px) {
+      .adminContentWrapper .building-profile-section .building-gallery .buildingGalleyWrap .buildingGalleyImg {
+          height: 130px;
+          -ms-flex: 0 0 33.333333%;
+          flex: 0 0 33.333333%;
+          max-width: 33.333333%;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .adminContentWrapper .building-profile-section .building-gallery .buildingGalleyWrap .buildingGalleyImg {
+          height: 150px;
+      }
+    }
+
+    @media screen and (min-width: 992px) {
+      .adminContentWrapper .building-profile-section .building-gallery .buildingGalleyWrap .buildingGalleyImg {
+          height: 200px;
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      .adminContentWrapper .building-profile-section .profile-wrap .profile-pic-wrap {
+          padding: 20px 18px 20px 20px;
+      }
+      .adminContentWrapper .building-profile-section .building-gallery .buildingGalleyWrap .buildingGalleyImg {
+          height: 150px;
+      }
+      .adminContentWrapper .building-profile-section .profile-wrap .profile-pic-wrap .profile-pic {
+          width: 160px;
+          height: 160px;
+      }
+      .adminContentWrapper .building-profile-section .whiteBgBorderBox {
+          min-height: 225px;
+      }
+      .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap li {
+          padding: 8px 15px;
+      }
+      .adminContentWrapper .building-profile-section .buildingDetails li {
+          padding: 6px 15px;
+      }
+      .adminContentWrapper .building-profile-section .profile-wrap .profile-infor-wrap li {
+          padding: 5px 20px 5px 12px;
+      }
+      .adminContentWrapper .building-profile-section .profile-wrap .profile-infor-wrap li:last-child {
+          border-bottom: 1px solid #EBEDF0;
+      }
+      .adminContentWrapper .building-profile-section .profile-wrap .profile-infor-wrap p {
+          min-height: 50px;
+          align-items: center;
+      }
+      .adminContentWrapper .building-profile-section .profile-wrap .profile-infor-wrap h3 {
+          padding: 10px 10px 0;
+      }
+      .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap {
+          margin-bottom: 20px;
+      }
+      .adminContentWrapper .building-profile-section .buildingDetails li label {
+          width: auto;
+      }
+      .adminContentWrapper .building-profile-section .building-gallery .whiteBgBorderBox,
+      .adminContentWrapper .building-profile-section .building-info-wrap .whiteBgBorderBox {
+          min-height: 342px;
+      }
+      .adminContentWrapper .building-profile-section .building-info-wrap .neighborhoodWrap li:last-child {
+          border-bottom: 1px solid #EBEDF0;
+      }
+    }
+
+    @media screen and (min-width: 1400px) {
+      .adminContentWrapper .building-profile-section .building-gallery .buildingGalleyWrap .buildingGalleyImg {
+          height: 160px;
+      }
+      .adminContentWrapper .building-profile-section .profile-wrap .profile-pic-wrap .profile-pic {
+          width: 180px;
+          height: 180px;
+      }
+      .adminContentWrapper .building-profile-section .whiteBgBorderBox {
+          min-height: 225px;
+      }
+      .adminContentWrapper .building-profile-section .buildingDetails li label {
+          width: 210px;
+      }
+      .adminContentWrapper .building-profile-section .building-gallery .whiteBgBorderBox,
+      .adminContentWrapper .building-profile-section .building-info-wrap .whiteBgBorderBox {
+          min-height: 362px;
+      }
+    }
+
+    </style>
+  </head>
+  <body>
+
+     <header>
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-sm-12 p-lg-0">
+            <nav class="navbar navbar-expand-lg flex-lg-column flex-row">
+              <a class="navbar-brand" href="#"><img src="../Dashboard/img/B-White.svg" /></a>
+              
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                  <i class="material-icons">menu</i>
+                </span>
+              </button>
+            
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">My Dashboard</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a href="#" class="nav-link">My Clients</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" data-target="#myDeals" class="collapsed ">My Deals<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="myDeals">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><span class="comboIcon"><i class = "material-icons work-icon">work</i><i class = "material-icons done-icon">done</i></span>Active Deals</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><span class="comboIcon"><i class = "material-icons work-icon">work</i><i class = "material-icons done-icon">done_all</i></span>All Deals</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" data-target="#addNew" class="collapsed ">Add New<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="addNew">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><i class = "material-icons">work</i>Deal</a>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><img src="img/client-icon.svg" />Client</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link"><i class = "material-icons">person</i>Vendor</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link"><img src="img/building-icon.svg" />Building</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link"><i class = "material-icons">people</i>Neighborhood</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+           </div>
+         </div>
+       </div>
+     </header>
+
+
+     <section class="wrapper adminContentWrapper">
+       <div class="topHeader">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row">
+               <div class="heading-wrap d-flex align-items-center justify-content-between">
+                  <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                  <h2>Building Profile</h2>
+               </div>
+               <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                  <div class="account-wrap">
+                    <ul>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Hello, Ranjan
+                          <div class="pro-pic"><img src="../Dashboard/img/avatar.png" /></div>
+                          <i class="material-icons">keyboard_arrow_down</i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#">Menu Item</a>
+                          <a class="dropdown-item" href="#">Menu Item</a>
+                        </div>
+                      </li>
+                    </ul>
+                    
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+       </div>
+       <div class="main-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 profile-info-section building-profile-section">
+               <div class="row">
+                  <div class="col-xl-7 col-12 profile-wrap">
+                    <div class="whiteBgBorderBox">
+                      <div class="profile-pic-wrap">
+                        <div class="profile-pic"><img src="../Dashboard/img/user-image1.png" class="img-fluid" /></div>
+                      </div>
+                      <div class="profile-infor-wrap">
+                        <h3>400 Mass</h3>
+                        <p><i class="material-icons">room</i>445 Mount Eden Road, Mount Eden, Auckland.</p>
+                        <ul>
+                          <li><label>Neighborhood:</label> Yes</li>
+                          <li><label>Number of Units:</label> Yes</li>
+                          <li><label>Year Built:</label> 2005</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-5 col-12 client-tier-block buildingDetails">
+                    <div class="whiteBgBorderBox">
+                      <h3>Building Details</h3>
+                      <ul>
+                        <li><label>Front Desk Number:</label> (202) 408-3309</li>
+                        <li><label>Management Company:</label> EJF - Delbe Property</li>
+                        <li><label>Management Contact Info:</label> (202) 537-1801</li>
+                        <li><label>Amenities:</label> 24 hour concierge</li>
+                        <li><label>Condo Docs:</label>uploaded 3/20/20</li>
+                      </ul>
+                    </div>
+                  </div>
+               </div>
+
+
+               <div class="row">
+                <div class="col-xl-7 col-12 building-gallery">
+                  <div class="whiteBgBorderBox buildingGalleyWrap">
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <div class="col-sm-4 col-6 buildingGalleyImg">
+                          <img src="../Dashboard/img/propDetailGallery.jpg" class="img-fluid" />
+                        </div>
+                        <div class="col-sm-4 col-6 buildingGalleyImg">
+                          <img src="../Dashboard/img/propertyGallery1.jpg" class="img-fluid" />
+                        </div>
+                        <div class="col-sm-4 col-6 buildingGalleyImg">
+                          <img src="../Dashboard/img/propDetailGallery.jpg" class="img-fluid" />
+                        </div>
+                        <div class="col-sm-4 col-6 buildingGalleyImg">
+                          <img src="../Dashboard/img/propertyGallery1.jpg" class="img-fluid" />
+                        </div>
+                        <div class="col-sm-4 col-6 buildingGalleyImg">
+                          <img src="../Dashboard/img/propDetailGallery.jpg" class="img-fluid" />
+                        </div>
+                        <div class="col-sm-4 col-6 buildingGalleyImg">
+                          <img src="../Dashboard/img/propertyGallery1.jpg" class="img-fluid" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-5 col-12 building-info-wrap">
+                  <div class="whiteBgBorderBox neighborhoodWrap">
+                    <h3>Landmark</h3>
+                    <ul>
+                      <li><label>Nearest Metro:</label> 
+                          <span class="places">
+                            Gallery Place - Chinatown Judiciary Square <br />
+                            <span class="dot red"></span><span class="dot green"></span><span class="dot yellow"></span>
+                          </span>
+                      </li>
+                      <li><label>Neighborhood/Building Highlights:</label> 
+                        <span class="places">
+                          CVS in building, restaurant/bar attached, at mouth of 395 <br />
+                          <span class="dot red"></span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+             </div>
+            </div>
+            
+          </div>
+        </div>
+       </div>
+     </section>
+
+
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="../Dashboard/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../Dashboard/js/custom.js"></script>
+  </body>
+</html> 

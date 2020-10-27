@@ -1,0 +1,62 @@
+﻿@model RealEstate.Entities.ViewModels.MstSellerDocumentManageModel
+
+<div id="DataGrid">
+@if (Model.MstSellerDocList.Count() > 0)
+{
+    <div class="table-wrapper">
+        <div class="listing-table custom-table">
+            <div class="tableHeadRow">
+                <div class="tableCell title"><a href="#" class="sorting">Title</a></div>
+                <div class="tableCell description">Description</div>
+                <div class="tableCell updatedOn"><a href="#" class="sorting">Updated On</a></div>
+                <div class="tableCell action">Action</div>
+            </div>
+@foreach (var item in Model.MstSellerDocList)
+{
+            <div class="tableRow">
+                <div class="tableCell title"><a class="btnedit" onclick="getdocumentByID(@item.SellerDocID)" href="#!" data-toggle="modal" data-target="#editBuyerDocumentModal">@item.Title</a></div>
+                <div class="tableCell description">
+                    <p>@item.Description</p>
+                </div>
+                <div class="tableCell updatedOn"><p> @item.UpdatedOn.ToString("dd MMM yyyy hh:mm tt")</p></div>
+                <form method="post" action="@Url.Action("Delete","SellerDocument",new { area = "admin" })" data-kw-ajax="true" data-kw-target="#DataGrid">
+                    @Html.AntiForgeryToken()
+                    <div class="tableCell action">
+                        <a href="@Url.Action("Delete", "SellerDocument", new {DocID = item.SellerDocID,area = "admin"})" class="delete actioDelete" data-toggle="tooltip" data-placement="bottom" title="Delete ">
+                            <i class="material-icons">delete</i>
+                        </a>
+                        </div>
+</form>
+                @*<div class="tableCell action"><a href="#" class="actioDelete"><i class="material-icons">delete</i></a></div>*@
+            </div>
+}
+         
+        </div>
+    </div>
+    @*<div class="pagination-row ns-grid-pager" data-kw-target="#DataGrid">
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <div class="rowsPerPage">
+                    @Model.PagingInfo.TotalItems &nbsp;Record(s)
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <div class="pageNavigation ns-pagination" data-kw-target="#DataGrid" data-kw-actionlink="@Url.Action("list", "SellerDocument", new { area = "Admin"})">
+                    @Html.PageLinksNew(Model.PagingInfo, x => Url.Action("list", "SellerDocument", new { area = "Admin", PageNo = x, PageSize = Model.PagingInfo.ItemsPerPage}))
+                </div>
+            </div>
+        </div>
+    </div>*@
+}
+else
+{
+    <div class="table-wrapper">
+        <div class="listing-table custom-table">
+            <h3>No record found...</h3>
+        </div>
+    </div>
+    }
+    </div>
+    <div id="ErrMsg" style="display:none;">
+        <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+    </div>

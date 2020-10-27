@@ -1,0 +1,270 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+
+<div id="DataGrid" class="col-md-12">
+    <div class="col-md-12">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="box" style="border-top: 3px solid #ffffff;">
+                    <div class="box-header">
+                        <h3 class="box-title">Assign Steps</h3>
+                    </div>
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="width: 40px;background: #ffffff;">#</th>
+                                <th style="background: #ffffff;">Steps</th>
+                                <th style="background: #ffffff;">
+                                    Contingencies
+                                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="this applies for Contingencies, turn on if applicable or turn off if not applicable">
+                                        <i class="fa fa-question"></i>
+                                    </button>
+
+                                </th>
+
+                                <th style="width: 40px;background: #ffffff;">Action</th>
+                            </tr>
+                            @foreach (var item in Model.StatusList)
+                            {
+                                using (Ajax.BeginForm("CreateDeal", "Agent", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "createdeal" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
+                                    @Html.HiddenFor(m => m.UserInfo.Email)
+                                    @Html.HiddenFor(model => model.utblMstTrackDeal.StatusID, new { Value = @item.StatusID })
+                                    @Html.HiddenFor(model => model.ClosingConfig.StatusID, new { Value = Model.ClosingConfig.StatusID })
+
+                                    <tr>
+
+                                        <td style="text-align:center" class="text-danger"> @item.RowID</td>
+                                        <td style="text-align:center" class="text-info">@item.Status</td>
+                                        @if (item.IsContingencies == true)
+                                        {
+
+                                            <td style="text-align:center">
+                                                <label class="switch">
+                                                    @Html.CheckBoxFor(model => model.utblMstTrackDeal.IsApplicable)
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            @Html.HiddenFor(model => model.utblMstTrackDeal.IsApplicable, new { @disabled = "disabled", Value = false })
+                                            <td style="text-align:center" class="text-danger">N/A</td>
+
+                                        }
+
+                                        <td class="text-center" style="width: 70px;">
+                                            <input type="submit" value="Add" class="btn btn-block btn-info btn-flat" id="bCheck" />
+                                        </td>
+                                    </tr>
+
+                                }
+                            }
+
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body" id="message">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="hr-style" />
+    <div class="row"></div>
+    @if (Model.TrackDealStatusList.Count() > 0)
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="vertical-align: middle;">
+                            Tracking ID
+                        <th class="text-center" style="vertical-align: middle;">
+                            Status
+                        </th>
+                        <th class="text-center" style="vertical-align: middle;">
+                            Contingencies
+                        </th>
+                        <th class="text-center" style="vertical-align: middle;">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.TrackDealStatusList)
+                    {
+                        <tr>
+                            @if (item.TrackingID != "")
+                            {
+                                <td class="text-center">
+                                    @item.TrackingID
+                                </td>
+                                <td class="text-center">
+                                    @item.Status
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="text-center">
+                                    <label>Not Available</label>
+                                </td>
+
+                            }
+
+                            @if (item.IsContingencies == true)
+                            {
+
+
+                                if (item.IsApplicable == true)
+                                {
+                                    <td class="text-center">
+                                        <label>Yes/Applied</label>
+                                    </td>
+
+                                }
+                                else
+                                {
+                                    <td class="text-center">
+                                        <label>Yes/Not Applied</label>
+                                    </td>
+                                }
+
+                            }
+                            else
+                            {
+                                <td class="text-center">
+                                    <label>Not Applicable</label>
+                                </td>
+                            }
+
+                            <td class="text-center" style="width: 70px;">
+                                <div style="float: right;">
+                                    <div style="float:left; padding-right: 10px;">
+                                        <form method="post" action="@Url.Action("RemoveDeal", "Agent")" data-JB-ajax="true" data-kw-target="#DataGrid">
+                                            @Html.AntiForgeryToken()
+                                            <a href="@Url.Action("RemoveDeal", new {TrackingID = item.TrackingID,Email=item.Email,StatusID=item.StatusID,ClientID=item.ClientID , TransactionID =item.TransactionID})" class="delete btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                                Remove
+                                            </a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <h3>No Records Found...</h3>
+    }
+
+    @if (Model.TrackDealStatusList.Count() > 0)
+    {
+        <div style="margin-top: 15px;">
+            <div class="box-footer well well-sm col-md-12 col-lg-12 text-right">
+                @Html.ActionLink("Previous", "Index", new { Email = @Model.UserInfo.Email }, new { @class = "btn btn-default pull-left" })
+                @Html.ActionLink("Next", "UploadDealDocument", new { Email = @Model.UserInfo.Email }, new { @class = "btn btn-primary" })
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div style="margin-top: 15px;">
+            <div class="box-footer well well-sm col-md-12 col-lg-12 text-right">
+                @Html.ActionLink("Previous", "Index", new { Email = @Model.UserInfo.Email }, new { @class = "btn btn-default pull-left" })
+                @Html.ActionLink("Next", "UploadDealDocument", new { Email = @Model.UserInfo.Email }, new { @class = "btn btn-primary disabled" })
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    }
+
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            display: none;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + input[type="hidden"] + .slider,
+    input:checked + .slider {
+        background-color: #5ab6bd;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + input[type="hidden"] + .slider:before,
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+</style>

@@ -1,0 +1,83 @@
+﻿@model RealEstate.Entities.ViewModels.MultipleDealClientManageModel
+@{
+    ViewBag.Title = "Just BE | Concierge";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+}
+
+<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+
+            <div class="content-title">
+                <div class="content-title-inner">
+                    <div class="container">
+                        <h1>Concierge</h1>
+
+                    </div><!-- /.container -->
+                </div><!-- /.content-title-inner -->
+            </div><!-- /.content-title -->
+
+            <div class="page-header">
+                <h5>Access relevant resources related to your real estate journey.</h5>
+            </div>
+
+            <div class="content">
+                <div class="container">
+                    <!-- /.filter -->
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-lg-12">
+
+                            <div class="row">
+
+
+
+
+                                @if (Model.KeyInfoLinkList.Count() > 0)
+                                {
+                                    foreach (var item in Model.KeyInfoLinkList)
+                                    {
+
+                                        <div class="col-xl-6">
+                                            <div class="listing-row">
+                                                <div class="listing-row-inner">
+                                                    <div class="listing-row-image" style="background-image: url('../../../../Content/AppDashboard/assets/img/tmp/agency-1.jpg');">
+                                                    </div>
+                                                    <div class="listing-row-content">
+                                                        <h3>
+                                                            <a>@item.Title</a>
+                                                        </h3>
+                                                        <div class="listing-row-subtitle">
+
+                                                        </div><!-- /.listing-row-subtitle -->
+                                                        <ul class="listing-row-actions">
+                                                            <li><a href="@item.TourURL" target="_blank"><i class="fa fa-building"></i> View</a></li>
+
+                                                        </ul><!-- /.listing-row-actions -->
+                                                    </div><!-- /.listing-row-content -->
+                                                </div><!-- /.listing-row-inner -->
+                                            </div><!-- /.listing-row -->
+                                        </div>
+                                    }
+                                }
+                                <!-- /.pagination-wrapper -->
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div>
+
+
+

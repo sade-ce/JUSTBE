@@ -1,0 +1,297 @@
+﻿@model RealEstate.Entities.ViewModels.MstCalenderManageModel
+
+@{
+    ViewBag.Title = "EditEvent";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+    }
+}
+<link rel="stylesheet" href="https://www.jqwidgets.com/jquery-widgets-documentation/jqwidgets/styles/jqx.base.css" type="text/css" />
+<link href="https://justbere-d4d9.kxcdn.com/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<link href="https://justbere-d4d9.kxcdn.com/Content/Plugins/ColorPicker/bootstrap-colorpicker.min.css" rel="stylesheet" />
+<section class="content-header">
+    <h1>
+        Event Calendar(Edit Event)
+        <span class="pull-right"><a target="_blank" href="@Url.Action("List", "MyCalendar",new {ClientID=@Model.UserProfile.ClientID,AgentID=Model.AgentView.AgentID, @area = "Client" })">View Client Side</a></span>
+    </h1>
+</section>
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <div class="box-body">
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <div class="box-body box-profile" style="min-height: 277px;">
+
+                            @if (@Model.UserProfile.UserPhotoThumb == null || Model.UserProfile.UserPhotoThumb == "")
+                            {
+                                <img class="profile-user-img img-responsive img-circle" src="https://justbere-d4d9.kxcdn.com/img/NoImage.png" alt="User profile picture">
+
+                            }
+                            else
+                            {
+                                <img class="profile-user-img img-responsive img-circle" src="@Model.UserProfile.UserPhotoThumb" alt="User profile picture">
+
+                            }
+
+                            <h3 class="profile-username text-center">@Model.UserProfile.Name</h3>
+
+                            <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <b>Email: @Model.UserProfile.Email</b>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Phone: @Model.UserProfile.PhoneNumber</b>
+                                </li>
+                             
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        @using (Html.BeginForm("EditEvent", "Calendly", FormMethod.Post, new { @class = "form-horizontal", role = "form", @id = "myform" }))
+                        {
+                            @Html.HiddenFor(model => model.utblMstAppointment.Id)
+                            @Html.HiddenFor(model => model.utblMstAppointment.Email)
+                            @Html.HiddenFor(model => model.UserProfile.ClientID)
+                            @Html.HiddenFor(model => model.TransactionView.TransactionID)
+                            @Html.HiddenFor(model => model.AgentView.AgentID)
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true)
+                                <div class="form-group">
+                                 <label class = "control-label col-md-3 pull-left" >Transaction ID</label>
+                                
+                                    <div class="col-md-6">
+                                      
+                             <input type="text" value="@Model.TransactionView.TransactionID" readonly class = "form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.utblMstAppointment.Description, new { @class = "control-label col-md-3 pull-left" })
+                                    <div class="col-md-6">
+                                        @Html.DropDownListFor(model => model.utblMstAppointment.Description, new SelectList(Model.CalEvents, "EventText", "EventText"), "---Select Event---", new { @class = "form-control ddl-select2" })
+                                        @Html.ValidationMessageFor(model => model.utblMstAppointment.Description)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.utblMstAppointment.StartDate, new { @class = "control-label col-md-3 pull-left" })
+                                    <div class="col-md-6">
+
+                                        <div class='input-group date' id='datetimepicker1'>
+                                            @Html.TextBoxFor(model => model.utblMstAppointment.StartDate, new { @class = "form-control" })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.utblMstAppointment.StartDate)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.utblMstAppointment.EndDate, new { @class = "control-label col-md-3 pull-left" })
+                                    <div class="col-md-6">
+
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            @Html.TextBoxFor(model => model.utblMstAppointment.EndDate, new { @class = "form-control" })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.utblMstAppointment.EndDate)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.utblMstAppointment.color, new { @class = "control-label col-md-3 pull-left" })
+                                    <div class="col-md-6">
+                                        <div id="cp2" class="input-group colorpicker-component">
+                                            @Html.TextBoxFor(model => model.utblMstAppointment.color, new { @class = "form-control" })
+                                            <span class="input-group-addon">
+                                                <select id="colorselector">
+                                                    <option value="106" data-color="#A0522D">sienna</option>
+                                                    <option value="47" data-color="#CD5C5C" >indianred</option>
+                                                    <option value="87" data-color="#FF4500">orangered</option>
+                                                    <option value="15" data-color="#DC143C">crimson</option>
+                                                    <option value="24" data-color="#FF8C00">darkorange</option>
+                                                    <option value="78" data-color="#C71585">mediumvioletred</option>
+                                                </select>
+                                            </span>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.utblMstAppointment.color)
+                                    </div>
+                                </div>
+
+                                @*<div class="form-group">
+                                    @Html.LabelFor(model => model.utblMstAppointment.IsContingency, new { @class = "control-label col-md-3 pull-left" })
+                                    <div class="col-md-6">
+
+                                        <label class="switch">
+                                            @Html.CheckBoxFor(model => model.utblMstAppointment.IsContingency, new { @class = "Chk-box", @checked = "checked" })
+                                            <span class="slider round"></span>
+                                        </label>
+                                        @Html.ValidationMessageFor(model => model.utblMstAppointment.IsContingency)
+                                    </div>
+                                </div>*@
+
+                                <div class="form-group">
+                                    <div class="col-md-5 pull-right">
+                                        <input type="submit" value="Save" id="save" class="btn btn-primary col-md-4" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+
+
+
+
+                </div>
+                @*<div>
+                    @Html.Partial("pvEventList", Model)
+                </div>*@
+
+                <div style="margin-top: 15px;">
+                    <div class="box-footer well well-sm col-md-12 col-lg-12 text-right">
+                        @Html.ActionLink("Finish", "ClientDetails", "DealAgent", new { ClientID = @Model.UserProfile.ClientID, AgentID = Model.AgentView.AgentID }, new { @class = "btn btn-primary" })
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+@section Scripts{
+    <script src="https://justbere-d4d9.kxcdn.com/Scripts/moment.min.js"></script>
+    <script src="https://justbere-d4d9.kxcdn.com/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="http://www.jqwidgets.com/jquery-widgets-documentation/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="http://www.jqwidgets.com/jquery-widgets-documentation/jqwidgets/jqxcolorpicker.js"></script>
+    <script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ColorPicker/bootstrap-colorpicker.js"></script>
+ 
+    <link href="~/Scripts/bootstrap-colorselector.css" rel="stylesheet" />
+
+<script src="~/Scripts/bootstrap-colorselector.js"></script>
+    <script>
+        $(function () {
+            var colr = $("#utblMstAppointment_color").val();
+            console.log(colr);
+            $("#colorselector").colorselector("setColor", colr);
+
+        });
+    $('#colorselector').colorselector({
+          callback: function (value, color, title) {
+             // $("#colorValue").val(value);
+              $("#utblMstAppointment_color").val(color);
+             // $("#colorTitle").val(title);
+          }
+    });
+
+
+</script>
+    <script type="text/javascript">
+        $(function () {
+            $("#datetimepicker1").datetimepicker({
+                minDate: new Date("10/10/2016"),
+
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#datetimepicker2").datetimepicker({
+                minDate: new Date(),
+                useCurrent: false
+            });
+        });
+    </script>
+    <script>
+        $("#datetimepicker1").on("dp.change", function (e) {
+            $('#datetimepicker2').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker2").on("dp.change", function (e) {
+            $('#datetimepicker1').data("DateTimePicker").maxDate(e.date);
+        });
+    </script>
+
+    <script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+    </script>
+}
+
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            display: none;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + input[type="hidden"] + .slider,
+    input:checked + .slider {
+        background-color: #5ab6bd;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + input[type="hidden"] + .slider:before,
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+</style>
+

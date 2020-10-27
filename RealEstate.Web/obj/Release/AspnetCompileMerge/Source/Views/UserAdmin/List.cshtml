@@ -1,0 +1,59 @@
+﻿@model RealEstate.Web.Models.UserListViewModel
+
+@{
+    ViewBag.Title = "User Management";
+    ViewBag.ViewHeader = "List User";
+}
+
+@if(User.IsInRole("Admin"))
+{
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+}
+else if(User.IsInRole("Agent"))
+{
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+}
+<section class="content-header">
+    <h1>
+        System User
+        <small>List</small>
+    </h1>
+</section>
+<section class="content">
+    <div class="col-md-12">
+        <div class="well well-sm">
+            <div class="col-md-6 pull-left">
+                <form method="get" action="@Url.Action("list","useradmin")" data-otf-ajax="true" data-otf-target="#DataGrid">
+                    <div class="input-group">
+                        <input type="text" name="searchTerm" id="inputsearch" class="form-control" placeholder="Search by User Name/Email..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger pull-left" type="submit" value="Search By Name" id="search">Go!</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3 pull-right">
+                @Html.ActionLink(" Add User ", "create", null, new { @class = "btn btn-primary pull-right" })
+            </div>
+            @Html.ActionLink("Clear Results", "List", null, new { @class = "btn btn-primary", id = "clear" })
+            <div class="clearfix"></div>
+        </div>
+        @Html.Partial("pvUserList", Model)
+    </div>
+    <div class="col-md-12" style="display:none" id="allList">
+        <a href="@Url.Action("list","useradmin")">Show All Entries</a>
+    </div>
+</section>
+
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+@section Scripts
+{
+
+<script src="~/Scripts/CustomAjax.js"></script>
+ }
+

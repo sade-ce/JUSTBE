@@ -1,0 +1,225 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+
+<div id="t_t_document_grid" class="col-md-12">
+    <div class="row">
+        <div class="clearfix"></div>
+        <div id="accordion-doc">
+            <div class="panel panel-default t_t_panel">
+                <div class="panel-heading t_t_panelheading">
+                    <a data-toggle="collapse" data-parent="#accordion-doc" href="#collapseDoc"> Upload Deal Documents</a>
+                </div>
+                <div id="collapseDoc" class="panel-collapse collapse in">
+                    <div class="col-md-12 panel-body">
+
+
+                        @using (Html.BeginForm("UploadDealDocumentPV", "Agent", FormMethod.Post, new { enctype = "multipart/form-data", id = "docform" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal well well-sm ">
+                                @Html.ValidationSummary(true)
+                                @Html.HiddenFor(model => model.utblMstTrackDeal.TrackingID)
+                                @Html.HiddenFor(model => model.utblMstTrackDeal.Email)
+                                @Html.HiddenFor(model => model.utblMstTrackDeal.StatusID)
+                                @Html.HiddenFor(model => model.utblMstTrackDeal.ClientID)
+                                @Html.HiddenFor(model => model.utblMstTrackDeal.TransactionID)
+                                @Html.HiddenFor(model => model.TrackDealMasterView.AgentID)
+
+
+
+                                <a id="AnchorTag" href="#" data-toggle="modal" data-target="#myHelpModal" style="display:none"><span class="badge-help-link">?</span></a>
+                                <div class="box-body">
+                                    <div class="col-md-12 ">
+                                        <div class="form-group" style="margin-top:25px">
+                                            <label class="col-md-4 control-label">Buyer Document :</label>
+                                            <div class="col-md-6">
+                                                <div id="error" class="text-danger "></div>
+
+                                                @Html.DropDownListFor(model => model.utblMstTrackDealDoc.DocID, new SelectList(Model.MstBuyerDocList, "DocID", "Title"), "--- Select Document --- ", new { @class = "form-control ddl-select2 ", @required = "required" })
+                                                @Html.ValidationMessageFor(model => model.utblMstTrackDealDoc.DocID)
+                                            </div>
+                                            <div class="col-md-2">
+                                                @Html.ActionLink("Add new", "BuyerDoc", "Agent", new { @Email = Model.utblMstTrackDeal.Email, ClientID = Model.utblMstTrackDeal.ClientID, TransactionID = Model.utblMstTrackDeal.TransactionID }, new { data_modal = "", data_target = "addDoc", @class = "quick-enquiry btn btn-danger addnewdoc" })
+                                                @*<a id="btn-doc" class="btn btn-danger">Add new </a>*@
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:25px">
+                                            <label class="col-md-4 control-label">Choose File :</label>
+                                            <div class="col-md-6">
+                                                <input type="file" name="files" id="fu1" class="btn btn-default col-md-12 fu" required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:25px">
+                                            <div class="col-md-10">
+                                                <input type="submit" value="Upload" class="btn btn-primary pull-right" id="bCheck" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="progress pull-left" style="display: none;">
+                                                        <div class="progress-bar">0%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="text-left">
+                                                        <div id="status" class="text-danger"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel"></h4>
+                                        </div>
+                                        <div class="modal-body" id="message">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+
+                        <hr class="hr-style" />
+                        <div class="">
+                            @if (Model.MstBuyerDocumentListView.Count() > 0)
+                            {
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-condensed table-bordered">
+                                        <thead>
+                                            <tr>
+
+                                                <th class="text-center" style="vertical-align: middle;">
+                                                    Uploaded documents
+                                                </th>
+                                                <th class="text-center" style="vertical-align: middle;">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.MstBuyerDocumentListView)
+                                            {
+                                                <tr>
+                                                    @if (item.TrackDocFile != "")
+                                                    {
+                                                        <td class="text-center">
+                                                            <a href="~/UploadedFiles/TrackDeal/@item.DealTrackDocID@item.TrackDocFile" target="_blank">@item.Title</a>
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="text-center">
+                                                            <label>Not Available</label>
+                                                        </td>
+
+                                                    }
+                                                    <td class="text-center" style="width: 70px;">
+                                                        <div style="float: right;">
+                                                            <div style="float:left; padding-right: 10px;">
+                                                                <form method="post" action="@Url.Action("DeleteDocumentPV", "Agent")" data-doc-ajax="true">
+                                                                    @Html.Hidden("DealTrackDocID", item.DealTrackDocID)
+                                                                    @Html.AntiForgeryToken()
+                                                                    <a href="@Url.Action("DeleteDocumentPV", new { DealTrackDocID = item.DealTrackDocID,ClientID=Model.UserProfile.ClientID, TrackingID = item.TrackingID,Email=item.Email,TransactionID=item.TransactionID,AgentID=Model.TrackDealMasterView.AgentID })" class="delete btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                                                        Remove
+                                                                    </a>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                            else
+                            {
+                                <h3>No Document Uploaded...</h3>
+                            }
+                            @if (Model.ClientDealDocumentList.Count() > 0)
+                            {
+                                <div class="table-responsive" style="margin-top:20px">
+                                    <table class="table table-striped table-condensed table-bordered">
+                                        <thead>
+                                            <tr>
+
+                                                @*<th class="text-center" style="vertical-align: middle;">
+                                <p style="margin-left: -74px;">Client Deal Documents</p>
+                            </th>*@
+                                                <th class="text-center" style="vertical-align: middle;">
+                                                    Client Deal Documents
+                                                </th>
+                                                <th class="text-center" style="vertical-align: middle;">
+                                                    Action
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.ClientDealDocumentList)
+                                            {
+                                                <tr>
+                                                    @if (item.DocFile != "")
+                                                    {
+                                                        @*<td class="text-center" colspan="2">
+                                        <p style="margin-left: -74px;"><a href="~/UploadedFiles/TrackDeal/@item.DocFile" target="_blank">@item.Title</a></p>
+
+                                    </td>*@
+                                                        <td class="text-center">
+                                                            <a href="~/UploadedFiles/TrackDeal/@item.DocFile" target="_blank">@item.Title</a>
+
+                                                        </td>
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="text-center">
+                                                            <label>Not Available</label>
+                                                        </td>
+
+                                                    }
+                                                    <td class="text-center" style="width: 70px;">
+                                                        <div style="float: right;">
+                                                            <div style="float:left; padding-right: 10px;">
+                                                                <form method="post" action="@Url.Action("DeleteClientDocument", "Agent")" data-doc-ajax="true">
+                                                                    @Html.Hidden("DocId", item.ClientDocId)
+                                                                    @Html.AntiForgeryToken()
+                                                                    <a href="@Url.Action("DeleteClientDocument", new {DocId= item.ClientDocId,ClientID=Model.UserProfile.ClientID,Email=Model.UserProfile.Email,TransactionID=item.TransactionID,AgentID=Model.TrackDealMasterView.AgentID })" class="delete btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                                                        Remove
+                                                                    </a>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+

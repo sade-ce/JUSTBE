@@ -1,0 +1,18 @@
+﻿@model RealEstate.Entities.ViewModels.UserProfileViewModel
+@if (Model.UserPhotoThumb == null || Model.UserPhotoThumb == "")
+{
+    <div class="dashboard-user-image" style="background-image: url('../../../../img/profile_img.jpg');">
+    </div><!-- /.dashboar-user-image -->
+    <strong>Welcome, @Model.Name</strong>
+
+}
+
+else
+{
+    <div class="dashboard-user-image" style="background-image: url('@Model.UserPhotoThumb');">
+    </div><!-- /.dashboar-user-image -->
+    <strong>Welcome, @Model.Name</strong>
+
+}
+
+

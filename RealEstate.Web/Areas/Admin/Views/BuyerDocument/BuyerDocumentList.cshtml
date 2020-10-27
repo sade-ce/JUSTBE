@@ -1,0 +1,245 @@
+﻿@model RealEstate.Entities.ViewModels.MstBuyerDocumentManageModel
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstateNew.cshtml";
+}
+
+@using System.Security.Claims;
+<section class="wrapper adminContentWrapper">
+    <div class="topHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row flex-wrap">
+                    <div class="heading-wrap d-flex align-items-center justify-content-between">
+                        <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                        <h2>Buyer Documents</h2>
+                    </div>
+                    <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                        <div class="header-search-wrap">
+                            <!--<form class="form-inline my-2 my-lg-0">
+                              <input class="form-control mr-sm-2" type="search" placeholder="Serach by User Name or Email" aria-label="Search">
+                              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+                              <button class="btn btn-refresh" type="button" id="btnClear"><i class="material-icons">cached</i></button>
+                            </form>-->
+                        </div>
+                        <div class="account-wrap">
+                            <ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Hello, , @(((ClaimsIdentity)User.Identity).FindFirst("FirstCustomName").Value)
+                                        <div class="pro-pic"><img class="img-user-new" /></div>
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+                                        }
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-12 clients-list-section buyer-document-wrap">
+                    <div class="clients-list-inner document-listing">
+                        <div class="heading-wrap">
+                            <h3>Document List</h3>
+                            <button class="btn tealButton btnAdd" data-toggle="modal" data-target="#addBuyerDocumentModal">Add New</button>                        
+                          </div>
+                        @Html.Partial("pvBuyerDocList", Model)
+                 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade add-buyer-document-modal" id="addBuyerDocumentModal" tabindex="-1" role="dialog" aria-labelledby="addBuyerDocumentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addBuyerDocumentModalLabel">Add Buyer Document</h5>
+            </div>
+            <div class="modal-body">
+          @using (Ajax.BeginForm("Create", "BuyerDocument", null, new AjaxOptions() { HttpMethod = "POST" }, new {id = "myform" }))
+          {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                <label></label>
+                <label class="text-danger" id="lblError" style="display:none"></label>
+            </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        @Html.TextBoxFor(model => model.utblMstBuyerDocument.Title, new { @class = "form-control", id = "Status" })
+                   
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        @Html.TextAreaFor(model => model.utblMstBuyerDocument.Description, new { @class = "form-control", id = "Description" })
+                 
+                    </div>
+                    <div class="btn-wrap">
+                        <button type="submit" id="save" class="btn tealButton" onclick="return validate() ">Save</button>
+                     
+                        <button type="button" class="btn greyButton" data-dismiss="modal" id="btnClear" >Close</button>
+
+
+                    </div>
+          }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade add-buyer-document-modal" id="editBuyerDocumentModal" tabindex="-1" role="dialog" aria-labelledby="editBuyerDocumentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editBuyerDocumentModalLabel">Edit Buyer Document</h5>
+            </div>
+            <div class="modal-body">
+                @using (Ajax.BeginForm("Edit", "BuyerDocument", null, new AjaxOptions() { HttpMethod = "POST" }, new { id = "myformedit" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div class="form-group">
+                        <label></label>
+                        <label class="text-danger" id="lbleditError" style="display:none"></label>
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        @Html.TextBoxFor(model => model.utblMstBuyerDocument.Title, new { @class = "form-control", id = "editStatus" })
+                        @Html.HiddenFor(model=>model.utblMstBuyerDocument.DocID,new {id="txtDocId" })
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        @Html.TextAreaFor(model => model.utblMstBuyerDocument.Description, new { @class = "form-control", id = "editDescription" })
+
+                    </div>
+                    <div class="btn-wrap">
+                        <button type="submit" id="save" class="btn tealButton" onclick="return validateedit() ">Save</button>
+
+                        <button type="button" class="btn greyButton" data-dismiss="modal" id="btnClear">Close</button>
+
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function validate() {
+        var isValid = true;
+        if ($('#Status').val().trim() == "") {
+            $('#Status').css('border', '1px solid #EB5757')
+            isValid = false;
+        }
+        else {
+            $('#Status').css('border', '1px solid #ced4da')
+        }
+
+        if ($('#Description').val().trim() == "") {
+            $('#Description').css('border', '1px solid #EB5757')
+            isValid = false;
+        }
+        else {
+            $('#Description').css('border', '1px solid #ced4da')
+        }
+
+
+        return isValid;
+    }
+
+    $(".btnAdd").click(function () {
+        $('#Status').css('border', '1px solid #ced4da')
+        $('#Description').css('border', '1px solid #ced4da')
+        $('#Status').val("")
+        $('#Description').val("")
+        $('#lblError').css('display', 'none')
+    });
+
+    $("#myform").submit(function (e) {
+        $("#ajaxLoading").css("display", "block");
+        $("#ajaxLoading").css("top", $(window).height() / 1.8);
+        $("#ajaxLoading").css("left", $(window).width() / 2);
+        $("#ajaxLoading").css("position", "fixed");
+        $("#ajax-backdrop").css("display", "block");
+    });
+
+
+
+
+    function validateedit() {
+        var isValid = true;
+        if ($('#editStatus').val().trim() == "") {
+            $('#editStatus').css('border', '1px solid #EB5757')
+            isValid = false;
+        }
+        else {
+            $('#editStatus').css('border', '1px solid #ced4da')
+        }
+
+        if ($('#editDescription').val().trim() == "") {
+            $('#editDescription').css('border', '1px solid #EB5757')
+            isValid = false;
+        }
+        else {
+            $('#editDescription').css('border', '1px solid #ced4da')
+        }
+
+
+        return isValid;
+    }
+
+
+
+    $("#myformedit").submit(function (e) {
+        $("#ajaxLoading").css("display", "block");
+        $("#ajaxLoading").css("top", $(window).height() / 1.8);
+        $("#ajaxLoading").css("left", $(window).width() / 2);
+        $("#ajaxLoading").css("position", "fixed");
+        $("#ajax-backdrop").css("display", "block");
+    });
+
+    //Function for getting the Data Based upon Document ID
+    function getdocumentByID(Id) {
+        $('#editStatus').css('border', '1px solid #ced4da')
+        $('#editDescription').css('border', '1px solid #ced4da')
+        $('#editStatus').val("")
+        $('#editDescription').val("")
+        $('#txtDocId').val("")
+        $('#lbleditError').css('display', 'none')
+        $.ajax({
+            url: "@Url.Action("Edit", "BuyerDocument",new {area="Admin" })",
+            data: {
+                DocID: Id,
+            },
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            $('#editStatus').val(result.Title);
+            $('#editDescription').val(result.Title);
+            $('#txtDocId').val(result.DocID)
+            $('#editBuyerDocumentModal').modal('show');
+        },
+        error: function (errormessage) {
+            $('#lbleditError').css('display','block');
+            $('#lbleditError').text('Sorry, Something went wrong. Please try again.');
+        }
+    });
+    return false;
+    }
+
+</script>

@@ -1,0 +1,83 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@if (User.IsInRole("Admin"))
+{
+    ViewBag.Title = "Error";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+    <section class="content">
+
+        <div class="error-page">
+            <h2 class="headline text-red">500</h2>
+
+            <div class="error-content">
+                <h3><i class="fa fa-warning text-red"></i> Oops! Something went wrong.</h3>
+
+                <p>
+                    We will work on fixing that right away.
+                    Meanwhile, you may <a href="@Url.Action("index","Home",new { Area=""})">return to dashboard</a>
+                </p>
+
+
+            </div>
+        </div>
+        <!-- /.error-page -->
+
+    </section>
+}
+else if (User.IsInRole("Agent"))
+{
+    ViewBag.Title = "Error";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+    <section class="content">
+
+        <div class="error-page">
+            <h2 class="headline text-red">500</h2>
+
+            <div class="error-content">
+                <h3><i class="fa fa-warning text-red"></i> Oops! Something went wrong.</h3>
+
+                <p>
+                    We will work on fixing that right away.
+                    Meanwhile, you may <a href="@Url.Action("index","Home",new { Area=""})">return to dashboard</a>
+                </p>
+
+
+            </div>
+        </div>
+        <!-- /.error-page -->
+
+    </section>
+}
+else
+{
+    <div class="parallax margin-bottom-70" data-color="#36383e" data-color-opacity="0.7" data-img-width="800" data-img-height="505" style="background-image: url(&quot;images/listings-parallax.jpg&quot;); background-attachment: fixed; background-size: 1349px 851.556px; background-position: 50% -174.311px;">
+        <div class="parallax-overlay" style="background-color: rgb(54, 56, 62); opacity: 0.7;"></div>
+
+        <!-- Infobox -->
+        <div class="text-content white-font">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-6 col-sm-8">
+                        <h2>UH OH, Something Went Wrong</h2>
+                        <p>We're going to fix it up and have things back to normal soon</p>
+                        <a href="@Url.Action("index","Home",new { Area=""})" class="button margin-top-25">Go Back Home</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Infobox / End -->
+
+    </div>
+}
+
+
+
+<style>
+    .parallax-overlay
+    {
+        height:114%;
+    }
+</style>

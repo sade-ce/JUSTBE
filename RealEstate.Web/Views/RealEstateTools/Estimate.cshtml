@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | Estimate";
+    Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+
+}
+
+<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+            <div class="content-title">
+                <div class="content-title-inner">
+                    <div class="container">
+                        <h1>Seller Net Proceeds Calculator</h1>
+
+                    </div><!-- /.container -->
+                </div><!-- /.content-title-inner -->
+            </div>
+
+            <div class="container">
+                <h2>What Will You Pocket?</h2>
+                <p>
+                    A complimentary tool designed for real estate
+                    agents and sellers.
+                </p>
+                <div class="filter filter-gray checkbox-light">
+                    <div class="search">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input id="myInput" type="text" placeholder="Search the data" class="form-control">
+                        </div><!-- /.form-group -->
+                    </div>
+                    <br><br>
+                    @Html.Raw(ViewBag.Html)
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #b9b5b5;
+        text-align: left;
+        padding: 8px;
+        font-size: 20px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("tbody tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>

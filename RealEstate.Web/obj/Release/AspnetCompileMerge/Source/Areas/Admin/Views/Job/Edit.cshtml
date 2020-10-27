@@ -1,0 +1,114 @@
+﻿@model RealEstate.Entities.ViewModels.AdminCareerManageModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+<link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+<section class="content-header">
+    <h1>
+        Job
+        <small>Create New </small>
+    </h1>
+</section>
+<section class="content">
+@using (Ajax.BeginForm("Edit", "Job", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "myform" }))
+{
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model=>model.utblMstJobPositions.JobID)
+            
+            <div class="box box-info">
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label">Select Department :</label>
+                            <br />
+                            <br />
+                            @Html.DropDownListFor(model => model.utblMstJobPositions.DepartmentID, new SelectList(Model.DepartmentDDL, "DepartmentID", "Position"), "--- Select Department --- ", new { @class = "form-control ddl-select2" })
+                            @Html.ValidationMessageFor(m => m.utblMstJobPositions.DepartmentID)
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label">End Date :</label>
+                            <br />
+                            <br />
+                            @Html.TextBoxFor(m => m.utblMstJobPositions.EndDate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.utblMstJobPositions.EndDate)
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="control-label">Job Content :</label>
+                            <div class="margin-bottom-10">
+                                @Html.TextAreaFor(m => m.utblMstJobPositions.JobContent, new { @id = "blogeditor", @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.utblMstJobPositions.JobContent)
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="well well-sm col-md-12 col-lg-12 text-right">
+            <div class="form-horizontal">
+                @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                <input type="submit" value="Save" id="save" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+</section>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+@section Scripts
+{
+    <script src="~/Content/Plugins/ckeditor/adapters/jquery.js" async></script>
+
+    <script src="~/Scripts/moment.min.js"></script>
+
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="~/Content/Plugins/ckeditor/ckeditor.js"></script>
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            CKEDITOR.replace("blogeditor", {
+                fullPage: true,
+                // Disable content filtering because if you use full page mode, you probably
+                // want to  freely enter any HTML content in source mode without any limitations.
+                allowedContent: true,
+                height: 320, htmlEncodeOutput: true
+            });
+            CKEDITOR.config.removePlugins = 'save';
+
+        });
+</script>
+    
+
+
+    <script type="text/javascript">
+    $("#utblMstJobPositions_EndDate").datetimepicker({
+            format: "MM-DD-YYYY",
+            sideBySide: true,
+            minDate: new Date()
+        });
+    </script>
+
+<script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+</script>
+}
+
+
+
+

@@ -1,0 +1,128 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealRespondManageModel
+<div id="DataGrid" class="col-md-12">
+    <div class="col-md-12">
+        @using (Ajax.BeginForm("Respond", "LiveDeal", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.MstClientRespondView.TrackingID)
+
+                <a id="AnchorTag" href="#" data-toggle="modal" data-target="#myHelpModal" style="display:none"><span class="badge-help-link">?</span></a>
+
+                <div class="submit-section">
+                    <div class="col-md-12">
+                        <div class="col-md-10 ">
+                            <div class="dropzone">
+                                <input type="file" name="files" id="fu1" class="dropzone margin-top-25" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-2 margin-top-35">
+                            <input type="submit" value="Upload" class="button" id="bCheck" />
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        }
+    </div>
+
+    <hr class="hr-style" />
+    <div class="row"></div>
+    @if (Model.DocList.Count() > 0)
+    {
+        <div class="col-md-11 margin-top-10">
+            <div class="clearfix"></div>
+            <table class="manage-table responsive-table">
+                <tr>
+                    <th><i class="fa fa-file-text"></i> File</th>
+                    <th style="text-align:right"><i class="fa fa-file-text"></i> Action</th>
+
+                </tr>
+
+
+
+                @foreach (var item in Model.DocList)
+                {
+                    <tr>
+                        @if (item.TrackDocFile != "")
+                        {
+                            <td>
+                                <div class="title">
+                                    <h4><a href="~/UploadedFiles/ClientTrackDeal/@item.ClientTrackDocID@item.TrackDocFile" target="_blank">View/Download</a></h4>
+                                </div>
+                            </td>
+
+                        }
+                        else
+                        {
+                            <td class="text-center">
+                                <div class="title">
+                                    <h4>N/A</h4>
+                                </div>
+                            </td>
+
+                        }
+                        <td class="text-center" style="width: 70px;">
+                            <div style="float: right;">
+                                <div style="float:left; padding-right: 10px;">
+                                    <form method="post" action="@Url.Action("DeleteClientDocument", "LiveDeal")" data-kw-ajax="true" data-kw-target="#DataGrid">
+                                        @Html.Hidden("ClientTrackDocID", item.ClientTrackDocID)
+                                        @Html.AntiForgeryToken()
+                                        <a href="@Url.Action("DeleteClientDocument", new { ClientTrackDocID = item.ClientTrackDocID, TrackingID = item.TrackingID })" class="delete btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                            Remove
+                                        </a>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    }
+    else
+    {<div class="container"></div>
+      <div class="submit-page">
+            <h3>No Document Uploaded...</h3>
+          <hr />
+        </div>
+    }
+    <div style="margin-top: 15px;">
+        <div class="box-footer well well-sm col-md-12 col-lg-12 text-right">
+            @*@Html.ActionLink("Previous", "Edit", new { NewsEventID = @Model.utblMstTrackDeal.TrackingID }, new { @class = "btn btn-default pull-left" })*@
+
+            <div class="divider"></div>
+
+        </div>
+
+        <div class="col-md-6 col-lg-offset-5">
+            <h4 class="headline margin-top-0 margin-bottom-30"></h4>
+            <p>
+
+                <a href="~/Client/Livedeal/Status" class="button medium border pull-right"><i class="fa fa-arrow-circle-right"></i> Finish</a>
+            </p>
+        </div>
+        <div class="divider"></div>
+        <div class="clearfix margin-bottom-100"></div>
+
+    </div>
+
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+<style>
+    button.button, input[type="button"], input[type="submit"], a.button.border, a.button {
+        padding: 2px 28px 4px 24px;
+    }
+</style>

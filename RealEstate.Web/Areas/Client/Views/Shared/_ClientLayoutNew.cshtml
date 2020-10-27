@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/NewVersion/css/style.css">
+    <link rel="stylesheet" href="~/Content/NewVersion/css/style1.css">
+    <link rel="stylesheet" href="~/Content/NewVersion/fonts/flaticon.css">
+
+    <link rel="stylesheet" href="~/Content/AppDashboard/assets/css/leaflet.markercluster.default.css">
+    <link href="~/Content/NewVersion/css/newboot.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css ">*@
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    @if ((ViewBag.ViewHeader == "Edit Your Profile" || ViewBag.ViewHeader == "Change Password") && (User.IsInRole("Agent") || User.IsInRole("Admin"))) { }
+    else
+    {
+    <!-- HEADER START -->
+        <header>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="flex-lg-column navbar navbar-expand-lg">
+                            <a class="navbar-brand position-relative" href="@Url.Action("Brand", "Home", new { area = "" })">
+                                <img src="~/Content/NewVersion/images/logo.png" alt="logo" class="img-fluid">
+                            </a>
+                            <div class="d-flex">
+                                <!-- <div class="profile-img d-md-none"> -->
+                                    <!-- <img  alt="profile-img"  class="profileimg"> -->
+                                <!-- </div> -->
+								 <div class="profileImgtop d-md-none mr20" style="background-size: cover; background-position: center;   height:50px;">
+					
+									</div>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-content"
+                                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <img src="~/Content/NewVersion/images/ham.png" alt="">
+                                </button>
+                            </div>
+                            @*<div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="flex-md-column ml-auto navbar-nav">
+                              
+
+
+
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false">Get Started</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item @(ViewBag.ActiveURL == "Welcome" ? "active" : "")" href="@Url.Action("Welcome", "JustBE", new { area = "Client" })"><i class="flaticon-house"></i>Welcome To Just BE</a>
+                                             <a class="dropdown-item @(ViewBag.ActiveURL == "FAQ" ? "active" : "")" href="@Url.Action("FAQ", "MyDeal", new { @area = "Client" })"><i class="flaticon-question"></i>FAQ's</a>
+                                        </div>
+                                    </li>
+                                    @{Html.RenderAction("CheckDeal", "JayBauerGroup", new { area = "Client" });}
+                                 
+                                    <li class="nav-item dropdown" >
+                                        <a class="nav-link dropdown-toggle " href="@Url.Action("Concierge", "MyDeal", new { @area = "Client" })" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false">Concierge</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            @{Html.RenderAction("CheckCalendar", "JayBauerGroup", new { area = "Client" });}
+                      
+                                            @{Html.RenderAction("AgentDDL", "JayBauerGroup", new { area = "Client" });}
+                                            <a class="dropdown-item @(ViewBag.ActiveURL == "Vendors" ? "active" : "")" href="@Url.Action("Vendors", "MyDeal", new { @area = "Client" })"><i class="flaticon-man-1"></i>Vendors</a>
+
+                                            <a class="dropdown-item d-none d-sm-block" href="#!"><i class="flaticon-calculator"></i>Calculators</a>
+                                            <a class="dropdown-item pl30 d-none d-sm-block @(ViewBag.ActiveURL == "NetProceeds" ? "active" : "")" href="@Url.Action("NetProceeds","Tools",new { @area="Client"})"><i class="flaticon-calculator"></i>Seller Net Proceeds</a>
+                                            <a class="dropdown-item pl30 d-none d-sm-block @(ViewBag.ActiveURL == "QuickQuote" ? "active" : "")" href="@Url.Action("QuickQuote","Tools",new { @area="Client"})"><i class="flaticon-calculator"></i>Buyer Closing Cost</a>
+
+                                            <a class="dropdown-item @(ViewBag.ActiveURL == "Concierge" ? "active" : "")" href="@Url.Action("Concierge","MyDeal",new { @area="Client"})"><i class="flaticon-teamwork"></i>Resources</a>
+                                        </div>
+                                    </li>
+                                   
+                                    <li class="nav-item dropdown hide-in-bgscr">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false">My Account</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item @(ViewBag.ActiveURL == "Notification" ? "active" : "")" href="@Url.Action("EmailPreferences", "Account", new { @area = "" })"><i class="flaticon-gear"></i>Notification Settings</a>
+                                            <a class="dropdown-item @(ViewBag.ActiveURL == "EditProfile" ? "active" : "")" href="@Url.Action("EditProfile", "Account", new { @area = "" })"><i class="flaticon-conversation"></i>Edit Profile</a>
+                                            <a class="dropdown-item @(ViewBag.ActiveURL == "ChangePassword" ? "active" : "")" href="@Url.Action("ChangePassword", "Account", new { @area = "" })"><i class="flaticon-password"></i>Change Password</a>
+                                          
+
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown hide-in-bgscr">
+            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+            }
+        </li>
+                                </ul>
+                            </div>*@
+
+
+
+
+                            <div class="collapse navbar-collapse" id="menu-content">
+
+
+
+                                <div class="nav-side-menu">
+                                    <div class="brand">Brand Logo</div>
+                                    <!-- <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target=""></i> -->
+
+                                    <div class="menu-list">
+
+                                        <ul id="menu-content" class="menu-content collapse out">
+
+
+                                            <li data-toggle="collapse" data-target="#getStarted" class="collapsed ">
+                                                <a href="#!"> Getting Started <span class="arrow"></span></a>
+                                            </li>
+                                            <ul class="sub-menu collapse" id="getStarted">
+                                                <li class="@(ViewBag.ActiveURL == "Welcome" ? "active" : "")">
+                                                    <a href="@Url.Action("Welcome", "JustBE", new { area = "Client" })"><i class="flaticon-house"></i>Welcome To Just BE</a>
+
+                                                <li class="@(ViewBag.ActiveURL == "FAQ" ? "active" : "")">
+                                                    <a href="@Url.Action("FAQ", "MyDeal", new { @area = "Client" })"><i class="flaticon-question"></i>FAQ's</a>
+                                            </ul>
+
+
+                                     
+                                            @{Html.RenderAction("CheckDeal", "JayBauerGroup", new { area = "Client" });}
+
+                                            <li data-toggle="collapse" data-target="#myConcierge" class="collapsed">
+                                                <a href="#">Concierge <span class="arrow"></span></a>
+                                            </li>
+
+                                            <ul class="sub-menu collapse" id="myConcierge">
+                                                @{Html.RenderAction("CheckCalendar", "JayBauerGroup", new { area = "Client" });}
+
+                                                @{Html.RenderAction("AgentDDL", "JayBauerGroup", new { area = "Client" });}
+
+                                                <li class="@(ViewBag.ActiveURL == "Vendors" ? "active" : "")">
+                                                    <a href="@Url.Action("Vendors", "MyDeal", new { @area = "Client" })"><i class="flaticon-man-1"></i>Vendors</a>
+
+                                                </li>
+
+                                                <li class="collapsed d-none d-md-block d-lg-block" data-toggle="collapse" data-target="#myCalculators">
+                                                    <a href="#"><i class="flaticon-calculator"></i>Calculators <span class="arrow"></span></a>
+                                                </li>
+                                                <ul class="sub-menu collapse" id="myCalculators">
+                                                    <li class="@(ViewBag.ActiveURL == "NetProceeds" ? "active" : "") find-super"><a class="" href="@Url.Action("NetProceeds","Tools",new { @area="Client"})"> <span class="enterBix">↳</span>Seller Net Proceeds</a></li>
+
+                                                    <li class="@(ViewBag.ActiveURL == "QuickQuote" ? "active" : "") find-super"><a class="" href="@Url.Action("QuickQuote","Tools",new { @area="Client"})"> <span class="enterBix">↳</span>Buyer Closing Cost</a></li>
+
+                                                </ul>
+
+
+                                                <li class="@(ViewBag.ActiveURL == "Concierge" ? "active" : "")"><a class="" href="@Url.Action("Index","Resources",new { @area="Client"})"><i class="flaticon-teamwork"></i>Resources</a></li>
+
+
+                                                @*<li class="@(ViewBag.ActiveURL == "Concierge" ? "active" : "")"><a class="" href="@Url.Action("Concierge","MyDeal",new { @area="Client"})"><i class="flaticon-teamwork"></i>Resources</a></li>*@
+
+
+                                            </ul>
+                                            <li data-toggle="collapse" data-target="#myAccount" class="collapsed hide-in-bgscr">
+                                                <a href="#!"> My Account <span class="arrow"></span></a>
+                                            </li>
+                                            <ul class="sub-menu collapse hide-in-bgscr" id="myAccount">
+                                                <li class="@(ViewBag.ActiveURL == "Notification" ? "active" : "")"><a class="" href="@Url.Action("EmailPreferences", "Account", new { @area = "" })"> <i class="flaticon-gear"></i>Notification Settings</a></li>
+
+                                                <li class="@(ViewBag.ActiveURL == "EditProfile" ? "active" : "")"><a class="" href="@Url.Action("EditProfile", "Account", new { @area = "" })"> <i class="flaticon-conversation"></i>Edit Profile</a></li>
+
+                                                <li class="@(ViewBag.ActiveURL == "ChangePassword" ? "active" : "")"><a class="" href="@Url.Action("ChangePassword", "Account", new { @area = "" })"> <i class="flaticon-password"></i>Change Password</a></li>
+
+                                            </ul>
+
+                                            <li class="nav-item d-block d-xs-block d-sm-block d-md-block d-lg-none">
+                                    @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="flaticon-logout"></i>Logout</a>
+
+                                    }
+                                </li>
+</ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <!-- HEADER END -->
+                                                }
+
+    @if ((ViewBag.ViewHeader == "Edit Your Profile" || ViewBag.ViewHeader == "Change Password") && (User.IsInRole("Agent") || User.IsInRole("Admin")))
+    {
+        <section class="wraper toggle">
+
+
+            @RenderBody()
+
+            @*@Scripts.Render("~/bundles/bootstrap")*@
+
+            <!-- FOOTER START -->
+            <footer class="text-center text-md-left">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p class="mb-0">© @System.DateTime.Now.Year created by Just BE. All rights reserved.</p>
+                        </div>
+                        <div class="col-md-5">
+                            <ul class="d-flex flex-wrap justify-content-center justify-content-md-end list-unstyled m-0 mt-4 mt-md-0 p-0">
+                                <li><a href="@Url.Action("Terms", "Legal", new { @area = "" })">Privacy</a></li>
+                                <li><a href="@Url.Action("Terms", "Legal", new { @area = "" })">Terms & Conditions</a></li>
+                                <li><a href="@Url.Action("Contact", "Home", new { @area = "" })">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- FOOTER END -->
+
+        </section>}
+    else
+    {
+        <section class="wraper">
+
+
+            @RenderBody()
+
+            @*@Scripts.Render("~/bundles/bootstrap")*@
+
+            <!-- FOOTER START -->
+            <footer class="text-center text-md-left">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p class="mb-0">© @System.DateTime.Now.Year created by Just BE. All rights reserved.</p>
+                        </div>
+                        <div class="col-md-5">
+                            <ul class="d-flex flex-wrap justify-content-center justify-content-md-end list-unstyled m-0 mt-4 mt-md-0 p-0">
+                                <li><a href="@Url.Action("Terms", "Legal", new { @area = "" })">Privacy</a></li>
+                                <li><a href="@Url.Action("Terms", "Legal", new { @area = "" })">Terms & Conditions</a></li>
+                                <li><a href="@Url.Action("Contact", "Home", new { @area = "" })">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- FOOTER END -->
+
+        </section>
+    }
+    <!-- WRAPER END -->
+    @*<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>*@
+    <script src="~/Content/NewVersion/js/jquery-3.1.1.min.js"></script>
+    <script src="~/Content/NewVersion/js/popper.min.js"></script>
+    <script src="~/Content/NewVersion/js/bootstrap.min.js"></script>
+    <script src="~/Content/NewVersion/js/custom.js"></script>
+
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com/{0}'></script>",
+    "~/bundles/ClientDash")
+
+    @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com/{0}'></script>",
+    "~/bundles/app")
+
+    @*@Scripts.Render("~/bundles/ClientDash")
+        @Scripts.Render("~/bundles/app")*@
+
+
+
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.img-user').attr('src', $('#user-img').attr('src'));
+            //   $(".img-fluid").addClass('abc');
+            //  $(".img-fluid").attr('src', "../../../../img/profile_img.jpg");
+
+            //jQuery(function () {
+            //    var url = window.location.pathname;
+            //    urlRegExp = new RegExp(url.replace(/\/$/, '') + "$");
+            //    var IsActivated = false;
+
+            //    $('#sidebar a').each(function () {
+            //        $(this).removeClass("active");
+            //        if ($(this).attr('href').toUpperCase() == $("#ActiveURL").data("value").toUpperCase()) {
+            //            $(this).addClass('show open')
+            //        }
+
+            //        if ($("#ActiveURL").data("value").toUpperCase() == '/CLIENT/MYDEAL/MYAGENT') {
+            //            $("#Agent").addClass('active');
+            //        }
+                   
+                   
+
+            //    });
+               
+                if ($("#ActiveURL").data("value").toUpperCase() == 'CALENDARLIST') {
+
+                    $(".check-calendar").addClass('active');
+                }
+              
+                if ($("#ActiveURL").data("value").toUpperCase() == 'DEALLIST') {
+
+                    $(".check-deal").addClass('active');
+                }
+                if ($("#ActiveURL").data("value").toUpperCase() == 'DEALAGENTLISTJAY') {
+
+                    $(".check-agentJay").addClass('active');
+                }
+                if ($("#ActiveURL").data("value").toUpperCase().substr(0,13) == 'DEALAGENTLIST') {
+                    var agentname = getParameterByName('AgentName');
+                    if (agentname != null) {
+                        var classname = "check-" + agentname.replace(' ', '')
+                    }
+                   
+                    $("." + classname).addClass('active');
+                }
+                $(".active").parent(".sub-menu").parent("li").addClass("show open");
+                $(".active").parent(".sub-menu").addClass("show");
+            //$(".active").parent(".dropdown-menu").prev(".nav-link").attr("expanded", "true");
+
+                $(".active.find-super").parent('.sub-menu').parent(".sub-menu").addClass("show");
+             
+            //    $(".active.find-super").parent('.sub-menu').parent(".sub-menu").attr("expanded", "true");
+            });
+
+  
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+    </script>
+    <span class="beta" title="We are excited to see you on our website & experience the technology we are building to serve you better. Please remember this is work in progress, and all features may not be fully tested.">Beta Version<span></span></span>
+
+
+</body>
+</html>
+<script>
+    $(function () {
+        //  $(".profileimg").attr('src', "../../../../img/profile_img.jpg");
+        GetProfileImage();
+
+    });
+    function GetProfileImage() {
+
+
+
+        $.ajax({
+            url: "/MyDeal/GetProfileImage/",
+            typr: "GET",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                if (result != "") {
+                    // alert(1)
+                    //$(".profileimg").attr('src', result);
+                    $(".profileImgtop").css('background-image', 'url(' + result + ')');
+                 
+                }
+                else {
+                    // alert(2)
+                   // $(".profileimg").attr('src', "../../../../img/profile_img.jpg");
+                    $(".profileImgtop").css('background-image', 'url(../../../../img/profile_img.jpg)');
+                }
+
+            },
+            error: function (errormessage) {
+                console.log(errormessage)
+            }
+        });
+        return false;
+    }
+
+</script>
+<input type="hidden" id="ActiveURL" data-value="@ViewBag.ActiveURL" />
+
+
+<div class="panel panel-primary text-center ajax-new-load" id="ajaxLoading" >
+    <div class="panel-heading">Loading data</div>
+    <div class="panel-body" style="padding-left: 30px; padding-right: 30px;">
+        <img src="~/img/loading.gif" alt="Loading" style="margin-bottom: 10px" /><br />
+        Please wait...
+    </div>
+</div>
+<div id="ajax-backdrop" class="fade in" style="background-color: rgb(0, 0, 0); bottom: 0px; left: 0px; position: fixed; right: 0px; top: 0px; z-index: 10000; opacity: 0.4; display: none;"></div>
+<div class="modal modal-styled" id="myErroMsgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModal()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myErroModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <h4 id="Msg"></h4>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10 text-right" style="padding-right: 0;">
+                    <input type="button" id="myErroMsgModalNoButton" class="btn btn-default btn-sm" data-dismiss="modal" onclick="CloseMyModal()" value="Cancel" />
+                    <input type="button" id="myErroMsgModalYesButton" value="Yes" class="btn btn-info btn-sm hidden" onclick="OkMyModal()" />
+                </div>
+            </div>
+            <input type="hidden" id="eventSender" name="name" value=" " />
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    body { padding-right: 0 !important }
+    .content {
+        min-height: 600px;
+    }
+
+    .pl {
+        text-align: center;
+    }
+
+    a.dropdown-item.pl30 {
+        padding-left: 46px !important;
+    }
+
+        .ajax-new-load{
+display: none;
+      box-shadow: rgb(0, 0, 0,0.3) 0px 0px 50px;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+
+    }
+
+</style>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>

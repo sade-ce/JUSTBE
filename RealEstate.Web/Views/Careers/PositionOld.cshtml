@@ -1,0 +1,57 @@
+﻿@model RealEstate.Entities.ViewModels.MstCareerManageModel
+
+@{
+    ViewBag.Title = "Just BE | Jobs";
+    Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+}
+
+<div id="titlebar" style="margin-bottom: 20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h2>@Model.Career.Position</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="blog-post single-post">
+                    <div class="post-content">
+                        <div class="">
+                            @Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.Career.JobContent))
+
+                        </div>
+
+                        <div class="notice large margin-bottom-55 agent-contact-details">
+                            <h4>Ready to apply?</h4>
+
+                            <p class="text-justify">
+                                We ask all applicants for all positions to take a short version of a DISC personality profile test to give us a better idea of who you are.
+                                <a href="https://www.tonyrobbins.com/disc/" class="margin-top-20" target="_blank">Click Here</a>
+                                to take the test and attach the entire PDF to your resume!
+                            </p>
+                            <ul class="agent-contact-details">
+                                <li style="margin-left:0px"><i class="fa fa-envelope-o "></i><a href="mailto:jay@jaybauergroup.com">Send Us Your Resume & Your DISC!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+<style>
+    .blog-page .blog-post {
+    margin: 0px 0px 45px 0px;
+}
+    body {
+    color: #000000;
+}
+    
+</style>

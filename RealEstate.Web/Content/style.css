@@ -1,0 +1,23 @@
+
+body { margin: 0px;  background: url(../img/abstract.jpg); background-repeat: repeat; background-size: cover; font-family: 'Open Sans', sans-serif;}
+.mainContainer h2 {
+    /* background: #fff; */
+    text-align: center;
+    padding: 10px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: #fff;
+}
+.mainContainer {display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+    align-items: center; height: 100vh;}
+.mainContainer .btn { font-weight: bold; width: 100%;}
+.mainContainer .form-control { border: 1px solid #fff;
+    border-radius: 0px;
+    margin-bottom: 15px;
+}
+.bgColor {
+    background: rgba(0,0,0,.7);
+    padding: 15px;
+}

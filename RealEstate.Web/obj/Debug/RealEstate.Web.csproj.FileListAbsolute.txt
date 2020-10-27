@@ -1,0 +1,2561 @@
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\ApplicationInsights.config
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\csc.exe
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\vbc.exe
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Web.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DHTMLX.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\EntityFramework.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Owin.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Services.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Razor.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\WebGrease.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DHTMLX.pdb
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DHTMLX.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Razor.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\EntityFramework.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.Auth.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.Auth.PlatformServices.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.Core.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.PlatformServices.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.Auth.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.Calendar.v3.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.Core.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Newtonsoft.Json.Net35.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.Core.UI.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.InfoCard.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.InfoCard.UI.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Common.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.ServiceProvider.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.AuthorizationServer.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.Client.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.Client.UI.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.ClientAuthorization.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.ResourceServer.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.Provider.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.Provider.UI.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.UI.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.UI.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenIdInfoCard.UI.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenIdOAuth.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Net.Http.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Mono.Math.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.Core.UI.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.InfoCard.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.InfoCard.UI.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Common.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.ServiceProvider.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.AuthorizationServer.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.Client.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.Client.UI.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.ClientAuthorization.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth2.ResourceServer.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.Provider.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.Provider.UI.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.UI.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.UI.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenIdInfoCard.UI.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenIdOAuth.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Net.Http.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\Mono.Math.xml
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\backup site.capitalhillvalues.com\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\ApplicationInsights.config
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\csc.exe
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\vbc.exe
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Web.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DHTMLX.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\EntityFramework.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Owin.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Services.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Net.Http.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Razor.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\WebGrease.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DHTMLX.pdb
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DHTMLX.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Net.Http.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.Razor.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\EntityFramework.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Yelp.Api.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Yelp.Api.pdb
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Twilio.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Twilio.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Mono.Math.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Mono.Math.xml
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\backup1 jaybauer\Very Updated\JayBauerGroup\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BE\RealEstate.Web\bin\ApplicationInsights.config
+F:\BE\RealEstate.Web\bin\roslyn\csc.exe
+F:\BE\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BE\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BE\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BE\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BE\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BE\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BE\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BE\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BE\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BE\RealEstate.Web\bin\DHTMLX.dll
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BE\RealEstate.Web\bin\EntityFramework.dll
+F:\BE\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BE\RealEstate.Web\bin\Google.Apis.dll
+F:\BE\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BE\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BE\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BE\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BE\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BE\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BE\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BE\RealEstate.Web\bin\Owin.dll
+F:\BE\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BE\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BE\RealEstate.Web\bin\System.Net.Http.dll
+F:\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BE\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BE\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BE\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BE\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BE\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BE\RealEstate.Web\bin\Twilio.dll
+F:\BE\RealEstate.Web\bin\WebGrease.dll
+F:\BE\RealEstate.Web\bin\Yelp.Api.dll
+F:\BE\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BE\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BE\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BE\RealEstate.Web\bin\Mono.Math.dll
+F:\BE\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BE\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BE\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BE\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BE\RealEstate.Web\bin\DHTMLX.pdb
+F:\BE\RealEstate.Web\bin\DHTMLX.xml
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BE\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BE\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BE\RealEstate.Web\bin\System.Net.Http.xml
+F:\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BE\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BE\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BE\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BE\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BE\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BE\RealEstate.Web\bin\Twilio.xml
+F:\BE\RealEstate.Web\bin\EntityFramework.xml
+F:\BE\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BE\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BE\RealEstate.Web\bin\Mono.Math.xml
+F:\BE\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BE\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BE\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\ApplicationInsights.config
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\csc.exe
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\vbc.exe
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\RealEstate.Web.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DHTMLX.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\EntityFramework.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Google.Apis.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Owin.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\RealEstate.Services.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Net.Http.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.Razor.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Twilio.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\WebGrease.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Yelp.Api.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Mono.Math.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Yelp.Api.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DHTMLX.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DHTMLX.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Net.Http.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.Razor.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Twilio.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\EntityFramework.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Mono.Math.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\LaxumanBackupHP\BE\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Hangfire.Core.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Hangfire.Core.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\LaxumanBackupHP\BE\RealEstate.Web\bin\Elmah.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\ApplicationInsights.config
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\csc.exe
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\vbc.exe
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Web.dll.config
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Web.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Web.pdb
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DHTMLX.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Elmah.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\EntityFramework.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\ExpressiveAnnotations.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Google.Apis.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\GoogleApiUtils.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Hangfire.Core.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Hangfire.SqlServer.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\HtmlAgilityPack.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.Web.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Contracts.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Newtonsoft.Json.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Owin.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Entities.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Services.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Net.Http.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Helpers.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Mvc.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Optimization.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Razor.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Twilio.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\WebGrease.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Yelp.Api.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Data.SqlServerCe.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Mono.Math.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\GoogleApiUtils.pdb
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Entities.pdb
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Services.pdb
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Yelp.Api.pdb
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DHTMLX.pdb
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DHTMLX.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\ExpressiveAnnotations.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Hangfire.Core.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Hangfire.SqlServer.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\HtmlAgilityPack.pdb
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\HtmlAgilityPack.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.Web.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Newtonsoft.Json.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Net.Http.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Helpers.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Mvc.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Optimization.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Razor.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Twilio.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\EntityFramework.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Mono.Math.xml
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+E:\BEOriginal-Sonika\BE\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+E:\BEOriginal-Sonika\BE\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BEOriginal-Sonika\BE\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BEOriginal-Sonika\BE\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\ApplicationInsights.config
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\csc.exe
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DHTMLX.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Elmah.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\EntityFramework.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Google.Apis.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Hangfire.Core.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Owin.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Net.Http.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Twilio.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\WebGrease.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Yelp.Api.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Data.SqlServerCe.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Mono.Math.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DHTMLX.pdb
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DHTMLX.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Hangfire.Core.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Net.Http.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Twilio.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\EntityFramework.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\Mono.Math.xml
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\BEOriginal-Sonika\BE\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\ApplicationInsights.config
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\csc.exe
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BEOriginal\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BEOriginal\BE\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BEOriginal\BE\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BEOriginal\BE\RealEstate.Web\bin\DHTMLX.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Elmah.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\EntityFramework.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Google.Apis.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Hangfire.Core.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Owin.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Net.Http.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Twilio.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\WebGrease.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Yelp.Api.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Data.SqlServerCe.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\Mono.Math.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BEOriginal\BE\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BEOriginal\BE\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BEOriginal\BE\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BEOriginal\BE\RealEstate.Web\bin\DHTMLX.pdb
+F:\BEOriginal\BE\RealEstate.Web\bin\DHTMLX.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Hangfire.Core.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\BEOriginal\BE\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Net.Http.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Twilio.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\EntityFramework.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\Mono.Math.xml
+F:\BEOriginal\BE\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\BEOriginal\BE\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\BEOriginal\BE\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BEOriginal\BE\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BEOriginal\BE\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\ApplicationInsights.config
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\csc.exe
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DHTMLX.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Elmah.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\EntityFramework.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Google.Apis.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Hangfire.Core.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Owin.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Net.Http.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Twilio.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\WebGrease.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Yelp.Api.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Mono.Math.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DHTMLX.pdb
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DHTMLX.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Hangfire.Core.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Net.Http.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Twilio.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\EntityFramework.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\Mono.Math.xml
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BE-Project\Latest\BE\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BE-Project\Latest\BE\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BE-17062019\BE\RealEstate.Web\bin\ApplicationInsights.config
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\csc.exe
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BE-17062019\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BE-17062019\BE\RealEstate.Web\bin\DHTMLX.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Elmah.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\EntityFramework.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Google.Apis.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Hangfire.Core.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Owin.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Net.Http.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Twilio.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\WebGrease.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Yelp.Api.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Data.SqlServerCe.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\Mono.Math.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BE-17062019\BE\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BE-17062019\BE\RealEstate.Web\bin\DHTMLX.pdb
+F:\BE-17062019\BE\RealEstate.Web\bin\DHTMLX.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Hangfire.Core.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\BE-17062019\BE\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Net.Http.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Twilio.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\EntityFramework.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\Mono.Math.xml
+F:\BE-17062019\BE\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\BE-17062019\BE\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\BE-17062019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BE-17062019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BE-17062019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\ApplicationInsights.config
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\csc.exe
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DHTMLX.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Elmah.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\EntityFramework.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Google.Apis.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Hangfire.Core.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Owin.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Net.Http.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Twilio.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\WebGrease.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Yelp.Api.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Mono.Math.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DHTMLX.pdb
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DHTMLX.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Hangfire.Core.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Net.Http.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Twilio.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\EntityFramework.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\Mono.Math.xml
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BE-Project\28-06-2019\BE-17062019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BE-02072019\BE\RealEstate.Web\bin\ApplicationInsights.config
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\csc.exe
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BE-02072019\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BE-02072019\BE\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BE-02072019\BE\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BE-02072019\BE\RealEstate.Web\bin\DHTMLX.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Elmah.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\EntityFramework.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Google.Apis.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Hangfire.Core.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Owin.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Net.Http.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Twilio.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\WebGrease.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Yelp.Api.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Data.SqlServerCe.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\Mono.Math.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BE-02072019\BE\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BE-02072019\BE\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BE-02072019\BE\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BE-02072019\BE\RealEstate.Web\bin\DHTMLX.pdb
+F:\BE-02072019\BE\RealEstate.Web\bin\DHTMLX.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Hangfire.Core.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\BE-02072019\BE\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Net.Http.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Twilio.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\EntityFramework.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\Mono.Math.xml
+F:\BE-02072019\BE\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\BE-02072019\BE\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\BE-02072019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BE-02072019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BE-02072019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\ApplicationInsights.config
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\csc.exe
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DHTMLX.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Elmah.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\EntityFramework.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Hangfire.Core.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Owin.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Net.Http.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Twilio.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\WebGrease.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Yelp.Api.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Mono.Math.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DHTMLX.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DHTMLX.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Hangfire.Core.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Net.Http.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Twilio.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\EntityFramework.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Mono.Math.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.Auth.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.Auth.PlatformServices.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.Core.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.PlatformServices.dll
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.Auth.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.Auth.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.xml
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.Core.pdb
+F:\BE-Project\22-07-2019\BE\RealEstate.Web\bin\Google.Apis.Core.xml
+E:\BE\RealEstate.Web\bin\ApplicationInsights.config
+E:\BE\RealEstate.Web\bin\roslyn\csc.exe
+E:\BE\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\BE\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\BE\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\BE\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\BE\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+E:\BE\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+E:\BE\RealEstate.Web\bin\roslyn\vbc.exe
+E:\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+E:\BE\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+E:\BE\RealEstate.Web\bin\RealEstate.Web.dll.config
+E:\BE\RealEstate.Web\bin\RealEstate.Web.dll
+E:\BE\RealEstate.Web\bin\RealEstate.Web.pdb
+E:\BE\RealEstate.Web\bin\DHTMLX.dll
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\BE\RealEstate.Web\bin\Elmah.dll
+E:\BE\RealEstate.Web\bin\EntityFramework.dll
+E:\BE\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+E:\BE\RealEstate.Web\bin\ExpressiveAnnotations.dll
+E:\BE\RealEstate.Web\bin\Google.Apis.Auth.dll
+E:\BE\RealEstate.Web\bin\Google.Apis.Auth.PlatformServices.dll
+E:\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+E:\BE\RealEstate.Web\bin\Google.Apis.Core.dll
+E:\BE\RealEstate.Web\bin\Google.Apis.dll
+E:\BE\RealEstate.Web\bin\Google.Apis.PlatformServices.dll
+E:\BE\RealEstate.Web\bin\GoogleApiUtils.dll
+E:\BE\RealEstate.Web\bin\Hangfire.Core.dll
+E:\BE\RealEstate.Web\bin\Hangfire.SqlServer.dll
+E:\BE\RealEstate.Web\bin\HtmlAgilityPack.dll
+E:\BE\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+E:\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+E:\BE\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\BE\RealEstate.Web\bin\Microsoft.AI.Web.dll
+E:\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+E:\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+E:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+E:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\BE\RealEstate.Web\bin\Microsoft.Contracts.dll
+E:\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+E:\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.dll
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+E:\BE\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\BE\RealEstate.Web\bin\Newtonsoft.Json.dll
+E:\BE\RealEstate.Web\bin\Owin.dll
+E:\BE\RealEstate.Web\bin\RealEstate.Entities.dll
+E:\BE\RealEstate.Web\bin\RealEstate.Services.dll
+E:\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\BE\RealEstate.Web\bin\System.Net.Http.dll
+E:\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+E:\BE\RealEstate.Web\bin\System.Web.Helpers.dll
+E:\BE\RealEstate.Web\bin\System.Web.Mvc.dll
+E:\BE\RealEstate.Web\bin\System.Web.Optimization.dll
+E:\BE\RealEstate.Web\bin\System.Web.Razor.dll
+E:\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+E:\BE\RealEstate.Web\bin\System.Web.WebPages.dll
+E:\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+E:\BE\RealEstate.Web\bin\Twilio.dll
+E:\BE\RealEstate.Web\bin\WebGrease.dll
+E:\BE\RealEstate.Web\bin\Yelp.Api.dll
+E:\BE\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.dll
+E:\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+E:\BE\RealEstate.Web\bin\System.Data.SqlServerCe.dll
+E:\BE\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+E:\BE\RealEstate.Web\bin\Mono.Math.dll
+E:\BE\RealEstate.Web\bin\GoogleApiUtils.pdb
+E:\BE\RealEstate.Web\bin\RealEstate.Entities.pdb
+E:\BE\RealEstate.Web\bin\RealEstate.Services.pdb
+E:\BE\RealEstate.Web\bin\Yelp.Api.pdb
+E:\BE\RealEstate.Web\bin\DHTMLX.pdb
+E:\BE\RealEstate.Web\bin\DHTMLX.xml
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+E:\BE\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\BE\RealEstate.Web\bin\ExpressiveAnnotations.xml
+E:\BE\RealEstate.Web\bin\Google.Apis.pdb
+E:\BE\RealEstate.Web\bin\Google.Apis.xml
+E:\BE\RealEstate.Web\bin\Google.Apis.Auth.pdb
+E:\BE\RealEstate.Web\bin\Google.Apis.Auth.xml
+E:\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.pdb
+E:\BE\RealEstate.Web\bin\Google.Apis.Calendar.v3.xml
+E:\BE\RealEstate.Web\bin\Google.Apis.Core.pdb
+E:\BE\RealEstate.Web\bin\Google.Apis.Core.xml
+E:\BE\RealEstate.Web\bin\Hangfire.Core.xml
+E:\BE\RealEstate.Web\bin\Hangfire.SqlServer.xml
+E:\BE\RealEstate.Web\bin\HtmlAgilityPack.pdb
+E:\BE\RealEstate.Web\bin\HtmlAgilityPack.xml
+E:\BE\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+E:\BE\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\BE\RealEstate.Web\bin\Microsoft.AI.Web.xml
+E:\BE\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+E:\BE\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+E:\BE\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\BE\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+E:\BE\RealEstate.Web\bin\Newtonsoft.Json.xml
+E:\BE\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\BE\RealEstate.Web\bin\System.Net.Http.xml
+E:\BE\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+E:\BE\RealEstate.Web\bin\System.Web.Helpers.xml
+E:\BE\RealEstate.Web\bin\System.Web.Mvc.xml
+E:\BE\RealEstate.Web\bin\System.Web.Optimization.xml
+E:\BE\RealEstate.Web\bin\System.Web.Razor.xml
+E:\BE\RealEstate.Web\bin\System.Web.WebPages.xml
+E:\BE\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+E:\BE\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+E:\BE\RealEstate.Web\bin\Twilio.xml
+E:\BE\RealEstate.Web\bin\EntityFramework.xml
+E:\BE\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+E:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+E:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\BE\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.xml
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+E:\BE\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\BE\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+E:\BE\RealEstate.Web\bin\Mono.Math.xml
+E:\BE\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+E:\BE\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+E:\BE\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+E:\BE\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+E:\BE\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+E:\BE\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BE-09092019\RealEstate.Web\bin\ApplicationInsights.config
+F:\BE-09092019\RealEstate.Web\bin\roslyn\csc.exe
+F:\BE-09092019\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BE-09092019\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BE-09092019\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BE-09092019\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BE-09092019\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BE-09092019\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BE-09092019\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BE-09092019\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BE-09092019\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BE-09092019\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BE-09092019\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BE-09092019\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BE-09092019\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BE-09092019\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BE-09092019\RealEstate.Web\bin\DHTMLX.dll
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BE-09092019\RealEstate.Web\bin\Elmah.dll
+F:\BE-09092019\RealEstate.Web\bin\EntityFramework.dll
+F:\BE-09092019\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BE-09092019\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.Auth.dll
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.Auth.PlatformServices.dll
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.Core.dll
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.dll
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.PlatformServices.dll
+F:\BE-09092019\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BE-09092019\RealEstate.Web\bin\Hangfire.Core.dll
+F:\BE-09092019\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\BE-09092019\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BE-09092019\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BE-09092019\RealEstate.Web\bin\Owin.dll
+F:\BE-09092019\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BE-09092019\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BE-09092019\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BE-09092019\RealEstate.Web\bin\System.Net.Http.dll
+F:\BE-09092019\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BE-09092019\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BE-09092019\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BE-09092019\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BE-09092019\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BE-09092019\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BE-09092019\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BE-09092019\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BE-09092019\RealEstate.Web\bin\Twilio.dll
+F:\BE-09092019\RealEstate.Web\bin\WebGrease.dll
+F:\BE-09092019\RealEstate.Web\bin\Yelp.Api.dll
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BE-09092019\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BE-09092019\RealEstate.Web\bin\System.Data.SqlServerCe.dll
+F:\BE-09092019\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BE-09092019\RealEstate.Web\bin\Mono.Math.dll
+F:\BE-09092019\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BE-09092019\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BE-09092019\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BE-09092019\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BE-09092019\RealEstate.Web\bin\DHTMLX.pdb
+F:\BE-09092019\RealEstate.Web\bin\DHTMLX.xml
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BE-09092019\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BE-09092019\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.pdb
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.xml
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.Auth.pdb
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.Auth.xml
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.Calendar.v3.pdb
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.Calendar.v3.xml
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.Core.pdb
+F:\BE-09092019\RealEstate.Web\bin\Google.Apis.Core.xml
+F:\BE-09092019\RealEstate.Web\bin\Hangfire.Core.xml
+F:\BE-09092019\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\BE-09092019\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\BE-09092019\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BE-09092019\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BE-09092019\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BE-09092019\RealEstate.Web\bin\System.Net.Http.xml
+F:\BE-09092019\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BE-09092019\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BE-09092019\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BE-09092019\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BE-09092019\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BE-09092019\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BE-09092019\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BE-09092019\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BE-09092019\RealEstate.Web\bin\Twilio.xml
+F:\BE-09092019\RealEstate.Web\bin\EntityFramework.xml
+F:\BE-09092019\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BE-09092019\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BE-09092019\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BE-09092019\RealEstate.Web\bin\Mono.Math.xml
+F:\BE-09092019\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\BE-09092019\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\BE-09092019\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\BE-09092019\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BE-09092019\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BE-09092019\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\ApplicationInsights.config
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\csc.exe
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DHTMLX.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Elmah.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\EntityFramework.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.Auth.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.Auth.PlatformServices.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.Core.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.PlatformServices.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Hangfire.Core.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Owin.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Net.Http.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Twilio.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\WebGrease.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Yelp.Api.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Data.SqlServerCe.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Mono.Math.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DHTMLX.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DHTMLX.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.Auth.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.Auth.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.Calendar.v3.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.Calendar.v3.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.Core.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Google.Apis.Core.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Hangfire.Core.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Net.Http.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Twilio.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\EntityFramework.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\Mono.Math.xml
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BE-09092019 - Copy (2)\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BE-09092019 - Copy (2)\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\ApplicationInsights.config
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\csc.exe
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DHTMLX.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Elmah.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\EntityFramework.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.Auth.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.Auth.PlatformServices.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.Core.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.PlatformServices.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Hangfire.Core.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Owin.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Net.Http.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Twilio.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\WebGrease.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Yelp.Api.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Data.SqlServerCe.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Mono.Math.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DHTMLX.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DHTMLX.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.Auth.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.Auth.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.Calendar.v3.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.Calendar.v3.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.Core.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Google.Apis.Core.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Hangfire.Core.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Net.Http.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Twilio.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\EntityFramework.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\Mono.Math.xml
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BE-27012020 - WithoutVendor\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\ApplicationInsights.config
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\csc.exe
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\vbc.exe
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+F:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+F:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Web.dll.config
+F:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Web.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Web.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\DHTMLX.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Elmah.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\EntityFramework.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\ExpressiveAnnotations.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Auth.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Auth.PlatformServices.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Core.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.PlatformServices.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\GoogleApiUtils.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Hangfire.Core.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Hangfire.SqlServer.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\HtmlAgilityPack.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.Web.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Contracts.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Newtonsoft.Json.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Owin.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Entities.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Services.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Net.Http.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Helpers.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Mvc.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Optimization.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Razor.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Twilio.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\WebGrease.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Yelp.Api.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Data.SqlServerCe.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\Mono.Math.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\GoogleApiUtils.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Entities.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Services.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\Yelp.Api.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\DHTMLX.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\DHTMLX.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\ExpressiveAnnotations.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Auth.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Auth.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Calendar.v3.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Calendar.v3.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Core.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Core.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Hangfire.Core.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Hangfire.SqlServer.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\HtmlAgilityPack.pdb
+F:\BE-22052020-Latest\RealEstate.Web\bin\HtmlAgilityPack.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.Web.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Newtonsoft.Json.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Net.Http.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Helpers.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Mvc.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Optimization.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Razor.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Twilio.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\EntityFramework.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\Mono.Math.xml
+F:\BE-22052020-Latest\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+F:\BE-22052020-Latest\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+F:\BE-22052020-Latest\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+F:\BE-22052020-Latest\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+F:\BE-22052020-Latest\RealEstate.Web\obj\Debug\RealEstate.Web.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\ApplicationInsights.config
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\csc.exe
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\System.Collections.Immutable.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\System.Reflection.Metadata.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\vbc.exe
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\VBCSCompiler.exe
+E:\BE-22052020-Latest\RealEstate.Web\bin\roslyn\VBCSCompiler.exe.config
+E:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Web.dll.config
+E:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Web.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Web.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\DHTMLX.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.AspNet.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.Core.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OAuth.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OpenId.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Elmah.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\EntityFramework.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\EntityFramework.SqlServer.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\ExpressiveAnnotations.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Auth.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Auth.PlatformServices.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Calendar.v3.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Core.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.PlatformServices.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\GoogleApiUtils.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Hangfire.Core.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Hangfire.SqlServer.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\HtmlAgilityPack.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.Agent.Intercept.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.Web.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.WindowsServer.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.ApplicationInsights.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Contracts.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.IdentityModel.Logging.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Google.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Newtonsoft.Json.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Owin.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Entities.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Services.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Net.Http.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Net.Http.WebRequest.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Helpers.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Mvc.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Optimization.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Razor.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.Deployment.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.Razor.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Twilio.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\WebGrease.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Yelp.Api.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Authentication.OAuth2.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Newtonsoft.Json.Net35.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\Mono.Math.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\GoogleApiUtils.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Entities.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\RealEstate.Services.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\Yelp.Api.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\DHTMLX.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\DHTMLX.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.AspNet.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.Core.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OAuth.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OpenId.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\ExpressiveAnnotations.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Auth.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Auth.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Calendar.v3.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Calendar.v3.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Core.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\Google.Apis.Core.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Hangfire.Core.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Hangfire.SqlServer.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\HtmlAgilityPack.pdb
+E:\BE-22052020-Latest\RealEstate.Web\bin\HtmlAgilityPack.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.DependencyCollector.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.Web.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AI.WindowsServer.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.ApplicationInsights.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.IdentityModel.Tokens.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Newtonsoft.Json.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Net.Http.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Net.Http.WebRequest.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Helpers.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Mvc.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Optimization.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.Razor.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.Deployment.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\System.Web.WebPages.Razor.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Twilio.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\EntityFramework.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\EntityFramework.SqlServer.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.Core.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Facebook.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Cookies.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.OAuth.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Google.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.Twitter.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Org.Mentalis.Security.Cryptography.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\Mono.Math.xml
+E:\BE-22052020-Latest\RealEstate.Web\bin\es\Hangfire.Core.resources.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\zh\Hangfire.Core.resources.dll
+E:\BE-22052020-Latest\RealEstate.Web\bin\zh-TW\Hangfire.Core.resources.dll
+E:\BE-22052020-Latest\RealEstate.Web\obj\Debug\RealEstate.Web.csprojResolveAssemblyReference.cache
+E:\BE-22052020-Latest\RealEstate.Web\obj\Debug\RealEstate.Web.dll
+E:\BE-22052020-Latest\RealEstate.Web\obj\Debug\RealEstate.Web.pdb

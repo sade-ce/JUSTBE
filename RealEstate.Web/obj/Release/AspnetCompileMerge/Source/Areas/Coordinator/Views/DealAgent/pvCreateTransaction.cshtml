@@ -1,0 +1,118 @@
+﻿@model RealEstate.Entities.ViewModels.MstDealAgentManageModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Create Transaction/Assign Agents</h4>
+</div>
+
+<div class="margin-top-20">
+
+    @using (Ajax.BeginForm("createtransaction", "dealagent", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "transactionform" }))
+    {<div class="modal-body">
+        @Html.AntiForgeryToken()
+         @Html.HiddenFor(model => model.utblMstTrackDealMasters.AgentID, new { Value = ViewBag.AgentID })
+
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(model => model.utblMstTrackDealMasters.ClientID, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.DropDownListFor(model => model.utblMstTrackDealMasters.ClientID, new SelectList(Model.ClientDropDown, "Id", "ClientName"), "--- Select Client --- ", new { @class = "form-control drop-change ddl-select2" })
+                    @Html.ValidationMessageFor(m => m.utblMstTrackDealMasters.ClientID)
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.utblMstTrackDealMasters.ClientTypeID, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.DropDownListFor(model => model.utblMstTrackDealMasters.ClientTypeID, new SelectList(Model.ClientTypeDropDown, "ClientTypeID", "ClientType"), "--- Select Transaction --- ", new { @class = "form-control drop-change ddl-select2" })
+                    @Html.ValidationMessageFor(m => m.utblMstTrackDealMasters.ClientTypeID)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.utblMstTrackDealMasters.Address, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.utblMstTrackDealMasters.Address, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.utblMstTrackDealMasters.Address)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.utblMstTrackDealMasters.Description, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.utblMstTrackDealMasters.Description, new { @class = "form-control", id = "Status" })
+                    @Html.ValidationMessageFor(model => model.utblMstTrackDealMasters.Description)
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="CloseMyModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    }
+
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#utblMstTrackDealMasters_ClientTypeID').on('change', function () {
+            var ClientType = "Buyer"
+            var DDLText = document.getElementById("utblMstTrackDealMasters_ClientTypeID").options[document.getElementById('utblMstTrackDealMasters_ClientTypeID').selectedIndex].text;
+            if (ClientType == DDLText) {
+                $("#utblMstTrackDealMasters_Address").attr('disabled', 'disabled');
+                $("#utblMstTrackDealMasters_Address").val("");
+                $("#MstClosingConfig_utblMstClosingDate_MLSID").removeAttr('disabled');
+
+            }
+            else if ("Seller" == DDLText) {
+
+                $("#utblMstTrackDealMasters_Address").val("");
+                $("#utblMstTrackDealMasters_Address").removeAttr('disabled');
+
+            }
+            else {
+                $("#utblMstTrackDealMasters_Address").removeAttr('disabled');
+                $("#utblMstTrackDealMasters_Address").removeAttr('disabled');
+                $("#utblMstTrackDealMasters_Address").removeAttr('disabled');
+            }
+
+        });
+    });
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        var ClientType = "Buyer"
+        var DDLText = document.getElementById("utblMstTrackDealMasters_Address").options[document.getElementById('utblMstTrackDealMasters_Address').selectedIndex].text;
+        if (ClientType == DDLText) {
+            $("#utblMstTrackDealMasters_Address").attr('disabled', 'disabled');
+            $("#utblMstTrackDealMasters_Address").val("");
+            $("#MstClosingConfig_utblMstClosingDate_MLSID").removeAttr('disabled');
+
+        }
+        else if ("Seller" == DDLText) {
+
+            $("#utblMstTrackDealMasters_Address").val("");
+            $("#utblMstTrackDealMasters_Address").removeAttr('disabled');
+
+        }
+        else {
+            $("#utblMstTrackDealMasters_Address").removeAttr('disabled');
+            $("#utblMstTrackDealMasters_Address").removeAttr('disabled');
+            $("#utblMstTrackDealMasters_Address").removeAttr('disabled');
+        }
+
+
+    });
+
+</script>

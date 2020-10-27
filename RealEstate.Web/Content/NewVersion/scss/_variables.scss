@@ -1,0 +1,34 @@
+@font-face {
+  font-family: h-reg;
+  src: url(../fonts/h.ttf);
+}
+
+@font-face {
+  font-family: h-bold;
+  src: url(../fonts/h-bold.ttf);
+}
+
+@font-face {
+  font-family: h-med;
+  src: url(../fonts/h-Medium.ttf);
+}
+
+$p-c: #0bb7a5;
+
+
+b{
+	font-family: h-bold;
+}
+
+
+@mixin background-image($liniear, $left, $top, $rgba1, $opcty1, $rgba2, $opcty2){
+	background-image: $liniear($left $top, $rgba1 $opcty1, $rgba2 $opcty2);
+	-webkit-background-image: $liniear($left $top, $rgba1 $opcty1, $rgba2 $opcty2);
+	-moz-background-image: $liniear($left $top, $rgba1 $opcty1, $rgba2 $opcty2);
+}
+
+@mixin filter-gradient($filter-name, $colr1, $colr1, $drctin){
+	filter: $filter-name($colr1, $colr1, $drctin);
+	-webkit-filter: $filter-name($colr1, $colr1, $drctin);
+	-moz-filter: $filter-name($colr1, $colr1, $drctin);
+}

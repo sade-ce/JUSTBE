@@ -1,0 +1,75 @@
+﻿@model RealEstate.Entities.Calculator.MstMortgageCalculator
+
+<div id="DataGrid" >
+    
+        <div class="sidebar">
+            <!-- /.widget -->
+            <div class="widget">
+                @using (Html.BeginForm("Mortgage", "Tools", FormMethod.Get, new { @id = "Mortgage", @class = "mortgage-calculator" }))
+                {
+                    <div class="form-group">
+                        <label>Down Payment(%)</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.DownPercent</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Down Payment($)</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.DownPayment.ToString("#,##0")</p>
+                    </div>
+                    <div class="form-group">
+                        <label>No of Yrs</label>
+                        <p class="form-control-static center">@Model.DirectCost.TimeFrame</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Mortgage</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.Mortgage.ToString("#,##0")</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Principal</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.Principal.ToString("#,##0")</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Interest</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.Interest.ToString("#,##0")</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Utilities</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.Utilities.ToString("#,##0")</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Home Insurance</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.HomeInsurance.ToString("#,##0")</p>
+                    </div>
+                    <div class="form-group">
+                        <label>PMI</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.PMI.ToString("#,##0")</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Maintenance</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.Maintenance.ToString("#,##0")</p>
+                    </div>
+                    <div class="form-group">
+                        <label>HOA Fees</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.HOAFees.ToString("#,##0")</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Property Tax</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.PropertyTax.ToString("#,##0")</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Sub Total</label>
+                        <p class="form-control-static center">$ @Model.DirectCost.SubTotal.ToString("#,##0")</p>
+                    </div>
+
+
+                }
+
+
+            </div><!-- /.widget -->
+            <!-- /.widget -->
+        </div>/.sidebar 
+  
+    
+</div>

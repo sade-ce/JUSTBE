@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | Caleb Etoile";
+    Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+
+}
+
+
+<div class="page-section">
+
+    <div class="half-bg-col one-col-img">
+
+        <div class="container">
+            <div class="row flex-row flex-center">
+                <div class="col-sm-6">
+
+                    <div class="half-bg-left push-top">
+
+                        <div class="img-col-left">
+                            <div class="custom-slider">
+                                <img src="https://justbere-d4d9.kxcdn.com/img/CalebLetoile.jpg" alt="">
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+
+                    <div class="img-content">
+                        <h3 class="section-title">Caleb L'Etoile</h3>
+                        <h4 class="section-title">Listing Associate</h4>
+
+                        <p>Caleb received his B.A. from the University of Virginia & has spent the last few years working in project management and marketing in the DC real estate community. In his free time, he plays in a punk band, runs occasionally, and serves as the dog parent of an awesome pom sheltie mix named Hachi.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <div id="content">
+        <div class="container">
+            <div class="page-section-4">
+
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+
+                        <div class="price-section">
+                            <span style="color:#ffffff">Price:</span>
+                            <h2 class="price-numb" style="color:#ffffff">$1,800,000</h2>
+                            <p style="color:#ffffff">($2,143 per ft2)</p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-7 col-sm-12">
+
+                        <div class="contact-form-wrap">
+
+                            <div class="contact-popup">
+
+                                <div class="content-element3">
+
+                                    <h3>Contact Caleb L'Etoile</h3>
+                                    <p class="text-style2">Schedule a Visit</p>
+
+                                </div>
+
+                                @{Html.RenderAction("AgentContact", "About");}
+
+
+
+
+                                <div class="our-contact-section">
+
+                                    <a href="tel:8005596580" class="link-text with-icon-left" content="telephone=no"><span class="licon-telephone"></span>+1 800 559 6580</a>
+                                    <a href="mailto:calebletoile@compass.com" class="link-text with-icon-left"><span class="licon-envelope"></span>calebletoile@compass.com</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- Google map -->
+        <div class="map-section">
+            <div id="googleMap3" class="map-container"></div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDXEt4EVK4gaEgVfsfeIOEUgA5h59eD7Tg"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('form').submit(function () {
+            if (isValidEmailAddress($("#Email").val())) {
+                $("#ajaxLoading").css("display", "block");
+                $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                $("#ajaxLoading").css("left", $(window).width() / 2);
+                $("#ajaxLoading").css("position", "fixed");
+                $("#ajax-backdrop").css("display", "block");
+                var serializedForm = $(this).serialize();
+                $.ajax({
+                    url: '@Url.Action("AgentContact")',
+                    type: "POST",
+                    data: $('#contact-form').serialize() + "&Email=calebletoile@compass.com&Name=Caleb",
+                    success: function (result) {
+                        $("#ajaxLoading").css("display", "none");
+                        $("#ajax-backdrop").css("display", "none");
+                        $('#ErrorView').text(result).show();
+                        $('#ContactPerson').val('');
+                        $('#Email').val('');
+                        $('#Phone').val('');
+                        $('#Subject').val('');
+                        $('#Message').val('');
+                    },
+                    error: function (result) {
+
+                        $('#ErrorView').text(result).show();
+                        //$('#Error').text(result.Email);
+                    }
+
+                });
+
+            }
+            else
+            {
+                $("#ErrorView").text("Invalid Email Address!").show().fadeOut("slow");
+            }
+
+            return false;
+        });
+    });
+
+    function isValidEmailAddress(emailAddress) {
+        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+        return pattern.test(emailAddress);
+    }
+
+
+</script>
+}

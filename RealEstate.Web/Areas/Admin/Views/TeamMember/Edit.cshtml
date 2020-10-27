@@ -1,0 +1,246 @@
+﻿@model RealEstate.Entities.ViewModels.TeamMemberViewModel
+@{
+    ViewBag.Title = "Edit Team Members";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+    //if (User.IsInRole("Agent"))
+    //{
+    //    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+    //}
+}
+<link href="/Content/SlimImageCropper/slim.css" rel="stylesheet" />
+<section class="content-header">
+    <h1>
+        Team Member
+        <small>Edit</small>
+    </h1>
+</section>
+<div class="col-md-12">
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Edit Team Member </h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Ajax.BeginForm("Edit", "TeamMember", null, new AjaxOptions() { HttpMethod = "POST" }, new { @class = "form-horizontal", enctype = "multipart/form-data", id = "myform" }))
+            { @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(m => m.TeamMembers.Id)
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Name</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.TeamMembers.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TeamMembers.Name, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TeamMembers.Designation, new { @class = "col-md-4 control-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.TeamMembers.Designation, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TeamMembers.Designation, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Contact Email</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.TeamMembers.ContactEmail, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TeamMembers.ContactEmail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Phone</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.TeamMembers.Phone, new { @class = "form-control", @id = "txtPhone" })
+                                    @Html.ValidationMessageFor(model => model.TeamMembers.Phone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TeamMembers.ShortDescription, new { @class = "col-md-4 control-label" })
+                                <div class="col-md-8">
+                                    @Html.TextAreaFor(model => model.TeamMembers.ShortDescription, new { @class = "form-control", @maxlength = "140" })
+                                    @Html.ValidationMessageFor(model => model.TeamMembers.ShortDescription, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                          
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Order Number</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.TeamMembers.OrderNumber, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TeamMembers.OrderNumber, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Profile Link Name</label>
+                                <div class="col-md-8">
+                                    @*<div class="col-md-2"> https://www.justbere.com/About/</div>*@
+                               @Html.TextBoxFor(model => model.TeamMembers.ProfileLink, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TeamMembers.ProfileLink, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Facebook Link</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.TeamMembers.Facebook, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TeamMembers.Facebook, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Twitter Link</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.TeamMembers.Twitter, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TeamMembers.Twitter, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Instagram Link</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.TeamMembers.Instagram, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TeamMembers.Instagram, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Pinterest Link</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.TeamMembers.Pinterest, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TeamMembers.Pinterest, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">About</label>
+                                <div class="col-md-8">
+                                    @Html.TextAreaFor(model => model.TeamMembers.About, new { @class = "form-control", @id = "About" })
+                                    @*@Html.ValidationMessageFor(model => model.TeamMembers.ShortDescription, "", new { @class = "text-danger" })*@
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Choose Picture</label>
+                                <div class="col-md-8">
+                                    @Html.HiddenFor(m => m.TeamMembers.MemberImage)
+                                    <input type="file" name="files" id="fu1" class="control-label" />
+                                </div>
+                            </div>
+                        </div>
+                        @if (Model.TeamMembers.MemberImage != null)
+                        {
+                            <div class="col-md-3 col-lg-3">
+                                <div class="form-horizontal" style="margin-top: 15px;">
+                                    <div class="row">
+                                        <div class="thumbnail" style="margin-bottom: 5px; height: 140px; width: 120px">
+                                            <div id="imgPhotoThumb" style="margin-left: auto; margin-right: auto;">
+
+                                                <img src="/img/teamMembers/@Model.TeamMembers.MemberImage" class="img-rounded" style="width: 110px; height: 131px;" />
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="box-footer">
+                    @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                    <input type="submit" value="Save Changes" class="btn btn-primary pull-right" />
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"></h4>
+                            </div>
+                            <div class="modal-body" id="message">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </section>
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+@section Scripts
+{
+<script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ckeditor/ckeditor.js"></script>
+<script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/ckeditor/adapters/jquery.js" async></script>
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            CKEDITOR.replace("About");
+            //CKEDITOR.config.removePlugins = 'save';
+        });
+</script>
+    <script>
+    //$(function () { setTimeout('location.reload(true)', 1000); });
+
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+        $('#txtPhone').keydown(function (e) {
+            var key = e.which || e.charCode || e.keyCode || 0;
+            $phone = $(this);
+
+            // Don't let them remove the starting '('
+
+
+            // Auto-format- do not expose the mask as the user begins to type
+            if (key !== 8 && key !== 9) {
+                if ($phone.val().length === 3) {
+                    $phone.val($phone.val() + '.');
+                }
+                if ($phone.val().length === 7) {
+                    $phone.val($phone.val() + '.');
+                }
+
+            }
+
+            // Allow numeric (and tab, backspace, delete) keys only
+            return (key == 8 ||
+                    key == 9 ||
+                    key == 46 ||
+                    (key >= 48 && key <= 57) ||
+                    (key >= 96 && key <= 105));
+        })
+
+     .bind('focus click', function () {
+         $phone = $(this);
+
+
+     })
+
+     .blur(function () {
+         $phone = $(this);
+
+
+     });
+
+    </script>
+}
+

@@ -1,0 +1,127 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientMLSHomeListing
+    <div class="col-md-12 margin-top-20">
+        @using (Ajax.BeginForm("Create", "ClientHomeInfo", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data" }))
+        {  @Html.Hidden("Email", Model.MstInfoView.Email)
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.utblMstClientHomeListing.ListingTypeID, new { @class = "control-label col-md-3 pull-left" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.utblMstClientHomeListing.ListingTypeID, new SelectList(Model.ListingDDL, "ListingTypeID", "ListingType"), "--- Select Listing Type --- ", new { @class = "form-control ddl-select2" })
+                        @Html.ValidationMessageFor(model => model.utblMstClientHomeListing.ListingTypeID)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.utblMstClientHomeListing.MLSID, new { @class = "control-label col-md-3 pull-left" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.utblMstClientHomeListing.MLSID, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.utblMstClientHomeListing.MLSID)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.utblMstClientHomeListing.Address, new { @class = "control-label col-md-3 pull-left" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.utblMstClientHomeListing.Address, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.utblMstClientHomeListing.Address)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.utblMstClientHomeListing.URL, new { @class = "control-label col-md-3 pull-left" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.utblMstClientHomeListing.URL, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.utblMstClientHomeListing.URL)
+                    </div>
+                </div>
+
+            </div>
+            <div class="well well-sm col-md-12 col-lg-12 text-right">
+                <div class="form-horizontal">
+                    @Html.ActionLink("Back to List", "list", "Client", null, new { @class = "btn btn-default pull-left" })
+                    <input type="submit" value="Save" id="save" class="btn btn-primary" />
+                </div>
+            </div>
+        }
+    </div>
+    <hr class="hr-style" />
+    <div class="row"></div>
+<div id="DataGrid" class="col-md-12">
+
+    @if (Model.MstClientHomeList.Count() > 0)
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="vertical-align: middle;">
+                            MLSID
+                        </th>
+                        <th class="text-center" style="vertical-align: middle;">
+                            Address
+                        </th>
+                        <th class="text-center" style="vertical-align:middle;">
+                            Updated On
+                        </th>
+
+                        <th class="text-center" style="vertical-align: middle;">
+                            Action
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.MstClientHomeList)
+                    {
+                    <tr>
+                        @if (!string.IsNullOrEmpty(item.MLSID))
+                            {
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.MLSID)
+                        </td>
+
+                            }
+                            else
+                            {
+                        <td class="text-center">
+                            N/A
+                        </td>
+                            }
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.UpdatedOn)
+                        </td>
+
+                        <td class="text-center" style="width: 70px;">
+                            <div style="float: right;">
+                                <div style="float:left; padding-right: 10px;">
+                                    <form method="post" action="@Url.Action("delete", "ClientHomeInfo",new { area = "Admin" })" data-kw-ajax="true" data-kw-target="#DataGrid">
+                                        @Html.Hidden("MLSListingID", item.MLSListingID)
+                                        <a href="@Url.Action("delete", new { MLSListingID = item.MLSListingID })" class="delete btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                            Remove
+                                        </a>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <h3>No Record Found...</h3>
+    }
+
+</div>
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>

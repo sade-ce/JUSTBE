@@ -1,0 +1,17 @@
+﻿@model RealEstate.Entities.ViewModels.UserProfileViewModel
+@if (Model.UserPhotoThumb == null || Model.UserPhotoThumb == "")
+{
+
+    <p>Hello, &nbsp;<span>@Model.Name</span></p>
+    <img src="../../../../img/profile_img.jpg" alt="profile-img" class="img-fluid">
+
+}
+
+else
+{
+    <p>Hello, &nbsp;<span>@Model.Name</span></p>
+    <img src="@Model.UserPhotoThumb" alt="profile-img" class="img-fluid">
+
+}
+
+

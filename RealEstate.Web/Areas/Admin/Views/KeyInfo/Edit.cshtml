@@ -1,0 +1,62 @@
+﻿@model RealEstate.Entities.Models.utblMstKeyInfoLink
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Concierge
+        <small>Edit </small>
+    </h1>
+</section>
+
+<div class="col-md-12">
+@using (Ajax.BeginForm("Edit", "KeyInfo", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "myform" }))
+{
+        @Html.HiddenFor(model => model.KeyInfoID)
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control", id = "Status" })
+                    @Html.ValidationMessageFor(model => model.Title)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TourURL, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.TourURL, new { @class = "form-control", id = "Status" })
+                    @Html.ValidationMessageFor(model => model.TourURL)
+                </div>
+            </div>
+        </div>
+        <div class="well well-sm col-md-12 col-lg-12 text-right">
+            <div class="form-horizontal">
+                @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                <input type="submit" value="Save" id="save" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+@section Scripts{
+    
+    <script>
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+</script>
+
+    }

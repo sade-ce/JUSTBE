@@ -1,0 +1,33 @@
+﻿
+
+
+
+   
+       
+
+            @if (ViewBag.RSSFeed != null)
+            {
+                foreach (var item in ViewBag.RSSFeed)
+                {
+
+
+                    <div class="entry-holder">
+
+                        <article class="entry">
+                            <div class="entry-body">
+                                <h4 class="entry-title"><a href="@item.Link">@item.Title</a></h4>
+                            </div>
+                            <p>@item.Description</p>
+
+                            <a href="@item.Link" class="info-btn">Read Full Article</a>
+                        </article>
+
+                    </div>
+
+
+
+                }
+            }
+
+      
+    

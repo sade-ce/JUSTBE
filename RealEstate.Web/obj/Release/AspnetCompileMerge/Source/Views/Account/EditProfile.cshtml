@@ -1,0 +1,901 @@
+﻿@model RealEstate.Entities.ViewModels.UserProfileEditModel
+@{
+    ViewBag.Title = "Just BE | Edit Profile";
+    ViewBag.ViewHeader = "Edit Your Profile";
+
+
+
+    if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+
+    }
+    else
+    {
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+        Layout = "~/Areas/Client/Views/Shared/_ClientLayout.cshtml";
+
+        
+        <style>
+            body {
+                background-color: #F9F9F8;
+                color: #323232;
+                font-family: 'Raleway', 'Arial', sans-serif;
+                height: 100%;
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+            ol, ul, dl {
+                margin-top: 28px !important;
+                font-size: 0.9em;
+            }
+
+            .nav-item-parent > .nav-link, .kk:after {
+                content: unset !important;
+            }
+            .dashboard-subheader-actions
+            {
+                background-color: #ffffff;
+            }
+        </style>
+
+    }
+}
+
+<link href="~/Content/Plugins/cropper/cropper.min.css" rel="stylesheet" />
+
+<style>
+    #header {
+        top: 0px !important;
+    }
+</style>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div id="wrapper" class="wrapper-container">
+
+        <!-- facebook link -->
+        <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
+        <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+        <div id="content">
+
+
+
+            <div class="page-section-3 page-section-bg">
+                @if (ViewBag.message == "WelcomeBack")
+                {
+                    <div class="container">
+
+                        <div class="align-center content-element3">
+
+                            <h3>@{Html.RenderAction("UserDetails", "MyDeal", new { area = "Client" });}</h3>
+
+                        </div>
+
+                        <div class="icons-box">
+
+                            <div class="row flex-row">
+
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 1</h6>
+                                                <hr />
+                                                <i class="licon-checkmark-circle"></i>
+                                                <h6 class="icons-box-title"><a href="#">Password Secured</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 2</h6>
+                                                <hr />
+                                                <i class="licon-profile"></i>
+                                                <h6 class="icons-box-title"><a href="#">Set your profile picture</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 3</h6>
+                                                <hr />
+                                                <i class="icon-email"></i>
+                                                <h6 class="icons-box-title"><a href="#">Set your notification settings</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 4</h6>
+                                                <hr />
+
+                                                <i class="licon-arrow-right"></i>
+                                                <h6 class="icons-box-title"><a href="#">Go to your dashboard</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+
+                else
+                {
+                    <div class="container">
+
+                        <div class="align-center content-element3">
+
+                            <h3>Welcome to Just BE</h3>
+
+                        </div>
+
+                        <div class="icons-box">
+
+                            <div class="row flex-row">
+
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 1</h6>
+                                                <hr />
+                                                <i class="licon-checkmark-circle"></i>
+                                                <h6 class="icons-box-title"><a href="#">Sign-up complete</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 2</h6>
+                                                <hr />
+                                                <i class="licon-profile"></i>
+                                                <h6 class="icons-box-title"><a href="#">Set your profile picture</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 3</h6>
+                                                <hr />
+                                                <i class="icon-email"></i>
+                                                <h6 class="icons-box-title"><a href="#">Set your notification settings</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+
+                                    <!-- - - - - - - - - - - - - - Icon Box Item - - - - - - - - - - - - - - - - -->
+                                    <div class="icons-wrap">
+
+                                        <div class="icons-item">
+                                            <div class="item-box">
+                                                <h6 class="icons-box-title">Step 4</h6>
+                                                <hr />
+
+                                                <i class="licon-arrow-right"></i>
+                                                <h6 class="icons-box-title"><a href="#">Go to your dashboard</a></h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+
+
+            </div>
+
+            <div class="page-section no-space">
+
+                <div class="half-bg-col one-col-img">
+
+                    <div class="container">
+
+                        @using (Html.BeginForm("EditProfile", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            { TempData["message"] = ViewBag.message; }
+                            @Html.HiddenFor(m => m.ProfileEdit.UserName)
+                            @Html.HiddenFor(m => m.ProfileEdit.Name)
+                            @Html.HiddenFor(m => m.ProfileEdit.LastName)
+                            @Html.HiddenFor(m => m.ProfileEdit.Email)
+                            @Html.HiddenFor(m => m.ProfileEdit.Phone)
+                            <div class="row flex-row flex-center">
+                                <div class="col-sm-6">
+
+                                    <div class="half-bg-left push-top">
+
+                                        <div class="img-col-left">
+                                            <div class="custom-slider">
+                                                <div class="team-item">
+
+                                                    <div class="team-member">
+
+                                                        <a href="#" class="member-photo" style="border-radius:0px">
+                                                            <div class="thumbnail" style="margin-bottom: 5px; height: 253px; width: 248px">
+                                                                <div id="imgPhotoThumb" style="margin-left: auto; margin-right: auto;">
+                                                                    @if (Model.ProfileEdit.UserPhotoThumb == null || Model.ProfileEdit.UserPhotoThumb == "")
+                                                                    {
+                                                                        <img src="~/img/NoImage.png" id="user-photo" />
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <img src="@Model.ProfileEdit.UserPhotoNormal" style="height: 253px;" />
+                                                                    }
+
+
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </a>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+                                @if (ViewBag.message == "WelcomeBack")
+                                {
+
+                                    <div class="col-sm-6">
+
+                                        <div class="img-content">
+                                            <div class="member-info">
+                                                <h6 class="member-position">We set the profile picture of yours we did like the most, you may update / change if you want </h6>
+
+                                                <div class="photoUpload" style="width:240px">
+
+
+
+                                                    <ul class="tabs-nav clearfix">
+                                                        <li>
+                                                            <a data-toggle="modal" data-target="#photo-modal" class="btn btn-big style-5">Upload Photo from Computer</a>
+                                                        </li>
+                                                        <li style="margin-top: 10px;">
+                                                            <a onclick="FB.login(setFacebookPhoto, { scope: 'user_photos' });" class="btn btn-big style-5">Upload Photo from Facebook</a>
+                                                        </li>
+                                                    </ul>
+
+
+
+
+
+                                                    @Html.TextAreaFor(model => model.ProfileEdit.UserPhotoNormal, new { @class = "hidden", @id = "UserPhotoNormal" })
+                                                    @Html.TextAreaFor(model => model.ProfileEdit.UserPhotoThumb, new { @class = "hidden", @id = "UserPhotoThumb" })
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                }
+
+                                else
+                                {<div class="col-sm-6">
+
+                                <div class="img-content">
+                                    <div class="member-info">
+                                        <h6 class="member-position">Update your profile to let us know you better</h6>
+
+                                        <div class="photoUpload" style="width:240px">
+
+                                            @if (Model.ProfileEdit.UserPhotoThumb == null || Model.ProfileEdit.UserPhotoThumb == "")
+                                            {
+
+                                                <ul class="tabs-nav clearfix">
+                                                    <li>
+                                                        <a data-toggle="modal" data-target="#photo-modal" class="btn btn-big style-5">Upload Photo from Computer</a>
+                                                    </li>
+                                                    <li style="margin-top: 10px;">
+                                                        <a onclick="FB.login(setFacebookPhoto, { scope: 'user_photos' });" class="btn btn-big style-5">Upload Photo from Facebook</a>
+                                                    </li>
+                                                </ul>
+
+                                            }
+
+
+
+                                            @Html.TextAreaFor(model => model.ProfileEdit.UserPhotoNormal, new { @class = "hidden", @id = "UserPhotoNormal" })
+                                            @Html.TextAreaFor(model => model.ProfileEdit.UserPhotoThumb, new { @class = "hidden", @id = "UserPhotoThumb" })
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                                }
+                            </div>
+                            <button class="btn btn-big style-5 pull-right">Next Step</button>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+else
+{
+
+
+    <div class="main-wrapper">
+        <div class="main">
+            <div class="main-inner">
+
+                <div class="content-title">
+                    <div class="content-title-inner">
+                        <div class="container">
+                            <h1>Edit Profile</h1>
+
+                        </div><!-- /.container -->
+                    </div><!-- /.content-title-inner -->
+                </div><!-- /.content-title -->
+
+                <div class="content">
+                    <div class="container">
+                        <!-- /.filter -->
+
+                        <div class="row">
+
+                            <div class="col-md-offset-2 col-lg-9">
+
+                                <div class="row">
+                                    <div class="listing-detail col-md-12 col-lg-12">
+                                        <div class="listing-contact-form">
+                                            <div class="row">
+                                                @using (Html.BeginForm("EditProfile", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                                {
+                                                    { TempData["message"] = ViewBag.message; }
+
+
+                                                    <div class="col-sm-7 col-sm-offset-1 my-profile">
+
+                                                        @Html.HiddenFor(m => m.ProfileEdit.UserName)
+
+
+                                                        <div class="form-group">
+                                                            <label>First Name</label>
+                                                            @Html.ValidationMessageFor(m => m.ProfileEdit.Name, "", new { @class = "text-danger" })
+                                                            @Html.TextBoxFor(m => m.ProfileEdit.Name, new { @class = "form-control" })
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Last Name</label>
+                                                            @Html.ValidationMessageFor(m => m.ProfileEdit.LastName, "", new { @class = "text-danger" })
+                                                            @Html.TextBoxFor(m => m.ProfileEdit.LastName, new { @class = "form-control" })
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label>Email</label>
+                                                            @Html.ValidationMessageFor(m => m.ProfileEdit.Email, "", new { @class = "text-danger" })
+                                                            @Html.TextBoxFor(m => m.ProfileEdit.Email, new { @class = "form-control" })
+                                                        </div>
+
+
+
+                                                        <div class="form-group">
+                                                            <label>Phone</label>
+                                                            @Html.ValidationMessageFor(m => m.ProfileEdit.Phone, "", new { @class = "text-danger" })
+                                                            @Html.TextBoxFor(m => m.ProfileEdit.Phone, new { @class = "form-control", @maxlength = "12" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-4">
+                                                        <!-- Avatar -->
+                                                        <div class="edit-profile-photo">
+                                                            <div class="thumbnail" style="margin-bottom: 5px; height: 253px; width: 248px">
+                                                                <div id="imgPhotoThumb" style="margin-left: auto; margin-right: auto;">
+                                                                    @if (Model.ProfileEdit.UserPhotoThumb == null || Model.ProfileEdit.UserPhotoThumb == "")
+                                                                    {
+                                                                        <img src="~/img/NoImage.png" id="user-photo" class="img-rounded" />
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <img src="@Model.ProfileEdit.UserPhotoNormal" class="img-rounded" />
+                                                                    }
+
+
+
+                                                                </div>
+                                                                <div class="change-photo-btn">
+                                                                    <div class="photoUpload" style="width:240px">
+
+                                                                        @if (Model.ProfileEdit.UserPhotoThumb == null || Model.ProfileEdit.UserPhotoThumb == "")
+                                                                        {
+                                                                            <div class="dashboard-subheader-actions">
+                                                                                <a data-toggle="modal" data-target="#photo-modal" class="btn btn-secondary" style="margin-top: 10px;font-size: 13px;"><i class="fa fa-upload"></i>Upload Photo from computer</a><a class="btn btn-secondary" onclick="FB.login(setFacebookPhoto, { scope: 'user_photos' });" style="margin-top: 10px;font-size: 13px;"><i class="fa fa-facebook"></i>Upload Photo from Facebook</a>
+                                                                            </div>
+
+                                                                        }
+
+                                                                        else
+                                                                        {
+                                                                            <div class="dashboard-subheader-actions">
+                                                                                <a data-toggle="modal" data-target="#photo-modal" class="btn btn-secondary" style="margin-top: 10px;font-size: 13px;"><i class="fa fa-upload"></i> Upload Photo from computer</a><a class="btn btn-secondary" onclick="FB.login(setFacebookPhoto, { scope: 'user_photos' });" style="margin-top: 10px;font-size: 13px;"><i class="fa fa-facebook"></i> Upload Photo from Facebook</a>
+                                                                            </div>
+
+
+                                                                        }
+
+
+
+                                                                        @Html.TextAreaFor(model => model.ProfileEdit.UserPhotoNormal, new { @class = "hidden", @id = "UserPhotoNormal" })
+                                                                        @Html.TextAreaFor(model => model.ProfileEdit.UserPhotoThumb, new { @class = "hidden", @id = "UserPhotoThumb" })
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group-btn btn-mob">
+                                                            <button class="btn btn-primary pull-left col-md-offset-3" style="background-color: #0bb7a5; border-color:#0bb7a5">Save Changes</button>
+                                                        </div><!-- /.form-group-btn -->
+                                                    </div>
+                                                }
+                                            </div><!-- /.row -->
+                                        </div><!-- /.listing-contact-form -->
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+                        <!-- /.row -->
+                    </div><!-- /.container -->
+                </div><!-- /.content -->
+            </div><!-- /.main-inner -->
+        </div><!-- /.main -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+}
+
+
+
+
+
+
+<div class="page-content-wrap"></div>
+
+
+<link href="~/Content/Plugins/cropper/cropper.min.css" rel="stylesheet" />
+
+
+<div class="modal fade" id="photo-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content col-md-12">
+            <form class="avatar-form" action="#" enctype="multipart/form-data" method="post">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal" type="button">&times;</button>
+                    <h4 class="modal-title" id="avatar-modal-label"></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="avatar-body">
+                        <div class="col-md-8" style="padding: 0">
+                            <div class="well well-sm well-table-header">
+                                <div class="img-container">
+                                    <img src="#" class="img-rounded">
+                                    <span id="ImageSpan" style="font-size: 12pt; font-weight: bold; ">Upload photo...</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12" style="padding: 0">
+                                <div class="well well-sm btn btn-primary" for="inputImage" title="Upload image file">
+                                    <input id="inputImage" class="img-rounded btn btn-default" name="file" type="file" accept="image/*" data-toggle="tooltip" title="Upload image" onchange="ShowFileMsg()">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4" style="padding-right: 0">
+                            <div class="well well-sm well-table-header" style="text-align:center;">
+                                <span style="font-size: 13pt; font-weight: bold;">Preview</span>
+                                <div id="dataURLView" style="margin-left: auto; margin-right: auto; height: 140px; width: 120px;">
+                                    <img src="#" class="img-rounded" style="width: 120px;" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-right" style="padding-right: 0">
+
+                            <button class="btn btn-danger pull-right" id="getDataURL" data-dismiss="modal" data-toggle="tooltip" type="button" title="Crop Image" style="pointer-events: none; opacity: .3;margin-right:19px">Crop and save</button>
+                            @*<button class="btn btn-primary" data-dismiss="modal" type="button">Done</button>*@
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+
+                </div>
+                <!-- <div class="modal-footer">
+                  <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                </div> -->
+            </form>
+        </div>
+    </div>
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+
+
+@section scripts {
+  
+
+
+<script src="~/Content/Plugins/cropper/cropper.min.js"></script>
+
+    <script type="text/javascript">
+        function ShowFileMsg() {
+            if ($('#inputImage').val() == "") {
+                $("#ImageSpan").text("Upload photo...");
+                $('#getDataURL').css("pointer-events", "none");
+                $('#getDataURL').css("opacity:", ".3");
+            }
+            else {
+                $("#ImageSpan").text("");
+                $('#getDataURL').css("pointer-events", "");
+                $('#getDataURL').css("opacity", "1");
+            }
+
+            if ($('#dataURLInto').val() == "") {
+                $('#ModelDone').css("pointer-events", "none");
+                $('#ModelDone').css("opacity:", ".3");
+            }
+            else {
+                $('#ModelDone').css("pointer-events", "");
+                $('#ModelDone').css("opacity", "1");
+            }
+        }
+        $(function () {
+            (function () {
+                var $image = $(".img-container img"),
+                    $dataX = $("#dataX"),
+                    $dataY = $("#dataY"),
+                    $dataHeight = $("#dataHeight"),
+                    $dataWidth = $("#dataWidth"),
+                    options = {
+                        aspectRatio: 12 / 14,
+                        data: {
+                            x: 240,
+                            y: 280,
+                            width: 240,
+                            height: 280
+                        },
+                        preview: ".img-preview",
+                        done: function (data) {
+                            $dataX.val(data.x);
+                            $dataY.val(data.y);
+                            $dataHeight.val(data.height);
+                            $dataWidth.val(data.width);
+                        }
+                    };
+
+                $image.cropper(options).on({
+                    "build.cropper": function (e) {
+                        console.log(e.type);
+                    },
+                    "built.cropper": function (e) {
+                        console.log(e.type);
+                    }
+                });
+
+                $(document).on("click", "[data-method]", function () {
+                    var data = $(this).data();
+
+                    if (data.method) {
+                        $image.cropper(data.method, data.option);
+                    }
+                });
+
+                var $inputImage = $("#inputImage");
+
+                if (window.FileReader) {
+                    $inputImage.change(function () {
+                        var fileReader = new FileReader(),
+                            files = this.files,
+                            file;
+
+                        if (files.length) {
+                            file = files[0];
+
+                            if (/^image\/\w+$/.test(file.type)) {
+                                fileReader.readAsDataURL(file);
+                                fileReader.onload = function () {
+                                    $image.cropper("reset", true).cropper("replace", this.result);
+                                };
+                            }
+                        }
+                    });
+                } else {
+                    $inputImage.addClass("hide");
+                }
+
+                var $setDataX = $("#setDataX"),
+                    $setDataY = $("#setDataY"),
+                    $setDataWidth = $("#setDataWidth"),
+                    $setDataHeight = $("#setDataHeight");
+
+
+                var $dataURLInto = $("#dataURLInto"),
+                    $dataURLView = $("#dataURLView");
+
+                $("#getDataURL").click(function () {
+                    var dataURLNormal = $image.cropper("getDataURL", {
+                        width: 240,
+                        height: 280
+                    }, "image/jpeg", 0.8);
+
+                    var dataURLThumb = $image.cropper("getDataURL", {
+                        width: 120,
+                        height: 140
+                    }, "image/jpeg", 0.8);
+
+                    $("#UserPhotoNormal").text(dataURLNormal);
+                    $("#UserPhotoThumb").text(dataURLThumb);
+                    $(dataURLView).html('<img class="img-rounded" style="width: 120px; height: 140px;" src="' + dataURLNormal + '">');
+                    $("#imgPhotoThumb").html('<img class="img-rounded" style="width: 240px; height: 280px;" src="' + dataURLNormal + '">');
+                });
+            }());
+        });
+        function inputImage() {
+        }
+    </script>
+
+    <script>
+        function getBase64FromImageUrl(url) {
+            var img = new Image();
+            var dataURL;
+
+            img.setAttribute('crossOrigin', 'anonymous');
+
+            img.onload = function () {
+                var canvas = document.createElement("canvas");
+                canvas.width = this.width;
+                canvas.height = this.height;
+
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(this, 0, 0);
+
+                dataURL = canvas.toDataURL("image/png");
+
+                //alert(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
+                //return dataURL.replace(/^data:image\/(png|jpg);base64,/, "")
+
+            };
+
+
+            return img.src = url;
+        }
+    </script>
+
+    <script>
+
+        //Init facebook functionality by using FB.init() with parameters
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: 1706912639383149, // App ID for JBG 400646813722499 //App ID for Site.capitalhill: 1706912639383149
+                channelUrl: '//' + document.domain + '/fbchannel.html', // Channel File
+                status: true, // check login status
+                cookie: true, // enable cookies to allow the server to access the session
+                xfbml: true  // parse XFBML
+            });
+        };
+
+        // Self-invoking anonymous function that loads facebook SDK
+        (function (d) {
+            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            ref.parentNode.insertBefore(js, ref);
+        })(document);
+
+        function setFacebookPhoto(response) {
+
+            if (response.status === 'connected') {
+                FB.api('/me/?fields=picture.width(240).height(240)', function (response) {
+                    $("#UserPhotoNormal").val(response.picture.data.url);
+                    $("#user-photo").attr('src', response.picture.data.url).show();
+                    $("#UserPhotoNormal").text(getBase64FromImageUrl(response.picture.data.url));
+                    $("#UserPhotoThumb").text(getBase64FromImageUrl(response.picture.data.url));
+
+                    $(dataURLView).html('<img class="img-rounded" style="width: 120px; height: 140px;" src="' + response.picture.data.url + '">');
+                    $("#imgPhotoThumb").html('<img class="img-rounded" style="width: 248px; height: 258px;" src="' + response.picture.data.url + '">');
+                });
+            }
+        }
+
+    </script>
+
+    <script>
+        $('#ProfileEdit_Phone')
+
+          .keydown(function (e) {
+              var key = e.which || e.charCode || e.keyCode || 0;
+              $phone = $(this);
+
+              // Don't let them remove the starting '('
+
+
+              // Auto-format- do not expose the mask as the user begins to type
+              if (key !== 8 && key !== 9) {
+                  if ($phone.val().length === 3) {
+                      $phone.val($phone.val() + '.');
+                  }
+                  if ($phone.val().length === 7) {
+                      $phone.val($phone.val() + '.');
+                  }
+
+              }
+
+              // Allow numeric (and tab, backspace, delete) keys only
+              return (key == 8 ||
+                      key == 9 ||
+                      key == 46 ||
+                      (key >= 48 && key <= 57) ||
+                      (key >= 96 && key <= 105));
+          })
+
+          .bind('focus click', function () {
+              $phone = $(this);
+
+          })
+
+          .blur(function () {
+              $phone = $(this);
+
+
+          });
+    </script>
+
+}
+<style>
+ 
+    .thumbnail {
+        background-color: #fff;
+        border: #fff;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        font-size: 16px;
+        font-weight: normal;
+        margin-bottom: 8px;
+        text-transform: initial;
+    }
+
+    body {
+        font-size: 15px;
+        line-height: 27px;
+    }
+
+    .change-photo-btn {
+        left: 4px;
+        bottom: unset;
+        background-color: #f8f9f9;
+    }
+
+        .change-photo-btn:hover {
+            color: none;
+        }
+
+    @@media screen and (min-width: 320px) and (max-width: 425px) 
+    {
+        .btn-mob {
+    margin-top: 177px;
+    margin-left: 44px;
+        }
+    }
+</style>

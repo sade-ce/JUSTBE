@@ -1,0 +1,116 @@
+﻿@model RealEstate.Entities.Models.utblMstContact
+
+
+
+
+
+@using (Html.BeginForm("ContactPage", "Home",FormMethod.Post, new { id = "contact-form", @class = "contact-form" }))
+{
+
+<div id="conform">
+    <div class="text-danger " id="ErrorView" style="color:#e51f1f!important;font-weight:400;text-align:justify"></div>
+    @*<div class="text-danger " id="SucessView" style="color:#0bb7a5!important;font-weight:400;text-align:justify"></div>*@
+
+
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="contactTitle">Get in touch</h3>
+                <h5 class="contactsubTitle">Please provide your information below and one of our team members will reach out soon!</h5>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-field">
+                        @Html.ValidationMessageFor(m => m.ContactPerson, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.ContactPerson, new {  @required = "required", @placeholder = " " })
+
+
+                        @*<input type="text" id="firstName" required />*@
+                        <label for="ContactPerson">Name:</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <div class="input-field">
+
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.Email, new { @required = "required", @placeholder = " ", @type="email"})
+
+
+                        @*<input type="text" id="email" required />*@
+                        <label for="Email">Email:</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <div class="input-field">
+                        @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.Message, new { @id = "msz",@placeholder=" " })
+
+
+                        @*<textarea id="msz" type="text" rows="4" cols="50" required></textarea>*@
+                        <label for="msz">Message:</label>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        @*<div class="row">*@
+            @*<div class="col-md-6">
+                <div class="captchOuter">
+                    <div class="g-recaptcha" data-sitekey="6LdETW0UAAAAAL2AwkbmNixwIKlFm1dLGf2bFVvz"></div>
+
+                </div>
+            </div>
+            <div class="col-md-6 text-center" style="padding-top: 30px;">
+                <input type="submit" class="btn btn-darkGray" id="submit" value="Send Message" />
+            </div>
+        </div>*@
+		
+		
+<div class="row">
+        <div class="col-md-12 text-center">
+
+        </div>
+       
+        <div class="col-md-12 text-center ">
+
+            <input type="submit" class="btn btn-darkGray" id="submit" value="Send Message">
+    
+    
+        </div>
+        <div class="col-md-12 contact-addpc">
+            <div class="captchOuter">
+                <div class="g-recaptcha" data-sitekey="6LdETW0UAAAAAL2AwkbmNixwIKlFm1dLGf2bFVvz"></div>
+
+            </div>
+        </div>
+     
+    </div>
+        <!-- </form> -->
+
+</div>
+<div id="SucessView" style="display:none;text-align:center">
+    <h3 style="color:#0bb7a5!important">Thanks, we will be in touch shortly.</h3>
+</div>
+
+
+        }

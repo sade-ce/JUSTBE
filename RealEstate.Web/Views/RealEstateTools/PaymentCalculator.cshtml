@@ -1,0 +1,306 @@
+﻿@model RealEstate.Entities.ViewModels.MstBuyerClosingCosts
+@{
+
+    ViewBag.Title = "BuyerClosingCost";
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/Redfin/styles.css" rel="stylesheet" />
+<link href="~/Content/Redfin/commonstyles.css" rel="stylesheet" />
+
+
+<body class="customer-facing container   HomeDetailsPage   route-HomeDetail">
+    <div id="content" class="has-js container col-md-10 ">
+        <div class="col-md-offset-3">
+            <div class="delayLoadedComponentWrapper pageComponentsContainer">
+                <div class="dp-col-sm-12 dp-col-md-8">
+                    <section class="Section MortgageCalculatorSection  has-top-rule ">
+                        <div class="sectionContainer">
+                            <h2 class="h2 inline-block mcSectionTitle">Payment Calculator</h2>
+                            <div class="MortgageCalculator">
+                                <div class="calculatorContentsContainer">
+                                    <div class="MortgageCalculatorSummary">
+                                        <div class="major-part">
+                                            <div class="title payment-title">$2,782 per month</div>
+                                            <div class="subTitle">
+                                                <span>30 Year Fixed, 4.240% Interest</span>
+                                                <span>
+                                                </span>
+                                            </div>
+
+                                            <div class="ColorBar">
+                                                <div class="bar light-blue" style="width: 54.2435%;"></div>
+                                                <div class="bar nacho" style="width: 16.4107%;"></div>
+                                                <div class="bar red-orange" style="width: 24.4094%;"></div>
+                                                <div class="bar lime" style="width: 4.9364%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="values">
+                                            <div class="dot-value-container">
+                                                <div class="dot-value-row">
+                                                    <div class="DotTitle light-blue">
+                                                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                                                        <span class="title">Principal and Interest</span>
+                                                    </div>
+                                                    <span class="value">$1,509</span>
+                                                </div>
+                                                <div class="dot-value-row">
+                                                    <div class="DotTitle nacho">
+                                                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                                                        <span class="title">Property Taxes</span>
+                                                    </div>
+                                                    <span class="value">$457</span>
+                                                </div>
+                                                <div class="dot-value-row">
+                                                    <div class="DotTitle red-orange">
+                                                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                                                        <span class="title">HOA Dues</span>
+                                                    </div>
+                                                    <span class="value">$679</span>
+                                                </div>
+                                                <div class="dot-value-row">
+                                                    <div class="DotTitle lime">
+                                                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"></circle></svg>
+                                                        <span class="title">Homeowners' Insurance</span>
+                                                    </div>
+                                                    <span class="value">$137</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="MortgageCalculatorForm">
+                                        <div class="PrincipalAndInterestRow dot-row">
+                                            <div class="field TextAndSlider ">
+                                                <span class="field text Text valueStaticText" aria-disabled="false">
+                                                    <span class="label">Home Price</span><span class="input">
+                                                        <div role="presentation" class="dijit dijitInline dijitLeft value text dijitTextBox dijitValidationTextBox">
+                                                            <div class="dijitInputField dijitInputContainer">
+                                                                <input placeholder="$0" inputmode="" class="dijitInputInner currency HomePriceValue" type="text" value="$749,000">
+                                                            </div>
+                                                        </div>
+                                                    </span>
+                                                </span>
+                                                <input type="range" class="Slider homeprice" max="898800" min="599200" step="1000" value="749000">
+                                            </div>
+                                            <div class="field TextAndSlider ">
+                                                <div class="text-with-percent with-label">
+                                                    <span class="field text Text" aria-disabled="false">
+                                                        <span class="label">Down Payment</span>
+                                                        <span class="input">
+                                                            <div role="presentation" class="dijit dijitInline dijitLeft value text dijitTextBox dijitValidationTextBox">
+                                                                <div class="dijitInputField dijitInputContainer">
+                                                                    <input placeholder="$0" inputmode="" class="dijitInputInner currency DownPayment" type="text" value="$441,910">
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </span>
+                                                    <span class="field text Text dp" aria-disabled="false">
+                                                        <span class="label"></span>
+                                                        <span class="input">
+                                                            <div role="presentation" class="dijit dijitInline dijitLeft value text dijitTextBox dijitValidationTextBox">
+                                                                <div class="dijitInputField dijitInputContainer">
+                                                                    <input placeholder="" inputmode="" class="dijitInputInner percent " type="text" value="59%">
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <input type="range" class="Slider DownPaymentSlider" max="50000" min="0" step="1" value="2000">
+                                            </div>
+                                        </div>
+                                        <div class="SecondaryInputsRow dot-row">
+                                            <div class="field TextAndSlider ">
+                                                <div class="text-with-percent with-label">
+                                                    <span class="field text Text" aria-disabled="false">
+                                                        <span class="label">
+                                                            <div class="DefinitionFlyout definition-flyout-container react inline-block">
+                                                                <span class="DefinitionFlyoutLink inline-block">
+                                                                    Property Taxes
+
+                                                                </span>
+                                                            </div>
+                                                        </span><span class="input">
+                                                            <div role="presentation" class="dijit dijitInline dijitLeft value text dijitTextBox dijitValidationTextBox">
+                                                                <div class="dijitInputField dijitInputContainer">
+                                                                    <input placeholder="$0" inputmode="" class="dijitInputInner currency" type="text" value="$5,478">
+                                                                </div>
+                                                                <div class="sublabel">/ year</div>
+                                                            </div>
+                                                        </span>
+                                                    </span>
+                                                    <span class="field text Text ct" aria-disabled="false">
+                                                        <span class="label"> </span><span class="input">
+                                                            <div role="presentation" class="dijit dijitInline dijitLeft value text dijitTextBox dijitValidationTextBox">
+                                                                <div class="dijitInputField dijitInputContainer">
+                                                                    <input placeholder="" inputmode="" class="dijitInputInner percent" type="text" value="0.73%">
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <span class="field text Text" aria-disabled="false">
+                                                <span class="label">
+                                                    <div class="DefinitionFlyout definition-flyout-container react inline-block">
+                                                        <span class="DefinitionFlyoutLink inline-block">
+                                                            HOA Dues
+
+                                                        </span>
+                                                    </div>
+                                                </span><span class="input">
+                                                    <div role="presentation" class="dijit dijitInline dijitLeft value text dijitTextBox dijitValidationTextBox">
+                                                        <div class="dijitInputField dijitInputContainer">
+                                                            <input placeholder="$0" inputmode="" class="dijitInputInner currency" type="text" value="$679">
+                                                        </div>
+                                                        <div class="sublabel">/ month</div>
+                                                    </div>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="SecondaryInputsRow dot-row">
+                                            <span class="field text Text" aria-disabled="false">
+                                                <span class="label">
+                                                    <div class="DefinitionFlyout definition-flyout-container react inline-block">
+                                                        <span class="DefinitionFlyoutLink inline-block">
+                                                            Interest Rate
+
+                                                        </span>
+                                                    </div>
+                                                </span>
+                                                <span class="input">
+                                                    <div role="presentation" class="dijit dijitInline dijitLeft value text dijitTextBox dijitValidationTextBox">
+                                                        <div class="dijitInputField dijitInputContainer">
+                                                            <input placeholder="" inputmode="" class="dijitInputInner percent" type="text" value="4.24%">
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                            </span>
+                                            <div class="field TextAndSlider homeownersInsurance">
+                                                <div class="text-with-percent with-label">
+                                                    <span class="field text Text" aria-disabled="false">
+                                                        <span class="label">
+                                                            <div class="DefinitionFlyout definition-flyout-container react inline-block">
+                                                                <span class="DefinitionFlyoutLink inline-block">
+                                                                    Homeowners' Insurance
+
+                                                                </span>
+                                                            </div>
+                                                        </span>
+                                                        <span class="input">
+                                                            <div role="presentation" class="dijit dijitInline dijitLeft value text dijitTextBox dijitValidationTextBox">
+                                                                <div class="dijitInputField dijitInputContainer">
+                                                                    <input placeholder="$0" inputmode="" class="dijitInputInner currency" type="text" value="$137">
+                                                                </div>
+                                                                <div class="sublabel">/ month</div>
+                                                            </div>
+                                                        </span>
+                                                    </span>
+                                                    <span class="field text Text hoi" aria-disabled="false">
+                                                        <span class="label"> </span><span class="input">
+                                                            <div role="presentation" class="dijit dijitInline dijitLeft value text dijitTextBox dijitValidationTextBox">
+                                                                <div class="dijitInputField dijitInputContainer">
+                                                                    <input placeholder="" inputmode="" class="dijitInputInner percent" type="text" value="0.22%">
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="SecondaryInputsRow dot-row">
+                                            <span class="field text Text" aria-disabled="false">
+                                                <span class="label">
+                                                    <div class="DefinitionFlyout definition-flyout-container react inline-block">
+                                                        <span class="DefinitionFlyoutLink inline-block">
+                                                           Loan Type
+
+                                                        </span>
+                                                    </div>
+                                                </span><span class="input">
+                                                    <div role="presentation" class="dijit dijitInline dijitLeft value text dijitTextBox dijitValidationTextBox">
+                                                        <div class="dijitInputField dijitInputContainer">
+                                                            <select style="width:-webkit-fill-available;padding:4px">
+                                                                <option value="volvo">15 Year Fixed</option>
+                                                                <option value="saab">30 Year Fixed</option>
+                                                              
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                            </span>
+                                            <span class="field text Text" aria-disabled="false">
+                                                <span class="label">
+                                                    <div class="DefinitionFlyout definition-flyout-container react inline-block">
+                                                        <span class="DefinitionFlyoutLink inline-block">
+                                                          Maintainance
+
+                                                        </span>
+                                                    </div>
+                                                </span>
+                                                <span class="input">
+                                                    <div role="presentation" class="dijit dijitInline dijitLeft value text dijitTextBox dijitValidationTextBox">
+                                                        <div class="dijitInputField dijitInputContainer">
+                                                            <input style="height:27px" placeholder="" inputmode="" class="dijitInputInner percent" type="text" value="4.24%">
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<style>
+    .TextAndSlider .text-with-percent .Text:nth-of-type(2) {
+        width: 23%;
+        position: relative;
+        left: -5px;
+    }
+
+    .dp {
+        top: 10px;
+    }
+
+    .ct, .hoi {
+        top: 22px;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+
+        var range = $('.homeprice'),
+        value = $('.HomePriceValue');
+
+        value.html(range.attr('value'));
+
+        range.on('input', function () {
+            //value.attr('value') = this.value;
+            value.val('$' + this.value);
+        });
+    })
+
+    $(document).ready(function () {
+
+        var range = $('.DownPaymentSlider'),
+        value = $('.DownPayment');
+
+        value.html(range.attr('value'));
+
+        range.on('input', function () {
+            //value.attr('value') = this.value;
+            value.val('$' + this.value);
+        });
+    })
+</script>

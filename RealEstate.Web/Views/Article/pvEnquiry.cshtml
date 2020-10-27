@@ -1,0 +1,36 @@
+﻿@model RealEstate.Entities.Models.utblMstArticleEnquire
+@using (Html.BeginForm("Enquiry", "Article"))
+{
+    @Html.ValidationSummary(true)
+    <div class="text-danger " id="ErrorView"></div>
+
+                    <div class="form-group">
+            <label>Full Name</label>
+
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control validate-required", @required = "required" })
+        </div>               
+                    <div class="form-group">
+                        <label>Email</label>
+
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control validate-required", @required = "required" })
+                    </div>              
+                    <div class="form-group">
+                        <label>Phone</label>
+
+                        @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control validate-required" })
+                    </div>             
+                    <div class="form-group">
+                    <label>Message</label>
+
+                    @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+                    @Html.TextAreaFor(model => model.Message, new { @class = "form-control validate-required validate-email" })
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" id="submit" value="Send" />
+
+}
+
+
+

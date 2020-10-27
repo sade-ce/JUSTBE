@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+
+	<!-- Google Web Fonts
+	================================================== -->
+
+	<link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
+
+	<!-- Basic Page Needs
+	================================================== -->
+
+	<title>201murray</title>
+  
+  <!--meta info-->
+	<meta charset="utf-8">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<!-- Mobile Specific Metas
+	================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Vendor CSS
+	============================================ -->
+	
+	<link rel="stylesheet" href="font/demo-files/demo.css">
+  <link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.css">
+
+	<!-- CSS theme files
+	============================================ -->
+  <link rel="stylesheet" href="css/fontello.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fontello.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body id="ip-container">
+  
+  <!-- initial header -->
+  <header class="ip-header">
+    <h1 class="ip-logo">
+      <!-- logo -->
+      <img src="images/logo.png" alt="">
+    </h1>
+    <div class="ip-loader">
+      <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+        <path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+        <path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+      </svg>
+    </div>
+  </header>
+
+  <!--cookie-->
+  <!-- <div class="cookie">
+          <div class="container">
+            <div class="clearfix">
+              <span>Please note this website requires cookies in order to function correctly, they do not store any specific information about you personally.</span>
+              <div class="f-right"><a href="#" class="btn">Accept Cookies</a><a href="#" class="btn">Read More</a></div>
+            </div>
+          </div>
+        </div>-->
+
+  <!-- - - - - - - - - - - - - - Wrapper - - - - - - - - - - - - - - - - -->
+
+  <div id="wrapper" class="wrapper-container">
+
+    <!-- facebook link -->
+    <a href="#" class="fb-link"><i class="icon-facebook"></i></a>
+    
+    <!-- main navigation -->
+    <div id="navbar-menu" class="navbar-menu">
+
+      <button type="button" id="navbar-close" class="nav-bttn close-bttn">Close</button>
+      
+      <!-- Menu -->
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="residences.html">RESIDENCES</a></li>
+          <li><a href="amenities.html">AMENITIES</a></li>
+          <li><a href="neighborhood.html">NEIGHBORHOOd</a></li>
+          <li><a href="availability.html">Availability</a></li>
+          <li><a href="press.html">Press</a></li>
+          <li class="sub-menu current active"><a href="#">News</a>
+            <ul>
+              <li class="current"><a href="news.html">News</a></li>
+              <li><a href="news_single.html">Single News</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="sub-menu"><a href="#">Features</a>
+            <ul>
+              <li><a href="shortcodes.html">Shortcodes</a></li>
+              <li><a href="typography.html">Typography</a></li>
+              <li><a href="./rtl/index.html">RTL Version</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
+
+    <header id="header" class="sticky-header">
+
+      <!-- Menu toggle btn -->
+      <button type="button" class="navbar-toggle nav-bttn">Menu</button>
+
+      <!-- logo -->
+      <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+      
+      <!-- Menu -->
+      <nav class="nav-menu type-hr">
+        <ul>
+          <li><a href="availability.html">Availability</a></li>
+          <li><a href="press.html">Press</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
+
+    <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <div id="content" class="page-content-wrap2">
+      
+      <div class="container container-extra">
+
+        <!-- - - - - - - - - - - - - - Filter - - - - - - - - - - - - - - - - -->     
+
+        <div id="options">
+          <div id="filters" class="isotope-nav">
+            <button class="is-checked" data-filter="*">All</button>
+            <button data-filter=".category_2">Design</button>
+            <button data-filter=".category_3">Interior</button>
+            <button data-filter=".category_4">News</button>
+            <button data-filter=".category_5">Outdoor</button>
+          </div>
+        </div>
+
+        <!-- - - - - - - - - - - - - - End of Filter - - - - - - - - - - - - - - - - -->      
+
+        <div class="isotope three-collumn clearfix entry-holder type-list" data-isotope-options='{"itemSelector" : ".item","layoutMode" : "masonry","transitionDuration":"0.7s","masonry" : {"columnWidth":".item"}}'>
+
+          <div class="item category_3">
+            
+            <article class="entry">
+              
+              <!-- - - - - - - - - - - - - - Attachment - - - - - - - - - - - - - - - - -->
+
+              <div class="entry-attachment">
+
+                <figure class="thumbnail-attachment"><img src="images/768x500_img1.jpg" alt=""></figure>
+
+              </div>
+
+              <!-- - - - - - - - - - - - - - End of Attachment - - - - - - - - - - - - - - - - -->
+
+              <!-- - - - - - - - - - - - - - Entry body - - - - - - - - - - - - - - - - -->
+
+              <div class="entry-body">
+
+                <!-- - - - - - - - - - - - - - Entry Meta - - - - - - - - - - - - - - - - -->
+
+                <div class="entry-meta">
+                  
+                  <a href="#" class="entry-cat">Interior</a>
+                  <time class="entry-date" datetime="2018-06-15">June 15, 2018</time>
+
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Meta - - - - - - - - - - - - - - - - -->
+
+                <h4 class="entry-title"><a href="#">Etiam Cursus Leo Vel Metus</a></h4>
+
+                <p>Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue. Nam elit agna,endrerit sit amet, tincidunt ac, viverra sed, nulla. Donec porta diam eu massa. </p>
+              
+                <a href="#" class="info-btn">Read Full Article</a>
+
+              </div>
+
+              <!-- - - - - - - - - - - - - - End of Entry body - - - - - - - - - - - - - - - - -->
+
+            </article>
+
+          </div>
+
+          <div class="item category_5">
+
+            <article class="entry">
+              
+              <!-- - - - - - - - - - - - - - Attachment - - - - - - - - - - - - - - - - -->
+
+              <div class="entry-attachment">
+
+                <figure class="thumbnail-attachment"><img src="images/768x500_img2.jpg" alt=""></figure>
+
+              </div>
+
+              <!-- - - - - - - - - - - - - - End of Attachment - - - - - - - - - - - - - - - - -->
+
+              <!-- - - - - - - - - - - - - - Entry body - - - - - - - - - - - - - - - - -->
+
+              <div class="entry-body">
+
+                <!-- - - - - - - - - - - - - - Entry Meta - - - - - - - - - - - - - - - - -->
+
+                <div class="entry-meta">
+                  
+                  <a href="#" class="entry-cat">outdoor</a>
+                  <time class="entry-date" datetime="2018-06-10">June 10, 2018</time>
+
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Meta - - - - - - - - - - - - - - - - -->
+
+                <h4 class="entry-title"><a href="#">Proin Dictum Elementum </a></h4>
+
+                <p>Quisque diam lorem, interdum vitae,dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum. Donec in velit vel ipsum auctor pulvinar. Vestibulum iaculis lacinia est. Proin dictum elementum velit. </p>
+              
+                <a href="#" class="info-btn">Read Full Article</a>
+
+              </div>
+
+              <!-- - - - - - - - - - - - - - End of Entry body - - - - - - - - - - - - - - - - -->
+
+            </article>
+            
+          </div>
+
+          <div class="item category_2">
+
+            <article class="entry">
+              
+              <!-- - - - - - - - - - - - - - Attachment - - - - - - - - - - - - - - - - -->
+
+              <div class="entry-attachment">
+
+                <figure class="thumbnail-attachment"><img src="images/768x500_img3.jpg" alt=""></figure>
+
+              </div>
+
+              <!-- - - - - - - - - - - - - - End of Attachment - - - - - - - - - - - - - - - - -->
+
+              <!-- - - - - - - - - - - - - - Entry body - - - - - - - - - - - - - - - - -->
+
+              <div class="entry-body">
+
+                <!-- - - - - - - - - - - - - - Entry Meta - - - - - - - - - - - - - - - - -->
+
+                <div class="entry-meta">
+                  
+                  <a href="#" class="entry-cat">design</a>
+                  <time class="entry-date" datetime="2018-06-02">June 2, 2018</time>
+
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Meta - - - - - - - - - - - - - - - - -->
+
+                <h4 class="entry-title"><a href="#">Fusce Euismod Consequat Ante</a></h4>
+
+                <p>Lorem ipsum dolor sit amet, consectetuer adipisMauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod in, auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac, lorem. </p>
+              
+                <a href="#" class="info-btn">Read Full Article</a>
+
+              </div>
+
+              <!-- - - - - - - - - - - - - - End of Entry body - - - - - - - - - - - - - - - - -->
+
+            </article>
+                        
+          </div>
+
+          <div class="item category_5">
+            
+            <article class="entry">
+              
+              <!-- - - - - - - - - - - - - - Attachment - - - - - - - - - - - - - - - - -->
+
+              <div class="entry-attachment">
+
+                <figure class="thumbnail-attachment"><img src="images/768x500_img4.jpg" alt=""></figure>
+
+              </div>
+
+              <!-- - - - - - - - - - - - - - End of Attachment - - - - - - - - - - - - - - - - -->
+
+              <!-- - - - - - - - - - - - - - Entry body - - - - - - - - - - - - - - - - -->
+
+              <div class="entry-body">
+
+                <!-- - - - - - - - - - - - - - Entry Meta - - - - - - - - - - - - - - - - -->
+
+                <div class="entry-meta">
+                  
+                  <a href="#" class="entry-cat">outdoor</a>
+                  <time class="entry-date" datetime="2018-05-23">May 23, 2018</time>
+
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Meta - - - - - - - - - - - - - - - - -->
+
+                <h4 class="entry-title"><a href="#">Sed In Lacus Ut Enim </a></h4>
+
+                <p>Nulla venenatis. In pede mi, aliquet sit amet, euismod in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac, lorem. Vestibulum sed ante. Donec sagittis euismod purus.Sed ut perspiciatis unde omnis iste natus error sit.</p>
+              
+                <a href="#" class="info-btn">Read Full Article</a>
+
+              </div>
+
+              <!-- - - - - - - - - - - - - - End of Entry body - - - - - - - - - - - - - - - - -->
+
+            </article>
+
+          </div>
+
+          <div class="item category_4">
+            
+            <article class="entry">
+              
+              <!-- - - - - - - - - - - - - - Attachment - - - - - - - - - - - - - - - - -->
+
+              <div class="entry-attachment">
+
+                <figure class="thumbnail-attachment"><img src="images/768x500_img5.jpg" alt=""></figure>
+
+              </div>
+
+              <!-- - - - - - - - - - - - - - End of Attachment - - - - - - - - - - - - - - - - -->
+
+              <!-- - - - - - - - - - - - - - Entry body - - - - - - - - - - - - - - - - -->
+
+              <div class="entry-body">
+
+                <!-- - - - - - - - - - - - - - Entry Meta - - - - - - - - - - - - - - - - -->
+
+                <div class="entry-meta">
+                  
+                  <a href="#" class="entry-cat">news</a>
+                  <time class="entry-date" datetime="2018-05-19">May 19, 2018</time>
+
+                </div>
+
+                <!-- - - - - - - - - - - - - - End of Meta - - - - - - - - - - - - - - - - -->
+
+                <h4 class="entry-title"><a href="#">Nemo Enim Ipsam </a></h4>
+
+                <p>Proin dictum elementum velit. Fusce euismod consequat ante. Lorem ipsum dolor sit amet, consectetuer adipisMauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet.</p>
+              
+                <a href="#" class="info-btn">Read Full Article</a>
+
+              </div>
+
+              <!-- - - - - - - - - - - - - - End of Entry body - - - - - - - - - - - - - - - - -->
+
+            </article>
+
+          </div>
+
+        </div>
+
+        <div class="align-center">
+          
+          <!-- - - - - - - - - - - - - - Pagination - - - - - - - - - - - - - - - - -->
+          <ul class="pagination flex-h-center">
+            <li><a href="#" class="prev-page"></a></li>
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#" class="next-page"></a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+    <!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
+
+    <footer id="footer">
+
+      <p class="copyright"><a href="#">Legal & Privacy</a> &nbsp;  | &nbsp; 201 Murray Street, New York, NY 10003 &nbsp; | &nbsp;321-654-9876 </p>
+
+      <ul class="social-icons">
+
+        <li><a href="#"><i class="icon-facebook"></i></a></li>
+        <li><a href="#"><i class="icon-instagram-5"></i></a></li>
+        <li><a href="#"><i class="icon-twitter"></i></a></li>
+        <li><a href="#"><i class="icon-pinterest"></i></a></li>
+        <li><a href="#"><i class="icon-youtube-play"></i></a></li>
+
+      </ul>
+
+    </footer>
+
+    <!-- - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
+
+  </div>
+
+  <!-- - - - - - - - - - - - end Wrapper - - - - - - - - - - - - - - -->
+
+  <!-- JS Libs & Plugins
+  ============================================ -->
+  <script src="js/libs/jquery.modernizr.js"></script>
+  <script src="js/libs/jquery-2.2.4.min.js"></script>
+  <script src="js/libs/jquery-ui.min.js"></script>
+  <script src="js/libs/retina.min.js"></script>
+  <script src="plugins/isotope.pkgd.min.js"></script>
+  <script src="plugins/classie.js"></script>
+  <script src="plugins/pathLoader.js"></script>
+
+  <!-- JS theme files
+  ============================================ -->
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  
+</body>
+</html>

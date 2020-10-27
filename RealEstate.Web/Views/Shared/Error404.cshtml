@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Error404";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="parallax margin-bottom-70" data-color="#36383e" data-color-opacity="0.7" data-img-width="800" data-img-height="505" style="background-image: url(&quot;images/listings-parallax.jpg&quot;); background-attachment: fixed; background-size: 1349px 851.556px; background-position: 50% -174.311px;">
+    <div class="parallax-overlay" style="background-color: rgb(54, 56, 62); opacity: 0.7;"></div>
+
+    <!-- Infobox -->
+    <div class="text-content white-font">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 col-sm-8">
+                    <h2>We couldn't find the page you're looking for</h2>
+                    <p>This could be due to a spelling error in the URL or a removed page.</p>
+                    <a href="@Url.Action("index","Home",new { Area=""})" class="button margin-top-25">Go Back Home</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Infobox / End -->
+
+</div>
+
+<style>
+    .parallax-overlay {
+        height: 114%;
+    }
+</style>
+

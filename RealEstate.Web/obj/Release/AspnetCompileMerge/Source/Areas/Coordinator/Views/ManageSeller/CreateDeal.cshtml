@@ -1,0 +1,120 @@
+﻿@model RealEstate.Entities.ViewModels.MstSellerDealManageModel
+
+@{
+    ViewBag.Title = "CreateDeal";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+    }
+}
+
+
+@*<link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<link href="~/Content/popup.css" rel="stylesheet" />*@
+
+<section class="content-header">
+    <h1>
+        Manage Deal (Seller)<small class="text-primary">  <strong> ( Name: @Model.UserInfo.Name , Email: @Model.UserInfo.Email , <a href="tel:@Model.UserInfo.Phone">Phone: @Model.UserInfo.Phone )</a></strong> </small>
+        <span class="pull-right"><a target="_blank" href="@Url.Action("Status", "MyDeal", new {TransactionID=Model.TrackDealMasterView.TransactionID,ClientID=Model.TrackDealMasterView.ClientID, @area = "Client" })">View Client Side</a></span>
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default">
+                <div class="box-body">
+                    
+                    @Html.Partial("pvClientStatusList", Model)
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+@section Scripts {
+    @*<script src="~/Scripts/moment.min.js"></script>
+        <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>*@
+
+    <script>
+        function OkMyModal() {
+            $("#myErroMsgModal").hide();
+            $('#ErrMsgHiddenField').val("");
+            // Retrieve the sender infromation from hidden field and pass it to the function
+            CustomAjaxFormSubmitt($("#eventSender").val().split('|')[1], $("#eventSender").val().split('|')[0]);
+        }
+
+    </script>
+    <script>
+        function CustomAjaxFormSubmitt(sender, url) {
+            if (url == "#")
+            { return false; }
+            var $form = $('a[href="' + decodeURI(url) + '"]').closest('form')
+            if ($form.attr("data-JB-ajax") == 'true') {
+                var options = {
+                    url: decodeURI(url)
+                    , type: $form.attr("method")
+                    , data: $form.serialize()
+                }
+                var target = $($form.attr("data-JB-target"));
+                $.ajax(options).done(function (data) {
+                    window.location.href = data.url;
+
+                    ShowMessageBox();
+                });
+                return false;
+            }
+            else {
+                return true;
+            }
+        };
+    </script>
+
+
+    <script>
+        $("#createdeal").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+    </script>
+
+    @*<script>
+            var elems = document.querySelectorAll('.Chk-box');
+            var btn = document.querySelector('.btn-block');
+            [].forEach.call(elems, function (el) {
+                el.addEventListener('change', function () {
+
+                    var checked = document.querySelectorAll('.Chk-box:checked');
+                    if (checked.length)
+                    {
+                        $(".btn-block").removeClass('btn-info');
+                        $(".btn-block").addClass('btn-primary');
+
+                    } else {
+                        $(".btn-block").removeClass('btn-primary');
+                        $(".btn-block").addClass('btn-info');
+                    }
+                });
+            });
+
+
+        </script>*@
+}
+<style type="text/css">
+    .ui-datepicker {
+        font-size: 9pt !important;
+        position: relative;
+        z-index: 1000;
+    }
+</style>
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+
+

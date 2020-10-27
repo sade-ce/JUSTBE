@@ -1,0 +1,92 @@
+﻿@model RealEstate.Entities.ViewModels.ZillowModel
+@{
+    ViewBag.Title = "MyHome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4><i>Search Results found @Model.results.response.results.Count()</i></h4>
+<div class="col-md-12">
+
+    @if (Model.results.response.results.Count() > 0)
+    {
+        <div class="col-md-6">
+            @foreach (Zillow.Services.Schema.SimpleProperty prop in Model.results.response.results)
+            {
+                <div>
+                    <h2> @prop.address.street, @prop.address.city, @prop.address.state @prop.address.zipcode</h2>
+                </div>
+                <div>@prop.address.latitude</div>
+                <div>@prop.address.longitude</div>
+                <div>
+                    @prop.bathrooms
+                </div>
+                <div>
+                    @prop.bedrooms
+                </div>
+
+                <div>
+                    @prop.lastSoldDate
+                </div>
+                <div>
+                    @prop.lastSoldPrice
+                </div>
+                <div>
+                    @prop.totalRooms
+                </div>
+                <div>
+                    @prop.links.mapthishome
+                </div>
+            }
+            <div>
+                <img src="@Model.chart.response.url" />
+            </div>
+            <div>
+                <label>Value:@Model.zest.response.zestimate.amount.currency @Model.zest.response.zestimate.amount.Value</label>
+                @Model.zest.response.totalRooms
+                @Model.zest.response.yearBuilt
+                @Model.zest.response.lotSizeSqFt
+                @foreach (var item in @Model.zest.response.localRealEstate)
+                {
+                    @item.id
+                    @item.links.overview
+                    @item.links.forSale
+                    @item.links.forSaleByOwner
+                }
+
+                @Model.zest.response.finishedSqFt
+                @Model.zest.response.links.comparables
+            </div>
+            <div>
+                @Model.regionchart.response.url
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                @foreach (var item in @Model.comp.response.properties.comparables)
+                {<div>
+                    @item.address.street, @item.address.city, @item.address.state
+                </div>
+                    <div>
+                        @item.bathrooms
+                    </div>
+                    <div>
+                        @item.bedrooms
+                    </div>
+                    <div>
+                        @item.finishedSqFt
+                    </div>
+                    <div>
+                        @item.score
+                    </div>
+                    <div>
+                        @item.yearBuilt
+                    </div>
+                    <div>
+                        @item.totalRooms
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>

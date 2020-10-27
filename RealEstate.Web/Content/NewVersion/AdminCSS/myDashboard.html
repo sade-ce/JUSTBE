@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../Dashboard/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="../Dashboard/css/style.css">
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Just BE | Real Estate </title>
+  </head>
+  <body>
+
+     <header>
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-sm-12 p-lg-0">
+            <nav class="navbar navbar-expand-lg flex-lg-column flex-row">
+              <a class="navbar-brand" href="#"><img src="../Dashboard/img/B-White.svg" /></a>
+              
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                  <i class="material-icons">menu</i>
+                </span>
+              </button>
+
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">My Dashboard</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a href="#" class="nav-link">My Clients</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" data-target="#myDeals" class="collapsed ">My Deals<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="myDeals">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><span class="comboIcon"><i class = "material-icons work-icon">work</i><i class = "material-icons done-icon">done</i></span>Active Deals</a>
+
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><span class="comboIcon"><i class = "material-icons work-icon">work</i><i class = "material-icons done-icon">done_all</i></span>All Deals</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" data-target="#addNew" class="collapsed ">Add New<i class = "material-icons">expand_more</i></a>
+                    <ul class="sub-menu collapse" id="addNew">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><i class = "material-icons">work</i>Deal</a>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><img src="img/client-icon.svg" />Client</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link"><i class = "material-icons">person</i>Vendor</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link"><img src="img/building-icon.svg" />Building</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link"><i class = "material-icons">people</i>Neighborhood</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+           </div>
+         </div>
+       </div>
+     </header>
+
+
+     <section class="wrapper adminContentWrapper">
+       <div class="topHeader">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 d-flex align-items-md-center align-items-start justify-content-between flex-column flex-md-row">
+               <div class="heading-wrap d-flex align-items-center justify-content-between">
+                  <a href="JavaScript:void(0)" class="toggleMenu" id="toggleHeader"><i class="material-icons">menu</i></a>
+                  <h2>My Dashboard</h2>
+               </div>
+               <div class="search-my-account-wrap d-flex align-items-center justify-content-between">
+                  <div class="account-wrap">
+                    <ul>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Hello, Ranjan
+                          <div class="pro-pic"><img src="../Dashboard/img/avatar.png" /></div>
+                          <i class="material-icons">keyboard_arrow_down</i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#">Menu Item</a>
+                          <a class="dropdown-item" href="#">Menu Item</a>
+                        </div>
+                      </li>
+                    </ul>
+                    
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+       </div>
+       <div class="main-content">
+        <div class="container-fluid">
+          <div class="row"> 
+            <div class="col-sm-12 dashboardContent adminDashboardContent">
+              <div class="dashboardAgentContent">
+                <div class="row">
+                  <div class="col-xl-4 col-md-6 col-12 performance-summary">
+                    <div class="whiteBgBorderBox numberOfDeals">
+                      <div class="title">
+                        <h4>Performance Summary</h4>
+                      </div>
+                      <h5># of Deals</h5>
+                      <img src="../Dashboard/img/numberOfDeals.png" />
+                    </div>
+
+                    <div class="whiteBgBorderBox numberOfNewClients">
+                      <h5># of New Clients</h5>
+                      <img src="../Dashboard/img/numberOfClients.png" />
+                    </div>
+
+                    <div class="totalClientsAgents">
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="whiteBgBorderBox totalClientsAgentsInner">
+                            <h3>50</h3>
+                            <p>Total Clients</p>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="whiteBgBorderBox totalClientsAgentsInner">
+                            <h3>08</h3>
+                            <p>Total Agents</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xl-4 col-md-6 col-12 myCalendar">
+                    <div class="whiteBgBorderBox numberOfDeals">
+                      <div class="title">
+                        <h4>My Calendar</h4>
+                      </div>
+                      <div class="myCalendarSearch">
+                        <input type="text" class="form-control" placeholder="Search by Agent" />
+                        <button class="btn tealButton">Go</button>
+                      </div>
+                      <div class="calendarWrap">
+                        <div id="datepicker"></div>
+                      </div>
+                      <div class="eventsWrap">
+                          <div class="singleEventWrap">
+                            <div class="eventDate">
+                              <h2>21 <span>May</span></h2>
+                            </div>
+                            <div class="eventContent">
+                              <p>Lorem Ipsum has been the industry's standard dummy text ever </p>
+                              <div class="eventTime"><i class="material-icons">alarm</i>9:30</div>
+                            </div>
+                          </div>
+                          <div class="singleEventWrap">
+                            <div class="eventDate">
+                              <h2>21 <span>May</span></h2>
+                            </div>
+                            <div class="eventContent">
+                              <p>Lorem Ipsum has been the industry's standard dummy text ever </p>
+                              <div class="eventTime"><i class="material-icons">alarm</i>9:30</div>
+                            </div>
+                          </div>
+                          <div class="singleEventWrap">
+                            <div class="eventDate">
+                              <h2>21 <span>May</span></h2>
+                            </div>
+                            <div class="eventContent">
+                              <p>Lorem Ipsum has been the industry's standard dummy text ever </p>
+                              <div class="eventTime"><i class="material-icons">alarm</i>9:30</div>
+                            </div>
+                          </div>
+                          <div class="singleEventWrap">
+                            <div class="eventDate">
+                              <h2>21 <span>May</span></h2>
+                            </div>
+                            <div class="eventContent">
+                              <p>Lorem Ipsum has been the industry's standard dummy text ever </p>
+                              <div class="eventTime"><i class="material-icons">alarm</i>9:30</div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xl-4 col-md-6 col-12 client-activity-wrap">
+                    <div class="whiteBgBorderBox">
+                      <div class="title">
+                        <h4>Agent Resources</h4>
+                      </div>
+                      <div class="agentResourcesContent">
+                        <button type="button" class="btn tealButton resourcebtn">Add Resource</button>
+                        <div class="agentResourcesInner">
+                          <div class="agentResourcesBlock">
+                            <div class="agent-resources-left">
+                              <a href="#">P@ssw0rds</a>
+                              <p>Aug 29 2020  8:26AM</p>
+                            </div>
+                            <div class="agent-resources-right">
+                              <a href="#" class="edit"><i class="material-icons">edit</i></a>
+                              <a href="#" class="delete"><i class="material-icons">delete</i></a>
+                            </div>
+                          </div>
+                          <div class="agentResourcesBlock">
+                            <div class="agent-resources-left">
+                              <a href="#">Settlement Fees</a>
+                              <p>Aug 29 2020  8:26AM</p>
+                            </div>
+                            <div class="agent-resources-right">
+                              <a href="#" class="edit"><i class="material-icons">edit</i></a>
+                              <a href="#" class="delete"><i class="material-icons">delete</i></a>
+                            </div>
+                          </div>
+                          <div class="agentResourcesBlock">
+                            <div class="agent-resources-left">
+                              <a href="#">P@ssw0rds</a>
+                              <p>Aug 29 2020  8:26AM</p>
+                            </div>
+                            <div class="agent-resources-right">
+                              <a href="#" class="edit"><i class="material-icons">edit</i></a>
+                              <a href="#" class="delete"><i class="material-icons">delete</i></a>
+                            </div>
+                          </div>
+                          <div class="agentResourcesBlock">
+                            <div class="agent-resources-left">
+                              <a href="#">Settlement Fees</a>
+                              <p>Aug 29 2020  8:26AM</p>
+                            </div>
+                            <div class="agent-resources-right">
+                              <a href="#" class="edit"><i class="material-icons">edit</i></a>
+                              <a href="#" class="delete"><i class="material-icons">delete</i></a>
+                            </div>
+                          </div>
+                          <div class="agentResourcesBlock">
+                            <div class="agent-resources-left">
+                              <a href="#">P@ssw0rds</a>
+                              <p>Aug 29 2020  8:26AM</p>
+                            </div>
+                            <div class="agent-resources-right">
+                              <a href="#" class="edit"><i class="material-icons">edit</i></a>
+                              <a href="#" class="delete"><i class="material-icons">delete</i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="whiteBgBorderBox">
+                      <div class="title">
+                        <h4>Client Activity</h4>
+                      </div>
+                      <div class="clientActivityContent">
+                        <div class="clientActivityInner">
+                          <div class="clientActivityBlock">
+                            <h5>Email Sent</h5>
+                            <p>System email sent to client</p>
+                          </div>
+                          <div class="clientActivityBlock">
+                            <h5>Images Uploaded</h5>
+                            <p>Client has uploaded new Images</p>
+                          </div>
+                          <div class="clientActivityBlock">
+                            <h5>Doc Uploaded</h5>
+                            <p>Client has uploaded new Images</p>
+                          </div>
+                          <div class="clientActivityBlock">
+                            <h5>Doc Edited</h5>
+                            <p>Client has uploaded new Images</p>
+                          </div>
+                          <div class="clientActivityBlock">
+                            <h5>Email Sent</h5>
+                            <p>System email sent to client</p>
+                          </div>
+                          <div class="clientActivityBlock">
+                            <h5>Images Uploaded</h5>
+                            <p>Client has uploaded new Images</p>
+                          </div>
+                          <div class="clientActivityBlock">
+                            <h5>Doc Uploaded</h5>
+                            <p>Client has uploaded new Images</p>
+                          </div>
+                          <div class="clientActivityBlock">
+                            <h5>Doc Edited</h5>
+                            <p>Client has uploaded new Images</p>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+       </div>
+     </section>
+
+
+    
+
+    
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="../Dashboard/js/bootstrap/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="../Dashboard/js/custom.js"></script>
+  </body>
+</html> 

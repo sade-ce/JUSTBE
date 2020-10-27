@@ -1,0 +1,83 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientViewModel
+<div class="col-md-12 ">
+    <div>
+        <h3 class="uppercase">Assign Co-Ordinator</h3>
+        <hr />
+
+        <div id="contact-message"></div>
+            @using (Html.BeginForm("MarkClients", "ControlPanel", FormMethod.Post, new { area = "Admin", @id = "fullLeadForm", @autocomplete = "on" }))
+            {
+            @Html.HiddenFor(model=>model.DataGrid.Email)
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true)
+                    <div class="box-body">
+                        <div class="col-md-12 ">
+                            <div class="well well-sm ">
+                                <div class="form-group" style="margin-top:25px">
+                                    <label class="col-md-4 control-label">Co-Ordinator :</label>
+                                    <div class="col-md-5">
+                                        @Html.ValidationMessageFor(m => m.DataGrid.AgentEmail, "", new { @class = "text-danger" })
+                                        @Html.DropDownListFor(m => m.DataGrid.AgentEmail, new SelectList(Model.CoOrdinator, "Email", "Email"), "--Select--", new { @class = "form-control ddl-select2" })
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="button" class="btn btn-primary" id="leadsubmit" value="Submit!" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    <!-- Contact Form / End -->
+</div>
+
+
+<script>
+    $('#leadsubmit').click(function () {
+        formsubmit();
+    });
+    function formsubmit() {
+            $.ajax({
+                url: '/Admin/ControlPanel/MarkClients',
+                type: 'post',
+                data: $('#fullLeadForm').serialize(),
+                success: function (result) {
+                    if (result.success) {
+                        window.location.href = result.url;
+                    } else {
+                        $('.leadContent11').html(result);
+                        alert("Please select Agent");
+                        //document.getElementById('leadform').click();
+                        // $('#leadModal').modal('show');
+                        //var linkedModal = jQuery('.openmodal');
+
+                        //jQuery('.modal-screen').toggleClass('reveal-modal');
+                        //linkedModal.toggleClass('reveal-modal');
+                        //return false;
+                    }
+                },
+                error: function (result) {
+                    //alert('errror');
+                }
+            });
+
+            return false;
+
+    }
+</script>
+
+<script type="text/javascript">
+    jQuery('.close-modal:not(.modal-strip .close-modal)').unbind('click').click(function () {
+        var modal = jQuery(this).closest('.foundry_modal');
+        modal.toggleClass('reveal-modal');
+        if (typeof modal.attr('data-cookie') !== "undefined") {
+            mr_cookies.setItem(modal.attr('data-cookie'), "true", Infinity);
+        }
+        if (modal.find('iframe').length) {
+            modal.find('iframe').attr('src', '');
+        }
+        jQuery('.modal-screen').removeClass('reveal-modal');
+    });
+</script>

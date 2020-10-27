@@ -1,0 +1,257 @@
+﻿
+@{
+    ViewBag.Title = "Just BE | Seller Guides";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="titlebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>5 REASONS TO SELL THIS SEASON!</h2>
+                @*<span>Keep up to date with the latest Article</span>*@
+
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li>Article</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <!-- Blog Posts -->
+    <div class="blog-page">
+        <div class="row">
+
+            <!-- Post Content -->
+            <div class="col-md-8">
+
+                <!-- Blog Post -->
+                <div class="blog-post single-post">
+                    <!-- Img -->
+                    <img class="post-img" src="~/img/DC Row Homes.jpg" alt="">
+
+                    <!-- Content -->
+                    <div class="post-content">
+                        <h3>5 REASONS TO SELL THIS SEASON!</h3>
+                        <ul class="post-meta">
+                            <li>Novemer 9, 2016</li>
+                        </ul>
+                        <p>Here are five reasons listing your home for sale this spring makes sense.</p>
+                        <div class="post-quote">
+                            <span class="icon"></span>
+                            <h3>
+                                1. Demand Is Strong
+                            </h3>
+                            <blockquote>
+                                The latest Buyer Traffic Report from the National Association of Realtors (NAR) shows that buyer
+                                demand remains very strong throughout the vast majority of the country. These buyers are ready,
+                                willing and able to purchase… and are in the market right now! More often than not, multiple
+                                buyers are competing with each other to buy a home.
+                            </blockquote>
+                        </div>
+                        <h3>
+                            2. There Is Less Competition Now
+                        </h3>
+                        <p>
+                            Housing inventory is still under the 6-month supply that is needed for a normal housing market.
+                            This means, in the majority of the country, there are not enough homes for sale to satisfy the
+                            number of buyers in that market. This is good news for home prices. However, additional inventory
+                            could be coming to the market soon.
+                        </p>
+                        <p>
+                            There is a pent-up desire for many homeowners to move, as they were unable to sell over the last
+                            few years because of a negative equity situation. Homeowners are now seeing a return to positive
+                            equity as real estate values have increased over the last two years. Many of these homes will be
+                            coming to the market this spring.
+                        </p>
+                        <p>
+                            Also, builder's confidence in the market has hit its highest mark in over 11 years. Experts are
+                            predicting that new construction of single-family homes will ramp up this spring.
+                        </p>
+                        <p>
+                            The choices buyers have will continue to increase. Don’t wait until all this other inventory of homes
+                            comes to market before you sell.
+                        </p>
+                        <h3>
+                            3. The Process Will Be Quicker
+                        </h3>
+                        <img class="post-img" src="~/img/Sellhomeinsummer.png" alt="">
+                        <p>
+                            Fannie Mae anticipates an acceleration in home sales that will surpass 2007's pace. As the market
+                            continues to strengthen, banks will be inundated with loan inquiries causing closing-time lines to
+                            lengthen. Selling now will make the process quicker & simpler
+                        </p>
+
+                        <h3>4. There Will Never Be a Better Time to Move Up</h3>
+                        <p>
+                            If you are moving up to a larger, more expensive home, consider doing it now. Prices are projected
+                            to appreciate by 4.7% over the next year, according to CoreLogic. If you are moving to a higherpriced
+                            home, it will wind up costing you more in raw dollars (both in down payment and mortgage
+                            payment) if you wait.
+                        </p>
+                        <strong>
+                            You can also lock in your 30-year housing expense with an interest rate around 4% right now. Rates
+                            are projected to increase in the next 12 months
+                        </strong>
+                        <h3>5. It’s Time to Move On with Your Life</h3>
+                        <p>
+                            Look at the reason you decided to sell in the first place and determine whether it is worth waiting.
+                            Is money more important than being with family? Is money more important than your health? Is
+                            money more important than having the freedom to go on with your life the way you think you
+                            should?
+                        </p>
+                        <strong>
+                            Only you know the answers to the questions above. You have the power to take control of the
+                            situation by putting your home on the market. Perhaps the time has come for you and your family
+                            to move on and start living the life you desire.
+                        </strong>
+                        <!-- Share Buttons -->
+                        @*<ul class="share-buttons margin-top-40 margin-bottom-0">
+                            <li><a class="fb-share" href="#"><i class="fa fa-facebook"></i> Share</a></li>
+                            <li><a class="twitter-share" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
+                            <li><a class="gplus-share" href="#"><i class="fa fa-google-plus"></i> Share</a></li>
+                            <li><a class="pinterest-share" href="#"><i class="fa fa-pinterest-p"></i> Pin</a></li>
+                        </ul>*@
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- Blog Post / End -->
+                <!-- Post Navigation -->
+                <ul id="posts-nav" class="margin-top-0 margin-bottom-40">
+                    <li class="next-post">
+                        <a href="@Url.Action("BuyerTips","Article")">
+                            <span>Next Post</span>
+                            4 Tips for Effectively Making an Offer!
+                        </a>
+                    </li>
+                    <li class="prev-post">
+                        <a href="@Url.Action("BuyerGuides", "Article")">
+                            <span>Previous Post</span>
+                            5 REASONS TO BUY A HOME THIS SEASON!
+                        </a>
+                    </li>
+                </ul>
+
+
+            </div>
+            <!-- Content / End -->
+            <!-- Sidebar
+            ================================================== -->
+            <!-- Widgets -->
+            <div class="col-md-4">
+                <div class="sidebar right">
+                    @{Html.RenderAction("Enquiry", "Article");}
+                    <div class="widget">
+                        <h3>Popular Posts</h3>
+                        <ul class="widget-tabs">
+
+                            <li>
+                                <div class="widget-content">
+                                    <div class="widget-thumb">
+                                        <a href="@Url.Action("BuyerTips","Article")"><img src="~/img/BuyerTips.png" alt=""></a>
+                                    </div>
+
+                                    <div class="widget-text">
+                                        <h5><a href="@Url.Action("BuyerTips","Article")">4 Tips for Effectively Making an Offer!</a></h5>
+                                        <span>October 26, 2016</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </li>
+
+
+                            <li>
+                                <div class="widget-content">
+                                    <div class="widget-thumb">
+                                        <a href="#"><img src="~/img/sellhome.png" alt=""></a>
+                                    </div>
+
+                                    <div class="widget-text">
+                                        <h5><a href=@Url.Action("BuyerGuides","Article")>4 REASONS TO BUY A HOME THIS SEASON!</a></h5>
+                                        <span>November 9, 2016</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <!-- Widget / End-->
+                    <!-- Widget -->
+                    @*<div class="widget">
+                        <h3 class="margin-top-0 margin-bottom-25">Social</h3>
+                        <ul class="social-icons rounded">
+                            <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
+                            <li><a class="linkedin" href="#"><i class="icon-linkedin"></i></a></li>
+                        </ul>
+                    </div>*@
+                    <!-- Widget / End-->
+                    <div class="clearfix"></div>
+                    <div class="margin-bottom-40"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar / End -->
+
+    </div>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        $('form').submit(function () {
+            if (isValidEmailAddress($("#Email").val())) {
+                $("#ajaxLoading").css("display", "block");
+                $("#ajaxLoading").css("top", $(window).height() / 1.8);
+                $("#ajaxLoading").css("left", $(window).width() / 2);
+                $("#ajaxLoading").css("position", "fixed");
+                $("#ajax-backdrop").css("display", "block");
+                var serializedForm = $(this).serialize();
+                $.ajax({
+                    url: '@Url.Action("Enquiry")',
+                    type: "POST",
+                    data: serializedForm,
+
+                    success: function (result) {
+                        $("#ajaxLoading").css("display", "none");
+                        $("#ajax-backdrop").css("display", "none");
+                        $('#ErrorView').text(result).show();
+
+                    },
+                    error: function (result) {
+
+                        $('#ErrorView').text(result).show();
+                        //$('#Error').text(result.Email);
+                    }
+
+                });
+
+            }
+            else {
+                $("#ErrorView").text("Invalid Email Address!").show().fadeOut("slow");
+            }
+
+            return false;
+        });
+    });
+
+    function isValidEmailAddress(emailAddress) {
+        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+        return pattern.test(emailAddress);
+    }
+    if (!isValidEmailAddress(emailID)) {
+        alert("email not valid");
+    }
+
+    </script>
+}

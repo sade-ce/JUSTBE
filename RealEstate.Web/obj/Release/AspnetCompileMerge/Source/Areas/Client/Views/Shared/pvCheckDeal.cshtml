@@ -1,0 +1,22 @@
+﻿@model RealEstate.Entities.ViewModels.MstCheckLoggedClientDeal
+
+
+@if (User.IsInRole("Client"))
+{
+    if (Model.CheckDeal.Count() > 0)
+    {
+        <li class="nav-item nav-item-parent" id="sidebar">
+            <a href="@Url.Action("List","MyDeal",new { @area="Client"})" class="nav-link kk">
+                My Properties
+            </a>
+
+        </li>
+
+
+        
+    }
+
+   
+}
+
+

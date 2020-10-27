@@ -1,0 +1,280 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/NewVersion/Admin/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="~/Content/NewVersion/Admin/css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Just BE | Real Estate </title>
+    <style>
+        .validation-summary-errors {
+            color: #e51f1f;
+        }
+
+        .modal-body {
+    box-shadow: 0 10px 24px rgba(0,0,0,.14);
+}
+
+button.btn.close {
+    font-size: 16px;
+    background: #ddd;
+    padding: 8px;
+    color: #000;
+    opacity: 1;
+    text-shadow: none;
+    font-weight: normal;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 p-lg-0">
+                    <nav class="navbar navbar-expand-lg flex-lg-column flex-row">
+                        <a class="navbar-brand" href="@Url.Action("Brand", "Home", new { area = "" })"><img src="~/Content/NewVersion/Admin/img/B-White.svg" />
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <i class="material-icons">menu</i>
+                            </span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("List", "DealAgent", new { area = "Coordinator" })" target="_blank" class="nav-link">Old Version</a>
+                                </li>
+                                <li class="nav-item @(ViewBag.ActiveURL == "AgentDashboard" ? "active" : "")" >
+                                    <a href="@Url.Action("Index", "DashboardV2", new { area = "Coordinator" })" class="nav-link">My Dashboard</a>
+                                </li>
+                                <li class="nav-item @(ViewBag.ActiveURL == "ClientList" ? "active" : "")">
+                                    <a href="@Url.Action("List", "UserAgentNew", new { area = "" })" class="nav-link">My Clients</a>
+                                    <!--<ul class="sub-menu collapse show" id="myClients">
+                                      <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class = "material-icons">hdr_strong</i>Under Contract</a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class = "material-icons">verified_user</i>Settled</a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class = "material-icons">update</i>Past</a>
+                                      </li>
+                                    </ul>-->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#myDeals">My Deals<i class="material-icons">expand_more</i></a>
+                                    <ul class="sub-menu collapse show" id="myDeals">
+                                        <li class="nav-item @(ViewBag.ActiveURL == "ActiveDealList" ? "active" : "")">
+                                            <a href="@Url.Action("ActiveDeals", "DealAgentV2", new { area = "Coordinator" })" class="nav-link"><span class="comboIcon"><i class="material-icons work-icon">work</i><i class="material-icons done-icon">done</i></span>Active Deals</a>
+
+                                        <li class="nav-item @(ViewBag.ActiveURL == "DealList" ? "active" : "")">
+                                            <a href="@Url.Action("List", "DealAgentV2", new { area = "Coordinator" })" class="nav-link"><span class="comboIcon"><i class="material-icons work-icon">work</i><i class="material-icons done-icon">done_all</i></span>All Deals</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item @(ViewBag.ActiveURL == "VendorList" ? "active" : "")">
+                                    <a href="@Url.Action("List", "VendorV2", new { area = "Admin" })" class="nav-link">Vendors</a>
+                                    @*<a class="nav-link collapsed" data-toggle="collapse" data-target="#myDeals">Vendors<i class="material-icons">expand_more</i></a>
+                                    <ul class="sub-menu collapse show" id="myDeals">
+                                        <li class="nav-item @(ViewBag.ActiveURL == "VendorList" ? "active" : "")">
+                                            <a href="@Url.Action("List", "VendorV2", new { area = "Admin" })" class="nav-link"><i class="material-icons">person</i>Vendor</a>
+
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link"><i class="material-icons">person</i>Vendor Type</a>
+                                        </li>
+                                    </ul>*@
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link collapsed" data-toggle="collapse" data-target="#addNew" >Add New<i class="material-icons">expand_more</i></a>
+                                    <ul class="sub-menu collapse show" id="addNew">
+                                        <li class="nav-item @(ViewBag.ActiveURL == "AddDeal" ? "active" : "")">
+                                            <a href="@Url.Action("AddTransaction", "UserAgentNew", new { area = "" })" class="nav-link"><i class="material-icons">work</i>Deal</a>
+                                        <li class="nav-item @(ViewBag.ActiveURL == "ClientProfile" ? "active" : "")" >
+                                            <a href="@Url.Action("Create", "UserAgentNew", new { area = "" })" class="nav-link"><img src="~/Content/NewVersion/Admin/img/client-icon.svg" />Client</a>
+                                        </li>
+                                        <li class="nav-item @(ViewBag.ActiveURL == "Vendor" ? "active" : "")">
+                                            <a href="@Url.Action("Create", "VendorV2", new { area = "Admin" })" class="nav-link"><i class="material-icons">person</i>Vendor</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link"><img src="~/Content/NewVersion/Admin/img/building-icon.svg" />Building</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link"><i class="material-icons">people</i>Neighborhood</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                             
+                                <li class="nav-item d-block d-xs-block d-sm-block d-md-block d-lg-none">
+                                    @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div style="display:none">
+        @{Html.RenderAction("UserDetails", "ControlPanel", new { area = "Admin" });}
+    </div>
+    <div class="content">
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ 
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        @Scripts.RenderFormat(
+    "<script src='https://justbere-d4d9.kxcdn.com{0}' ></script>",
+    "~/bundles/jquery")
+
+        <script src="~/Content/NewVersion/Admin/js/bootstrap/bootstrap.min.js"></script>
+        <script src="~/Scripts/respond.js"></script>
+    
+        <script src="~/Content/NewVersion/Admin/js/custom.js"></script>
+        <script src="/Content/adminjs/app.min.js"></script>
+        <script src="/Scripts/CustomAjax.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        @RenderBody();
+
+
+     
+    </div>
+   
+
+
+   
+
+  
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.img-user-new').attr('src', $('#user-img').attr('src'));
+        })
+
+    </script>
+
+
+</body>
+</html> 
+<div class="panel panel-primary text-center ajax-new-load" id="ajaxLoading">
+    <div class="panel-heading">Loading data</div>
+    <div class="panel-body" style="padding-left: 30px; padding-right: 30px;">
+        <img src="~/img/loading.gif" alt="Loading" style="margin-bottom: 10px" /><br />
+        Please wait...
+    </div>
+</div>
+<div id="ajax-backdrop" class="fade in" style="background-color: rgb(0, 0, 0); bottom: 0px; left: 0px; position: fixed; right: 0px; top: 0px; z-index: 10000; opacity: 0.4; display: none;"></div>
+
+<div class="modal modal-styled" id="myErroMsgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 300px;">
+        <div class="modal-content">
+            @* <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModal()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myErroModalLabel"></h4>
+            </div> *@
+            <div class="modal-body">
+                <div class="alert alert-warning" role="alert">
+                <p id="Msg"></p>
+                    <button type="button" class="btn  close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModal()">Close</button>
+                    <input type="button" id="myErroMsgModalYesButton" value="OK" class="btn btn-info btn-sm hidden" onclick="OkMyModal()" />
+                </div>
+              
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10 text-right" style="padding-right: 0;">
+                    @*<input type="button" id="myErroMsgModalNoButton" class="btn btn-default btn-sm" data-dismiss="modal" onclick="CloseMyModal()" value="Cancel" />*@
+                     
+                </div>
+            </div>
+            <input type="hidden" id="eventSender" name="name" value="" />
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal modal-styled" id="myErroMsgModalT" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 300px;">
+        <div class="modal-content">
+            @* <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModalT()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myErroModalLabelT"></h4>
+            </div> *@
+            <div class="modal-body">
+                <div class="alert alert-warning" role="alert">
+                    <p id="MsgT"></p>
+                </div>
+                <button type="button" id="myErroMsgModalNoButtonT"  class="btn  close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModalT()">Close</button>
+                <input type="button" id="myErroMsgModalYesButtonT" value="OK" class="btn btn-info btn-sm hidden" onclick="OkMyModalT()" />
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10 text-right" style="padding-right: 0;">
+                    @*<input type="button" id="myErroMsgModalYesButtonT" value="OK" class="btn btn-info btn-sm hidden" onclick="OkMyModalT()" />
+                <input type="button" id="myErroMsgModalNoButtonT" class="btn btn-default btn-sm" data-dismiss="modal" onclick="CloseMyModalT()" value="Cancel" />*@
+
+                </div>
+            </div>
+            <input type="hidden" id="eventSender" name="name" value="" />
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-styled" id="myErroMsgModalTrans" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 300px;">
+        <div class="modal-content">
+            @* <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModalT()"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myErroModalLabelT"></h4>
+                </div> *@
+            <div class="modal-body">
+                <div class="alert alert-warning" role="alert">
+                    <p id="MsgTrans"></p>
+                </div>
+                <button type="button" id="myErroMsgModalNoButtonTrans" class="btn  close" data-dismiss="modal" aria-label="Close" onclick="CloseMyModalTrans()">Close</button>
+                <input type="button" id="myErroMsgModalYesButtonTrans" value="OK" class="btn btn-info btn-sm hidden" onclick="OkMyModalTrans()" />
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10 text-right" style="padding-right: 0;">
+                    @*<input type="button" id="myErroMsgModalYesButtonT" value="OK" class="btn btn-info btn-sm hidden" onclick="OkMyModalT()" />
+                        <input type="button" id="myErroMsgModalNoButtonT" class="btn btn-default btn-sm" data-dismiss="modal" onclick="CloseMyModalT()" value="Cancel" />*@
+
+                </div>
+            </div>
+            <input type="hidden" id="eventSender" name="name" value="" />
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('.img-user-new').attr('src', $('#user-img').attr('src'));
+        })
+
+        function OkMyModalT() {
+            $("#myErroMsgModalT").hide();
+            $('#ErrMsgHiddenFieldT').val("");
+            // Retrieve the sender infromation from hidden field and pass it to the function
+          //  CustomAjaxFormSubmitt($("#eventSender").val().split('|')[1], $("#eventSender").val().split('|')[0]);
+        }
+        function CloseMyModalT() {
+            $('#myErroMsgModalYesButtonT').addClass('hidden');
+            $('#ErrMsgHiddenFieldT').val("");
+            $("#myErroMsgModalT").hide();
+        }
+</script>

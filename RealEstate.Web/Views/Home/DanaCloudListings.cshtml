@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Just BE | Dana Cloud Listings";
+    Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+}
+<style>
+    #header {
+        top: 0px !important;
+    }
+</style>
+
+<meta charset="utf-8">
+<link rel="dns-prefetch" href="//d2mdw063ttlqtq.cloudfront.net">
+<link rel="dns-prefetch" href="//0.s3.envato.com">
+<link rel="dns-prefetch" href="//thumb-tf.s3.envato.com" />
+<link rel="dns-prefetch" href="//user-profile.s3.envato.com">
+<link rel="dns-prefetch" href="//image-tf.s3.envato.com" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>Dana Cloud's Listings</title>
+<meta name="description" content="&amp;lt;img src=&amp;quot;https://s23.postimg.org/fpzcekwp7/15837871105_ce58e41de5_o.png&amp;quot; alt=&amp;quot;...">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
+<link rel="stylesheet" media="all" href="//public-assets.envato-static.com/assets/market/core/index-e9ba82e2efe7b447f1f3606e4bae448fd208598f68e5a52f19a45538623660f5.css" />
+<link rel="stylesheet" media="all" href="//public-assets.envato-static.com/assets/market/pages/preview/index-23bd1ac2a83a91cc37b86401b06d5fd570071dcedbf6380197b77581f58044fd.css" />
+@*<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/icons/themeforest.net/apple-touch-icon-144x144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/icons/themeforest.net/apple-touch-icon-114x114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/icons/themeforest.net/apple-touch-icon-72x72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="/icons/themeforest.net/apple-touch-icon-precomposed.png" />*@
+<script src="//public-assets.envato-static.com/assets/market/pages/full_screen_preview/index-e137c509e07db11c141dca806e3a388990cdf140aae8197e76cd6a3f8baccc67.js"></script>
+<div class="full-screen-preview">
+
+    <div class="iframe-modal">
+        <a href="http://www.google.com">
+            <iframe id="googframe" name="google" class="full-screen-preview__frame" src="" name="preview-frame" frameborder="0" noresize="noresize" data-view="fullScreenPreview" style="height: 8217px"></iframe>
+        </a>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<style>
+    .content {
+        display: none;
+    }
+
+    .modal-container {
+        display: none;
+    }
+
+    .iframe-modal {
+        width: 101.5%;
+        height: auto;
+        max-width: none;
+        padding: 0;
+        margin-top: -58px;
+         margin-bottom: -465px;
+    }
+
+    .full-screen-preview__frame {
+        width: 102%;
+         height: 7542px !important;
+    }
+</style>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var actualURL = 'https://www.compass.com/agents/dc/dana-cloud/';
+
+            $('#googframe').attr('src', actualURL);
+
+        });
+
+
+    </script>
+
+    <script>
+        //function to fix height of iframe!
+        var calcHeight = function () {
+            var headerDimensions = $('.preview__header').height();
+            $('.full-screen-preview__frame').height($(window).height() - headerDimensions);
+        }
+
+        $(document).ready(function () {
+            calcHeight();
+
+        });
+
+        $(window).resize(function () {
+            calcHeight();
+        }).load(function () {
+            calcHeight();
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            var baseTag = document.createElement('base');
+            baseTag.target = '_blank';
+            $("iframe html head").append(baseTag);
+        });
+    </script>
+}

@@ -1,0 +1,217 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    .ui-front {
+    z-index: 9999;
+    width: 200px;
+}
+</style>
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Ratified Offer (Settlement Date &amp; Home Configuration)</h4>
+</div>
+
+<div class="margin-top-20">
+
+    @using (Html.BeginForm("ClosingConfiguration", "Agent", FormMethod.Post, new { @id = "fullLeadForm", @autocomplete = "on" }))
+    {
+        <div class="modal-body">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.UserInfo.Email)
+            @Html.HiddenFor(model => model.utblMstTrackDeal.StatusID)
+            @Html.HiddenFor(model => model.utblMstTrackDeal.ClientID)
+            @Html.HiddenFor(model => model.utblMstTrackDeal.TransactionID)
+            @Html.HiddenFor(model => model.utblMstTrackDeal.UpdatedOn)
+            @Html.HiddenFor(model => model.TrackDealMasterView.AgentID)
+            <input type="hidden" name="ListingSHA" id="ListingSHA" />
+
+
+            @for (int i = 0; i < Model.ContingenciesData.Count(); i++)
+            {
+                @Html.HiddenFor(model => Model.ContingenciesData[i].IsApplicable)
+                @Html.HiddenFor(model => Model.ContingenciesData[i].NoOfDays)
+                @Html.HiddenFor(model => Model.ContingenciesData[i].StatusID)
+
+            }
+            <div class="form-horizontal">
+                <div class="form-group">
+
+                    @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.ListingTypeID, new { @class = "control-label col-md-3 pull-left" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.MstClosingConfig.utblMstClosingDate.ListingTypeID, new SelectList(Model.MstClosingConfig.ListingTypeDDL, "ListingTypeID", "ListingType"), "--- Select Listing Type --- ", new { @class = "form-control ddl-select2" })
+                        @Html.ValidationMessageFor(model => model.MstClosingConfig.utblMstClosingDate.ListingTypeID, "", new { @class = "text-danger" })
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.MLSID, new { @class = "control-label col-md-3 pull-left" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.MLSID, new { @class = "form-control" })
+                         @Html.ValidationMessageFor(model => model.MstClosingConfig.utblMstClosingDate.MLSID)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.Address, new { @class = "control-label col-md-3 pull-left" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.Address, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MstClosingConfig.utblMstClosingDate.Address)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.URL, new { @class = "control-label col-md-3 pull-left" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.URL, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MstClosingConfig.utblMstClosingDate.URL)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MstClosingConfig.utblMstClosingDate.ClosingDate, new { @class = "control-label col-md-3 pull-left" })
+                    <div class="col-md-9" style="position:relative;">
+                        @Html.TextBoxFor(model => model.MstClosingConfig.utblMstClosingDate.ClosingDate, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MstClosingConfig.utblMstClosingDate.ClosingDate, "", new { @class = "text-danger" })
+
+
+                    </div>
+                </div>
+
+            </div>
+            @*<div class="well well-sm col-md-12 col-lg-12 text-right">
+                    <div class="form-horizontal">
+                        @Html.ActionLink("Back to List", "Index", "Agent", null, new { @class = "btn btn-default pull-left" })
+                        <input type="button" class="btn btn-primary" id="leadsubmit" value="Submit!" />
+
+                    </div>
+                </div>*@
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="CloseMyModal()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        var CheckListing = function () {
+            var ListingType = "MLS"
+            var DDLText = document.getElementById("MstClosingConfig_utblMstClosingDate_ListingTypeID").options[document.getElementById('MstClosingConfig_utblMstClosingDate_ListingTypeID').selectedIndex].text;
+            if (ListingType == DDLText) {
+                $("#MstClosingConfig_utblMstClosingDate_Address").attr('disabled', 'disabled');
+                $("#MstClosingConfig_utblMstClosingDate_Address").val("");
+                $("#MstClosingConfig_utblMstClosingDate_URL").attr('disabled', 'disabled');
+                $("#MstClosingConfig_utblMstClosingDate_URL").val("");
+
+                $("#MstClosingConfig_utblMstClosingDate_MLSID").removeAttr('disabled');
+
+            }
+            else if ("Private" == DDLText) {
+
+                $("#MstClosingConfig_utblMstClosingDate_MLSID").attr('disabled', 'disabled');
+                $("#MstClosingConfig_utblMstClosingDate_MLSID").val("");
+
+                $("#MstClosingConfig_utblMstClosingDate_Address").removeAttr('disabled');
+                $("#MstClosingConfig_utblMstClosingDate_URL").removeAttr('disabled');
+
+            }
+            else {
+                $("#utblMstClientHomeListing_MLSID").removeAttr('disabled');
+                $("#MstClosingConfig_utblMstClosingDate_Address").removeAttr('disabled');
+                $("#MstClosingConfig_utblMstClosingDate_URL").removeAttr('disabled');
+            }
+        }
+        CheckListing();
+        $('#MstClosingConfig_utblMstClosingDate_ListingTypeID').on('change', function () {
+            CheckListing();
+        });
+    });
+</script>
+@*<script>
+        $('#leadsubmit').click(function () {
+            formsubmit();
+        });
+        function formsubmit() {
+            $.ajax({
+                url: '/Coordinator/Agent/ClosingConfiguration',
+                type: 'post',
+                data: $('#fullLeadForm').serialize(),
+                success: function (result) {
+                    if (result.success) {
+                        window.location.href = result.url;
+                    } else {
+                        $('#myModalContent').html(result);
+                        binddealForm(dialog);
+                    }
+                },
+                error: function (result) {
+                    //alert('errror');
+                }
+            });
+
+            return false;
+
+        }
+    </script>*@
+<script type="text/javascript">
+    jQuery('.close-modal:not(.modal-strip .close-modal)').unbind('click').click(function () {
+        var modal = jQuery(this).closest('.foundry_modal');
+        modal.toggleClass('reveal-modal');
+        if (typeof modal.attr('data-cookie') !== "undefined") {
+            mr_cookies.setItem(modal.attr('data-cookie'), "true", Infinity);
+        }
+        if (modal.find('iframe').length) {
+            modal.find('iframe').attr('src', '');
+        }
+        jQuery('.modal-screen').removeClass('reveal-modal');
+    });
+</script>
+<script type="text/javascript">
+
+    $("#MstClosingConfig_utblMstClosingDate_ClosingDate").datetimepicker({
+        format: "MM-DD-YYYY",
+        sideBySide: true,
+        minDate: new Date()
+    });
+
+
+</script>
+
+
+<script>
+        $(document).ready(function () {
+            $('#MstClosingConfig_utblMstClosingDate_MLSID').autocomplete({
+                source: function (request, response) {
+                    var itemnamecodes = new Array();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("Autocomplete", "Agent")',
+                        dataType: 'json',
+                        data: { term: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.Key, Id: item.Value };
+                            }))
+                        }
+                    })
+                },
+                select: function (e, i) {
+                    $("#ListingSHA").val(i.item.Id);
+
+                }
+            })
+        })
+</script>
+
+<style>
+    .foundry_modal *:not(.background-image-holder):not(.close-modal) {
+        z-index: 4;
+        position: static;
+    }
+</style>
+

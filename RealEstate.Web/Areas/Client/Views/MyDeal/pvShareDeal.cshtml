@@ -1,0 +1,164 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientShareDealManageModel
+<div class="modal-header">
+    <h4 class="modal-title" id="myModalLabel">Share dashboard</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span></button>
+</div>
+
+<div class="modal-body">
+    @using (Html.BeginForm("ShareDeal", "MyDeal", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.TransactionDetails.TransactionID)
+   
+        <div class="row">
+            <div class="col-md-3">
+                <label class="shareTxt" for="Share_With">Share With</label>
+            </div>
+            <div class="col-md-6" style="margin-bottom: 20px;">
+                @Html.TextBox("sharedaccounts", "", new { @class = "form-control sharedaccounts ui-autocomplete-input", @autocomplete = "on", id = "sharedaccounts", placeholder = "Enter Email Address" })
+                @*<input autocomplete="off" class="form-control sharedaccounts ui-autocomplete-input" id="sharedaccounts" name="sharedaccounts" placeholder="Enter Email Address" type="text" value="">*@
+
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary btn-sm mobshare shareBtnPop" type="submit">Share</button>
+            </div>
+
+        </div>
+        @*<div class="col-md-12">
+            <div>
+                @Html.Label("Share With", new { @class = "control-label col-md-3" })
+                <div class="col-md-7" style="margin-bottom: 20px;">
+                    @Html.TextBox("sharedaccounts", "", new { @class = "form-control sharedaccounts", @autocomplete = "on", id = "sharedaccounts",placeholder="Enter Email Address" })
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary btn-sm mobshare" type="submit">Share</button>
+                </div>
+            </div>
+        </div>*@
+    }
+    <div class="col-md-12">
+        <span>Who has access</span>
+        <div class="table-responsive text-sm">
+            <table class="table">
+                <tr>
+                    <td>
+                        <div>
+                            <span> @Model.TransactionDetails.Name (you)</span>
+                        </div><div>
+                            <span class="text-muted ">@Model.TransactionDetails.Email</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="text-muted">
+                            Is Owner
+                        </span>
+                    </td>
+                    <td></td>
+                </tr>
+                @if (Model.SharedClientList.Count() > 0)
+                {
+                    foreach(var item in Model.SharedClientList) {
+                    <tr>
+                        <td>
+                            <div>
+                            
+                            @if (item.ClientName == null)
+                            {  <span></span>}
+                            else
+                            {
+                                <span>@item.ClientName</span>
+                            }
+
+                            </div><div>
+                            @if (item.ClientEmail == null)
+                            {
+                                <span class="text-muted ">@item.NotRegistered</span>
+
+                            }
+                            else
+                            {
+                                <span class="text-muted ">@item.ClientEmail</span>
+                            }
+                            </div>
+                        </td>
+                        <td>
+                            <span class="text-muted">
+                                Can View
+                            </span>
+                        </td>
+                        <td>
+@if (item.ClientID == null)
+{
+                            <form method="post" action="@Url.Action("removesharing", "mydeal", new { TransactionID = Model.TransactionDetails.TransactionID, ClientID = item.NotRegistered, area = "Client" })">
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("ClientID", @item.NotRegistered)
+                                @Html.Hidden("TransactionID", Model.TransactionDetails.TransactionID)
+                           
+                                 <a href="@Url.Action("removesharing", "mydeal", new { area = "Client", TransactionID = Model.TransactionDetails.TransactionID, ClientID = item.NotRegistered })" data-remove="" data-toggle="tooltip" data-placement="bottom" title="Delete">Remove</a>
+                           
+                             </form>
+}
+else
+{
+    <form method="post" action="@Url.Action("removesharing", "mydeal", new { TransactionID = Model.TransactionDetails.TransactionID, ClientID = item.ClientID, area = "Client" })">
+        @Html.AntiForgeryToken()
+        @Html.Hidden("ClientID", @item.ClientID)
+        @Html.Hidden("TransactionID", Model.TransactionDetails.TransactionID)
+      
+            <a href="@Url.Action("removesharing", "mydeal", new { area = "Client", TransactionID = Model.TransactionDetails.TransactionID, ClientID = item.ClientID })" data-remove="" data-toggle="tooltip" data-placement="bottom" title="Delete">Remove</a>
+
+       
+    </form>
+}
+                        </td>
+                    </tr>
+                    }
+                }
+
+            </table>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="alert alert-info alert-dismissible" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+             <strong><span class="sharingtitle"></span> </strong>
+            <span class="sharingmessage"></span>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary shareBtnPop" data-dismiss="modal" onclick="CloseMyModal()">Done</button>
+</div>
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+
+
+@*<script type="text/javascript">
+    $('#sharedaccounts').autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: "/mydeal/getData?term=" + request.term,
+                dataType: 'json',
+                cache: false,
+                global: false,
+                success: function (data) {
+                    response(data);
+                }
+            });
+            //$.getJSON("/mydeal/getData?term=" + request.term, function (data) {
+            //    response(data);
+            //});
+        },
+        minLength: 3,
+        delay: 100
+    });
+</script>*@
+
+
+

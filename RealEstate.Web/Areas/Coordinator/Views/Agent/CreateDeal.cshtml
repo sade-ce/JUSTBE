@@ -1,0 +1,236 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+
+@{
+    ViewBag.Title = "CreateDeal";
+    Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+
+    }
+}
+@*<link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/popup.css" rel="stylesheet" />*@
+<link href="https://justbere-d4d9.kxcdn.com/Content/Plugins/Datedropper/datedropper.min.css" rel="stylesheet" />
+<link href="https://justbere-d4d9.kxcdn.com/Content/popup.css" rel="stylesheet" />
+
+<section class="content-header">
+    <h1>
+       Manage Deal (buyer)<small class="text-primary">  <strong> ( Name: @Model.UserInfo.Name , Email: @Model.UserInfo.Email , <a href="tel:@Model.UserInfo.Phone">Phone: @Model.UserInfo.Phone )</a></strong> </small>
+        <span class="pull-right"><a target="_blank" href="@Url.Action("Status", "MyDeal", new {TransactionID=Model.TrackDealMasterView.TransactionID,ClientID=@Model.TrackDealMasterView.ClientID, @area = "Client" })">View Client Side</a></span>
+    </h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default">
+                <div class="box-body">
+                    @Html.Partial("pvClientStatusList", Model)
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<a id="leadform" href="#leadModal" style="display:none"></a>
+
+<div class="modal-container">
+    <a class="btn btn-lg btn-modal" id="clickModal" href="#">
+        <i class="ti-layout-menu-v"></i>
+    </a>
+    <div class="foundry_modal text-center">
+        <i class="ti-close close-modal fa-close">X</i>
+
+    </div>
+</div>
+<div class="modal-screen"></div>
+<div modal-link="0" class="foundry_modal openmodal text-center">
+    <i class="ti-close close-modal" style="margin-top:0px">X</i>
+    <div class="leadContent11"></div>
+</div>
+
+@section Scripts {
+    @*<script src="https://justbere-d4d9.kxcdn.com/Scripts/moment.min.js"></script>
+        <script src="https://justbere-d4d9.kxcdn.com/Scripts/bootstrap-datetimepicker.min.js"></script>*@
+
+    <script>
+        function OkMyModal() {
+            $("#myErroMsgModal").hide();
+            $('#ErrMsgHiddenField').val("");
+            // Retrieve the sender infromation from hidden field and pass it to the function
+            CustomAjaxFormSubmitt($("#eventSender").val().split('|')[1], $("#eventSender").val().split('|')[0]);
+        }
+
+    </script>
+    <script>
+        function CustomAjaxFormSubmitt(sender, url) {
+            if (url == "#")
+            { return false; }
+            var $form = $('a[href="' + decodeURI(url) + '"]').closest('form')
+            if ($form.attr("data-JB-ajax") == 'true') {
+                var options = {
+                    url: decodeURI(url)
+                    , type: $form.attr("method")
+                    , data: $form.serialize()
+                }
+                var target = $($form.attr("data-JB-target"));
+                $.ajax(options).done(function (data) {
+                    window.location.href = data.url;
+
+                    ShowMessageBox();
+                });
+                return false;
+            }
+            else {
+                return true;
+            }
+        };
+    </script>
+<script src="https://justbere-d4d9.kxcdn.com/Content/Plugins/Datedropper/datedropper.min.js"></script>
+
+    <script>
+
+        $(".check").on("click", function () {
+            var $input = $(this);
+            //$('input[name="[' + $input.attr("id") + '].StartDate"').toggle();
+            //$('input[name="[' + $input.attr("id") + '].NoOfDays"').toggle();
+            $('div[id="[' + $input.attr("id") + '].hidden"').toggle();
+            //$('input[name="[' + $input.attr("id") + '].StartDate"').dateDropper();
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#utblMstTrackDeal_UpdatedOn").dateDropper();
+
+            //$(".CheckBox").on("click",function()
+            //{
+
+            //    $("#RatifiedDate").css("display","block");
+
+               
+            //})
+
+           
+        })
+    </script>
+
+
+@*<script>
+
+        $(".CheckBox").on("click", function () {
+            var input = $(this).val();
+
+            var $form = $(this);
+            var options = {
+                url: '/Coordinator/Agent/Settlement'
+                , data: { ID: this.id }
+            }
+            var target = $('.leadContent11');
+            $.ajax(options).done(function (data) {
+                var linkedModal = jQuery('.openmodal');
+                jQuery('.modal-screen').toggleClass('reveal-modal');
+                linkedModal.toggleClass('reveal-modal');
+                $(target).replaceWith(data);
+                $("#SettlementDate_StartDate").dateDropper();
+            });
+            return false;
+        })
+</script>*@
+    <script>
+        $("#createdeal").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+    </script>
+
+    @*<script>
+            var elems = document.querySelectorAll('.Chk-box');
+            var btn = document.querySelector('.btn-block');
+            [].forEach.call(elems, function (el) {
+                el.addEventListener('change', function () {
+
+                    var checked = document.querySelectorAll('.Chk-box:checked');
+                    if (checked.length)
+                    {
+                        $(".btn-block").removeClass('btn-info');
+                        $(".btn-block").addClass('btn-primary');
+
+                    } else {
+                        $(".btn-block").removeClass('btn-primary');
+                        $(".btn-block").addClass('btn-info');
+                    }
+                });
+            });
+
+
+        </script>*@
+
+<script type="text/javascript">
+    $(function () {
+
+        //$.ajaxSetup({ cache: false });
+
+        $("a[data-modal]").on("click", function (e) {
+
+            
+            // hide dropdown if any (this is used wehen invoking modal from link in bootstrap dropdown )
+            //$(e.target).closest('.btn-group').children('.dropdown-toggle').dropdown('toggle');
+
+            $('#myModalContent').load(this.href, function () {
+                $('#myEnquiryModal').modal({
+                    /*backdrop: 'static',*/
+                    keyboard: true
+                }, 'show');
+                bindForm(this);
+            });
+            return false;
+        });
+    });
+
+    function bindForm(dialog) {
+        $('form', dialog).submit(function (e) {
+            e.preventDefault();
+            $('#myEnquiryModal').modal('hide');
+            //$('#ajaxLoading').css("display","none");
+            $("#waiting").css("display", "block");
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: $(this).serialize(),
+                success: function (result) {
+                    $("#waiting").css("display", "none");
+                    if (result.success) {
+                        //window.location.href = result.url;
+                        $('#myModalContent').modal('hide');
+                        $('#myEnquiryModal').modal('hide');
+                    } else {
+                        $('#myModalContent').html(result);
+                        $('#myEnquiryModal').modal('show');
+                        bindForm(dialog);
+                    }
+                }
+            });
+            return false;
+        });
+    }
+
+</script>
+}
+<style type="text/css">
+    .ui-datepicker {
+        font-size: 9pt !important;
+        position: relative;
+        z-index: 1000;
+    }
+</style>
+
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+

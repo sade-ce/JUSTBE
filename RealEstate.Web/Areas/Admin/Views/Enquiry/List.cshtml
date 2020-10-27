@@ -1,0 +1,17 @@
+﻿@model RealEstate.Entities.ViewModels.MstEnquireViewModel
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+       Home Enquiry 
+        <small>List </small>
+    </h1>
+</section>
+<div>
+    @Html.Partial("pvEnquiryList", Model);
+</div>
+
+

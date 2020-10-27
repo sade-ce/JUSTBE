@@ -1,0 +1,150 @@
+﻿@model RealEstate.Entities.ViewModels.MstClientDealCreateManageModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Edit Ratified Offer</h4>
+</div>
+@using (Html.BeginForm("EditClosingConfig", "Agent", FormMethod.Post,new { data_target="editDeal"}))
+{
+    <div class="modal-body">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.RatifiedOfferView.Email)
+        @Html.HiddenFor(model => model.RatifiedOfferView.ClientID)
+        @Html.HiddenFor(model => model.RatifiedOfferView.TransactionID)
+        @Html.HiddenFor(model => model.RatifiedOfferView.ClosingDateID)
+        @Html.HiddenFor(model => model.RatifiedOfferView.TrackingID)
+        <div class="row-no-margin">
+            
+            <div class="clearfix"></div>
+            <div class="form-group" style="margin-top: 10px">
+                @Html.LabelFor(model => model.RatifiedOfferView.ListingTypeID, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.DropDownListFor(model => model.RatifiedOfferView.ListingTypeID, new SelectList(Model.MstClosingConfig.ListingTypeDDL, "ListingTypeID", "ListingType"), "--- Select Listing Type --- ", new { @class = "form-control ddl-select2" })
+                    @Html.ValidationMessageFor(model => model.RatifiedOfferView.ListingTypeID)
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group" style="margin-top: 10px">
+                @Html.LabelFor(model => model.RatifiedOfferView.MLSID, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.RatifiedOfferView.MLSID, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.RatifiedOfferView.MLSID)
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group" style="margin-top: 10px">
+                @Html.LabelFor(model => model.RatifiedOfferView.Address, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.RatifiedOfferView.Address, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.RatifiedOfferView.Address)
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group" style="margin-top: 10px">
+                @Html.LabelFor(model => model.RatifiedOfferView.URL, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.RatifiedOfferView.URL, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.RatifiedOfferView.URL)
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group" style="margin-top: 10px">
+                @Html.LabelFor(model => model.RatifiedOfferView.SettlementDate, new { @class = "control-label col-md-3 pull-left" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.RatifiedOfferView.SettlementDate, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.RatifiedOfferView.SettlementDate)
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="CloseMyModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+}
+<script>
+    function CloseMyModal() {
+        $("#myModal").modal('hide');
+    }
+</script>
+<script src="https://justbere-d4d9.kxcdn.com/Scripts/moment.min.js"></script>
+<script src="https://justbere-d4d9.kxcdn.com/Scripts/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+    $("#RatifiedOfferView_SettlementDate").datetimepicker({
+            format: "MM-DD-YYYY",
+            sideBySide: true,
+            minDate: new Date()
+        });
+</script>
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#RatifiedOfferView_ListingTypeID').on('change', function () {
+                var ListingType = "MLS"
+                var DDLText = document.getElementById("RatifiedOfferView_ListingTypeID").options[document.getElementById('RatifiedOfferView_ListingTypeID').selectedIndex].text;
+                if (ListingType == DDLText) {
+                    $("#RatifiedOfferView_Address").attr('disabled', 'disabled');
+                    $("#RatifiedOfferView_Address").val("");
+                    $("#RatifiedOfferView_URL").attr('disabled', 'disabled');
+                    $("#RatifiedOfferView_URL").val("");
+
+                    $("#RatifiedOfferView_MLSID").removeAttr('disabled');
+
+                }
+                else if ("Private" == DDLText) {
+
+                    $("#RatifiedOfferView_MLSID").attr('disabled', 'disabled');
+                    $("#RatifiedOfferView_MLSID").val("");
+
+                    $("#RatifiedOfferView_Address").removeAttr('disabled');
+                    $("#RatifiedOfferView_URL").removeAttr('disabled');
+
+                }
+                else {
+                    $("#RatifiedOfferView_MLSID").removeAttr('disabled');
+                    $("#RatifiedOfferView_Address").removeAttr('disabled');
+                    $("#RatifiedOfferView_URL").removeAttr('disabled');
+                }
+
+            });
+        });
+
+</script>
+
+<script>
+        $(document).ready(function () {
+                var ListingType = "MLS"
+                var DDLText = document.getElementById("RatifiedOfferView_ListingTypeID").options[document.getElementById('RatifiedOfferView_ListingTypeID').selectedIndex].text;
+                if (ListingType == DDLText) {
+                    $("#RatifiedOfferView_Address").attr('disabled', 'disabled');
+                    $("#RatifiedOfferView_Address").val("");
+                    $("#RatifiedOfferView_URL").attr('disabled', 'disabled');
+                    $("#RatifiedOfferView_URL").val("");
+
+                    $("#RatifiedOfferView_MLSID").removeAttr('disabled');
+
+                }
+                else if ("Private" == DDLText) {
+
+                    $("#RatifiedOfferView_MLSID").attr('disabled', 'disabled');
+                    $("#RatifiedOfferView_MLSID").val("");
+
+                    $("#RatifiedOfferView_Address").removeAttr('disabled');
+                    $("#RatifiedOfferView_URL").removeAttr('disabled');
+
+                }
+                else {
+                    $("#RatifiedOfferView_MLSID").removeAttr('disabled');
+                    $("#RatifiedOfferView_Address").removeAttr('disabled');
+                    $("#RatifiedOfferView_URL").removeAttr('disabled');
+                }
+
+
+        });
+
+</script>
+

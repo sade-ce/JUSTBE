@@ -1,0 +1,93 @@
+﻿@model RealEstate.Entities.ViewModels.BuildingAttachmentsViewModel
+@{
+    ViewBag.Title = "Edit Building Attachments";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+    if (User.IsInRole("Agent"))
+    {
+        Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+    }
+}
+<section class="content-header">
+    <h1>
+        Building Attachment
+        <small>Edit</small>
+    </h1>
+</section>
+<div class="col-md-12">
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Edit Building Attachments</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Ajax.BeginForm("Edit", "BuildingAttachments", null, new AjaxOptions() { HttpMethod = "POST" }, new { @class = "form-horizontal", enctype = "multipart/form-data", id = "myform" }))
+            { @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(m => m.BuildingAttachmentsModel.BuildingAttachmentId)
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+
+                                @Html.LabelFor(model => model.BuildingAttachmentsModel.Name, new { @class = "col-md-4 control-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.BuildingAttachmentsModel.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.BuildingAttachments.Name, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                          
+
+                      
+
+                        </div>
+                     
+                    </div>
+                </div>
+                <div class="box-footer">
+                    @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                    <input type="submit" value="Save Changes" class="btn btn-primary pull-right" />
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"></h4>
+                            </div>
+                            <div class="modal-body" id="message">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </section>
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+@section Scripts
+{
+    <script>
+    //$(function () { setTimeout('location.reload(true)', 1000); });
+
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+    </script>
+}

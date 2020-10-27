@@ -1,0 +1,1239 @@
+﻿
+@model RealEstate.Entities.ViewModels.BuildingViewModel
+@{
+    ViewBag.Title = "Edit Building";
+    Layout = "~/Areas/Admin/Views/Shared/_RealEstate.cshtml";
+    if (User.IsInRole("Agent"))
+    {
+        Layout = "~/Areas/Coordinator/Views/Shared/_AgentLayout.cshtml";
+
+    }
+}
+<script src="~/Content/SlimImageCropper/slim.kickstart.js"></script>
+<link href="~/Content/SlimImageCropper/slim.css" rel="stylesheet" />
+<style>
+    .td-text-center {
+        text-align: center;
+    }
+    .btnOuter {
+    width: auto;
+    float: left;
+}
+    .btnOuter a {
+    float: left;
+    width: 64px;
+    display: inline-block;
+}
+
+    .magn-tp{
+        margin-top:3px;
+    }
+
+           .slim{
+          border: 3px solid #fff;
+      }
+</style>
+<section class="content-header">
+    <h1>
+        Building
+        <small>Edit</small>
+    </h1>
+</section>
+<div class="col-md-12">
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Edit Building </h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Ajax.BeginForm("Edit", "Building", null, new AjaxOptions() { HttpMethod = "POST" }, new { @class = "form-horizontal", id = "myform" }))
+            { @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(m => m.Building.BuildingId, new { id = "hdnBuildingId" })
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Building.Name, new { @class = "col-md-4 control-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Building.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Building.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Neighborhood</label>
+                                <div class="col-md-8">
+                                    
+                                        @Html.DropDownListFor(model => model.Building.Neighborhood_Id, new SelectList(Model.NeighborhoodDDL, "Neighborhood_Id", "Name"), "--- Select Neighborhood --- ", new { @class = "form-control ddl-select2" })
+                                    
+                                      @Html.ValidationMessageFor(model => model.Building.Neighborhood_Id, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Address</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Building.Address, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Number Of Units</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Building.NumberOfUnits, new { @class = "form-control numeric" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Front Desk Phone</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.Building.FrontDeskPhone, new { @id = "Building_Phone", @class = "form-control", @placeholder = "###.###.####", @maxlength = "12" })
+                                    @Html.ValidationMessageFor(model => model.Building.FrontDeskPhone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Features</label>
+                                <div class="col-md-8">
+                                    <table class="table table-striped table-condensed table-bordered table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center" style="vertical-align: middle;">
+
+                                                </th>
+
+                                                <th class="text-center" style="vertical-align: middle;">
+                                                    Yes
+                                                </th>
+                                                <th class="text-center" style="vertical-align: middle;">
+                                                    No
+                                                </th>
+                                                @*<th class="text-center" style="vertical-align: middle;">
+
+                                                    </th>*@
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model.RulesDropDown != null)
+                                            {
+                                                for (int i = 0; i < Model.RulesDropDown.Count(); i++)
+                                                {
+                                                    <tr>
+                                                        <td>@Html.DisplayFor(m => m.RulesDropDown[i].Name)</td>
+                                                        <td class="td-text-center">
+                                                            @Html.CheckBoxFor(m => m.RulesDropDown[i].IsChecked, new { @class = "radio-check-prev" })
+                                                            @Html.HiddenFor(m => m.RulesDropDown[i].Rule_Id)
+                                                        </td>
+                                                        <td class="td-text-center">
+                                                            @if (Model.RulesDropDown[i].IsChecked == true)
+                                                            {  <input class="radio-check-next" type="checkbox" /> }
+                                                            else
+                                                            {  <input class="radio-check-next" type="checkbox" checked /> }
+
+                                                        </td>
+                                                        @*<td class="td-text-center"><i class="fa fa-minus-circle clearSelection" aria-hidden="true" style="cursor:pointer"></i></td>*@
+                                                    </tr>
+                                                }
+                                            }
+                                    </table>
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                @*@Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })*@
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <input type="submit" value="Save Changes" class="btn btn-primary pull-right" />
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="box-footer">
+                    @*@Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                        <input type="submit" value="Save Changes" class="btn btn-primary pull-right" />*@
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal fade" id="myHelpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"></h4>
+                            </div>
+                            <div class="modal-body" id="message">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Building Attachments</h3>
+            </div>
+
+            <!-- /.box-header -->
+            <!-- form start -->
+
+            <form id="FormUpload" enctype="multipart/form-data" method="post" class="form-horizontal">
+                <input type="hidden" id="hdnBuilding_Id" name="Building_Id" />
+                <input type="hidden" id="hdnBuildingAttachment_Id" name="BuildingAttachment_Id" />
+                <div class="box-body">
+                    <div class="row">
+
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <label class="text-danger" id="lblError" style="display:none"></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Documents</label>
+                                <div class="col-md-8">
+                                    <input type="text" id="txtDocumentType" name="DocumentName" class="form-control" placeholder="Select or Add new document" />
+                                    <label class="text-danger" id="lblDocument" style="display:none">Document is required</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">File</label>
+                                <div class="col-md-8">
+                                    <input type="file" name="DocFile" id="flDocFile" />
+                                    <label class="text-danger" id="lblDocFile" style="display:none">File is required</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <input type="button" value="Save Changes" onclick="return AddDocument();" class="btn btn-primary pull-right" />
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <div class="tDocumentbody">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+            <div class="box-footer">
+                <div class="clearfix"></div>
+            </div>
+
+
+
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Building Vendors</h3>
+            </div>
+
+            <!-- /.box-header -->
+            <!-- form start -->
+
+            <form id="FormUploadVendor" enctype="multipart/form-data" method="post" class="form-horizontal">
+                <input type="hidden" id="hdnVBuilding_Id" name="Building_Id" />
+                <input type="hidden" id="txtVenId" name="Id" />
+                <input type="hidden" id="txtVenImage" name="txtVenImage" />
+                <input type="hidden" id="txtBuildingVendorId" name="BuildingVendorId" />
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-9">
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <label class="text-danger" id="lblErrorVendor" style="display:none"></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Vendor Type</label>
+                                <div class="col-md-8">
+                                    <input type="text" id="VendorType" class="form-control" name="VendorType" placeholder="Select or Add new vendor type" />
+                                    <label class="text-danger" id="lblVendorType" style="display:none">Type is required</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Name</label>
+                                <div class="col-md-8">
+
+                                    <input type="text" id="txtTitleV" class="form-control" name="txtTitleV" placeholder="Select or Add new vendor" />
+                                    <label class="text-danger" id="lblTitleV" style="display:none">Name is required</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Email</label>
+                                <div class="col-md-8">
+                                    <input type="text" id="txtEmail" class="form-control" name="Email" />
+                                    <label class="text-danger" id="lblEmailV" style="display:none">Invalid  email address</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Phone</label>
+                                <div class="col-md-8">
+
+                                    <input type="text" id="txtPhone" class="form-control" name="Phone" placeholder="###.###.####" maxlength="12" />
+                                    <label class="text-danger" id="lblPhoneV" style="display:none">Not a valid Phone number</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+
+                                    <input type="button" class="btn btn-primary pull-right " id="btnAddVendor" onclick="return AddVendor();" value="Save changes" />
+                                    <input type="button" class="btn btn-primary pull-right " style="display:none;" id="btnUpdateVendor" value="Save changes" />
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <div class="vendorlist">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+            <div class="box-footer">
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="box-header with-border">
+                <h3 class="box-title text-center">Gallery</h3>
+            </div>
+
+            <!-- /.box-header -->
+            <!-- form start -->
+
+            <form id="FormGalleryUpload" enctype="multipart/form-data" method="post" class="form-horizontal">
+                <input type="hidden" id="hdnGBuilding_Id" name="Building_Id" />
+                
+                <div class="box-body">
+                    <div class="row">
+
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <label class="text-danger" id="lblGalleryError" style="display:none"></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Upload Image</label>
+                                <div class="col-md-8">
+                                    <label class="text-danger" id="lblGalleryDocFile" style="display:none">Image is required</label>
+                                    <div id="slim-cropper" class="slim img-rounded"  data-size="425,252" style="max-width:260px;max-height:252px" data-label="Click and drag your image here">
+                                        <input type="file" name="upGalleryfiles" id="flGallery" />
+                                        
+                                    </div>
+                                    <div id="building-gal"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+
+                                    <input type="button" class="btn btn-primary pull-right " id="btnAddGallery" onclick="return AddGallery();" value="Save changes" />
+                               
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <div class="tGallerybody">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+            <div class="box-footer">
+                @Html.ActionLink("Back to List", "list", null, new { @class = "btn btn-default pull-left" })
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+@*error message*@
+<div id="ErrMsg" style="display:none;">
+    <input type="hidden" id="ErrMsgHiddenField" name="ErrMsg" value="@TempData["ErrMsg"]" />
+</div>
+@section Scripts
+{
+    <script>
+    
+        //$(function () { setTimeout('location.reload(true)', 1000); });
+        $(document).on("input", ".numeric", function () {
+            this.value = this.value.replace(/\D/g, '');
+        });
+        $(document).ready(function () {
+            // var cropper = new Slim(document.getElementById('building-gal'), {
+            //    label: 'Click or Drop your image here',
+            //    forceSize: {
+            //        width: 425,
+            //        height: 252,
+            //    }
+
+            //});
+            // $("#building-gal").find("input[type=hidden]").attr('name', 'upGalleryfiles')
+
+
+            $('.radio-check-prev').change(function () {
+
+                if ($(this).is(':checked')) {
+                    $(this).parent('td').next('td').find('input').prop('checked', false);
+                }
+            })
+            $('.radio-check-next').change(function () {
+
+                if ($(this).is(':checked')) {
+                    $(this).parent('td').prev('td').find('input').prop('checked', false);
+
+                }
+            })
+
+            $('.clearSelection').click(function () {
+                $(this).parent('td').parent('tr:has(td)').find('input[type="checkbox"]').prop('checked', false);
+            })
+        });
+        $("#myform").submit(function (e) {
+            $("#ajaxLoading").css("display", "block");
+            $("#ajaxLoading").css("top", $(window).height() / 1.8);
+            $("#ajaxLoading").css("left", $(window).width() / 2);
+            $("#ajaxLoading").css("position", "fixed");
+            $("#ajax-backdrop").css("display", "block");
+        });
+    </script>
+    <script>
+        $('#Building_Phone').keydown(function (e) {
+            var key = e.which || e.charCode || e.keyCode || 0;
+            $phone = $(this);
+
+            // Don't let them remove the starting '('
+
+
+            // Auto-format- do not expose the mask as the user begins to type
+            if (key !== 8 && key !== 9) {
+                if ($phone.val().length === 3) {
+                    $phone.val($phone.val() + '.');
+                }
+                if ($phone.val().length === 7) {
+                    $phone.val($phone.val() + '.');
+                }
+
+            }
+
+            // Allow numeric (and tab, backspace, delete) keys only
+            return (key == 8 ||
+                    key == 9 ||
+                    key == 46 ||
+                    (key >= 48 && key <= 57) ||
+                    (key >= 96 && key <= 105));
+        })
+
+          .bind('focus click', function () {
+              $phone = $(this);
+
+
+          })
+
+          .blur(function () {
+              $phone = $(this);
+
+
+          });
+    </script>
+    @*----------------------------------- Add Document Script---------------------------------*@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    .ui-front {
+        z-index: 9999;
+        width: 200px;
+    }
+</style>
+
+
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+
+        var BuildingID = $('#hdnBuildingId').val();
+        $(document).ready(function () {
+
+            $('#txtDocumentType').autocomplete({
+
+                source: function (request, response) {
+                    var itemnamecodes = new Array();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("Autocomplete", "BuildingAttachments", new { area = "Admin"    })',
+                        dataType: 'json',
+                        data: { term: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.Key, Id: item.Value };
+                            }))
+                        }
+                    })
+                },
+                minLength: 0,
+
+                select: function (e, i) {
+                    $("#hdnBuildingAttachment_Id").val(i.item.Id);
+                    //$('#txtTitleV').val("");
+
+                }
+            }).focus(function () {
+                $(this).autocomplete("search", "");
+                $('#txtDocumentType').autocomplete({
+                    autoFocus: true
+                })
+            });
+
+
+
+
+            $('#hdnBuilding_Id').val(BuildingID);
+            $('#hdnVBuilding_Id').val(BuildingID);
+            $('#hdnGBuilding_Id').val(BuildingID);
+            loadData();
+            loadDataV();
+            loadGalleryData();
+        });
+
+        //Load Data function
+        function loadData() {
+
+            clearTextBox();
+            $.ajax({
+                url: '@Url.Action("GetBuildingDocuments", "Building", new { area = "Admin"    })',
+                type: "GET",
+                data: {
+                    BuildingId: BuildingID
+                },
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = '';
+                    if (result != '') {
+
+                        html += '<table class="table table-striped table-condensed table-bordered table-responsive">';
+                        html += '<thead>';
+                        html += '<tr>';
+                        html += '<th class="text-center" style="vertical-align: middle;">Attachments</th>';
+                        html += ' <th class="text-center" style="vertical-align: middle;"> Action</th>';
+                        html += '</tr>';
+                        html += '</thead>';
+                        html += '<tbody>';
+                        $.each(result, function (key, item) {
+
+                            html += '<tr>';
+                            html += '<td class="td-text-center"><a href="/UploadedFiles/BuildingDocuments/' + item.AttachmentFile + '" target="_blank">' + item.DocumentName + '</a></td>';
+                            html += '<td class="td-text-center"><a href="#!"  onclick="DeleleDocument(' + item.BuildingAttachmentId + ')" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">Remove</a></td>';
+                            html += '</tr>';
+
+                        });
+                        html += ' </table>';
+                    }
+                    $('.tDocumentbody').html(html);
+
+                },
+                error: function (errormessage) {
+                    alert('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+
+        //Add Data Function
+        function AddDocument() {
+            var res = validate();
+            if (res == false) {
+                return false;
+            }
+            var form = $('#FormUpload')[0];
+            var dataString = new FormData(form);
+            $.ajax({
+                url: '@Url.Action("AddBuildingDocument", "Building", new { area = "Admin"    })',
+                data: dataString,
+                type: "POST",
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: "json",
+                success: function (result) {
+                    //    alert(result) remove alert
+                    if (result == "0") {
+                        loadData();
+                        $('#lblError').css('display', 'none')
+                    }
+                    else {
+
+                        $('#lblError').css('display', 'block')
+                        $('#lblError').text(result)
+                    }
+
+
+                },
+                error: function (errormessage) {
+                    $('#lblError').css('display', 'block');
+                    $('#lblError').text('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+
+        //function for deleting documents
+        function DeleleDocument(ID) {
+            var ans = confirm("Are you sure you want to delete this Record?");
+            if (ans) {
+                //var ID = $("#aDeleteDoc").attr("data-clientdocid")
+                $.ajax({
+                    url: "/Building/DeleteBuildingDocument/" + ID,
+                    type: "POST",
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: "json",
+                    success: function (result) {
+
+                        loadData();
+                    },
+                    error: function (errormessage) {
+                        alert('Sorry, Something went wrong. Please try again.');
+                    }
+                });
+            }
+        }
+
+        //Valdidation using jquery
+        function validate() {
+            var isValid = true;
+            if ($('#txtDocumentType').val().trim() == "") {
+                $('#lblDocument').css('display', 'block');
+                isValid = false;
+            }
+            else {
+                $('#lblDocument').css('display', 'none');
+            }
+
+            if ($('#flDocFile').val() == "") {
+                $('#lblDocFile').css('display', 'block');
+                isValid = false;
+            }
+            else {
+                $('#lblDocFile').css('display', 'none');
+            }
+
+            return isValid;
+        }
+
+        //Function for clearing the textboxes
+        function clearTextBox() {
+            $('#txtDocumentType').val("");
+            $('#flDocFile').val("");
+
+            $('#lblDocument').css('display', 'none');
+            $('#lblDocFile').css('display', 'none');
+            $('#lblError').css('display', 'none')
+        }
+
+    </script>
+    @*----------------------------------- Add Document Script---------------------------------*@
+
+
+
+    @*----------------------------------- Vendor Script---------------------------------*@
+    <script>
+
+        $(document).ready(function () {
+            $('#VendorType').autocomplete({
+                source: function (request, response) {
+                    var itemnamecodes = new Array();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("Autocomplete", "MyDeal",new {area="Client" })',
+                        dataType: 'json',
+                        data: { term: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.Key, Id: item.Value };
+                            }))
+                        }
+                    })
+                },
+                minLength: 0,
+
+                select: function (e, i) {
+                    $('#txtTitleV').val("");
+
+                }
+            }).focus(function () {
+                $(this).autocomplete("search", "");
+                $('#VendorType').autocomplete({
+                    autoFocus: true
+                })
+            });
+
+            $('#txtTitleV').autocomplete({
+                source: function (request, response) {
+                    var itemnamecodes = new Array();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ClientVendorautocomplete", "MyDeal",new { area = "Client" })',
+                        dataType: 'json',
+                        data: { term: request.term, ClientId: "0", VendorType: $('#VendorType').val() },
+                        success: function (data) {
+                            console.log(data)
+                            response($.map(data, function (item) {
+                                return { label: item.Key, Id: item.Value };
+                            }))
+                        }
+                    })
+                },
+                minLength: 0,
+
+                select: function (e, i) {
+                    var mystring = i.item.Id;
+                    var res = mystring.split("}");
+                    $("#txtPhone").val(res[0]);
+                    $("#txtEmail").val(res[1]);
+                    $("#VendorType").val(res[2]);
+
+                }
+            }).focus(function () {
+                $(this).autocomplete("search", "");
+                $('#txtTitleV').autocomplete({
+                    autoFocus: true
+                })
+            });
+
+        })
+
+
+
+        //Load Data function
+        function loadDataV() {
+            clearTextBoxVendor();
+            $.ajax({
+                url: "/Building/ClientVendorList",
+                type: "GET",
+                data: {
+                    BuildingId: BuildingID
+                },
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = '';
+                    if (result != '') {
+                        html += '  <div class="table-responsive">'
+                        html += '  <table class="table table-striped table-condensed table-bordered">'
+                        html += '  <thead> <tr><th class="text-center" style="vertical-align: middle;">   Vendor Type</th>'
+                        html += '                              <th class="text-center" style="vertical-align: middle;"> Vendor </th>'
+                        html += '                           <th class="text-center" style="vertical-align: middle;"> Email </th>'
+                        html += '                            <th class="text-center" style="vertical-align: middle;"> Phone</th>'
+                        html += '                          <th class="text-center" style="vertical-align: middle;">  Action</th> </tr></thead>  <tbody>'
+
+                        $.each(result, function (key, item) {
+
+
+
+                            html += '                             <tr>'
+                            html += '                                   <td class="text-center"> ' + item.VendorType + ' </td>'
+                            html += '                                         <td class="text-center">' + item.Vendor + '   </td>'
+                            html += '                                   <td class="text-center">' + item.VendorEmail + ' </td>'
+                            html += '                                   <td class="text-center">' + item.VendorPhone + ' </td>'
+                            html += '                                <td class="text-center" style="width: 70px;"><div class="btnOuter"><a href="#!" data-Vendor_Id="' + item.BuildingVendorId + '" id="deletev" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">  Remove </a><a href="#!" data-Vendor_Id="' + item.Vendor_Id + '"  data-BuildingVendor_Id="' + item.BuildingVendorId + '"  id="editv" class="btn-xs btn-success btn check-edit-status magn-tp" data-placement="bottom" title="Edit">  Edit </a></div></td>'
+                            html += '                             </tr>'
+
+
+                        });
+                        html += '                    </tbody> </table></div>'
+                    }
+                    $('.vendorlist').html("");
+                    $('.vendorlist').html(html);
+                    $("#ajaxLoading").css("display", "none");
+                    $("#ajax-backdrop").css("display", "none");
+                },
+                error: function (errormessage) {
+                    $('#lblErrorVendor').text('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+        //Add Data Function
+        function AddVendor() {
+          //  $(".additionalfield").css("display", "none");
+
+            var res = validateVendor();
+            if (res == false) {
+                return false;
+            }
+            var form = $('#FormUploadVendor')[0];
+            var dataString = new FormData(form);
+            $.ajax({
+                url: "/Building/AddBuildingVendor",
+                data: dataString,
+                type: "POST",
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: "json",
+                success: function (result) {
+                    if (result == "0") {
+                        loadDataV();
+                        $('#lblErrorVendor').css('display', 'none')
+                    }
+                    else {
+
+                        $('#lblErrorVendor').css('display', 'block')
+                        $('#lblErrorVendor').text(result)
+                    }
+
+
+                },
+                error: function (errormessage) {
+                    $('#lblErrorVendor').css('display', 'block');
+                    $('#lblErrorVendor').text('Sorry, Something went wrong. Please try again.');
+                    //alert(errormessage.responseText);
+                }
+            });
+        }
+
+
+        //Function for getting the Data Based upon Document ID
+        function getBuildingVendorByID(Id) {
+
+          //  $(".additionalfield").css("display", "block");
+
+            $('#VendorType').val("");
+            $('#txtTitleV').val("");
+            $('#txtEmail').val("");
+            $('#txtPhone').val("");
+            $('#txtVenId').val("");
+            $('#lblErrorVendor').css('display', 'none')
+            $.ajax({
+                url: "/Building/GetBuiildingVendorById",
+                type: "GET",
+                data: {
+                    ID: Id
+                },
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    $('#VendorType').val(result.Category_Name);
+                    $('#txtTitleV').val(result.Title);
+                    $('#txtEmail').val(result.Email);
+                    $('#txtPhone').val(result.Phone);
+                    $('#txtVenId').val(result.VendorId);
+
+                    $('#lblTitleV').css('display', 'none');
+                    $('#lblVendorType').css('display', 'none');
+                    $('#lblEmailV').css('display', 'none');
+                    $('#lblPhoneV').css('display', 'none');
+
+
+                    $('#btnUpdateVendor').show();
+                    $('#btnAddVendor').hide();
+                },
+                error: function (errormessage) {
+                    $('#lblErrorVendor').css('display', 'block');
+                    $('#lblErrorVendor').text('Sorry, Something went wrong. Please try again.');
+                }
+            });
+            return false;
+        }
+
+        //function for updating document
+        function UpdateVendor() {
+            var res = validateVendor();
+            if (res == false) {
+                return false;
+            }
+            var form = $('#FormUploadVendor')[0];
+            var dataString = new FormData(form);
+            $.ajax({
+                url: "/Building/UpdateBuildingVendor",
+                data: dataString,
+                type: "POST",
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: "json",
+                success: function (result) {
+
+                    if (result == "0") {
+                        loadDataV();
+                        $('#VendorType').val("");
+                        $('#txtTitleV').val("");
+                        $('#txtEmail').val("");
+                        $('#txtPhone').val("");
+                        $('#txtVenId').val("");
+                        $('#lblErrorVendor').css('display', 'none')
+                    }
+                    else {
+                        $('#lblErrorVendor').css('display', 'block')
+                        $('#lblErrorVendor').text(result)
+                    }
+
+
+                },
+                error: function (errormessage) {
+                    $('#lblErrorVendor').css('display', 'block');
+                    $('#lblErrorVendor').text('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+        $(function () {
+            $(document).off('click', '#deletev').on('click', '#deletev', function () {
+
+                var id = $(this).attr("data-Vendor_Id");
+                DeleleBuildingVendor(id);
+            })
+            $(document).off('click', '#editv').on('click', '#editv', function () {
+
+                $('#txtBuildingVendorId').val('');
+              //  $(".additionalfield").css("display", "block");
+
+                var id = $(this).attr("data-Vendor_Id");
+                $('#txtBuildingVendorId').val($(this).attr("data-BuildingVendor_Id"))
+                getBuildingVendorByID(id);
+            })
+            $(document).off('click', '#btnUpdateVendor').on('click', '#btnUpdateVendor', function () {
+
+                UpdateVendor();
+            })
+            //editv
+        })
+
+
+        //function for deleting employee's record
+        function DeleleBuildingVendor(ID) {
+            var ans = confirm("Are you sure you want to delete this Record?");
+            if (ans) {
+                $.ajax({
+                    url: "/Building/DeleteBuildingVendor/" + ID,
+                    type: "POST",
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: "json",
+                    success: function (result) {
+
+                        loadDataV();
+                    },
+                    error: function (errormessage) {
+
+                        alert('Sorry, Something went wrong. Please try again.');
+                    }
+                });
+            }
+        }
+
+        //Function for clearing the textboxes
+        function clearTextBoxVendor() {
+
+            $('#VendorType').val("");
+            $('#txtTitleV').val("");
+            $('#txtEmail').val("");
+            $('#txtPhone').val("");
+            $('#txtVenId').val("");
+            $('#btnUpdateVendor').hide();
+            $('#btnAddVendor').show();
+            $('#lblTitleV').css('display', 'none');
+            $('#lblVendorType').css('display', 'none');
+            $('#lblEmailV').css('display', 'none');
+            $('#lblPhoneV').css('display', 'none');
+            $('#lblErrorVendor').css('display', 'none')
+        }
+        //Valdidation using jquery
+        function validateVendor() {
+            var isValid = true;
+            if ($('#VendorType').val().trim() == "") {
+                $('#lblVendorType').css('display', 'block');
+                isValid = false;
+            }
+            else {
+                $('#lblVendorType').css('display', 'none');
+            }
+
+            if ($('#txtTitleV').val().trim() == "") {
+                $('#lblTitleV').css('display', 'block');
+                isValid = false;
+            }
+            else {
+                $('#lblTitleV').css('display', 'none');
+            }
+
+
+            if ($('#txtEmail').val() != "") {
+
+                if (!ValidateEmail($("#txtEmail").val())) {
+                    $('#lblEmailV').css('display', 'block');
+                    isValid = false;
+                }
+                else {
+                    $('#lblEmailV').css('display', 'none');
+                }
+
+
+            }
+            else {
+                $('#lblEmailV').css('display', 'none');
+            }
+
+
+
+
+            if ($('#txtPhone').val() != "") {
+                console.log($('#txtPhone').val());
+                console.log($('#txtPhone').val().length);
+                if ($('#txtPhone').val().length < 12) {
+                    $('#lblPhoneV').css('display', 'block');
+                    isValid = false;
+                }
+                else {
+                    $('#lblPhoneV').css('display', 'none');
+                }
+
+
+            }
+            else {
+                $('#lblPhoneV').css('display', 'none');
+            }
+
+
+
+
+            return isValid;
+        }
+
+        function ValidateEmail(email) {
+            var expr = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,6})?$/
+            return expr.test(email);
+        };
+
+
+
+
+
+        $('#txtPhone').keydown(function (e) {
+            var key = e.which || e.charCode || e.keyCode || 0;
+            $phone = $(this);
+
+            // Don't let them remove the starting '('
+
+
+            // Auto-format- do not expose the mask as the user begins to type
+            if (key !== 8 && key !== 9) {
+                if ($phone.val().length === 3) {
+                    $phone.val($phone.val() + '.');
+                }
+                if ($phone.val().length === 7) {
+                    $phone.val($phone.val() + '.');
+                }
+
+            }
+
+            // Allow numeric (and tab, backspace, delete) keys only
+            return (key == 8 ||
+                    key == 9 ||
+                    key == 46 ||
+                    (key >= 48 && key <= 57) ||
+                    (key >= 96 && key <= 105));
+        })
+
+             .bind('focus click', function () {
+                 $phone = $(this);
+
+
+             })
+
+             .blur(function () {
+                 $phone = $(this);
+
+
+             });
+
+
+  @*----------------------------------- Vendor Script---------------------------------*@
+
+
+  @*----------------------------------- Gallery Script---------------------------------*@
+
+
+        //Load Data function
+        function loadGalleryData() {
+
+            clearGalleryTextBox();
+            $.ajax({
+                url: '@Url.Action("GalleryList", "Building", new { area = "Admin"    })',
+                type: "GET",
+                data: {
+                    BuildingId: BuildingID
+                },
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = '';
+                    if (result != '') {
+
+                        html += '<table class="table table-striped table-condensed table-bordered table-responsive">';
+                        html += '<thead>';
+                        html += '<tr>';
+                        html += '<th class="text-center" style="vertical-align: middle;">Thumbnail</th>';
+                        html += ' <th class="text-center" style="vertical-align: middle;"> Preview Photo</th>';
+                        html += ' <th class="text-center" style="vertical-align: middle;"> Action</th>';
+                        html += '</tr>';
+                        html += '</thead>';
+                        html += '<tbody>';
+                        $.each(result, function (key, item) {
+
+                            html += '<tr>';
+                            html += '<td class="td-text-center">  <img src="/UploadedFiles/BuildingImages/' + item.Image + '" class="img-rounded" style="width: 120px; height: 120px;" /></td>';
+
+                            html += '<td class="td-text-center">  <a href="/UploadedFiles/BuildingImages/' + item.Image + '" target="_blank">View/Download</a></td>';
+                            html += '<td class="td-text-center"><a href="#!"  onclick="DeleteGallery(' + item.BuildingGalleryId + ')" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Delete">Remove</a></td>';
+                            html += '</tr>';
+
+                        });
+                        html += ' </table>';
+                    }
+                    $('.tGallerybody').html(html);
+
+                },
+                error: function (errormessage) {
+                    alert('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+        //Add Data Function
+        function AddGallery() {
+            var res = validateGallery();
+            if (res == false) {
+                return false;
+            }
+            var form = $('#FormGalleryUpload')[0];
+            var dataString = new FormData(form);
+            $.ajax({
+                url: '@Url.Action("AddGallery", "Building", new { area = "Admin"    })',
+                data: dataString,
+                type: "POST",
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: "json",
+                success: function (result) {
+                    if (result == "0") {
+                        loadGalleryData();
+                        $('#lblGalleryError').css('display', 'none')
+                    }
+                    else {
+
+                        $('#lblGalleryError').css('display', 'block')
+                        $('#lblGalleryError').text(result)
+                    }
+
+
+                },
+                error: function (errormessage) {
+                    $('#lblGalleryError').css('display', 'block');
+                    $('#lblGalleryError').text('Sorry, Something went wrong. Please try again.');
+                }
+            });
+        }
+
+
+        function DeleteGallery(ID) {
+            var ans = confirm("Are you sure you want to delete this Record?");
+            if (ans) {
+                $.ajax({
+                    url: "/Building/DeleteBuildingGallery/" + ID,
+                    type: "POST",
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: "json",
+                    success: function (result) {
+                        Slim.destroy(document.getElementById('building-gal'))
+                        loadGalleryData();
+                    },
+                    error: function (errormessage) {
+                        alert('Sorry, Something went wrong. Please try again.');
+                    }
+                });
+            }
+        }
+
+
+        //Valdidation using jquery
+        function validateGallery() {
+            var isValid = true;
+
+            if ($('#flGallery').val() == "") {
+                $('#lblGalleryDocFile').css('display', 'block');
+                isValid = false;
+            }
+            else {
+                $('#lblGalleryDocFile').css('display', 'none');
+            }
+
+            return isValid;
+        }
+
+        //Function for clearing the textboxes
+        function clearGalleryTextBox() {
+
+          
+         
+            //var cropper = new Slim(document.getElementById('building-gal'), {
+            //    label: 'Click or Drop your image here',
+            //    forceSize: {
+            //        width: 425,
+            //        height: 252,
+            //    }
+
+            //});
+            //$("#building-gal").find("input[type=hidden]").attr('name', 'upGalleryfiles')
+
+            $('#flGallery').val("");
+            $('[name="upGalleryfiles"]').val("");
+            $("#slim-cropper").find("input[type=hidden]").val("")
+            $('#lblGalleryDocFile').css('display', 'none');
+            $('#lblGalleryError').css('display', 'none')
+        }
+    </script>
+    @*----------------------------------- Gallery Script---------------------------------*@
+
+
+
+
+}
+<style>
+    .form-horizontal .control-label {
+        padding-top: 0px;
+        margin-bottom: 13px;
+        text-align: right;
+        margin-top: 12px;
+    }
+</style>
+
